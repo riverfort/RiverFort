@@ -4,9 +4,9 @@
 target 'RiverFort' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  pod 'EFCountingLabel'
+  pod 'EFCountingLabel', '~> 5.1.4'
   pod 'BulletinBoard'
-  pod 'CardParts'
+  pod 'CardParts', '~> 4.0.0'
   # Pods for RiverFort
 
 end

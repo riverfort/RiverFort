@@ -1,30 +1,30 @@
 PODS:
   - BulletinBoard (5.0.0)
-  - CardParts (3.5.1):
-    - RxCocoa (~> 5.0)
-    - RxDataSources (~> 4.0)
-    - RxGesture (~> 3.0)
-    - RxSwift (~> 5.0)
-  - Differentiator (4.0.1)
-  - EFCountingLabel (5.1.2)
-  - RxCocoa (5.1.1):
-    - RxRelay (~> 5)
-    - RxSwift (~> 5)
-  - RxDataSources (4.0.1):
-    - Differentiator (~> 4.0)
-    - RxCocoa (~> 5.0)
-    - RxSwift (~> 5.0)
-  - RxGesture (3.0.2):
-    - RxCocoa (~> 5.1)
-    - RxSwift (~> 5.1)
-  - RxRelay (5.1.1):
-    - RxSwift (~> 5)
-  - RxSwift (5.1.2)
+  - CardParts (4.0.0):
+    - RxCocoa (~> 6.2)
+    - RxDataSources (~> 5.0)
+    - RxGesture (~> 4.0)
+    - RxSwift (~> 6.2)
+  - Differentiator (5.0.0)
+  - EFCountingLabel (5.1.4)
+  - RxCocoa (6.2.0):
+    - RxRelay (= 6.2.0)
+    - RxSwift (= 6.2.0)
+  - RxDataSources (5.0.0):
+    - Differentiator (~> 5.0)
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxGesture (4.0.2):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxRelay (6.2.0):
+    - RxSwift (= 6.2.0)
+  - RxSwift (6.2.0)
 
 DEPENDENCIES:
   - BulletinBoard
-  - CardParts
-  - EFCountingLabel
+  - CardParts (~> 4.0.0)
+  - EFCountingLabel (~> 5.1.4)
 
 SPEC REPOS:
   trunk:
@@ -40,15 +40,15 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   BulletinBoard: dba77053c2a7b64953f63073f7534165af2edd21
-  CardParts: 60eb93aeeb38f519fbcfdc1bf5a47ee32964b4d5
-  Differentiator: 886080237d9f87f322641dedbc5be257061b0602
-  EFCountingLabel: fb9119eff4bb20bf42538665cab8e8419083e486
-  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
-  RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
-  RxGesture: d6bd7447ca3a596c7a9702a6a2b6a2bb5d8bae54
-  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
-  RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
+  CardParts: 7f5fc2a62820a81d5138b9175f365045238fd7b8
+  Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
+  EFCountingLabel: 210620994a2d54759f53034b5bda4642255969c7
+  RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
+  RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
+  RxGesture: f059f2aeef966fb17dad56ee440e76410f10e55f
+  RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
+  RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
 
-PODFILE CHECKSUM: ff13776d692b94e1640194c2da0b0dbd55084fb4
+PODFILE CHECKSUM: f6caa2b5c9972c664de77afe7da48604022656db
 
 COCOAPODS: 1.10.1
