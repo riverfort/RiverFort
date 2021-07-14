@@ -6,7 +6,7 @@ PODS:
     - RxGesture (~> 3.0)
     - RxSwift (~> 5.0)
   - Differentiator (4.0.1)
-  - EFCountingLabel (5.1.2)
+  - EFCountingLabel (5.1.4)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -24,7 +24,7 @@ PODS:
 DEPENDENCIES:
   - BulletinBoard
   - CardParts
-  - EFCountingLabel
+  - EFCountingLabel (~> 5.1.4)
 
 SPEC REPOS:
   trunk:
@@ -42,13 +42,13 @@ SPEC CHECKSUMS:
   BulletinBoard: dba77053c2a7b64953f63073f7534165af2edd21
   CardParts: 60eb93aeeb38f519fbcfdc1bf5a47ee32964b4d5
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
-  EFCountingLabel: fb9119eff4bb20bf42538665cab8e8419083e486
+  EFCountingLabel: 210620994a2d54759f53034b5bda4642255969c7
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
   RxGesture: d6bd7447ca3a596c7a9702a6a2b6a2bb5d8bae54
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
 
-PODFILE CHECKSUM: ff13776d692b94e1640194c2da0b0dbd55084fb4
+PODFILE CHECKSUM: 687cf86c5b34644cccc7a6b769d06de2b3a9e81e
 
 COCOAPODS: 1.10.1
