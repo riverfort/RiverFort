@@ -6,7 +6,7 @@ target 'RiverFort' do
   use_frameworks!
   pod 'EFCountingLabel', '~> 5.1.4'
   pod 'BulletinBoard'
-  pod 'CardParts'
+  pod 'CardParts', '~> 4.0.0'
   # Pods for RiverFort
 
 end
