@@ -34,11 +34,13 @@ class FeedsCardController: CardPartsViewController {
 
         newsTitle.text = "News"
         newsTitle.textColor = .label
-        newsTitle.font = UIFont(name: "AvenirNext-Bold", size: 16.0)
+        newsTitle.font = .preferredFont(forTextStyle: .headline)
+        newsTitle.label.adjustsFontForContentSizeCategory = true
         
         noNewsTitle.text = "No Recent Stories"
         noNewsTitle.textColor = .label
-        noNewsTitle.font = UIFont(name: "AvenirNext-Bold", size: 16.0)
+        noNewsTitle.font = .preferredFont(forTextStyle: .headline)
+        noNewsTitle.label.adjustsFontForContentSizeCategory = true
         
         feedsSV.axis = .vertical
         feedsSV.distribution = .equalSpacing
@@ -55,12 +57,14 @@ class FeedsCardController: CardPartsViewController {
             cell.leftTitleLabel.text = data.title
             cell.leftTitleLabel.numberOfLines = 2
             cell.leftTitleLabel.textColor = .label
-            cell.leftTitleFont = UIFont(name: "Avenir-Medium", size: 16.0)!
+            cell.leftTitleFont = .preferredFont(forTextStyle: .headline)
+            cell.leftTitleLabel.adjustsFontForContentSizeCategory = true
             
             cell.leftDescriptionLabel.text = data.pubDate
             cell.leftDescriptionLabel.textColor = .secondaryLabel
-            cell.leftDescriptionLabel.font = UIFont(name: "Avenir-Medium", size: 14.0)!
-
+            cell.leftDescriptionLabel.font = .preferredFont(forTextStyle: .subheadline)
+            cell.leftDescriptionLabel.adjustsFontForContentSizeCategory = true
+            
             return cell
         }.disposed(by: bag)
         
