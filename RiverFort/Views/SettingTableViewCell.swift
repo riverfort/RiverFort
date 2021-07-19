@@ -10,7 +10,8 @@ import UIKit
 class SettingTableViewCell: UITableViewCell {    
     private let label: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Avenir", size: 14)
+        label.font = .preferredFont(forTextStyle: .callout)
+        label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = 1
         return label
     }()
