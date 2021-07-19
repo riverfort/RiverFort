@@ -42,15 +42,16 @@ public class CardPartQuotesView: UIView, CardPartView {
     // MARK: - company name and date
     private let companyNameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Avenir-Medium", size: 16)
-        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.font = .preferredFont(forTextStyle: .headline)
+        label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = 0
         return label
     }()
     
     private let todayLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Avenir-MediumOblique", size: 16)
+        label.font = .preferredFont(forTextStyle: .headline)
+        label.adjustsFontForContentSizeCategory = true
         label.textAlignment = .right
         label.textColor = .secondaryLabel
         return label
