@@ -61,19 +61,30 @@ class ProfileCardController: CardPartsViewController {
         countryText.text   = "Country"
         isinText.text      = "ISIN"
 
-        profileTitle.font  = UIFont(name: "AvenirNext-Bold", size: 16)
-        industryTitle.font = UIFont(name: "AvenirNext-Bold", size: 16)
-        sectorTitle.font   = UIFont(name: "AvenirNext-Bold", size: 16)
+        profileTitle.font = .preferredFont(forTextStyle: .headline)
+        industryTitle.font = .preferredFont(forTextStyle: .headline)
+        sectorTitle.font = .preferredFont(forTextStyle: .headline)
+        profileTitle.label.adjustsFontForContentSizeCategory = true
+        industryTitle.label.adjustsFontForContentSizeCategory = true
+        sectorTitle.label.adjustsFontForContentSizeCategory = true
         
-        exchangeText.font = UIFont(name: "Avenir-Medium", size: 14.0)
-        countryText.font  = UIFont(name: "Avenir-Medium", size: 14.0)
-        isinText.font     = UIFont(name: "Avenir-Medium", size: 14.0)
+        exchangeText.font = .preferredFont(forTextStyle: .subheadline)
+        countryText.font = .preferredFont(forTextStyle: .subheadline)
+        isinText.font = .preferredFont(forTextStyle: .subheadline)
+        exchangeText.label.adjustsFontForContentSizeCategory = true
+        countryText.label.adjustsFontForContentSizeCategory = true
+        isinText.label.adjustsFontForContentSizeCategory = true
         
-        exchangeData.font = UIFont(name: "Avenir-Medium", size: 14.0)
-        countryData.font  = UIFont(name: "Avenir-Medium", size: 14.0)
-        industryData.font = UIFont(name: "Avenir-Medium", size: 14.0)
-        sectorData.font   = UIFont(name: "Avenir-Medium", size: 14.0)
-        isinData.font     = UIFont(name: "Avenir-Medium", size: 14.0)
+        exchangeData.font = .preferredFont(forTextStyle: .callout)
+        countryData.font = .preferredFont(forTextStyle: .callout)
+        industryData.font = .preferredFont(forTextStyle: .callout)
+        sectorData.font = .preferredFont(forTextStyle: .callout)
+        isinData.font = .preferredFont(forTextStyle: .callout)
+        exchangeData.label.adjustsFontForContentSizeCategory = true
+        countryData.label.adjustsFontForContentSizeCategory = true
+        industryData.label.adjustsFontForContentSizeCategory = true
+        sectorData.label.adjustsFontForContentSizeCategory = true
+        isinData.label.adjustsFontForContentSizeCategory = true
         
         profileTitle.textAlignment  = .left
         industryTitle.textAlignment = .left
