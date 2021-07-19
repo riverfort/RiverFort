@@ -14,14 +14,15 @@ class CompanyTableViewCell: UITableViewCell {
     
     private let companyTickerLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Avenir-Medium", size: 14)
-        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.font = .preferredFont(forTextStyle: .headline)
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
     private let companyNameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Avenir", size: 14)
+        label.font = .preferredFont(forTextStyle: .subheadline)
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     

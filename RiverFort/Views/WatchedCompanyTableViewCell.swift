@@ -16,14 +16,15 @@ class WatchedCompanyTableViewCell: UITableViewCell {
     
     private let companyTickerLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Avenir-Medium", size: 16)
-        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.font = .preferredFont(forTextStyle: .headline)
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
     
     private let companyNameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Avenir", size: 14)
+        label.font = .preferredFont(forTextStyle: .subheadline)
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
         
@@ -31,8 +32,8 @@ class WatchedCompanyTableViewCell: UITableViewCell {
         let label = EFCountingLabel()
         label.counter.timingFunction = EFTimingFunction.easeOut(easingRate: 10)
         label.textAlignment = .right
-        label.font = UIFont(name: "Avenir-Medium", size: 14)
-        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.font = .preferredFont(forTextStyle: .headline)
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
     
@@ -43,14 +44,15 @@ class WatchedCompanyTableViewCell: UITableViewCell {
         }
         label.counter.timingFunction = EFTimingFunction.easeOut(easingRate: 10)
         label.textAlignment = .right
-        label.font = UIFont(name: "Avenir-Medium", size: 14)
-        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.font = .preferredFont(forTextStyle: .subheadline)
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
         
     private let marketDateLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Avenir-MediumOblique", size: 14)
+        label.font = .preferredFont(forTextStyle: .footnote)
+        label.adjustsFontForContentSizeCategory = true
         label.textAlignment = .right
         label.textColor = .secondaryLabel
         return label

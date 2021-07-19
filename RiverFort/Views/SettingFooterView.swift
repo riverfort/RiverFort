@@ -31,7 +31,8 @@ class SettingFooterView: UITableViewHeaderFooterView {
         self.textView.isScrollEnabled = false
         self.textView.isUserInteractionEnabled = true
         self.textView.isEditable = false
-        self.textView.font = UIFont(name: "Avenir", size: 12)
+        self.textView.font = .preferredFont(forTextStyle: .footnote)
+        self.textView.adjustsFontForContentSizeCategory = true
         self.textView.textAlignment = .center
         self.textView.textColor = .darkGray
 

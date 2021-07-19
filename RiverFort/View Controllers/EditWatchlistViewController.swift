@@ -59,11 +59,11 @@ extension EditWatchlistViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.EDITABLE_WATCHED_COMPANY_CELL_ID, for: indexPath)
         cell.textLabel?.text = watchedCompanies[indexPath.row].company_ticker 
-        cell.textLabel?.font = UIFont(name: "Avenir-Medium", size: 14)
-        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        cell.textLabel?.font = .preferredFont(forTextStyle: .headline)
+        cell.textLabel?.adjustsFontForContentSizeCategory = true
         cell.detailTextLabel?.text = watchedCompanies[indexPath.row].company_name
-        cell.detailTextLabel?.font = UIFont(name: "Avenir", size: 12)
-        cell.detailTextLabel?.textColor = .systemGray
+        cell.detailTextLabel?.font = .preferredFont(forTextStyle: .subheadline)
+        cell.detailTextLabel?.adjustsFontForContentSizeCategory = true
         return cell
     }
 }

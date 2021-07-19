@@ -78,22 +78,38 @@ class QuotesCardController: CardPartsViewController {
         highText.text   = "High"
         lowText.text    = "Low"
         
-        mktcapText.font = UIFont(name: "Avenir-Medium", size: 14.0)
-        volumeText.font = UIFont(name: "Avenir-Medium", size: 14.0)
-        vwapText.font   = UIFont(name: "Avenir-Medium", size: 14.0)
-        openText.font   = UIFont(name: "Avenir-Medium", size: 14.0)
-        closeText.font  = UIFont(name: "Avenir-Medium", size: 14.0)
-        highText.font   = UIFont(name: "Avenir-Medium", size: 14.0)
-        lowText.font    = UIFont(name: "Avenir-Medium", size: 14.0)
+        mktcapText.font = .preferredFont(forTextStyle: .subheadline)
+        volumeText.font = .preferredFont(forTextStyle: .subheadline)
+        vwapText.font = .preferredFont(forTextStyle: .subheadline)
+        openText.font = .preferredFont(forTextStyle: .subheadline)
+        closeText.font = .preferredFont(forTextStyle: .subheadline)
+        highText.font = .preferredFont(forTextStyle: .subheadline)
+        lowText.font = .preferredFont(forTextStyle: .subheadline)
+        mktcapText.label.adjustsFontForContentSizeCategory = true
+        volumeText.label.adjustsFontForContentSizeCategory = true
+        vwapText.label.adjustsFontForContentSizeCategory = true
+        openText.label.adjustsFontForContentSizeCategory = true
+        closeText.label.adjustsFontForContentSizeCategory = true
+        highText.label.adjustsFontForContentSizeCategory = true
+        lowText.label.adjustsFontForContentSizeCategory = true
         
-        mktDateData.font = UIFont(name: "AvenirNext-Bold", size: 16.0)
-        mktcapData.font = UIFont(name: "Avenir-Medium", size: 14.0)
-        volumeData.font = UIFont(name: "Avenir-Medium", size: 14.0)
-        vwapData.font   = UIFont(name: "Avenir-Medium", size: 14.0)
-        openData.font   = UIFont(name: "Avenir-Medium", size: 14.0)
-        closeData.font  = UIFont(name: "Avenir-Medium", size: 14.0)
-        highData.font   = UIFont(name: "Avenir-Medium", size: 14.0)
-        lowData.font    = UIFont(name: "Avenir-Medium", size: 14.0)
+        mktDateData.font = .preferredFont(forTextStyle: .headline)
+        mktDateData.label.adjustsFontForContentSizeCategory = true
+        
+        mktcapData.font = .preferredFont(forTextStyle: .subheadline)
+        volumeData.font = .preferredFont(forTextStyle: .subheadline)
+        vwapData.font   = .preferredFont(forTextStyle: .subheadline)
+        openData.font   = .preferredFont(forTextStyle: .subheadline)
+        closeData.font  = .preferredFont(forTextStyle: .subheadline)
+        highData.font   = .preferredFont(forTextStyle: .subheadline)
+        lowData.font    = .preferredFont(forTextStyle: .subheadline)
+        mktcapData.label.adjustsFontForContentSizeCategory = true
+        volumeData.label.adjustsFontForContentSizeCategory = true
+        vwapData.label.adjustsFontForContentSizeCategory = true
+        openData.label.adjustsFontForContentSizeCategory = true
+        closeData.label.adjustsFontForContentSizeCategory = true
+        highData.label.adjustsFontForContentSizeCategory = true
+        lowData.label.adjustsFontForContentSizeCategory = true
         
         mktDateData.textAlignment = .left
                 

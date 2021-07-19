@@ -210,33 +210,61 @@ class ADTVCardController: CardPartsViewController {
         aadtv60Data.text  = "-"
         aadtv120Data.text = "-"
 
-        adtv1Text.font = UIFont(name: "Avenir-Medium", size: 14.0)
-        adtv5Text.font = UIFont(name: "Avenir-Medium", size: 14.0)
-        adtv10Text.font  = UIFont(name: "Avenir-Medium", size: 14.0)
-        adtv20Text.font  = UIFont(name: "Avenir-Medium", size: 14.0)
-        adtv60Text.font  = UIFont(name: "Avenir-Medium", size: 14.0)
-        adtv120Text.font = UIFont(name: "Avenir-Medium", size: 14.0)
+        adtv1Text.font = .preferredFont(forTextStyle: .subheadline)
+        adtv5Text.font = .preferredFont(forTextStyle: .subheadline)
+        adtv10Text.font  = .preferredFont(forTextStyle: .subheadline)
+        adtv20Text.font  = .preferredFont(forTextStyle: .subheadline)
+        adtv60Text.font  = .preferredFont(forTextStyle: .subheadline)
+        adtv120Text.font = .preferredFont(forTextStyle: .subheadline)
         
-        aadtv1Text.font = UIFont(name: "Avenir-Medium", size: 14.0)
-        aadtv5Text.font = UIFont(name: "Avenir-Medium", size: 14.0)
-        aadtv10Text.font  = UIFont(name: "Avenir-Medium", size: 14.0)
-        aadtv20Text.font  = UIFont(name: "Avenir-Medium", size: 14.0)
-        aadtv60Text.font  = UIFont(name: "Avenir-Medium", size: 14.0)
-        aadtv120Text.font = UIFont(name: "Avenir-Medium", size: 14.0)
+        adtv1Text.label.adjustsFontForContentSizeCategory = true
+        adtv5Text.label.adjustsFontForContentSizeCategory = true
+        adtv10Text.label.adjustsFontForContentSizeCategory = true
+        adtv20Text.label.adjustsFontForContentSizeCategory = true
+        adtv60Text.label.adjustsFontForContentSizeCategory = true
+        adtv120Text.label.adjustsFontForContentSizeCategory = true
         
-        adtv1Data.font = UIFont(name: "Avenir-Medium", size: 14.0)
-        adtv5Data.font = UIFont(name: "Avenir-Medium", size: 14.0)
-        adtv10Data.font  = UIFont(name: "Avenir-Medium", size: 14.0)
-        adtv20Data.font  = UIFont(name: "Avenir-Medium", size: 14.0)
-        adtv60Data.font  = UIFont(name: "Avenir-Medium", size: 14.0)
-        adtv120Data.font = UIFont(name: "Avenir-Medium", size: 14.0)
+        aadtv1Text.font = .preferredFont(forTextStyle: .subheadline)
+        aadtv5Text.font = .preferredFont(forTextStyle: .subheadline)
+        aadtv10Text.font  = .preferredFont(forTextStyle: .subheadline)
+        aadtv20Text.font  = .preferredFont(forTextStyle: .subheadline)
+        aadtv60Text.font  = .preferredFont(forTextStyle: .subheadline)
+        aadtv120Text.font = .preferredFont(forTextStyle: .subheadline)
         
-        aadtv1Data.font = UIFont(name: "Avenir-Medium", size: 14.0)
-        aadtv5Data.font = UIFont(name: "Avenir-Medium", size: 14.0)
-        aadtv10Data.font  = UIFont(name: "Avenir-Medium", size: 14.0)
-        aadtv20Data.font  = UIFont(name: "Avenir-Medium", size: 14.0)
-        aadtv60Data.font  = UIFont(name: "Avenir-Medium", size: 14.0)
-        aadtv120Data.font = UIFont(name: "Avenir-Medium", size: 14.0)
+        aadtv1Text.label.adjustsFontForContentSizeCategory = true
+        aadtv5Text.label.adjustsFontForContentSizeCategory = true
+        aadtv10Text.label.adjustsFontForContentSizeCategory = true
+        aadtv20Text.label.adjustsFontForContentSizeCategory = true
+        aadtv60Text.label.adjustsFontForContentSizeCategory = true
+        aadtv120Text.label.adjustsFontForContentSizeCategory = true
+        
+        adtv1Data.font = .preferredFont(forTextStyle: .subheadline)
+        adtv5Data.font = .preferredFont(forTextStyle: .subheadline)
+        adtv10Data.font  = .preferredFont(forTextStyle: .subheadline)
+        adtv20Data.font  = .preferredFont(forTextStyle: .subheadline)
+        adtv60Data.font  = .preferredFont(forTextStyle: .subheadline)
+        adtv120Data.font = .preferredFont(forTextStyle: .subheadline)
+        
+        adtv1Data.label.adjustsFontForContentSizeCategory = true
+        adtv5Data.label.adjustsFontForContentSizeCategory = true
+        adtv10Data.label.adjustsFontForContentSizeCategory = true
+        adtv20Data.label.adjustsFontForContentSizeCategory = true
+        adtv60Data.label.adjustsFontForContentSizeCategory = true
+        adtv120Data.label.adjustsFontForContentSizeCategory = true
+        
+        aadtv1Data.font = .preferredFont(forTextStyle: .subheadline)
+        aadtv5Data.font = .preferredFont(forTextStyle: .subheadline)
+        aadtv10Data.font  = .preferredFont(forTextStyle: .subheadline)
+        aadtv20Data.font  = .preferredFont(forTextStyle: .subheadline)
+        aadtv60Data.font  = .preferredFont(forTextStyle: .subheadline)
+        aadtv120Data.font = .preferredFont(forTextStyle: .subheadline)
+        
+        aadtv1Data.label.adjustsFontForContentSizeCategory = true
+        aadtv5Data.label.adjustsFontForContentSizeCategory = true
+        aadtv10Data.label.adjustsFontForContentSizeCategory = true
+        aadtv20Data.label.adjustsFontForContentSizeCategory = true
+        aadtv60Data.label.adjustsFontForContentSizeCategory = true
+        aadtv120Data.label.adjustsFontForContentSizeCategory = true
         
         adtv1Text.textColor = .label
         adtv5Text.textColor = .label
