@@ -13,17 +13,19 @@ class HomeViewController: UITabBarController {
         super.viewDidLoad()
         
         let searchVC = UINavigationController(rootViewController: SearchViewController())
+        let newSearchVC = UINavigationController(rootViewController: NewSearchViewController())
         let watchlistVC = UINavigationController(rootViewController: WatchlistViewController())
         
         searchVC.title = "Search"
+        newSearchVC.title = "Search"
         watchlistVC.title = "Watchlist"
 
-        self.setViewControllers([searchVC, watchlistVC], animated: true)
+        self.setViewControllers([searchVC, newSearchVC, watchlistVC], animated: true)
         guard let items = self.tabBar.items else {
             return
         }
         
-        let images = ["magnifyingglass.circle.fill", "eye.circle.fill",]
+        let images = ["magnifyingglass.circle.fill", "magnifyingglass.circle.fill", "eye.circle.fill",]
         
         for x in 0..<items.count {
             items[x].image = UIImage(systemName: images[x])
