@@ -16,6 +16,9 @@ struct FMPStockTickerSearch: Decodable {
 }
 
 class NewSearchViewController: UIViewController {
+    
+    private let searchResultsTableViewController = SearchResultsTableViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
@@ -37,23 +40,18 @@ extension NewSearchViewController {
     }
     
     private func configureSearchController() {
-        let searchController = UISearchController()
-        searchController.loadViewIfNeeded()
+        let searchController = UISearchController(searchResultsController: searchResultsTableViewController)
         searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.enablesReturnKeyAutomatically = false
-        searchController.searchBar.returnKeyType = UIReturnKeyType.done
         searchController.searchBar.placeholder = "Symbols, Companies"
-        definesPresentationContext = true
         navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = false
-        searchController.searchBar.delegate = self
     }
 }
 
 extension NewSearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
-        let searchText = searchController.searchBar.text!
+        guard let searchText = searchController.searchBar.text else {
+            return
+        }
         searchFMPStockTicker(searchText: searchText)
     }
 }
@@ -80,6 +78,7 @@ extension NewSearchViewController {
                     return
                 }
                 print(fmpCompanies)
+                self.searchResultsTableViewController.setFMPCompanies(fmpCompanies: fmpCompanies)
             }
             task.resume()
         }
