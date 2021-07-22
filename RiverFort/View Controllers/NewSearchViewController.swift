@@ -8,11 +8,11 @@
 import UIKit
 
 class NewSearchViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
         configureNavigationBar()
+        ConfigureSearchController()
     }
 }
 
@@ -26,5 +26,26 @@ extension NewSearchViewController {
         navigationItem.backButtonDisplayMode = .minimal
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.tintColor = .systemIndigo
+    }
+    
+    private func ConfigureSearchController() {
+        let searchController = UISearchController()
+        searchController.loadViewIfNeeded()
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.enablesReturnKeyAutomatically = false
+        searchController.searchBar.returnKeyType = UIReturnKeyType.done
+        searchController.searchBar.placeholder = "Symbols, Companies"
+        definesPresentationContext = true
+        
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.searchBar.delegate = self
+    }
+}
+
+extension NewSearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
+    func updateSearchResults(for searchController: UISearchController) {
+        
     }
 }
