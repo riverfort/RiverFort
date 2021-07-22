@@ -12,7 +12,7 @@ class NewSearchViewController: UIViewController {
         super.viewDidLoad()
         configureView()
         configureNavigationBar()
-        ConfigureSearchController()
+        configureSearchController()
     }
 }
 
@@ -28,7 +28,7 @@ extension NewSearchViewController {
         navigationController?.navigationBar.tintColor = .systemIndigo
     }
     
-    private func ConfigureSearchController() {
+    private func configureSearchController() {
         let searchController = UISearchController()
         searchController.loadViewIfNeeded()
         searchController.searchResultsUpdater = self
