@@ -55,7 +55,8 @@ class SearchResultCell: UITableViewCell {
         leftStack.axis = .vertical
         leftStack.distribution = .equalSpacing
         leftStack.alignment = .leading
-        leftStack.backgroundColor = .red
+//        leftStack.backgroundColor = .red
+        leftStack.spacing = 5
         leftStack.translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -63,7 +64,8 @@ class SearchResultCell: UITableViewCell {
         rightStack.axis = .vertical
         rightStack.distribution = .equalSpacing
         rightStack.alignment = .trailing
-        rightStack.backgroundColor = .blue
+//        rightStack.backgroundColor = .blue
+        rightStack.spacing = 5
         rightStack.translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -106,6 +108,6 @@ class SearchResultCell: UITableViewCell {
         rightStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive = true
         rightStack.topAnchor.constraint(equalTo: topAnchor, constant: 12).isActive = true
         rightStack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        rightStack.widthAnchor.constraint(equalToConstant: (contentView.frame.width)/4).isActive = true
+//        rightStack.widthAnchor.constraint(equalToConstant: (contentView.frame.width)/4).isActive = true
     }
 }
