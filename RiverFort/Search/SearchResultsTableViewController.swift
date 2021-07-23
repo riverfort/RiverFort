@@ -15,7 +15,10 @@ class SearchResultsTableViewController: UITableViewController {
         super.viewDidLoad()
         // Uncomment the following line to preserve selection between presentations
         self.clearsSelectionOnViewWillAppear = false
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.tableView.register(SearchResultCell.self, forCellReuseIdentifier: "cell")
+        
+        self.tableView.estimatedRowHeight = 85.0
+        self.tableView.rowHeight = UITableView.automaticDimension
     }
 
     // MARK: - Table view data source
@@ -25,15 +28,15 @@ class SearchResultsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
-        cell.textLabel?.text = fmpCompanies[indexPath.row].symbol
-        cell.detailTextLabel?.text = fmpCompanies[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! SearchResultCell
+        let searchResult = fmpCompanies[indexPath.row]
+        cell.set(fmpStockTickerSearch: searchResult)
         return cell
     }
     
     public func setFMPCompanies(fmpCompanies: [FMPStockTickerSearch]) {
-        self.fmpCompanies = fmpCompanies
         DispatchQueue.main.async {
+            self.fmpCompanies = fmpCompanies
             self.tableView.reloadData()
         }
     }

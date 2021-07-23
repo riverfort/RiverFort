@@ -7,16 +7,8 @@
 
 import UIKit
 
-struct FMPStockTickerSearch: Decodable {
-    let symbol: String
-    let name: String
-    let currency: String
-    let stockExchange: String
-    let exchangeShortName: String
-}
 
 class NewSearchViewController: UIViewController {
-    
     private let searchResultsTableViewController = SearchResultsTableViewController()
     
     override func viewDidLoad() {
