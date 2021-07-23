@@ -13,16 +13,27 @@ class SearchResultsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Uncomment the following line to preserve selection between presentations
         self.clearsSelectionOnViewWillAppear = false
+        configureTableView()
+    }
+}
+
+extension SearchResultsTableViewController {
+    private func configureTableView() {
         self.tableView.register(SearchResultCell.self, forCellReuseIdentifier: "cell")
-        
         self.tableView.estimatedRowHeight = 85.0
         self.tableView.rowHeight = UITableView.automaticDimension
     }
+    
+    public func setFMPCompanies(fmpCompanies: [FMPStockTickerSearch]) {
+        DispatchQueue.main.async {
+            self.fmpCompanies = fmpCompanies
+            self.tableView.reloadData()
+        }
+    }
+}
 
-    // MARK: - Table view data source
-
+extension SearchResultsTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fmpCompanies.count
     }
@@ -33,11 +44,13 @@ class SearchResultsTableViewController: UITableViewController {
         cell.set(fmpStockTickerSearch: searchResult)
         return cell
     }
-    
-    public func setFMPCompanies(fmpCompanies: [FMPStockTickerSearch]) {
-        DispatchQueue.main.async {
-            self.fmpCompanies = fmpCompanies
-            self.tableView.reloadData()
-        }
+}
+
+extension SearchResultsTableViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let companyDetailViewController = CompanyDetailViewController()
+        companyDetailViewController.company =
+            Company(company_ticker: fmpCompanies[indexPath.row].symbol, company_name: fmpCompanies[indexPath.row].name)
+        present(UINavigationController(rootViewController: companyDetailViewController), animated: true)
     }
 }

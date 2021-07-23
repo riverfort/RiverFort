@@ -50,7 +50,9 @@ class SearchResultCell: UITableViewCell {
         currency.text = fmpStockTickerSearch.currency
         exchangeShortName.text = fmpStockTickerSearch.exchangeShortName
     }
+}
 
+extension SearchResultCell {
     private func configureLeftStack() {
         leftStack.axis = .vertical
         leftStack.distribution = .equalSpacing
@@ -68,7 +70,9 @@ class SearchResultCell: UITableViewCell {
         rightStack.spacing = 5
         rightStack.translatesAutoresizingMaskIntoConstraints = false
     }
-    
+}
+
+extension SearchResultCell {
     private func configureSymbolLabel() {
         symbol.font = .preferredFont(forTextStyle: .headline)
         symbol.adjustsFontForContentSizeCategory = true
@@ -94,13 +98,14 @@ class SearchResultCell: UITableViewCell {
         exchangeShortName.adjustsFontForContentSizeCategory = true
         exchangeShortName.textColor = .systemGray
     }
-    
+}
+
+extension SearchResultCell {
     private func setLeftStackConstraints() {
         leftStack.translatesAutoresizingMaskIntoConstraints = false
         leftStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
         leftStack.topAnchor.constraint(equalTo: topAnchor, constant: 12).isActive = true
         leftStack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-//        leftStack.widthAnchor.constraint(equalToConstant: 100).isActive = true
     }
     
     private func setRightStackConstraints() {
@@ -108,6 +113,5 @@ class SearchResultCell: UITableViewCell {
         rightStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive = true
         rightStack.topAnchor.constraint(equalTo: topAnchor, constant: 12).isActive = true
         rightStack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-//        rightStack.widthAnchor.constraint(equalToConstant: (contentView.frame.width)/4).isActive = true
     }
 }
