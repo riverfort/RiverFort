@@ -40,6 +40,7 @@ extension SearchResultsTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! SearchResultCell
+        cell.selectionStyle = .none
         let searchResult = fmpCompanies[indexPath.row]
         cell.set(fmpStockTickerSearch: searchResult)
         return cell
