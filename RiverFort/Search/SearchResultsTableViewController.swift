@@ -48,9 +48,36 @@ extension SearchResultsTableViewController {
 
 extension SearchResultsTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let companyDetailViewController = CompanyDetailViewController()
-        companyDetailViewController.company =
-            Company(company_ticker: fmpCompanies[indexPath.row].symbol, company_name: fmpCompanies[indexPath.row].name)
-        present(UINavigationController(rootViewController: companyDetailViewController), animated: true)
+        let selectedSymbol = fmpCompanies[indexPath.row].symbol
+        searchCompany(ticker: selectedSymbol) { [self] (statusCode) in
+            DispatchQueue.main.async {
+                if statusCode == 200 {
+                    let companyDetailViewController = CompanyDetailViewController()
+                    companyDetailViewController.company =
+                        Company(company_ticker: fmpCompanies[indexPath.row].symbol, company_name: fmpCompanies[indexPath.row].name)
+                    present(UINavigationController(rootViewController: companyDetailViewController), animated: true)
+                } else {
+                    print(statusCode)
+                }
+            }
+        }
+    }
+}
+
+extension SearchResultsTableViewController {
+    private func searchCompany(ticker: String, completion: @escaping (Int) -> Void) {
+        let api = "https://data.riverfort.com/api/v1/companies/\(ticker)"
+        let url = URL(string: api.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+        var request = URLRequest(url: url!)
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        let task = URLSession.shared.dataTask(with: url!) { data, response, error in
+            guard error == nil else {
+                print(error!)
+                return
+            }
+            let httpResponse = response as? HTTPURLResponse
+            completion(httpResponse!.statusCode)
+        }
+        task.resume()
     }
 }

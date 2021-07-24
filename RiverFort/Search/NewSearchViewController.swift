@@ -69,7 +69,7 @@ extension NewSearchViewController {
                 guard let fmpCompanies = try? decoder.decode([FMPStockTickerSearch].self, from: data) else {
                     return
                 }
-                print(fmpCompanies)
+//                print(fmpCompanies)
                 self.searchResultsTableViewController.setFMPCompanies(fmpCompanies: fmpCompanies)
             }
             task.resume()
