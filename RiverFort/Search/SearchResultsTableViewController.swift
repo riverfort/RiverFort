@@ -6,9 +6,9 @@
 //
 
 import UIKit
+import SPAlert
 
 class SearchResultsTableViewController: UITableViewController {
-    
     private var fmpCompanies: [FMPStockTickerSearch] = []
 
     override func viewDidLoad() {
@@ -50,6 +50,7 @@ extension SearchResultsTableViewController {
 extension SearchResultsTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedSymbol = fmpCompanies[indexPath.row].symbol
+        let selectedName = fmpCompanies[indexPath.row].name
         searchCompany(ticker: selectedSymbol) { [self] (statusCode) in
             DispatchQueue.main.async {
                 if statusCode == 200 {
@@ -58,7 +59,20 @@ extension SearchResultsTableViewController {
                         Company(company_ticker: fmpCompanies[indexPath.row].symbol, company_name: fmpCompanies[indexPath.row].name)
                     present(UINavigationController(rootViewController: companyDetailViewController), animated: true)
                 } else {
-                    print(statusCode)
+                    APIFunctions
+                        .functions
+                        .addNewSymbol(
+                            addOnSymbolRequest:
+                                AddOnSymbolRequest(company_ticker: selectedSymbol, company_name: selectedName)) { (statusCode) in
+                            if statusCode == 200 {
+                                let companyDetailViewController = CompanyDetailViewController()
+                                companyDetailViewController.company =
+                                    Company(company_ticker: fmpCompanies[indexPath.row].symbol, company_name: fmpCompanies[indexPath.row].name)
+                                present(UINavigationController(rootViewController: companyDetailViewController), animated: true)
+                            } else {
+                                SPAlert.present(title: "Data Unavailable", preset: .error, haptic: .error)
+                            }
+                        }
                 }
             }
         }
