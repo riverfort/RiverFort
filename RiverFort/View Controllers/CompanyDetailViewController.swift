@@ -84,10 +84,16 @@ class CompanyDetailViewController: CardsViewController {
     
     @objc func chartInteracting(notification: Notification) {
         super.collectionView.isScrollEnabled = false
+        if #available(iOS 13.0, *) {
+            self.isModalInPresentation = true
+        }
     }
     
     @objc func chartEndInteracting(notification: Notification) {
         super.collectionView.isScrollEnabled = true
+        if #available(iOS 13.0, *) {
+            self.isModalInPresentation = false
+        }
     }
 
     override func viewDidLayoutSubviews() {

@@ -57,7 +57,8 @@ extension SearchResultsTableViewController {
                     let companyDetailViewController = CompanyDetailViewController()
                     companyDetailViewController.company =
                         Company(company_ticker: fmpCompanies[indexPath.row].symbol, company_name: fmpCompanies[indexPath.row].name)
-                    present(UINavigationController(rootViewController: companyDetailViewController), animated: true)
+                    let navigationController = UINavigationController(rootViewController: companyDetailViewController)
+                    present(navigationController, animated: true)
                 } else {
                     APIFunctions
                         .functions
@@ -68,7 +69,8 @@ extension SearchResultsTableViewController {
                                 let companyDetailViewController = CompanyDetailViewController()
                                 companyDetailViewController.company =
                                     Company(company_ticker: fmpCompanies[indexPath.row].symbol, company_name: fmpCompanies[indexPath.row].name)
-                                present(UINavigationController(rootViewController: companyDetailViewController), animated: true)
+                                let navigationController = UINavigationController(rootViewController: companyDetailViewController)
+                                present(navigationController, animated: true)
                             } else {
                                 SPAlert.present(title: "Data Unavailable", preset: .error, haptic: .error)
                             }
