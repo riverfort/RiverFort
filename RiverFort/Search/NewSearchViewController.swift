@@ -26,7 +26,6 @@ extension NewSearchViewController {
     
     private func configureNavigationController() {
         navigationItem.title = "Search"
-        navigationItem.backButtonDisplayMode = .minimal
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.tintColor = .systemIndigo
     }
