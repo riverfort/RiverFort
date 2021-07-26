@@ -60,6 +60,9 @@ extension SearchResultsTableViewController {
                     let navigationController = UINavigationController(rootViewController: companyDetailViewController)
                     present(navigationController, animated: true)
                 } else {
+                    let progressViewController = ProgressViewController()
+                    configureProgressViewControllerModal(progressViewController: progressViewController)
+                    present(progressViewController, animated: true)
                     APIFunctions
                         .functions
                         .addNewSymbol(
@@ -70,8 +73,10 @@ extension SearchResultsTableViewController {
                                 companyDetailViewController.company =
                                     Company(company_ticker: fmpCompanies[indexPath.row].symbol, company_name: fmpCompanies[indexPath.row].name)
                                 let navigationController = UINavigationController(rootViewController: companyDetailViewController)
+                                progressViewController.dismiss(animated: true)
                                 present(navigationController, animated: true)
                             } else {
+                                progressViewController.dismiss(animated: true)
                                 SPAlert.present(title: "Data Unavailable", preset: .error, haptic: .error)
                             }
                         }
@@ -96,5 +101,13 @@ extension SearchResultsTableViewController {
             completion(httpResponse!.statusCode)
         }
         task.resume()
+    }
+}
+
+
+extension SearchResultsTableViewController {
+    private func configureProgressViewControllerModal(progressViewController: ProgressViewController) {
+        progressViewController.modalTransitionStyle = .crossDissolve
+        progressViewController.modalPresentationStyle = .fullScreen
     }
 }

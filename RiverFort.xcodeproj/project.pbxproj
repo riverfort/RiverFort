@@ -52,6 +52,7 @@
 		77876E94264D5D6700798106 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77876E93264D5D6700798106 /* Regex.swift */; };
 		77876E96264D5FE700798106 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77876E95264D5FE700798106 /* StringExtension.swift */; };
 		77876E98264D69B300798106 /* FeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77876E97264D69B300798106 /* FeedParser.swift */; };
+		7789470626AEF1C2005FDED7 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789470526AEF1C2005FDED7 /* ProgressViewController.swift */; };
 		7789A82B266A30B300B71294 /* ADTVChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A82A266A30B300B71294 /* ADTVChartView.swift */; };
 		778F6D1B26297F03003BC861 /* WatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778F6D1A26297F03003BC861 /* WatchlistViewController.swift */; };
 		7793E87E261F53DE00D8D3FA /* CompanyAdtv60.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7793E87D261F53DE00D8D3FA /* CompanyAdtv60.swift */; };
@@ -128,6 +129,7 @@
 		77876E93264D5D6700798106 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		77876E95264D5FE700798106 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		77876E97264D69B300798106 /* FeedParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedParser.swift; sourceTree = "<group>"; };
+		7789470526AEF1C2005FDED7 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		7789A82A266A30B300B71294 /* ADTVChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTVChartView.swift; sourceTree = "<group>"; };
 		778F6D1A26297F03003BC861 /* WatchlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistViewController.swift; sourceTree = "<group>"; };
 		7793E87D261F53DE00D8D3FA /* CompanyAdtv60.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyAdtv60.swift; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 				771263CB26A97EED00B57C04 /* SearchResultsTableViewController.swift */,
 				7785EF2C26AAA24500AEB5FE /* SearchResultCell.swift */,
 				7785EF2A26AAA22300AEB5FE /* FMPStockTickerSearch.swift */,
+				7789470526AEF1C2005FDED7 /* ProgressViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				773A0BB3261726E6002B9875 /* CompanyAdtv20.swift in Sources */,
 				779ED8A2263818A800815B4D /* SettingSwitchTableViewCell.swift in Sources */,
 				77420217264AA033002F6104 /* UIScrollView+EmptyDataSet.m in Sources */,
+				7789470626AEF1C2005FDED7 /* ProgressViewController.swift in Sources */,
 				773A0B6326171238002B9875 /* AppDelegate.swift in Sources */,
 				772C3F6A2627457C0044001B /* UITableViewExtension.swift in Sources */,
 				773A0B6526171238002B9875 /* SceneDelegate.swift in Sources */,
