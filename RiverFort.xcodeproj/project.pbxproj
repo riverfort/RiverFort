@@ -303,10 +303,10 @@
 		7785EF2926AAA1C200AEB5FE /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				771263CB26A97EED00B57C04 /* SearchResultsTableViewController.swift */,
 				771263C526A95CAC00B57C04 /* NewSearchViewController.swift */,
-				7785EF2A26AAA22300AEB5FE /* FMPStockTickerSearch.swift */,
+				771263CB26A97EED00B57C04 /* SearchResultsTableViewController.swift */,
 				7785EF2C26AAA24500AEB5FE /* SearchResultCell.swift */,
+				7785EF2A26AAA22300AEB5FE /* FMPStockTickerSearch.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
