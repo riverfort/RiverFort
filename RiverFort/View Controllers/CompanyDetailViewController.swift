@@ -87,12 +87,18 @@ class CompanyDetailViewController: CardsViewController {
         if #available(iOS 13.0, *) {
             self.isModalInPresentation = true
         }
+        navigationController?.presentationController?.presentedView?.gestureRecognizers?.forEach {
+            $0.isEnabled = false
+        }
     }
     
     @objc func chartEndInteracting(notification: Notification) {
         super.collectionView.isScrollEnabled = true
         if #available(iOS 13.0, *) {
             self.isModalInPresentation = false
+        }
+        navigationController?.presentationController?.presentedView?.gestureRecognizers?.forEach {
+            $0.isEnabled = true
         }
     }
 
