@@ -59,7 +59,6 @@ extension SearchResultCell {
         leftStack.alignment = .leading
 //        leftStack.backgroundColor = .red
         leftStack.spacing = 5
-        leftStack.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func configureRightStack() {
@@ -68,7 +67,6 @@ extension SearchResultCell {
         rightStack.alignment = .trailing
 //        rightStack.backgroundColor = .blue
         rightStack.spacing = 5
-        rightStack.translatesAutoresizingMaskIntoConstraints = false
     }
 }
 
