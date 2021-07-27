@@ -84,7 +84,6 @@ extension SearchResultCell {
     }
     
     private func configureCurrencyLabel() {
-        currency.numberOfLines = 0
         currency.font = .preferredFont(forTextStyle: .subheadline)
         currency.adjustsFontForContentSizeCategory = true
         currency.textColor = .systemGray
