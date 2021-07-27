@@ -19,12 +19,6 @@ class SearchResultsTableViewController: UITableViewController {
 }
 
 extension SearchResultsTableViewController {
-    private func configureTableView() {
-        self.tableView.register(SearchResultCell.self, forCellReuseIdentifier: "cell")
-        self.tableView.estimatedRowHeight = 85.0
-        self.tableView.rowHeight = UITableView.automaticDimension
-    }
-    
     public func setFMPCompanies(fmpCompanies: [FMPStockTickerSearch]) {
         DispatchQueue.main.async {
             self.fmpCompanies = fmpCompanies
@@ -106,6 +100,12 @@ extension SearchResultsTableViewController {
 
 
 extension SearchResultsTableViewController {
+    private func configureTableView() {
+        self.tableView.register(SearchResultCell.self, forCellReuseIdentifier: "cell")
+        self.tableView.estimatedRowHeight = 85.0
+        self.tableView.rowHeight = UITableView.automaticDimension
+    }
+    
     private func configureProgressViewControllerModal(progressViewController: ProgressViewController) {
         progressViewController.modalTransitionStyle = .crossDissolve
         progressViewController.modalPresentationStyle = .fullScreen

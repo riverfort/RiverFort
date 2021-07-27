@@ -63,12 +63,10 @@ extension NewSearchViewController {
                     print("Data is empty")
                     return
                 }
-                
                 let decoder = JSONDecoder()
                 guard let fmpCompanies = try? decoder.decode([FMPStockTickerSearch].self, from: data) else {
                     return
                 }
-//                print(fmpCompanies)
                 self.searchResultsTableViewController.setFMPCompanies(fmpCompanies: fmpCompanies)
             }
             task.resume()
