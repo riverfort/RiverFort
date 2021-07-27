@@ -9,7 +9,7 @@ import UIKit
 
 
 class NewSearchViewController: UIViewController {
-    private let recentSearchTableView = RecentSearchTableView()
+    private let recentSearchTableView = RecentSearchTableView(frame: .zero, style: .grouped)
     private let searchResultsTableViewController = SearchResultsTableViewController()
     
     override func viewDidLoad() {
