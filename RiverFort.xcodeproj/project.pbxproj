@@ -73,6 +73,7 @@
 		77C6ABB126497F5C00644179 /* SearchNoResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C6ABB026497F5C00644179 /* SearchNoResultsView.swift */; };
 		77CAA2E626679043003A0246 /* UserDefaults+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CAA2E526679043003A0246 /* UserDefaults+.swift */; };
 		77CF843226316DB2009A5E21 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CF843126316DB2009A5E21 /* UIAlertControllerExtension.swift */; };
+		77DAF9CD26B05853008662E0 /* RecentSearchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DAF9CC26B05853008662E0 /* RecentSearchTableView.swift */; };
 		77E239AE2678D1EF004E562C /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E239AD2678D1EF004E562C /* Reachability.swift */; };
 		77E7E6AA26206667003323DA /* ChartColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7E6A926206667003323DA /* ChartColours.swift */; };
 		77F93361261A321F007662D5 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F93360261A321F007662D5 /* DateExtension.swift */; };
@@ -150,6 +151,7 @@
 		77C6ABB026497F5C00644179 /* SearchNoResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNoResultsView.swift; sourceTree = "<group>"; };
 		77CAA2E526679043003A0246 /* UserDefaults+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+.swift"; sourceTree = "<group>"; };
 		77CF843126316DB2009A5E21 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
+		77DAF9CC26B05853008662E0 /* RecentSearchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchTableView.swift; sourceTree = "<group>"; };
 		77E239AD2678D1EF004E562C /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		77E7E6A926206667003323DA /* ChartColours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartColours.swift; sourceTree = "<group>"; };
 		77F93360261A321F007662D5 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 				7785EF2C26AAA24500AEB5FE /* SearchResultCell.swift */,
 				7785EF2A26AAA22300AEB5FE /* FMPStockTickerSearch.swift */,
 				7789470526AEF1C2005FDED7 /* ProgressViewController.swift */,
+				77DAF9CC26B05853008662E0 /* RecentSearchTableView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 				779A6C91262D792300AFEE95 /* EditWatchlistViewController.swift in Sources */,
 				77F93365261A3251007662D5 /* DoubleExtension.swift in Sources */,
 				774DB74C2623144900A92D13 /* RiverFort.xcdatamodeld in Sources */,
+				77DAF9CD26B05853008662E0 /* RecentSearchTableView.swift in Sources */,
 				7728847B265B962F001C0D4F /* FeedsViewModel.swift in Sources */,
 				778F6D1B26297F03003BC861 /* WatchlistViewController.swift in Sources */,
 				77E239AE2678D1EF004E562C /* Reachability.swift in Sources */,

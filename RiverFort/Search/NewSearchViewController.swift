@@ -9,6 +9,7 @@ import UIKit
 
 
 class NewSearchViewController: UIViewController {
+    private let recentSearchTableView = RecentSearchTableView()
     private let searchResultsTableViewController = SearchResultsTableViewController()
     
     override func viewDidLoad() {
@@ -16,6 +17,11 @@ class NewSearchViewController: UIViewController {
         configureView()
         configureNavigationController()
         configureSearchController()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        configureRecentSearchTableView()
     }
 }
 
@@ -33,8 +39,25 @@ extension NewSearchViewController {
     private func configureSearchController() {
         let searchController = UISearchController(searchResultsController: searchResultsTableViewController)
         searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "Symbols, Companies"
         navigationItem.searchController = searchController
+    }
+    
+    private func configureRecentSearchTableView() {
+        view.addSubview(recentSearchTableView)
+        recentSearchTableView.frame = view.bounds
+        recentSearchTableView.isHidden = true
+    }
+}
+
+extension NewSearchViewController: UISearchControllerDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        recentSearchTableView.isHidden = false
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        recentSearchTableView.isHidden = true
     }
 }
 
