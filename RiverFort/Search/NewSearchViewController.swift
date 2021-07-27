@@ -50,7 +50,7 @@ extension NewSearchViewController: UISearchResultsUpdating, UISearchBarDelegate 
 extension NewSearchViewController {
     private func searchFMPStockTicker(searchText: String) {
         if !searchText.isEmpty {
-            let api = "https://financialmodelingprep.com/api/v3/search?query=\(searchText)&limit=5&apikey=2797db3c7193bf4ec7231be3cba5f27c"
+            let api = "https://financialmodelingprep.com/api/v3/search?query=\(searchText)&limit=8&apikey=2797db3c7193bf4ec7231be3cba5f27c"
             let url = URL(string: api.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
             var request = URLRequest(url: url!)
             request.addValue("application/json", forHTTPHeaderField: "Accept")
