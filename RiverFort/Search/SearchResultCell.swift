@@ -57,7 +57,6 @@ extension SearchResultCell {
         leftStack.axis = .vertical
         leftStack.distribution = .equalSpacing
         leftStack.alignment = .leading
-//        leftStack.backgroundColor = .red
         leftStack.spacing = 5
     }
     
@@ -65,7 +64,6 @@ extension SearchResultCell {
         rightStack.axis = .vertical
         rightStack.distribution = .equalSpacing
         rightStack.alignment = .trailing
-//        rightStack.backgroundColor = .blue
         rightStack.spacing = 5
     }
 }
@@ -84,6 +82,7 @@ extension SearchResultCell {
     }
     
     private func configureCurrencyLabel() {
+        currency.numberOfLines = 0
         currency.font = .preferredFont(forTextStyle: .subheadline)
         currency.adjustsFontForContentSizeCategory = true
         currency.textColor = .systemGray
@@ -103,6 +102,7 @@ extension SearchResultCell {
         leftStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
         leftStack.topAnchor.constraint(equalTo: topAnchor, constant: 12).isActive = true
         leftStack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        leftStack.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7).isActive = true
     }
     
     private func setRightStackConstraints() {
@@ -110,5 +110,6 @@ extension SearchResultCell {
         rightStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive = true
         rightStack.topAnchor.constraint(equalTo: topAnchor, constant: 12).isActive = true
         rightStack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        rightStack.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3).isActive = true
     }
 }
