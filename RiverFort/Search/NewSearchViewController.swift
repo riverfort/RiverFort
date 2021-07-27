@@ -38,6 +38,7 @@ extension NewSearchViewController {
     
     private func configureSearchController() {
         let searchController = UISearchController(searchResultsController: searchResultsTableViewController)
+        searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "Symbols, Companies"
