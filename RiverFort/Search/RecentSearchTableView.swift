@@ -79,10 +79,12 @@ extension RecentSearchTableView {
     }
     
     private func configureClearButton(clearButton: UIButton) {
+        clearButton.showsTouchWhenHighlighted = true
         clearButton.setTitleColor(.systemIndigo, for: .normal)
         clearButton.setTitle("Clear", for: .normal)
         clearButton.titleLabel!.font = .preferredFont(forTextStyle: .headline)
         clearButton.titleLabel!.adjustsFontForContentSizeCategory = true
+        clearButton.addTarget(self, action: #selector(showClearRecentlySearchedAC), for: .touchUpInside)
     }
     
     private func configureHeaderHStack(headerView: UIView, stackView: UIStackView) {
@@ -94,5 +96,36 @@ extension RecentSearchTableView {
         stackView.trailingAnchor.constraint(equalTo: headerView.safeAreaLayoutGuide.trailingAnchor, constant: -12).isActive = true
         stackView.topAnchor.constraint(equalTo: headerView.safeAreaLayoutGuide.topAnchor, constant: 12).isActive = true
         stackView.centerYAnchor.constraint(equalTo: headerView.safeAreaLayoutGuide.centerYAnchor).isActive = true
+    }
+    
+    private func configureClearRecentlySearchedAC(ac: UIAlertController) {
+        ac.view.tintColor = .systemIndigo
+        ac.addAction(UIAlertAction(title: "Clear Recent Searches", style: .destructive, handler: { _ in
+            print("TODO: Clear Recent Searches")
+        }))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        if let popoverController = ac.popoverPresentationController {
+            popoverController.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
+            popoverController.sourceView = self.backgroundView
+            popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+        }
+    }
+    
+    @objc private func showClearRecentlySearchedAC() {
+        let ac = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        configureClearRecentlySearchedAC(ac: ac)
+        UIApplication.topViewController()?.present(ac, animated: true)
+    }
+}
+
+extension UIApplication {
+    static func topViewController() -> UIViewController? {
+        guard var top = UIApplication.shared.windows.filter({$0.isKeyWindow}).first?.rootViewController else {
+            return nil
+        }
+        while let next = top.presentedViewController {
+            top = next
+        }
+        return top
     }
 }
