@@ -108,15 +108,25 @@ extension NewSearchViewController {
 
 extension NewSearchViewController {
     private func createObservers() {
-        let name = Notification.Name("com.riverfort.searchedCompany")
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareSearchedCompany), name: name, object: nil)
+        let searchedCompanyName = Notification.Name("com.riverfort.searchedCompany")
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareCreateSearchedCompany), name: searchedCompanyName, object: nil)
+        
+        let deleteSearchedCompanyName = Notification.Name("com.riverfort.deleteSearchedCompany")
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareDeleteSearchedCompany), name: deleteSearchedCompanyName, object: nil)
     }
     
-    @objc private func prepareSearchedCompany(notification: Notification) {
+    @objc private func prepareCreateSearchedCompany(notification: Notification) {
         guard let fmpStockTickerSearch = notification.object as? FMPStockTickerSearch else {
             return
         }
         createSearchedCompany(fmpStockTickerSearch: fmpStockTickerSearch)
+    }
+    
+    @objc private func prepareDeleteSearchedCompany(notification: Notification) {
+        guard let recentSearchedCompany = notification.object as? RecentSearchedCompany else {
+            return
+        }
+        deleteSearchedCompany(recentSearchedCompany: recentSearchedCompany)
     }
 }
 

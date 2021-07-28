@@ -82,6 +82,22 @@ extension RecentSearchTableView {
 }
 
 extension RecentSearchTableView {
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableView.beginUpdates()
+            let name = Notification.Name("com.riverfort.deleteSearchedCompany")
+            NotificationCenter.default.post(name: name, object: recentSearchedCompanies[indexPath.row])
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.endUpdates()
+        }
+    }
+}
+
+extension RecentSearchTableView {
     private func configureHeaderView(headerView: UIView) {
 
     }
