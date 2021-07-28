@@ -301,6 +301,35 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		7770081626B1A5650021A9BB /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				771263C526A95CAC00B57C04 /* NewSearchViewController.swift */,
+				771263CB26A97EED00B57C04 /* SearchResultsTableViewController.swift */,
+				7789470526AEF1C2005FDED7 /* ProgressViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7770081726B1A5820021A9BB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7785EF2C26AAA24500AEB5FE /* SearchResultCell.swift */,
+				77DAF9CC26B05853008662E0 /* RecentSearchTableView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7770081826B1A5980021A9BB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7785EF2A26AAA22300AEB5FE /* FMPStockTickerSearch.swift */,
+				77CB234926B1684900023934 /* CoreDataManager.swift */,
+				77CB234826B166B200023934 /* RecentSearchedCompany */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		7785D7872630144200988C28 /* WatchedCompany */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,14 +342,9 @@
 		7785EF2926AAA1C200AEB5FE /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				771263C526A95CAC00B57C04 /* NewSearchViewController.swift */,
-				771263CB26A97EED00B57C04 /* SearchResultsTableViewController.swift */,
-				7785EF2C26AAA24500AEB5FE /* SearchResultCell.swift */,
-				7785EF2A26AAA22300AEB5FE /* FMPStockTickerSearch.swift */,
-				7789470526AEF1C2005FDED7 /* ProgressViewController.swift */,
-				77DAF9CC26B05853008662E0 /* RecentSearchTableView.swift */,
-				77CB234826B166B200023934 /* RecentSearchedCompany */,
-				77CB234926B1684900023934 /* CoreDataManager.swift */,
+				7770081626B1A5650021A9BB /* ViewController */,
+				7770081726B1A5820021A9BB /* View */,
+				7770081826B1A5980021A9BB /* Model */,
 			);
 			path = Search;
 			sourceTree = "<group>";
