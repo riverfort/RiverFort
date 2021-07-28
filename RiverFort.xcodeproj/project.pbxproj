@@ -72,6 +72,9 @@
 		77C4BD88261CB8D500B8C748 /* ColourExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C4BD87261CB8D400B8C748 /* ColourExtension.swift */; };
 		77C6ABB126497F5C00644179 /* SearchNoResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C6ABB026497F5C00644179 /* SearchNoResultsView.swift */; };
 		77CAA2E626679043003A0246 /* UserDefaults+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CAA2E526679043003A0246 /* UserDefaults+.swift */; };
+		77CB234526B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB234326B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift */; };
+		77CB234626B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB234426B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift */; };
+		77CB234A26B1684900023934 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB234926B1684900023934 /* CoreDataManager.swift */; };
 		77CF843226316DB2009A5E21 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CF843126316DB2009A5E21 /* UIAlertControllerExtension.swift */; };
 		77DAF9CD26B05853008662E0 /* RecentSearchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DAF9CC26B05853008662E0 /* RecentSearchTableView.swift */; };
 		77E239AE2678D1EF004E562C /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E239AD2678D1EF004E562C /* Reachability.swift */; };
@@ -150,6 +153,9 @@
 		77C4BD87261CB8D400B8C748 /* ColourExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourExtension.swift; sourceTree = "<group>"; };
 		77C6ABB026497F5C00644179 /* SearchNoResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNoResultsView.swift; sourceTree = "<group>"; };
 		77CAA2E526679043003A0246 /* UserDefaults+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+.swift"; sourceTree = "<group>"; };
+		77CB234326B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecentSearchedCompany+CoreDataClass.swift"; sourceTree = "<group>"; };
+		77CB234426B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecentSearchedCompany+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		77CB234926B1684900023934 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		77CF843126316DB2009A5E21 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		77DAF9CC26B05853008662E0 /* RecentSearchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchTableView.swift; sourceTree = "<group>"; };
 		77E239AD2678D1EF004E562C /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -313,6 +319,8 @@
 				7785EF2A26AAA22300AEB5FE /* FMPStockTickerSearch.swift */,
 				7789470526AEF1C2005FDED7 /* ProgressViewController.swift */,
 				77DAF9CC26B05853008662E0 /* RecentSearchTableView.swift */,
+				77CB234826B166B200023934 /* RecentSearchedCompany */,
+				77CB234926B1684900023934 /* CoreDataManager.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -346,6 +354,15 @@
 				77950FC72643DBEB002AC408 /* CardPartQuotesView.swift */,
 			);
 			path = "CardPart Views";
+			sourceTree = "<group>";
+		};
+		77CB234826B166B200023934 /* RecentSearchedCompany */ = {
+			isa = PBXGroup;
+			children = (
+				77CB234326B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift */,
+				77CB234426B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift */,
+			);
+			path = RecentSearchedCompany;
 			sourceTree = "<group>";
 		};
 		77F9335F261A2BA1007662D5 /* Extensions */ = {
@@ -518,6 +535,7 @@
 				773A0B6726171238002B9875 /* ViewController.swift in Sources */,
 				779ED8A526383CBE00815B4D /* SettingFooterView.swift in Sources */,
 				77876E92264D5CA400798106 /* NSRegularExpressionExtension.swift in Sources */,
+				77CB234626B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift in Sources */,
 				771263C626A95CAC00B57C04 /* NewSearchViewController.swift in Sources */,
 				776D13C3261E087500B9CF97 /* HomeViewController.swift in Sources */,
 				7789A82B266A30B300B71294 /* ADTVChartView.swift in Sources */,
@@ -552,7 +570,9 @@
 				77876E90264D484700798106 /* FeedsCardController.swift in Sources */,
 				77950FCE2643EA4B002AC408 /* ThemedCardController.swift in Sources */,
 				773A0BBD261728AA002B9875 /* CompanyTableViewCell.swift in Sources */,
+				77CB234A26B1684900023934 /* CoreDataManager.swift in Sources */,
 				77286CA92621DEBB00B73570 /* ChartMarker.swift in Sources */,
+				77CB234526B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift in Sources */,
 				77950FD626443A79002AC408 /* ProfileCardController.swift in Sources */,
 				773A0BAA26172690002B9875 /* Company.swift in Sources */,
 				77876E94264D5D6700798106 /* Regex.swift in Sources */,
