@@ -21,6 +21,12 @@ class RecentSearchTableView: UITableView {
 }
 
 extension RecentSearchTableView {
+    public func setRecentSearchedCompanies(recentSearchedCompanies: [RecentSearchedCompany]) {
+        self.recentSearchedCompanies = recentSearchedCompanies
+    }
+}
+
+extension RecentSearchTableView {
     private func configureTableView() {
         self.dataSource = self
         self.delegate = self
