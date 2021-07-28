@@ -43,13 +43,13 @@ extension SearchResultsTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let selectedSymbol = fmpCompanies[indexPath.row].symbol
-        let selectedName = fmpCompanies[indexPath.row].name
+        let selectedName   = fmpCompanies[indexPath.row].name
+        let companyDetailViewController = CompanyDetailViewController()
+        let navigationController = UINavigationController(rootViewController: companyDetailViewController)
+        companyDetailViewController.company = Company(company_ticker: selectedSymbol, company_name: selectedName)
         searchCompany(ticker: selectedSymbol) { [self] (statusCode) in
             DispatchQueue.main.async {
                 if statusCode == 200 {
-                    let companyDetailViewController = CompanyDetailViewController()
-                    let navigationController = UINavigationController(rootViewController: companyDetailViewController)
-                    companyDetailViewController.company = Company(company_ticker: selectedSymbol, company_name: selectedName)
                     present(navigationController, animated: true)
                 } else {
                     let progressViewController = ProgressViewController()
@@ -61,9 +61,6 @@ extension SearchResultsTableViewController {
                             addOnSymbolRequest:
                                 AddOnSymbolRequest(company_ticker: selectedSymbol, company_name: selectedName)) { (statusCode) in
                             if statusCode == 200 {
-                                let companyDetailViewController = CompanyDetailViewController()
-                                let navigationController = UINavigationController(rootViewController: companyDetailViewController)
-                                companyDetailViewController.company = Company(company_ticker: selectedSymbol, company_name: selectedName)
                                 progressViewController.dismiss(animated: true)
                                 present(navigationController, animated: true)
                             } else {
