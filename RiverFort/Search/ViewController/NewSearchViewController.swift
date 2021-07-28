@@ -9,6 +9,7 @@ import UIKit
 
 
 class NewSearchViewController: UIViewController {
+    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     private let recentSearchTableView = RecentSearchTableView(frame: .zero, style: .grouped)
     private let searchResultsTableViewController = SearchResultsTableViewController()
     
@@ -17,6 +18,7 @@ class NewSearchViewController: UIViewController {
         configureView()
         configureNavigationController()
         configureSearchController()
+        getSearchedCompanies()
     }
     
     override func viewDidLayoutSubviews() {
@@ -95,6 +97,45 @@ extension NewSearchViewController {
                 self.searchResultsTableViewController.setFMPCompanies(fmpCompanies: fmpCompanies)
             }
             task.resume()
+        }
+    }
+}
+
+extension NewSearchViewController {
+    func getSearchedCompanies() {
+        do {
+            let recentSearchedCompanies = try context.fetch(RecentSearchedCompany.fetchRequest()) as! [RecentSearchedCompany]
+            recentSearchTableView.setRecentSearchedCompanies(recentSearchedCompanies: recentSearchedCompanies)
+            DispatchQueue.main.async { [self] in
+                recentSearchTableView.reloadData()
+            }
+        } catch {
+
+        }
+    }
+    
+    func createSearchedCompany(fmpStockTickerSearch: FMPStockTickerSearch) {
+        let recentSearchedCompany = RecentSearchedCompany(context: context)
+        recentSearchedCompany.symbol   = fmpStockTickerSearch.symbol
+        recentSearchedCompany.name     = fmpStockTickerSearch.name
+        recentSearchedCompany.currency = fmpStockTickerSearch.currency
+        recentSearchedCompany.stockExchange     = fmpStockTickerSearch.stockExchange
+        recentSearchedCompany.exchangeShortName = fmpStockTickerSearch.exchangeShortName
+        do {
+            try context.save()
+            getSearchedCompanies()
+        } catch {
+            
+        }
+    }
+    
+    func deleteSearchedCompany(recentSearchedCompany: RecentSearchedCompany) {
+        context.delete(recentSearchedCompany)
+        do {
+            try context.save()
+            getSearchedCompanies()
+        } catch {
+            
         }
     }
 }
