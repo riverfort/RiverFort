@@ -51,6 +51,8 @@ extension SearchResultsTableViewController {
             DispatchQueue.main.async {
                 if statusCode == 200 {
                     present(navigationController, animated: true)
+                    let name = Notification.Name("com.riverfort.searchedCompany")
+                    NotificationCenter.default.post(name: name, object: fmpCompanies[indexPath.row])
                 } else {
                     let progressViewController = ProgressViewController()
                     configureProgressViewControllerModal(progressViewController: progressViewController)
@@ -63,6 +65,8 @@ extension SearchResultsTableViewController {
                             if statusCode == 200 {
                                 progressViewController.dismiss(animated: true)
                                 present(navigationController, animated: true)
+                                let name = Notification.Name("com.riverfort.searchedCompany")
+                                NotificationCenter.default.post(name: name, object: fmpCompanies[indexPath.row])
                             } else {
                                 progressViewController.dismiss(animated: true)
                                 SPAlert.present(title: "Data Unavailable", preset: .error, haptic: .error)

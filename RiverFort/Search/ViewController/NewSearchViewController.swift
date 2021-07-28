@@ -13,12 +13,17 @@ class NewSearchViewController: UIViewController {
     private let recentSearchTableView = RecentSearchTableView(frame: .zero, style: .grouped)
     private let searchResultsTableViewController = SearchResultsTableViewController()
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
         configureNavigationController()
         configureSearchController()
         getSearchedCompanies()
+        createObservers()
     }
     
     override func viewDidLayoutSubviews() {
@@ -98,6 +103,20 @@ extension NewSearchViewController {
             }
             task.resume()
         }
+    }
+}
+
+extension NewSearchViewController {
+    private func createObservers() {
+        let name = Notification.Name("com.riverfort.searchedCompany")
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareSearchedCompany), name: name, object: nil)
+    }
+    
+    @objc private func prepareSearchedCompany(notification: Notification) {
+        guard let fmpStockTickerSearch = notification.object as? FMPStockTickerSearch else {
+            return
+        }
+        createSearchedCompany(fmpStockTickerSearch: fmpStockTickerSearch)
     }
 }
 
