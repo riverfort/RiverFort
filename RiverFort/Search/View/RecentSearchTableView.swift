@@ -41,8 +41,9 @@ extension RecentSearchTableView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let recentSearchedCompany = recentSearchedCompanies[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = UITableViewCell(style: .value2, reuseIdentifier: "cell")
         cell.textLabel?.text = recentSearchedCompany.symbol
+        cell.detailTextLabel?.text = recentSearchedCompany.name
         return cell
     }
 }
