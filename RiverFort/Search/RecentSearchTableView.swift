@@ -8,6 +8,9 @@
 import Foundation
 
 class RecentSearchTableView: UITableView {
+    private let coreDataManager = CoreDataManager()
+    private var recentSearchedCompanies = [RecentSearchedCompany]()
+    
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         configureTableView()
@@ -28,7 +31,7 @@ extension RecentSearchTableView {
 
 extension RecentSearchTableView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return recentSearchedCompanies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -51,6 +54,9 @@ extension RecentSearchTableView {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if recentSearchedCompanies.count == 0 {
+            return 0
+        }
         return 50
     }
     
