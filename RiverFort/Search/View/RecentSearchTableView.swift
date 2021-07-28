@@ -8,7 +8,6 @@
 import Foundation
 
 class RecentSearchTableView: UITableView {
-    private let coreDataManager = CoreDataManager()
     private var recentSearchedCompanies = [RecentSearchedCompany]()
     
     override init(frame: CGRect, style: UITableView.Style) {
@@ -117,7 +116,9 @@ extension RecentSearchTableView {
             popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
         }
     }
-    
+}
+
+extension RecentSearchTableView {
     @objc private func showClearRecentlySearchedAC() {
         let ac = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         configureClearRecentlySearchedAC(ac: ac)
