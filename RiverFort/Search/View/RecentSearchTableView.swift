@@ -43,6 +43,7 @@ extension RecentSearchTableView: UITableViewDataSource {
         let recentSearchedCompany = recentSearchedCompanies[indexPath.row]
         let cell = UITableViewCell(style: .value2, reuseIdentifier: "cell")
         cell.textLabel?.text = recentSearchedCompany.symbol
+        cell.textLabel?.textColor = .systemIndigo
         cell.detailTextLabel?.text = recentSearchedCompany.name
         return cell
     }
