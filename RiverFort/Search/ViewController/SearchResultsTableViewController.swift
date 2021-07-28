@@ -48,9 +48,8 @@ extension SearchResultsTableViewController {
             DispatchQueue.main.async {
                 if statusCode == 200 {
                     let companyDetailViewController = CompanyDetailViewController()
-                    companyDetailViewController.company =
-                        Company(company_ticker: fmpCompanies[indexPath.row].symbol, company_name: fmpCompanies[indexPath.row].name)
                     let navigationController = UINavigationController(rootViewController: companyDetailViewController)
+                    companyDetailViewController.company = Company(company_ticker: selectedSymbol, company_name: selectedName)
                     present(navigationController, animated: true)
                 } else {
                     let progressViewController = ProgressViewController()
@@ -63,9 +62,8 @@ extension SearchResultsTableViewController {
                                 AddOnSymbolRequest(company_ticker: selectedSymbol, company_name: selectedName)) { (statusCode) in
                             if statusCode == 200 {
                                 let companyDetailViewController = CompanyDetailViewController()
-                                companyDetailViewController.company =
-                                    Company(company_ticker: fmpCompanies[indexPath.row].symbol, company_name: fmpCompanies[indexPath.row].name)
                                 let navigationController = UINavigationController(rootViewController: companyDetailViewController)
+                                companyDetailViewController.company = Company(company_ticker: selectedSymbol, company_name: selectedName)
                                 progressViewController.dismiss(animated: true)
                                 present(navigationController, animated: true)
                             } else {
