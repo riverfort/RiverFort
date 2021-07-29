@@ -23,13 +23,14 @@ class NewSearchViewController: UIViewController {
         configureView()
         configureNavigationController()
         configureSearchController()
+        configureRecentSearchTableView()
         getSearchedCompanies()
         createObservers()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        configureRecentSearchTableView()
+        recentSearchTableView.frame = view.bounds
     }
 }
 
