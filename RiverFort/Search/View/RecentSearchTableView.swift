@@ -95,6 +95,7 @@ extension RecentSearchTableView {
 
 extension RecentSearchTableView {
     private func configureTableView() {
+        self.backgroundColor = .systemBackground
         self.dataSource = self
         self.delegate = self
         self.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
