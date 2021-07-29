@@ -134,7 +134,7 @@ extension NewSearchViewController {
     func getSearchedCompanies() {
         do {
             let recentSearchedCompanies = try context.fetch(RecentSearchedCompany.fetchRequest()) as! [RecentSearchedCompany]
-            recentSearchTableView.setRecentSearchedCompanies(recentSearchedCompanies: recentSearchedCompanies)
+            recentSearchTableView.setRecentSearchedCompanies(recentSearchedCompanies: recentSearchedCompanies.reversed())
             DispatchQueue.main.async { [self] in
                 recentSearchTableView.reloadData()
             }
