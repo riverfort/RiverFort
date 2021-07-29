@@ -51,7 +51,7 @@ extension SearchResultsTableViewController {
             DispatchQueue.main.async {
                 if statusCode == 200 {
                     present(navigationController, animated: true)
-                    let name = Notification.Name("com.riverfort.searchedCompany")
+                    let name = Notification.Name("com.riverfort.createSearchedCompany")
                     NotificationCenter.default.post(name: name, object: fmpCompanies[indexPath.row])
                 } else {
                     let progressViewController = ProgressViewController()
@@ -65,7 +65,7 @@ extension SearchResultsTableViewController {
                             if statusCode == 200 {
                                 progressViewController.dismiss(animated: true)
                                 present(navigationController, animated: true)
-                                let name = Notification.Name("com.riverfort.searchedCompany")
+                                let name = Notification.Name("com.riverfort.createSearchedCompany")
                                 NotificationCenter.default.post(name: name, object: fmpCompanies[indexPath.row])
                             } else {
                                 progressViewController.dismiss(animated: true)

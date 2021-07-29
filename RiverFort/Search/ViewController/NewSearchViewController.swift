@@ -127,8 +127,8 @@ extension NewSearchViewController {
 
 extension NewSearchViewController {
     private func createObservers() {
-        let searchedCompanyName = Notification.Name("com.riverfort.searchedCompany")
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareCreateSearchedCompany), name: searchedCompanyName, object: nil)
+        let createSearchedCompanyName = Notification.Name("com.riverfort.createSearchedCompany")
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareCreateSearchedCompany), name: createSearchedCompanyName, object: nil)
         
         let deleteSearchedCompanyName = Notification.Name("com.riverfort.deleteSearchedCompany")
         NotificationCenter.default.addObserver(self, selector: #selector(prepareDeleteSearchedCompany), name: deleteSearchedCompanyName, object: nil)
