@@ -141,8 +141,11 @@ extension NewSearchViewController {
         guard let fmpStockTickerSearch = notification.object as? FMPStockTickerSearch else {
             return
         }
-//        print(isEntityAttributeExist(symbol: fmpStockTickerSearch.symbol, entityName: "RecentSearchedCompany"))
-        createSearchedCompany(fmpStockTickerSearch: fmpStockTickerSearch)
+        if isEntityAttributeExist(symbol: fmpStockTickerSearch.symbol, entityName: "RecentSearchedCompany") {
+
+        } else {
+            createSearchedCompany(fmpStockTickerSearch: fmpStockTickerSearch)
+        }
     }
     
     @objc private func prepareDeleteSearchedCompany(notification: Notification) {
