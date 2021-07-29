@@ -26,14 +26,6 @@ extension RecentSearchTableView {
     }
 }
 
-extension RecentSearchTableView {
-    private func configureTableView() {
-        self.dataSource = self
-        self.delegate = self
-        self.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-    }
-}
-
 extension RecentSearchTableView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recentSearchedCompanies.count
@@ -97,9 +89,13 @@ extension RecentSearchTableView {
 }
 
 extension RecentSearchTableView {
-    private func configureHeaderView(headerView: UIView) {
-
+    private func configureTableView() {
+        self.dataSource = self
+        self.delegate = self
+        self.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
+    
+    private func configureHeaderView(headerView: UIView) {}
     
     private func configureRecentlySearchedLabel(recentlySearchedLabel: UILabel) {
         recentlySearchedLabel.text = "Recently Searched"
@@ -142,14 +138,6 @@ extension RecentSearchTableView {
 }
 
 extension RecentSearchTableView {
-    @objc private func showClearRecentlySearchedAC() {
-        let ac = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        configureClearRecentlySearchedAC(ac: ac)
-        UIApplication.topViewController()?.present(ac, animated: true)
-    }
-}
-
-extension RecentSearchTableView {
     private func deleteSearchedCompanyNotification(recentSearchedCompany: RecentSearchedCompany) {
         let name = Notification.Name("com.riverfort.deleteSearchedCompany")
         NotificationCenter.default.post(name: name, object: recentSearchedCompany)
@@ -158,6 +146,14 @@ extension RecentSearchTableView {
     private func clearSearchedCompaniesNotification() {
         let name = Notification.Name("com.riverfort.clearSearchedCompanies")
         NotificationCenter.default.post(name: name, object: nil)
+    }
+}
+
+extension RecentSearchTableView {
+    @objc private func showClearRecentlySearchedAC() {
+        let ac = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        configureClearRecentlySearchedAC(ac: ac)
+        UIApplication.topViewController()?.present(ac, animated: true)
     }
 }
 
