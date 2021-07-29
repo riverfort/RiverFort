@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 
 class NewSearchViewController: UIViewController {
@@ -113,6 +114,9 @@ extension NewSearchViewController {
         
         let deleteSearchedCompanyName = Notification.Name("com.riverfort.deleteSearchedCompany")
         NotificationCenter.default.addObserver(self, selector: #selector(prepareDeleteSearchedCompany), name: deleteSearchedCompanyName, object: nil)
+        
+        let clearSearchedCompaniesName = Notification.Name("com.riverfort.clearSearchedCompanies")
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareClearSearchedCompanies), name: clearSearchedCompaniesName, object: nil)
     }
     
     @objc private func prepareCreateSearchedCompany(notification: Notification) {
@@ -127,6 +131,10 @@ extension NewSearchViewController {
             return
         }
         deleteSearchedCompany(recentSearchedCompany: recentSearchedCompany)
+    }
+    
+    @objc private func prepareClearSearchedCompanies() {
+        clearSearchedCompanies()
     }
 }
 
@@ -165,6 +173,17 @@ extension NewSearchViewController {
             getSearchedCompanies()
         } catch {
             
+        }
+    }
+    
+    func clearSearchedCompanies() {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "RecentSearchedCompany")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do {
+            try context.execute(deleteRequest)
+            getSearchedCompanies()
+        } catch {
+            // TODO: handle the error
         }
     }
 }

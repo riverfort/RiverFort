@@ -131,7 +131,8 @@ extension RecentSearchTableView {
     private func configureClearRecentlySearchedAC(ac: UIAlertController) {
         ac.view.tintColor = .systemIndigo
         ac.addAction(UIAlertAction(title: "Clear Recent Searches", style: .destructive, handler: { _ in
-            print("TODO: Clear Recent Searches")
+            let name = Notification.Name("com.riverfort.clearSearchedCompanies")
+            NotificationCenter.default.post(name: name, object: nil)
         }))
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         if let popoverController = ac.popoverPresentationController {
