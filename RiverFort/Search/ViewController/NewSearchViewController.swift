@@ -40,6 +40,7 @@ extension NewSearchViewController {
     
     private func configureNavigationController() {
         navigationItem.title = "Search"
+        navigationItem.largeTitleDisplayMode = .always
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.tintColor = .systemIndigo
@@ -58,6 +59,7 @@ extension NewSearchViewController {
         view.addSubview(recentSearchTableView)
         recentSearchTableView.frame = view.bounds
         recentSearchTableView.isHidden = true
+        recentSearchTableView.keyboardDismissMode = .onDrag
     }
 }
 
@@ -65,8 +67,8 @@ extension NewSearchViewController: UISearchControllerDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         recentSearchTableView.isHidden = false
     }
-
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         recentSearchTableView.isHidden = true
     }
 }
