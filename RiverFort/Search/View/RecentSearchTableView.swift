@@ -89,8 +89,7 @@ extension RecentSearchTableView {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             tableView.beginUpdates()
-            let name = Notification.Name("com.riverfort.deleteSearchedCompany")
-            NotificationCenter.default.post(name: name, object: recentSearchedCompanies[indexPath.row])
+            deleteSearchedCompanyNotification(recentSearchedCompany: recentSearchedCompanies[indexPath.row])
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
         }
@@ -130,9 +129,8 @@ extension RecentSearchTableView {
     
     private func configureClearRecentlySearchedAC(ac: UIAlertController) {
         ac.view.tintColor = .systemIndigo
-        ac.addAction(UIAlertAction(title: "Clear Recent Searches", style: .destructive, handler: { _ in
-            let name = Notification.Name("com.riverfort.clearSearchedCompanies")
-            NotificationCenter.default.post(name: name, object: nil)
+        ac.addAction(UIAlertAction(title: "Clear Recent Searches", style: .destructive, handler: { [self] _ in
+            clearSearchedCompaniesNotification()
         }))
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         if let popoverController = ac.popoverPresentationController {
@@ -148,6 +146,18 @@ extension RecentSearchTableView {
         let ac = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         configureClearRecentlySearchedAC(ac: ac)
         UIApplication.topViewController()?.present(ac, animated: true)
+    }
+}
+
+extension RecentSearchTableView {
+    private func deleteSearchedCompanyNotification(recentSearchedCompany: RecentSearchedCompany) {
+        let name = Notification.Name("com.riverfort.deleteSearchedCompany")
+        NotificationCenter.default.post(name: name, object: recentSearchedCompany)
+    }
+    
+    private func clearSearchedCompaniesNotification() {
+        let name = Notification.Name("com.riverfort.clearSearchedCompanies")
+        NotificationCenter.default.post(name: name, object: nil)
     }
 }
 
