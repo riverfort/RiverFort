@@ -57,21 +57,20 @@ extension NewSearchViewController {
     
     private func configureRecentSearchTableView() {
         view.addSubview(recentSearchTableView)
+        recentSearchTableView.setSystemMinimumLayoutMargins(marginLeading:(navigationController?.systemMinimumLayoutMargins.leading)!)
         recentSearchTableView.frame = view.bounds
-        recentSearchTableView
-            .setSystemMinimumLayoutMargins(marginLeading:(navigationController?.systemMinimumLayoutMargins.leading)!)   
-//        recentSearchTableView.isHidden = true
+        recentSearchTableView.isHidden = true
         recentSearchTableView.keyboardDismissMode = .onDrag
     }
 }
 
 extension NewSearchViewController: UISearchControllerDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-//        recentSearchTableView.isHidden = false
+        recentSearchTableView.isHidden = false
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//        recentSearchTableView.isHidden = true
+        recentSearchTableView.isHidden = true
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
