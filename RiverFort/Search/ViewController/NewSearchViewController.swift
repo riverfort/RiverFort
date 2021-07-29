@@ -141,6 +141,7 @@ extension NewSearchViewController {
         guard let fmpStockTickerSearch = notification.object as? FMPStockTickerSearch else {
             return
         }
+//        print(isEntityAttributeExist(symbol: fmpStockTickerSearch.symbol, entityName: "RecentSearchedCompany"))
         createSearchedCompany(fmpStockTickerSearch: fmpStockTickerSearch)
     }
     
@@ -203,5 +204,12 @@ extension NewSearchViewController {
         } catch {
             // TODO: handle the error
         }
+    }
+    
+    func isEntityAttributeExist(symbol: String, entityName: String) -> Bool {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        fetchRequest.predicate = NSPredicate(format: "symbol == %@", symbol)
+        let res = try! context.fetch(fetchRequest)
+        return res.count > 0 ? true : false
     }
 }
