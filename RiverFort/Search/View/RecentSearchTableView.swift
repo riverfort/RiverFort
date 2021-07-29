@@ -117,9 +117,9 @@ extension RecentSearchTableView {
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.leadingAnchor.constraint(equalTo: headerView.safeAreaLayoutGuide.leadingAnchor, constant: 12).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: headerView.safeAreaLayoutGuide.trailingAnchor, constant: -12).isActive = true
-        stackView.topAnchor.constraint(equalTo: headerView.safeAreaLayoutGuide.topAnchor, constant: 12).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: headerView.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: headerView.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        stackView.topAnchor.constraint(equalTo: headerView.safeAreaLayoutGuide.topAnchor).isActive = true
         stackView.centerYAnchor.constraint(equalTo: headerView.safeAreaLayoutGuide.centerYAnchor).isActive = true
     }
     
