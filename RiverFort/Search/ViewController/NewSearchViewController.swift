@@ -66,7 +66,11 @@ extension NewSearchViewController {
 
 extension NewSearchViewController: UISearchControllerDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        recentSearchTableView.alpha = 0
         recentSearchTableView.isHidden = false
+        UIView.animate(withDuration: 0.2) { [self] in
+            recentSearchTableView.alpha = 1
+        }
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
