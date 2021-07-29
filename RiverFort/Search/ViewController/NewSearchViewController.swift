@@ -73,6 +73,13 @@ extension NewSearchViewController: UISearchControllerDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
 //        recentSearchTableView.isHidden = true
     }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.text else {
+            return
+        }
+        searchFMPStockTicker(searchText: searchText)
+    }
 }
 
 extension NewSearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
