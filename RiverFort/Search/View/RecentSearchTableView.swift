@@ -104,7 +104,8 @@ extension RecentSearchTableView {
     private func configureHeaderView(headerView: UIView) {}
     
     private func configureRecentlySearchedLabel(recentlySearchedLabel: UILabel) {
-        recentlySearchedLabel.text = "Recently Searched"
+        recentlySearchedLabel.textColor = .systemGray
+        recentlySearchedLabel.text = "Recents"
         recentlySearchedLabel.font = .preferredFont(forTextStyle: .headline)
         recentlySearchedLabel.adjustsFontForContentSizeCategory = true
     }
