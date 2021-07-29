@@ -57,13 +57,9 @@ extension NewSearchViewController {
     
     private func configureRecentSearchTableView() {
         view.addSubview(recentSearchTableView)
-        recentSearchTableView.translatesAutoresizingMaskIntoConstraints = false
-        recentSearchTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,
-                                                       constant: (navigationController?.systemMinimumLayoutMargins.leading)!).isActive = true
-        recentSearchTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,
-                                                        constant: -(navigationController?.systemMinimumLayoutMargins.trailing)!).isActive = true
-        recentSearchTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        recentSearchTableView.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor).isActive = true
+        recentSearchTableView.frame = view.bounds
+        recentSearchTableView
+            .setSystemMinimumLayoutMargins(marginLeading:(navigationController?.systemMinimumLayoutMargins.leading)!)   
 //        recentSearchTableView.isHidden = true
         recentSearchTableView.keyboardDismissMode = .onDrag
     }

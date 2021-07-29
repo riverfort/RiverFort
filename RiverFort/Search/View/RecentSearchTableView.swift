@@ -9,6 +9,7 @@ import Foundation
 
 class RecentSearchTableView: UITableView {
     private var recentSearchedCompanies = [RecentSearchedCompany]()
+    private var systemMinimumLayoutMarginsLeading = CGFloat()
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -23,6 +24,10 @@ class RecentSearchTableView: UITableView {
 extension RecentSearchTableView {
     public func setRecentSearchedCompanies(recentSearchedCompanies: [RecentSearchedCompany]) {
         self.recentSearchedCompanies = recentSearchedCompanies
+    }
+    
+    public func setSystemMinimumLayoutMargins(marginLeading: CGFloat) {
+        self.systemMinimumLayoutMarginsLeading = marginLeading
     }
 }
 
@@ -117,8 +122,10 @@ extension RecentSearchTableView {
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.leadingAnchor.constraint(equalTo: headerView.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: headerView.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: headerView.safeAreaLayoutGuide.leadingAnchor,
+                                           constant: systemMinimumLayoutMarginsLeading).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: headerView.safeAreaLayoutGuide.trailingAnchor,
+                                            constant: -systemMinimumLayoutMarginsLeading).isActive = true
         stackView.topAnchor.constraint(equalTo: headerView.safeAreaLayoutGuide.topAnchor).isActive = true
         stackView.centerYAnchor.constraint(equalTo: headerView.safeAreaLayoutGuide.centerYAnchor).isActive = true
     }
