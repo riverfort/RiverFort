@@ -51,8 +51,7 @@ extension SearchResultTableViewController {
             DispatchQueue.main.async {
                 if statusCode == 200 {
                     present(navigationController, animated: true)
-                    let name = Notification.Name(SearchConstants.CREATE_RECENT_SEARCH_COMPANY)
-                    NotificationCenter.default.post(name: name, object: fmpCompanies[indexPath.row])
+                    createRecentSearchCompanyNotification(fmpCompamy: fmpCompanies[indexPath.row])
                 } else {
                     let progressViewController = ProgressViewController()
                     configureProgressViewControllerModal(progressViewController: progressViewController)
@@ -65,8 +64,7 @@ extension SearchResultTableViewController {
                             if statusCode == 200 {
                                 progressViewController.dismiss(animated: true)
                                 present(navigationController, animated: true)
-                                let name = Notification.Name(SearchConstants.CREATE_RECENT_SEARCH_COMPANY)
-                                NotificationCenter.default.post(name: name, object: fmpCompanies[indexPath.row])
+                                createRecentSearchCompanyNotification(fmpCompamy: fmpCompanies[indexPath.row])
                             } else {
                                 progressViewController.dismiss(animated: true)
                                 SPAlert.present(title: "Data Unavailable", preset: .error, haptic: .error)
@@ -75,6 +73,13 @@ extension SearchResultTableViewController {
                 }
             }
         }
+    }
+}
+
+extension SearchResultTableViewController {
+    private func createRecentSearchCompanyNotification(fmpCompamy: FMPStockTickerSearch) {
+        let name = Notification.Name(SearchConstants.CREATE_RECENT_SEARCH_COMPANY)
+        NotificationCenter.default.post(name: name, object: fmpCompamy)
     }
 }
 
@@ -95,7 +100,6 @@ extension SearchResultTableViewController {
         task.resume()
     }
 }
-
 
 extension SearchResultTableViewController {
     private func configureTableView() {
