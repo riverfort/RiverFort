@@ -42,13 +42,14 @@ extension SearchResultTableViewController {
 extension SearchResultTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let selectedSymbol = fmpCompanies[indexPath.row].symbol
-        let selectedName   = fmpCompanies[indexPath.row].name
+        let selectedFMPCompany = fmpCompanies[indexPath.row]
+        let selectedSymbol     = fmpCompanies[indexPath.row].symbol
+        let selectedName       = fmpCompanies[indexPath.row].name
         searchCompany(ticker: selectedSymbol) { [self] (statusCode) in
             DispatchQueue.main.async {
                 if statusCode == 200 {
-                    selectSearchCompanyNotification(fmpCompamy: fmpCompanies[indexPath.row])
-                    createRecentSearchCompanyNotification(fmpCompamy: fmpCompanies[indexPath.row])
+                    selectSearchCompanyNotification(fmpCompamy: selectedFMPCompany)
+                    createRecentSearchCompanyNotification(fmpCompamy: selectedFMPCompany)
                 } else {
                     let progressViewController = ProgressViewController()
                     configureProgressViewControllerModal(progressViewController: progressViewController)
@@ -60,8 +61,8 @@ extension SearchResultTableViewController {
                                 AddOnSymbolRequest(company_ticker: selectedSymbol, company_name: selectedName)) { (statusCode) in
                             if statusCode == 200 {
                                 progressViewController.dismiss(animated: true)
-                                selectSearchCompanyNotification(fmpCompamy: fmpCompanies[indexPath.row])
-                                createRecentSearchCompanyNotification(fmpCompamy: fmpCompanies[indexPath.row])
+                                selectSearchCompanyNotification(fmpCompamy: selectedFMPCompany)
+                                createRecentSearchCompanyNotification(fmpCompamy: selectedFMPCompany)
                             } else {
                                 progressViewController.dismiss(animated: true)
                                 SPAlert.present(title: "Data Unavailable", preset: .error, haptic: .error)
