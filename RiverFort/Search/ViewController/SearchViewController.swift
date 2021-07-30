@@ -24,24 +24,13 @@ class SearchViewController: UIViewController {
         configureNavigationController()
         configureSearchController()
         configureRecentSearchTableView()
-        getSearchedCompanies()
+        getAllRecentSearchCompany()
         createObservers()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setRecentSearchTableViewConstraints()
-    }
-}
-
-
-extension SearchViewController {
-    private func setRecentSearchTableViewConstraints() {
-        recentSearchTableView.translatesAutoresizingMaskIntoConstraints = false
-        recentSearchTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive   = true
-        recentSearchTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        recentSearchTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive           = true
-        recentSearchTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive     = true
     }
 }
 
@@ -73,15 +62,27 @@ extension SearchViewController {
         recentSearchTableView.isHidden = true
         recentSearchTableView.keyboardDismissMode = .onDrag
     }
-}
-
-extension SearchViewController: UISearchControllerDelegate {
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+    private func configureRecentSearchTableViewShowingAnimation() {
         recentSearchTableView.alpha = 0
         recentSearchTableView.isHidden = false
         UIView.animate(withDuration: 0.5) { [self] in
             recentSearchTableView.alpha = 1
         }
+    }
+    
+    private func setRecentSearchTableViewConstraints() {
+        recentSearchTableView.translatesAutoresizingMaskIntoConstraints = false
+        recentSearchTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive   = true
+        recentSearchTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        recentSearchTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive           = true
+        recentSearchTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive     = true
+    }
+}
+
+extension SearchViewController: UISearchControllerDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        configureRecentSearchTableViewShowingAnimation()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -134,45 +135,43 @@ extension SearchViewController {
 
 extension SearchViewController {
     private func createObservers() {
-        let createSearchedCompanyName = Notification.Name(SearchConstants.CREATE_RECENT_SEARCH_COMPANY)
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareCreateSearchedCompany), name: createSearchedCompanyName, object: nil)
-        
-        let deleteSearchedCompanyName = Notification.Name(SearchConstants.DELETE_RECENT_SEARCH_COMPANY)
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareDeleteSearchedCompany), name: deleteSearchedCompanyName, object: nil)
-        
-        let clearSearchedCompaniesName = Notification.Name(SearchConstants.CLEAR_RECENT_SEARCH_COMPANY)
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareClearSearchedCompanies), name: clearSearchedCompaniesName, object: nil)
+        let createRecentSearchCompanyName = Notification.Name(SearchConstants.CREATE_RECENT_SEARCH_COMPANY)
+        let deleteRecentSearchCompanyName = Notification.Name(SearchConstants.DELETE_RECENT_SEARCH_COMPANY)
+        let clearRecentSearchCompanyName  = Notification.Name(SearchConstants.CLEAR_RECENT_SEARCH_COMPANY)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareCreateRecentSearchCompany), name: createRecentSearchCompanyName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareDeleteRecentSearchCompany), name: deleteRecentSearchCompanyName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareClearRecentSearchCompany), name: clearRecentSearchCompanyName, object: nil)
     }
     
-    @objc private func prepareCreateSearchedCompany(notification: Notification) {
+    @objc private func prepareCreateRecentSearchCompany(notification: Notification) {
         guard let fmpStockTickerSearch = notification.object as? FMPStockTickerSearch else {
             return
         }
         if isEntityAttributeExist(symbol: fmpStockTickerSearch.symbol, entityName: "RecentSearchedCompany") {
-            deleteSearchedCompany(symbol: fmpStockTickerSearch.symbol)
-            createSearchedCompany(fmpStockTickerSearch: fmpStockTickerSearch)
+            deleteRecentSearchCompany(symbol: fmpStockTickerSearch.symbol)
+            createRecentSearchCompany(fmpStockTickerSearch: fmpStockTickerSearch)
         } else {
-            createSearchedCompany(fmpStockTickerSearch: fmpStockTickerSearch)
+            createRecentSearchCompany(fmpStockTickerSearch: fmpStockTickerSearch)
         }
     }
     
-    @objc private func prepareDeleteSearchedCompany(notification: Notification) {
+    @objc private func prepareDeleteRecentSearchCompany(notification: Notification) {
         guard let recentSearchedCompany = notification.object as? RecentSearchedCompany else {
             return
         }
-        deleteSearchedCompany(recentSearchedCompany: recentSearchedCompany)
+        deleteRecentSearchCompany(recentSearchCompany: recentSearchedCompany)
     }
     
-    @objc private func prepareClearSearchedCompanies() {
-        clearSearchedCompanies()
+    @objc private func prepareClearRecentSearchCompany() {
+        clearRecentSearchCompany()
     }
 }
 
 extension SearchViewController {
-    func getSearchedCompanies() {
+    private func getAllRecentSearchCompany() {
         do {
-            let recentSearchedCompanies = try context.fetch(RecentSearchedCompany.fetchRequest()) as! [RecentSearchedCompany]
-            recentSearchTableView.setRecentSearchedCompanies(recentSearchedCompanies: recentSearchedCompanies.reversed())
+            let recentSearchCompanies = try context.fetch(RecentSearchedCompany.fetchRequest()) as! [RecentSearchedCompany]
+            recentSearchTableView.setRecentSearchedCompanies(recentSearchedCompanies: recentSearchCompanies.reversed())
             DispatchQueue.main.async { [self] in
                 recentSearchTableView.reloadData()
             }
@@ -181,32 +180,32 @@ extension SearchViewController {
         }
     }
     
-    func createSearchedCompany(fmpStockTickerSearch: FMPStockTickerSearch) {
-        let recentSearchedCompany = RecentSearchedCompany(context: context)
-        recentSearchedCompany.symbol   = fmpStockTickerSearch.symbol
-        recentSearchedCompany.name     = fmpStockTickerSearch.name
-        recentSearchedCompany.currency = fmpStockTickerSearch.currency
-        recentSearchedCompany.stockExchange     = fmpStockTickerSearch.stockExchange
-        recentSearchedCompany.exchangeShortName = fmpStockTickerSearch.exchangeShortName
+    private func createRecentSearchCompany(fmpStockTickerSearch: FMPStockTickerSearch) {
+        let recentSearchCompany = RecentSearchedCompany(context: context)
+        recentSearchCompany.symbol   = fmpStockTickerSearch.symbol
+        recentSearchCompany.name     = fmpStockTickerSearch.name
+        recentSearchCompany.currency = fmpStockTickerSearch.currency
+        recentSearchCompany.stockExchange     = fmpStockTickerSearch.stockExchange
+        recentSearchCompany.exchangeShortName = fmpStockTickerSearch.exchangeShortName
         do {
             try context.save()
-            getSearchedCompanies()
+            getAllRecentSearchCompany()
         } catch {
             
         }
     }
     
-    func deleteSearchedCompany(recentSearchedCompany: RecentSearchedCompany) {
-        context.delete(recentSearchedCompany)
+    private func deleteRecentSearchCompany(recentSearchCompany: RecentSearchedCompany) {
+        context.delete(recentSearchCompany)
         do {
             try context.save()
-            getSearchedCompanies()
+            getAllRecentSearchCompany()
         } catch {
             
         }
     }
     
-    func deleteSearchedCompany(symbol: String) {
+    private func deleteRecentSearchCompany(symbol: String) {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "RecentSearchedCompany")
         fetchRequest.predicate = NSPredicate(format: "symbol == %@", symbol)
         let objects = try! context.fetch(fetchRequest)
@@ -215,24 +214,24 @@ extension SearchViewController {
         }
         do {
             try context.save()
-            getSearchedCompanies()
+            getAllRecentSearchCompany()
         } catch {
             
         }
     }
     
-    func clearSearchedCompanies() {
+    private func clearRecentSearchCompany() {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "RecentSearchedCompany")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         do {
             try context.execute(deleteRequest)
-            getSearchedCompanies()
+            getAllRecentSearchCompany()
         } catch {
             // TODO: handle the error
         }
     }
     
-    func isEntityAttributeExist(symbol: String, entityName: String) -> Bool {
+    private func isEntityAttributeExist(symbol: String, entityName: String) -> Bool {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
         fetchRequest.predicate = NSPredicate(format: "symbol == %@", symbol)
         let res = try! context.fetch(fetchRequest)
