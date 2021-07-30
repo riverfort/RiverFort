@@ -64,10 +64,12 @@ extension SearchViewController {
     }
         
     private func configureRecentSearchTableViewShowingAnimation() {
-        recentSearchTableView.alpha = 0
-        recentSearchTableView.isHidden = false
-        UIView.animate(withDuration: 0.5) { [self] in
-            recentSearchTableView.alpha = 1
+        if recentSearchTableView.isHidden {
+            recentSearchTableView.alpha = 0
+            recentSearchTableView.isHidden = false
+            UIView.animate(withDuration: 0.5) { [self] in
+                recentSearchTableView.alpha = 1
+            }
         }
     }
     
