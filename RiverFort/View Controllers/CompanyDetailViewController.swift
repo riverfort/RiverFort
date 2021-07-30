@@ -40,6 +40,8 @@ class CompanyDetailViewController: CardsViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        HapticsManager.shared.impact(style: .soft)
         
         guard company != nil else {
             return
@@ -84,10 +86,22 @@ class CompanyDetailViewController: CardsViewController {
     
     @objc func chartInteracting(notification: Notification) {
         super.collectionView.isScrollEnabled = false
+        if #available(iOS 13.0, *) {
+            self.isModalInPresentation = true
+        }
+        navigationController?.presentationController?.presentedView?.gestureRecognizers?.forEach {
+            $0.isEnabled = false
+        }
     }
     
     @objc func chartEndInteracting(notification: Notification) {
         super.collectionView.isScrollEnabled = true
+        if #available(iOS 13.0, *) {
+            self.isModalInPresentation = false
+        }
+        navigationController?.presentationController?.presentedView?.gestureRecognizers?.forEach {
+            $0.isEnabled = true
+        }
     }
 
     override func viewDidLayoutSubviews() {
@@ -103,7 +117,7 @@ class CompanyDetailViewController: CardsViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = false
+//        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

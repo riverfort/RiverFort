@@ -8,7 +8,7 @@
 import UIKit
 import SPAlert
 
-class SearchViewController: UIViewController {
+class DeprecatedSearchViewController: UIViewController {
     
     private let reachability = try! Reachability()
     
@@ -34,7 +34,7 @@ class SearchViewController: UIViewController {
 
 // MARK: - UIViewController
 
-extension SearchViewController {
+extension DeprecatedSearchViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,7 +74,7 @@ extension SearchViewController {
 
 // MARK: - NotificationCenter
 
-extension SearchViewController {
+extension DeprecatedSearchViewController {
     
     private func configureNotificationCenter() {
         NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
@@ -89,7 +89,7 @@ extension SearchViewController {
 
 // MARK: - UITableViewDataSource
 
-extension SearchViewController: UITableViewDataSource {
+extension DeprecatedSearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.isActive && searchController.searchBar.selectedScopeButtonIndex == 0 {
@@ -119,7 +119,7 @@ extension SearchViewController: UITableViewDataSource {
 
 // MARK: - UITableView (didSelectRowAt)
 
-extension SearchViewController: UITableViewDelegate {
+extension DeprecatedSearchViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let companyDetailViewController = CompanyDetailViewController()
@@ -150,7 +150,7 @@ extension SearchViewController: UITableViewDelegate {
 
 // MARK: - UISearchResultsUpdating
 
-extension SearchViewController: UISearchResultsUpdating {
+extension DeprecatedSearchViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         if searchController.searchBar.selectedScopeButtonIndex == 0 {
@@ -207,7 +207,7 @@ extension SearchViewController: UISearchResultsUpdating {
 
 // MARK: - showAddOnActionSheet
 
-extension SearchViewController {
+extension DeprecatedSearchViewController {
     
     func showAddOnActionSheet(company: Company) {
         let ac = UIAlertController(title: nil, message: "Would you like to add the symbol to RF Library?\n\n\(company.company_ticker)\n\(company.company_name)", preferredStyle: .actionSheet)
@@ -244,7 +244,7 @@ extension SearchViewController {
 
 // MARK: - View configuration
 
-extension SearchViewController: UISearchBarDelegate {
+extension DeprecatedSearchViewController: UISearchBarDelegate {
     
     private func configureNavigationBar() {
         title = "Search"
@@ -281,7 +281,7 @@ extension SearchViewController: UISearchBarDelegate {
 
 // MARK: - Tableview (heightForRowAt)
 
-extension SearchViewController {
+extension DeprecatedSearchViewController {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(60)
@@ -291,7 +291,7 @@ extension SearchViewController {
 
 // MARK: - API
 
-extension SearchViewController: FullListDataDelegate {
+extension DeprecatedSearchViewController: FullListDataDelegate {
     
     func updateCompaniesArray(newArray: String) {
         do {
@@ -310,7 +310,7 @@ extension SearchViewController: FullListDataDelegate {
 
 // MARK: - DZNEmptyDataSetSource, DZNEmptyDataSetDelegate
 
-extension SearchViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+extension DeprecatedSearchViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
     func verticalOffset(forEmptyDataSet scrollView: UIScrollView) -> CGFloat {
         return -60.0
@@ -365,7 +365,7 @@ extension SearchViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
 
 // MARK: - Reachability
 
-extension SearchViewController {
+extension DeprecatedSearchViewController {
     
     @objc func reachabilityChanged(note: Notification) {
         let reachability = note.object as! Reachability

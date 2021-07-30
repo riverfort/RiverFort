@@ -359,7 +359,7 @@ extension WatchlistViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegat
     }
 
     func emptyDataSet(_ scrollView: UIScrollView, didTap button: UIButton) {
-        let searchVC = SearchViewController()
+        let searchVC = DeprecatedSearchViewController()
         let searchNavVC = UINavigationController(rootViewController: searchVC)
         let closeButton = UIBarButtonItem(
             image: UIImage.init(systemName: "xmark.circle"),
