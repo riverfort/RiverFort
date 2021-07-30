@@ -184,6 +184,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		77104EEE26B4497B0058E2C2 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				77104EEF26B4499D0058E2C2 /* Haptics */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		77104EEF26B4499D0058E2C2 /* Haptics */ = {
+			isa = PBXGroup;
+			children = (
+				77C4BD84261CAF9100B8C748 /* HapticsManager.swift */,
+			);
+			path = Haptics;
+			sourceTree = "<group>";
+		};
 		773A0B5626171238002B9875 = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +221,7 @@
 		773A0B6126171238002B9875 /* RiverFort */ = {
 			isa = PBXGroup;
 			children = (
+				77104EEE26B4497B0058E2C2 /* Common */,
 				7785EF2926AAA1C200AEB5FE /* Search */,
 				773A0B6226171238002B9875 /* AppDelegate.swift */,
 				773A0B6426171238002B9875 /* SceneDelegate.swift */,
@@ -246,7 +263,6 @@
 				773A0BB926172872002B9875 /* Constants.swift */,
 				773A0BCA26176C8F002B9875 /* Currency.swift */,
 				77F93371261A3675007662D5 /* DateFormatterUtils.swift */,
-				77C4BD84261CAF9100B8C748 /* HapticsManager.swift */,
 				77E7E6A926206667003323DA /* ChartColours.swift */,
 				771D16AD263989C10034193A /* AppVersion.swift */,
 				77876E93264D5D6700798106 /* Regex.swift */,
