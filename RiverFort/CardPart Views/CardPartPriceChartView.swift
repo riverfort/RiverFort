@@ -244,7 +244,7 @@ extension CardPartPriceChartView {
 
 extension CardPartPriceChartView {
     @objc private func handleChartModeSegmentedControlValueChanged(_ sender: UISegmentedControl) {
-        HapticsManager.shared.impactVibrate()
+        HapticsManager.shared.impact()
         sharepriceChartView.animate(xAxisDuration: 0.3, easingOption: .easeInSine)
         sharepriceChartView.zoom(scaleX: 0, scaleY: 0, x: 0, y: 0)
         switch chartModeSegmentedControl.selectedSegmentIndex {
@@ -297,7 +297,7 @@ extension CardPartPriceChartView {
     }
     
     @objc private func handleTimeSegmentedControlValueChanged(_ sender: UISegmentedControl) {
-        HapticsManager.shared.impactVibrate()
+        HapticsManager.shared.impact()
         setDataForChart(values: self.tradings)
         sharepriceChartView.animate(yAxisDuration: 0.3, easingOption: .easeOutSine)
         sharepriceChartView.zoom(scaleX: 0, scaleY: 0, x: 0, y: 0)
