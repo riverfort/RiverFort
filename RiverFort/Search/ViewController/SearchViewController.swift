@@ -174,9 +174,16 @@ extension SearchViewController {
         guard let recentSearchedCompany = notification.object as? RecentSearchedCompany else {
             return
         }
+        let fmpStockTickerSearch = FMPStockTickerSearch(symbol: recentSearchedCompany.symbol!,
+                                                        name: recentSearchedCompany.name!,
+                                                        currency: recentSearchedCompany.currency!,
+                                                        stockExchange: recentSearchedCompany.stockExchange!,
+                                                        exchangeShortName: recentSearchedCompany.exchangeShortName!)
         let companyDetailViewController = CompanyDetailViewController()
         companyDetailViewController.company = Company(company_ticker: recentSearchedCompany.symbol!, company_name: recentSearchedCompany.name!)
         navigationController?.pushViewController(companyDetailViewController, animated: true)
+        deleteRecentSearchCompany(recentSearchCompany: recentSearchedCompany)
+        createRecentSearchCompany(fmpStockTickerSearch: fmpStockTickerSearch)
     }
 }
 
