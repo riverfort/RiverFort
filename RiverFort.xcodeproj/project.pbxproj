@@ -341,6 +341,7 @@
 		7785EF2926AAA1C200AEB5FE /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				77A9758926B3F75A00E150CA /* Extension */,
 				7770081626B1A5650021A9BB /* ViewController */,
 				7770081726B1A5820021A9BB /* View */,
 				7770081826B1A5980021A9BB /* Model */,
@@ -386,6 +387,13 @@
 				77A9758726B3EEC700E150CA /* SearchConstants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		77A9758926B3F75A00E150CA /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		77CB234826B166B200023934 /* RecentSearchedCompany */ = {
