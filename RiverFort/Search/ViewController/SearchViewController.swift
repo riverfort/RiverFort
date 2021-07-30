@@ -138,9 +138,11 @@ extension SearchViewController {
         let createRecentSearchCompanyName = Notification.Name(SearchConstants.CREATE_RECENT_SEARCH_COMPANY)
         let deleteRecentSearchCompanyName = Notification.Name(SearchConstants.DELETE_RECENT_SEARCH_COMPANY)
         let clearRecentSearchCompanyName  = Notification.Name(SearchConstants.CLEAR_RECENT_SEARCH_COMPANY)
+        let selectRecentSearchCompanyName = Notification.Name(SearchConstants.SELECT_RECENT_SEARCH_COMPANY)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareCreateRecentSearchCompany), name: createRecentSearchCompanyName, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareDeleteRecentSearchCompany), name: deleteRecentSearchCompanyName, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareClearRecentSearchCompany), name: clearRecentSearchCompanyName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareSelectRecentSearchCompany), name: selectRecentSearchCompanyName, object: nil)
     }
     
     @objc private func prepareCreateRecentSearchCompany(notification: Notification) {
@@ -164,6 +166,13 @@ extension SearchViewController {
     
     @objc private func prepareClearRecentSearchCompany() {
         clearRecentSearchCompany()
+    }
+    
+    @objc private func prepareSelectRecentSearchCompany(notification: Notification) {
+        guard let recentSearchedCompany = notification.object as? RecentSearchedCompany else {
+            return
+        }
+        print(recentSearchedCompany)
     }
 }
 

@@ -49,7 +49,8 @@ extension RecentSearchTableView: UITableViewDataSource {
 extension RecentSearchTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        print("\(indexPath.row)")
+        let selectedRecentSearchedCompany = recentSearchedCompanies[indexPath.row]
+        selectRecentSearchCompanyNotification(recentSearchedCompany: selectedRecentSearchedCompany)
     }
 }
 
@@ -155,6 +156,11 @@ extension RecentSearchTableView {
     private func clearRecentSearchCompanyNotification() {
         let name = Notification.Name(SearchConstants.CLEAR_RECENT_SEARCH_COMPANY)
         NotificationCenter.default.post(name: name, object: nil)
+    }
+    
+    private func selectRecentSearchCompanyNotification(recentSearchedCompany: RecentSearchedCompany) {
+        let name = Notification.Name(SearchConstants.SELECT_RECENT_SEARCH_COMPANY)
+        NotificationCenter.default.post(name: name, object: recentSearchedCompany)
     }
 }
 
