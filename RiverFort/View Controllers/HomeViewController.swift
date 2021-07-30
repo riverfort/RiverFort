@@ -13,7 +13,7 @@ class HomeViewController: UITabBarController {
         super.viewDidLoad()
         
 //        let searchVC = UINavigationController(rootViewController: SearchViewController())
-        let newSearchVC = UINavigationController(rootViewController: NewSearchViewController())
+        let newSearchVC = UINavigationController(rootViewController: SearchViewController())
         let watchlistVC = UINavigationController(rootViewController: WatchlistViewController())
         
 //        searchVC.title = "Search"

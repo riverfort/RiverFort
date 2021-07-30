@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		7702DFBA261B5E8400EE6191 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 7702DFB9261B5E8400EE6191 /* Charts */; };
 		7707F04F262B219300C4E8D4 /* WatchedCompanyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7707F04E262B219300C4E8D4 /* WatchedCompanyDetail.swift */; };
-		771263C626A95CAC00B57C04 /* NewSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771263C526A95CAC00B57C04 /* NewSearchViewController.swift */; };
+		771263C626A95CAC00B57C04 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771263C526A95CAC00B57C04 /* SearchViewController.swift */; };
 		771263CC26A97EED00B57C04 /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771263CB26A97EED00B57C04 /* SearchResultsTableViewController.swift */; };
 		771D16AE263989C10034193A /* AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D16AD263989C10034193A /* AppVersion.swift */; };
 		77286CA92621DEBB00B73570 /* ChartMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77286CA82621DEBB00B73570 /* ChartMarker.swift */; };
@@ -88,7 +88,7 @@
 /* Begin PBXFileReference section */
 		69D13D5B19688F922B9BB9AD /* Pods-RiverFort.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RiverFort.release.xcconfig"; path = "Target Support Files/Pods-RiverFort/Pods-RiverFort.release.xcconfig"; sourceTree = "<group>"; };
 		7707F04E262B219300C4E8D4 /* WatchedCompanyDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchedCompanyDetail.swift; sourceTree = "<group>"; };
-		771263C526A95CAC00B57C04 /* NewSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSearchViewController.swift; sourceTree = "<group>"; };
+		771263C526A95CAC00B57C04 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		771263CB26A97EED00B57C04 /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		771D16AD263989C10034193A /* AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersion.swift; sourceTree = "<group>"; };
 		77286CA82621DEBB00B73570 /* ChartMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartMarker.swift; sourceTree = "<group>"; };
@@ -302,7 +302,7 @@
 		7770081626B1A5650021A9BB /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				771263C526A95CAC00B57C04 /* NewSearchViewController.swift */,
+				771263C526A95CAC00B57C04 /* SearchViewController.swift */,
 				771263CB26A97EED00B57C04 /* SearchResultsTableViewController.swift */,
 				7789470526AEF1C2005FDED7 /* ProgressViewController.swift */,
 			);
@@ -557,7 +557,7 @@
 				779ED8A526383CBE00815B4D /* SettingFooterView.swift in Sources */,
 				77876E92264D5CA400798106 /* NSRegularExpressionExtension.swift in Sources */,
 				77CB234626B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift in Sources */,
-				771263C626A95CAC00B57C04 /* NewSearchViewController.swift in Sources */,
+				771263C626A95CAC00B57C04 /* SearchViewController.swift in Sources */,
 				776D13C3261E087500B9CF97 /* HomeViewController.swift in Sources */,
 				7789A82B266A30B300B71294 /* ADTVChartView.swift in Sources */,
 				779AFC282657B216008373C0 /* CardPartPriceChartView.swift in Sources */,

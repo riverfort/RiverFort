@@ -1,5 +1,5 @@
 //
-//  NewSearchViewController.swift
+//  SearchViewController.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 22/07/2021.
@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 
 
-class NewSearchViewController: UIViewController {
+class SearchViewController: UIViewController {
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     private let recentSearchTableView = RecentSearchTableView(frame: .zero, style: .grouped)
     private let searchResultsTableViewController = SearchResultsTableViewController()
@@ -38,7 +38,7 @@ class NewSearchViewController: UIViewController {
     }
 }
 
-extension NewSearchViewController {
+extension SearchViewController {
     private func configureView() {
         view.backgroundColor = .systemBackground
     }
@@ -68,7 +68,7 @@ extension NewSearchViewController {
     }
 }
 
-extension NewSearchViewController: UISearchControllerDelegate {
+extension SearchViewController: UISearchControllerDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         recentSearchTableView.alpha = 0
         recentSearchTableView.isHidden = false
@@ -89,7 +89,7 @@ extension NewSearchViewController: UISearchControllerDelegate {
     }
 }
 
-extension NewSearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
+extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text else {
             return
@@ -98,7 +98,7 @@ extension NewSearchViewController: UISearchResultsUpdating, UISearchBarDelegate 
     }
 }
 
-extension NewSearchViewController {
+extension SearchViewController {
     private func searchFMPStockTicker(searchText: String) {
         if !searchText.isEmpty {
             let api = "https://financialmodelingprep.com/api/v3/search?query=\(searchText)&limit=8&apikey=2797db3c7193bf4ec7231be3cba5f27c"
@@ -125,7 +125,7 @@ extension NewSearchViewController {
     }
 }
 
-extension NewSearchViewController {
+extension SearchViewController {
     private func createObservers() {
         let createSearchedCompanyName = Notification.Name("com.riverfort.createSearchedCompany")
         NotificationCenter.default.addObserver(self, selector: #selector(prepareCreateSearchedCompany), name: createSearchedCompanyName, object: nil)
@@ -161,7 +161,7 @@ extension NewSearchViewController {
     }
 }
 
-extension NewSearchViewController {
+extension SearchViewController {
     func getSearchedCompanies() {
         do {
             let recentSearchedCompanies = try context.fetch(RecentSearchedCompany.fetchRequest()) as! [RecentSearchedCompany]
