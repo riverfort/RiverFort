@@ -157,7 +157,12 @@ extension SearchViewController {
             deleteRecentSearchCompany(symbol: fmpStockTickerSearch.symbol)
             createRecentSearchCompany(fmpStockTickerSearch: fmpStockTickerSearch)
         } else {
-            createRecentSearchCompany(fmpStockTickerSearch: fmpStockTickerSearch)
+            if getAllRecentSearchCompanyCount() < 5 {
+                createRecentSearchCompany(fmpStockTickerSearch: fmpStockTickerSearch)
+            } else {
+                deleteFormerSearchCompany()
+                createRecentSearchCompany(fmpStockTickerSearch: fmpStockTickerSearch)
+            }
         }
     }
     
@@ -211,6 +216,12 @@ extension SearchViewController {
         }
     }
     
+    private func getAllRecentSearchCompanyCount() -> Int {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "RecentSearchedCompany")
+        let count = try! context.count(for: fetchRequest)
+        return count
+    }
+        
     private func createRecentSearchCompany(fmpStockTickerSearch: FMPStockTickerSearch) {
         let recentSearchCompany = RecentSearchedCompany(context: context)
         recentSearchCompany.symbol   = fmpStockTickerSearch.symbol
@@ -242,6 +253,20 @@ extension SearchViewController {
         let objects = try! context.fetch(fetchRequest)
         for obj in objects {
             context.delete(obj as! NSManagedObject)
+        }
+        do {
+            try context.save()
+            getAllRecentSearchCompany()
+        } catch {
+            
+        }
+    }
+    
+    private func deleteFormerSearchCompany() {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "RecentSearchedCompany")
+        let objects = try! context.fetch(fetchRequest) as! [NSManagedObject]
+        if !objects.isEmpty {
+            context.delete(objects.first!)
         }
         do {
             try context.save()
