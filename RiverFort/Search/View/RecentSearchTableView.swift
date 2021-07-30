@@ -86,7 +86,7 @@ extension RecentSearchTableView {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             tableView.beginUpdates()
-            deleteSearchedCompanyNotification(recentSearchedCompany: recentSearchedCompanies[indexPath.row])
+            deleteRecentSearchCompanyNotification(recentSearchedCompany: recentSearchedCompanies[indexPath.row])
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
         }
@@ -135,7 +135,7 @@ extension RecentSearchTableView {
     private func configureClearRecentlySearchedAC(ac: UIAlertController) {
         ac.view.tintColor = .systemIndigo
         ac.addAction(UIAlertAction(title: "Clear Recent Searches", style: .destructive, handler: { [self] _ in
-            clearSearchedCompaniesNotification()
+            clearRecentSearchCompanyNotification()
         }))
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         if let popoverController = ac.popoverPresentationController {
@@ -147,12 +147,12 @@ extension RecentSearchTableView {
 }
 
 extension RecentSearchTableView {
-    private func deleteSearchedCompanyNotification(recentSearchedCompany: RecentSearchedCompany) {
+    private func deleteRecentSearchCompanyNotification(recentSearchedCompany: RecentSearchedCompany) {
         let name = Notification.Name(SearchConstants.DELETE_RECENT_SEARCH_COMPANY)
         NotificationCenter.default.post(name: name, object: recentSearchedCompany)
     }
     
-    private func clearSearchedCompaniesNotification() {
+    private func clearRecentSearchCompanyNotification() {
         let name = Notification.Name(SearchConstants.CLEAR_RECENT_SEARCH_COMPANY)
         NotificationCenter.default.post(name: name, object: nil)
     }
