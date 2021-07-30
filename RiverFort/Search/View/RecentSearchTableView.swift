@@ -148,12 +148,12 @@ extension RecentSearchTableView {
 
 extension RecentSearchTableView {
     private func deleteSearchedCompanyNotification(recentSearchedCompany: RecentSearchedCompany) {
-        let name = Notification.Name("com.riverfort.deleteSearchedCompany")
+        let name = Notification.Name(SearchConstants.DELETE_RECENT_SEARCH_COMPANY)
         NotificationCenter.default.post(name: name, object: recentSearchedCompany)
     }
     
     private func clearSearchedCompaniesNotification() {
-        let name = Notification.Name("com.riverfort.clearSearchedCompanies")
+        let name = Notification.Name(SearchConstants.CLEAR_RECENT_SEARCH_COMPANY)
         NotificationCenter.default.post(name: name, object: nil)
     }
 }

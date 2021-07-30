@@ -127,13 +127,13 @@ extension SearchViewController {
 
 extension SearchViewController {
     private func createObservers() {
-        let createSearchedCompanyName = Notification.Name("com.riverfort.createSearchedCompany")
+        let createSearchedCompanyName = Notification.Name(SearchConstants.CREATE_RECENT_SEARCH_COMPANY)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareCreateSearchedCompany), name: createSearchedCompanyName, object: nil)
         
-        let deleteSearchedCompanyName = Notification.Name("com.riverfort.deleteSearchedCompany")
+        let deleteSearchedCompanyName = Notification.Name(SearchConstants.DELETE_RECENT_SEARCH_COMPANY)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareDeleteSearchedCompany), name: deleteSearchedCompanyName, object: nil)
         
-        let clearSearchedCompaniesName = Notification.Name("com.riverfort.clearSearchedCompanies")
+        let clearSearchedCompaniesName = Notification.Name(SearchConstants.CLEAR_RECENT_SEARCH_COMPANY)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareClearSearchedCompanies), name: clearSearchedCompaniesName, object: nil)
     }
     
