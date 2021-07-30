@@ -172,7 +172,9 @@ extension SearchViewController {
         guard let recentSearchedCompany = notification.object as? RecentSearchedCompany else {
             return
         }
-        print(recentSearchedCompany)
+        let companyDetailViewController = CompanyDetailViewController()
+        companyDetailViewController.company = Company(company_ticker: recentSearchedCompany.symbol!, company_name: recentSearchedCompany.name!)
+        navigationController?.pushViewController(companyDetailViewController, animated: true)
     }
 }
 
