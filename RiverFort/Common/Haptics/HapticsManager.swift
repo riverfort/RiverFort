@@ -23,9 +23,9 @@ final class HapticsManager {
         }
     }
     
-    public func impact() {
+    public func impact(style: UIImpactFeedbackGenerator.FeedbackStyle) {
         DispatchQueue.main.async {
-            let impactFeedbackGenerator = UIImpactFeedbackGenerator(style: .light)
+            let impactFeedbackGenerator = UIImpactFeedbackGenerator(style: style)
             impactFeedbackGenerator.prepare()
             impactFeedbackGenerator.impactOccurred()
         }
