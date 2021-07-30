@@ -142,7 +142,8 @@ extension NewSearchViewController {
             return
         }
         if isEntityAttributeExist(symbol: fmpStockTickerSearch.symbol, entityName: "RecentSearchedCompany") {
-
+            deleteSearchedCompany(symbol: fmpStockTickerSearch.symbol)
+            createSearchedCompany(fmpStockTickerSearch: fmpStockTickerSearch)
         } else {
             createSearchedCompany(fmpStockTickerSearch: fmpStockTickerSearch)
         }
@@ -190,6 +191,21 @@ extension NewSearchViewController {
     
     func deleteSearchedCompany(recentSearchedCompany: RecentSearchedCompany) {
         context.delete(recentSearchedCompany)
+        do {
+            try context.save()
+            getSearchedCompanies()
+        } catch {
+            
+        }
+    }
+    
+    func deleteSearchedCompany(symbol: String) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "RecentSearchedCompany")
+        fetchRequest.predicate = NSPredicate(format: "symbol == %@", symbol)
+        let objects = try! context.fetch(fetchRequest)
+        for obj in objects {
+            context.delete(obj as! NSManagedObject)
+        }
         do {
             try context.save()
             getSearchedCompanies()
