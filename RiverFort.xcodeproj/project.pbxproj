@@ -10,7 +10,7 @@
 		7702DFBA261B5E8400EE6191 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 7702DFB9261B5E8400EE6191 /* Charts */; };
 		7707F04F262B219300C4E8D4 /* WatchedCompanyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7707F04E262B219300C4E8D4 /* WatchedCompanyDetail.swift */; };
 		771263C626A95CAC00B57C04 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771263C526A95CAC00B57C04 /* SearchViewController.swift */; };
-		771263CC26A97EED00B57C04 /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771263CB26A97EED00B57C04 /* SearchResultsTableViewController.swift */; };
+		771263CC26A97EED00B57C04 /* SearchResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771263CB26A97EED00B57C04 /* SearchResultTableViewController.swift */; };
 		771D16AE263989C10034193A /* AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D16AD263989C10034193A /* AppVersion.swift */; };
 		77286CA92621DEBB00B73570 /* ChartMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77286CA82621DEBB00B73570 /* ChartMarker.swift */; };
 		7728847B265B962F001C0D4F /* FeedsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7728847A265B962F001C0D4F /* FeedsViewModel.swift */; };
@@ -90,7 +90,7 @@
 		69D13D5B19688F922B9BB9AD /* Pods-RiverFort.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RiverFort.release.xcconfig"; path = "Target Support Files/Pods-RiverFort/Pods-RiverFort.release.xcconfig"; sourceTree = "<group>"; };
 		7707F04E262B219300C4E8D4 /* WatchedCompanyDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchedCompanyDetail.swift; sourceTree = "<group>"; };
 		771263C526A95CAC00B57C04 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		771263CB26A97EED00B57C04 /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
+		771263CB26A97EED00B57C04 /* SearchResultTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewController.swift; sourceTree = "<group>"; };
 		771D16AD263989C10034193A /* AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersion.swift; sourceTree = "<group>"; };
 		77286CA82621DEBB00B73570 /* ChartMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartMarker.swift; sourceTree = "<group>"; };
 		7728847A265B962F001C0D4F /* FeedsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewModel.swift; sourceTree = "<group>"; };
@@ -305,7 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				771263C526A95CAC00B57C04 /* SearchViewController.swift */,
-				771263CB26A97EED00B57C04 /* SearchResultsTableViewController.swift */,
+				771263CB26A97EED00B57C04 /* SearchResultTableViewController.swift */,
 				7789470526AEF1C2005FDED7 /* ProgressViewController.swift */,
 			);
 			path = ViewController;
@@ -596,7 +596,7 @@
 				77E239AE2678D1EF004E562C /* Reachability.swift in Sources */,
 				779ED89726380BE200815B4D /* EditWatchlistTableViewCell.swift in Sources */,
 				77F93372261A3675007662D5 /* DateFormatterUtils.swift in Sources */,
-				771263CC26A97EED00B57C04 /* SearchResultsTableViewController.swift in Sources */,
+				771263CC26A97EED00B57C04 /* SearchResultTableViewController.swift in Sources */,
 				77A147B02642BD1600EE8535 /* CompanyDetailViewController.swift in Sources */,
 				7785D7852630142600988C28 /* WatchedCompany+CoreDataProperties.swift in Sources */,
 				779ED89B26380D7100815B4D /* SettingsViewController.swift in Sources */,

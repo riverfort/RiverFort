@@ -8,7 +8,7 @@
 import UIKit
 import SPAlert
 
-class SearchResultsTableViewController: UITableViewController {
+class SearchResultTableViewController: UITableViewController {
     private var fmpCompanies: [FMPStockTickerSearch] = []
 
     override func viewDidLoad() {
@@ -17,7 +17,7 @@ class SearchResultsTableViewController: UITableViewController {
     }
 }
 
-extension SearchResultsTableViewController {
+extension SearchResultTableViewController {
     public func setFMPCompanies(fmpCompanies: [FMPStockTickerSearch]) {
         DispatchQueue.main.async {
             self.fmpCompanies = fmpCompanies
@@ -26,7 +26,7 @@ extension SearchResultsTableViewController {
     }
 }
 
-extension SearchResultsTableViewController {
+extension SearchResultTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fmpCompanies.count
     }
@@ -39,7 +39,7 @@ extension SearchResultsTableViewController {
     }
 }
 
-extension SearchResultsTableViewController {
+extension SearchResultTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let selectedSymbol = fmpCompanies[indexPath.row].symbol
@@ -78,7 +78,7 @@ extension SearchResultsTableViewController {
     }
 }
 
-extension SearchResultsTableViewController {
+extension SearchResultTableViewController {
     private func searchCompany(ticker: String, completion: @escaping (Int) -> Void) {
         let api = "https://data.riverfort.com/api/v1/companies/\(ticker)"
         let url = URL(string: api.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
@@ -97,7 +97,7 @@ extension SearchResultsTableViewController {
 }
 
 
-extension SearchResultsTableViewController {
+extension SearchResultTableViewController {
     private func configureTableView() {
         self.tableView.register(SearchResultCell.self, forCellReuseIdentifier: "cell")
         self.tableView.estimatedRowHeight = 85.0

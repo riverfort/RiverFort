@@ -12,7 +12,7 @@ import CoreData
 class SearchViewController: UIViewController {
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     private let recentSearchTableView = RecentSearchTableView(frame: .zero, style: .grouped)
-    private let searchResultsTableViewController = SearchResultsTableViewController()
+    private let searchResultTableViewController = SearchResultTableViewController()
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -52,7 +52,7 @@ extension SearchViewController {
     }
     
     private func configureSearchController() {
-        let searchController = UISearchController(searchResultsController: searchResultsTableViewController)
+        let searchController = UISearchController(searchResultsController: searchResultTableViewController)
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
@@ -118,7 +118,7 @@ extension SearchViewController {
                 guard let fmpCompanies = try? decoder.decode([FMPStockTickerSearch].self, from: data) else {
                     return
                 }
-                self.searchResultsTableViewController.setFMPCompanies(fmpCompanies: fmpCompanies)
+                self.searchResultTableViewController.setFMPCompanies(fmpCompanies: fmpCompanies)
             }
             task.resume()
         }
