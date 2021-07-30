@@ -112,7 +112,7 @@ class APIFunctions {
     }
     
     func fetchCompanyMktCap(companyTicker: String) {
-        AF.request("https://data.riverfort.com/api/v1/companies/LTG.L/quote?fields=market_cap").response { response in
+        AF.request("https://data.riverfort.com/api/v1/companies/\(companyTicker)/quote?fields=market_cap").response { response in
             let data = String(data: response.data!, encoding: .utf8)
             self.companyMktCapDelegate?.updateCompanyMktCap(newCompanyMktCap: data!)
         }
