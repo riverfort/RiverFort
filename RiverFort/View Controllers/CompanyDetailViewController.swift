@@ -41,7 +41,7 @@ class CompanyDetailViewController: CardsViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        HapticsManager.shared.impact(style: .heavy)
+        HapticsManager.shared.impact(style: .soft)
         
         guard company != nil else {
             return
