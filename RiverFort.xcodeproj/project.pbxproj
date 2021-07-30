@@ -22,7 +22,7 @@
 		773A0B6A26171238002B9875 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 773A0B6826171238002B9875 /* Main.storyboard */; };
 		773A0B6C2617123B002B9875 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 773A0B6B2617123B002B9875 /* Assets.xcassets */; };
 		773A0B6F2617123B002B9875 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 773A0B6D2617123B002B9875 /* LaunchScreen.storyboard */; };
-		773A0BA0261723DF002B9875 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0B9F261723DF002B9875 /* SearchViewController.swift */; };
+		773A0BA0261723DF002B9875 /* DeprecatedSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0B9F261723DF002B9875 /* DeprecatedSearchViewController.swift */; };
 		773A0BA726172670002B9875 /* APIFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0BA626172670002B9875 /* APIFunctions.swift */; };
 		773A0BAA26172690002B9875 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0BA926172690002B9875 /* Company.swift */; };
 		773A0BAD261726B2002B9875 /* CompanyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0BAC261726B2002B9875 /* CompanyDetail.swift */; };
@@ -103,7 +103,7 @@
 		773A0B6B2617123B002B9875 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		773A0B6E2617123B002B9875 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		773A0B702617123B002B9875 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		773A0B9F261723DF002B9875 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		773A0B9F261723DF002B9875 /* DeprecatedSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeprecatedSearchViewController.swift; sourceTree = "<group>"; };
 		773A0BA626172670002B9875 /* APIFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFunctions.swift; sourceTree = "<group>"; };
 		773A0BA926172690002B9875 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		773A0BAC261726B2002B9875 /* CompanyDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetail.swift; sourceTree = "<group>"; };
@@ -231,7 +231,7 @@
 				779ED89A26380D7100815B4D /* SettingsViewController.swift */,
 				773A86EF263C34A9008105A1 /* PrivacyPolicyViewController.swift */,
 				779A6C90262D792300AFEE95 /* EditWatchlistViewController.swift */,
-				773A0B9F261723DF002B9875 /* SearchViewController.swift */,
+				773A0B9F261723DF002B9875 /* DeprecatedSearchViewController.swift */,
 				77A147AF2642BD1600EE8535 /* CompanyDetailViewController.swift */,
 			);
 			path = "View Controllers";
@@ -604,7 +604,7 @@
 				773A0BCB26176C8F002B9875 /* Currency.swift in Sources */,
 				7707F04F262B219300C4E8D4 /* WatchedCompanyDetail.swift in Sources */,
 				77C4BD85261CAF9100B8C748 /* HapticsManager.swift in Sources */,
-				773A0BA0261723DF002B9875 /* SearchViewController.swift in Sources */,
+				773A0BA0261723DF002B9875 /* DeprecatedSearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
