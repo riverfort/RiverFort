@@ -141,10 +141,12 @@ extension SearchViewController {
         let deleteRecentSearchCompanyName = Notification.Name(SearchConstants.DELETE_RECENT_SEARCH_COMPANY)
         let clearRecentSearchCompanyName  = Notification.Name(SearchConstants.CLEAR_RECENT_SEARCH_COMPANY)
         let selectRecentSearchCompanyName = Notification.Name(SearchConstants.SELECT_RECENT_SEARCH_COMPANY)
+        let selectSearchCompanyName       = Notification.Name(SearchConstants.SELECT_SEARCH_COMPANY)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareCreateRecentSearchCompany), name: createRecentSearchCompanyName, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareDeleteRecentSearchCompany), name: deleteRecentSearchCompanyName, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareClearRecentSearchCompany), name: clearRecentSearchCompanyName, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareSelectRecentSearchCompany), name: selectRecentSearchCompanyName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareSelectSearchCompany), name: selectSearchCompanyName, object: nil)
     }
     
     @objc private func prepareCreateRecentSearchCompany(notification: Notification) {
@@ -184,6 +186,15 @@ extension SearchViewController {
         navigationController?.pushViewController(companyDetailViewController, animated: true)
         deleteRecentSearchCompany(recentSearchCompany: recentSearchedCompany)
         createRecentSearchCompany(fmpStockTickerSearch: fmpStockTickerSearch)
+    }
+    
+    @objc private func prepareSelectSearchCompany(notification: Notification) {
+        guard let fmpCompany = notification.object as? FMPStockTickerSearch else {
+            return
+        }
+        let companyDetailViewController = CompanyDetailViewController()
+        companyDetailViewController.company = Company(company_ticker: fmpCompany.symbol, company_name: fmpCompany.name)
+        navigationController?.pushViewController(companyDetailViewController, animated: true)
     }
 }
 

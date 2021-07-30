@@ -44,13 +44,10 @@ extension SearchResultTableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         let selectedSymbol = fmpCompanies[indexPath.row].symbol
         let selectedName   = fmpCompanies[indexPath.row].name
-        let companyDetailViewController = CompanyDetailViewController()
-        let navigationController = UINavigationController(rootViewController: companyDetailViewController)
-        companyDetailViewController.company = Company(company_ticker: selectedSymbol, company_name: selectedName)
         searchCompany(ticker: selectedSymbol) { [self] (statusCode) in
             DispatchQueue.main.async {
                 if statusCode == 200 {
-                    present(navigationController, animated: true)
+                    selectSearchCompanyNotification(fmpCompamy: fmpCompanies[indexPath.row])
                     createRecentSearchCompanyNotification(fmpCompamy: fmpCompanies[indexPath.row])
                 } else {
                     let progressViewController = ProgressViewController()
@@ -63,7 +60,7 @@ extension SearchResultTableViewController {
                                 AddOnSymbolRequest(company_ticker: selectedSymbol, company_name: selectedName)) { (statusCode) in
                             if statusCode == 200 {
                                 progressViewController.dismiss(animated: true)
-                                present(navigationController, animated: true)
+                                selectSearchCompanyNotification(fmpCompamy: fmpCompanies[indexPath.row])
                                 createRecentSearchCompanyNotification(fmpCompamy: fmpCompanies[indexPath.row])
                             } else {
                                 progressViewController.dismiss(animated: true)
@@ -79,6 +76,11 @@ extension SearchResultTableViewController {
 extension SearchResultTableViewController {
     private func createRecentSearchCompanyNotification(fmpCompamy: FMPStockTickerSearch) {
         let name = Notification.Name(SearchConstants.CREATE_RECENT_SEARCH_COMPANY)
+        NotificationCenter.default.post(name: name, object: fmpCompamy)
+    }
+    
+    private func selectSearchCompanyNotification(fmpCompamy: FMPStockTickerSearch) {
+        let name = Notification.Name(SearchConstants.SELECT_SEARCH_COMPANY)
         NotificationCenter.default.post(name: name, object: fmpCompamy)
     }
 }
