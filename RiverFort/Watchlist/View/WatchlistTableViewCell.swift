@@ -37,13 +37,13 @@ class WatchlistTableViewCell: UITableViewCell {
 }
 
 extension WatchlistTableViewCell {
-    public func setWatchlistTableViewCell(watchedCompanyDetail: WatchedCompanyDetail) {
-        symbol.text = watchedCompanyDetail.company_ticker
-        name.text = watchedCompanyDetail.company_name
-        price.text = "\(watchedCompanyDetail.close)"
-        changePercent.text = "\(watchedCompanyDetail.change_percent)"
-        mktCap.text = "123,456,789"
-        date.text = "\(watchedCompanyDetail.market_date)"
+    public func setWatchlistTableViewCell(watchedCompanyDetail: WatchedCompanyDetailN) {
+        symbol.text = watchedCompanyDetail.symbol
+        name.text = watchedCompanyDetail.name
+        price.text = "\(watchedCompanyDetail.price)"
+        changePercent.text = "\(watchedCompanyDetail.changePercent)"
+        mktCap.text = "\(watchedCompanyDetail.mktCap)"
+        date.text = "\(watchedCompanyDetail.mktDate)"
     }
 }
 

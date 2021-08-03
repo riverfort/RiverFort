@@ -41,16 +41,16 @@ extension WatchlistTableView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WatchlistTableViewCell
-        
-        let watchedCompany = watchedCompanies[indexPath.row].company_ticker
-        if let i = watchedCompanyDetails.firstIndex(where: { $0.company_ticker == watchedCompany}) {
-            let watchedCompanyDetail = WatchedCompanyDetail(
-                company_ticker: watchedCompanyDetails[i].company_ticker,
-                company_name:   watchedCompanyDetails[i].company_name,
-                currency:       watchedCompanyDetails[i].currency,
-                close:          watchedCompanyDetails[i].close,
-                change_percent: watchedCompanyDetails[i].change_percent,
-                market_date:    watchedCompanyDetails[i].market_date)
+        let watchedCompanySymbol = watchedCompanies[indexPath.row].company_ticker
+        if let i = watchedCompanyDetails.firstIndex(where: {$0.company_ticker == watchedCompanySymbol}) {
+            let watchedCompanyDetail = WatchedCompanyDetailN(
+                symbol: watchedCompanyDetails[i].company_ticker,
+                name: watchedCompanyDetails[i].company_name,
+                currency: watchedCompanyDetails[i].currency,
+                price: watchedCompanyDetails[i].close,
+                mktCap: watchedCompanyDetails[i].market_cap!,
+                changePercent: watchedCompanyDetails[i].change_percent,
+                mktDate: watchedCompanyDetails[i].market_date)
             cell.setWatchlistTableViewCell(watchedCompanyDetail: watchedCompanyDetail)
         }
         return cell
