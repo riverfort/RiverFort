@@ -11,19 +11,20 @@ class NewWatchlistViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureView()
+        configureNavigationController()
+    }
+}
 
-        // Do any additional setup after loading the view.
+extension NewWatchlistViewController {
+    private func configureView() {
+        view.backgroundColor = .systemBackground
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func configureNavigationController() {
+        navigationItem.title = "Watchlist"
+        navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.tintColor = .systemIndigo
     }
-    */
-
 }
