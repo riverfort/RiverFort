@@ -64,10 +64,8 @@ extension WatchlistTableView {
             let sort = NSSortDescriptor(key: "rowOrder", ascending: true)
             request.sortDescriptors = [sort]
             watchedCompanies = try context.fetch(request)
-            if watchedCompanies.count == 0 {
-                for watchedCompany in watchedCompanies {
-                    APIFunctions.functions.fetchCompanyDetail(companyTicker: watchedCompany.company_ticker!)
-                }
+            for watchedCompany in watchedCompanies {
+                APIFunctions.functions.fetchCompanyDetail(companyTicker: watchedCompany.company_ticker!)
             }
         } catch {
             print("error")
@@ -87,5 +85,12 @@ extension WatchlistTableView: CompanyDetailDataDelegate {
         } catch {
             print("Failed to decode company detail!")
         }
+    }
+}
+
+extension WatchlistTableView {
+    private func reloadWatchlistTableViewNotification() {
+        let name = Notification.Name(WatchlistConstant.RELOAD_WATCHLIST_TABLE_VIEW)
+        NotificationCenter.default.post(name: name, object: nil)
     }
 }

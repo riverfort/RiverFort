@@ -10,11 +10,16 @@ import UIKit
 class NewWatchlistViewController: UIViewController {
     private let watchlistTableView = WatchlistTableView(frame: .zero, style: .plain)
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
         configureNavigationController()
         configureWatchlistTableView()
+//        createObservers()
     }
     
     override func viewDidLayoutSubviews() {
@@ -47,3 +52,16 @@ extension NewWatchlistViewController {
         watchlistTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive     = true
     }
 }
+
+//extension NewWatchlistViewController {
+//    private func createObservers() {
+//        let reloadWatchlistTableViewName = Notification.Name(WatchlistConstant.RELOAD_WATCHLIST_TABLE_VIEW)
+//        NotificationCenter.default.addObserver(self, selector: #selector(reloadWatchlistTableView), name: reloadWatchlistTableViewName, object: nil)
+//    }
+//
+//    @objc private func reloadWatchlistTableView() {
+//        DispatchQueue.main.async { [self] in
+//            watchlistTableView.reloadData()
+//        }
+//    }
+//}
