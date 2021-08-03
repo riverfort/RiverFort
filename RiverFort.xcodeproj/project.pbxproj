@@ -232,7 +232,6 @@
 				77CBB6B626B9271300CCD0A6 /* Watchlist */,
 				773A0B6226171238002B9875 /* AppDelegate.swift */,
 				773A0B6426171238002B9875 /* SceneDelegate.swift */,
-				7785D7872630144200988C28 /* WatchedCompany */,
 				773A0B9D2617237C002B9875 /* Models */,
 				773A0B9C26172370002B9875 /* Storyboards */,
 				77F9335F261A2BA1007662D5 /* Extensions */,
@@ -322,6 +321,14 @@
 				77C6ABB026497F5C00644179 /* SearchNoResultsView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		7760164626B977EF00BA7C41 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7785D7872630144200988C28 /* WatchedCompany */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		7770081626B1A5650021A9BB /* ViewController */ = {
@@ -433,6 +440,7 @@
 			children = (
 				77CBB6B726B9272900CCD0A6 /* ViewController */,
 				77CBB6BA26B92B4C00CCD0A6 /* View */,
+				7760164626B977EF00BA7C41 /* Model */,
 			);
 			path = Watchlist;
 			sourceTree = "<group>";
