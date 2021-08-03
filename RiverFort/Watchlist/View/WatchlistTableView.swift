@@ -23,7 +23,7 @@ extension WatchlistTableView {
         self.backgroundColor = .systemBackground
         self.dataSource = self
         self.delegate = self
-        self.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.register(WatchlistTableViewCell.self, forCellReuseIdentifier: "cell")
     }
 }
 
@@ -33,8 +33,8 @@ extension WatchlistTableView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "Hello"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WatchlistTableViewCell
+        cell.setWatchlistTableViewCell()
         return cell
     }
 }
