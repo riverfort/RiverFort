@@ -37,7 +37,7 @@ class WatchlistTableViewCell: UITableViewCell {
 }
 
 extension WatchlistTableViewCell {
-    public func setWatchlistTableViewCell(watchedCompanyDetail: WatchedCompanyDetailN) {
+    public func setWatchlistTableViewCell(watchedCompanyDetail: WatchedCompanyDetailNew) {
         symbol.text = watchedCompanyDetail.symbol
         name.text = watchedCompanyDetail.name
         price.text = "\(watchedCompanyDetail.price)"

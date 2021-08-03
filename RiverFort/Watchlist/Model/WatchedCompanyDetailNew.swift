@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WatchedCompanyDetailN {
+struct WatchedCompanyDetailNew {
     var symbol: String
     var name: String
     var currency: String
