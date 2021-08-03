@@ -97,9 +97,9 @@ extension WatchlistTableViewCell {
     
     private func configurePriceChangePercentMktCapStack() {
         addSubview(priceChangePercentMktCapStack)
+        priceChangePercentMktCapStack.addArrangedSubview(mktCap)
         priceChangePercentMktCapStack.addArrangedSubview(price)
         priceChangePercentMktCapStack.addArrangedSubview(changePercent)
-        priceChangePercentMktCapStack.addArrangedSubview(mktCap)
         priceChangePercentMktCapStack.axis         = .vertical
         priceChangePercentMktCapStack.distribution = .equalSpacing
         priceChangePercentMktCapStack.alignment    = .trailing
