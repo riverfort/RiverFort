@@ -75,6 +75,7 @@
 		77CAA2E626679043003A0246 /* UserDefaults+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CAA2E526679043003A0246 /* UserDefaults+.swift */; };
 		77CB234526B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB234326B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift */; };
 		77CB234626B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB234426B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift */; };
+		77CBB6B926B9276300CCD0A6 /* NewWatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBB6B826B9276300CCD0A6 /* NewWatchlistViewController.swift */; };
 		77CF843226316DB2009A5E21 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CF843126316DB2009A5E21 /* UIAlertControllerExtension.swift */; };
 		77DAF9CD26B05853008662E0 /* RecentSearchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DAF9CC26B05853008662E0 /* RecentSearchTableView.swift */; };
 		77E239AE2678D1EF004E562C /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E239AD2678D1EF004E562C /* Reachability.swift */; };
@@ -156,6 +157,7 @@
 		77CAA2E526679043003A0246 /* UserDefaults+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+.swift"; sourceTree = "<group>"; };
 		77CB234326B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecentSearchedCompany+CoreDataClass.swift"; sourceTree = "<group>"; };
 		77CB234426B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecentSearchedCompany+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		77CBB6B826B9276300CCD0A6 /* NewWatchlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWatchlistViewController.swift; sourceTree = "<group>"; };
 		77CF843126316DB2009A5E21 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		77DAF9CC26B05853008662E0 /* RecentSearchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchTableView.swift; sourceTree = "<group>"; };
 		77E239AD2678D1EF004E562C /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			children = (
 				77104EEE26B4497B0058E2C2 /* Common */,
 				7785EF2926AAA1C200AEB5FE /* Search */,
+				77CBB6B626B9271300CCD0A6 /* Watchlist */,
 				773A0B6226171238002B9875 /* AppDelegate.swift */,
 				773A0B6426171238002B9875 /* SceneDelegate.swift */,
 				7785D7872630144200988C28 /* WatchedCompany */,
@@ -421,6 +424,22 @@
 			path = RecentSearchedCompany;
 			sourceTree = "<group>";
 		};
+		77CBB6B626B9271300CCD0A6 /* Watchlist */ = {
+			isa = PBXGroup;
+			children = (
+				77CBB6B726B9272900CCD0A6 /* ViewController */,
+			);
+			path = Watchlist;
+			sourceTree = "<group>";
+		};
+		77CBB6B726B9272900CCD0A6 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				77CBB6B826B9276300CCD0A6 /* NewWatchlistViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		77F9335F261A2BA1007662D5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -612,6 +631,7 @@
 				77C6ABB126497F5C00644179 /* SearchNoResultsView.swift in Sources */,
 				77876E96264D5FE700798106 /* StringExtension.swift in Sources */,
 				779A6C91262D792300AFEE95 /* EditWatchlistViewController.swift in Sources */,
+				77CBB6B926B9276300CCD0A6 /* NewWatchlistViewController.swift in Sources */,
 				77F93365261A3251007662D5 /* DoubleExtension.swift in Sources */,
 				774DB74C2623144900A92D13 /* RiverFort.xcdatamodeld in Sources */,
 				77DAF9CD26B05853008662E0 /* RecentSearchTableView.swift in Sources */,
