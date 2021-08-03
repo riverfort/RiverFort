@@ -61,23 +61,23 @@ extension WatchlistTableViewCell {
     }
     
     private func configurePriceLabel() {
-        name.font = .preferredFont(forTextStyle: .subheadline)
-        name.adjustsFontForContentSizeCategory = true
+        price.font = .preferredFont(forTextStyle: .subheadline)
+        price.adjustsFontForContentSizeCategory = true
     }
     
     private func configureChangePercentLabel() {
-        name.font = .preferredFont(forTextStyle: .subheadline)
-        name.adjustsFontForContentSizeCategory = true
+        changePercent.font = .preferredFont(forTextStyle: .subheadline)
+        changePercent.adjustsFontForContentSizeCategory = true
     }
     
     private func configureMktCapLabel() {
-        name.font = .preferredFont(forTextStyle: .subheadline)
-        name.adjustsFontForContentSizeCategory = true
+        mktCap.font = .preferredFont(forTextStyle: .subheadline)
+        mktCap.adjustsFontForContentSizeCategory = true
     }
     
     private func configureDateLabel() {
-        name.font = .preferredFont(forTextStyle: .subheadline)
-        name.adjustsFontForContentSizeCategory = true
+        date.font = .preferredFont(forTextStyle: .subheadline)
+        date.adjustsFontForContentSizeCategory = true
     }
 
     private func configureSymbolNameStack() {
