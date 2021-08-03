@@ -58,7 +58,7 @@ extension SearchViewController {
     
     private func configureRecentSearchTableView() {
         view.addSubview(recentSearchTableView)
-        recentSearchTableView.setSystemMinimumLayoutMargins(marginLeading:(navigationController?.systemMinimumLayoutMargins.leading)!)
+        recentSearchTableView.setSystemMinimumLayoutMargins(marginLeading: (navigationController?.systemMinimumLayoutMargins.leading)!)
         recentSearchTableView.isHidden = true
         recentSearchTableView.keyboardDismissMode = .onDrag
     }
