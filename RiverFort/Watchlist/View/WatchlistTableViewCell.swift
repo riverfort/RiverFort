@@ -8,6 +8,7 @@
 import UIKit
 
 class WatchlistTableViewCell: UITableViewCell {
+    private let systemMinimumLayoutMarginsLeading = (UIApplication.topViewController()?.systemMinimumLayoutMargins.leading)!
     private let symbol        = UILabel()
     private let name          = UILabel()
     private let price         = UILabel()
@@ -16,7 +17,7 @@ class WatchlistTableViewCell: UITableViewCell {
     private let date          = UILabel()
     private let symbolNameStack               = UIStackView()
     private let priceChangePercentMktCapStack = UIStackView()
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureSymbolLabel()
@@ -106,20 +107,19 @@ extension WatchlistTableViewCell {
     }
     
     private func setSymbolNameStackConstraints() {
-        symbolNameStack.translatesAutoresizingMaskIntoConstraints = false
-        symbolNameStack.leadingAnchor.constraint(equalTo: leadingAnchor,
-                                                 constant: (UIApplication.topViewController()?.systemMinimumLayoutMargins.leading)!).isActive = true
+        symbolNameStack.translatesAutoresizingMaskIntoConstraints                               = false
+        symbolNameStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: systemMinimumLayoutMarginsLeading).isActive = true
         symbolNameStack.topAnchor.constraint(equalTo: topAnchor, constant: 12).isActive         = true
         symbolNameStack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive               = true
         symbolNameStack.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7).isActive  = true
     }
     
     private func setPriceChangePercentMktCapStackConstraints() {
-        priceChangePercentMktCapStack.translatesAutoresizingMaskIntoConstraints = false
-        priceChangePercentMktCapStack.trailingAnchor.constraint(equalTo: trailingAnchor,
-                                                                constant: -(UIApplication.topViewController()?.systemMinimumLayoutMargins.leading)!).isActive = true
+        priceChangePercentMktCapStack.translatesAutoresizingMaskIntoConstraints                              = false
+        priceChangePercentMktCapStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -systemMinimumLayoutMarginsLeading).isActive = true
         priceChangePercentMktCapStack.topAnchor.constraint(equalTo: topAnchor, constant: 12).isActive        = true
         priceChangePercentMktCapStack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive              = true
         priceChangePercentMktCapStack.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3).isActive = true
+        
     }
 }
