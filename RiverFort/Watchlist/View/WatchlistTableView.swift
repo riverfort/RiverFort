@@ -53,9 +53,6 @@ extension WatchlistTableView: UITableViewDataSource, UITableViewDelegate {
                 market_date:    watchedCompanyDetails[i].market_date)
             cell.setWatchlistTableViewCell(watchedCompanyDetail: watchedCompanyDetail)
         }
-
-        
-
         return cell
     }
 }
