@@ -76,6 +76,7 @@
 		77CB234526B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB234326B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift */; };
 		77CB234626B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB234426B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift */; };
 		77CBB6B926B9276300CCD0A6 /* NewWatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBB6B826B9276300CCD0A6 /* NewWatchlistViewController.swift */; };
+		77CBB6BC26B92BA500CCD0A6 /* WatchlistTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBB6BB26B92BA500CCD0A6 /* WatchlistTableView.swift */; };
 		77CF843226316DB2009A5E21 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CF843126316DB2009A5E21 /* UIAlertControllerExtension.swift */; };
 		77DAF9CD26B05853008662E0 /* RecentSearchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DAF9CC26B05853008662E0 /* RecentSearchTableView.swift */; };
 		77E239AE2678D1EF004E562C /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E239AD2678D1EF004E562C /* Reachability.swift */; };
@@ -158,6 +159,7 @@
 		77CB234326B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecentSearchedCompany+CoreDataClass.swift"; sourceTree = "<group>"; };
 		77CB234426B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecentSearchedCompany+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		77CBB6B826B9276300CCD0A6 /* NewWatchlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWatchlistViewController.swift; sourceTree = "<group>"; };
+		77CBB6BB26B92BA500CCD0A6 /* WatchlistTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistTableView.swift; sourceTree = "<group>"; };
 		77CF843126316DB2009A5E21 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		77DAF9CC26B05853008662E0 /* RecentSearchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchTableView.swift; sourceTree = "<group>"; };
 		77E239AD2678D1EF004E562C /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -428,6 +430,7 @@
 			isa = PBXGroup;
 			children = (
 				77CBB6B726B9272900CCD0A6 /* ViewController */,
+				77CBB6BA26B92B4C00CCD0A6 /* View */,
 			);
 			path = Watchlist;
 			sourceTree = "<group>";
@@ -438,6 +441,14 @@
 				77CBB6B826B9276300CCD0A6 /* NewWatchlistViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		77CBB6BA26B92B4C00CCD0A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				77CBB6BB26B92BA500CCD0A6 /* WatchlistTableView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		77F9335F261A2BA1007662D5 /* Extensions */ = {
@@ -635,6 +646,7 @@
 				77F93365261A3251007662D5 /* DoubleExtension.swift in Sources */,
 				774DB74C2623144900A92D13 /* RiverFort.xcdatamodeld in Sources */,
 				77DAF9CD26B05853008662E0 /* RecentSearchTableView.swift in Sources */,
+				77CBB6BC26B92BA500CCD0A6 /* WatchlistTableView.swift in Sources */,
 				7728847B265B962F001C0D4F /* FeedsViewModel.swift in Sources */,
 				778F6D1B26297F03003BC861 /* WatchlistViewController.swift in Sources */,
 				77E239AE2678D1EF004E562C /* Reachability.swift in Sources */,
