@@ -13,14 +13,14 @@ class HomeViewController: UITabBarController {
         super.viewDidLoad()
         
 //        let searchVC = UINavigationController(rootViewController: SearchViewController())
-        let newSearchVC = UINavigationController(rootViewController: SearchViewController())
+        let searchVC = UINavigationController(rootViewController: SearchViewController())
         let watchlistVC = UINavigationController(rootViewController: WatchlistViewController())
         
 //        searchVC.title = "Search"
-        newSearchVC.title = "Search"
+        searchVC.title = "Search"
         watchlistVC.title = "Watchlist"
 
-        self.setViewControllers([newSearchVC, watchlistVC], animated: true)
+        self.setViewControllers([searchVC, watchlistVC], animated: true)
         guard let items = self.tabBar.items else {
             return
         }
