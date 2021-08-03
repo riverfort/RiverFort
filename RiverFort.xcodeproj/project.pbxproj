@@ -194,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				77104EEF26B4499D0058E2C2 /* Haptics */,
+				7760164726B9830100BA7C41 /* Model */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -293,7 +294,6 @@
 			children = (
 				773A0BA626172670002B9875 /* APIFunctions.swift */,
 				773A0BA926172690002B9875 /* Company.swift */,
-				773A0BAC261726B2002B9875 /* CompanyDetail.swift */,
 				7707F04E262B219300C4E8D4 /* WatchedCompanyDetail.swift */,
 				773A0BAF261726C7002B9875 /* CompanyTrading.swift */,
 				773A0BB2261726E6002B9875 /* CompanyAdtv20.swift */,
@@ -327,6 +327,14 @@
 			isa = PBXGroup;
 			children = (
 				7785D7872630144200988C28 /* WatchedCompany */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7760164726B9830100BA7C41 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				773A0BAC261726B2002B9875 /* CompanyDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
