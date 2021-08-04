@@ -12,7 +12,7 @@ class WatchlistTableView: UITableView {
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     private var watchedCompanies      = [WatchedCompany]()
     private var watchedCompanyDetails = [CompanyDetail]()
-    private var isChangePercentInDataButton = false
+    private var isChangePercentInDataButton = true
 
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
