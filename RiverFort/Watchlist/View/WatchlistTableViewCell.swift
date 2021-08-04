@@ -11,6 +11,7 @@ class WatchlistTableViewCell: UITableViewCell {
     private let systemMinimumLayoutMarginsLeading = (UIApplication.topViewController()?.systemMinimumLayoutMargins.leading)!
     private let symbol        = UILabel()
     private let name          = UILabel()
+    private let currency      = UILabel()
     private let price         = UILabel()
     private let changePercent = UILabel()
     private let mktCap        = UILabel()
@@ -22,6 +23,7 @@ class WatchlistTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureSymbolLabel()
         configureNameLabel()
+        configureCurrencyLabel()
         configurePriceLabel()
         configureChangePercentLabel()
         configureMktCapLabel()
@@ -58,31 +60,32 @@ extension WatchlistTableViewCell {
         name.font = .preferredFont(forTextStyle: .subheadline)
         name.adjustsFontForContentSizeCategory = true
         name.textColor = .systemGray
-        name.numberOfLines = 0
+    }
+    
+    private func configureCurrencyLabel() {
+        currency.font = .preferredFont(forTextStyle: .body)
+        currency.adjustsFontForContentSizeCategory = true
+        currency.textColor = .systemGray
     }
     
     private func configurePriceLabel() {
-        price.font = .preferredFont(forTextStyle: .subheadline)
+        price.font = .preferredFont(forTextStyle: .body)
         price.adjustsFontForContentSizeCategory = true
-        price.numberOfLines = 0
     }
     
     private func configureChangePercentLabel() {
-        changePercent.font = .preferredFont(forTextStyle: .subheadline)
+        changePercent.font = .preferredFont(forTextStyle: .body)
         changePercent.adjustsFontForContentSizeCategory = true
-        changePercent.numberOfLines = 0
     }
     
     private func configureMktCapLabel() {
-        mktCap.font = .preferredFont(forTextStyle: .subheadline)
+        mktCap.font = .preferredFont(forTextStyle: .body)
         mktCap.adjustsFontForContentSizeCategory = true
-        mktCap.numberOfLines = 0
     }
     
     private func configureDateLabel() {
-        date.font = .preferredFont(forTextStyle: .subheadline)
+        date.font = .preferredFont(forTextStyle: .body)
         date.adjustsFontForContentSizeCategory = true
-        date.numberOfLines = 0
     }
 
     private func configureSymbolNameStack() {
