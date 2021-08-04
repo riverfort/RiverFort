@@ -88,9 +88,3 @@ extension WatchlistTableView: CompanyDetailDataDelegate {
     }
 }
 
-extension WatchlistTableView {
-    private func reloadWatchlistTableViewNotification() {
-        let name = Notification.Name(WatchlistConstant.RELOAD_WATCHLIST_TABLE_VIEW)
-        NotificationCenter.default.post(name: name, object: nil)
-    }
-}

@@ -19,7 +19,7 @@ class NewWatchlistViewController: UIViewController {
         configureView()
         configureNavigationController()
         configureWatchlistTableView()
-//        createObservers()
+        createObservers()
     }
     
     override func viewDidLayoutSubviews() {
@@ -53,15 +53,15 @@ extension NewWatchlistViewController {
     }
 }
 
-//extension NewWatchlistViewController {
-//    private func createObservers() {
-//        let reloadWatchlistTableViewName = Notification.Name(WatchlistConstant.RELOAD_WATCHLIST_TABLE_VIEW)
-//        NotificationCenter.default.addObserver(self, selector: #selector(reloadWatchlistTableView), name: reloadWatchlistTableViewName, object: nil)
-//    }
-//
-//    @objc private func reloadWatchlistTableView() {
-//        DispatchQueue.main.async { [self] in
-//            watchlistTableView.reloadData()
-//        }
-//    }
-//}
+extension NewWatchlistViewController {
+    private func createObservers() {
+        let reloadWatchlistTableViewName = Notification.Name(WatchlistConstant.RELOAD_WATCHLIST_TABLE_VIEW)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadWatchlistTableView), name: reloadWatchlistTableViewName, object: nil)
+    }
+
+    @objc private func reloadWatchlistTableView() {
+        DispatchQueue.main.async { [self] in
+            watchlistTableView.reloadData()
+        }
+    }
+}

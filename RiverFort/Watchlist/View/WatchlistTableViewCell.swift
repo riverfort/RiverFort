@@ -16,22 +16,26 @@ class WatchlistTableViewCell: UITableViewCell {
     private let changePercent = UILabel()
     private let mktCap        = UILabel()
     private let date          = UILabel()
-    private let symbolNameStack               = UIStackView()
-    private let priceChangePercentMktCapStack = UIStackView()
+    
+    private let leftStack  = UIStackView()
+    private let rightStack = UIStackView()
+    private let dataButton = UIButton(type: .roundedRect)
+    private var isChangePercent = false
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        configureSymbolLabel()
-        configureNameLabel()
-        configureCurrencyLabel()
-        configurePriceLabel()
-        configureChangePercentLabel()
-        configureMktCapLabel()
-        configureDateLabel()
-        configureSymbolNameStack()
-        configurePriceChangePercentMktCapStack()
-        setSymbolNameStackConstraints()
-        setPriceChangePercentMktCapStackConstraints()
+        configContentView()
+        
+        setStacksConstraints()
+        setDataButtonConstraints()
+        
+        configSymbolLabel()
+        configNameLabel()
+        configCurrencyLabel()
+        configPriceLabel()
+        configChangePercentLabel()
+        configMktCapLabel()
+        configDateLabel()
     }
     
     required init?(coder: NSCoder) {
@@ -47,81 +51,120 @@ extension WatchlistTableViewCell {
         changePercent.text = "\(watchedCompanyDetail.changePercent)"
         mktCap.text = "\(watchedCompanyDetail.mktCap)"
         date.text = "\(watchedCompanyDetail.mktDate)"
+        
+        if isChangePercent {
+            dataButton.setTitle(changePercent.text, for: .normal)
+        } else {
+            dataButton.setTitle(mktCap.text, for: .normal)
+        }
     }
 }
 
 extension WatchlistTableViewCell {
-    private func configureSymbolLabel() {
+    private func configContentView() {
+        contentView.isUserInteractionEnabled = true
+    }
+    
+    private func configSymbolLabel() {
         symbol.font = .preferredFont(forTextStyle: .headline)
         symbol.adjustsFontForContentSizeCategory = true
     }
     
-    private func configureNameLabel() {
+    private func configNameLabel() {
         name.font = .preferredFont(forTextStyle: .subheadline)
         name.adjustsFontForContentSizeCategory = true
         name.textColor = .systemGray
     }
     
-    private func configureCurrencyLabel() {
+    private func configCurrencyLabel() {
         currency.font = .preferredFont(forTextStyle: .body)
         currency.adjustsFontForContentSizeCategory = true
         currency.textColor = .systemGray
     }
     
-    private func configurePriceLabel() {
+    private func configPriceLabel() {
         price.font = .preferredFont(forTextStyle: .body)
         price.adjustsFontForContentSizeCategory = true
     }
     
-    private func configureChangePercentLabel() {
+    private func configChangePercentLabel() {
         changePercent.font = .preferredFont(forTextStyle: .body)
         changePercent.adjustsFontForContentSizeCategory = true
     }
     
-    private func configureMktCapLabel() {
+    private func configMktCapLabel() {
         mktCap.font = .preferredFont(forTextStyle: .body)
         mktCap.adjustsFontForContentSizeCategory = true
     }
     
-    private func configureDateLabel() {
+    private func configDateLabel() {
         date.font = .preferredFont(forTextStyle: .body)
         date.adjustsFontForContentSizeCategory = true
     }
+        
+    private func setStacksConstraints() {
+        addSubview(leftStack)
+        leftStack.addArrangedSubview(symbol)
+        leftStack.addArrangedSubview(name)
+        leftStack.axis         = .vertical
+        leftStack.distribution = .equalSpacing
+        leftStack.alignment    = .leading
+        leftStack.backgroundColor = .systemTeal
+        
+        addSubview(rightStack)
+        rightStack.addArrangedSubview(price)
+        rightStack.addArrangedSubview(dataButton)
+        rightStack.axis         = .vertical
+        rightStack.distribution = .equalSpacing
+        rightStack.alignment    = .trailing
+        rightStack.backgroundColor = .systemGreen
+        
+        leftStack.translatesAutoresizingMaskIntoConstraints = false
+        leftStack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        leftStack.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7).isActive = true
+        leftStack.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7).isActive = true
+        leftStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: systemMinimumLayoutMarginsLeading).isActive = true
+        
+        rightStack.translatesAutoresizingMaskIntoConstraints = false
+        rightStack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        rightStack.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7).isActive = true
+        rightStack.leadingAnchor.constraint(equalTo: leftStack.trailingAnchor).isActive = true
+        rightStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -systemMinimumLayoutMarginsLeading).isActive = true
+    }
+    
+    private func setDataButtonConstraints() {
+        dataButton.backgroundColor = .systemRed
+        dataButton.layer.cornerRadius = 5
+        dataButton.setTitleColor(.systemBackground, for: .normal)
+        dataButton.titleLabel?.font = .preferredFont(forTextStyle: .subheadline)
+        dataButton.titleLabel?.adjustsFontForContentSizeCategory = true
+        dataButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        dataButton.contentHorizontalAlignment = .right
+        dataButton.addTarget(self, action: #selector(switchData), for: .touchUpInside)
+        
+        dataButton.translatesAutoresizingMaskIntoConstraints = false
+        dataButton.widthAnchor.constraint(equalTo: rightStack.widthAnchor, multiplier: 1).isActive = true
+        dataButton.heightAnchor.constraint(equalTo: rightStack.heightAnchor, multiplier: 0.5).isActive = true
+    }
+}
 
-    private func configureSymbolNameStack() {
-        addSubview(symbolNameStack)
-        symbolNameStack.addArrangedSubview(symbol)
-        symbolNameStack.addArrangedSubview(name)
-        symbolNameStack.axis         = .vertical
-        symbolNameStack.distribution = .equalSpacing
-        symbolNameStack.alignment    = .leading
-        symbolNameStack.spacing      = 5
+extension WatchlistTableViewCell {
+    @objc private func switchData() {
+        if isChangePercent {
+            isChangePercent = false
+            reloadWatchlistTableViewNotification()
+            print("mkt cap")
+        } else {
+            isChangePercent = true
+            reloadWatchlistTableViewNotification()
+            print("change percent")
+        }
     }
-    
-    private func configurePriceChangePercentMktCapStack() {
-        addSubview(priceChangePercentMktCapStack)
-        priceChangePercentMktCapStack.addArrangedSubview(mktCap)
-        priceChangePercentMktCapStack.addArrangedSubview(price)
-        priceChangePercentMktCapStack.addArrangedSubview(changePercent)
-        priceChangePercentMktCapStack.axis         = .vertical
-        priceChangePercentMktCapStack.distribution = .equalSpacing
-        priceChangePercentMktCapStack.alignment    = .trailing
-        priceChangePercentMktCapStack.spacing      = 5
-    }
-    
-    private func setSymbolNameStackConstraints() {
-        symbolNameStack.translatesAutoresizingMaskIntoConstraints                               = false
-        symbolNameStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: systemMinimumLayoutMarginsLeading).isActive = true
-        symbolNameStack.topAnchor.constraint(equalTo: topAnchor, constant: 12).isActive         = true
-        symbolNameStack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive               = true
-        symbolNameStack.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7).isActive  = true
-    }
-    
-    private func setPriceChangePercentMktCapStackConstraints() {
-        priceChangePercentMktCapStack.translatesAutoresizingMaskIntoConstraints                              = false
-        priceChangePercentMktCapStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -systemMinimumLayoutMarginsLeading).isActive = true
-        priceChangePercentMktCapStack.topAnchor.constraint(equalTo: topAnchor, constant: 12).isActive        = true
-        priceChangePercentMktCapStack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive              = true
-        priceChangePercentMktCapStack.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3).isActive = true
+}
+
+extension WatchlistTableViewCell {
+    private func reloadWatchlistTableViewNotification() {
+        let name = Notification.Name(WatchlistConstant.RELOAD_WATCHLIST_TABLE_VIEW)
+        NotificationCenter.default.post(name: name, object: nil)
     }
 }
