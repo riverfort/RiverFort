@@ -46,7 +46,8 @@ extension WatchlistTableViewCell {
         price.text  = "\(watchedCompanyDetail.price)"
         mktCap.text = "\(watchedCompanyDetail.mktCap)"
         date.text   = "\(watchedCompanyDetail.mktDate)"
-        changePercent.text = "\(watchedCompanyDetail.changePercent)"
+        changePercent.text = watchedCompanyDetail.changePercent < 0 ? "\(watchedCompanyDetail.changePercent)" : "+\(watchedCompanyDetail.changePercent)"
+        setDataButtonBackgroundColour(changePercent: watchedCompanyDetail.changePercent)
     }
     
     public func setDataButtonTitle(isChangePercentInDataButton: Bool) {
@@ -54,6 +55,16 @@ extension WatchlistTableViewCell {
             dataButton.setTitle(changePercent.text, for: .normal)
         } else {
             dataButton.setTitle(mktCap.text, for: .normal)
+        }
+    }
+}
+
+extension WatchlistTableViewCell {
+    private func setDataButtonBackgroundColour(changePercent: Double) {
+        if changePercent < 0 {
+            dataButton.backgroundColor = .systemRed
+        } else {
+            dataButton.backgroundColor = .systemGreen
         }
     }
 }
@@ -129,7 +140,6 @@ extension WatchlistTableViewCell {
     }
     
     private func setDataButtonConstraints() {
-        dataButton.backgroundColor = .systemRed
         dataButton.layer.cornerRadius = 5
         dataButton.setTitleColor(.systemBackground, for: .normal)
         dataButton.titleLabel?.font = .preferredFont(forTextStyle: .subheadline)
