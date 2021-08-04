@@ -16,9 +16,9 @@ class NewWatchlistViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureView()
-        configureNavigationController()
-        configureWatchlistTableView()
+        configView()
+        configNavigationController()
+        configWatchlistTableView()
         createObservers()
     }
     
@@ -29,18 +29,18 @@ class NewWatchlistViewController: UIViewController {
 }
 
 extension NewWatchlistViewController {
-    private func configureView() {
+    private func configView() {
         view.backgroundColor = .systemBackground
     }
     
-    private func configureNavigationController() {
+    private func configNavigationController() {
         navigationItem.title = "Watchlist"
         navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.tintColor = .systemIndigo
     }
     
-    private func configureWatchlistTableView() {
+    private func configWatchlistTableView() {
         view.addSubview(watchlistTableView)
     }
     
@@ -48,8 +48,8 @@ extension NewWatchlistViewController {
         watchlistTableView.translatesAutoresizingMaskIntoConstraints = false
         watchlistTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive   = true
         watchlistTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        watchlistTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive           = true
         watchlistTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive     = true
+        watchlistTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive           = true
     }
 }
 
