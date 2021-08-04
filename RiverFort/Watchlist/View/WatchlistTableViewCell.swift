@@ -19,16 +19,13 @@ class WatchlistTableViewCell: UITableViewCell {
     
     private let leftStack  = UIStackView()
     private let rightStack = UIStackView()
-    private let dataButton = UIButton(type: .roundedRect)
-    private var isChangePercent = false
+    public let dataButton = UIButton(type: .roundedRect)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configContentView()
-        
         setStacksConstraints()
         setDataButtonConstraints()
-        
         configSymbolLabel()
         configNameLabel()
         configCurrencyLabel()
@@ -51,8 +48,10 @@ extension WatchlistTableViewCell {
         changePercent.text = "\(watchedCompanyDetail.changePercent)"
         mktCap.text = "\(watchedCompanyDetail.mktCap)"
         date.text = "\(watchedCompanyDetail.mktDate)"
-        
-        if isChangePercent {
+    }
+    
+    public func setDataButtonTitle(isChangePercentInDataButton: Bool) {
+        if isChangePercentInDataButton {
             dataButton.setTitle(changePercent.text, for: .normal)
         } else {
             dataButton.setTitle(mktCap.text, for: .normal)
@@ -140,31 +139,9 @@ extension WatchlistTableViewCell {
         dataButton.titleLabel?.adjustsFontForContentSizeCategory = true
         dataButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         dataButton.contentHorizontalAlignment = .right
-        dataButton.addTarget(self, action: #selector(switchData), for: .touchUpInside)
         
         dataButton.translatesAutoresizingMaskIntoConstraints = false
         dataButton.widthAnchor.constraint(equalTo: rightStack.widthAnchor, multiplier: 1).isActive = true
         dataButton.heightAnchor.constraint(equalTo: rightStack.heightAnchor, multiplier: 0.5).isActive = true
-    }
-}
-
-extension WatchlistTableViewCell {
-    @objc private func switchData() {
-        if isChangePercent {
-            isChangePercent = false
-            reloadWatchlistTableViewNotification()
-            print("mkt cap")
-        } else {
-            isChangePercent = true
-            reloadWatchlistTableViewNotification()
-            print("change percent")
-        }
-    }
-}
-
-extension WatchlistTableViewCell {
-    private func reloadWatchlistTableViewNotification() {
-        let name = Notification.Name(WatchlistConstant.RELOAD_WATCHLIST_TABLE_VIEW)
-        NotificationCenter.default.post(name: name, object: nil)
     }
 }

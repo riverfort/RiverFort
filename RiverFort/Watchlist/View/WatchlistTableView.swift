@@ -12,6 +12,7 @@ class WatchlistTableView: UITableView {
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     private var watchedCompanies      = [WatchedCompany]()
     private var watchedCompanyDetails = [CompanyDetail]()
+    private var isChangePercentInDataButton = false
 
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -52,8 +53,29 @@ extension WatchlistTableView: UITableViewDataSource, UITableViewDelegate {
                 changePercent: watchedCompanyDetails[i].change_percent,
                 mktDate: watchedCompanyDetails[i].market_date)
             cell.setWatchlistTableViewCell(watchedCompanyDetail: watchedCompanyDetail)
+            cell.setDataButtonTitle(isChangePercentInDataButton: isChangePercentInDataButton)
+            cell.dataButton.addTarget(self, action: #selector(switchData), for: .touchUpInside)
         }
         return cell
+    }
+}
+
+extension WatchlistTableView {
+    @objc private func switchData() {
+        if isChangePercentInDataButton {
+            isChangePercentInDataButton = false
+            reloadWatchlistTableViewNotification()
+        } else {
+            isChangePercentInDataButton = true
+            reloadWatchlistTableViewNotification()
+        }
+    }
+}
+
+extension WatchlistTableView {
+    private func reloadWatchlistTableViewNotification() {
+        let name = Notification.Name(WatchlistConstant.RELOAD_WATCHLIST_TABLE_VIEW)
+        NotificationCenter.default.post(name: name, object: nil)
     }
 }
 
