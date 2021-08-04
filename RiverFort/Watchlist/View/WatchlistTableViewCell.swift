@@ -43,10 +43,10 @@ extension WatchlistTableViewCell {
     public func setWatchlistTableViewCell(watchedCompanyDetail: WatchedCompanyDetailNew) {
         symbol.text = watchedCompanyDetail.symbol
         name.text   = watchedCompanyDetail.name
-        price.text  = "\(watchedCompanyDetail.price)"
         mktCap.text = NumberShortScale.formatNumber(watchedCompanyDetail.mktCap)
         date.text   = "\(watchedCompanyDetail.mktDate)"
         changePercent.text = watchedCompanyDetail.changePercent < 0 ? "\(watchedCompanyDetail.changePercent)%" : "+\(watchedCompanyDetail.changePercent)%"
+        setPriceLabelText(watchedCompanyDetail: watchedCompanyDetail)
         setDataButtonBackgroundColour(changePercent: watchedCompanyDetail.changePercent)
     }
     
@@ -65,6 +65,14 @@ extension WatchlistTableViewCell {
             dataButton.backgroundColor = .systemRed
         } else {
             dataButton.backgroundColor = .systemGreen
+        }
+    }
+    
+    private func setPriceLabelText(watchedCompanyDetail: WatchedCompanyDetailNew) {
+        if UIDevice.current.orientation.isLandscape {
+            price.text  = "\(watchedCompanyDetail.currency) \(watchedCompanyDetail.price)"
+        } else {
+            price.text  = "\(watchedCompanyDetail.price)"
         }
     }
 }

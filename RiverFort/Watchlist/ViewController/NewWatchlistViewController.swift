@@ -26,6 +26,13 @@ class NewWatchlistViewController: UIViewController {
         super.viewDidLayoutSubviews()
         setWatchlistTableViewConstraints()
     }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        DispatchQueue.main.async { [self] in
+            watchlistTableView.reloadData()
+        }
+    }
 }
 
 extension NewWatchlistViewController {
