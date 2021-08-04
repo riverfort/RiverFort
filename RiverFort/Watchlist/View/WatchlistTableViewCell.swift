@@ -16,7 +16,6 @@ class WatchlistTableViewCell: UITableViewCell {
     private let changePercent = UILabel()
     private let mktCap        = UILabel()
     private let date          = UILabel()
-    
     private let leftStack  = UIStackView()
     private let rightStack = UIStackView()
     public let dataButton = UIButton(type: .roundedRect)
@@ -43,11 +42,11 @@ class WatchlistTableViewCell: UITableViewCell {
 extension WatchlistTableViewCell {
     public func setWatchlistTableViewCell(watchedCompanyDetail: WatchedCompanyDetailNew) {
         symbol.text = watchedCompanyDetail.symbol
-        name.text = watchedCompanyDetail.name
-        price.text = "\(watchedCompanyDetail.price)"
-        changePercent.text = "\(watchedCompanyDetail.changePercent)"
+        name.text   = watchedCompanyDetail.name
+        price.text  = "\(watchedCompanyDetail.price)"
         mktCap.text = "\(watchedCompanyDetail.mktCap)"
-        date.text = "\(watchedCompanyDetail.mktDate)"
+        date.text   = "\(watchedCompanyDetail.mktDate)"
+        changePercent.text = "\(watchedCompanyDetail.changePercent)"
     }
     
     public func setDataButtonTitle(isChangePercentInDataButton: Bool) {
@@ -108,7 +107,6 @@ extension WatchlistTableViewCell {
         leftStack.axis         = .vertical
         leftStack.distribution = .equalSpacing
         leftStack.alignment    = .leading
-        leftStack.backgroundColor = .systemTeal
         
         addSubview(rightStack)
         rightStack.addArrangedSubview(price)
@@ -116,7 +114,6 @@ extension WatchlistTableViewCell {
         rightStack.axis         = .vertical
         rightStack.distribution = .equalSpacing
         rightStack.alignment    = .trailing
-        rightStack.backgroundColor = .systemGreen
         
         leftStack.translatesAutoresizingMaskIntoConstraints = false
         leftStack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
