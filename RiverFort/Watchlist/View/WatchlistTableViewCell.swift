@@ -44,7 +44,7 @@ extension WatchlistTableViewCell {
         symbol.text = watchedCompanyDetail.symbol
         name.text   = watchedCompanyDetail.name
         price.text  = "\(watchedCompanyDetail.price)"
-        mktCap.text = "\(watchedCompanyDetail.mktCap)"
+        mktCap.text = NumberShortScale.formatNumber(watchedCompanyDetail.mktCap)
         date.text   = "\(watchedCompanyDetail.mktDate)"
         changePercent.text = watchedCompanyDetail.changePercent < 0 ? "\(watchedCompanyDetail.changePercent)" : "+\(watchedCompanyDetail.changePercent)"
         setDataButtonBackgroundColour(changePercent: watchedCompanyDetail.changePercent)
