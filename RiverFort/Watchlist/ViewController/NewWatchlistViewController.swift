@@ -43,6 +43,12 @@ extension NewWatchlistViewController {
         navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.tintColor = .systemIndigo
+        configBarButtonItem()
+    }
+    
+    private func configBarButtonItem() {
+        let editBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editWathclist))
+        navigationItem.rightBarButtonItem = editBarButtonItem
     }
     
     private func configWatchlistTableView() {
@@ -68,5 +74,11 @@ extension NewWatchlistViewController {
         DispatchQueue.main.async { [self] in
             watchlistTableView.reloadData()
         }
+    }
+}
+
+extension NewWatchlistViewController {
+    @objc private func editWathclist() {
+        print("edit")
     }
 }
