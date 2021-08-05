@@ -153,7 +153,7 @@ extension WatchlistTableViewCell {
         dataButton.setTitleColor(.systemBackground, for: .normal)
         dataButton.titleLabel?.font = .preferredFont(forTextStyle: .headline)
         dataButton.titleLabel?.adjustsFontForContentSizeCategory = true
-        dataButton.contentEdgeInsets = UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 3)
+        dataButton.contentEdgeInsets = UIEdgeInsets(top: 3, left: 4, bottom: 3, right: 4)
         dataButton.contentHorizontalAlignment = .right
         
         dataButton.translatesAutoresizingMaskIntoConstraints = false
