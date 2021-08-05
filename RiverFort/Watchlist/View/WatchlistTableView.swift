@@ -62,6 +62,7 @@ extension WatchlistTableView: UITableViewDataSource, UITableViewDelegate {
 
 extension WatchlistTableView {
     @objc private func switchData() {
+        HapticsManager.shared.impact(style: .light)
         if isChangePercentInDataButton {
             isChangePercentInDataButton = false
             reloadWatchlistTableViewNotification()
