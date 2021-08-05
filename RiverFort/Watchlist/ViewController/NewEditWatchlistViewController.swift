@@ -30,8 +30,6 @@ extension NewEditWatchlistViewController {
     
     private func configNavigationController() {
         navigationItem.title = "Edit Watchlist"
-        navigationItem.largeTitleDisplayMode = .always
-        navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.tintColor = .systemIndigo
     }
     
