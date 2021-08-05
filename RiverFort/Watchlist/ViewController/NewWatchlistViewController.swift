@@ -79,6 +79,8 @@ extension NewWatchlistViewController {
 
 extension NewWatchlistViewController {
     @objc private func editWathclist() {
-        print("edit")
+        let editWatchlistViewController = NewEditWatchlistViewController()
+        let editWatchlistNavigationController = UINavigationController(rootViewController: editWatchlistViewController)
+        present(editWatchlistNavigationController, animated: true)
     }
 }
