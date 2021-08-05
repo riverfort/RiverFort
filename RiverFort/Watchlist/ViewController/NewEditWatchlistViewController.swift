@@ -56,7 +56,7 @@ extension NewEditWatchlistViewController {
 
 extension NewEditWatchlistViewController {
     @objc private func doneEditWathclist() {
-        print("done")
+        dismiss(animated: true, completion: nil)
     }
     
     @objc private func clearEditWatchlist() {
