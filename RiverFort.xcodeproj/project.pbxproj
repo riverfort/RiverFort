@@ -43,6 +43,7 @@
 		7762C77226BAE258008DE1BA /* NumberShortScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7762C77126BAE258008DE1BA /* NumberShortScale.swift */; };
 		7768AF8C262436D000949A6A /* SPAlert in Frameworks */ = {isa = PBXBuildFile; productRef = 7768AF8B262436D000949A6A /* SPAlert */; };
 		776D13C3261E087500B9CF97 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D13C2261E087500B9CF97 /* HomeViewController.swift */; };
+		776F657A26BBDB6400CAA5A6 /* WindowInterfaceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776F657926BBDB6400CAA5A6 /* WindowInterfaceOrientation.swift */; };
 		7774DBED264BF451002752B4 /* NewSymbolRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7774DBEC264BF451002752B4 /* NewSymbolRequest.swift */; };
 		77814CD426469CE3008C832C /* ADTVCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77814CD326469CE3008C832C /* ADTVCardController.swift */; };
 		77814CD626469D6B008C832C /* ADTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77814CD526469D6B008C832C /* ADTV.swift */; };
@@ -130,6 +131,7 @@
 		7760164B26B98E9700BA7C41 /* WatchlistConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistConstant.swift; sourceTree = "<group>"; };
 		7762C77126BAE258008DE1BA /* NumberShortScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberShortScale.swift; sourceTree = "<group>"; };
 		776D13C2261E087500B9CF97 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		776F657926BBDB6400CAA5A6 /* WindowInterfaceOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowInterfaceOrientation.swift; sourceTree = "<group>"; };
 		7774DBEC264BF451002752B4 /* NewSymbolRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSymbolRequest.swift; sourceTree = "<group>"; };
 		77814CD326469CE3008C832C /* ADTVCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTVCardController.swift; sourceTree = "<group>"; };
 		77814CD526469D6B008C832C /* ADTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTV.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 		77104EEE26B4497B0058E2C2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				776F657826BBDB4C00CAA5A6 /* Orientation */,
 				7762C77026BAE1DF008DE1BA /* Utility */,
 				77104EEF26B4499D0058E2C2 /* Haptics */,
 				7760164726B9830100BA7C41 /* Model */,
@@ -361,6 +364,14 @@
 				7762C77126BAE258008DE1BA /* NumberShortScale.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		776F657826BBDB4C00CAA5A6 /* Orientation */ = {
+			isa = PBXGroup;
+			children = (
+				776F657926BBDB6400CAA5A6 /* WindowInterfaceOrientation.swift */,
+			);
+			path = Orientation;
 			sourceTree = "<group>";
 		};
 		7770081626B1A5650021A9BB /* ViewController */ = {
@@ -706,6 +717,7 @@
 				77876E90264D484700798106 /* FeedsCardController.swift in Sources */,
 				77950FCE2643EA4B002AC408 /* ThemedCardController.swift in Sources */,
 				773A0BBD261728AA002B9875 /* CompanyTableViewCell.swift in Sources */,
+				776F657A26BBDB6400CAA5A6 /* WindowInterfaceOrientation.swift in Sources */,
 				77286CA92621DEBB00B73570 /* ChartMarker.swift in Sources */,
 				77CB234526B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift in Sources */,
 				77950FD626443A79002AC408 /* ProfileCardController.swift in Sources */,

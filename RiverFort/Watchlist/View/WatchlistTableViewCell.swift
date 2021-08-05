@@ -69,7 +69,8 @@ extension WatchlistTableViewCell {
     }
     
     private func setPriceLabelText(watchedCompanyDetail: WatchedCompanyDetailNew) {
-        if UIDevice.current.orientation.isLandscape {
+        guard let windowInterfaceOrientation = WindowInterfaceOrientation.windowInterfaceOrientation else { return }
+        if windowInterfaceOrientation.isLandscape {
             price.text  = "\(watchedCompanyDetail.currency) \(watchedCompanyDetail.price)"
         } else {
             price.text  = "\(watchedCompanyDetail.price)"
