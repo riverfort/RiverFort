@@ -40,6 +40,9 @@ extension EditWatchlistTableView: UITableViewDataSource, UITableViewDelegate {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
         cell.textLabel?.text       = watchedCompanies[indexPath.row].company_ticker
         cell.detailTextLabel?.text = watchedCompanies[indexPath.row].company_name
+        cell.textLabel?.font       = .preferredFont(forTextStyle: .headline)
+        cell.detailTextLabel?.font = .preferredFont(forTextStyle: .subheadline)
+        cell.detailTextLabel?.textColor = .systemGray
         return cell
     }
 }
