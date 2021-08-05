@@ -24,6 +24,7 @@ class EditWatchlistTableView: UITableView {
 
 extension EditWatchlistTableView {
     private func configTableView() {
+        self.setEditing(true, animated: true)
         self.backgroundColor = .systemBackground
         self.dataSource = self
         self.delegate   = self
@@ -58,6 +59,29 @@ extension EditWatchlistTableView {
             removeWatchedCompany(watchedCompany: watchedCompanies[indexPath.row])
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
+        }
+    }
+}
+
+extension EditWatchlistTableView {
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        if sourceIndexPath.row > destinationIndexPath.row {
+            watchedCompanies[sourceIndexPath.row].rowOrder = watchedCompanies[destinationIndexPath.row].rowOrder - 1
+            for i in destinationIndexPath.row...watchedCompanies.count - 1 {
+                watchedCompanies[i].rowOrder = watchedCompanies[i].rowOrder + 1
+            }
+        }
+        if sourceIndexPath.row < destinationIndexPath.row + 1 {
+            watchedCompanies[sourceIndexPath.row].rowOrder = watchedCompanies[destinationIndexPath.row].rowOrder + 1
+            for i in 0...destinationIndexPath.row {
+                watchedCompanies[i].rowOrder = watchedCompanies[i].rowOrder - 1
+            }
+        }
+        do {
+            try PersistentContainer.context.save()
+            getWatchedCompanies()
+        } catch {
+            print("error")
         }
     }
 }
