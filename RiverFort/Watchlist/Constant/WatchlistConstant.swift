@@ -9,4 +9,5 @@ import Foundation
 
 struct WatchlistConstant {
     static var RELOAD_WATCHLIST_TABLE_VIEW = "com.riverfort.reloadWatchlistTableView"
+    static var ADD_TO_WATCHLIST            = "com.riverfort.addToWatchlist"
 }
