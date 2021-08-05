@@ -80,6 +80,11 @@ extension NewWatchlistViewController {
 extension NewWatchlistViewController {
     @objc private func editWathclist() {
         let editWatchlistViewController = NewEditWatchlistViewController()
+        editWatchlistViewController.editCompletion = { [self] in
+            watchlistTableView.removeAllWatchedCompanies()
+            watchlistTableView.getWatchedCompanies()
+            reloadWatchlistTableView()
+        }
         let editWatchlistNavigationController = UINavigationController(rootViewController: editWatchlistViewController)
         present(editWatchlistNavigationController, animated: true)
     }

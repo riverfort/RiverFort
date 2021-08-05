@@ -81,7 +81,11 @@ extension WatchlistTableView {
 }
 
 extension WatchlistTableView {
-    private func getWatchedCompanies() {
+    public func removeAllWatchedCompanies() {
+        watchedCompanies.removeAll()
+    }
+    
+    public func getWatchedCompanies() {
         do {
             let request = WatchedCompany.fetchRequest() as NSFetchRequest<WatchedCompany>
             let sort = NSSortDescriptor(key: "rowOrder", ascending: true)
@@ -110,4 +114,3 @@ extension WatchlistTableView: CompanyDetailDataDelegate {
         }
     }
 }
-

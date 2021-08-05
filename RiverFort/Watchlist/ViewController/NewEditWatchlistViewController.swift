@@ -9,6 +9,7 @@ import UIKit
 
 class NewEditWatchlistViewController: UIViewController {
     private let editWatchlistTableView = EditWatchlistTableView(frame: .zero, style: .plain)
+    public var editCompletion: (() -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,11 @@ class NewEditWatchlistViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setEditWatchlistTableViewConstraints()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        editCompletion?()
     }
 }
 
