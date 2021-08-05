@@ -46,6 +46,7 @@
 		776F657A26BBDB6400CAA5A6 /* WindowInterfaceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776F657926BBDB6400CAA5A6 /* WindowInterfaceOrientation.swift */; };
 		776F657C26BBEF2D00CAA5A6 /* NewEditWatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776F657B26BBEF2D00CAA5A6 /* NewEditWatchlistViewController.swift */; };
 		776F657E26BBF15900CAA5A6 /* EditWatchlistTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776F657D26BBF15900CAA5A6 /* EditWatchlistTableView.swift */; };
+		776F658126BBFF7900CAA5A6 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776F658026BBFF7900CAA5A6 /* PersistentContainer.swift */; };
 		7774DBED264BF451002752B4 /* NewSymbolRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7774DBEC264BF451002752B4 /* NewSymbolRequest.swift */; };
 		77814CD426469CE3008C832C /* ADTVCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77814CD326469CE3008C832C /* ADTVCardController.swift */; };
 		77814CD626469D6B008C832C /* ADTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77814CD526469D6B008C832C /* ADTV.swift */; };
@@ -136,6 +137,7 @@
 		776F657926BBDB6400CAA5A6 /* WindowInterfaceOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowInterfaceOrientation.swift; sourceTree = "<group>"; };
 		776F657B26BBEF2D00CAA5A6 /* NewEditWatchlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEditWatchlistViewController.swift; sourceTree = "<group>"; };
 		776F657D26BBF15900CAA5A6 /* EditWatchlistTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWatchlistTableView.swift; sourceTree = "<group>"; };
+		776F658026BBFF7900CAA5A6 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
 		7774DBEC264BF451002752B4 /* NewSymbolRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSymbolRequest.swift; sourceTree = "<group>"; };
 		77814CD326469CE3008C832C /* ADTVCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTVCardController.swift; sourceTree = "<group>"; };
 		77814CD526469D6B008C832C /* ADTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTV.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 		77104EEE26B4497B0058E2C2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				776F657F26BBFF5200CAA5A6 /* PersistentContainer */,
 				776F657826BBDB4C00CAA5A6 /* Orientation */,
 				7762C77026BAE1DF008DE1BA /* Utility */,
 				77104EEF26B4499D0058E2C2 /* Haptics */,
@@ -376,6 +379,14 @@
 				776F657926BBDB6400CAA5A6 /* WindowInterfaceOrientation.swift */,
 			);
 			path = Orientation;
+			sourceTree = "<group>";
+		};
+		776F657F26BBFF5200CAA5A6 /* PersistentContainer */ = {
+			isa = PBXGroup;
+			children = (
+				776F658026BBFF7900CAA5A6 /* PersistentContainer.swift */,
+			);
+			path = PersistentContainer;
 			sourceTree = "<group>";
 		};
 		7770081626B1A5650021A9BB /* ViewController */ = {
@@ -722,6 +733,7 @@
 				77A147B02642BD1600EE8535 /* CompanyDetailViewController.swift in Sources */,
 				7785D7852630142600988C28 /* WatchedCompany+CoreDataProperties.swift in Sources */,
 				779ED89B26380D7100815B4D /* SettingsViewController.swift in Sources */,
+				776F658126BBFF7900CAA5A6 /* PersistentContainer.swift in Sources */,
 				77876E90264D484700798106 /* FeedsCardController.swift in Sources */,
 				77950FCE2643EA4B002AC408 /* ThemedCardController.swift in Sources */,
 				773A0BBD261728AA002B9875 /* CompanyTableViewCell.swift in Sources */,

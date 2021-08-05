@@ -6,10 +6,14 @@
 //
 
 import UIKit
+import CoreData
 
 class EditWatchlistTableView: UITableView {
+    private var watchedCompanies = [WatchedCompany]()
+    
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
+        getWatchedCompanies()
         configTableView()
     }
     
@@ -29,12 +33,37 @@ extension EditWatchlistTableView {
 
 extension EditWatchlistTableView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return watchedCompanies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "hello"
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
+        cell.textLabel?.text       = watchedCompanies[indexPath.row].company_ticker
+        cell.detailTextLabel?.text = watchedCompanies[indexPath.row].company_name
         return cell
+    }
+}
+
+extension EditWatchlistTableView {
+    private func getWatchedCompanies() {
+        do {
+            let request = WatchedCompany.fetchRequest() as NSFetchRequest<WatchedCompany>
+            let sort = NSSortDescriptor(key: "rowOrder", ascending: true)
+            request.sortDescriptors = [sort]
+            watchedCompanies = try PersistentContainer.context.fetch(request)
+//            tableView.reloadData()
+        } catch {
+            print("error")
+        }
+    }
+    
+    private func removeWatchedCompany(watchedCompany: WatchedCompany) {
+        PersistentContainer.context.delete(watchedCompany)
+        do {
+            try PersistentContainer.context.save()
+            getWatchedCompanies()
+        } catch {
+            print("error")
+        }
     }
 }
