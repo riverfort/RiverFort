@@ -67,11 +67,21 @@ extension NewWatchlistViewController {
 extension NewWatchlistViewController {
     private func createObservers() {
         let reloadWatchlistTableViewName = Notification.Name(WatchlistConstant.RELOAD_WATCHLIST_TABLE_VIEW)
+        let addToWatchlistName           = Notification.Name(WatchlistConstant.ADD_TO_WATCHLIST)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadWatchlistTableView), name: reloadWatchlistTableViewName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadWatchlist), name: addToWatchlistName, object: nil)
     }
 
     @objc private func reloadWatchlistTableView() {
         DispatchQueue.main.async { [self] in
+            watchlistTableView.reloadData()
+        }
+    }
+    
+    @objc private func reloadWatchlist() {
+        DispatchQueue.main.async { [self] in
+            watchlistTableView.removeAllWatchedCompanies()
+            watchlistTableView.getWatchedCompanies()
             watchlistTableView.reloadData()
         }
     }
