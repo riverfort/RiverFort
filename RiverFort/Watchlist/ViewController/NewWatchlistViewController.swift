@@ -81,6 +81,7 @@ extension NewWatchlistViewController {
     @objc private func reloadWatchlist() {
         DispatchQueue.main.async { [self] in
             watchlistTableView.removeAllWatchedCompanies()
+            watchlistTableView.configureAPI()
             watchlistTableView.getWatchedCompanies()
             watchlistTableView.reloadData()
         }
@@ -92,6 +93,7 @@ extension NewWatchlistViewController {
         let editWatchlistViewController = NewEditWatchlistViewController()
         editWatchlistViewController.editCompletion = { [self] in
             watchlistTableView.removeAllWatchedCompanies()
+            watchlistTableView.configureAPI()
             watchlistTableView.getWatchedCompanies()
             reloadWatchlistTableView()
         }

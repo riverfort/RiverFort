@@ -101,7 +101,7 @@ extension WatchlistTableView {
 }
 
 extension WatchlistTableView: CompanyDetailDataDelegate {
-    private func configureAPI() {
+    public func configureAPI() {
         APIFunctions.functions.companyDetailDeleagate = self
     }
     
