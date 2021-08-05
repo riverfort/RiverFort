@@ -35,10 +35,10 @@ extension NewEditWatchlistViewController {
     }
     
     private func configBarButtonItem() {
-        let saveBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveEditWathclist))
-        let cancelBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelEditWatchlist))
-        navigationItem.rightBarButtonItem = saveBarButtonItem
-        navigationItem.leftBarButtonItem  = cancelBarButtonItem
+        let doneBarButtonItem  = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneEditWathclist))
+        let clearBarButtonItem = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(clearEditWatchlist))
+        navigationItem.rightBarButtonItem = doneBarButtonItem
+        navigationItem.leftBarButtonItem  = clearBarButtonItem
     }
     
     private func configEditWatchlistTableView() {
@@ -55,11 +55,11 @@ extension NewEditWatchlistViewController {
 }
 
 extension NewEditWatchlistViewController {
-    @objc private func saveEditWathclist() {
-        print("save")
+    @objc private func doneEditWathclist() {
+        print("done")
     }
     
-    @objc private func cancelEditWatchlist() {
-        dismiss(animated: true, completion: nil)
+    @objc private func clearEditWatchlist() {
+        print("clear")
     }
 }
