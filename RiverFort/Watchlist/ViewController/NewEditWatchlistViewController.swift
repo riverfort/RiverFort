@@ -60,6 +60,6 @@ extension NewEditWatchlistViewController {
     }
     
     @objc private func clearEditWatchlist() {
-        print("clear")
+        editWatchlistTableView.prepareClearWatchedCompanies()
     }
 }

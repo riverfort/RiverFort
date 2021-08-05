@@ -30,6 +30,19 @@ extension EditWatchlistTableView {
         self.delegate   = self
         self.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
+    
+    private func configWatchedCompaniesAC(ac: UIAlertController) {
+        ac.view.tintColor = .systemIndigo
+        ac.addAction(UIAlertAction(title: "Clear Watchlist", style: .destructive, handler: { [self] _ in
+            clearWatchedCompanies()
+        }))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        if let popoverController = ac.popoverPresentationController {
+            popoverController.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
+            popoverController.sourceView = self.backgroundView
+            popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+        }
+    }
 }
 
 extension EditWatchlistTableView: UITableViewDataSource, UITableViewDelegate {
@@ -87,6 +100,14 @@ extension EditWatchlistTableView {
 }
 
 extension EditWatchlistTableView {
+    public func prepareClearWatchedCompanies() {
+        let ac = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        configWatchedCompaniesAC(ac: ac)
+        UIApplication.topViewController()?.present(ac, animated: true)
+    }
+}
+
+extension EditWatchlistTableView {
     private func getWatchedCompanies() {
         do {
             let request = WatchedCompany.fetchRequest() as NSFetchRequest<WatchedCompany>
@@ -106,6 +127,18 @@ extension EditWatchlistTableView {
             getWatchedCompanies()
         } catch {
             print("error")
+        }
+    }
+    
+    private func clearWatchedCompanies() {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "WatchedCompany")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do {
+            try PersistentContainer.context.execute(deleteRequest)
+            getWatchedCompanies()
+            UIApplication.topViewController()?.dismiss(animated: true, completion: nil)
+        } catch {
+            // TODO: handle the error
         }
     }
 }
