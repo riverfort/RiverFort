@@ -29,8 +29,16 @@ extension NewEditWatchlistViewController {
     }
     
     private func configNavigationController() {
-        navigationItem.title = "Edit Watchlist"
+        navigationItem.title = "Edit"
         navigationController?.navigationBar.tintColor = .systemIndigo
+        configBarButtonItem()
+    }
+    
+    private func configBarButtonItem() {
+        let saveBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveEditWathclist))
+        let cancelBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelEditWatchlist))
+        navigationItem.rightBarButtonItem = saveBarButtonItem
+        navigationItem.leftBarButtonItem  = cancelBarButtonItem
     }
     
     private func configEditWatchlistTableView() {
@@ -43,5 +51,15 @@ extension NewEditWatchlistViewController {
         editWatchlistTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         editWatchlistTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive     = true
         editWatchlistTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive           = true
+    }
+}
+
+extension NewEditWatchlistViewController {
+    @objc private func saveEditWathclist() {
+        print("save")
+    }
+    
+    @objc private func cancelEditWatchlist() {
+        dismiss(animated: true, completion: nil)
     }
 }
