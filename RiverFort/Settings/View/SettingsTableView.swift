@@ -53,7 +53,7 @@ extension SettingsTableView: UITableViewDataSource, UITableViewDelegate {
         case .staticCell(newSettingsStaticOption: let newSettingsStaticOption):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsConstant.STATIC_TABLE_VIEW_CELL,
                                                            for: indexPath) as? SettingsStaticTableViewCell else { return UITableViewCell() }
-            cell.setSettingsTableViewCell(newSettingsOption: newSettingsStaticOption)
+            cell.setSettingsStaticTableViewCell(newSettingsStaticOption: newSettingsStaticOption)
             return cell
         case .switchCell(newSettingsSwitchOption: let newSettingsSwitchOption):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsConstant.SWITCH_TABLE_VIEW_CELL,
