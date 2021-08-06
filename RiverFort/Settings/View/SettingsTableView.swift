@@ -86,12 +86,19 @@ extension SettingsTableView {
 
 extension SettingsTableView {
     private func setSettingsOptions() {
-        self.settingsSections.append(NewSettingsSection(title: "Appearance", options: [
-            .switchCell(newSettingsSwitchOption: NewSettingsSwitchOption(title: "Dark Mode", icon: UIImage(systemName: "sunset.fill"), iconBackgroundColour: .black, isOn: true, handler: {
-                
-            }))
-        ]))
-        
+        if self.traitCollection.userInterfaceStyle == .dark {
+            self.settingsSections.append(NewSettingsSection(title: "Appearance", options: [
+                .switchCell(newSettingsSwitchOption: NewSettingsSwitchOption(title: "Dark Mode", icon: UIImage(systemName: "sunset.fill"), iconBackgroundColour: .black, isOn: true, handler: {
+                    print("hello")
+                }))
+            ]))
+        } else if self.traitCollection.userInterfaceStyle == .light {
+            self.settingsSections.append(NewSettingsSection(title: "Appearance", options: [
+                .switchCell(newSettingsSwitchOption: NewSettingsSwitchOption(title: "Dark Mode", icon: UIImage(systemName: "sunset.fill"), iconBackgroundColour: .black, isOn: false, handler: {
+                    print("hello")
+                }))
+            ]))
+        }
         self.settingsSections.append(NewSettingsSection(title: "Other", options: [
             .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "Share", icon: UIImage(systemName: "square.and.arrow.up"), iconBackgroundColour: .systemGreen, handler: { [self] in
                 selectShare()
