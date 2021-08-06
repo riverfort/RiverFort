@@ -80,53 +80,17 @@ extension SettingsTableView {
 
 extension SettingsTableView {
     private func setSettingsOptions() {
-        self.settingsSections.append(NewSettingsSection(title: "General", options: [
-            .switchCell(newSettingsSwitchOption: NewSettingsSwitchOption(title: "Airplane mode", icon: UIImage(systemName: "airplane"), iconBackgroundColour: .blue, isOn: true, handler: {
+        self.settingsSections.append(NewSettingsSection(title: "Appearance", options: [
+            .switchCell(newSettingsSwitchOption: NewSettingsSwitchOption(title: "Dark Mode", icon: UIImage(systemName: "sunset.fill"), iconBackgroundColour: .black, isOn: true, handler: {
                 
             }))
         ]))
         
-        self.settingsSections.append(NewSettingsSection(title: "General", options: [
-            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "WIFT", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
+        self.settingsSections.append(NewSettingsSection(title: "Other", options: [
+            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "Share", icon: UIImage(systemName: "square.and.arrow.up"), iconBackgroundColour: .systemGreen, handler: {
                 print("hi")
             })),
-            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "Bluetooth", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
-                print("hi")
-            })),
-            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "Airplane Mode", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
-                print("hi")
-            })),
-            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "iCloud", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
-                print("hi")
-            })),
-        ]))
-        
-        self.settingsSections.append(NewSettingsSection(title: "Information", options: [
-            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "WIFT", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
-                print("hi")
-            })),
-            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "Bluetooth", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
-                print("hi")
-            })),
-            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "Airplane Mode", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
-                print("hi")
-            })),
-            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "iCloud", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
-                print("hi")
-            })),
-        ]))
-        
-        self.settingsSections.append(NewSettingsSection(title: "Apps", options: [
-            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "WIFT", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
-                print("hi")
-            })),
-            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "Bluetooth", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
-                print("hi")
-            })),
-            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "Airplane Mode", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
-                print("hi")
-            })),
-            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "iCloud", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
+            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "Privacy & Terms", icon: UIImage(systemName: "person.fill.viewfinder"), iconBackgroundColour: .systemBlue, handler: {
                 print("hi")
             })),
         ]))
