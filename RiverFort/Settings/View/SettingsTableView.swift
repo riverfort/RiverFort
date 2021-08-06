@@ -8,9 +8,12 @@
 import UIKit
 
 class SettingsTableView: UITableView {
+    private var settingsOptions = [NewSettingsOption]()
+        
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         configTableView()
+        setSettingsOptions()
     }
     
     required init?(coder: NSCoder) {
@@ -27,14 +30,25 @@ extension SettingsTableView {
     }
 }
 
+extension SettingsTableView {
+    private func setSettingsOptions() {
+        self.settingsOptions = Array(0...100).compactMap({
+            NewSettingsOption(title: "Item \($0)", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink) {
+                
+            }
+        })
+    }
+}
+
 extension SettingsTableView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return settingsOptions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let settingsOption = settingsOptions[indexPath.row]
         let cell =  tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "Hello"
+        cell.textLabel?.text = settingsOption.title
         return cell
     }
 }
