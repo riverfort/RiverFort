@@ -81,9 +81,9 @@ extension SettingsTableView {
 extension SettingsTableView {
     private func setSettingsOptions() {
         self.settingsSections.append(NewSettingsSection(title: "General", options: [
-            .switchCell(newSettingsSwitchOption: NewSettingsSwitchOption(title: "Airplane mode", icon: UIImage(systemName: "airplane"), iconBackgroundColour: .blue, handler: {
+            .switchCell(newSettingsSwitchOption: NewSettingsSwitchOption(title: "Airplane mode", icon: UIImage(systemName: "airplane"), iconBackgroundColour: .blue, isOn: true, handler: {
                 
-            }, isOn: true))
+            }))
         ]))
         
         self.settingsSections.append(NewSettingsSection(title: "General", options: [

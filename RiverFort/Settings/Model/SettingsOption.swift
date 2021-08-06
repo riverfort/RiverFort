@@ -18,8 +18,8 @@ struct NewSettingsSwitchOption {
     let title: String
     let icon: UIImage?
     let iconBackgroundColour: UIColor
-    let handler: (() -> Void)
     var isOn: Bool
+    let handler: (() -> Void)
 }
 
 enum NewSettingsOptionType {
