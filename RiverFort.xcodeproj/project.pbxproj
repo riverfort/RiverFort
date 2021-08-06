@@ -74,6 +74,7 @@
 		779B885B26BD1B0100FB06A1 /* SettingsConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B885A26BD1B0100FB06A1 /* SettingsConstant.swift */; };
 		779B885E26BD1E9600FB06A1 /* SettingsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B885D26BD1E9500FB06A1 /* SettingsOption.swift */; };
 		779B886026BD213D00FB06A1 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B885F26BD213D00FB06A1 /* SettingsTableViewCell.swift */; };
+		779B886226BD2B4900FB06A1 /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B886126BD2B4900FB06A1 /* SettingsSection.swift */; };
 		779ED89726380BE200815B4D /* EditWatchlistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779ED89626380BE200815B4D /* EditWatchlistTableViewCell.swift */; };
 		779ED89B26380D7100815B4D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779ED89A26380D7100815B4D /* SettingsViewController.swift */; };
 		779ED89F2638163000815B4D /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779ED89E2638163000815B4D /* SettingTableViewCell.swift */; };
@@ -170,6 +171,7 @@
 		779B885A26BD1B0100FB06A1 /* SettingsConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsConstant.swift; sourceTree = "<group>"; };
 		779B885D26BD1E9500FB06A1 /* SettingsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOption.swift; sourceTree = "<group>"; };
 		779B885F26BD213D00FB06A1 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		779B886126BD2B4900FB06A1 /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
 		779ED89626380BE200815B4D /* EditWatchlistTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditWatchlistTableViewCell.swift; sourceTree = "<group>"; };
 		779ED89A26380D7100815B4D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		779ED89E2638163000815B4D /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
@@ -498,6 +500,7 @@
 			isa = PBXGroup;
 			children = (
 				779B885D26BD1E9500FB06A1 /* SettingsOption.swift */,
+				779B886126BD2B4900FB06A1 /* SettingsSection.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -737,6 +740,7 @@
 				771D16AE263989C10034193A /* AppVersion.swift in Sources */,
 				7774DBED264BF451002752B4 /* NewSymbolRequest.swift in Sources */,
 				7785EF2D26AAA24500AEB5FE /* SearchResultCell.swift in Sources */,
+				779B886226BD2B4900FB06A1 /* SettingsSection.swift in Sources */,
 				775DFDA92645849400D9A4AF /* Quote.swift in Sources */,
 				773A0BAD261726B2002B9875 /* CompanyDetail.swift in Sources */,
 				772C3EF92626F21B0044001B /* WatchedCompanyTableViewCell.swift in Sources */,
