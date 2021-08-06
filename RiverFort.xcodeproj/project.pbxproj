@@ -72,6 +72,7 @@
 		779AFC282657B216008373C0 /* CardPartPriceChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779AFC272657B216008373C0 /* CardPartPriceChartView.swift */; };
 		779B885826BD192D00FB06A1 /* SettingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B885726BD192D00FB06A1 /* SettingsTableView.swift */; };
 		779B885B26BD1B0100FB06A1 /* SettingsConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B885A26BD1B0100FB06A1 /* SettingsConstant.swift */; };
+		779B885E26BD1E9600FB06A1 /* SettingsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B885D26BD1E9500FB06A1 /* SettingsOption.swift */; };
 		779ED89726380BE200815B4D /* EditWatchlistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779ED89626380BE200815B4D /* EditWatchlistTableViewCell.swift */; };
 		779ED89B26380D7100815B4D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779ED89A26380D7100815B4D /* SettingsViewController.swift */; };
 		779ED89F2638163000815B4D /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779ED89E2638163000815B4D /* SettingTableViewCell.swift */; };
@@ -166,6 +167,7 @@
 		779AFC272657B216008373C0 /* CardPartPriceChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPartPriceChartView.swift; sourceTree = "<group>"; };
 		779B885726BD192D00FB06A1 /* SettingsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableView.swift; sourceTree = "<group>"; };
 		779B885A26BD1B0100FB06A1 /* SettingsConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsConstant.swift; sourceTree = "<group>"; };
+		779B885D26BD1E9500FB06A1 /* SettingsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOption.swift; sourceTree = "<group>"; };
 		779ED89626380BE200815B4D /* EditWatchlistTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditWatchlistTableViewCell.swift; sourceTree = "<group>"; };
 		779ED89A26380D7100815B4D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		779ED89E2638163000815B4D /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
@@ -401,6 +403,7 @@
 			children = (
 				776F658326BC369300CAA5A6 /* ViewController */,
 				779B885626BD190200FB06A1 /* View */,
+				779B885C26BD1E3900FB06A1 /* Model */,
 				779B885926BD1AE600FB06A1 /* Constant */,
 			);
 			path = Settings;
@@ -486,6 +489,14 @@
 				779B885A26BD1B0100FB06A1 /* SettingsConstant.swift */,
 			);
 			path = Constant;
+			sourceTree = "<group>";
+		};
+		779B885C26BD1E3900FB06A1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				779B885D26BD1E9500FB06A1 /* SettingsOption.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		77A147B22642BDD800EE8535 /* Type of CardParts */ = {
@@ -746,6 +757,7 @@
 				77A9758826B3EEC700E150CA /* SearchConstants.swift in Sources */,
 				7785D7842630142600988C28 /* WatchedCompany+CoreDataClass.swift in Sources */,
 				773A0BB3261726E6002B9875 /* CompanyAdtv20.swift in Sources */,
+				779B885E26BD1E9600FB06A1 /* SettingsOption.swift in Sources */,
 				779B885826BD192D00FB06A1 /* SettingsTableView.swift in Sources */,
 				779ED8A2263818A800815B4D /* SettingSwitchTableViewCell.swift in Sources */,
 				7762C77226BAE258008DE1BA /* NumberShortScale.swift in Sources */,
