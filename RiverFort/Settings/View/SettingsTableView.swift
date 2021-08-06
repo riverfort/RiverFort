@@ -27,11 +27,18 @@ extension SettingsTableView {
         self.dataSource = self
         self.delegate = self
         self.register(SettingsTableViewCell.self, forCellReuseIdentifier: "cell")
+        self.register(SettingsSwitchTableViewCell.self, forCellReuseIdentifier: "switchcell")
     }
 }
 
 extension SettingsTableView {
     private func setSettingsOptions() {
+        self.settingsSections.append(NewSettingsSection(title: "General", options: [
+            .switchCell(newSettingsSwitchOption: NewSettingsSwitchOption(title: "Airplane mode", icon: UIImage(systemName: "airplane"), iconBackgroundColour: .blue, handler: {
+                
+            }, isOn: true))
+        ]))
+        
         self.settingsSections.append(NewSettingsSection(title: "General", options: [
             .staticCell(newSettingsOption: NewSettingsOption(title: "WIFT", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
                 print("hi")
@@ -106,7 +113,11 @@ extension SettingsTableView: UITableViewDataSource, UITableViewDelegate {
             cell.setSettingsTableViewCell(newSettingsOption: settingsOption)
             return cell
         case .switchCell(newSettingsSwitchOption: let settingsOption):
-            return UITableViewCell()
+            guard let cell =  tableView.dequeueReusableCell(withIdentifier: "switchcell", for: indexPath) as? SettingsSwitchTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.setSettingsTableViewCell(newSettingsOption: settingsOption)
+            return cell
         }
     }
 }
