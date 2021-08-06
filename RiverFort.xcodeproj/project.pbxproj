@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7702DFBA261B5E8400EE6191 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 7702DFB9261B5E8400EE6191 /* Charts */; };
 		7707F04F262B219300C4E8D4 /* WatchedCompanyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7707F04E262B219300C4E8D4 /* WatchedCompanyDetail.swift */; };
+		770EB64E26BD853F00B4FB01 /* DarkModeSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770EB64D26BD853F00B4FB01 /* DarkModeSwitch.swift */; };
 		771263C626A95CAC00B57C04 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771263C526A95CAC00B57C04 /* SearchViewController.swift */; };
 		771263CC26A97EED00B57C04 /* SearchResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771263CB26A97EED00B57C04 /* SearchResultTableViewController.swift */; };
 		771D16AE263989C10034193A /* AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D16AD263989C10034193A /* AppVersion.swift */; };
@@ -106,6 +107,7 @@
 /* Begin PBXFileReference section */
 		69D13D5B19688F922B9BB9AD /* Pods-RiverFort.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RiverFort.release.xcconfig"; path = "Target Support Files/Pods-RiverFort/Pods-RiverFort.release.xcconfig"; sourceTree = "<group>"; };
 		7707F04E262B219300C4E8D4 /* WatchedCompanyDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchedCompanyDetail.swift; sourceTree = "<group>"; };
+		770EB64D26BD853F00B4FB01 /* DarkModeSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeSwitch.swift; sourceTree = "<group>"; };
 		771263C526A95CAC00B57C04 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		771263CB26A97EED00B57C04 /* SearchResultTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewController.swift; sourceTree = "<group>"; };
 		771D16AD263989C10034193A /* AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersion.swift; sourceTree = "<group>"; };
@@ -487,6 +489,7 @@
 				779B885726BD192D00FB06A1 /* SettingsTableView.swift */,
 				779B885F26BD213D00FB06A1 /* SettingsStaticTableViewCell.swift */,
 				779B886326BD3DE200FB06A1 /* SettingsSwitchTableViewCell.swift */,
+				770EB64D26BD853F00B4FB01 /* DarkModeSwitch.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -805,6 +808,7 @@
 				77950FCE2643EA4B002AC408 /* ThemedCardController.swift in Sources */,
 				773A0BBD261728AA002B9875 /* CompanyTableViewCell.swift in Sources */,
 				776F657A26BBDB6400CAA5A6 /* WindowInterfaceOrientation.swift in Sources */,
+				770EB64E26BD853F00B4FB01 /* DarkModeSwitch.swift in Sources */,
 				77286CA92621DEBB00B73570 /* ChartMarker.swift in Sources */,
 				77CB234526B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift in Sources */,
 				77950FD626443A79002AC408 /* ProfileCardController.swift in Sources */,
