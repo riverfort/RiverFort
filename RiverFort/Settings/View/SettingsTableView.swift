@@ -86,16 +86,14 @@ extension SettingsTableView {
 
 extension SettingsTableView {
     private func setSettingsOptions() {
-        if self.traitCollection.userInterfaceStyle == .dark {
+        if UserDefaults.standard.isDarkModeEnabled() {
             self.settingsSections.append(NewSettingsSection(title: "Appearance", options: [
                 .switchCell(newSettingsSwitchOption: NewSettingsSwitchOption(title: "Dark Mode", icon: UIImage(systemName: "sunset.fill"), iconBackgroundColour: .black, isOn: true, handler: {
-                    print("hello")
                 }))
             ]))
-        } else if self.traitCollection.userInterfaceStyle == .light {
+        } else {
             self.settingsSections.append(NewSettingsSection(title: "Appearance", options: [
                 .switchCell(newSettingsSwitchOption: NewSettingsSwitchOption(title: "Dark Mode", icon: UIImage(systemName: "sunset.fill"), iconBackgroundColour: .black, isOn: false, handler: {
-                    print("hello")
                 }))
             ]))
         }

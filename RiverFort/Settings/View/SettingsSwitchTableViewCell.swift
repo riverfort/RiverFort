@@ -82,6 +82,7 @@ extension SettingsSwitchTableViewCell {
     
     private func configTheSwitch() {
         contentView.addSubview(theSwitch)
+        theSwitch.addTarget(self, action: #selector(switchChanged), for: .valueChanged)
     }
 }
 
@@ -91,5 +92,19 @@ extension SettingsSwitchTableViewCell {
         iconImageView.image = newSettingsSwitchOption.icon
         settingsLabel.text  = newSettingsSwitchOption.title
         theSwitch.isOn      = newSettingsSwitchOption.isOn
+    }
+}
+
+extension SettingsSwitchTableViewCell {
+    @objc private func switchChanged(theSwitch: UISwitch) {
+        if theSwitch.isOn {
+            print("on")
+            UserDefaults.standard.setDarkModeEnabled(value: true)
+            window?.overrideUserInterfaceStyle = .dark
+        } else {
+            print("off")
+            UserDefaults.standard.setDarkModeEnabled(value: false)
+            window?.overrideUserInterfaceStyle = .light
+        }
     }
 }
