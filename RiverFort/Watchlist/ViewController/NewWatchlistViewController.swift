@@ -68,8 +68,10 @@ extension NewWatchlistViewController {
     private func createObservers() {
         let reloadWatchlistTableViewName = Notification.Name(WatchlistConstant.RELOAD_WATCHLIST_TABLE_VIEW)
         let addToWatchlistName           = Notification.Name(WatchlistConstant.ADD_TO_WATCHLIST)
+        let selectWatchlistCompanyName   = Notification.Name(WatchlistConstant.SELECT_WATCHLIST_COMPANY)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadWatchlistTableView), name: reloadWatchlistTableViewName, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadWatchlist), name: addToWatchlistName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareSelectWatchlistCompany), name: selectWatchlistCompanyName, object: nil)
     }
 
     @objc private func reloadWatchlistTableView() {
@@ -85,6 +87,15 @@ extension NewWatchlistViewController {
             watchlistTableView.getWatchedCompanies()
             watchlistTableView.reloadData()
         }
+    }
+    
+    @objc private func prepareSelectWatchlistCompany(notification: Notification) {
+        guard let selectedWatchlistCompany = notification.object as? WatchedCompany else {
+            return
+        }
+        let companyDetailViewController = CompanyDetailViewController()
+        companyDetailViewController.company = Company(company_ticker: selectedWatchlistCompany.company_ticker!, company_name: selectedWatchlistCompany.company_name!)
+        navigationController?.pushViewController(companyDetailViewController, animated: true)
     }
 }
 

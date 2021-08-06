@@ -61,6 +61,14 @@ extension WatchlistTableView: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension WatchlistTableView {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let selectedWatchedCompany = watchedCompanies[indexPath.row]
+        selectWatchlistCompanyNotifiaction(selectedWatchedCompany: selectedWatchedCompany)
+    }
+}
+
+extension WatchlistTableView {
     @objc private func switchData() {
         HapticsManager.shared.impact(style: .light)
         if isChangePercentInDataButton {
@@ -77,6 +85,11 @@ extension WatchlistTableView {
     private func reloadWatchlistTableViewNotification() {
         let name = Notification.Name(WatchlistConstant.RELOAD_WATCHLIST_TABLE_VIEW)
         NotificationCenter.default.post(name: name, object: nil)
+    }
+    
+    private func selectWatchlistCompanyNotifiaction(selectedWatchedCompany: WatchedCompany) {
+        let name = Notification.Name(WatchlistConstant.SELECT_WATCHLIST_COMPANY)
+        NotificationCenter.default.post(name: name, object: selectedWatchedCompany)
     }
 }
 
