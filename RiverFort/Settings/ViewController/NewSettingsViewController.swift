@@ -8,7 +8,7 @@
 import UIKit
 
 class NewSettingsViewController: UIViewController {
-    private let settingsTableView = SettingsTableView(frame: .zero, style: .plain)
+    private let settingsTableView = SettingsTableView(frame: .zero, style: .grouped)
     
     override func viewDidLoad() {
         super.viewDidLoad()
