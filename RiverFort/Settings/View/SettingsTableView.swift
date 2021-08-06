@@ -32,61 +32,6 @@ extension SettingsTableView {
 }
 
 extension SettingsTableView {
-    private func setSettingsOptions() {
-        self.settingsSections.append(NewSettingsSection(title: "General", options: [
-            .switchCell(newSettingsSwitchOption: NewSettingsSwitchOption(title: "Airplane mode", icon: UIImage(systemName: "airplane"), iconBackgroundColour: .blue, handler: {
-                
-            }, isOn: true))
-        ]))
-        
-        self.settingsSections.append(NewSettingsSection(title: "General", options: [
-            .staticCell(newSettingsOption: NewSettingsOption(title: "WIFT", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
-                print("hi")
-            })),
-            .staticCell(newSettingsOption: NewSettingsOption(title: "Bluetooth", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
-                print("hi")
-            })),
-            .staticCell(newSettingsOption: NewSettingsOption(title: "Airplane Mode", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
-                print("hi")
-            })),
-            .staticCell(newSettingsOption: NewSettingsOption(title: "iCloud", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
-                print("hi")
-            })),
-        ]))
-        
-        self.settingsSections.append(NewSettingsSection(title: "Information", options: [
-            .staticCell(newSettingsOption: NewSettingsOption(title: "WIFT", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
-                print("hi")
-            })),
-            .staticCell(newSettingsOption: NewSettingsOption(title: "Bluetooth", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
-                print("hi")
-            })),
-            .staticCell(newSettingsOption: NewSettingsOption(title: "Airplane Mode", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
-                print("hi")
-            })),
-            .staticCell(newSettingsOption: NewSettingsOption(title: "iCloud", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
-                print("hi")
-            })),
-        ]))
-        
-        self.settingsSections.append(NewSettingsSection(title: "Apps", options: [
-            .staticCell(newSettingsOption: NewSettingsOption(title: "WIFT", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
-                print("hi")
-            })),
-            .staticCell(newSettingsOption: NewSettingsOption(title: "Bluetooth", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
-                print("hi")
-            })),
-            .staticCell(newSettingsOption: NewSettingsOption(title: "Airplane Mode", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
-                print("hi")
-            })),
-            .staticCell(newSettingsOption: NewSettingsOption(title: "iCloud", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
-                print("hi")
-            })),
-        ]))
-    }
-}
-
-extension SettingsTableView {
     func numberOfSections(in tableView: UITableView) -> Int {
         return settingsSections.count
     }
@@ -103,10 +48,9 @@ extension SettingsTableView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let settingsOption = settingsSections[indexPath.section].options[indexPath.row]
-        
-        switch settingsOption.self {
-        case .staticCell(newSettingsOption: let settingsOption):
+        let settingsOptionType = settingsSections[indexPath.section].options[indexPath.row]
+        switch settingsOptionType.self {
+        case .staticCell(newSettingsStaticOption: let settingsOption):
             guard let cell =  tableView.dequeueReusableCell(withIdentifier: SettingsConstant.STATIC_TABLE_VIEW_CELL, for: indexPath) as? SettingsStaticTableViewCell else {
                 return UITableViewCell()
             }
@@ -127,10 +71,65 @@ extension SettingsTableView {
         tableView.deselectRow(at: indexPath, animated: true)
         let settingsOptionType = settingsSections[indexPath.section].options[indexPath.row]
         switch settingsOptionType.self {
-        case .staticCell(newSettingsOption: let settingsOption):
+        case .staticCell(newSettingsStaticOption: let settingsOption):
             settingsOption.handler()
         case .switchCell(newSettingsSwitchOption: let settingsOption):
             settingsOption.handler()
         }
+    }
+}
+
+extension SettingsTableView {
+    private func setSettingsOptions() {
+        self.settingsSections.append(NewSettingsSection(title: "General", options: [
+            .switchCell(newSettingsSwitchOption: NewSettingsSwitchOption(title: "Airplane mode", icon: UIImage(systemName: "airplane"), iconBackgroundColour: .blue, handler: {
+                
+            }, isOn: true))
+        ]))
+        
+        self.settingsSections.append(NewSettingsSection(title: "General", options: [
+            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "WIFT", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
+                print("hi")
+            })),
+            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "Bluetooth", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
+                print("hi")
+            })),
+            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "Airplane Mode", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
+                print("hi")
+            })),
+            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "iCloud", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
+                print("hi")
+            })),
+        ]))
+        
+        self.settingsSections.append(NewSettingsSection(title: "Information", options: [
+            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "WIFT", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
+                print("hi")
+            })),
+            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "Bluetooth", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
+                print("hi")
+            })),
+            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "Airplane Mode", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
+                print("hi")
+            })),
+            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "iCloud", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
+                print("hi")
+            })),
+        ]))
+        
+        self.settingsSections.append(NewSettingsSection(title: "Apps", options: [
+            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "WIFT", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
+                print("hi")
+            })),
+            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "Bluetooth", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
+                print("hi")
+            })),
+            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "Airplane Mode", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
+                print("hi")
+            })),
+            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "iCloud", icon: UIImage(systemName: "gear"), iconBackgroundColour: .systemPink, handler: {
+                print("hi")
+            })),
+        ]))
     }
 }

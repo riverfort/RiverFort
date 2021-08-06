@@ -71,7 +71,7 @@ extension SettingsStaticTableViewCell {
 }
 
 extension SettingsStaticTableViewCell {
-    public func setSettingsTableViewCell(newSettingsOption: NewSettingsOption) {
+    public func setSettingsTableViewCell(newSettingsOption: NewSettingsStaticOption) {
         iconImageViewContainer.backgroundColor = newSettingsOption.iconBackgroundColour
         iconImageView.image = newSettingsOption.icon
         settingsLabel.text  = newSettingsOption.title
