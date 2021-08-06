@@ -50,17 +50,17 @@ extension SettingsTableView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let settingsOptionType = settingsSections[indexPath.section].options[indexPath.row]
         switch settingsOptionType.self {
-        case .staticCell(newSettingsStaticOption: let settingsOption):
+        case .staticCell(newSettingsStaticOption: let newSettingsStaticOption):
             guard let cell =  tableView.dequeueReusableCell(withIdentifier: SettingsConstant.STATIC_TABLE_VIEW_CELL, for: indexPath) as? SettingsStaticTableViewCell else {
                 return UITableViewCell()
             }
-            cell.setSettingsTableViewCell(newSettingsOption: settingsOption)
+            cell.setSettingsTableViewCell(newSettingsOption: newSettingsStaticOption)
             return cell
-        case .switchCell(newSettingsSwitchOption: let settingsOption):
+        case .switchCell(newSettingsSwitchOption: let newSettingsSwitchOption):
             guard let cell =  tableView.dequeueReusableCell(withIdentifier: SettingsConstant.SWITCH_TABLE_VIEW_CELL, for: indexPath) as? SettingsSwitchTableViewCell else {
                 return UITableViewCell()
             }
-            cell.setSettingsTableViewCell(newSettingsOption: settingsOption)
+            cell.setSettingsTableViewCell(newSettingsOption: newSettingsSwitchOption)
             return cell
         }
     }
@@ -71,10 +71,10 @@ extension SettingsTableView {
         tableView.deselectRow(at: indexPath, animated: true)
         let settingsOptionType = settingsSections[indexPath.section].options[indexPath.row]
         switch settingsOptionType.self {
-        case .staticCell(newSettingsStaticOption: let settingsOption):
-            settingsOption.handler()
-        case .switchCell(newSettingsSwitchOption: let settingsOption):
-            settingsOption.handler()
+        case .staticCell(newSettingsStaticOption: let newSettingsStaticOption):
+            newSettingsStaticOption.handler()
+        case .switchCell(newSettingsSwitchOption: let newSettingsSwitchOption):
+            newSettingsSwitchOption.handler()
         }
     }
 }
