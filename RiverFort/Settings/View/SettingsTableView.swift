@@ -59,6 +59,7 @@ extension SettingsTableView: UITableViewDataSource, UITableViewDelegate {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsConstant.SWITCH_TABLE_VIEW_CELL,
                                                            for: indexPath) as? SettingsSwitchTableViewCell else { return UITableViewCell() }
             cell.setSettingsTableViewCell(newSettingsOption: newSettingsSwitchOption)
+            cell.selectionStyle = .none
             return cell
         }
     }
