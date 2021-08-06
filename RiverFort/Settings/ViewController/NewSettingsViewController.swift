@@ -8,7 +8,7 @@
 import UIKit
 
 class NewSettingsViewController: UIViewController {
-    private let settingsTableView = SettingsTableView(frame: .zero, style: .grouped)
+    private let settingsTableView = SettingsTableView(frame: .zero, style: .insetGrouped)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,7 @@ class NewSettingsViewController: UIViewController {
 
 extension NewSettingsViewController {
     private func configView() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemGroupedBackground
     }
     
     private func configNavigationController() {
@@ -37,6 +37,7 @@ extension NewSettingsViewController {
     
     private func configSettingsTableView() {
         view.addSubview(settingsTableView)
+        settingsTableView.backgroundColor = .systemGroupedBackground
     }
     
     private func setSettingsTableViewConstraints() {
