@@ -58,7 +58,7 @@ extension SettingsTableView: UITableViewDataSource, UITableViewDelegate {
         case .switchCell(newSettingsSwitchOption: let newSettingsSwitchOption):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsConstant.SWITCH_TABLE_VIEW_CELL,
                                                            for: indexPath) as? SettingsSwitchTableViewCell else { return UITableViewCell() }
-            cell.setSettingsTableViewCell(newSettingsOption: newSettingsSwitchOption)
+            cell.setSettingsSwitchTableViewCell(newSettingsSwitchOption: newSettingsSwitchOption)
             cell.selectionStyle = .none
             return cell
         }
