@@ -90,9 +90,16 @@ extension SettingsTableView {
             .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "Share", icon: UIImage(systemName: "square.and.arrow.up"), iconBackgroundColour: .systemGreen, handler: {
                 print("hi")
             })),
-            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "Privacy & Terms", icon: UIImage(systemName: "person.fill.viewfinder"), iconBackgroundColour: .systemBlue, handler: {
-                print("hi")
+            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "Privacy & Terms", icon: UIImage(systemName: "person.fill.viewfinder"), iconBackgroundColour: .systemBlue, handler: { [self] in
+                selectPrivacyTermsNotification()
             })),
         ]))
+    }
+}
+
+extension SettingsTableView {
+    private func selectPrivacyTermsNotification() {
+        let name = Notification.Name(SettingsConstant.SELECT_PRIVACY_TERMS)
+        NotificationCenter.default.post(name: name, object: nil)
     }
 }

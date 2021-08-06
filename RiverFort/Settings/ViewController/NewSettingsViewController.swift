@@ -10,11 +10,16 @@ import UIKit
 class NewSettingsViewController: UIViewController {
     private let settingsTableView = SettingsTableView(frame: .zero, style: .insetGrouped)
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configView()
         configNavigationController()
         configSettingsTableView()
+        createObservers()
     }
     
     override func viewDidLayoutSubviews() {
@@ -46,5 +51,17 @@ extension NewSettingsViewController {
         settingsTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         settingsTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive     = true
         settingsTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive           = true
+    }
+}
+
+extension NewSettingsViewController {
+    private func createObservers() {
+        let selectPrivacyTermsName = Notification.Name(SettingsConstant.SELECT_PRIVACY_TERMS)
+        NotificationCenter.default.addObserver(self, selector: #selector(selectPrivacyTerms), name: selectPrivacyTermsName, object: nil)
+    }
+    
+    @objc private func selectPrivacyTerms() {
+        let privacyPolicyViewController = PrivacyPolicyViewController()
+        self.navigationController?.pushViewController(privacyPolicyViewController, animated: true)
     }
 }
