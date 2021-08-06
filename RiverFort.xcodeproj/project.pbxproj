@@ -73,6 +73,7 @@
 		779B885826BD192D00FB06A1 /* SettingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B885726BD192D00FB06A1 /* SettingsTableView.swift */; };
 		779B885B26BD1B0100FB06A1 /* SettingsConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B885A26BD1B0100FB06A1 /* SettingsConstant.swift */; };
 		779B885E26BD1E9600FB06A1 /* SettingsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B885D26BD1E9500FB06A1 /* SettingsOption.swift */; };
+		779B886026BD213D00FB06A1 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B885F26BD213D00FB06A1 /* SettingsTableViewCell.swift */; };
 		779ED89726380BE200815B4D /* EditWatchlistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779ED89626380BE200815B4D /* EditWatchlistTableViewCell.swift */; };
 		779ED89B26380D7100815B4D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779ED89A26380D7100815B4D /* SettingsViewController.swift */; };
 		779ED89F2638163000815B4D /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779ED89E2638163000815B4D /* SettingTableViewCell.swift */; };
@@ -168,6 +169,7 @@
 		779B885726BD192D00FB06A1 /* SettingsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableView.swift; sourceTree = "<group>"; };
 		779B885A26BD1B0100FB06A1 /* SettingsConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsConstant.swift; sourceTree = "<group>"; };
 		779B885D26BD1E9500FB06A1 /* SettingsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOption.swift; sourceTree = "<group>"; };
+		779B885F26BD213D00FB06A1 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		779ED89626380BE200815B4D /* EditWatchlistTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditWatchlistTableViewCell.swift; sourceTree = "<group>"; };
 		779ED89A26380D7100815B4D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		779ED89E2638163000815B4D /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
@@ -479,6 +481,7 @@
 			isa = PBXGroup;
 			children = (
 				779B885726BD192D00FB06A1 /* SettingsTableView.swift */,
+				779B885F26BD213D00FB06A1 /* SettingsTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -800,6 +803,7 @@
 				773A0BAA26172690002B9875 /* Company.swift in Sources */,
 				7760164926B984C100BA7C41 /* WatchedCompanyDetailNew.swift in Sources */,
 				77876E94264D5D6700798106 /* Regex.swift in Sources */,
+				779B886026BD213D00FB06A1 /* SettingsTableViewCell.swift in Sources */,
 				77F93368261A3271007662D5 /* UINavigationItemExtension.swift in Sources */,
 				77950FC82643DBEB002AC408 /* CardPartQuotesView.swift in Sources */,
 				773A0BB0261726C7002B9875 /* CompanyTrading.swift in Sources */,

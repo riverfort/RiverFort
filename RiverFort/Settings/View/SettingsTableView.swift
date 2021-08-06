@@ -26,7 +26,7 @@ extension SettingsTableView {
         self.backgroundColor = .systemBackground
         self.dataSource = self
         self.delegate = self
-        self.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.register(SettingsTableViewCell.self, forCellReuseIdentifier: "cell")
     }
 }
 
@@ -47,8 +47,10 @@ extension SettingsTableView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let settingsOption = settingsOptions[indexPath.row]
-        let cell =  tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = settingsOption.title
+        guard let cell =  tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SettingsTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.setSettingsTableViewCell(newSettingsOption: settingsOption)
         return cell
     }
 }
