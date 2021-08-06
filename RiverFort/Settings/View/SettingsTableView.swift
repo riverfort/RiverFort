@@ -23,11 +23,11 @@ class SettingsTableView: UITableView {
 
 extension SettingsTableView {
     private func configTableView() {
-        self.backgroundColor = .systemBackground
         self.dataSource = self
         self.delegate = self
-        self.register(SettingsTableViewCell.self, forCellReuseIdentifier: "cell")
-        self.register(SettingsSwitchTableViewCell.self, forCellReuseIdentifier: "switchcell")
+        self.backgroundColor = .systemBackground
+        self.register(SettingsStaticTableViewCell.self, forCellReuseIdentifier: SettingsConstant.STATIC_TABLE_VIEW_CELL)
+        self.register(SettingsSwitchTableViewCell.self, forCellReuseIdentifier: SettingsConstant.SWITCH_TABLE_VIEW_CELL)
     }
 }
 
@@ -107,13 +107,13 @@ extension SettingsTableView: UITableViewDataSource, UITableViewDelegate {
         
         switch settingsOption.self {
         case .staticCell(newSettingsOption: let settingsOption):
-            guard let cell =  tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? SettingsTableViewCell else {
+            guard let cell =  tableView.dequeueReusableCell(withIdentifier: SettingsConstant.STATIC_TABLE_VIEW_CELL, for: indexPath) as? SettingsStaticTableViewCell else {
                 return UITableViewCell()
             }
             cell.setSettingsTableViewCell(newSettingsOption: settingsOption)
             return cell
         case .switchCell(newSettingsSwitchOption: let settingsOption):
-            guard let cell =  tableView.dequeueReusableCell(withIdentifier: "switchcell", for: indexPath) as? SettingsSwitchTableViewCell else {
+            guard let cell =  tableView.dequeueReusableCell(withIdentifier: SettingsConstant.SWITCH_TABLE_VIEW_CELL, for: indexPath) as? SettingsSwitchTableViewCell else {
                 return UITableViewCell()
             }
             cell.setSettingsTableViewCell(newSettingsOption: settingsOption)

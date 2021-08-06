@@ -1,5 +1,5 @@
 //
-//  SettingsTableViewCell.swift
+//  SettingsStaticTableViewCell.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 06/08/2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingsTableViewCell: UITableViewCell {
+class SettingsStaticTableViewCell: UITableViewCell {
     private let iconImageViewContainer = UIView()
     private let iconImageView = UIImageView()
     private let settingsLabel = UILabel()
@@ -45,7 +45,7 @@ class SettingsTableViewCell: UITableViewCell {
     }
 }
 
-extension SettingsTableViewCell {
+extension SettingsStaticTableViewCell {
     private func configContentView() {
         contentView.clipsToBounds = true
         accessoryType = .disclosureIndicator
@@ -70,7 +70,7 @@ extension SettingsTableViewCell {
     }
 }
 
-extension SettingsTableViewCell {
+extension SettingsStaticTableViewCell {
     public func setSettingsTableViewCell(newSettingsOption: NewSettingsOption) {
         iconImageViewContainer.backgroundColor = newSettingsOption.iconBackgroundColour
         iconImageView.image = newSettingsOption.icon

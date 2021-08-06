@@ -8,6 +8,6 @@
 import Foundation
 
 class SettingsConstant {
-    static var TODO_1 = "com.riverfort."
-    static var TODO_2 = "com.riverfort."
+    static var STATIC_TABLE_VIEW_CELL = "com.riverfort.staticTableViewCell"
+    static var SWITCH_TABLE_VIEW_CELL = "com.riverfort.switchTableViewCell"
 }
