@@ -66,7 +66,9 @@ extension SettingsStaticTableViewCell {
     
     private func configSettingsLabel() {
         contentView.addSubview(settingsLabel)
-        settingsLabel.numberOfLines = 1
+        settingsLabel.numberOfLines = 0
+        settingsLabel.font = .preferredFont(forTextStyle: .body)
+        settingsLabel.adjustsFontForContentSizeCategory = true
     }
 }
 
