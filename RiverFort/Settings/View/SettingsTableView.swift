@@ -29,6 +29,12 @@ extension SettingsTableView {
         self.register(SettingsStaticTableViewCell.self, forCellReuseIdentifier: SettingsConstant.STATIC_TABLE_VIEW_CELL)
         self.register(SettingsSwitchTableViewCell.self, forCellReuseIdentifier: SettingsConstant.SWITCH_TABLE_VIEW_CELL)
     }
+    
+    private func getShareActivityViewController() -> UIActivityViewController {
+        let appStoreURL = URL(string: "https://apps.apple.com/us/app/riverfort/id1561144335")
+        let activityViewController = UIActivityViewController(activityItems: ["Try RiverFort", appStoreURL!], applicationActivities: nil)
+        return activityViewController
+    }
 }
 
 extension SettingsTableView {
@@ -87,8 +93,8 @@ extension SettingsTableView {
         ]))
         
         self.settingsSections.append(NewSettingsSection(title: "Other", options: [
-            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "Share", icon: UIImage(systemName: "square.and.arrow.up"), iconBackgroundColour: .systemGreen, handler: {
-                print("hi")
+            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "Share", icon: UIImage(systemName: "square.and.arrow.up"), iconBackgroundColour: .systemGreen, handler: { [self] in
+                selectShare()
             })),
             .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "Privacy & Terms", icon: UIImage(systemName: "person.fill.viewfinder"), iconBackgroundColour: .systemBlue, handler: { [self] in
                 selectPrivacyTermsNotification()
@@ -101,5 +107,14 @@ extension SettingsTableView {
     private func selectPrivacyTermsNotification() {
         let name = Notification.Name(SettingsConstant.SELECT_PRIVACY_TERMS)
         NotificationCenter.default.post(name: name, object: nil)
+    }
+    
+    private func selectShare() {
+        if let popoverController = getShareActivityViewController().popoverPresentationController {
+            popoverController.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
+            popoverController.sourceView = self.backgroundView
+            popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+        }
+        UIApplication.topViewController()?.present(getShareActivityViewController(), animated: true)
     }
 }
