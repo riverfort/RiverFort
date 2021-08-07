@@ -177,6 +177,7 @@ extension CompanyDetailViewController {
         do {
             try context.save()
             NotificationCenter.default.post(name: Notification.Name("addedToWatchlist"), object: nil)
+            NotificationCenter.default.post(name: Notification.Name(WatchlistConstant.ADD_TO_WATCHLIST), object: nil)
         } catch {
             print("Failed to add watched company to core data")
         }

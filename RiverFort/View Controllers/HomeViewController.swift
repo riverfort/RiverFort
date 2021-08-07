@@ -13,22 +13,27 @@ class HomeViewController: UITabBarController {
         super.viewDidLoad()
         
 //        let searchVC = UINavigationController(rootViewController: SearchViewController())
-        let newSearchVC = UINavigationController(rootViewController: SearchViewController())
-        let watchlistVC = UINavigationController(rootViewController: WatchlistViewController())
+        let searchVC = UINavigationController(rootViewController: SearchViewController())
+//        let watchlistVC = UINavigationController(rootViewController: WatchlistViewController())
+        let newWatchlistVC = UINavigationController(rootViewController: NewWatchlistViewController())
+        let settingsVC = UINavigationController(rootViewController: NewSettingsViewController())
         
 //        searchVC.title = "Search"
-        newSearchVC.title = "Search"
-        watchlistVC.title = "Watchlist"
+        searchVC.title = "Search"
+//        watchlistVC.title = "Watchlist"
+        newWatchlistVC.title = "Watchlist"
+        settingsVC.title = "Settings"
 
-        self.setViewControllers([newSearchVC, watchlistVC], animated: true)
+        self.setViewControllers([searchVC, newWatchlistVC, settingsVC], animated: true)
         guard let items = self.tabBar.items else {
             return
         }
         
-        let images = ["magnifyingglass.circle.fill", "eye.circle.fill",]
+        let images = ["magnifyingglass.circle.fill", "heart.text.square.fill", "gear"]
         
+        let configuration = UIImage.SymbolConfiguration(weight: .heavy)
         for x in 0..<items.count {
-            items[x].image = UIImage(systemName: images[x])
+            items[x].image = UIImage(systemName: images[x], withConfiguration: configuration)
         }
         self.tabBar.tintColor = .systemIndigo
     }
