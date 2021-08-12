@@ -102,6 +102,7 @@
 		77F93368261A3271007662D5 /* UINavigationItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F93367261A3271007662D5 /* UINavigationItemExtension.swift */; };
 		77F93372261A3675007662D5 /* DateFormatterUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F93371261A3675007662D5 /* DateFormatterUtils.swift */; };
 		77FBC8C226C557E500C35E9C /* WatchlistSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FBC8C126C557E500C35E9C /* WatchlistSync.swift */; };
+		77FBC8C526C55DD700C35E9C /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FBC8C426C55DD700C35E9C /* UIApplication+.swift */; };
 		FB8907E2A79EF7F14ACDADD8 /* Pods_RiverFort.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4FDABEC850381C29B4A9FCA /* Pods_RiverFort.framework */; };
 /* End PBXBuildFile section */
 
@@ -202,6 +203,7 @@
 		77F93367261A3271007662D5 /* UINavigationItemExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationItemExtension.swift; sourceTree = "<group>"; };
 		77F93371261A3675007662D5 /* DateFormatterUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterUtils.swift; sourceTree = "<group>"; };
 		77FBC8C126C557E500C35E9C /* WatchlistSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistSync.swift; sourceTree = "<group>"; };
+		77FBC8C426C55DD700C35E9C /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
 		BA0BAB84004CD658A66B157B /* Pods-RiverFort.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RiverFort.debug.xcconfig"; path = "Target Support Files/Pods-RiverFort/Pods-RiverFort.debug.xcconfig"; sourceTree = "<group>"; };
 		D4FDABEC850381C29B4A9FCA /* Pods_RiverFort.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RiverFort.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -225,6 +227,7 @@
 		77104EEE26B4497B0058E2C2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				77FBC8C326C55DC000C35E9C /* Extension */,
 				776F657F26BBFF5200CAA5A6 /* PersistentContainer */,
 				776F657826BBDB4C00CAA5A6 /* Orientation */,
 				7762C77026BAE1DF008DE1BA /* Utility */,
@@ -614,6 +617,14 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		77FBC8C326C55DC000C35E9C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				77FBC8C426C55DD700C35E9C /* UIApplication+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		C6A17D5492E623A9D1FC58BD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -759,6 +770,7 @@
 				7774DBED264BF451002752B4 /* NewSymbolRequest.swift in Sources */,
 				7785EF2D26AAA24500AEB5FE /* SearchResultCell.swift in Sources */,
 				779B886226BD2B4900FB06A1 /* SettingsSection.swift in Sources */,
+				77FBC8C526C55DD700C35E9C /* UIApplication+.swift in Sources */,
 				775DFDA92645849400D9A4AF /* Quote.swift in Sources */,
 				779B886426BD3DE200FB06A1 /* SettingsSwitchTableViewCell.swift in Sources */,
 				773A0BAD261726B2002B9875 /* CompanyDetail.swift in Sources */,
