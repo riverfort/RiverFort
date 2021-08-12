@@ -13,9 +13,9 @@ class WatchlistSync {
         let deviceID = UIDevice.current.identifierForVendor!.uuidString
         WatchlistAPI.functions.registerUserDevice(userDevice: UserDevice(device_id: deviceID)) { response in
             if response == 201 {
-                print("created")
-            } else {
-                print("failed")
+                print("registered user device: \(deviceID)")
+            } else if response == 400 {
+                print("user device with this device id already exists")
             }
         }
     }
