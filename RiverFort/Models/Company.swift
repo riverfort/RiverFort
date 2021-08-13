@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Company: Decodable {
+struct Company: Decodable, Encodable {
     var company_ticker: String
     var company_name: String
 }
