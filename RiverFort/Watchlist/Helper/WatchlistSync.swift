@@ -9,11 +9,10 @@ import Foundation
 import Alamofire
 
 class WatchlistSync {
-    public static func prepareRegisterUserDevice() {
-        let deviceID = UIDevice.current.identifierForVendor!.uuidString
-        WatchlistAPI.functions.registerUserDevice(userDevice: UserDevice(device_id: deviceID)) { response in
+    public static func prepareRegisterUserDevice(deviceToken: String) {
+        WatchlistAPI.functions.registerUserDevice(userDevice: UserDevice(device_token: deviceToken)) { response in
             if response == 201 {
-                print("registered user device: \(deviceID)")
+                print("registered user device: \(deviceToken)")
             } else if response == 400 {
                 print("user device with this device id already exists")
             }
@@ -50,7 +49,7 @@ class WatchlistSync {
 }
 
 struct UserDevice: Encodable {
-    let device_id: String
+    let device_token: String
 }
 
 struct Watchlist: Encodable {

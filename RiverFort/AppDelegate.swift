@@ -111,6 +111,7 @@ extension AppDelegate {
     ) {
       let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
       let token = tokenParts.joined()
+      WatchlistSync.prepareRegisterUserDevice(deviceToken: token)
       print("Device Token: \(token)")
     }
     
