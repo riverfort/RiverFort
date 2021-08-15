@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        } else {
 //            print("Not First Run")
 //        }
+        registerForPushNotifications()
         return true
     }
 
@@ -77,5 +79,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+}
+
+extension AppDelegate {
+    func registerForPushNotifications() {
+        UNUserNotificationCenter.current()
+          .requestAuthorization(
+            options: [.alert, .sound, .badge]) { [weak self] granted, _ in
+            print("Permission granted: \(granted)")
+            guard granted else { return }
+            self?.getNotificationSettings()
+          }
+    }
+    
+    func getNotificationSettings() {
+      UNUserNotificationCenter.current().getNotificationSettings { settings in
+        print("Notification settings: \(settings)")
+      }
     }
 }
