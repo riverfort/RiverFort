@@ -12,12 +12,6 @@ import UserNotifications
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-//        if UIApplication.isFirstLaunch() {
-//            WatchlistSync.prepareRegisterUserDevice()
-//        } else {
-//            print("Not First Run")
-//        }
         registerForPushNotifications()
         return true
     }
@@ -121,4 +115,19 @@ extension AppDelegate {
     ) {
       print("Failed to register: \(error)")
     }
+}
+
+extension AppDelegate {
+  func application(
+    _ application: UIApplication,
+    didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+    fetchCompletionHandler completionHandler:
+    @escaping (UIBackgroundFetchResult) -> Void
+  ) {
+    guard let aps = userInfo["aps"] as? [String: AnyObject] else {
+      completionHandler(.failed)
+      return
+    }
+    print(aps)
+  }
 }
