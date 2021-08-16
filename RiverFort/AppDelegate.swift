@@ -8,10 +8,12 @@
 import UIKit
 import CoreData
 import UserNotifications
+import SafariServices
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        UNUserNotificationCenter.current().delegate = self
         registerForPushNotifications()
         return true
     }
@@ -117,17 +119,23 @@ extension AppDelegate {
     }
 }
 
-extension AppDelegate {
-  func application(
-    _ application: UIApplication,
-    didReceiveRemoteNotification userInfo: [AnyHashable: Any],
-    fetchCompletionHandler completionHandler:
-    @escaping (UIBackgroundFetchResult) -> Void
+// MARK: - UNUserNotificationCenterDelegate
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+  func userNotificationCenter(
+    _ center: UNUserNotificationCenter,
+    didReceive response: UNNotificationResponse,
+    withCompletionHandler completionHandler: @escaping () -> Void
   ) {
-    guard let aps = userInfo["aps"] as? [String: AnyObject] else {
-      completionHandler(.failed)
-      return
+    let userInfo = response.notification.request.content.userInfo
+    
+    if let aps = userInfo["aps"] as? [String: AnyObject] {
+        let link = aps["link"]!
+        let url = URL(string: link as! String)
+        let safari = SFSafariViewController(url: url!)
+        UIApplication.topViewController()?.present(safari, animated: true)
     }
-    print(aps)
+    completionHandler()
   }
 }
+
