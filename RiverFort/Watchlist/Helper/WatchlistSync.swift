@@ -21,9 +21,9 @@ class WatchlistSync {
     public static func prepRegisterUserDevice(deviceToken: String) {
         WatchlistAPI.functions.registerUserDevice(userDevice: UserDevice(device_token: deviceToken)) { response in
             if response == 201 {
-                print("registered device: \(deviceToken)")
+                print("-- registered device: \(deviceToken)")
             } else if response == 400 {
-                print("device token already registered: \(deviceToken)")
+                print("-- device token already registered: \(deviceToken)")
             }
         }
     }
@@ -33,9 +33,9 @@ class WatchlistSync {
             let company = Company(company_ticker: watchedCompany.company_ticker!, company_name: watchedCompany.company_name!)
             WatchlistAPI.functions.registerCompany(company: company) { response in
                 if response == 201 {
-                    print("registered company: \(company.company_ticker)")
+                    print("-- registered company: \(company.company_ticker)")
                 } else if response == 400 {
-                    print("company already registered: \(company.company_ticker)")
+                    print("-- company already registered: \(company.company_ticker)")
                 }
             }
             prepRegisterWatchlist(watchedCompany: watchedCompany)
@@ -47,9 +47,9 @@ class WatchlistSync {
         let watchlist  = Watchlist(device_token: deviceToken!, company_ticker: watchedCompany.company_ticker!)
         WatchlistAPI.functions.registerWatchlist(watchlist: watchlist) { response in
             if response == 201 {
-                print("registered watchlist: \(watchlist.device_token) - \(watchlist.company_ticker)")
+                print("-- registered watchlist: \(watchlist.device_token) - \(watchlist.company_ticker)")
             } else if response == 400 {
-                print("watchlist already registered: \(watchlist.device_token) - \(watchlist.company_ticker)")
+                print("-- watchlist already registered: \(watchlist.device_token) - \(watchlist.company_ticker)")
             }
         }
     }
@@ -57,9 +57,9 @@ class WatchlistSync {
     public static func prepDeleteWatchlist(deviceToken: String, companyTicker: String) {
         WatchlistAPI.functions.deleteWatchlist(deviceToken: deviceToken, companyTicker: companyTicker) { response in
             if response == 204 {
-                print("deleted watchlist: \(deviceToken) - \(companyTicker)")
+                print("-- deleted watchlist: \(deviceToken) - \(companyTicker)")
             } else if response == 400 {
-                print("failed to delete watchlist: \(deviceToken) - \(companyTicker)")
+                print("-- failed to delete watchlist: \(deviceToken) - \(companyTicker)")
             }
         }
     }
@@ -67,9 +67,9 @@ class WatchlistSync {
     public static func prepDeleteUserDevice(deviceToken: String) {
         WatchlistAPI.functions.deleteUserDevice(deviceToken: deviceToken) { response in
             if response == 204 {
-                print("deleted device: \(deviceToken)b")
+                print("-- deleted device: \(deviceToken)b")
             } else if response == 400 {
-                print("failed to delete device: \(deviceToken)")
+                print("-- failed to delete device: \(deviceToken)")
             }
         }
     }
