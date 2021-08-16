@@ -105,15 +105,15 @@ extension AppDelegate {
     ) {
       let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
       let token = tokenParts.joined()
-      WatchlistSync.prepareRegisterUserDevice(deviceToken: token)
-      print("Device Token: \(token)")
+      WatchlistSync.prepRegisterUserDevice(deviceToken: token)
+        UserDefaults.standard.setValue(token, forKey: "deviceToken")
     }
     
     func application(
       _ application: UIApplication,
       didFailToRegisterForRemoteNotificationsWithError error: Error
     ) {
-      print("Failed to register: \(error)")
+      print("Failed to register for remote notifications: \(error)")
     }
 }
 

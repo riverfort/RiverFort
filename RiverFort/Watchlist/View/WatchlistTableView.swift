@@ -106,7 +106,7 @@ extension WatchlistTableView {
             watchedCompanies = try context.fetch(request)
             for watchedCompany in watchedCompanies {
                 APIFunctions.functions.fetchCompanyDetail(companyTicker: watchedCompany.company_ticker!)
-                WatchlistSync.prepareRegisterCompany(watchedCompany: watchedCompany)
+                WatchlistSync.prepRegisterCompany(watchedCompany: watchedCompany)
             }
         } catch {
             print("error")
