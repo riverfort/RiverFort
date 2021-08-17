@@ -151,6 +151,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     let userInfo = response.notification.request.content.userInfo
     // 2
     if let aps = userInfo["aps"] as? [String: AnyObject] {
+        (UIApplication.topViewController() as! HomeViewController).selectedIndex = 1
       // 3
       if response.actionIdentifier == Identifiers.viewAction,
          let url = URL(string: aps["link"] as! String) {
