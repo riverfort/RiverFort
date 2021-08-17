@@ -152,6 +152,10 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     // 2
     if let aps = userInfo["aps"] as? [String: AnyObject] {
         (UIApplication.topViewController() as! HomeViewController).selectedIndex = 1
+        if let url = URL(string: aps["link"] as! String) {
+            let safari = SFSafariViewController(url: url)
+            UIApplication.topViewController()?.present(safari, animated: true)
+        }
       // 3
       if response.actionIdentifier == Identifiers.viewAction,
          let url = URL(string: aps["link"] as! String) {
