@@ -10,6 +10,11 @@ import CoreData
 import UserNotifications
 import SafariServices
 
+enum Identifiers {
+  static let viewAction = "VIEW_IDENTIFIER"
+  static let newsCategory = "NEWS_CATEGORY"
+}
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -84,6 +89,21 @@ extension AppDelegate {
             options: [.alert, .sound, .badge]) { [weak self] granted, _ in
 //            print("Permission granted: \(granted)")
             guard granted else { return }
+            // 1
+            let viewAction = UNNotificationAction(
+              identifier: Identifiers.viewAction,
+              title: "View",
+              options: [.foreground])
+
+            // 2
+            let newsCategory = UNNotificationCategory(
+              identifier: Identifiers.newsCategory,
+              actions: [viewAction],
+              intentIdentifiers: [],
+              options: [])
+
+            // 3
+            UNUserNotificationCenter.current().setNotificationCategories([newsCategory])
             self?.getNotificationSettings()
           }
     }
