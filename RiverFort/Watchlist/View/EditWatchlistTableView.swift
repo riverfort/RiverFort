@@ -115,13 +115,14 @@ extension EditWatchlistTableView {
             let sort = NSSortDescriptor(key: "rowOrder", ascending: true)
             request.sortDescriptors = [sort]
             watchedCompanies = try PersistentContainer.context.fetch(request)
-//            tableView.reloadData()
         } catch {
             print("error")
         }
     }
     
     private func removeWatchedCompany(watchedCompany: WatchedCompany) {
+        let deviceToken = UserDefaults.standard.string(forKey: "deviceToken")
+        WatchlistSync.prepDeleteWatchlist(deviceToken: deviceToken!, companyTicker: watchedCompany.company_ticker!)
         PersistentContainer.context.delete(watchedCompany)
         do {
             try PersistentContainer.context.save()
@@ -130,16 +131,18 @@ extension EditWatchlistTableView {
             print("error")
         }
     }
-    
+        
     private func clearWatchedCompanies() {
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "WatchedCompany")
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         do {
-            try PersistentContainer.context.execute(deleteRequest)
+            let request = WatchedCompany.fetchRequest() as NSFetchRequest<WatchedCompany>
+            watchedCompanies = try PersistentContainer.context.fetch(request)
+            for watchedCompany in watchedCompanies {
+                removeWatchedCompany(watchedCompany: watchedCompany)
+            }
             getWatchedCompanies()
             UIApplication.topViewController()?.dismiss(animated: true, completion: nil)
         } catch {
-            // TODO: handle the error
+            print("error")
         }
     }
 }
