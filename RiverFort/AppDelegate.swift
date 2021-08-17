@@ -18,6 +18,7 @@ enum Identifiers {
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        UNUserNotificationCenter.current().delegate = self
         registerForPushNotifications()
         return true
     }
@@ -136,4 +137,28 @@ extension AppDelegate {
     ) {
       print("Failed to register for remote notifications: \(error)")
     }
+}
+
+// MARK: - UNUserNotificationCenterDelegate
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+  func userNotificationCenter(
+    _ center: UNUserNotificationCenter,
+    didReceive response: UNNotificationResponse,
+    withCompletionHandler completionHandler: @escaping () -> Void
+  ) {
+    // 1
+    let userInfo = response.notification.request.content.userInfo
+    // 2
+    if let aps = userInfo["aps"] as? [String: AnyObject] {
+      // 3
+      if response.actionIdentifier == Identifiers.viewAction,
+         let url = URL(string: aps["link"] as! String) {
+        let safari = SFSafariViewController(url: url)
+        UIApplication.topViewController()?.present(safari, animated: true)
+      }
+    }
+    // 4
+    completionHandler()
+  }
 }
