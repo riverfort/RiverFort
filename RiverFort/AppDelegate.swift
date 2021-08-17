@@ -13,7 +13,6 @@ import SafariServices
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        UNUserNotificationCenter.current().delegate = self
         registerForPushNotifications()
         return true
     }
@@ -83,7 +82,7 @@ extension AppDelegate {
         UNUserNotificationCenter.current()
           .requestAuthorization(
             options: [.alert, .sound, .badge]) { [weak self] granted, _ in
-            print("Permission granted: \(granted)")
+//            print("Permission granted: \(granted)")
             guard granted else { return }
             self?.getNotificationSettings()
           }
@@ -91,7 +90,7 @@ extension AppDelegate {
     
     func getNotificationSettings() {
       UNUserNotificationCenter.current().getNotificationSettings { settings in
-        print("Notification settings: \(settings)")
+//        print("Notification settings: \(settings)")
         guard settings.authorizationStatus == .authorized else { return }
         DispatchQueue.main.async {
           UIApplication.shared.registerForRemoteNotifications()
@@ -118,24 +117,3 @@ extension AppDelegate {
       print("Failed to register for remote notifications: \(error)")
     }
 }
-
-// MARK: - UNUserNotificationCenterDelegate
-
-extension AppDelegate: UNUserNotificationCenterDelegate {
-  func userNotificationCenter(
-    _ center: UNUserNotificationCenter,
-    didReceive response: UNNotificationResponse,
-    withCompletionHandler completionHandler: @escaping () -> Void
-  ) {
-    let userInfo = response.notification.request.content.userInfo
-    
-    if let aps = userInfo["aps"] as? [String: AnyObject] {
-        let link = aps["link"]!
-        let url = URL(string: link as! String)
-        let safari = SFSafariViewController(url: url!)
-        UIApplication.topViewController()?.present(safari, animated: true)
-    }
-    completionHandler()
-  }
-}
-
