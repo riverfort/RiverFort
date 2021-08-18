@@ -8,19 +8,13 @@
 import UIKit
 
 class HomeViewController: UITabBarController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        let searchVC = UINavigationController(rootViewController: SearchViewController())
         let searchVC = UINavigationController(rootViewController: SearchViewController())
-//        let watchlistVC = UINavigationController(rootViewController: WatchlistViewController())
         let newWatchlistVC = UINavigationController(rootViewController: NewWatchlistViewController())
         let settingsVC = UINavigationController(rootViewController: NewSettingsViewController())
         
-//        searchVC.title = "Search"
         searchVC.title = "Search"
-//        watchlistVC.title = "Watchlist"
         newWatchlistVC.title = "Watchlist"
         settingsVC.title = "Settings"
 
@@ -37,6 +31,4 @@ class HomeViewController: UITabBarController {
         }
         self.tabBar.tintColor = .systemIndigo
     }
-
 }
-
