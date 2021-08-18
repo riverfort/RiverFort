@@ -1,5 +1,5 @@
 //
-//  NewEditWatchlistViewController.swift
+//  EditWatchlistViewController.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 05/08/2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewEditWatchlistViewController: UIViewController {
+class EditWatchlistViewController: UIViewController {
     private let editWatchlistTableView = EditWatchlistTableView(frame: .zero, style: .plain)
     public var editCompletion: (() -> Void)?
 
@@ -29,7 +29,7 @@ class NewEditWatchlistViewController: UIViewController {
     }
 }
 
-extension NewEditWatchlistViewController {
+extension EditWatchlistViewController {
     private func configView() {
         view.backgroundColor = .systemBackground
     }
@@ -60,7 +60,7 @@ extension NewEditWatchlistViewController {
     }
 }
 
-extension NewEditWatchlistViewController {
+extension EditWatchlistViewController {
     @objc private func doneEditWathclist() {
         dismiss(animated: true, completion: nil)
     }

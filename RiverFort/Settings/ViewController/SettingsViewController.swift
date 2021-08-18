@@ -1,5 +1,5 @@
 //
-//  NewSettingsViewController.swift
+//  SettingsViewController.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 05/08/2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewSettingsViewController: UIViewController {
+class SettingsViewController: UIViewController {
     private let settingsTableView = SettingsTableView(frame: .zero, style: .insetGrouped)
     
     deinit {
@@ -28,7 +28,7 @@ class NewSettingsViewController: UIViewController {
     }
 }
 
-extension NewSettingsViewController {
+extension SettingsViewController {
     private func configView() {
         view.backgroundColor = .systemGroupedBackground
     }
@@ -54,7 +54,7 @@ extension NewSettingsViewController {
     }
 }
 
-extension NewSettingsViewController {
+extension SettingsViewController {
     private func createObservers() {
         let selectPrivacyTermsName = Notification.Name(SettingsConstant.SELECT_PRIVACY_TERMS)
         NotificationCenter.default.addObserver(self, selector: #selector(selectPrivacyTerms), name: selectPrivacyTermsName, object: nil)
