@@ -29,8 +29,12 @@ class WatchlistSync {
     }
     
     public static func prepRegisterCompany(watchedCompany: WatchedCompany) {
-        if watchedCompany.company_ticker!.hasSuffix(".L") {
-            let company = Company(company_ticker: watchedCompany.company_ticker!, company_name: watchedCompany.company_name!)
+        guard let companyTicker = watchedCompany.company_ticker,
+              let companyName = watchedCompany.company_name else {
+            return
+        }
+        if companyTicker.hasSuffix(".L") {
+            let company = Company(company_ticker: companyTicker, company_name: companyName)
             WatchlistAPI.functions.registerCompany(company: company) { response in
                 if response == 201 {
                     print("-- registered company: \(company.company_ticker)")
@@ -43,8 +47,11 @@ class WatchlistSync {
     }
     
     public static func prepRegisterWatchlist(watchedCompany: WatchedCompany) {
-        let deviceToken = UserDefaults.standard.string(forKey: "deviceToken")
-        let watchlist  = Watchlist(device_token: deviceToken!, company_ticker: watchedCompany.company_ticker!)
+        guard let deviceToken = UserDefaults.standard.string(forKey: "deviceToken"),
+              let companyTicker = watchedCompany.company_ticker else {
+            return
+        }
+        let watchlist  = Watchlist(device_token: deviceToken, company_ticker: companyTicker)
         WatchlistAPI.functions.registerWatchlist(watchlist: watchlist) { response in
             if response == 201 {
                 print("-- registered watchlist: \(watchlist.device_token) - \(watchlist.company_ticker)")
