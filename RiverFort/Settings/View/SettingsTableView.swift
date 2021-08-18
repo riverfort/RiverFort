@@ -33,6 +33,12 @@ extension SettingsTableView {
     private func getShareActivityViewController() -> UIActivityViewController {
         let appStoreURL = URL(string: "https://apps.apple.com/us/app/riverfort/id1561144335")
         let activityViewController = UIActivityViewController(activityItems: ["Try RiverFort", appStoreURL!], applicationActivities: nil)
+        if let popoverController = activityViewController.popoverPresentationController {
+            popoverController.sourceRect = CGRect(x: (UIApplication.topViewController()?.view.bounds.minX)!,
+                                                  y: (UIApplication.topViewController()?.view.bounds.minY)!, width: 0, height: 0)
+            popoverController.sourceView = UIApplication.topViewController()?.view
+            popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+        }
         return activityViewController
     }
 }
@@ -115,11 +121,6 @@ extension SettingsTableView {
     }
     
     private func selectShare() {
-        if let popoverController = getShareActivityViewController().popoverPresentationController {
-            popoverController.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
-            popoverController.sourceView = self.backgroundView
-            popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
-        }
         UIApplication.topViewController()?.present(getShareActivityViewController(), animated: true)
     }
 }

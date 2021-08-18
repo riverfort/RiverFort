@@ -139,11 +139,6 @@ extension RecentSearchTableView {
             clearRecentSearchCompanyNotification()
         }))
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        if let popoverController = ac.popoverPresentationController {
-            popoverController.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
-            popoverController.sourceView = self.backgroundView
-            popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
-        }
     }
 }
 
@@ -166,7 +161,7 @@ extension RecentSearchTableView {
 
 extension RecentSearchTableView {
     @objc private func showClearRecentlySearchedAC() {
-        let ac = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let ac = UIAlertController(title: nil, message: nil, preferredStyle: UIDevice.current.userInterfaceIdiom == .pad ? .alert : .actionSheet)
         configureClearRecentlySearchedAC(ac: ac)
         UIApplication.topViewController()?.present(ac, animated: true)
     }
