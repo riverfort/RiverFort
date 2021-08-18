@@ -11,7 +11,7 @@ class HomeViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let searchVC = UINavigationController(rootViewController: SearchViewController())
-        let newWatchlistVC = UINavigationController(rootViewController: NewWatchlistViewController())
+        let newWatchlistVC = UINavigationController(rootViewController: WatchlistViewController())
         let settingsVC = UINavigationController(rootViewController: NewSettingsViewController())
         
         searchVC.title = "Search"

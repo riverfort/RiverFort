@@ -1,5 +1,5 @@
 //
-//  NewWatchlistViewController.swift
+//  WatchlistViewController.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 03/08/2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewWatchlistViewController: UIViewController {
+class WatchlistViewController: UIViewController {
     private let watchlistTableView = WatchlistTableView(frame: .zero, style: .plain)
     
     deinit {
@@ -33,7 +33,7 @@ class NewWatchlistViewController: UIViewController {
     }
 }
 
-extension NewWatchlistViewController {
+extension WatchlistViewController {
     private func configView() {
         view.backgroundColor = .systemBackground
     }
@@ -64,7 +64,7 @@ extension NewWatchlistViewController {
     }
 }
 
-extension NewWatchlistViewController {
+extension WatchlistViewController {
     private func createObservers() {
         let reloadWatchlistTableViewName = Notification.Name(WatchlistConstant.RELOAD_WATCHLIST_TABLE_VIEW)
         let addToWatchlistName           = Notification.Name(WatchlistConstant.ADD_TO_WATCHLIST)
@@ -99,9 +99,9 @@ extension NewWatchlistViewController {
     }
 }
 
-extension NewWatchlistViewController {
+extension WatchlistViewController {
     @objc private func editWathclist() {
-        let editWatchlistViewController = NewEditWatchlistViewController()
+        let editWatchlistViewController = EditWatchlistViewController()
         editWatchlistViewController.editCompletion = { [self] in
             watchlistTableView.removeAllWatchedCompanies()
             watchlistTableView.configureAPI()
