@@ -140,8 +140,9 @@ extension RecentSearchTableView {
         }))
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         if let popoverController = ac.popoverPresentationController {
-            popoverController.sourceRect = CGRect(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2, width: 0, height: 0)
-            popoverController.sourceView = self.backgroundView
+            popoverController.sourceRect = CGRect(x: (UIApplication.topViewController()?.view.bounds.minX)!,
+                                                  y: (UIApplication.topViewController()?.view.bounds.minY)!, width: 0, height: 0)
+            popoverController.sourceView = UIApplication.topViewController()?.view
             popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
         }
     }
