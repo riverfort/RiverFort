@@ -37,12 +37,6 @@ extension EditWatchlistTableView {
             clearWatchedCompanies()
         }))
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        if let popoverController = ac.popoverPresentationController {
-            popoverController.sourceRect = CGRect(x: (UIApplication.topViewController()?.view.bounds.minX)!,
-                                                  y: (UIApplication.topViewController()?.view.bounds.minY)!, width: 0, height: 0)
-            popoverController.sourceView = UIApplication.topViewController()?.view
-            popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
-        }
     }
 }
 
@@ -102,7 +96,7 @@ extension EditWatchlistTableView {
 
 extension EditWatchlistTableView {
     public func prepareClearWatchedCompanies() {
-        let ac = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let ac = UIAlertController(title: nil, message: nil, preferredStyle: UIDevice.current.userInterfaceIdiom == .pad ? .alert : .actionSheet)
         configWatchedCompaniesAC(ac: ac)
         UIApplication.topViewController()?.present(ac, animated: true)
     }
