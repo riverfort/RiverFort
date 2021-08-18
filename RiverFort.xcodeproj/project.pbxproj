@@ -252,7 +252,6 @@
 				773A0B9C26172370002B9875 /* Storyboards */,
 				77F9335F261A2BA1007662D5 /* Extensions */,
 				773A0B9B26172364002B9875 /* Helpers */,
-				773A0B9E26172387002B9875 /* Views */,
 				773A0B9A26172352002B9875 /* View Controllers */,
 				77A147B22642BDD800EE8535 /* Type of CardParts */,
 				77A147B52642D5A100EE8535 /* CardPart Views */,
@@ -316,13 +315,6 @@
 				7728847A265B962F001C0D4F /* FeedsViewModel.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		773A0B9E26172387002B9875 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		7760164626B977EF00BA7C41 /* Model */ = {
