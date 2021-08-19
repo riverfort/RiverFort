@@ -219,11 +219,15 @@ class APIFunctions {
                 }
         }
     }
-    
-    
+
     func addNewSymbol(addOnSymbolRequest: AddOnSymbolRequest, completion: @escaping (Int) -> ()) {
         AF.request("https://data.riverfort.com/api/v1/add-on", method: .post, parameters: addOnSymbolRequest).response { response in
-            completion((response.response?.statusCode)!)
+            switch response.result {
+            case .success(_):
+                completion((response.response?.statusCode)!)
+            case .failure(let error):
+                print(error)
+            }
         }
     }
 }
