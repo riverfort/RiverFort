@@ -70,86 +70,160 @@ class APIFunctions {
     var recentADTVDelegate: RecentADTVDataDeleagate?
     
     func fetchCompanies() {
-        AF.request("https://data.riverfort.com/api/v1/companies?fields=company_ticker%2Ccompany_name&ordering=company_name").response { response in
-            let data = String(data: response.data!, encoding: .utf8)
-            self.fullListDataDelegate?.updateCompaniesArray(newArray: data!)
+        AF.request("https://data.riverfort.com/api/v1/companies?fields=company_ticker%2Ccompany_name&ordering=company_name")
+            .validate()
+            .response { response in
+                switch response.result {
+                case .success(_):
+                    let data = String(data: response.data!, encoding: .utf8)
+                    self.fullListDataDelegate?.updateCompaniesArray(newArray: data!)
+                case .failure(let error):
+                    print(error)
+                }
         }
     }
         
     func fetchCompanyDetail(companyTicker: String) {
-        AF.request("https://data.riverfort.com/api/v1/company/\(companyTicker)/quote").response { response in
-            let data = String(data: response.data!, encoding: .utf8)
-            self.companyDetailDeleagate?.updateCompanyDetail(newCompanyDetail: data!)
+        AF.request("https://data.riverfort.com/api/v1/company/\(companyTicker)/quote")
+            .validate()
+            .response { response in
+                switch response.result {
+                case .success(_):
+                    let data = String(data: response.data!, encoding: .utf8)
+                    self.companyDetailDeleagate?.updateCompanyDetail(newCompanyDetail: data!)
+                case .failure(let error):
+                    print(error)
+                }
         }
     }
     
     func fetchCompanyTradingQuote(companyTicker: String) {
-        AF.request("https://data.riverfort.com/api/v1/companies/\(companyTicker)/trading/quote").response { response in
-            let data = String(data: response.data!, encoding: .utf8)
-            self.companyTradingQuoteDelegate?.updateCompanyTradingQuote(newCompanyTradingQuote: data!)
+        AF.request("https://data.riverfort.com/api/v1/companies/\(companyTicker)/trading/quote")
+            .validate()
+            .response { response in
+                switch response.result {
+                case .success(_):
+                    let data = String(data: response.data!, encoding: .utf8)
+                    self.companyTradingQuoteDelegate?.updateCompanyTradingQuote(newCompanyTradingQuote: data!)
+                case .failure(let error):
+                    print(error)
+                }
         }
     }
     
     func fetchCompanyQuote(companyTicker: String) {
-        AF.request("https://data.riverfort.com/api/v1/companies/\(companyTicker)/quote").response { response in
-            let data = String(data: response.data!, encoding: .utf8)
-            self.companyQuoteDelegate?.updateCompanyQuote(newCompanyQuote: data!)
+        AF.request("https://data.riverfort.com/api/v1/companies/\(companyTicker)/quote")
+            .validate()
+            .response { response in
+                switch response.result {
+                case .success(_):
+                    let data = String(data: response.data!, encoding: .utf8)
+                    self.companyQuoteDelegate?.updateCompanyQuote(newCompanyQuote: data!)
+                case .failure(let error):
+                    print(error)
+                }
         }
     }
     
     func fetchCompanyCurrency(companyTicker: String) {
-        AF.request("https://data.riverfort.com/api/v1/companies/\(companyTicker)?fields=currency").response { response in
-            let data = String(data: response.data!, encoding: .utf8)
-            self.companyCurrencyDelegate?.updateCompanyCurrency(newCompanyCurrency: data!)
+        AF.request("https://data.riverfort.com/api/v1/companies/\(companyTicker)?fields=currency")
+            .validate()
+            .response { response in
+                switch response.result {
+                case .success(_):
+                    let data = String(data: response.data!, encoding: .utf8)
+                    self.companyCurrencyDelegate?.updateCompanyCurrency(newCompanyCurrency: data!)
+                case .failure(let error):
+                    print(error)
+                }
         }
     }
     
     func fetchCompanyMktCap(companyTicker: String) {
-        AF.request("https://data.riverfort.com/api/v1/companies/\(companyTicker)/quote?fields=market_cap").response { response in
-            let data = String(data: response.data!, encoding: .utf8)
-            self.companyMktCapDelegate?.updateCompanyMktCap(newCompanyMktCap: data!)
+        AF.request("https://data.riverfort.com/api/v1/companies/\(companyTicker)/quote?fields=market_cap")
+            .validate()
+            .response { response in
+                switch response.result {
+                case .success(_):
+                    let data = String(data: response.data!, encoding: .utf8)
+                    self.companyMktCapDelegate?.updateCompanyMktCap(newCompanyMktCap: data!)
+                case .failure(let error):
+                    print(error)
+                }
         }
     }
     
     func fetchCompanyTrading(companyTicker: String) {
-        AF.request("https://data.riverfort.com/api/v1/companies/\(companyTicker)/trading?ordering=market_date").response { response in
-            let data = String(data: response.data!, encoding: .utf8)
-            self.companyTradingDeleagate?.updateCompanyTrading(newCompanyTrading: data!)
+        AF.request("https://data.riverfort.com/api/v1/companies/\(companyTicker)/trading?ordering=market_date")
+            .validate()
+            .response { response in
+                switch response.result {
+                case .success(_):
+                    let data = String(data: response.data!, encoding: .utf8)
+                    self.companyTradingDeleagate?.updateCompanyTrading(newCompanyTrading: data!)
+                case .failure(let error):
+                    print(error)
+                }
         }
     }
     
     func fetchCompanyAdtv20_Adtv60(companyTicker: String) {
-        AF.request("https://data.riverfort.com/api/v1/companies/\(companyTicker)/adtv?fields=company_ticker%2Cdate%2Cadtv20&ordering=date").response { response in
-            let adtv20Data = String(data: response.data!, encoding: .utf8)
-            AF.request("https://data.riverfort.com/api/v1/companies/\(companyTicker)/adtv?fields=company_ticker%2Cdate%2Cadtv60&ordering=date").response { response in
-                let adtv60Data = String(data: response.data!, encoding: .utf8)
-                self.companyAdtv20_Adtv60Deleagate?.updateCompanyAdtv20_Adtv60(newCompanyAdtv20: adtv20Data!, newCompanyAdtv60: adtv60Data!)
+        AF.request("https://data.riverfort.com/api/v1/companies/\(companyTicker)/adtv?fields=company_ticker%2Cdate%2Cadtv20&ordering=date")
+            .validate()
+            .response { response in
+                var adtv20Data: String?
+                switch response.result {
+                case .success(_):
+                    adtv20Data = String(data: response.data!, encoding: .utf8)
+                case .failure(let error):
+                    print(error)
+                }
+            AF.request("https://data.riverfort.com/api/v1/companies/\(companyTicker)/adtv?fields=company_ticker%2Cdate%2Cadtv60&ordering=date")
+                .validate()
+                .response { response in
+                    switch response.result {
+                    case .success(_):
+                        let adtv60Data = String(data: response.data!, encoding: .utf8)
+                        self.companyAdtv20_Adtv60Deleagate?.updateCompanyAdtv20_Adtv60(newCompanyAdtv20: adtv20Data!, newCompanyAdtv60: adtv60Data!)
+                    case .failure(let error):
+                        print(error)
+                    }
             }
         }
     }
     
     func fetchSymbolProfile(companyTicker: String) {
-        AF.request("https://data.riverfort.com/api/v1/companies/\(companyTicker)").response { response in
-            let data = String(data: response.data!, encoding: .utf8)
-            self.symbolProfileDeleagate?.updateSymbolProfile(newSymbolProfile: data!)
+        AF.request("https://data.riverfort.com/api/v1/companies/\(companyTicker)")
+            .validate()
+            .response { response in
+                switch response.result {
+                case .success(_):
+                    let data = String(data: response.data!, encoding: .utf8)
+                    self.symbolProfileDeleagate?.updateSymbolProfile(newSymbolProfile: data!)
+                case .failure(let error):
+                    print(error)
+                }
         }
     }
         
     func fetchRecentADTV(companyTicker: String) {
-        AF.request("https://data.riverfort.com/api/v1/companies/\(companyTicker)/adtv/quote").response { response in
-            let data = String(data: response.data!, encoding: .utf8)
-            self.recentADTVDelegate?.updateRecentADTV(newRecentADTV: data!)
+        AF.request("https://data.riverfort.com/api/v1/companies/\(companyTicker)/adtv/quote")
+            .validate()
+            .response { response in
+                switch response.result {
+                case .success(_):
+                    let data = String(data: response.data!, encoding: .utf8)
+                    self.recentADTVDelegate?.updateRecentADTV(newRecentADTV: data!)
+                case .failure(let error):
+                    print(error)
+                }
         }
     }
     
     
     func addNewSymbol(addOnSymbolRequest: AddOnSymbolRequest, completion: @escaping (Int) -> ()) {
-        AF.request("https://data.riverfort.com/api/v1/add-on",
-                   method: .post,
-                   parameters: addOnSymbolRequest,
-                   encoder: JSONParameterEncoder.default).response {
-                    response in
-                    completion((response.response?.statusCode)!)
-                   }
+        AF.request("https://data.riverfort.com/api/v1/add-on", method: .post, parameters: addOnSymbolRequest).response { response in
+            completion((response.response?.statusCode)!)
+        }
     }
 }
