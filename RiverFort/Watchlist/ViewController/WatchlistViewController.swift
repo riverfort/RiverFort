@@ -20,6 +20,7 @@ class WatchlistViewController: UIViewController {
         configNavigationController()
         configWatchlistTableView()
         createObservers()
+        watchlistTableView.registerWatchedCompanies()
     }
     
     override func viewDidLayoutSubviews() {

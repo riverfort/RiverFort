@@ -106,6 +106,19 @@ extension WatchlistTableView {
             watchedCompanies = try context.fetch(request)
             for watchedCompany in watchedCompanies {
                 APIFunctions.functions.fetchCompanyDetail(companyTicker: watchedCompany.company_ticker!)
+            }
+        } catch {
+            print("error")
+        }
+    }
+    
+    public func registerWatchedCompanies() {
+        do {
+            let request = WatchedCompany.fetchRequest() as NSFetchRequest<WatchedCompany>
+            let sort = NSSortDescriptor(key: "rowOrder", ascending: true)
+            request.sortDescriptors = [sort]
+            watchedCompanies = try context.fetch(request)
+            for watchedCompany in watchedCompanies {
                 WatchlistSync.prepRegisterCompany(watchedCompany: watchedCompany)
             }
         } catch {
