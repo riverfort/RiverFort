@@ -86,27 +86,57 @@ class WatchlistAPI {
     public static let functions = WatchlistAPI()
     
     public func registerUserDevice(userDevice: UserDevice, completion: @escaping (Int) -> ()) {
-        AF.request("https://data.riverfort.com/watchlist/v1/user-devices", method: .post, parameters: userDevice, encoder: JSONParameterEncoder.default).response { response in
-            completion((response.response?.statusCode)!)}
+        AF.request("https://data.riverfort.com/watchlist/v1/user-devices", method: .post, parameters: userDevice).response { response in
+            switch response.result {
+            case .success(_):
+                completion((response.response?.statusCode)!)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     public func registerCompany(company: Company, completion: @escaping (Int) -> ()) {
-        AF.request("https://data.riverfort.com/watchlist/v1/companies", method: .post, parameters: company, encoder: JSONParameterEncoder.default).response { response in
-            completion((response.response?.statusCode)!)}
+        AF.request("https://data.riverfort.com/watchlist/v1/companies", method: .post, parameters: company).response { response in
+            switch response.result {
+            case .success(_):
+                completion((response.response?.statusCode)!)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     public func registerWatchlist(watchlist: Watchlist, completion: @escaping (Int) -> ()) {
-        AF.request("https://data.riverfort.com/watchlist/v1", method: .post, parameters: watchlist, encoder: JSONParameterEncoder.default).response { response in
-            completion((response.response?.statusCode)!)}
+        AF.request("https://data.riverfort.com/watchlist/v1", method: .post, parameters: watchlist).response { response in
+            switch response.result {
+            case .success(_):
+                completion((response.response?.statusCode)!)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     public func deleteWatchlist(deviceToken: String, companyTicker: String, completion: @escaping (Int) -> ()) {
         AF.request("https://data.riverfort.com/watchlist/v1/device/\(deviceToken)/company/\(companyTicker)", method: .delete).response { response in
-            completion((response.response?.statusCode)!)}
+            switch response.result {
+            case .success(_):
+                completion((response.response?.statusCode)!)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     public func deleteUserDevice(deviceToken: String, completion: @escaping (Int) -> ()) {
         AF.request("https://data.riverfort.com/watchlist/v1/user-devices/\(deviceToken)", method: .delete).response { response in
-            completion((response.response?.statusCode)!)}
+            switch response.result {
+            case .success(_):
+                completion((response.response?.statusCode)!)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
