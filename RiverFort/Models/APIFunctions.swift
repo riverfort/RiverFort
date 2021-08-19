@@ -75,14 +75,7 @@ class APIFunctions {
             self.fullListDataDelegate?.updateCompaniesArray(newArray: data!)
         }
     }
-    
-//    func fetchCompanyDetail(companyTicker: String) {
-//        AF.request("https://api.riverfort.com/reporting/company-detail/\(companyTicker)/").response { response in
-//            let data = String(data: response.data!, encoding: .utf8)
-//            self.companyDetailDeleagate?.updateCompanyDetail(newCompanyDetail: data!)
-//        }
-//    }
-    
+        
     func fetchCompanyDetail(companyTicker: String) {
         AF.request("https://data.riverfort.com/api/v1/company/\(companyTicker)/quote").response { response in
             let data = String(data: response.data!, encoding: .utf8)
@@ -141,14 +134,7 @@ class APIFunctions {
             self.symbolProfileDeleagate?.updateSymbolProfile(newSymbolProfile: data!)
         }
     }
-    
-//    func fetchQuote(companyTicker: String) {
-//        AF.request("https://api.riverfort.com/reporting/v2/quote/\(companyTicker)/").response { response in
-//            let data = String(data: response.data!, encoding: .utf8)
-//            self.quoteDeleagate?.updateQuote(newQuote: data!)
-//        }
-//    }
-    
+        
     func fetchRecentADTV(companyTicker: String) {
         AF.request("https://data.riverfort.com/api/v1/companies/\(companyTicker)/adtv/quote").response { response in
             let data = String(data: response.data!, encoding: .utf8)
@@ -166,76 +152,4 @@ class APIFunctions {
                     completion((response.response?.statusCode)!)
                    }
     }
-    
-//    func notifyNewSymbol(newSymbolRequest: NewSymbolRequest, completion: @escaping (Int) -> ()) {
-//        AF.request("https://api.riverfort.com/notifying/add-company/",
-//                   method: .post,
-//                   parameters: newSymbolRequest,
-//                   encoder: JSONParameterEncoder.default).response {
-//                    response in
-//                    completion((response.response?.statusCode)!)
-//                   }
-//    }
-    
-//    func fetchCompanies() {
-//        AF.request("https://api.riverfort.com/reporting/companies-full-list-search/").response { response in
-//            let data = String(data: response.data!, encoding: .utf8)
-//            self.fullListDataDelegate?.updateCompaniesArray(newArray: data!)
-//        }
-//    }
-//
-//    func fetchCompanyDetail(companyTicker: String) {
-//        AF.request("https://api.riverfort.com/reporting/company-detail/\(companyTicker)/").response { response in
-//            let data = String(data: response.data!, encoding: .utf8)
-//            self.companyDetailDeleagate?.updateCompanyDetail(newCompanyDetail: data!)
-//        }
-//    }
-//
-//    func fetchCompanyTrading(companyTicker: String) {
-//        AF.request("https://api.riverfort.com/reporting/trading/\(companyTicker)/").response { response in
-//            let data = String(data: response.data!, encoding: .utf8)
-//            self.companyTradingDeleagate?.updateCompanyTrading(newCompanyTrading: data!)
-//        }
-//    }
-//
-//    func fetchCompanyAdtv20_Adtv60(companyTicker: String) {
-//        AF.request("https://api.riverfort.com/reporting/adtv20/\(companyTicker)/").response { response in
-//            let adtv20Data = String(data: response.data!, encoding: .utf8)
-//            AF.request("https://api.riverfort.com/reporting/adtv60/\(companyTicker)/").response { response in
-//                let adtv60Data = String(data: response.data!, encoding: .utf8)
-//                self.companyAdtv20_Adtv60Deleagate?.updateCompanyAdtv20_Adtv60(newCompanyAdtv20: adtv20Data!, newCompanyAdtv60: adtv60Data!)
-//            }
-//        }
-//    }
-//
-//    func fetchSymbolProfile(companyTicker: String) {
-//        AF.request("https://api.riverfort.com/reporting/profile/\(companyTicker)/").response { response in
-//            let data = String(data: response.data!, encoding: .utf8)
-//            self.symbolProfileDeleagate?.updateSymbolProfile(newSymbolProfile: data!)
-//        }
-//    }
-//
-//    func fetchQuote(companyTicker: String) {
-//        AF.request("https://api.riverfort.com/reporting/v2/quote/\(companyTicker)/").response { response in
-//            let data = String(data: response.data!, encoding: .utf8)
-//            self.quoteDeleagate?.updateQuote(newQuote: data!)
-//        }
-//    }
-//
-//    func fetchRecentADTV(companyTicker: String) {
-//        AF.request("https://api.riverfort.com/reporting/v2/recent-adtv-aadtv/\(companyTicker)/").response { response in
-//            let data = String(data: response.data!, encoding: .utf8)
-//            self.recentADTVDelegate?.updateRecentADTV(newRecentADTV: data!)
-//        }
-//    }
-//
-//    func notifyNewSymbol(newSymbolRequest: NewSymbolRequest, completion: @escaping (Int) -> ()) {
-//        AF.request("https://api.riverfort.com/notifying/add-company/",
-//                   method: .post,
-//                   parameters: newSymbolRequest,
-//                   encoder: JSONParameterEncoder.default).response {
-//                    response in
-//                    completion((response.response?.statusCode)!)
-//                   }
-//    }
 }
