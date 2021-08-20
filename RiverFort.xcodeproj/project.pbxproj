@@ -235,24 +235,12 @@
 				773A0B9D2617237C002B9875 /* Models */,
 				77F9335F261A2BA1007662D5 /* Extensions */,
 				773A0B9B26172364002B9875 /* Helpers */,
-				773A0B9A26172352002B9875 /* View Controllers */,
-				77A147B22642BDD800EE8535 /* Type of CardParts */,
-				77A147B52642D5A100EE8535 /* CardPart Views */,
 				7780B8B726CFB03F00561789 /* Assets */,
 				77F85A0226C92B6D00EAE363 /* RiverFort.entitlements */,
 				773A0B702617123B002B9875 /* Info.plist */,
 				774DB74A2623144900A92D13 /* RiverFort.xcdatamodeld */,
 			);
 			path = RiverFort;
-			sourceTree = "<group>";
-		};
-		773A0B9A26172352002B9875 /* View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				773A86EF263C34A9008105A1 /* PrivacyPolicyViewController.swift */,
-				77A147AF2642BD1600EE8535 /* CompanyDetailViewController.swift */,
-			);
-			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 		773A0B9B26172364002B9875 /* Helpers */ = {
@@ -362,6 +350,7 @@
 		776F658326BC369300CAA5A6 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				773A86EF263C34A9008105A1 /* PrivacyPolicyViewController.swift */,
 				776F658426BC36C600CAA5A6 /* SettingsViewController.swift */,
 			);
 			path = ViewController;
@@ -419,9 +408,42 @@
 				7780B8B526CFAFE500561789 /* Main */,
 				7785EF2926AAA1C200AEB5FE /* Search */,
 				77CBB6B626B9271300CCD0A6 /* Watchlist */,
+				7780B8B926CFBB7000561789 /* DetailView */,
 				776F658226BC366100CAA5A6 /* Settings */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		7780B8B926CFBB7000561789 /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				7780B8BA26CFBB9A00561789 /* ViewController */,
+				7780B8BB26CFBBB900561789 /* View */,
+			);
+			path = DetailView;
+			sourceTree = "<group>";
+		};
+		7780B8BA26CFBB9A00561789 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				77A147AF2642BD1600EE8535 /* CompanyDetailViewController.swift */,
+				77950FCD2643EA4B002AC408 /* ThemedCardController.swift */,
+				77950FD526443A79002AC408 /* ProfileCardController.swift */,
+				775DFDA62645440E00D9A4AF /* QuotesCardController.swift */,
+				77814CD326469CE3008C832C /* ADTVCardController.swift */,
+				77876E8F264D484700798106 /* FeedsCardController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7780B8BB26CFBBB900561789 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				779AFC272657B216008373C0 /* CardPartPriceChartView.swift */,
+				7789A82A266A30B300B71294 /* ADTVChartView.swift */,
+				77950FC72643DBEB002AC408 /* CardPartQuotesView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		7785D7872630144200988C28 /* WatchedCompany */ = {
@@ -480,28 +502,6 @@
 				779B886126BD2B4900FB06A1 /* SettingsSection.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		77A147B22642BDD800EE8535 /* Type of CardParts */ = {
-			isa = PBXGroup;
-			children = (
-				77950FCD2643EA4B002AC408 /* ThemedCardController.swift */,
-				77950FD526443A79002AC408 /* ProfileCardController.swift */,
-				775DFDA62645440E00D9A4AF /* QuotesCardController.swift */,
-				77814CD326469CE3008C832C /* ADTVCardController.swift */,
-				77876E8F264D484700798106 /* FeedsCardController.swift */,
-			);
-			path = "Type of CardParts";
-			sourceTree = "<group>";
-		};
-		77A147B52642D5A100EE8535 /* CardPart Views */ = {
-			isa = PBXGroup;
-			children = (
-				779AFC272657B216008373C0 /* CardPartPriceChartView.swift */,
-				7789A82A266A30B300B71294 /* ADTVChartView.swift */,
-				77950FC72643DBEB002AC408 /* CardPartQuotesView.swift */,
-			);
-			path = "CardPart Views";
 			sourceTree = "<group>";
 		};
 		77A9758626B3EE7400E150CA /* Constants */ = {
