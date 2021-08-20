@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7702DFBA261B5E8400EE6191 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 7702DFB9261B5E8400EE6191 /* Charts */; };
 		7707F04F262B219300C4E8D4 /* WatchedCompanyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7707F04E262B219300C4E8D4 /* WatchedCompanyDetail.swift */; };
 		770EB64E26BD853F00B4FB01 /* DarkModeSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770EB64D26BD853F00B4FB01 /* DarkModeSwitch.swift */; };
 		771263C626A95CAC00B57C04 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771263C526A95CAC00B57C04 /* SearchViewController.swift */; };
@@ -25,9 +24,7 @@
 		773A0BAD261726B2002B9875 /* CompanyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0BAC261726B2002B9875 /* CompanyDetail.swift */; };
 		773A0BB0261726C7002B9875 /* CompanyTrading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0BAF261726C7002B9875 /* CompanyTrading.swift */; };
 		773A0BB3261726E6002B9875 /* CompanyAdtv20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0BB2261726E6002B9875 /* CompanyAdtv20.swift */; };
-		773A0BB726172750002B9875 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 773A0BB626172750002B9875 /* Alamofire */; };
 		773A0BBA26172872002B9875 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0BB926172872002B9875 /* Constants.swift */; };
-		773A0BC126172D1B002B9875 /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = 773A0BC026172D1B002B9875 /* TinyConstraints */; };
 		773A0BCB26176C8F002B9875 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0BCA26176C8F002B9875 /* Currency.swift */; };
 		773A86F0263C34A9008105A1 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A86EF263C34A9008105A1 /* PrivacyPolicyViewController.swift */; };
 		77420217264AA033002F6104 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 77420216264AA033002F6104 /* UIScrollView+EmptyDataSet.m */; };
@@ -37,7 +34,6 @@
 		7760164926B984C100BA7C41 /* WatchedCompanyDetailNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760164826B984C100BA7C41 /* WatchedCompanyDetailNew.swift */; };
 		7760164C26B98E9700BA7C41 /* WatchlistConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760164B26B98E9700BA7C41 /* WatchlistConstant.swift */; };
 		7762C77226BAE258008DE1BA /* NumberShortScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7762C77126BAE258008DE1BA /* NumberShortScale.swift */; };
-		7768AF8C262436D000949A6A /* SPAlert in Frameworks */ = {isa = PBXBuildFile; productRef = 7768AF8B262436D000949A6A /* SPAlert */; };
 		776D13C3261E087500B9CF97 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D13C2261E087500B9CF97 /* HomeViewController.swift */; };
 		776F657A26BBDB6400CAA5A6 /* WindowInterfaceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776F657926BBDB6400CAA5A6 /* WindowInterfaceOrientation.swift */; };
 		776F657C26BBEF2D00CAA5A6 /* EditWatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776F657B26BBEF2D00CAA5A6 /* EditWatchlistViewController.swift */; };
@@ -186,10 +182,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				773A0BB726172750002B9875 /* Alamofire in Frameworks */,
-				7702DFBA261B5E8400EE6191 /* Charts in Frameworks */,
-				7768AF8C262436D000949A6A /* SPAlert in Frameworks */,
-				773A0BC126172D1B002B9875 /* TinyConstraints in Frameworks */,
 				FB8907E2A79EF7F14ACDADD8 /* Pods_RiverFort.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -628,10 +620,6 @@
 			);
 			name = RiverFort;
 			packageProductDependencies = (
-				773A0BB626172750002B9875 /* Alamofire */,
-				773A0BC026172D1B002B9875 /* TinyConstraints */,
-				7702DFB9261B5E8400EE6191 /* Charts */,
-				7768AF8B262436D000949A6A /* SPAlert */,
 			);
 			productName = RiverFort;
 			productReference = 773A0B5F26171238002B9875 /* RiverFort.app */;
@@ -662,10 +650,6 @@
 			);
 			mainGroup = 773A0B5626171238002B9875;
 			packageReferences = (
-				773A0BB526172750002B9875 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				773A0BBF26172D1B002B9875 /* XCRemoteSwiftPackageReference "TinyConstraints" */,
-				7702DFB8261B5E8400EE6191 /* XCRemoteSwiftPackageReference "Charts" */,
-				7768AF8A262436D000949A6A /* XCRemoteSwiftPackageReference "SPAlert" */,
 			);
 			productRefGroup = 773A0B6026171238002B9875 /* Products */;
 			projectDirPath = "";
@@ -1027,64 +1011,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		7702DFB8261B5E8400EE6191 /* XCRemoteSwiftPackageReference "Charts" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/danielgindi/Charts";
-			requirement = {
-				kind = exactVersion;
-				version = 3.6.0;
-			};
-		};
-		773A0BB526172750002B9875 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.4.1;
-			};
-		};
-		773A0BBF26172D1B002B9875 /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/roberthein/TinyConstraints";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.1;
-			};
-		};
-		7768AF8A262436D000949A6A /* XCRemoteSwiftPackageReference "SPAlert" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ivanvorobei/SPAlert";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.6;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		7702DFB9261B5E8400EE6191 /* Charts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7702DFB8261B5E8400EE6191 /* XCRemoteSwiftPackageReference "Charts" */;
-			productName = Charts;
-		};
-		773A0BB626172750002B9875 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 773A0BB526172750002B9875 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-		773A0BC026172D1B002B9875 /* TinyConstraints */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 773A0BBF26172D1B002B9875 /* XCRemoteSwiftPackageReference "TinyConstraints" */;
-			productName = TinyConstraints;
-		};
-		7768AF8B262436D000949A6A /* SPAlert */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7768AF8A262436D000949A6A /* XCRemoteSwiftPackageReference "SPAlert" */;
-			productName = SPAlert;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		774DB74A2623144900A92D13 /* RiverFort.xcdatamodeld */ = {
