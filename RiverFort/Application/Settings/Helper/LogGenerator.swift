@@ -15,6 +15,8 @@ class LogGenerator {
         
         Note that logs do not include personally identifiable information (PII).
         """
+    static var LOG_SUBMISSION_ALERT_ACTION_INCLUDE_LOG     = "Include Logs"
+    static var LOG_SUBMISSION_ALERT_ACTION_NOT_INCLUDE_LOG = "Don't Include"
     static var LOG =
         """
         \n\n\n
