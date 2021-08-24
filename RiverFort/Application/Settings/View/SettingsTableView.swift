@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import SafariServices
+import MessageUI
 
 class SettingsTableView: UITableView {
-    private var settingsSections = [NewSettingsSection]()
+    private var settingsSections = [SettingsSection]()
         
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -26,20 +28,8 @@ extension SettingsTableView {
         self.dataSource = self
         self.delegate = self
         self.backgroundColor = .systemBackground
-        self.register(SettingsStaticTableViewCell.self, forCellReuseIdentifier: SettingsConstant.STATIC_TABLE_VIEW_CELL)
-        self.register(SettingsSwitchTableViewCell.self, forCellReuseIdentifier: SettingsConstant.SWITCH_TABLE_VIEW_CELL)
-    }
-    
-    private func getShareActivityViewController() -> UIActivityViewController {
-        let appStoreURL = URL(string: "https://apps.apple.com/us/app/riverfort/id1561144335")
-        let activityViewController = UIActivityViewController(activityItems: ["Try RiverFort", appStoreURL!], applicationActivities: nil)
-        if let popoverController = activityViewController.popoverPresentationController {
-            popoverController.sourceRect = CGRect(x: (UIApplication.topViewController()?.view.bounds.minX)!,
-                                                  y: (UIApplication.topViewController()?.view.bounds.minY)!, width: 0, height: 0)
-            popoverController.sourceView = UIApplication.topViewController()?.view
-            popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
-        }
-        return activityViewController
+        self.register(SettingsStaticTableViewCell.self, forCellReuseIdentifier: SettingsTableViewConstant.STATIC_TABLE_VIEW_CELL)
+        self.register(SettingsSwitchTableViewCell.self, forCellReuseIdentifier: SettingsTableViewConstant.SWITCH_TABLE_VIEW_CELL)
     }
 }
 
@@ -62,14 +52,16 @@ extension SettingsTableView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let settingsOptionType = settingsSections[indexPath.section].options[indexPath.row]
         switch settingsOptionType.self {
-        case .staticCell(newSettingsStaticOption: let newSettingsStaticOption):
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsConstant.STATIC_TABLE_VIEW_CELL,
-                                                           for: indexPath) as? SettingsStaticTableViewCell else { return UITableViewCell() }
+        case .staticCell(settingsStaticOption: let newSettingsStaticOption):
+            guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: SettingsTableViewConstant.STATIC_TABLE_VIEW_CELL,
+                    for: indexPath) as? SettingsStaticTableViewCell else { return UITableViewCell() }
             cell.setSettingsStaticTableViewCell(newSettingsStaticOption: newSettingsStaticOption)
             return cell
-        case .switchCell(newSettingsSwitchOption: let newSettingsSwitchOption):
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsConstant.SWITCH_TABLE_VIEW_CELL,
-                                                           for: indexPath) as? SettingsSwitchTableViewCell else { return UITableViewCell() }
+        case .switchCell(settingsSwitchOption: let newSettingsSwitchOption):
+            guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: SettingsTableViewConstant.SWITCH_TABLE_VIEW_CELL,
+                    for: indexPath) as? SettingsSwitchTableViewCell else { return UITableViewCell() }
             cell.setSettingsSwitchTableViewCell(newSettingsSwitchOption: newSettingsSwitchOption)
             cell.selectionStyle = .none
             return cell
@@ -82,9 +74,9 @@ extension SettingsTableView {
         tableView.deselectRow(at: indexPath, animated: true)
         let settingsOptionType = settingsSections[indexPath.section].options[indexPath.row]
         switch settingsOptionType.self {
-        case .staticCell(newSettingsStaticOption: let newSettingsStaticOption):
+        case .staticCell(settingsStaticOption: let newSettingsStaticOption):
             newSettingsStaticOption.handler()
-        case .switchCell(newSettingsSwitchOption: let newSettingsSwitchOption):
+        case .switchCell(settingsSwitchOption: let newSettingsSwitchOption):
             newSettingsSwitchOption.handler()
         }
     }
@@ -93,34 +85,112 @@ extension SettingsTableView {
 extension SettingsTableView {
     private func setSettingsOptions() {
         if UserDefaults.standard.isDarkModeEnabled() {
-            self.settingsSections.append(NewSettingsSection(title: "Appearance", options: [
-                .switchCell(newSettingsSwitchOption: NewSettingsSwitchOption(title: "Dark Mode", icon: UIImage(systemName: "sunset.fill"), iconBackgroundColour: .black, isOn: true, handler: {
+            self.settingsSections.append(SettingsSection(title: SettingsSectionTitleConstant.APPEARANCE, options: [
+                .switchCell(settingsSwitchOption: SettingsSwitchOption(title: SettingsOptionTitleConstant.DARK_MODE, icon: UIImage(systemName: "sunset.fill"), iconBackgroundColour: .black, isOn: true, handler: {
                 }))
             ]))
         } else {
-            self.settingsSections.append(NewSettingsSection(title: "Appearance", options: [
-                .switchCell(newSettingsSwitchOption: NewSettingsSwitchOption(title: "Dark Mode", icon: UIImage(systemName: "sunset.fill"), iconBackgroundColour: .black, isOn: false, handler: {
+            self.settingsSections.append(SettingsSection(title: SettingsSectionTitleConstant.APPEARANCE, options: [
+                .switchCell(settingsSwitchOption: SettingsSwitchOption(title: SettingsOptionTitleConstant.DARK_MODE, icon: UIImage(systemName: "sunset.fill"), iconBackgroundColour: .black, isOn: false, handler: {
                 }))
             ]))
         }
-        self.settingsSections.append(NewSettingsSection(title: "Other", options: [
-            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "Share", icon: UIImage(systemName: "square.and.arrow.up"), iconBackgroundColour: .systemGreen, handler: { [self] in
+        self.settingsSections.append(SettingsSection(title: SettingsSectionTitleConstant.OTHER, options: [
+            .staticCell(settingsStaticOption: SettingsStaticOption(title: SettingsOptionTitleConstant.SHARE, icon: UIImage(systemName: "square.and.arrow.up"), iconBackgroundColour: .systemGreen, handler: { [self] in
                 selectShare()
             })),
-            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "Privacy & Terms", icon: UIImage(systemName: "person.fill.viewfinder"), iconBackgroundColour: .systemBlue, handler: { [self] in
+            .staticCell(settingsStaticOption: SettingsStaticOption(title: SettingsOptionTitleConstant.PRIVACY_AND_TERMS, icon: UIImage(systemName: "person.fill.viewfinder"), iconBackgroundColour: .systemBlue, handler: { [self] in
                 selectPrivacyTermsNotification()
+            })),
+        ]))
+        self.settingsSections.append(SettingsSection(title: SettingsSectionTitleConstant.SUPPRT, options: [
+            .staticCell(settingsStaticOption: SettingsStaticOption(title: SettingsOptionTitleConstant.FEATURE_REQUEST, icon: UIImage(systemName: "sparkles"), iconBackgroundColour: .systemPurple, handler: { [self] in
+                selectSupport(selectedTitle: SettingsOptionTitleConstant.FEATURE_REQUEST)
+            })),
+            .staticCell(settingsStaticOption: SettingsStaticOption(title: SettingsOptionTitleConstant.REPORT_AN_ISSUE, icon: UIImage(systemName: "exclamationmark.bubble"), iconBackgroundColour: .systemPink, handler: { [self] in
+                selectSupport(selectedTitle: SettingsOptionTitleConstant.REPORT_AN_ISSUE)
             })),
         ]))
     }
 }
 
 extension SettingsTableView {
+    private func selectShare() {
+        UIApplication.topViewController()?.present(getShareActivityViewController(), animated: true)
+    }
+
     private func selectPrivacyTermsNotification() {
-        let name = Notification.Name(SettingsConstant.SELECT_PRIVACY_TERMS)
+        let name = Notification.Name(SettingsNotificationConstant.SELECT_PRIVACY_TERMS)
         NotificationCenter.default.post(name: name, object: nil)
     }
     
-    private func selectShare() {
-        UIApplication.topViewController()?.present(getShareActivityViewController(), animated: true)
+    private func getShareActivityViewController() -> UIActivityViewController {
+        let appStoreURL = URL(string: "https://apps.apple.com/us/app/riverfort/id1561144335")
+        let activityViewController = UIActivityViewController(activityItems: ["Try RiverFort", appStoreURL!], applicationActivities: nil)
+        if let popoverController = activityViewController.popoverPresentationController {
+            popoverController.sourceRect = CGRect(x: (UIApplication.topViewController()?.view.bounds.minX)!,
+                                                  y: (UIApplication.topViewController()?.view.bounds.minY)!, width: 0, height: 0)
+            popoverController.sourceView = UIApplication.topViewController()?.view
+            popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+        }
+        return activityViewController
+    }
+}
+
+extension SettingsTableView: MFMailComposeViewControllerDelegate {
+    private func selectSupport(selectedTitle title: String) {
+        let logSubmissionAlert = UIAlertController(
+            title: LogGenerator.ALERT_TITLE,
+            message: LogGenerator.ALERT_MESSAGE,
+            preferredStyle: .alert)
+        let doNotIncludeLog = UIAlertAction(
+            title: LogGenerator.ACTION_NOT_INCLUDE_LOG,
+            style: .default,
+            handler: { [self] action in
+                presentSupportRequest(log: nil, title: title)
+        })
+        let doIncludeLog = UIAlertAction(
+            title: LogGenerator.ACTION_INCLUDE_LOG,
+            style: .default,
+            handler: { [self]action in
+                presentSupportRequest(log: LogGenerator.LOG, title: title)
+        })
+        logSubmissionAlert.addAction(doNotIncludeLog)
+        logSubmissionAlert.addAction(doIncludeLog)
+        logSubmissionAlert.preferredAction = doNotIncludeLog
+        UIApplication.topViewController()?.present(logSubmissionAlert, animated: true, completion: nil)
+    }
+
+    private func presentSupportRequest(log: String?, title: String) {
+        if MFMailComposeViewController.canSendMail() {
+            let mailComposeViewController = MFMailComposeViewController()
+            mailComposeViewController.mailComposeDelegate = self
+            mailComposeViewController.setSubject(title)
+            mailComposeViewController.setToRecipients(["tech@riverfortcapital.com"])
+            if let log = log {
+                if title == SettingsOptionTitleConstant.FEATURE_REQUEST {
+                    mailComposeViewController.setMessageBody(LogGenerator.FEATURE_REQUEST_EMAIL + log, isHTML: false)
+                } else if title == SettingsOptionTitleConstant.REPORT_AN_ISSUE {
+                    mailComposeViewController.setMessageBody(LogGenerator.REPORT_AN_ISSUE_EMAIL + log, isHTML: false)
+                }
+            } else {
+                if title == SettingsOptionTitleConstant.FEATURE_REQUEST {
+                    mailComposeViewController.setMessageBody(LogGenerator.FEATURE_REQUEST_EMAIL, isHTML: false)
+                } else if title == SettingsOptionTitleConstant.REPORT_AN_ISSUE {
+                    mailComposeViewController.setMessageBody(LogGenerator.REPORT_AN_ISSUE_EMAIL, isHTML: false)
+                }
+            }
+            UIApplication.topViewController()?.present(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            guard let url = URL(string: "https://qiuyangnie.github.io/privacy-policy.html") else {
+                return
+            }
+            let vc = SFSafariViewController(url: url)
+            UIApplication.topViewController()?.present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }

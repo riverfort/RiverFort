@@ -87,7 +87,7 @@ extension SettingsSwitchTableViewCell {
 }
 
 extension SettingsSwitchTableViewCell {
-    public func setSettingsSwitchTableViewCell(newSettingsSwitchOption: NewSettingsSwitchOption) {
+    public func setSettingsSwitchTableViewCell(newSettingsSwitchOption: SettingsSwitchOption) {
         iconImageViewContainer.backgroundColor = newSettingsSwitchOption.iconBackgroundColour
         iconImageView.image = newSettingsSwitchOption.icon
         settingsLabel.text  = newSettingsSwitchOption.title

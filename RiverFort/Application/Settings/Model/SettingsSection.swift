@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NewSettingsSection {
+struct SettingsSection {
     let title: String
-    let options: [NewSettingsOptionType]
+    let options: [SettingsOptionType]
 }
