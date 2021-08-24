@@ -147,7 +147,7 @@ extension SettingsTableView: MFMailComposeViewControllerDelegate {
             title: LogGenerator.ACTION_NOT_INCLUDE_LOG,
             style: .default,
             handler: { [self] action in
-                presentSupportRequest(log: "", title: title)
+                presentSupportRequest(log: nil, title: title)
         })
         let doIncludeLog = UIAlertAction(
             title: LogGenerator.ACTION_INCLUDE_LOG,
@@ -161,16 +161,24 @@ extension SettingsTableView: MFMailComposeViewControllerDelegate {
         UIApplication.topViewController()?.present(logSubmissionAlert, animated: true, completion: nil)
     }
 
-    private func presentSupportRequest(log: String, title: String) {
+    private func presentSupportRequest(log: String?, title: String) {
         if MFMailComposeViewController.canSendMail() {
             let mailComposeViewController = MFMailComposeViewController()
             mailComposeViewController.mailComposeDelegate = self
             mailComposeViewController.setSubject(title)
             mailComposeViewController.setToRecipients(["tech@riverfortcapital.com"])
-            if title == SettingsOptionTitleConstant.FEATURE_REQUEST {
-                mailComposeViewController.setMessageBody(LogGenerator.FEATURE_REQUEST_EMAIL + log, isHTML: false)
-            } else if title == SettingsOptionTitleConstant.REPORT_AN_ISSUE {
-                mailComposeViewController.setMessageBody(LogGenerator.REPORT_AN_ISSUE_EMAIL + log, isHTML: false)
+            if let log = log {
+                if title == SettingsOptionTitleConstant.FEATURE_REQUEST {
+                    mailComposeViewController.setMessageBody(LogGenerator.FEATURE_REQUEST_EMAIL + log, isHTML: false)
+                } else if title == SettingsOptionTitleConstant.REPORT_AN_ISSUE {
+                    mailComposeViewController.setMessageBody(LogGenerator.REPORT_AN_ISSUE_EMAIL + log, isHTML: false)
+                }
+            } else {
+                if title == SettingsOptionTitleConstant.FEATURE_REQUEST {
+                    mailComposeViewController.setMessageBody(LogGenerator.FEATURE_REQUEST_EMAIL, isHTML: false)
+                } else if title == SettingsOptionTitleConstant.REPORT_AN_ISSUE {
+                    mailComposeViewController.setMessageBody(LogGenerator.REPORT_AN_ISSUE_EMAIL, isHTML: false)
+                }
             }
             UIApplication.topViewController()?.present(mailComposeViewController, animated: true, completion: nil)
         } else {
