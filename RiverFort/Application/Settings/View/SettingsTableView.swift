@@ -147,62 +147,27 @@ extension SettingsTableView: MFMailComposeViewControllerDelegate {
             title: LogGenerator.ACTION_NOT_INCLUDE_LOG,
             style: .default,
             handler: { [self] action in
-                if title == SettingsOptionTitleConstant.FEATURE_REQUEST {
-                    selectFeatureRequest(log: "")
-                }
-                if title == SettingsOptionTitleConstant.REPORT_AN_ISSUE {
-                    selectReportAnIssue(log: "")
-                }
+                presentRequest(log: "", title: title)
         })
         let doIncludeLog = UIAlertAction(
             title: LogGenerator.ACTION_INCLUDE_LOG,
             style: .default,
             handler: { [self]action in
-                if title == SettingsOptionTitleConstant.FEATURE_REQUEST {
-                    selectFeatureRequest(log: LogGenerator.LOG)
-                }
-                if title == SettingsOptionTitleConstant.REPORT_AN_ISSUE {
-                    selectReportAnIssue(log: LogGenerator.LOG)
-                }
+                presentRequest(log: LogGenerator.LOG, title: title)
         })
         logSubmissionAlert.addAction(doNotIncludeLog)
         logSubmissionAlert.addAction(doIncludeLog)
         logSubmissionAlert.preferredAction = doNotIncludeLog
         UIApplication.topViewController()?.present(logSubmissionAlert, animated: true, completion: nil)
     }
-    
-    
-    
 
-    
-    private func selectFeatureRequest(log: String) {
+    private func presentRequest(log: String, title: String) {
         if MFMailComposeViewController.canSendMail() {
             let mailComposeViewController = MFMailComposeViewController()
             mailComposeViewController.mailComposeDelegate = self
-            mailComposeViewController.setSubject("Feature Request")
+            mailComposeViewController.setSubject(title)
             mailComposeViewController.setToRecipients(["tech@riverfortcapital.com"])
             let emailBody = log
-            mailComposeViewController.setMessageBody(emailBody, isHTML: false)
-            UIApplication.topViewController()?.present(mailComposeViewController, animated: true, completion: nil)
-        } else {
-            guard let url = URL(string: "https://qiuyangnie.github.io/privacy-policy.html") else {
-                return
-            }
-            let vc = SFSafariViewController(url: url)
-            UIApplication.topViewController()?.present(vc, animated: true, completion: nil)
-        }
-    }
-    
-    private func selectReportAnIssue(log: String) {
-        if MFMailComposeViewController.canSendMail() {
-            let mailComposeViewController = MFMailComposeViewController()
-            mailComposeViewController.mailComposeDelegate = self
-            mailComposeViewController.setSubject("Report an Issue")
-            mailComposeViewController.setToRecipients(["tech@riverfortcapital.com"])
-            let emailBody = """
-                            [Include summary of issue here.]
-                            \(log)
-                            """
             mailComposeViewController.setMessageBody(emailBody, isHTML: false)
             UIApplication.topViewController()?.present(mailComposeViewController, animated: true, completion: nil)
         } else {
