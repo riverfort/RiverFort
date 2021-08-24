@@ -140,13 +140,8 @@ extension SettingsTableView {
 extension SettingsTableView: MFMailComposeViewControllerDelegate {
     private func selectSupport(selectedTitle title: String) {
         let logSubmissionAlert = UIAlertController(
-            title: "Log Submission",
-            message:
-                """
-                Would you like to include debugging logs with yout support ticket?
-                
-                Note that logs do not include personally identifiable information (PII).
-                """,
+            title: LogGenerator.LOG_SUBMISSION_ALERT_TITLE,
+            message: LogGenerator.LOG_SUBMISSION_ALERT_MESSAGE,
             preferredStyle: .alert)
         logSubmissionAlert.addAction(UIAlertAction(title: "Don't Include", style: .default, handler: { [self] action in
             if title == SettingsSectionTitleConstant.FEATURE_REQUEST {
