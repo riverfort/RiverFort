@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SafariServices
+import MessageUI
 
 class SettingsTableView: UITableView {
     private var settingsSections = [NewSettingsSection]()
@@ -94,21 +96,29 @@ extension SettingsTableView {
     private func setSettingsOptions() {
         if UserDefaults.standard.isDarkModeEnabled() {
             self.settingsSections.append(NewSettingsSection(title: "Appearance", options: [
-                .switchCell(newSettingsSwitchOption: NewSettingsSwitchOption(title: "Dark Mode", icon: UIImage(systemName: "sunset.fill"), iconBackgroundColour: .black, isOn: true, handler: {
+                .switchCell(newSettingsSwitchOption: NewSettingsSwitchOption(title: SettingsSectionTitleConstant.DARK_MODE, icon: UIImage(systemName: "sunset.fill"), iconBackgroundColour: .black, isOn: true, handler: {
                 }))
             ]))
         } else {
             self.settingsSections.append(NewSettingsSection(title: "Appearance", options: [
-                .switchCell(newSettingsSwitchOption: NewSettingsSwitchOption(title: "Dark Mode", icon: UIImage(systemName: "sunset.fill"), iconBackgroundColour: .black, isOn: false, handler: {
+                .switchCell(newSettingsSwitchOption: NewSettingsSwitchOption(title: SettingsSectionTitleConstant.DARK_MODE, icon: UIImage(systemName: "sunset.fill"), iconBackgroundColour: .black, isOn: false, handler: {
                 }))
             ]))
         }
         self.settingsSections.append(NewSettingsSection(title: "Other", options: [
-            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "Share", icon: UIImage(systemName: "square.and.arrow.up"), iconBackgroundColour: .systemGreen, handler: { [self] in
+            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: SettingsSectionTitleConstant.SHARE, icon: UIImage(systemName: "square.and.arrow.up"), iconBackgroundColour: .systemGreen, handler: { [self] in
                 selectShare()
             })),
-            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: "Privacy & Terms", icon: UIImage(systemName: "person.fill.viewfinder"), iconBackgroundColour: .systemBlue, handler: { [self] in
+            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: SettingsSectionTitleConstant.PRIVACY_AND_TERMS, icon: UIImage(systemName: "person.fill.viewfinder"), iconBackgroundColour: .systemBlue, handler: { [self] in
                 selectPrivacyTermsNotification()
+            })),
+        ]))
+        self.settingsSections.append(NewSettingsSection(title: "Support", options: [
+            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: SettingsSectionTitleConstant.FEATURE_REQUEST, icon: UIImage(systemName: "sparkles"), iconBackgroundColour: .systemPurple, handler: { [self] in
+                selectSupport(selectedTitle: SettingsSectionTitleConstant.FEATURE_REQUEST)
+            })),
+            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: SettingsSectionTitleConstant.REPORT_AN_ISSUE, icon: UIImage(systemName: "exclamationmark.bubble"), iconBackgroundColour: .systemPink, handler: { [self] in
+                selectSupport(selectedTitle: SettingsSectionTitleConstant.REPORT_AN_ISSUE)
             })),
         ]))
     }
@@ -122,5 +132,83 @@ extension SettingsTableView {
     
     private func selectShare() {
         UIApplication.topViewController()?.present(getShareActivityViewController(), animated: true)
+    }
+}
+
+extension SettingsTableView: MFMailComposeViewControllerDelegate {
+    private func selectSupport(selectedTitle title: String) {
+        let logSubmissionAlert = UIAlertController(
+            title: "Log Submission",
+            message:
+                """
+                Would you like to include debugging logs with yout support ticket?
+                
+                Note that logs do not include personally identifiable information (PII).
+                """,
+            preferredStyle: .alert)
+        logSubmissionAlert.addAction(UIAlertAction(title: "Don't Include", style: .default, handler: { [self] action in
+            if title == SettingsSectionTitleConstant.FEATURE_REQUEST {
+                selectFeatureRequest(log: "")
+            }
+            if title == SettingsSectionTitleConstant.REPORT_AN_ISSUE {
+                selectReportAnIssue(log: "")
+            }
+        }))
+        logSubmissionAlert.addAction(UIAlertAction(title: "Include Logs", style: .default, handler: { [self]action in
+            if title == SettingsSectionTitleConstant.FEATURE_REQUEST {
+                selectFeatureRequest(log: LogGenerator.LOG)
+            }
+            if title == SettingsSectionTitleConstant.REPORT_AN_ISSUE {
+                selectReportAnIssue(log: LogGenerator.LOG)
+            }
+        }))
+        UIApplication.topViewController()?.present(logSubmissionAlert, animated: true, completion: nil)
+    }
+    
+    
+    
+
+    
+    private func selectFeatureRequest(log: String) {
+        if MFMailComposeViewController.canSendMail() {
+            let mailComposeViewController = MFMailComposeViewController()
+            mailComposeViewController.mailComposeDelegate = self
+            mailComposeViewController.setSubject("Feature Request")
+            mailComposeViewController.setToRecipients(["tech@riverfortcapital.com"])
+            let emailBody = log
+            mailComposeViewController.setMessageBody(emailBody, isHTML: false)
+            UIApplication.topViewController()?.present(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            guard let url = URL(string: "https://qiuyangnie.github.io/privacy-policy.html") else {
+                return
+            }
+            let vc = SFSafariViewController(url: url)
+            UIApplication.topViewController()?.present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    private func selectReportAnIssue(log: String) {
+        if MFMailComposeViewController.canSendMail() {
+            let mailComposeViewController = MFMailComposeViewController()
+            mailComposeViewController.mailComposeDelegate = self
+            mailComposeViewController.setSubject("Report an Issue")
+            mailComposeViewController.setToRecipients(["tech@riverfortcapital.com"])
+            let emailBody = """
+                            [Include summary of issue here.]
+                            \(log)
+                            """
+            mailComposeViewController.setMessageBody(emailBody, isHTML: false)
+            UIApplication.topViewController()?.present(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            guard let url = URL(string: "https://qiuyangnie.github.io/privacy-policy.html") else {
+                return
+            }
+            let vc = SFSafariViewController(url: url)
+            UIApplication.topViewController()?.present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }
