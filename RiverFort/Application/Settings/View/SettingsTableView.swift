@@ -143,22 +143,31 @@ extension SettingsTableView: MFMailComposeViewControllerDelegate {
             title: LogGenerator.ALERT_TITLE,
             message: LogGenerator.ALERT_MESSAGE,
             preferredStyle: .alert)
-        logSubmissionAlert.addAction(UIAlertAction(title: LogGenerator.ACTION_NOT_INCLUDE_LOG, style: .default, handler: { [self] action in
-            if title == SettingsOptionTitleConstant.FEATURE_REQUEST {
-                selectFeatureRequest(log: "")
-            }
-            if title == SettingsOptionTitleConstant.REPORT_AN_ISSUE {
-                selectReportAnIssue(log: "")
-            }
-        }))
-        logSubmissionAlert.addAction(UIAlertAction(title: LogGenerator.ACTION_INCLUDE_LOG, style: .default, handler: { [self]action in
-            if title == SettingsOptionTitleConstant.FEATURE_REQUEST {
-                selectFeatureRequest(log: LogGenerator.LOG)
-            }
-            if title == SettingsOptionTitleConstant.REPORT_AN_ISSUE {
-                selectReportAnIssue(log: LogGenerator.LOG)
-            }
-        }))
+        let doNotIncludeLog = UIAlertAction(
+            title: LogGenerator.ACTION_NOT_INCLUDE_LOG,
+            style: .default,
+            handler: { [self] action in
+                if title == SettingsOptionTitleConstant.FEATURE_REQUEST {
+                    selectFeatureRequest(log: "")
+                }
+                if title == SettingsOptionTitleConstant.REPORT_AN_ISSUE {
+                    selectReportAnIssue(log: "")
+                }
+        })
+        let doIncludeLog = UIAlertAction(
+            title: LogGenerator.ACTION_INCLUDE_LOG,
+            style: .default,
+            handler: { [self]action in
+                if title == SettingsOptionTitleConstant.FEATURE_REQUEST {
+                    selectFeatureRequest(log: LogGenerator.LOG)
+                }
+                if title == SettingsOptionTitleConstant.REPORT_AN_ISSUE {
+                    selectReportAnIssue(log: LogGenerator.LOG)
+                }
+        })
+        logSubmissionAlert.addAction(doNotIncludeLog)
+        logSubmissionAlert.addAction(doIncludeLog)
+        logSubmissionAlert.preferredAction = doNotIncludeLog
         UIApplication.topViewController()?.present(logSubmissionAlert, animated: true, completion: nil)
     }
     
