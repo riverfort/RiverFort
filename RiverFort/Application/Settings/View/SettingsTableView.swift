@@ -65,13 +65,15 @@ extension SettingsTableView: UITableViewDataSource, UITableViewDelegate {
         let settingsOptionType = settingsSections[indexPath.section].options[indexPath.row]
         switch settingsOptionType.self {
         case .staticCell(newSettingsStaticOption: let newSettingsStaticOption):
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewConstant.STATIC_TABLE_VIEW_CELL,
-                                                           for: indexPath) as? SettingsStaticTableViewCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: SettingsTableViewConstant.STATIC_TABLE_VIEW_CELL,
+                    for: indexPath) as? SettingsStaticTableViewCell else { return UITableViewCell() }
             cell.setSettingsStaticTableViewCell(newSettingsStaticOption: newSettingsStaticOption)
             return cell
         case .switchCell(newSettingsSwitchOption: let newSettingsSwitchOption):
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewConstant.SWITCH_TABLE_VIEW_CELL,
-                                                           for: indexPath) as? SettingsSwitchTableViewCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: SettingsTableViewConstant.SWITCH_TABLE_VIEW_CELL,
+                    for: indexPath) as? SettingsSwitchTableViewCell else { return UITableViewCell() }
             cell.setSettingsSwitchTableViewCell(newSettingsSwitchOption: newSettingsSwitchOption)
             cell.selectionStyle = .none
             return cell
