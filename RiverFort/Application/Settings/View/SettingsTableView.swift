@@ -10,7 +10,7 @@ import SafariServices
 import MessageUI
 
 class SettingsTableView: UITableView {
-    private var settingsSections = [NewSettingsSection]()
+    private var settingsSections = [SettingsSection]()
         
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -95,17 +95,17 @@ extension SettingsTableView {
 extension SettingsTableView {
     private func setSettingsOptions() {
         if UserDefaults.standard.isDarkModeEnabled() {
-            self.settingsSections.append(NewSettingsSection(title: "Appearance", options: [
+            self.settingsSections.append(SettingsSection(title: "Appearance", options: [
                 .switchCell(newSettingsSwitchOption: NewSettingsSwitchOption(title: SettingsSectionTitleConstant.DARK_MODE, icon: UIImage(systemName: "sunset.fill"), iconBackgroundColour: .black, isOn: true, handler: {
                 }))
             ]))
         } else {
-            self.settingsSections.append(NewSettingsSection(title: "Appearance", options: [
+            self.settingsSections.append(SettingsSection(title: "Appearance", options: [
                 .switchCell(newSettingsSwitchOption: NewSettingsSwitchOption(title: SettingsSectionTitleConstant.DARK_MODE, icon: UIImage(systemName: "sunset.fill"), iconBackgroundColour: .black, isOn: false, handler: {
                 }))
             ]))
         }
-        self.settingsSections.append(NewSettingsSection(title: "Other", options: [
+        self.settingsSections.append(SettingsSection(title: "Other", options: [
             .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: SettingsSectionTitleConstant.SHARE, icon: UIImage(systemName: "square.and.arrow.up"), iconBackgroundColour: .systemGreen, handler: { [self] in
                 selectShare()
             })),
@@ -113,7 +113,7 @@ extension SettingsTableView {
                 selectPrivacyTermsNotification()
             })),
         ]))
-        self.settingsSections.append(NewSettingsSection(title: "Support", options: [
+        self.settingsSections.append(SettingsSection(title: "Support", options: [
             .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: SettingsSectionTitleConstant.FEATURE_REQUEST, icon: UIImage(systemName: "sparkles"), iconBackgroundColour: .systemPurple, handler: { [self] in
                 selectSupport(selectedTitle: SettingsSectionTitleConstant.FEATURE_REQUEST)
             })),
