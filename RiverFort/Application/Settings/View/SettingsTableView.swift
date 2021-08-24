@@ -85,17 +85,17 @@ extension SettingsTableView {
 extension SettingsTableView {
     private func setSettingsOptions() {
         if UserDefaults.standard.isDarkModeEnabled() {
-            self.settingsSections.append(SettingsSection(title: "Appearance", options: [
+            self.settingsSections.append(SettingsSection(title: SettingsSectionTitleConstant.APPEARANCE, options: [
                 .switchCell(settingsSwitchOption: SettingsSwitchOption(title: SettingsOptionTitleConstant.DARK_MODE, icon: UIImage(systemName: "sunset.fill"), iconBackgroundColour: .black, isOn: true, handler: {
                 }))
             ]))
         } else {
-            self.settingsSections.append(SettingsSection(title: "Appearance", options: [
+            self.settingsSections.append(SettingsSection(title: SettingsSectionTitleConstant.APPEARANCE, options: [
                 .switchCell(settingsSwitchOption: SettingsSwitchOption(title: SettingsOptionTitleConstant.DARK_MODE, icon: UIImage(systemName: "sunset.fill"), iconBackgroundColour: .black, isOn: false, handler: {
                 }))
             ]))
         }
-        self.settingsSections.append(SettingsSection(title: "Other", options: [
+        self.settingsSections.append(SettingsSection(title: SettingsSectionTitleConstant.OTHER, options: [
             .staticCell(settingsStaticOption: SettingsStaticOption(title: SettingsOptionTitleConstant.SHARE, icon: UIImage(systemName: "square.and.arrow.up"), iconBackgroundColour: .systemGreen, handler: { [self] in
                 selectShare()
             })),
@@ -103,7 +103,7 @@ extension SettingsTableView {
                 selectPrivacyTermsNotification()
             })),
         ]))
-        self.settingsSections.append(SettingsSection(title: "Support", options: [
+        self.settingsSections.append(SettingsSection(title: SettingsSectionTitleConstant.SUPPRT, options: [
             .staticCell(settingsStaticOption: SettingsStaticOption(title: SettingsOptionTitleConstant.FEATURE_REQUEST, icon: UIImage(systemName: "sparkles"), iconBackgroundColour: .systemPurple, handler: { [self] in
                 selectSupport(selectedTitle: SettingsOptionTitleConstant.FEATURE_REQUEST)
             })),
