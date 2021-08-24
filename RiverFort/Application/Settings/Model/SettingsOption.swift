@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct NewSettingsStaticOption {
+struct SettingsStaticOption {
     let title: String
     let icon: UIImage?
     let iconBackgroundColour: UIColor
     let handler: (() -> Void)
 }
 
-struct NewSettingsSwitchOption {
+struct SettingsSwitchOption {
     let title: String
     let icon: UIImage?
     let iconBackgroundColour: UIColor
@@ -22,7 +22,7 @@ struct NewSettingsSwitchOption {
     let handler: (() -> Void)
 }
 
-enum NewSettingsOptionType {
-    case staticCell(newSettingsStaticOption: NewSettingsStaticOption)
-    case switchCell(newSettingsSwitchOption: NewSettingsSwitchOption)
+enum SettingsOptionType {
+    case staticCell(newSettingsStaticOption: SettingsStaticOption)
+    case switchCell(newSettingsSwitchOption: SettingsSwitchOption)
 }

@@ -98,28 +98,28 @@ extension SettingsTableView {
     private func setSettingsOptions() {
         if UserDefaults.standard.isDarkModeEnabled() {
             self.settingsSections.append(SettingsSection(title: "Appearance", options: [
-                .switchCell(newSettingsSwitchOption: NewSettingsSwitchOption(title: SettingsSectionTitleConstant.DARK_MODE, icon: UIImage(systemName: "sunset.fill"), iconBackgroundColour: .black, isOn: true, handler: {
+                .switchCell(newSettingsSwitchOption: SettingsSwitchOption(title: SettingsSectionTitleConstant.DARK_MODE, icon: UIImage(systemName: "sunset.fill"), iconBackgroundColour: .black, isOn: true, handler: {
                 }))
             ]))
         } else {
             self.settingsSections.append(SettingsSection(title: "Appearance", options: [
-                .switchCell(newSettingsSwitchOption: NewSettingsSwitchOption(title: SettingsSectionTitleConstant.DARK_MODE, icon: UIImage(systemName: "sunset.fill"), iconBackgroundColour: .black, isOn: false, handler: {
+                .switchCell(newSettingsSwitchOption: SettingsSwitchOption(title: SettingsSectionTitleConstant.DARK_MODE, icon: UIImage(systemName: "sunset.fill"), iconBackgroundColour: .black, isOn: false, handler: {
                 }))
             ]))
         }
         self.settingsSections.append(SettingsSection(title: "Other", options: [
-            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: SettingsSectionTitleConstant.SHARE, icon: UIImage(systemName: "square.and.arrow.up"), iconBackgroundColour: .systemGreen, handler: { [self] in
+            .staticCell(newSettingsStaticOption: SettingsStaticOption(title: SettingsSectionTitleConstant.SHARE, icon: UIImage(systemName: "square.and.arrow.up"), iconBackgroundColour: .systemGreen, handler: { [self] in
                 selectShare()
             })),
-            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: SettingsSectionTitleConstant.PRIVACY_AND_TERMS, icon: UIImage(systemName: "person.fill.viewfinder"), iconBackgroundColour: .systemBlue, handler: { [self] in
+            .staticCell(newSettingsStaticOption: SettingsStaticOption(title: SettingsSectionTitleConstant.PRIVACY_AND_TERMS, icon: UIImage(systemName: "person.fill.viewfinder"), iconBackgroundColour: .systemBlue, handler: { [self] in
                 selectPrivacyTermsNotification()
             })),
         ]))
         self.settingsSections.append(SettingsSection(title: "Support", options: [
-            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: SettingsSectionTitleConstant.FEATURE_REQUEST, icon: UIImage(systemName: "sparkles"), iconBackgroundColour: .systemPurple, handler: { [self] in
+            .staticCell(newSettingsStaticOption: SettingsStaticOption(title: SettingsSectionTitleConstant.FEATURE_REQUEST, icon: UIImage(systemName: "sparkles"), iconBackgroundColour: .systemPurple, handler: { [self] in
                 selectSupport(selectedTitle: SettingsSectionTitleConstant.FEATURE_REQUEST)
             })),
-            .staticCell(newSettingsStaticOption: NewSettingsStaticOption(title: SettingsSectionTitleConstant.REPORT_AN_ISSUE, icon: UIImage(systemName: "exclamationmark.bubble"), iconBackgroundColour: .systemPink, handler: { [self] in
+            .staticCell(newSettingsStaticOption: SettingsStaticOption(title: SettingsSectionTitleConstant.REPORT_AN_ISSUE, icon: UIImage(systemName: "exclamationmark.bubble"), iconBackgroundColour: .systemPink, handler: { [self] in
                 selectSupport(selectedTitle: SettingsSectionTitleConstant.REPORT_AN_ISSUE)
             })),
         ]))
