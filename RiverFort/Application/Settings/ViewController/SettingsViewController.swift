@@ -56,7 +56,7 @@ extension SettingsViewController {
 
 extension SettingsViewController {
     private func createObservers() {
-        let selectPrivacyTermsName = Notification.Name(SettingsConstant.SELECT_PRIVACY_TERMS)
+        let selectPrivacyTermsName = Notification.Name(SettingsNotificationConstant.SELECT_PRIVACY_TERMS)
         NotificationCenter.default.addObserver(self, selector: #selector(selectPrivacyTerms), name: selectPrivacyTermsName, object: nil)
     }
     

@@ -28,8 +28,8 @@ extension SettingsTableView {
         self.dataSource = self
         self.delegate = self
         self.backgroundColor = .systemBackground
-        self.register(SettingsStaticTableViewCell.self, forCellReuseIdentifier: SettingsConstant.STATIC_TABLE_VIEW_CELL)
-        self.register(SettingsSwitchTableViewCell.self, forCellReuseIdentifier: SettingsConstant.SWITCH_TABLE_VIEW_CELL)
+        self.register(SettingsStaticTableViewCell.self, forCellReuseIdentifier: SettingsTableViewConstant.STATIC_TABLE_VIEW_CELL)
+        self.register(SettingsSwitchTableViewCell.self, forCellReuseIdentifier: SettingsTableViewConstant.SWITCH_TABLE_VIEW_CELL)
     }
     
     private func getShareActivityViewController() -> UIActivityViewController {
@@ -65,12 +65,12 @@ extension SettingsTableView: UITableViewDataSource, UITableViewDelegate {
         let settingsOptionType = settingsSections[indexPath.section].options[indexPath.row]
         switch settingsOptionType.self {
         case .staticCell(newSettingsStaticOption: let newSettingsStaticOption):
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsConstant.STATIC_TABLE_VIEW_CELL,
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewConstant.STATIC_TABLE_VIEW_CELL,
                                                            for: indexPath) as? SettingsStaticTableViewCell else { return UITableViewCell() }
             cell.setSettingsStaticTableViewCell(newSettingsStaticOption: newSettingsStaticOption)
             return cell
         case .switchCell(newSettingsSwitchOption: let newSettingsSwitchOption):
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsConstant.SWITCH_TABLE_VIEW_CELL,
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewConstant.SWITCH_TABLE_VIEW_CELL,
                                                            for: indexPath) as? SettingsSwitchTableViewCell else { return UITableViewCell() }
             cell.setSettingsSwitchTableViewCell(newSettingsSwitchOption: newSettingsSwitchOption)
             cell.selectionStyle = .none
@@ -126,7 +126,7 @@ extension SettingsTableView {
 
 extension SettingsTableView {
     private func selectPrivacyTermsNotification() {
-        let name = Notification.Name(SettingsConstant.SELECT_PRIVACY_TERMS)
+        let name = Notification.Name(SettingsNotificationConstant.SELECT_PRIVACY_TERMS)
         NotificationCenter.default.post(name: name, object: nil)
     }
     
