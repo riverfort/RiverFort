@@ -358,8 +358,8 @@
 		776F658326BC369300CAA5A6 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				773A86EF263C34A9008105A1 /* PrivacyPolicyViewController.swift */,
 				776F658426BC36C600CAA5A6 /* SettingsViewController.swift */,
+				773A86EF263C34A9008105A1 /* PrivacyPolicyViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
