@@ -31,18 +31,6 @@ extension SettingsTableView {
         self.register(SettingsStaticTableViewCell.self, forCellReuseIdentifier: SettingsTableViewConstant.STATIC_TABLE_VIEW_CELL)
         self.register(SettingsSwitchTableViewCell.self, forCellReuseIdentifier: SettingsTableViewConstant.SWITCH_TABLE_VIEW_CELL)
     }
-    
-    private func getShareActivityViewController() -> UIActivityViewController {
-        let appStoreURL = URL(string: "https://apps.apple.com/us/app/riverfort/id1561144335")
-        let activityViewController = UIActivityViewController(activityItems: ["Try RiverFort", appStoreURL!], applicationActivities: nil)
-        if let popoverController = activityViewController.popoverPresentationController {
-            popoverController.sourceRect = CGRect(x: (UIApplication.topViewController()?.view.bounds.minX)!,
-                                                  y: (UIApplication.topViewController()?.view.bounds.minY)!, width: 0, height: 0)
-            popoverController.sourceView = UIApplication.topViewController()?.view
-            popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
-        }
-        return activityViewController
-    }
 }
 
 extension SettingsTableView {
@@ -127,13 +115,25 @@ extension SettingsTableView {
 }
 
 extension SettingsTableView {
+    private func selectShare() {
+        UIApplication.topViewController()?.present(getShareActivityViewController(), animated: true)
+    }
+
     private func selectPrivacyTermsNotification() {
         let name = Notification.Name(SettingsNotificationConstant.SELECT_PRIVACY_TERMS)
         NotificationCenter.default.post(name: name, object: nil)
     }
     
-    private func selectShare() {
-        UIApplication.topViewController()?.present(getShareActivityViewController(), animated: true)
+    private func getShareActivityViewController() -> UIActivityViewController {
+        let appStoreURL = URL(string: "https://apps.apple.com/us/app/riverfort/id1561144335")
+        let activityViewController = UIActivityViewController(activityItems: ["Try RiverFort", appStoreURL!], applicationActivities: nil)
+        if let popoverController = activityViewController.popoverPresentationController {
+            popoverController.sourceRect = CGRect(x: (UIApplication.topViewController()?.view.bounds.minX)!,
+                                                  y: (UIApplication.topViewController()?.view.bounds.minY)!, width: 0, height: 0)
+            popoverController.sourceView = UIApplication.topViewController()?.view
+            popoverController.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+        }
+        return activityViewController
     }
 }
 
