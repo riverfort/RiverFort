@@ -23,6 +23,6 @@ struct SettingsSwitchOption {
 }
 
 enum SettingsOptionType {
-    case staticCell(newSettingsStaticOption: SettingsStaticOption)
-    case switchCell(newSettingsSwitchOption: SettingsSwitchOption)
+    case staticCell(settingsStaticOption: SettingsStaticOption)
+    case switchCell(settingsSwitchOption: SettingsSwitchOption)
 }

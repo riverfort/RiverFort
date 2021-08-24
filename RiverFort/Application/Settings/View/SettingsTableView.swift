@@ -64,13 +64,13 @@ extension SettingsTableView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let settingsOptionType = settingsSections[indexPath.section].options[indexPath.row]
         switch settingsOptionType.self {
-        case .staticCell(newSettingsStaticOption: let newSettingsStaticOption):
+        case .staticCell(settingsStaticOption: let newSettingsStaticOption):
             guard let cell = tableView.dequeueReusableCell(
                     withIdentifier: SettingsTableViewConstant.STATIC_TABLE_VIEW_CELL,
                     for: indexPath) as? SettingsStaticTableViewCell else { return UITableViewCell() }
             cell.setSettingsStaticTableViewCell(newSettingsStaticOption: newSettingsStaticOption)
             return cell
-        case .switchCell(newSettingsSwitchOption: let newSettingsSwitchOption):
+        case .switchCell(settingsSwitchOption: let newSettingsSwitchOption):
             guard let cell = tableView.dequeueReusableCell(
                     withIdentifier: SettingsTableViewConstant.SWITCH_TABLE_VIEW_CELL,
                     for: indexPath) as? SettingsSwitchTableViewCell else { return UITableViewCell() }
@@ -86,9 +86,9 @@ extension SettingsTableView {
         tableView.deselectRow(at: indexPath, animated: true)
         let settingsOptionType = settingsSections[indexPath.section].options[indexPath.row]
         switch settingsOptionType.self {
-        case .staticCell(newSettingsStaticOption: let newSettingsStaticOption):
+        case .staticCell(settingsStaticOption: let newSettingsStaticOption):
             newSettingsStaticOption.handler()
-        case .switchCell(newSettingsSwitchOption: let newSettingsSwitchOption):
+        case .switchCell(settingsSwitchOption: let newSettingsSwitchOption):
             newSettingsSwitchOption.handler()
         }
     }
@@ -98,28 +98,28 @@ extension SettingsTableView {
     private func setSettingsOptions() {
         if UserDefaults.standard.isDarkModeEnabled() {
             self.settingsSections.append(SettingsSection(title: "Appearance", options: [
-                .switchCell(newSettingsSwitchOption: SettingsSwitchOption(title: SettingsSectionTitleConstant.DARK_MODE, icon: UIImage(systemName: "sunset.fill"), iconBackgroundColour: .black, isOn: true, handler: {
+                .switchCell(settingsSwitchOption: SettingsSwitchOption(title: SettingsSectionTitleConstant.DARK_MODE, icon: UIImage(systemName: "sunset.fill"), iconBackgroundColour: .black, isOn: true, handler: {
                 }))
             ]))
         } else {
             self.settingsSections.append(SettingsSection(title: "Appearance", options: [
-                .switchCell(newSettingsSwitchOption: SettingsSwitchOption(title: SettingsSectionTitleConstant.DARK_MODE, icon: UIImage(systemName: "sunset.fill"), iconBackgroundColour: .black, isOn: false, handler: {
+                .switchCell(settingsSwitchOption: SettingsSwitchOption(title: SettingsSectionTitleConstant.DARK_MODE, icon: UIImage(systemName: "sunset.fill"), iconBackgroundColour: .black, isOn: false, handler: {
                 }))
             ]))
         }
         self.settingsSections.append(SettingsSection(title: "Other", options: [
-            .staticCell(newSettingsStaticOption: SettingsStaticOption(title: SettingsSectionTitleConstant.SHARE, icon: UIImage(systemName: "square.and.arrow.up"), iconBackgroundColour: .systemGreen, handler: { [self] in
+            .staticCell(settingsStaticOption: SettingsStaticOption(title: SettingsSectionTitleConstant.SHARE, icon: UIImage(systemName: "square.and.arrow.up"), iconBackgroundColour: .systemGreen, handler: { [self] in
                 selectShare()
             })),
-            .staticCell(newSettingsStaticOption: SettingsStaticOption(title: SettingsSectionTitleConstant.PRIVACY_AND_TERMS, icon: UIImage(systemName: "person.fill.viewfinder"), iconBackgroundColour: .systemBlue, handler: { [self] in
+            .staticCell(settingsStaticOption: SettingsStaticOption(title: SettingsSectionTitleConstant.PRIVACY_AND_TERMS, icon: UIImage(systemName: "person.fill.viewfinder"), iconBackgroundColour: .systemBlue, handler: { [self] in
                 selectPrivacyTermsNotification()
             })),
         ]))
         self.settingsSections.append(SettingsSection(title: "Support", options: [
-            .staticCell(newSettingsStaticOption: SettingsStaticOption(title: SettingsSectionTitleConstant.FEATURE_REQUEST, icon: UIImage(systemName: "sparkles"), iconBackgroundColour: .systemPurple, handler: { [self] in
+            .staticCell(settingsStaticOption: SettingsStaticOption(title: SettingsSectionTitleConstant.FEATURE_REQUEST, icon: UIImage(systemName: "sparkles"), iconBackgroundColour: .systemPurple, handler: { [self] in
                 selectSupport(selectedTitle: SettingsSectionTitleConstant.FEATURE_REQUEST)
             })),
-            .staticCell(newSettingsStaticOption: SettingsStaticOption(title: SettingsSectionTitleConstant.REPORT_AN_ISSUE, icon: UIImage(systemName: "exclamationmark.bubble"), iconBackgroundColour: .systemPink, handler: { [self] in
+            .staticCell(settingsStaticOption: SettingsStaticOption(title: SettingsSectionTitleConstant.REPORT_AN_ISSUE, icon: UIImage(systemName: "exclamationmark.bubble"), iconBackgroundColour: .systemPink, handler: { [self] in
                 selectSupport(selectedTitle: SettingsSectionTitleConstant.REPORT_AN_ISSUE)
             })),
         ]))
