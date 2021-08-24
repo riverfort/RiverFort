@@ -86,29 +86,29 @@ extension SettingsTableView {
     private func setSettingsOptions() {
         if UserDefaults.standard.isDarkModeEnabled() {
             self.settingsSections.append(SettingsSection(title: "Appearance", options: [
-                .switchCell(settingsSwitchOption: SettingsSwitchOption(title: SettingsSectionTitleConstant.DARK_MODE, icon: UIImage(systemName: "sunset.fill"), iconBackgroundColour: .black, isOn: true, handler: {
+                .switchCell(settingsSwitchOption: SettingsSwitchOption(title: SettingsOptionTitleConstant.DARK_MODE, icon: UIImage(systemName: "sunset.fill"), iconBackgroundColour: .black, isOn: true, handler: {
                 }))
             ]))
         } else {
             self.settingsSections.append(SettingsSection(title: "Appearance", options: [
-                .switchCell(settingsSwitchOption: SettingsSwitchOption(title: SettingsSectionTitleConstant.DARK_MODE, icon: UIImage(systemName: "sunset.fill"), iconBackgroundColour: .black, isOn: false, handler: {
+                .switchCell(settingsSwitchOption: SettingsSwitchOption(title: SettingsOptionTitleConstant.DARK_MODE, icon: UIImage(systemName: "sunset.fill"), iconBackgroundColour: .black, isOn: false, handler: {
                 }))
             ]))
         }
         self.settingsSections.append(SettingsSection(title: "Other", options: [
-            .staticCell(settingsStaticOption: SettingsStaticOption(title: SettingsSectionTitleConstant.SHARE, icon: UIImage(systemName: "square.and.arrow.up"), iconBackgroundColour: .systemGreen, handler: { [self] in
+            .staticCell(settingsStaticOption: SettingsStaticOption(title: SettingsOptionTitleConstant.SHARE, icon: UIImage(systemName: "square.and.arrow.up"), iconBackgroundColour: .systemGreen, handler: { [self] in
                 selectShare()
             })),
-            .staticCell(settingsStaticOption: SettingsStaticOption(title: SettingsSectionTitleConstant.PRIVACY_AND_TERMS, icon: UIImage(systemName: "person.fill.viewfinder"), iconBackgroundColour: .systemBlue, handler: { [self] in
+            .staticCell(settingsStaticOption: SettingsStaticOption(title: SettingsOptionTitleConstant.PRIVACY_AND_TERMS, icon: UIImage(systemName: "person.fill.viewfinder"), iconBackgroundColour: .systemBlue, handler: { [self] in
                 selectPrivacyTermsNotification()
             })),
         ]))
         self.settingsSections.append(SettingsSection(title: "Support", options: [
-            .staticCell(settingsStaticOption: SettingsStaticOption(title: SettingsSectionTitleConstant.FEATURE_REQUEST, icon: UIImage(systemName: "sparkles"), iconBackgroundColour: .systemPurple, handler: { [self] in
-                selectSupport(selectedTitle: SettingsSectionTitleConstant.FEATURE_REQUEST)
+            .staticCell(settingsStaticOption: SettingsStaticOption(title: SettingsOptionTitleConstant.FEATURE_REQUEST, icon: UIImage(systemName: "sparkles"), iconBackgroundColour: .systemPurple, handler: { [self] in
+                selectSupport(selectedTitle: SettingsOptionTitleConstant.FEATURE_REQUEST)
             })),
-            .staticCell(settingsStaticOption: SettingsStaticOption(title: SettingsSectionTitleConstant.REPORT_AN_ISSUE, icon: UIImage(systemName: "exclamationmark.bubble"), iconBackgroundColour: .systemPink, handler: { [self] in
-                selectSupport(selectedTitle: SettingsSectionTitleConstant.REPORT_AN_ISSUE)
+            .staticCell(settingsStaticOption: SettingsStaticOption(title: SettingsOptionTitleConstant.REPORT_AN_ISSUE, icon: UIImage(systemName: "exclamationmark.bubble"), iconBackgroundColour: .systemPink, handler: { [self] in
+                selectSupport(selectedTitle: SettingsOptionTitleConstant.REPORT_AN_ISSUE)
             })),
         ]))
     }
@@ -144,18 +144,18 @@ extension SettingsTableView: MFMailComposeViewControllerDelegate {
             message: LogGenerator.ALERT_MESSAGE,
             preferredStyle: .alert)
         logSubmissionAlert.addAction(UIAlertAction(title: LogGenerator.ACTION_NOT_INCLUDE_LOG, style: .default, handler: { [self] action in
-            if title == SettingsSectionTitleConstant.FEATURE_REQUEST {
+            if title == SettingsOptionTitleConstant.FEATURE_REQUEST {
                 selectFeatureRequest(log: "")
             }
-            if title == SettingsSectionTitleConstant.REPORT_AN_ISSUE {
+            if title == SettingsOptionTitleConstant.REPORT_AN_ISSUE {
                 selectReportAnIssue(log: "")
             }
         }))
         logSubmissionAlert.addAction(UIAlertAction(title: LogGenerator.ACTION_INCLUDE_LOG, style: .default, handler: { [self]action in
-            if title == SettingsSectionTitleConstant.FEATURE_REQUEST {
+            if title == SettingsOptionTitleConstant.FEATURE_REQUEST {
                 selectFeatureRequest(log: LogGenerator.LOG)
             }
-            if title == SettingsSectionTitleConstant.REPORT_AN_ISSUE {
+            if title == SettingsOptionTitleConstant.REPORT_AN_ISSUE {
                 selectReportAnIssue(log: LogGenerator.LOG)
             }
         }))

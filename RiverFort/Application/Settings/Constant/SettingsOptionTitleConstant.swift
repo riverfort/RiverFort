@@ -1,5 +1,5 @@
 //
-//  SettingsSectionTitleConstant.swift
+//  SettingsOptionTitleConstant.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 24/08/2021.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SettingsSectionTitleConstant {
+class SettingsOptionTitleConstant {
     static var DARK_MODE = "Dark Mode"
     static var SHARE     = "Share"
     static var PRIVACY_AND_TERMS = "Privacy & Terms"

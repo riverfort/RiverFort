@@ -60,7 +60,7 @@
 		779A46F426D4EE740072CE0B /* UIDevice+modelName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A46F326D4EE740072CE0B /* UIDevice+modelName.swift */; };
 		779A46F626D4EFE10072CE0B /* UIApplication+AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A46F526D4EFE10072CE0B /* UIApplication+AppVersion.swift */; };
 		779A46F826D4F6210072CE0B /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A46F726D4F6210072CE0B /* NotificationHelper.swift */; };
-		779A46FA26D5028D0072CE0B /* SettingsSectionTitleConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A46F926D5028D0072CE0B /* SettingsSectionTitleConstant.swift */; };
+		779A46FA26D5028D0072CE0B /* SettingsOptionTitleConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A46F926D5028D0072CE0B /* SettingsOptionTitleConstant.swift */; };
 		779A46FC26D508AA0072CE0B /* LogGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A46FB26D508AA0072CE0B /* LogGenerator.swift */; };
 		779A46FE26D50C780072CE0B /* SettingsNotificationConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A46FD26D50C780072CE0B /* SettingsNotificationConstant.swift */; };
 		779AFC282657B216008373C0 /* CardPartPriceChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779AFC272657B216008373C0 /* CardPartPriceChartView.swift */; };
@@ -150,7 +150,7 @@
 		779A46F326D4EE740072CE0B /* UIDevice+modelName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+modelName.swift"; sourceTree = "<group>"; };
 		779A46F526D4EFE10072CE0B /* UIApplication+AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+AppVersion.swift"; sourceTree = "<group>"; };
 		779A46F726D4F6210072CE0B /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
-		779A46F926D5028D0072CE0B /* SettingsSectionTitleConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSectionTitleConstant.swift; sourceTree = "<group>"; };
+		779A46F926D5028D0072CE0B /* SettingsOptionTitleConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOptionTitleConstant.swift; sourceTree = "<group>"; };
 		779A46FB26D508AA0072CE0B /* LogGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogGenerator.swift; sourceTree = "<group>"; };
 		779A46FD26D50C780072CE0B /* SettingsNotificationConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNotificationConstant.swift; sourceTree = "<group>"; };
 		779AFC272657B216008373C0 /* CardPartPriceChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPartPriceChartView.swift; sourceTree = "<group>"; };
@@ -509,7 +509,7 @@
 			isa = PBXGroup;
 			children = (
 				779B885A26BD1B0100FB06A1 /* SettingsTableViewConstant.swift */,
-				779A46F926D5028D0072CE0B /* SettingsSectionTitleConstant.swift */,
+				779A46F926D5028D0072CE0B /* SettingsOptionTitleConstant.swift */,
 				779A46FD26D50C780072CE0B /* SettingsNotificationConstant.swift */,
 			);
 			path = Constant;
@@ -739,7 +739,7 @@
 				77E7E6AA26206667003323DA /* ChartColours.swift in Sources */,
 				7793E87E261F53DE00D8D3FA /* CompanyAdtv60.swift in Sources */,
 				77876E98264D69B300798106 /* FeedParser.swift in Sources */,
-				779A46FA26D5028D0072CE0B /* SettingsSectionTitleConstant.swift in Sources */,
+				779A46FA26D5028D0072CE0B /* SettingsOptionTitleConstant.swift in Sources */,
 				7785EF2B26AAA22300AEB5FE /* FMPStockTickerSearch.swift in Sources */,
 				776F658526BC36C600CAA5A6 /* SettingsViewController.swift in Sources */,
 				771D16AE263989C10034193A /* AppVersion.swift in Sources */,
