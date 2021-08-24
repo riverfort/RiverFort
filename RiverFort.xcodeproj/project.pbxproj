@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7702DFBA261B5E8400EE6191 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 7702DFB9261B5E8400EE6191 /* Charts */; };
 		7707F04F262B219300C4E8D4 /* WatchedCompanyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7707F04E262B219300C4E8D4 /* WatchedCompanyDetail.swift */; };
 		770EB64E26BD853F00B4FB01 /* DarkModeSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770EB64D26BD853F00B4FB01 /* DarkModeSwitch.swift */; };
 		771263C626A95CAC00B57C04 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771263C526A95CAC00B57C04 /* SearchViewController.swift */; };
@@ -17,7 +16,6 @@
 		772C3F6A2627457C0044001B /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772C3F692627457C0044001B /* UITableViewExtension.swift */; };
 		773A0B6326171238002B9875 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0B6226171238002B9875 /* AppDelegate.swift */; };
 		773A0B6526171238002B9875 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0B6426171238002B9875 /* SceneDelegate.swift */; };
-		773A0B6726171238002B9875 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0B6626171238002B9875 /* ViewController.swift */; };
 		773A0B6C2617123B002B9875 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 773A0B6B2617123B002B9875 /* Assets.xcassets */; };
 		773A0B6F2617123B002B9875 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 773A0B6D2617123B002B9875 /* LaunchScreen.storyboard */; };
 		773A0BA726172670002B9875 /* APIFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0BA626172670002B9875 /* APIFunctions.swift */; };
@@ -25,9 +23,7 @@
 		773A0BAD261726B2002B9875 /* CompanyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0BAC261726B2002B9875 /* CompanyDetail.swift */; };
 		773A0BB0261726C7002B9875 /* CompanyTrading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0BAF261726C7002B9875 /* CompanyTrading.swift */; };
 		773A0BB3261726E6002B9875 /* CompanyAdtv20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0BB2261726E6002B9875 /* CompanyAdtv20.swift */; };
-		773A0BB726172750002B9875 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 773A0BB626172750002B9875 /* Alamofire */; };
 		773A0BBA26172872002B9875 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0BB926172872002B9875 /* Constants.swift */; };
-		773A0BC126172D1B002B9875 /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = 773A0BC026172D1B002B9875 /* TinyConstraints */; };
 		773A0BCB26176C8F002B9875 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0BCA26176C8F002B9875 /* Currency.swift */; };
 		773A86F0263C34A9008105A1 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A86EF263C34A9008105A1 /* PrivacyPolicyViewController.swift */; };
 		77420217264AA033002F6104 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 77420216264AA033002F6104 /* UIScrollView+EmptyDataSet.m */; };
@@ -37,7 +33,6 @@
 		7760164926B984C100BA7C41 /* WatchedCompanyDetailNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760164826B984C100BA7C41 /* WatchedCompanyDetailNew.swift */; };
 		7760164C26B98E9700BA7C41 /* WatchlistConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760164B26B98E9700BA7C41 /* WatchlistConstant.swift */; };
 		7762C77226BAE258008DE1BA /* NumberShortScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7762C77126BAE258008DE1BA /* NumberShortScale.swift */; };
-		7768AF8C262436D000949A6A /* SPAlert in Frameworks */ = {isa = PBXBuildFile; productRef = 7768AF8B262436D000949A6A /* SPAlert */; };
 		776D13C3261E087500B9CF97 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D13C2261E087500B9CF97 /* HomeViewController.swift */; };
 		776F657A26BBDB6400CAA5A6 /* WindowInterfaceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776F657926BBDB6400CAA5A6 /* WindowInterfaceOrientation.swift */; };
 		776F657C26BBEF2D00CAA5A6 /* EditWatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776F657B26BBEF2D00CAA5A6 /* EditWatchlistViewController.swift */; };
@@ -82,14 +77,12 @@
 		77CBB6BE26B9355A00CCD0A6 /* WatchlistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBB6BD26B9355A00CCD0A6 /* WatchlistTableViewCell.swift */; };
 		77CF843226316DB2009A5E21 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CF843126316DB2009A5E21 /* UIAlertControllerExtension.swift */; };
 		77DAF9CD26B05853008662E0 /* RecentSearchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DAF9CC26B05853008662E0 /* RecentSearchTableView.swift */; };
-		77E239AE2678D1EF004E562C /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E239AD2678D1EF004E562C /* Reachability.swift */; };
 		77E7E6AA26206667003323DA /* ChartColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7E6A926206667003323DA /* ChartColours.swift */; };
 		77F93361261A321F007662D5 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F93360261A321F007662D5 /* DateExtension.swift */; };
 		77F93365261A3251007662D5 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F93364261A3251007662D5 /* DoubleExtension.swift */; };
 		77F93368261A3271007662D5 /* UINavigationItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F93367261A3271007662D5 /* UINavigationItemExtension.swift */; };
 		77F93372261A3675007662D5 /* DateFormatterUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F93371261A3675007662D5 /* DateFormatterUtils.swift */; };
 		77FBC8C226C557E500C35E9C /* WatchlistSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FBC8C126C557E500C35E9C /* WatchlistSync.swift */; };
-		77FBC8C526C55DD700C35E9C /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FBC8C426C55DD700C35E9C /* UIApplication+.swift */; };
 		FB8907E2A79EF7F14ACDADD8 /* Pods_RiverFort.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4FDABEC850381C29B4A9FCA /* Pods_RiverFort.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,7 +98,6 @@
 		773A0B5F26171238002B9875 /* RiverFort.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RiverFort.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		773A0B6226171238002B9875 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		773A0B6426171238002B9875 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		773A0B6626171238002B9875 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		773A0B6B2617123B002B9875 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		773A0B6E2617123B002B9875 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		773A0B702617123B002B9875 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -170,7 +162,6 @@
 		77CBB6BD26B9355A00CCD0A6 /* WatchlistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistTableViewCell.swift; sourceTree = "<group>"; };
 		77CF843126316DB2009A5E21 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		77DAF9CC26B05853008662E0 /* RecentSearchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchTableView.swift; sourceTree = "<group>"; };
-		77E239AD2678D1EF004E562C /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		77E7E6A926206667003323DA /* ChartColours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartColours.swift; sourceTree = "<group>"; };
 		77F85A0226C92B6D00EAE363 /* RiverFort.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RiverFort.entitlements; sourceTree = "<group>"; };
 		77F93360261A321F007662D5 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
@@ -178,7 +169,6 @@
 		77F93367261A3271007662D5 /* UINavigationItemExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationItemExtension.swift; sourceTree = "<group>"; };
 		77F93371261A3675007662D5 /* DateFormatterUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterUtils.swift; sourceTree = "<group>"; };
 		77FBC8C126C557E500C35E9C /* WatchlistSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistSync.swift; sourceTree = "<group>"; };
-		77FBC8C426C55DD700C35E9C /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
 		BA0BAB84004CD658A66B157B /* Pods-RiverFort.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RiverFort.debug.xcconfig"; path = "Target Support Files/Pods-RiverFort/Pods-RiverFort.debug.xcconfig"; sourceTree = "<group>"; };
 		D4FDABEC850381C29B4A9FCA /* Pods_RiverFort.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RiverFort.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -188,10 +178,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				773A0BB726172750002B9875 /* Alamofire in Frameworks */,
-				7702DFBA261B5E8400EE6191 /* Charts in Frameworks */,
-				7768AF8C262436D000949A6A /* SPAlert in Frameworks */,
-				773A0BC126172D1B002B9875 /* TinyConstraints in Frameworks */,
 				FB8907E2A79EF7F14ACDADD8 /* Pods_RiverFort.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,7 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				77FBC8C326C55DC000C35E9C /* Extension */,
-				776F657F26BBFF5200CAA5A6 /* PersistentContainer */,
+				776F657F26BBFF5200CAA5A6 /* PersistentStore */,
 				776F657826BBDB4C00CAA5A6 /* Orientation */,
 				7762C77026BAE1DF008DE1BA /* Utility */,
 				77104EEF26B4499D0058E2C2 /* Haptics */,
@@ -241,42 +227,22 @@
 		773A0B6126171238002B9875 /* RiverFort */ = {
 			isa = PBXGroup;
 			children = (
-				77F85A0226C92B6D00EAE363 /* RiverFort.entitlements */,
 				77104EEE26B4497B0058E2C2 /* Common */,
-				7785EF2926AAA1C200AEB5FE /* Search */,
-				77CBB6B626B9271300CCD0A6 /* Watchlist */,
-				776F658226BC366100CAA5A6 /* Settings */,
-				773A0B6226171238002B9875 /* AppDelegate.swift */,
-				773A0B6426171238002B9875 /* SceneDelegate.swift */,
-				773A0B9D2617237C002B9875 /* Models */,
 				773A0B9C26172370002B9875 /* Storyboards */,
+				7780B8B826CFB14500561789 /* Application */,
+				773A0B9D2617237C002B9875 /* Models */,
 				77F9335F261A2BA1007662D5 /* Extensions */,
 				773A0B9B26172364002B9875 /* Helpers */,
-				773A0B9A26172352002B9875 /* View Controllers */,
-				77A147B22642BDD800EE8535 /* Type of CardParts */,
-				77A147B52642D5A100EE8535 /* CardPart Views */,
-				773A0B6B2617123B002B9875 /* Assets.xcassets */,
+				7780B8B726CFB03F00561789 /* Assets */,
+				77F85A0226C92B6D00EAE363 /* RiverFort.entitlements */,
 				773A0B702617123B002B9875 /* Info.plist */,
-				774DB74A2623144900A92D13 /* RiverFort.xcdatamodeld */,
 			);
 			path = RiverFort;
-			sourceTree = "<group>";
-		};
-		773A0B9A26172352002B9875 /* View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				773A0B6626171238002B9875 /* ViewController.swift */,
-				776D13C2261E087500B9CF97 /* HomeViewController.swift */,
-				773A86EF263C34A9008105A1 /* PrivacyPolicyViewController.swift */,
-				77A147AF2642BD1600EE8535 /* CompanyDetailViewController.swift */,
-			);
-			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 		773A0B9B26172364002B9875 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				77E239AD2678D1EF004E562C /* Reachability.swift */,
 				773A0BB926172872002B9875 /* Constants.swift */,
 				773A0BCA26176C8F002B9875 /* Currency.swift */,
 				77F93371261A3675007662D5 /* DateFormatterUtils.swift */,
@@ -358,12 +324,13 @@
 			path = Orientation;
 			sourceTree = "<group>";
 		};
-		776F657F26BBFF5200CAA5A6 /* PersistentContainer */ = {
+		776F657F26BBFF5200CAA5A6 /* PersistentStore */ = {
 			isa = PBXGroup;
 			children = (
+				774DB74A2623144900A92D13 /* RiverFort.xcdatamodeld */,
 				776F658026BBFF7900CAA5A6 /* PersistentContainer.swift */,
 			);
-			path = PersistentContainer;
+			path = PersistentStore;
 			sourceTree = "<group>";
 		};
 		776F658226BC366100CAA5A6 /* Settings */ = {
@@ -380,6 +347,7 @@
 		776F658326BC369300CAA5A6 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				773A86EF263C34A9008105A1 /* PrivacyPolicyViewController.swift */,
 				776F658426BC36C600CAA5A6 /* SettingsViewController.swift */,
 			);
 			path = ViewController;
@@ -411,6 +379,68 @@
 				7785EF2A26AAA22300AEB5FE /* FMPStockTickerSearch.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		7780B8B526CFAFE500561789 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				773A0B6226171238002B9875 /* AppDelegate.swift */,
+				773A0B6426171238002B9875 /* SceneDelegate.swift */,
+				776D13C2261E087500B9CF97 /* HomeViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		7780B8B726CFB03F00561789 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				773A0B6B2617123B002B9875 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		7780B8B826CFB14500561789 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				7780B8B526CFAFE500561789 /* Main */,
+				7785EF2926AAA1C200AEB5FE /* Search */,
+				77CBB6B626B9271300CCD0A6 /* Watchlist */,
+				7780B8B926CFBB7000561789 /* DetailView */,
+				776F658226BC366100CAA5A6 /* Settings */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		7780B8B926CFBB7000561789 /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				7780B8BA26CFBB9A00561789 /* ViewController */,
+				7780B8BB26CFBBB900561789 /* View */,
+			);
+			path = DetailView;
+			sourceTree = "<group>";
+		};
+		7780B8BA26CFBB9A00561789 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				77A147AF2642BD1600EE8535 /* CompanyDetailViewController.swift */,
+				77950FCD2643EA4B002AC408 /* ThemedCardController.swift */,
+				77950FD526443A79002AC408 /* ProfileCardController.swift */,
+				775DFDA62645440E00D9A4AF /* QuotesCardController.swift */,
+				77814CD326469CE3008C832C /* ADTVCardController.swift */,
+				77876E8F264D484700798106 /* FeedsCardController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7780B8BB26CFBBB900561789 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				779AFC272657B216008373C0 /* CardPartPriceChartView.swift */,
+				7789A82A266A30B300B71294 /* ADTVChartView.swift */,
+				77950FC72643DBEB002AC408 /* CardPartQuotesView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		7785D7872630144200988C28 /* WatchedCompany */ = {
@@ -469,28 +499,6 @@
 				779B886126BD2B4900FB06A1 /* SettingsSection.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		77A147B22642BDD800EE8535 /* Type of CardParts */ = {
-			isa = PBXGroup;
-			children = (
-				77950FCD2643EA4B002AC408 /* ThemedCardController.swift */,
-				77950FD526443A79002AC408 /* ProfileCardController.swift */,
-				775DFDA62645440E00D9A4AF /* QuotesCardController.swift */,
-				77814CD326469CE3008C832C /* ADTVCardController.swift */,
-				77876E8F264D484700798106 /* FeedsCardController.swift */,
-			);
-			path = "Type of CardParts";
-			sourceTree = "<group>";
-		};
-		77A147B52642D5A100EE8535 /* CardPart Views */ = {
-			isa = PBXGroup;
-			children = (
-				779AFC272657B216008373C0 /* CardPartPriceChartView.swift */,
-				7789A82A266A30B300B71294 /* ADTVChartView.swift */,
-				77950FC72643DBEB002AC408 /* CardPartQuotesView.swift */,
-			);
-			path = "CardPart Views";
 			sourceTree = "<group>";
 		};
 		77A9758626B3EE7400E150CA /* Constants */ = {
@@ -575,7 +583,6 @@
 		77FBC8C326C55DC000C35E9C /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				77FBC8C426C55DD700C35E9C /* UIApplication+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -607,10 +614,6 @@
 			);
 			name = RiverFort;
 			packageProductDependencies = (
-				773A0BB626172750002B9875 /* Alamofire */,
-				773A0BC026172D1B002B9875 /* TinyConstraints */,
-				7702DFB9261B5E8400EE6191 /* Charts */,
-				7768AF8B262436D000949A6A /* SPAlert */,
 			);
 			productName = RiverFort;
 			productReference = 773A0B5F26171238002B9875 /* RiverFort.app */;
@@ -641,10 +644,6 @@
 			);
 			mainGroup = 773A0B5626171238002B9875;
 			packageReferences = (
-				773A0BB526172750002B9875 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				773A0BBF26172D1B002B9875 /* XCRemoteSwiftPackageReference "TinyConstraints" */,
-				7702DFB8261B5E8400EE6191 /* XCRemoteSwiftPackageReference "Charts" */,
-				7768AF8A262436D000949A6A /* XCRemoteSwiftPackageReference "SPAlert" */,
 			);
 			productRefGroup = 773A0B6026171238002B9875 /* Products */;
 			projectDirPath = "";
@@ -724,7 +723,6 @@
 				7774DBED264BF451002752B4 /* NewSymbolRequest.swift in Sources */,
 				7785EF2D26AAA24500AEB5FE /* SearchResultCell.swift in Sources */,
 				779B886226BD2B4900FB06A1 /* SettingsSection.swift in Sources */,
-				77FBC8C526C55DD700C35E9C /* UIApplication+.swift in Sources */,
 				775DFDA92645849400D9A4AF /* Quote.swift in Sources */,
 				779B886426BD3DE200FB06A1 /* SettingsSwitchTableViewCell.swift in Sources */,
 				773A0BAD261726B2002B9875 /* CompanyDetail.swift in Sources */,
@@ -734,7 +732,6 @@
 				77950FD42644270C002AC408 /* SymbolProfile.swift in Sources */,
 				77CF843226316DB2009A5E21 /* UIAlertControllerExtension.swift in Sources */,
 				775DFDA72645440E00D9A4AF /* QuotesCardController.swift in Sources */,
-				773A0B6726171238002B9875 /* ViewController.swift in Sources */,
 				77876E92264D5CA400798106 /* NSRegularExpressionExtension.swift in Sources */,
 				77CB234626B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift in Sources */,
 				771263C626A95CAC00B57C04 /* SearchViewController.swift in Sources */,
@@ -763,7 +760,6 @@
 				77DAF9CD26B05853008662E0 /* RecentSearchTableView.swift in Sources */,
 				77CBB6BC26B92BA500CCD0A6 /* WatchlistTableView.swift in Sources */,
 				7728847B265B962F001C0D4F /* FeedsViewModel.swift in Sources */,
-				77E239AE2678D1EF004E562C /* Reachability.swift in Sources */,
 				776F657E26BBF15900CAA5A6 /* EditWatchlistTableView.swift in Sources */,
 				77F93372261A3675007662D5 /* DateFormatterUtils.swift in Sources */,
 				7760164C26B98E9700BA7C41 /* WatchlistConstant.swift in Sources */,
@@ -939,14 +935,14 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = A8X2W38P62;
 				INFOPLIST_FILE = RiverFort/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.RiverFort;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -968,14 +964,14 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = A8X2W38P62;
 				INFOPLIST_FILE = RiverFort/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.RiverFort;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1007,64 +1003,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		7702DFB8261B5E8400EE6191 /* XCRemoteSwiftPackageReference "Charts" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/danielgindi/Charts";
-			requirement = {
-				kind = exactVersion;
-				version = 3.6.0;
-			};
-		};
-		773A0BB526172750002B9875 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.4.1;
-			};
-		};
-		773A0BBF26172D1B002B9875 /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/roberthein/TinyConstraints";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.1;
-			};
-		};
-		7768AF8A262436D000949A6A /* XCRemoteSwiftPackageReference "SPAlert" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ivanvorobei/SPAlert";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.6;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		7702DFB9261B5E8400EE6191 /* Charts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7702DFB8261B5E8400EE6191 /* XCRemoteSwiftPackageReference "Charts" */;
-			productName = Charts;
-		};
-		773A0BB626172750002B9875 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 773A0BB526172750002B9875 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-		773A0BC026172D1B002B9875 /* TinyConstraints */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 773A0BBF26172D1B002B9875 /* XCRemoteSwiftPackageReference "TinyConstraints" */;
-			productName = TinyConstraints;
-		};
-		7768AF8B262436D000949A6A /* SPAlert */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7768AF8A262436D000949A6A /* XCRemoteSwiftPackageReference "SPAlert" */;
-			productName = SPAlert;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		774DB74A2623144900A92D13 /* RiverFort.xcdatamodeld */ = {
