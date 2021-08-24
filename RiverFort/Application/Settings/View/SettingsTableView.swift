@@ -161,13 +161,17 @@ extension SettingsTableView: MFMailComposeViewControllerDelegate {
         UIApplication.topViewController()?.present(logSubmissionAlert, animated: true, completion: nil)
     }
 
-    private func presentSupportRequest(log emailBody: String, title: String) {
+    private func presentSupportRequest(log: String, title: String) {
         if MFMailComposeViewController.canSendMail() {
             let mailComposeViewController = MFMailComposeViewController()
             mailComposeViewController.mailComposeDelegate = self
             mailComposeViewController.setSubject(title)
             mailComposeViewController.setToRecipients(["tech@riverfortcapital.com"])
-            mailComposeViewController.setMessageBody(emailBody, isHTML: false)
+            if title == SettingsOptionTitleConstant.FEATURE_REQUEST {
+                mailComposeViewController.setMessageBody(LogGenerator.FEATURE_REQUEST_EMAIL + log, isHTML: false)
+            } else if title == SettingsOptionTitleConstant.REPORT_AN_ISSUE {
+                mailComposeViewController.setMessageBody(LogGenerator.REPORT_AN_ISSUE_EMAIL + log, isHTML: false)
+            }
             UIApplication.topViewController()?.present(mailComposeViewController, animated: true, completion: nil)
         } else {
             guard let url = URL(string: "https://qiuyangnie.github.io/privacy-policy.html") else {

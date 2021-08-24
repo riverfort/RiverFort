@@ -28,4 +28,6 @@ class LogGenerator {
         Device Token: \(UserDefaults.standard.string(forKey: "deviceToken") ?? "-")
         ---
         """
+    static var FEATURE_REQUEST_EMAIL = "Priority: "
+    static var REPORT_AN_ISSUE_EMAIL = "[Include summary of issue here.]"
 }
