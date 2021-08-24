@@ -147,13 +147,13 @@ extension SettingsTableView: MFMailComposeViewControllerDelegate {
             title: LogGenerator.ACTION_NOT_INCLUDE_LOG,
             style: .default,
             handler: { [self] action in
-                presentRequest(log: "", title: title)
+                presentSupportRequest(log: "", title: title)
         })
         let doIncludeLog = UIAlertAction(
             title: LogGenerator.ACTION_INCLUDE_LOG,
             style: .default,
             handler: { [self]action in
-                presentRequest(log: LogGenerator.LOG, title: title)
+                presentSupportRequest(log: LogGenerator.LOG, title: title)
         })
         logSubmissionAlert.addAction(doNotIncludeLog)
         logSubmissionAlert.addAction(doIncludeLog)
@@ -161,13 +161,12 @@ extension SettingsTableView: MFMailComposeViewControllerDelegate {
         UIApplication.topViewController()?.present(logSubmissionAlert, animated: true, completion: nil)
     }
 
-    private func presentRequest(log: String, title: String) {
+    private func presentSupportRequest(log emailBody: String, title: String) {
         if MFMailComposeViewController.canSendMail() {
             let mailComposeViewController = MFMailComposeViewController()
             mailComposeViewController.mailComposeDelegate = self
             mailComposeViewController.setSubject(title)
             mailComposeViewController.setToRecipients(["tech@riverfortcapital.com"])
-            let emailBody = log
             mailComposeViewController.setMessageBody(emailBody, isHTML: false)
             UIApplication.topViewController()?.present(mailComposeViewController, animated: true, completion: nil)
         } else {
