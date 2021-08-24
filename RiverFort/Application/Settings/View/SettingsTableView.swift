@@ -140,10 +140,10 @@ extension SettingsTableView {
 extension SettingsTableView: MFMailComposeViewControllerDelegate {
     private func selectSupport(selectedTitle title: String) {
         let logSubmissionAlert = UIAlertController(
-            title: LogGenerator.LOG_SUBMISSION_ALERT_TITLE,
-            message: LogGenerator.LOG_SUBMISSION_ALERT_MESSAGE,
+            title: LogGenerator.ALERT_TITLE,
+            message: LogGenerator.ALERT_MESSAGE,
             preferredStyle: .alert)
-        logSubmissionAlert.addAction(UIAlertAction(title: LogGenerator.LOG_SUBMISSION_ALERT_ACTION_NOT_INCLUDE_LOG, style: .default, handler: { [self] action in
+        logSubmissionAlert.addAction(UIAlertAction(title: LogGenerator.ACTION_NOT_INCLUDE_LOG, style: .default, handler: { [self] action in
             if title == SettingsSectionTitleConstant.FEATURE_REQUEST {
                 selectFeatureRequest(log: "")
             }
@@ -151,7 +151,7 @@ extension SettingsTableView: MFMailComposeViewControllerDelegate {
                 selectReportAnIssue(log: "")
             }
         }))
-        logSubmissionAlert.addAction(UIAlertAction(title: LogGenerator.LOG_SUBMISSION_ALERT_ACTION_INCLUDE_LOG, style: .default, handler: { [self]action in
+        logSubmissionAlert.addAction(UIAlertAction(title: LogGenerator.ACTION_INCLUDE_LOG, style: .default, handler: { [self]action in
             if title == SettingsSectionTitleConstant.FEATURE_REQUEST {
                 selectFeatureRequest(log: LogGenerator.LOG)
             }

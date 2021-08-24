@@ -8,15 +8,15 @@
 import Foundation
 
 class LogGenerator {
-    static var LOG_SUBMISSION_ALERT_TITLE   = "Log Submission"
-    static var LOG_SUBMISSION_ALERT_MESSAGE =
+    static var ALERT_TITLE   = "Log Submission"
+    static var ALERT_MESSAGE =
         """
         Would you like to include debugging logs with yout support ticket?
         
         Note that logs do not include personally identifiable information (PII).
         """
-    static var LOG_SUBMISSION_ALERT_ACTION_INCLUDE_LOG     = "Include Logs"
-    static var LOG_SUBMISSION_ALERT_ACTION_NOT_INCLUDE_LOG = "Don't Include"
+    static var ACTION_INCLUDE_LOG     = "Include Logs"
+    static var ACTION_NOT_INCLUDE_LOG = "Don't Include"
     static var LOG =
         """
         \n\n\n
