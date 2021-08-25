@@ -11,5 +11,6 @@ class SettingsSectionTitleConstant {
     static var APPEARANCE = "Appearance"
     static var OTHER      = "Other"
     static var SUPPRT     = "Support"
-    static var ABOUT      = "About"
+    static var ABOUT = "About"
+    static var ACKOWLEDGEMENTS = "Acknowledgements"
 }

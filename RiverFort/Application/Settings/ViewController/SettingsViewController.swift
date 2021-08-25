@@ -58,10 +58,18 @@ extension SettingsViewController {
     private func createObservers() {
         let selectPrivacyTermsName = Notification.Name(SettingsNotificationConstant.SELECT_PRIVACY_TERMS)
         NotificationCenter.default.addObserver(self, selector: #selector(selectPrivacyTerms), name: selectPrivacyTermsName, object: nil)
+        
+        let selectAcknowledgementsName = Notification.Name(SettingsNotificationConstant.SELECT_ACKNOWLEDGEMENTS)
+        NotificationCenter.default.addObserver(self, selector: #selector(selectAcknowledgements), name: selectAcknowledgementsName, object: nil)
     }
     
     @objc private func selectPrivacyTerms() {
         let privacyPolicyViewController = PrivacyPolicyViewController()
         self.navigationController?.pushViewController(privacyPolicyViewController, animated: true)
+    }
+    
+    @objc private func selectAcknowledgements() {
+        let acknowledgementsViewController = AcknowledgementsViewController()
+        self.navigationController?.pushViewController(acknowledgementsViewController, animated: true)
     }
 }

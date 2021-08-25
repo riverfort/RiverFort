@@ -8,5 +8,6 @@
 import Foundation
 
 class SettingsNotificationConstant {
-    static var SELECT_PRIVACY_TERMS = "com.riverfort.selectPrivacyTerms"
+    static var SELECT_PRIVACY_TERMS    = "com.riverfort.selectPrivacyTerms"
+    static var SELECT_ACKNOWLEDGEMENTS = "com.riverfort.selectAcknowledgements"
 }

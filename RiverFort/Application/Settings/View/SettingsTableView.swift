@@ -112,8 +112,8 @@ extension SettingsTableView {
             })),
         ]))
         self.settingsSections.append(SettingsSection(title: SettingsSectionTitleConstant.ABOUT, options: [
-            .staticCell(settingsStaticOption: SettingsStaticOption(title: SettingsOptionTitleConstant.ABOUT, icon: UIImage(systemName: "info.circle.fill"), iconBackgroundColour: .systemIndigo, handler: { [self] in
-                
+            .staticCell(settingsStaticOption: SettingsStaticOption(title: SettingsOptionTitleConstant.ACKOWLEDGEMENTS, icon: UIImage(systemName: "info.circle.fill"), iconBackgroundColour: .systemIndigo, handler: { [self] in
+                selectAcknowledgement()
             })),
         ]))
     }
@@ -126,6 +126,11 @@ extension SettingsTableView {
 
     private func selectPrivacyTermsNotification() {
         let name = Notification.Name(SettingsNotificationConstant.SELECT_PRIVACY_TERMS)
+        NotificationCenter.default.post(name: name, object: nil)
+    }
+    
+    private func selectAcknowledgement() {
+        let name = Notification.Name(SettingsNotificationConstant.SELECT_ACKNOWLEDGEMENTS)
         NotificationCenter.default.post(name: name, object: nil)
     }
     
