@@ -111,6 +111,11 @@ extension SettingsTableView {
                 selectSupport(selectedTitle: SettingsOptionTitleConstant.REPORT_AN_ISSUE)
             })),
         ]))
+        self.settingsSections.append(SettingsSection(title: SettingsSectionTitleConstant.ABOUT, options: [
+            .staticCell(settingsStaticOption: SettingsStaticOption(title: SettingsOptionTitleConstant.ABOUT, icon: UIImage(systemName: "info.circle.fill"), iconBackgroundColour: .systemIndigo, handler: { [self] in
+                
+            })),
+        ]))
     }
 }
 

@@ -13,4 +13,5 @@ class SettingsOptionTitleConstant {
     static var PRIVACY_AND_TERMS = "Privacy & Terms"
     static var FEATURE_REQUEST   = "Feature Request"
     static var REPORT_AN_ISSUE   = "Report an Issue"
+    static var ABOUT = "About"
 }
