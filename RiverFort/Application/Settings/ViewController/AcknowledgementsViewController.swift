@@ -31,7 +31,6 @@ extension AcknowledgementsViewController {
     
     private func configTextView() {
         view.addSubview(textView)
-        textView.textAlignment = .justified
         textView.isEditable = false
         textView.font = .preferredFont(forTextStyle: .callout)
         textView.adjustsFontForContentSizeCategory = true
