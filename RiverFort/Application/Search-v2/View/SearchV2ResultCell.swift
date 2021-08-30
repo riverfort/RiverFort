@@ -31,13 +31,6 @@ class SearchV2ResultCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    public func setCell(for yahooFinanceSearchedCompany: YahooFinanceSearchedCompany) {
-        symbol.text = yahooFinanceSearchedCompany.symbol
-        name.text = yahooFinanceSearchedCompany.name
-        exch.text = yahooFinanceSearchedCompany.exch
-        type.text = yahooFinanceSearchedCompany.typeDisp
-    }
 }
 
 extension SearchV2ResultCell {
@@ -103,5 +96,18 @@ extension SearchV2ResultCell {
         rightStack.topAnchor.constraint(equalTo: topAnchor, constant: 12).isActive = true
         rightStack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         rightStack.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3).isActive = true
+    }
+}
+
+extension SearchV2ResultCell {
+    public func setCell(for yahooFinanceSearchedCompany: YahooFinanceSearchedCompany) {
+        symbol.text = yahooFinanceSearchedCompany.symbol
+        name.text = yahooFinanceSearchedCompany.name
+        exch.text = yahooFinanceSearchedCompany.exch
+        type.text = yahooFinanceSearchedCompany.typeDisp
+    }
+    
+    public func setHighlight(for searchTerm: String) {
+       
     }
 }
