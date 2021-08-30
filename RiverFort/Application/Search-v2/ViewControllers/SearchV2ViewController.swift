@@ -53,6 +53,7 @@ extension SearchV2ViewController: UISearchResultsUpdating {
             return
         }
         yahooFinanceSearch(for: searchText)
+        searchResultV2TableViewController.setSearchTerm(searchText)
     }
 }
 
@@ -64,9 +65,8 @@ extension SearchV2ViewController {
         AF.request("https://finance.yahoo.com/_finance_doubledown/api/resource/searchassist;searchTerm=\(searchTerm)")
             .validate()
             .responseDecodable(of: YahooFinanceSearchedResult.self) { [self] response in
-                guard let yahooFinanceSearch = response.value else { return }
-                searchResultV2TableViewController.setCompanies(companies: yahooFinanceSearch.items)
-                searchResultV2TableViewController.setSearchTerm(searchTerm)
+                guard let yahooFinanceSearchedResult = response.value else { return }
+                searchResultV2TableViewController.setCompanies(companies: yahooFinanceSearchedResult.items)
                 searchResultV2TableViewController.tableView.reloadData()
             }
     }

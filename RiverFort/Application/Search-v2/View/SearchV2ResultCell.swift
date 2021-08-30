@@ -109,5 +109,19 @@ extension SearchV2ResultCell {
     
     public func setHighlight(for searchTerm: String) {
         print(searchTerm)
+        guard let nameText = name.text else {
+            return
+        }
+        let searchTermStringAttrs = [NSAttributedString.Key.foregroundColor : UIColor.label]
+        let attributedSearchTermString = NSMutableAttributedString(string: searchTerm, attributes: searchTermStringAttrs)
+        let replaced = nameText.replacingOccurrences(of: searchTerm, with: "", options: .caseInsensitive)
+        
+    
+        let normalString = NSMutableAttributedString(string: replaced)
+
+    
+        attributedSearchTermString.append(normalString)
+        name.attributedText = attributedSearchTermString
+        
     }
 }
