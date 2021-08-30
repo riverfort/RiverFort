@@ -108,6 +108,6 @@ extension SearchV2ResultCell {
     }
     
     public func setHighlight(for searchTerm: String) {
-       
+        print(searchTerm)
     }
 }

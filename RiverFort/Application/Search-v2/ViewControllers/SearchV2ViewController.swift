@@ -66,6 +66,7 @@ extension SearchV2ViewController {
             .responseDecodable(of: YahooFinanceSearchedResult.self) { [self] response in
                 guard let yahooFinanceSearch = response.value else { return }
                 searchResultV2TableViewController.setCompanies(companies: yahooFinanceSearch.items)
+                searchResultV2TableViewController.setSearchTerm(searchTerm)
                 searchResultV2TableViewController.tableView.reloadData()
             }
     }
