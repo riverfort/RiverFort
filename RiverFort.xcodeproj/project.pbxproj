@@ -14,6 +14,7 @@
 		771E328126D6525E002CC604 /* AcknowledgementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E328026D6525E002CC604 /* AcknowledgementsViewController.swift */; };
 		7728847B265B962F001C0D4F /* FeedsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7728847A265B962F001C0D4F /* FeedsViewModel.swift */; };
 		772C3F6A2627457C0044001B /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772C3F692627457C0044001B /* UITableViewExtension.swift */; };
+		773131BA26DCEC710068AAD8 /* SearchV2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773131B926DCEC710068AAD8 /* SearchV2ViewController.swift */; };
 		773A0B6326171238002B9875 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0B6226171238002B9875 /* AppDelegate.swift */; };
 		773A0B6526171238002B9875 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0B6426171238002B9875 /* SceneDelegate.swift */; };
 		773A0B6C2617123B002B9875 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 773A0B6B2617123B002B9875 /* Assets.xcassets */; };
@@ -102,6 +103,7 @@
 		771E328026D6525E002CC604 /* AcknowledgementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementsViewController.swift; sourceTree = "<group>"; };
 		7728847A265B962F001C0D4F /* FeedsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewModel.swift; sourceTree = "<group>"; };
 		772C3F692627457C0044001B /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
+		773131B926DCEC710068AAD8 /* SearchV2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchV2ViewController.swift; sourceTree = "<group>"; };
 		773A0B5F26171238002B9875 /* RiverFort.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RiverFort.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		773A0B6226171238002B9875 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		773A0B6426171238002B9875 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -218,6 +220,22 @@
 				77C4BD84261CAF9100B8C748 /* HapticsManager.swift */,
 			);
 			path = Haptics;
+			sourceTree = "<group>";
+		};
+		773131B726DCEC3F0068AAD8 /* Search-v2 */ = {
+			isa = PBXGroup;
+			children = (
+				773131B826DCEC500068AAD8 /* ViewControllers */,
+			);
+			path = "Search-v2";
+			sourceTree = "<group>";
+		};
+		773131B826DCEC500068AAD8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				773131B926DCEC710068AAD8 /* SearchV2ViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		773A0B5626171238002B9875 = {
@@ -418,6 +436,7 @@
 		7780B8B826CFB14500561789 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				773131B726DCEC3F0068AAD8 /* Search-v2 */,
 				7780B8B526CFAFE500561789 /* Main */,
 				7785EF2926AAA1C200AEB5FE /* Search */,
 				77CBB6B626B9271300CCD0A6 /* Watchlist */,
@@ -774,6 +793,7 @@
 				7785D7842630142600988C28 /* WatchedCompany+CoreDataClass.swift in Sources */,
 				773A0BB3261726E6002B9875 /* CompanyAdtv20.swift in Sources */,
 				779B885E26BD1E9600FB06A1 /* SettingsOption.swift in Sources */,
+				773131BA26DCEC710068AAD8 /* SearchV2ViewController.swift in Sources */,
 				779B885826BD192D00FB06A1 /* SettingsTableView.swift in Sources */,
 				7762C77226BAE258008DE1BA /* NumberShortScale.swift in Sources */,
 				779A46F426D4EE740072CE0B /* UIDevice+modelName.swift in Sources */,
