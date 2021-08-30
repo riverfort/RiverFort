@@ -8,6 +8,7 @@
 import Foundation
 
 class SearchV2ResultCell: UITableViewCell {
+    private let systemMinimumLayoutMarginsLeading = (UIApplication.topViewController()?.systemMinimumLayoutMargins.leading)!
     private let symbol = UILabel()
     private let exch   = UILabel()
     private let name   = UILabel()
@@ -92,7 +93,7 @@ extension SearchV2ResultCell {
 extension SearchV2ResultCell {
     private func setSymbolAndExchStackConstraint() {
         leftStack.translatesAutoresizingMaskIntoConstraints = false
-        leftStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
+        leftStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: systemMinimumLayoutMarginsLeading).isActive = true
         leftStack.topAnchor.constraint(equalTo: topAnchor, constant: 12).isActive = true
         leftStack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         leftStack.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7).isActive = true
@@ -100,7 +101,7 @@ extension SearchV2ResultCell {
     
     private func setNameAndTypeStackConstraint() {
         rightStack.translatesAutoresizingMaskIntoConstraints = false
-        rightStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive = true
+        rightStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -systemMinimumLayoutMarginsLeading).isActive = true
         rightStack.topAnchor.constraint(equalTo: topAnchor, constant: 12).isActive = true
         rightStack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         rightStack.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3).isActive = true
