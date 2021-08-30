@@ -15,6 +15,8 @@
 		7728847B265B962F001C0D4F /* FeedsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7728847A265B962F001C0D4F /* FeedsViewModel.swift */; };
 		772C3F6A2627457C0044001B /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772C3F692627457C0044001B /* UITableViewExtension.swift */; };
 		773131BA26DCEC710068AAD8 /* SearchV2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773131B926DCEC710068AAD8 /* SearchV2ViewController.swift */; };
+		773131BC26DCF87B0068AAD8 /* SearchResultV2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773131BB26DCF87B0068AAD8 /* SearchResultV2TableViewController.swift */; };
+		773131BF26DCFE5D0068AAD8 /* SearchV2ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773131BE26DCFE5D0068AAD8 /* SearchV2ResultCell.swift */; };
 		773A0B6326171238002B9875 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0B6226171238002B9875 /* AppDelegate.swift */; };
 		773A0B6526171238002B9875 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0B6426171238002B9875 /* SceneDelegate.swift */; };
 		773A0B6C2617123B002B9875 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 773A0B6B2617123B002B9875 /* Assets.xcassets */; };
@@ -104,6 +106,8 @@
 		7728847A265B962F001C0D4F /* FeedsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewModel.swift; sourceTree = "<group>"; };
 		772C3F692627457C0044001B /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		773131B926DCEC710068AAD8 /* SearchV2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchV2ViewController.swift; sourceTree = "<group>"; };
+		773131BB26DCF87B0068AAD8 /* SearchResultV2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultV2TableViewController.swift; sourceTree = "<group>"; };
+		773131BE26DCFE5D0068AAD8 /* SearchV2ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchV2ResultCell.swift; sourceTree = "<group>"; };
 		773A0B5F26171238002B9875 /* RiverFort.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RiverFort.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		773A0B6226171238002B9875 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		773A0B6426171238002B9875 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -226,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				773131B826DCEC500068AAD8 /* ViewControllers */,
+				773131BD26DCFE3B0068AAD8 /* View */,
 			);
 			path = "Search-v2";
 			sourceTree = "<group>";
@@ -234,8 +239,17 @@
 			isa = PBXGroup;
 			children = (
 				773131B926DCEC710068AAD8 /* SearchV2ViewController.swift */,
+				773131BB26DCF87B0068AAD8 /* SearchResultV2TableViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		773131BD26DCFE3B0068AAD8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				773131BE26DCFE5D0068AAD8 /* SearchV2ResultCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		773A0B5626171238002B9875 = {
@@ -761,6 +775,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				773131BF26DCFE5D0068AAD8 /* SearchV2ResultCell.swift in Sources */,
 				77E7E6AA26206667003323DA /* ChartColours.swift in Sources */,
 				7793E87E261F53DE00D8D3FA /* CompanyAdtv60.swift in Sources */,
 				77876E98264D69B300798106 /* FeedParser.swift in Sources */,
@@ -782,6 +797,7 @@
 				77CF843226316DB2009A5E21 /* UIAlertControllerExtension.swift in Sources */,
 				775DFDA72645440E00D9A4AF /* QuotesCardController.swift in Sources */,
 				77876E92264D5CA400798106 /* NSRegularExpressionExtension.swift in Sources */,
+				773131BC26DCF87B0068AAD8 /* SearchResultV2TableViewController.swift in Sources */,
 				77CB234626B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift in Sources */,
 				771263C626A95CAC00B57C04 /* SearchViewController.swift in Sources */,
 				776D13C3261E087500B9CF97 /* HomeViewController.swift in Sources */,
