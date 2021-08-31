@@ -20,6 +20,22 @@ class SearchResultV2TableViewController: UITableViewController {
 }
 
 extension SearchResultV2TableViewController {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if companies.count == 0 {
+            return 0
+        }
+        return 50
+    }
+
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        let symbolTitle = UILabel()
+        configHeaderView(of: headerView, with: symbolTitle)
+        return headerView
+    }
+}
+
+extension SearchResultV2TableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -40,11 +56,21 @@ extension SearchResultV2TableViewController {
 }
 
 extension SearchResultV2TableViewController {
+    private func configHeaderView(of view: UIView, with label: UILabel) {
+        view.addSubview(label)
+        label.textColor = .systemGray
+        label.text = "Symbols"
+        label.font = .preferredFont(forTextStyle: .headline)
+        label.adjustsFontForContentSizeCategory = true
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: systemMinimumLayoutMargins.leading).isActive = true
+        label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        label.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor).isActive = true
+    }
+    
     private func configTableView() {
         tableView.register(SearchV2ResultCell.self, forCellReuseIdentifier: "cell")
         tableView.keyboardDismissMode = .onDrag
-        tableView.estimatedRowHeight = 85.0
-        tableView.rowHeight = UITableView.automaticDimension
     }
 }
 

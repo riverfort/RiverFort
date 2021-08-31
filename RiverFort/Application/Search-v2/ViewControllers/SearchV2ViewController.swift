@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 
 class SearchV2ViewController: UIViewController {
-    private let searchResultV2TableViewController = SearchResultV2TableViewController()
+    private let searchResultV2TableViewController = SearchResultV2TableViewController(style: .insetGrouped)
 
     override func viewDidLoad() {
         super.viewDidLoad()
