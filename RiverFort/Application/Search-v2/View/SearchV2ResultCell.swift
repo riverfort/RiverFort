@@ -114,16 +114,12 @@ extension SearchV2ResultCell {
         guard let nameText = name.text else {
             return
         }
-        let searchTermStringAttrs = [NSAttributedString.Key.foregroundColor : UIColor.label]
-        let attributedSearchTermString = NSMutableAttributedString(string: searchTerm, attributes: searchTermStringAttrs)
-        let replaced = nameText.replacingOccurrences(of: searchTerm, with: "", options: .caseInsensitive)
         
-    
-        let normalString = NSMutableAttributedString(string: replaced)
-
-    
-        attributedSearchTermString.append(normalString)
-        name.attributedText = attributedSearchTermString
-        
+        let searchTermStringHighlightAttrs = [NSAttributedString.Key.foregroundColor : UIColor.label]
+        let highlightedSearchTerm = NSMutableAttributedString(string: searchTerm, attributes: searchTermStringHighlightAttrs)
+        let updatedNameText = nameText.replacingOccurrences(of: searchTerm, with: "", options: .caseInsensitive)
+        let nameTextDisp = NSMutableAttributedString(string: updatedNameText)
+        highlightedSearchTerm.append(nameTextDisp)
+        name.attributedText = highlightedSearchTerm
     }
 }
