@@ -70,6 +70,8 @@ extension SearchResultV2TableViewController {
     private func configTableView() {
         tableView.register(SearchV2ResultCell.self, forCellReuseIdentifier: "cell")
         tableView.keyboardDismissMode = .onDrag
+        self.tableView.estimatedRowHeight = 85.0
+        self.tableView.rowHeight = UITableView.automaticDimension
     }
 }
 
