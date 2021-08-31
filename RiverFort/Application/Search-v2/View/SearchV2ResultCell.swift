@@ -68,7 +68,7 @@ extension SearchV2ResultCell {
     
     private func configExchLabel() {
         exch.numberOfLines = 0
-        exch.font = .preferredFont(forTextStyle: .footnote)
+        exch.font = .preferredFont(forTextStyle: .headline)
         exch.adjustsFontForContentSizeCategory = true
         exch.textColor = .darkGray
     }
