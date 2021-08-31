@@ -14,8 +14,6 @@ class SearchResultV2TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
     }
 }
 
@@ -56,6 +54,11 @@ extension SearchResultV2TableViewController {
 }
 
 extension SearchResultV2TableViewController {
+    private func configView() {
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+    }
+    
     private func configHeaderView(of view: UIView, with label: UILabel) {
         view.addSubview(label)
         label.text = "Symbols"
@@ -70,8 +73,8 @@ extension SearchResultV2TableViewController {
     private func configTableView() {
         tableView.register(SearchV2ResultCell.self, forCellReuseIdentifier: "cell")
         tableView.keyboardDismissMode = .onDrag
-        self.tableView.estimatedRowHeight = 85.0
-        self.tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 85.0
+        tableView.rowHeight = UITableView.automaticDimension
     }
 }
 
