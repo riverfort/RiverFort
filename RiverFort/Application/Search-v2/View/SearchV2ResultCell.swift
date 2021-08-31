@@ -41,6 +41,7 @@ extension SearchV2ResultCell {
         leftStack.axis = .vertical
         leftStack.distribution = .equalSpacing
         leftStack.alignment = .leading
+        leftStack.spacing = 5
     }
     
     private func configNameAndTypeStack() {
@@ -50,6 +51,7 @@ extension SearchV2ResultCell {
         rightStack.axis = .vertical
         rightStack.distribution = .equalSpacing
         rightStack.alignment = .trailing
+        rightStack.spacing = 5
     }
 }
 
@@ -68,7 +70,7 @@ extension SearchV2ResultCell {
     
     private func configExchLabel() {
         exch.numberOfLines = 0
-        exch.font = .preferredFont(forTextStyle: .headline)
+        exch.font = .preferredFont(forTextStyle: .footnote)
         exch.adjustsFontForContentSizeCategory = true
         exch.textColor = .darkGray
     }
