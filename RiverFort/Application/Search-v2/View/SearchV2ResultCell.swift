@@ -108,18 +108,4 @@ extension SearchV2ResultCell {
         exch.text = yahooFinanceSearchedCompany.exch
         type.text = yahooFinanceSearchedCompany.typeDisp
     }
-    
-    public func setHighlight(for searchTerm: String) {
-        print(searchTerm)
-        guard let nameText = name.text else {
-            return
-        }
-        
-        let searchTermStringHighlightAttrs = [NSAttributedString.Key.foregroundColor : UIColor.label]
-        let highlightedSearchTerm = NSMutableAttributedString(string: searchTerm, attributes: searchTermStringHighlightAttrs)
-        let updatedNameText = nameText.replacingOccurrences(of: searchTerm, with: "", options: .caseInsensitive)
-        let nameTextDisp = NSMutableAttributedString(string: updatedNameText)
-        highlightedSearchTerm.append(nameTextDisp)
-        name.attributedText = highlightedSearchTerm
-    }
 }

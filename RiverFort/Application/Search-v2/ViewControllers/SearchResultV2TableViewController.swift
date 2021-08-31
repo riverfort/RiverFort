@@ -9,7 +9,6 @@ import UIKit
 
 class SearchResultV2TableViewController: UITableViewController {
     private var companies: [YahooFinanceSearchedCompany] = []
-    private var searchTerm: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +47,6 @@ extension SearchResultV2TableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SearchV2ResultCell
         let company = companies[indexPath.row]
         cell.setCell(for: company)
-        cell.setHighlight(for: searchTerm)
         return cell
     }
 }
@@ -81,9 +79,5 @@ extension SearchResultV2TableViewController {
 extension SearchResultV2TableViewController {
     public func setCompanies(companies: [YahooFinanceSearchedCompany]) {
         self.companies = companies
-    }
-    
-    public func setSearchTerm(_ searchTerm: String) {
-        self.searchTerm = searchTerm
     }
 }
