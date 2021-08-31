@@ -52,6 +52,13 @@ extension SearchResultV2TableViewController {
 }
 
 extension SearchResultV2TableViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let company = companies[indexPath.row]
+        print(company.symbol)
+    }
+}
+
+extension SearchResultV2TableViewController {
     private func configView() {
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
