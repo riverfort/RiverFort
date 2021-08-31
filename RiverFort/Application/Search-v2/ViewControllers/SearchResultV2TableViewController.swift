@@ -12,6 +12,7 @@ class SearchResultV2TableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        configView()
         configTableView()
     }
 }
@@ -54,14 +55,15 @@ extension SearchResultV2TableViewController {
 extension SearchResultV2TableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let company = companies[indexPath.row]
-        print(company.symbol)
+        let detailVC = NewCompanyDetailViewController()
+        detailVC.setSymbol(of: company.symbol)
+        presentingViewController?.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 
 extension SearchResultV2TableViewController {
     private func configView() {
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        self.clearsSelectionOnViewWillAppear = false
     }
     
     private func configHeaderView(of view: UIView, with label: UILabel) {
