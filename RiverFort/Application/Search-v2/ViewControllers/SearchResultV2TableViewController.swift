@@ -24,7 +24,7 @@ extension SearchResultV2TableViewController {
         if companies.count == 0 {
             return 0
         }
-        return 50
+        return 60
     }
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -58,7 +58,6 @@ extension SearchResultV2TableViewController {
 extension SearchResultV2TableViewController {
     private func configHeaderView(of view: UIView, with label: UILabel) {
         view.addSubview(label)
-        label.textColor = .systemGray
         label.text = "Symbols"
         label.font = .preferredFont(forTextStyle: .headline)
         label.adjustsFontForContentSizeCategory = true
