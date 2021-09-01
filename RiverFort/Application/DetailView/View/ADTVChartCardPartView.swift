@@ -14,7 +14,7 @@ private struct ExtraADTVData {
     var date: String
 }
 
-public class ADTVChartView: UIView, CardPartView, IAxisValueFormatter {
+public class ADTVChartCardPartView: UIView, CardPartView, IAxisValueFormatter {
     
     private var company: Company
     private var adtv20Entries = [ChartDataEntry]()
@@ -99,7 +99,7 @@ public class ADTVChartView: UIView, CardPartView, IAxisValueFormatter {
     }
 }
 
-extension ADTVChartView {
+extension ADTVChartCardPartView {
     public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         if value < 0 || dates.count == 1 {
             adtvLineChartView.data = nil
@@ -124,7 +124,7 @@ extension ADTVChartView {
 }
 
 
-extension ADTVChartView: CompanyAdtv20_Adtv60DataDeleagate {
+extension ADTVChartCardPartView: CompanyAdtv20_Adtv60DataDeleagate {
     // MARK: adtv20 60
     func updateCompanyAdtv20_Adtv60(newCompanyAdtv20: String, newCompanyAdtv60: String) {
         do {
@@ -146,7 +146,7 @@ extension ADTVChartView: CompanyAdtv20_Adtv60DataDeleagate {
     }
 }
 
-extension ADTVChartView {
+extension ADTVChartCardPartView {
     fileprivate func setDataForAdtv20_60Chart(adtv20_values: [ChartDataEntry], adtv60_values: [ChartDataEntry]) {
         var adtv20ValuesRange = [ChartDataEntry]()
         var adtv60ValuesRange = [ChartDataEntry]()
@@ -200,13 +200,13 @@ extension ADTVChartView {
     }
 }
 
-extension ADTVChartView: ChartViewDelegate {
+extension ADTVChartCardPartView: ChartViewDelegate {
     public func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         NotificationCenter.default.post(name: Notification.Name("Interacting"), object: nil)
     }
 }
 
-extension ADTVChartView: MyChartViewDelegate {
+extension ADTVChartCardPartView: MyChartViewDelegate {
     func chartValueNoLongerSelected(_ chartView: MyLineChartView) {
         // Do something on deselection
         adtvLineChartView.highlightValue(nil)

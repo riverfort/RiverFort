@@ -1,5 +1,5 @@
 //
-//  CardPartQuotesView.swift
+//  QuotesCardPartView.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 06/05/2021.
@@ -31,7 +31,7 @@ struct CompanyQuote: Decodable {
     let price: Double
 }
 
-public class CardPartQuotesView: UIView, CardPartView {
+public class QuotesCardPartView: UIView, CardPartView {
     
     public var margins: UIEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 80, right: 0)
     
@@ -116,7 +116,7 @@ public class CardPartQuotesView: UIView, CardPartView {
     }
 }
 
-extension CardPartQuotesView: CompanyDetailDataDelegate {
+extension QuotesCardPartView: CompanyDetailDataDelegate {
     func updateCompanyDetail(newCompanyDetail: String) {
         do {
             companyDetail = try JSONDecoder().decode([CompanyDetail].self, from: newCompanyDetail.data(using: .utf8)!)

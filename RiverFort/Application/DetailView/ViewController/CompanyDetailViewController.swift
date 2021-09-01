@@ -66,8 +66,8 @@ class CompanyDetailViewController: CardsViewController {
         }
 
         let cards: [CardPartsViewController] = [
-            ThemedCardController(quotes: CardPartQuotesView(company: company!), demoChart: CardPartPriceChartView(company: company!, feedsViewModel: self.feedsViewModel)),
-            ThemedCardController(adtvChart: ADTVChartView(company: company!)),
+            ChartCardController(quotesCardPartView: QuotesCardPartView(company: company!), priceChartCardPartView: PriceChartCardPartView(company: company!, feedsViewModel: self.feedsViewModel)),
+            ChartCardController(adtvChartCardPartView: ADTVChartCardPartView(company: company!)),
             ProfileCardController(title: "Profile", company: company!),
             QuotesCardController(company: company!),
             ADTVCardController(company: company!),

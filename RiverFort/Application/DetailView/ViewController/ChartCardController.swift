@@ -1,5 +1,5 @@
 //
-//  ThemedCardController.swift
+//  ChartCardController.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 06/05/2021.
@@ -8,18 +8,17 @@
 import Foundation
 import CardParts
 
-class ThemedCardController: CardPartsViewController {
-    
+class ChartCardController: CardPartsViewController {
     private var cardPartViews = [CardPartView]()
 
-    init(quotes: CardPartQuotesView, demoChart: CardPartPriceChartView) {
-        cardPartViews.append(quotes)
-        cardPartViews.append(demoChart)
+    init(quotesCardPartView: QuotesCardPartView, priceChartCardPartView: PriceChartCardPartView) {
+        cardPartViews.append(quotesCardPartView)
+        cardPartViews.append(priceChartCardPartView)
         super.init(nibName: nil, bundle: nil)
     }
     
-    init(adtvChart: ADTVChartView) {
-        cardPartViews.append(adtvChart)
+    init(adtvChartCardPartView: ADTVChartCardPartView) {
+        cardPartViews.append(adtvChartCardPartView)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -46,7 +45,7 @@ class ThemedCardController: CardPartsViewController {
     }
 }
 
-extension ThemedCardController {
+extension ChartCardController {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         if #available(iOS 13.0, *) {
@@ -65,13 +64,13 @@ extension ThemedCardController {
     }
 }
 
-extension ThemedCardController: RoundedCardTrait {
+extension ChartCardController: RoundedCardTrait {
     func cornerRadius() -> CGFloat {
         return 25.0
     }
 }
 
-extension ThemedCardController: BorderCardTrait {
+extension ChartCardController: BorderCardTrait {
     func borderWidth() -> CGFloat {
         0
     }
