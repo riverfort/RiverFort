@@ -12,7 +12,6 @@ class SearchResultV2TableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        configView()
         configTableView()
     }
 }
@@ -54,6 +53,7 @@ extension SearchResultV2TableViewController {
 
 extension SearchResultV2TableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let company = companies[indexPath.row]
         let detailVC = NewCompanyDetailViewController()
         detailVC.setSymbol(of: company.symbol)
@@ -62,10 +62,6 @@ extension SearchResultV2TableViewController {
 }
 
 extension SearchResultV2TableViewController {
-    private func configView() {
-        self.clearsSelectionOnViewWillAppear = false
-    }
-    
     private func configHeaderView(of view: UIView, with label: UILabel) {
         view.addSubview(label)
         label.text = "Symbols"
