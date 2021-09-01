@@ -32,32 +32,27 @@ struct CompanyQuote: Decodable {
 }
 
 public class QuotesCardPartView: UIView, CardPartView {
-    
     public var margins: UIEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 80, right: 0)
-    
     private var company: Company
-    
     private lazy var companyDetail = [CompanyDetail]()
-    
-    // MARK: - company name and date
     private let companyNameLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .headline)
         label.adjustsFontForContentSizeCategory = true
+        label.textAlignment = .left
         label.numberOfLines = 0
         return label
     }()
     
     private let todayLabel: UILabel = {
         let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .headline)
+        label.font = .preferredFont(forTextStyle: .subheadline)
         label.adjustsFontForContentSizeCategory = true
         label.textAlignment = .right
         label.textColor = .secondaryLabel
         return label
     }()
     
-    // MARK: - share price, change percent and currency
     private let latestPriceLabel: EFCountingLabel = {
         let label = EFCountingLabel()
         label.setUpdateBlock { value, label in
@@ -88,9 +83,19 @@ public class QuotesCardPartView: UIView, CardPartView {
     init(company: Company) {
         self.company = company
         super.init(frame: CGRect.zero)
-        
+        configView()
+        APIFunctions.functions.companyDetailDeleagate = self
+        APIFunctions.functions.fetchCompanyDetail(companyTicker: company.company_ticker)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension QuotesCardPartView {
+    private func configView() {
         companyNameLabel.text = company.company_name
-        
         // MARK: - company name and date
         let companyNameLabel_todayLabel_stack = UIStackView(arrangedSubviews: [companyNameLabel, todayLabel])
         companyNameLabel_todayLabel_stack.distribution = .fillEqually
@@ -106,13 +111,6 @@ public class QuotesCardPartView: UIView, CardPartView {
         view.addSubview(changePercentLabel_latestPriceLabel_stack)
         changePercentLabel_latestPriceLabel_stack.topToBottom(of: companyNameLabel_todayLabel_stack)
         changePercentLabel_latestPriceLabel_stack.leading(to: view, offset: 15)
-                
-        APIFunctions.functions.companyDetailDeleagate = self
-        APIFunctions.functions.fetchCompanyDetail(companyTicker: company.company_ticker)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
 
