@@ -28,15 +28,20 @@ class ChartCardController: CardPartsViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configView()
         setupCardParts(cardPartViews)
-        
-        view.layer.cornerRadius = 22.0
+    }
+}
+
+extension ChartCardController {
+    private func configView() {
         view.backgroundColor = .systemBackground
-        view.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
-        view.layer.shadowRadius = 10.0
+        view.layer.cornerRadius  = 22.0
+        view.layer.shadowRadius  = 10.0
         view.layer.shadowOpacity = 0.4
+        view.layer.shadowOffset  = CGSize(width: 1.0, height: 1.0)
         
-        if self.traitCollection.userInterfaceStyle == .dark {
+        if traitCollection.userInterfaceStyle == .dark {
             view.layer.borderColor = UIColor.black.cgColor
             view.layer.shadowColor = UIColor.black.cgColor
         } else {
