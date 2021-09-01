@@ -9,12 +9,9 @@ import UIKit
 import CoreData
 import CardParts
 import SPAlert
-
 import RxSwift
 
-
 class CompanyDetailViewController: CardsViewController {
-    
     public  var company: Company?
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     private var watchedCompanies = [WatchedCompany]()
@@ -113,11 +110,6 @@ class CompanyDetailViewController: CardsViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-//        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
