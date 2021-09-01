@@ -29,6 +29,7 @@ class ChartCardController: CardPartsViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configView()
+        configViewMode()
         setupCardParts(cardPartViews)
     }
 }
@@ -40,11 +41,15 @@ extension ChartCardController {
         view.layer.shadowRadius  = 10.0
         view.layer.shadowOpacity = 0.4
         view.layer.shadowOffset  = CGSize(width: 1.0, height: 1.0)
-        
+    }
+    
+    private func configViewMode() {
         if traitCollection.userInterfaceStyle == .dark {
+            view.backgroundColor = .secondarySystemBackground
             view.layer.borderColor = UIColor.black.cgColor
             view.layer.shadowColor = UIColor.black.cgColor
-        } else {
+        } else if traitCollection.userInterfaceStyle == .light {
+            view.backgroundColor = .systemBackground
             view.layer.shadowColor = UIColor.lightGray.cgColor
         }
     }
@@ -55,13 +60,7 @@ extension ChartCardController {
         super.traitCollectionDidChange(previousTraitCollection)
         if #available(iOS 13.0, *) {
             if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
-                if traitCollection.userInterfaceStyle == .dark {
-                    view.layer.borderColor = UIColor.black.cgColor
-                    view.layer.shadowColor  = UIColor.black.cgColor
-                }
-                else if traitCollection.userInterfaceStyle == .light {
-                    view.layer.shadowColor  = UIColor.lightGray.cgColor
-                }
+                configViewMode()
             }
         }
     }
