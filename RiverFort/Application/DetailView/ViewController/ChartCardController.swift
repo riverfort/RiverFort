@@ -54,7 +54,7 @@ extension ChartCardController {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         if #available(iOS 13.0, *) {
-            if self.traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+            if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
                 if traitCollection.userInterfaceStyle == .dark {
                     view.layer.borderColor = UIColor.black.cgColor
                     view.layer.shadowColor  = UIColor.black.cgColor
@@ -63,8 +63,6 @@ extension ChartCardController {
                     view.layer.shadowColor  = UIColor.lightGray.cgColor
                 }
             }
-        } else {
-            // Fallback on earlier versions
         }
     }
 }
