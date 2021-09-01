@@ -10,7 +10,7 @@ import CardParts
 
 class NewCompanyDetailViewController: CardsViewController {
     private var symbol: String = ""
-    private let cards: [CardPartsViewController] = [NewProfileCardController(), NewProfileCardController(), NewProfileCardController(), NewProfileCardController(), NewProfileCardController(), NewProfileCardController(), NewProfileCardController(), NewProfileCardController(), NewProfileCardController(), ]
+    private let cards: [CardController] = [NewProfileCardController(), NewProfileCardController(), NewProfileCardController(), NewProfileCardController(), NewProfileCardController(), NewProfileCardController(), NewProfileCardController(), NewProfileCardController(),NewProfileCardController(), NewProfileCardController(), NewProfileCardController(), NewProfileCardController(),]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ class NewCompanyDetailViewController: CardsViewController {
 
 extension NewCompanyDetailViewController {
     private func configView() {
-        super.collectionView.backgroundColor = .systemGroupedBackground
+        collectionView.backgroundColor = .systemGroupedBackground
         loadCards(cards: cards)
     }
     

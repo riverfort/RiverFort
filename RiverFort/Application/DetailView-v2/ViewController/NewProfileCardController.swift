@@ -9,24 +9,36 @@ import UIKit
 import CardParts
 
 class NewProfileCardController: CardPartsViewController {
-    private let titlePart = CardPartTitleView(type: .titleOnly)
-    private let textPart = CardPartTextView(type: .normal)
+    private var namePart = CardPartTitleView(type: .titleOnly)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configView()
+        configNamePart()
         configCardParts()
     }
 }
 
 extension NewProfileCardController {
     private func configView() {
-        super.view.backgroundColor = .secondarySystemGroupedBackground
+        view.backgroundColor = .secondarySystemGroupedBackground
+        view.layer.cornerRadius = 12.0
     }
     
     private func configCardParts() {
-        titlePart.title = "Hello"
-        textPart.text = "Hello World!"
-        setupCardParts([titlePart, textPart])
+        setupCardParts([namePart])
     }
+    
+    private func configNamePart() {
+        namePart.title = "Company Name"
+        namePart.label.numberOfLines = 0
+        namePart.titleColor = .label
+        namePart.titleFont = .preferredFont(forTextStyle: .headline)
+        namePart.label.adjustsFontForContentSizeCategory = true
+    }
+}
+
+extension NewProfileCardController: BorderCardTrait, TransparentCardTrait {
+    func borderWidth() -> CGFloat { 0 }
+    func borderColor() -> CGColor { UIColor.clear.cgColor }
 }
