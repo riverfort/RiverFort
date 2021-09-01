@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CardParts
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -27,6 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else {
             window?.overrideUserInterfaceStyle = .light
         }
+        CardParts.theme.cardCellMargins = UIEdgeInsets(top: 0, left: (UIApplication.topViewController()?.systemMinimumLayoutMargins.leading)!, bottom: 0, right: (UIApplication.topViewController()?.systemMinimumLayoutMargins.leading)!)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
