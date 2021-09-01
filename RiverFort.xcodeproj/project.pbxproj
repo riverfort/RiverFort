@@ -231,18 +231,19 @@
 		7720570226DE6E1D00063A9A /* DetailView-v2 */ = {
 			isa = PBXGroup;
 			children = (
-				7720570326DE6E2F00063A9A /* ViewControllers */,
+				7720570326DE6E2F00063A9A /* ViewController */,
+				77EF139726DF919400EDFC17 /* Model */,
 				7720570426DE6E3A00063A9A /* View */,
 			);
 			path = "DetailView-v2";
 			sourceTree = "<group>";
 		};
-		7720570326DE6E2F00063A9A /* ViewControllers */ = {
+		7720570326DE6E2F00063A9A /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				7720570526DE6E8300063A9A /* NewCompanyDetailViewController.swift */,
 			);
-			path = ViewControllers;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		7720570426DE6E3A00063A9A /* View */ = {
@@ -651,6 +652,13 @@
 			children = (
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		77EF139726DF919400EDFC17 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		77F9335F261A2BA1007662D5 /* Extensions */ = {
