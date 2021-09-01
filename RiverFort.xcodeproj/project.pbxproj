@@ -14,6 +14,7 @@
 		771E328126D6525E002CC604 /* AcknowledgementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E328026D6525E002CC604 /* AcknowledgementsViewController.swift */; };
 		7720570626DE6E8300063A9A /* NewCompanyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7720570526DE6E8300063A9A /* NewCompanyDetailViewController.swift */; };
 		7728847B265B962F001C0D4F /* FeedsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7728847A265B962F001C0D4F /* FeedsViewModel.swift */; };
+		772A747526DF93890088A604 /* NewProfileCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772A747426DF93890088A604 /* NewProfileCardController.swift */; };
 		772C3F6A2627457C0044001B /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772C3F692627457C0044001B /* UITableViewExtension.swift */; };
 		773131BA26DCEC710068AAD8 /* SearchV2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773131B926DCEC710068AAD8 /* SearchV2ViewController.swift */; };
 		773131BC26DCF87B0068AAD8 /* SearchResultV2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773131BB26DCF87B0068AAD8 /* SearchResultV2TableViewController.swift */; };
@@ -106,6 +107,7 @@
 		771E328026D6525E002CC604 /* AcknowledgementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementsViewController.swift; sourceTree = "<group>"; };
 		7720570526DE6E8300063A9A /* NewCompanyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCompanyDetailViewController.swift; sourceTree = "<group>"; };
 		7728847A265B962F001C0D4F /* FeedsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewModel.swift; sourceTree = "<group>"; };
+		772A747426DF93890088A604 /* NewProfileCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProfileCardController.swift; sourceTree = "<group>"; };
 		772C3F692627457C0044001B /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		773131B926DCEC710068AAD8 /* SearchV2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchV2ViewController.swift; sourceTree = "<group>"; };
 		773131BB26DCF87B0068AAD8 /* SearchResultV2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultV2TableViewController.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				7720570526DE6E8300063A9A /* NewCompanyDetailViewController.swift */,
+				772A747426DF93890088A604 /* NewProfileCardController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -852,6 +855,7 @@
 				77A9758826B3EEC700E150CA /* SearchConstants.swift in Sources */,
 				7785D7842630142600988C28 /* WatchedCompany+CoreDataClass.swift in Sources */,
 				773A0BB3261726E6002B9875 /* CompanyAdtv20.swift in Sources */,
+				772A747526DF93890088A604 /* NewProfileCardController.swift in Sources */,
 				779B885E26BD1E9600FB06A1 /* SettingsOption.swift in Sources */,
 				773131BA26DCEC710068AAD8 /* SearchV2ViewController.swift in Sources */,
 				779B885826BD192D00FB06A1 /* SettingsTableView.swift in Sources */,
