@@ -24,17 +24,17 @@ extension NewProfileCardController {
         view.backgroundColor = .secondarySystemGroupedBackground
         view.layer.cornerRadius = 12.0
     }
-    
-    private func configCardParts() {
-        setupCardParts([namePart])
-    }
-    
+        
     private func configNamePart() {
         namePart.title = "Company Name"
         namePart.label.numberOfLines = 0
         namePart.titleColor = .label
         namePart.titleFont = .preferredFont(forTextStyle: .headline)
         namePart.label.adjustsFontForContentSizeCategory = true
+    }
+    
+    private func configCardParts() {
+        setupCardParts([namePart])
     }
 }
 
