@@ -33,7 +33,6 @@ extension SearchV2ViewController {
     }
     
     private func configSearchController() {
-        
         let searchController = UISearchController(searchResultsController: searchResultV2TableViewController)
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
