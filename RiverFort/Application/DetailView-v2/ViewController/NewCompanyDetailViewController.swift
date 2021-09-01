@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import CardParts
 
-class NewCompanyDetailViewController: UIViewController {
+class NewCompanyDetailViewController: CardsViewController {
     private var symbol: String = ""
+    private let cards: [CardPartsViewController] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +22,7 @@ class NewCompanyDetailViewController: UIViewController {
 extension NewCompanyDetailViewController {
     private func configView() {
         view.backgroundColor = .systemBackground
+        loadCards(cards: cards)
     }
     
     private func configNavigationController() {
