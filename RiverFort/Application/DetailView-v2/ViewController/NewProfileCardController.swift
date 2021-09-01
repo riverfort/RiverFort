@@ -31,6 +31,7 @@ extension NewProfileCardController {
         namePart.titleColor = .label
         namePart.titleFont = .preferredFont(forTextStyle: .headline)
         namePart.label.adjustsFontForContentSizeCategory = true
+        namePart.margins.left = 15
     }
     
     private func configCardParts() {
