@@ -35,6 +35,7 @@
 		7748987C26E0C396000933A6 /* NewPriceChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748987B26E0C396000933A6 /* NewPriceChartViewController.swift */; };
 		7748987E26E0C3E7000933A6 /* NewPriceChartCardPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748987D26E0C3E7000933A6 /* NewPriceChartCardPartView.swift */; };
 		7748988126E0CF9B000933A6 /* SearchAPIFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748988026E0CF9B000933A6 /* SearchAPIFunction.swift */; };
+		7748988326E0D598000933A6 /* DetailViewAPIFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748988226E0D598000933A6 /* DetailViewAPIFunction.swift */; };
 		774DB74C2623144900A92D13 /* RiverFort.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 774DB74A2623144900A92D13 /* RiverFort.xcdatamodeld */; };
 		775DFDA72645440E00D9A4AF /* QuotesCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775DFDA62645440E00D9A4AF /* QuotesCardController.swift */; };
 		775DFDA92645849400D9A4AF /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775DFDA82645849400D9A4AF /* Quote.swift */; };
@@ -135,6 +136,7 @@
 		7748987B26E0C396000933A6 /* NewPriceChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPriceChartViewController.swift; sourceTree = "<group>"; };
 		7748987D26E0C3E7000933A6 /* NewPriceChartCardPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPriceChartCardPartView.swift; sourceTree = "<group>"; };
 		7748988026E0CF9B000933A6 /* SearchAPIFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIFunction.swift; sourceTree = "<group>"; };
+		7748988226E0D598000933A6 /* DetailViewAPIFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewAPIFunction.swift; sourceTree = "<group>"; };
 		774DB74B2623144900A92D13 /* RiverFort.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RiverFort.xcdatamodel; sourceTree = "<group>"; };
 		775DFDA62645440E00D9A4AF /* QuotesCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesCardController.swift; sourceTree = "<group>"; };
 		775DFDA82645849400D9A4AF /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
@@ -677,6 +679,7 @@
 		77EF139726DF919400EDFC17 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7748988226E0D598000933A6 /* DetailViewAPIFunction.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -876,6 +879,7 @@
 				772A747526DF93890088A604 /* NewProfileCardController.swift in Sources */,
 				779B885E26BD1E9600FB06A1 /* SettingsOption.swift in Sources */,
 				773131BA26DCEC710068AAD8 /* SearchV2ViewController.swift in Sources */,
+				7748988326E0D598000933A6 /* DetailViewAPIFunction.swift in Sources */,
 				779B885826BD192D00FB06A1 /* SettingsTableView.swift in Sources */,
 				7762C77226BAE258008DE1BA /* NumberShortScale.swift in Sources */,
 				779A46F426D4EE740072CE0B /* UIDevice+modelName.swift in Sources */,

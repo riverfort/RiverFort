@@ -48,7 +48,7 @@ extension SearchV2ViewController: UISearchResultsUpdating {
         guard !searchText.isEmpty else {
             return
         }
-        SearchAPIFunction.yahooFinanceSearch(for: searchText)
+        SearchAPIFunction.searchFromYahooFinance(for: searchText)
             .responseDecodable(of: YahooFinanceSearchedResult.self) { [self] response in
                 guard let yahooFinanceSearchedResult = response.value else { return }
                 searchResultV2TableViewController.setCompanies(companies: yahooFinanceSearchedResult.items)

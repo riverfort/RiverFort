@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 class SearchAPIFunction {
-    static func yahooFinanceSearch(for searchTerm: String) -> DataRequest {
+    static func searchFromYahooFinance(for searchTerm: String) -> DataRequest {
         AF.request("https://finance.yahoo.com/_finance_doubledown/api/resource/searchassist;searchTerm=\(searchTerm)").validate()
     }
 }
