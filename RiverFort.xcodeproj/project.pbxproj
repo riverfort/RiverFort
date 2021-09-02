@@ -268,20 +268,20 @@
 		773131B726DCEC3F0068AAD8 /* Search-v2 */ = {
 			isa = PBXGroup;
 			children = (
-				773131B826DCEC500068AAD8 /* ViewControllers */,
+				773131B826DCEC500068AAD8 /* ViewController */,
 				773131BD26DCFE3B0068AAD8 /* View */,
 				7748987F26E0CECD000933A6 /* Model */,
 			);
 			path = "Search-v2";
 			sourceTree = "<group>";
 		};
-		773131B826DCEC500068AAD8 /* ViewControllers */ = {
+		773131B826DCEC500068AAD8 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				773131B926DCEC710068AAD8 /* SearchV2ViewController.swift */,
 				773131BB26DCF87B0068AAD8 /* SearchResultV2TableViewController.swift */,
 			);
-			path = ViewControllers;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		773131BD26DCFE3B0068AAD8 /* View */ = {
