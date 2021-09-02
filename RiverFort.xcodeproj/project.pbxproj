@@ -36,6 +36,8 @@
 		7748987E26E0C3E7000933A6 /* NewPriceChartCardPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748987D26E0C3E7000933A6 /* NewPriceChartCardPartView.swift */; };
 		7748988126E0CF9B000933A6 /* SearchAPIFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748988026E0CF9B000933A6 /* SearchAPIFunction.swift */; };
 		7748988326E0D598000933A6 /* DetailViewAPIFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748988226E0D598000933A6 /* DetailViewAPIFunction.swift */; };
+		7748988526E0E235000933A6 /* NewADTVChartCardPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748988426E0E235000933A6 /* NewADTVChartCardPartView.swift */; };
+		7748988726E0E454000933A6 /* NewADTVChartCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748988626E0E454000933A6 /* NewADTVChartCardController.swift */; };
 		774DB74C2623144900A92D13 /* RiverFort.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 774DB74A2623144900A92D13 /* RiverFort.xcdatamodeld */; };
 		775DFDA72645440E00D9A4AF /* QuotesCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775DFDA62645440E00D9A4AF /* QuotesCardController.swift */; };
 		775DFDA92645849400D9A4AF /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775DFDA82645849400D9A4AF /* Quote.swift */; };
@@ -137,6 +139,8 @@
 		7748987D26E0C3E7000933A6 /* NewPriceChartCardPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPriceChartCardPartView.swift; sourceTree = "<group>"; };
 		7748988026E0CF9B000933A6 /* SearchAPIFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIFunction.swift; sourceTree = "<group>"; };
 		7748988226E0D598000933A6 /* DetailViewAPIFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewAPIFunction.swift; sourceTree = "<group>"; };
+		7748988426E0E235000933A6 /* NewADTVChartCardPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewADTVChartCardPartView.swift; sourceTree = "<group>"; };
+		7748988626E0E454000933A6 /* NewADTVChartCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewADTVChartCardController.swift; sourceTree = "<group>"; };
 		774DB74B2623144900A92D13 /* RiverFort.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RiverFort.xcdatamodel; sourceTree = "<group>"; };
 		775DFDA62645440E00D9A4AF /* QuotesCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesCardController.swift; sourceTree = "<group>"; };
 		775DFDA82645849400D9A4AF /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
@@ -255,6 +259,7 @@
 				7748987926E0C229000933A6 /* TemplateCardController.swift */,
 				772A747426DF93890088A604 /* NewProfileCardController.swift */,
 				7748987B26E0C396000933A6 /* NewPriceChartCardController.swift */,
+				7748988626E0E454000933A6 /* NewADTVChartCardController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				7748987D26E0C3E7000933A6 /* NewPriceChartCardPartView.swift */,
+				7748988426E0E235000933A6 /* NewADTVChartCardPartView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -869,6 +875,7 @@
 				77CB234626B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift in Sources */,
 				771263C626A95CAC00B57C04 /* SearchViewController.swift in Sources */,
 				776D13C3261E087500B9CF97 /* HomeViewController.swift in Sources */,
+				7748988726E0E454000933A6 /* NewADTVChartCardController.swift in Sources */,
 				7789A82B266A30B300B71294 /* ADTVChartCardPartView.swift in Sources */,
 				779AFC282657B216008373C0 /* PriceChartCardPartView.swift in Sources */,
 				773A86F0263C34A9008105A1 /* PrivacyPolicyViewController.swift in Sources */,
@@ -891,6 +898,7 @@
 				773A0B6526171238002B9875 /* SceneDelegate.swift in Sources */,
 				779A46FE26D50C780072CE0B /* SettingsNotificationConstant.swift in Sources */,
 				77CAA2E626679043003A0246 /* UserDefaults+.swift in Sources */,
+				7748988526E0E235000933A6 /* NewADTVChartCardPartView.swift in Sources */,
 				77CBB6BE26B9355A00CCD0A6 /* WatchlistTableViewCell.swift in Sources */,
 				779A470026D515020072CE0B /* SettingsSectionTitleConstant.swift in Sources */,
 				77876E96264D5FE700798106 /* StringExtension.swift in Sources */,
