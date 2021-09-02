@@ -34,6 +34,7 @@
 		7748987A26E0C229000933A6 /* TemplateCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748987926E0C229000933A6 /* TemplateCardController.swift */; };
 		7748987C26E0C396000933A6 /* NewPriceChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748987B26E0C396000933A6 /* NewPriceChartViewController.swift */; };
 		7748987E26E0C3E7000933A6 /* NewPriceChartCardPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748987D26E0C3E7000933A6 /* NewPriceChartCardPartView.swift */; };
+		7748988126E0CF9B000933A6 /* SearchAPIFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748988026E0CF9B000933A6 /* SearchAPIFunction.swift */; };
 		774DB74C2623144900A92D13 /* RiverFort.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 774DB74A2623144900A92D13 /* RiverFort.xcdatamodeld */; };
 		775DFDA72645440E00D9A4AF /* QuotesCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775DFDA62645440E00D9A4AF /* QuotesCardController.swift */; };
 		775DFDA92645849400D9A4AF /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775DFDA82645849400D9A4AF /* Quote.swift */; };
@@ -133,6 +134,7 @@
 		7748987926E0C229000933A6 /* TemplateCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCardController.swift; sourceTree = "<group>"; };
 		7748987B26E0C396000933A6 /* NewPriceChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPriceChartViewController.swift; sourceTree = "<group>"; };
 		7748987D26E0C3E7000933A6 /* NewPriceChartCardPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPriceChartCardPartView.swift; sourceTree = "<group>"; };
+		7748988026E0CF9B000933A6 /* SearchAPIFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIFunction.swift; sourceTree = "<group>"; };
 		774DB74B2623144900A92D13 /* RiverFort.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RiverFort.xcdatamodel; sourceTree = "<group>"; };
 		775DFDA62645440E00D9A4AF /* QuotesCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesCardController.swift; sourceTree = "<group>"; };
 		775DFDA82645849400D9A4AF /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 			children = (
 				773131B826DCEC500068AAD8 /* ViewControllers */,
 				773131BD26DCFE3B0068AAD8 /* View */,
+				7748987F26E0CECD000933A6 /* Model */,
 			);
 			path = "Search-v2";
 			sourceTree = "<group>";
@@ -363,6 +366,14 @@
 				7728847A265B962F001C0D4F /* FeedsViewModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		7748987F26E0CECD000933A6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7748988026E0CF9B000933A6 /* SearchAPIFunction.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		7760164626B977EF00BA7C41 /* Model */ = {
@@ -869,6 +880,7 @@
 				7762C77226BAE258008DE1BA /* NumberShortScale.swift in Sources */,
 				779A46F426D4EE740072CE0B /* UIDevice+modelName.swift in Sources */,
 				77420217264AA033002F6104 /* UIScrollView+EmptyDataSet.m in Sources */,
+				7748988126E0CF9B000933A6 /* SearchAPIFunction.swift in Sources */,
 				7789470626AEF1C2005FDED7 /* ProgressViewController.swift in Sources */,
 				773A0B6326171238002B9875 /* AppDelegate.swift in Sources */,
 				772C3F6A2627457C0044001B /* UITableViewExtension.swift in Sources */,

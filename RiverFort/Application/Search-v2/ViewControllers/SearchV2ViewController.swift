@@ -60,28 +60,11 @@ extension SearchV2ViewController {
         guard !searchTerm.isEmpty else {
             return
         }
-        AF.request("https://finance.yahoo.com/_finance_doubledown/api/resource/searchassist;searchTerm=\(searchTerm)")
-            .validate()
+        SearchAPIFunction.yahooFinanceSearch(for: searchTerm)
             .responseDecodable(of: YahooFinanceSearchedResult.self) { [self] response in
                 guard let yahooFinanceSearchedResult = response.value else { return }
                 searchResultV2TableViewController.setCompanies(companies: yahooFinanceSearchedResult.items)
                 searchResultV2TableViewController.tableView.reloadData()
             }
     }
-}
-
-struct YahooFinanceSearchedCompany: Decodable {
-    let symbol: String
-    let name: String
-    let exch: String
-    let type: String
-    let exchDisp: String
-    let typeDisp: String
-}
-
-struct YahooFinanceSearchedResult: Decodable {
-    let suggestionTitleAccessor: String
-    let suggestionMeta: [String]
-    let hiConf: Bool
-    let items: [YahooFinanceSearchedCompany]
 }
