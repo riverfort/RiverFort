@@ -1,5 +1,5 @@
 //
-//  WatchedCompanyDetailN.swift
+//  WatchedCompanyDetail.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 03/08/2021.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WatchedCompanyDetailNew {
+struct WatchedCompanyDetail {
     var symbol: String
     var name: String
     var currency: String

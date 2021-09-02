@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7707F04F262B219300C4E8D4 /* WatchedCompanyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7707F04E262B219300C4E8D4 /* WatchedCompanyDetail.swift */; };
 		771263C626A95CAC00B57C04 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771263C526A95CAC00B57C04 /* SearchViewController.swift */; };
 		771263CC26A97EED00B57C04 /* SearchResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771263CB26A97EED00B57C04 /* SearchResultTableViewController.swift */; };
 		771D16AE263989C10034193A /* AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D16AD263989C10034193A /* AppVersion.swift */; };
@@ -36,7 +35,7 @@
 		774DB74C2623144900A92D13 /* RiverFort.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 774DB74A2623144900A92D13 /* RiverFort.xcdatamodeld */; };
 		775DFDA72645440E00D9A4AF /* QuotesCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775DFDA62645440E00D9A4AF /* QuotesCardController.swift */; };
 		775DFDA92645849400D9A4AF /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775DFDA82645849400D9A4AF /* Quote.swift */; };
-		7760164926B984C100BA7C41 /* WatchedCompanyDetailNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760164826B984C100BA7C41 /* WatchedCompanyDetailNew.swift */; };
+		7760164926B984C100BA7C41 /* WatchedCompanyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760164826B984C100BA7C41 /* WatchedCompanyDetail.swift */; };
 		7760164C26B98E9700BA7C41 /* WatchlistConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760164B26B98E9700BA7C41 /* WatchlistConstant.swift */; };
 		7762C77226BAE258008DE1BA /* NumberShortScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7762C77126BAE258008DE1BA /* NumberShortScale.swift */; };
 		776D13C3261E087500B9CF97 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D13C2261E087500B9CF97 /* HomeViewController.swift */; };
@@ -101,7 +100,6 @@
 
 /* Begin PBXFileReference section */
 		69D13D5B19688F922B9BB9AD /* Pods-RiverFort.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RiverFort.release.xcconfig"; path = "Target Support Files/Pods-RiverFort/Pods-RiverFort.release.xcconfig"; sourceTree = "<group>"; };
-		7707F04E262B219300C4E8D4 /* WatchedCompanyDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchedCompanyDetail.swift; sourceTree = "<group>"; };
 		771263C526A95CAC00B57C04 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		771263CB26A97EED00B57C04 /* SearchResultTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewController.swift; sourceTree = "<group>"; };
 		771D16AD263989C10034193A /* AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersion.swift; sourceTree = "<group>"; };
@@ -131,10 +129,12 @@
 		77420215264AA033002F6104 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
 		77420216264AA033002F6104 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
 		7748987926E0C229000933A6 /* TemplateCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCardController.swift; sourceTree = "<group>"; };
+		7748987B26E0C396000933A6 /* NewPriceChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPriceChartViewController.swift; sourceTree = "<group>"; };
+		7748987D26E0C3E7000933A6 /* NewPriceChartCardPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPriceChartCardPartView.swift; sourceTree = "<group>"; };
 		774DB74B2623144900A92D13 /* RiverFort.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RiverFort.xcdatamodel; sourceTree = "<group>"; };
 		775DFDA62645440E00D9A4AF /* QuotesCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesCardController.swift; sourceTree = "<group>"; };
 		775DFDA82645849400D9A4AF /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
-		7760164826B984C100BA7C41 /* WatchedCompanyDetailNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchedCompanyDetailNew.swift; sourceTree = "<group>"; };
+		7760164826B984C100BA7C41 /* WatchedCompanyDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchedCompanyDetail.swift; sourceTree = "<group>"; };
 		7760164B26B98E9700BA7C41 /* WatchlistConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistConstant.swift; sourceTree = "<group>"; };
 		7762C77126BAE258008DE1BA /* NumberShortScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberShortScale.swift; sourceTree = "<group>"; };
 		776D13C2261E087500B9CF97 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -246,8 +246,9 @@
 			isa = PBXGroup;
 			children = (
 				7720570526DE6E8300063A9A /* NewCompanyDetailViewController.swift */,
-				772A747426DF93890088A604 /* NewProfileCardController.swift */,
 				7748987926E0C229000933A6 /* TemplateCardController.swift */,
+				772A747426DF93890088A604 /* NewProfileCardController.swift */,
+				7748987B26E0C396000933A6 /* NewPriceChartViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -255,6 +256,7 @@
 		7720570426DE6E3A00063A9A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7748987D26E0C3E7000933A6 /* NewPriceChartCardPartView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -346,7 +348,6 @@
 		773A0B9D2617237C002B9875 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				7707F04E262B219300C4E8D4 /* WatchedCompanyDetail.swift */,
 				773A0BA626172670002B9875 /* APIFunctions.swift */,
 				773A0BA926172690002B9875 /* Company.swift */,
 				773A0BAF261726C7002B9875 /* CompanyTrading.swift */,
@@ -365,7 +366,7 @@
 		7760164626B977EF00BA7C41 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7760164826B984C100BA7C41 /* WatchedCompanyDetailNew.swift */,
+				7760164826B984C100BA7C41 /* WatchedCompanyDetail.swift */,
 				7785D7872630144200988C28 /* WatchedCompany */,
 			);
 			path = Model;
@@ -888,6 +889,7 @@
 				776F657C26BBEF2D00CAA5A6 /* EditWatchlistViewController.swift in Sources */,
 				779A46FC26D508AA0072CE0B /* LogGenerator.swift in Sources */,
 				771263CC26A97EED00B57C04 /* SearchResultTableViewController.swift in Sources */,
+				7748987E26E0C3E7000933A6 /* NewPriceChartCardPartView.swift in Sources */,
 				779B885B26BD1B0100FB06A1 /* SettingsTableViewConstant.swift in Sources */,
 				771E328126D6525E002CC604 /* AcknowledgementsViewController.swift in Sources */,
 				77A147B02642BD1600EE8535 /* CompanyDetailViewController.swift in Sources */,
@@ -899,7 +901,7 @@
 				77CB234526B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift in Sources */,
 				77950FD626443A79002AC408 /* ProfileCardController.swift in Sources */,
 				773A0BAA26172690002B9875 /* Company.swift in Sources */,
-				7760164926B984C100BA7C41 /* WatchedCompanyDetailNew.swift in Sources */,
+				7760164926B984C100BA7C41 /* WatchedCompanyDetail.swift in Sources */,
 				77876E94264D5D6700798106 /* Regex.swift in Sources */,
 				779B886026BD213D00FB06A1 /* SettingsStaticTableViewCell.swift in Sources */,
 				77F93368261A3271007662D5 /* UINavigationItemExtension.swift in Sources */,
@@ -909,7 +911,7 @@
 				773A0BA726172670002B9875 /* APIFunctions.swift in Sources */,
 				77814CD626469D6B008C832C /* ADTV.swift in Sources */,
 				773A0BCB26176C8F002B9875 /* Currency.swift in Sources */,
-				7707F04F262B219300C4E8D4 /* WatchedCompanyDetail.swift in Sources */,
+				7748987C26E0C396000933A6 /* NewPriceChartViewController.swift in Sources */,
 				77C4BD85261CAF9100B8C748 /* HapticsManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

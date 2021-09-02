@@ -40,7 +40,7 @@ class WatchlistTableViewCell: UITableViewCell {
 }
 
 extension WatchlistTableViewCell {
-    public func setWatchlistTableViewCell(watchedCompanyDetail: WatchedCompanyDetailNew) {
+    public func setWatchlistTableViewCell(watchedCompanyDetail: WatchedCompanyDetail) {
         symbol.text = watchedCompanyDetail.symbol
         name.text   = watchedCompanyDetail.name
         mktCap.text = NumberShortScale.formatNumber(watchedCompanyDetail.mktCap)
@@ -68,7 +68,7 @@ extension WatchlistTableViewCell {
         }
     }
     
-    private func setPriceLabelText(watchedCompanyDetail: WatchedCompanyDetailNew) {
+    private func setPriceLabelText(watchedCompanyDetail: WatchedCompanyDetail) {
         guard let windowInterfaceOrientation = WindowInterfaceOrientation.windowInterfaceOrientation else { return }
         if windowInterfaceOrientation.isLandscape {
             price.text  = "\(watchedCompanyDetail.currency) \(watchedCompanyDetail.price)"
