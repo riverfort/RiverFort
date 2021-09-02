@@ -8,7 +8,7 @@
 import UIKit
 import CardParts
 
-class NewProfileCardController: CardPartsViewController {
+class NewProfileCardController: TemplateCardController {
     private let namePart = CardPartTitleView(type: .titleOnly)
     private let exchPart = CardPartTitleView(type: .titleOnly)
     private let pricePart  = CardPartTitleView(type: .titleOnly)
@@ -18,7 +18,6 @@ class NewProfileCardController: CardPartsViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configView()
         configNamePart()
         configExchPart()
         configPricePart()
@@ -30,11 +29,6 @@ class NewProfileCardController: CardPartsViewController {
 }
 
 extension NewProfileCardController {
-    private func configView() {
-        view.backgroundColor = .secondarySystemGroupedBackground
-        view.layer.cornerRadius = 12.0
-    }
-        
     private func configNamePart() {
         namePart.title = "Company Name"
         namePart.label.numberOfLines = 0
@@ -83,9 +77,4 @@ extension NewProfileCardController {
     private func configCardParts() {
         setupCardParts([cardPartSV2])
     }
-}
-
-extension NewProfileCardController: BorderCardTrait, TransparentCardTrait {
-    func borderWidth() -> CGFloat { 0 }
-    func borderColor() -> CGColor { UIColor.clear.cgColor }
 }
