@@ -10,7 +10,7 @@ import CardParts
 
 class NewCompanyDetailViewController: CardsViewController {
     private var symbol: String = ""
-    private let cards: [CardController] = [NewProfileCardController(), NewProfileCardController(), NewProfileCardController(), NewProfileCardController(), NewProfileCardController(), NewProfileCardController(), NewProfileCardController(), NewProfileCardController(),NewProfileCardController(), NewProfileCardController(), NewProfileCardController(), NewProfileCardController(),]
+    private let cards: [CardController] = [NewProfileCardController(), NewPriceChartCardController()]
     
     override func viewDidLoad() {
         super.viewDidLoad()

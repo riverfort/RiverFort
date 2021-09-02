@@ -7,8 +7,9 @@
 
 import UIKit
 
-class NewPriceChartViewController: UIViewController {
+class NewPriceChartCardController: TemplateCardController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupCardParts([NewPriceChartCardPartView()])
     }
 }

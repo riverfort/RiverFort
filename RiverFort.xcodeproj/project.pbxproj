@@ -32,7 +32,7 @@
 		773A86F0263C34A9008105A1 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A86EF263C34A9008105A1 /* PrivacyPolicyViewController.swift */; };
 		77420217264AA033002F6104 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 77420216264AA033002F6104 /* UIScrollView+EmptyDataSet.m */; };
 		7748987A26E0C229000933A6 /* TemplateCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748987926E0C229000933A6 /* TemplateCardController.swift */; };
-		7748987C26E0C396000933A6 /* NewPriceChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748987B26E0C396000933A6 /* NewPriceChartViewController.swift */; };
+		7748987C26E0C396000933A6 /* NewPriceChartCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748987B26E0C396000933A6 /* NewPriceChartCardController.swift */; };
 		7748987E26E0C3E7000933A6 /* NewPriceChartCardPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748987D26E0C3E7000933A6 /* NewPriceChartCardPartView.swift */; };
 		7748988126E0CF9B000933A6 /* SearchAPIFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748988026E0CF9B000933A6 /* SearchAPIFunction.swift */; };
 		7748988326E0D598000933A6 /* DetailViewAPIFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748988226E0D598000933A6 /* DetailViewAPIFunction.swift */; };
@@ -133,7 +133,7 @@
 		77420215264AA033002F6104 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
 		77420216264AA033002F6104 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
 		7748987926E0C229000933A6 /* TemplateCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCardController.swift; sourceTree = "<group>"; };
-		7748987B26E0C396000933A6 /* NewPriceChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPriceChartViewController.swift; sourceTree = "<group>"; };
+		7748987B26E0C396000933A6 /* NewPriceChartCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPriceChartCardController.swift; sourceTree = "<group>"; };
 		7748987D26E0C3E7000933A6 /* NewPriceChartCardPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPriceChartCardPartView.swift; sourceTree = "<group>"; };
 		7748988026E0CF9B000933A6 /* SearchAPIFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIFunction.swift; sourceTree = "<group>"; };
 		7748988226E0D598000933A6 /* DetailViewAPIFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewAPIFunction.swift; sourceTree = "<group>"; };
@@ -254,7 +254,7 @@
 				7720570526DE6E8300063A9A /* NewCompanyDetailViewController.swift */,
 				7748987926E0C229000933A6 /* TemplateCardController.swift */,
 				772A747426DF93890088A604 /* NewProfileCardController.swift */,
-				7748987B26E0C396000933A6 /* NewPriceChartViewController.swift */,
+				7748987B26E0C396000933A6 /* NewPriceChartCardController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -929,7 +929,7 @@
 				773A0BA726172670002B9875 /* APIFunctions.swift in Sources */,
 				77814CD626469D6B008C832C /* ADTV.swift in Sources */,
 				773A0BCB26176C8F002B9875 /* Currency.swift in Sources */,
-				7748987C26E0C396000933A6 /* NewPriceChartViewController.swift in Sources */,
+				7748987C26E0C396000933A6 /* NewPriceChartCardController.swift in Sources */,
 				77C4BD85261CAF9100B8C748 /* HapticsManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

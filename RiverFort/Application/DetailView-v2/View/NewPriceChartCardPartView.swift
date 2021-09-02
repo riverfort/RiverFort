@@ -9,9 +9,9 @@ import UIKit
 import CardParts
 import Charts
 
-class NewPriceChartCardPartView: CardPartView {
+class NewPriceChartCardPartView: UIView, CardPartView {
     internal var margins: UIEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
-    private lazy var chartView: MyLineChartView = {
+    private let chartView: MyLineChartView = {
         let chartView = MyLineChartView()
         chartView.animate(xAxisDuration: 0.5)
         chartView.minOffset = 0
@@ -20,7 +20,6 @@ class NewPriceChartCardPartView: CardPartView {
         chartView.leftAxis.enabled  = false
         chartView.rightAxis.enabled = false
         chartView.setScaleEnabled(false)
-        chartView.myChartViewDelegate = self
         chartView.highlightPerDragEnabled = false
         chartView.highlightPerTapEnabled = false
         chartView.xAxis.enabled = true
@@ -35,8 +34,13 @@ class NewPriceChartCardPartView: CardPartView {
     }()
     
     init() {
+        super.init(frame: CGRect.zero)
         view.addSubview(chartView)
         setChartViewConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
@@ -46,6 +50,7 @@ extension NewPriceChartCardPartView: MyChartViewDelegate {
         chartView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         chartView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         chartView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        chartView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         chartView.heightAnchor.constraint(equalToConstant: 250).isActive = true
     }
 }
