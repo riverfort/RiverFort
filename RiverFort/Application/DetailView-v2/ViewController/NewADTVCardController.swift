@@ -19,6 +19,9 @@ class NewADTVCardController: TemplateCardController {
     private let adtv60LabelPart = CardPartTitleView(type: .titleOnly)
     private let adtv60DataPart = CardPartTitleView(type: .titleOnly)
     private let adtv60CardPartSV = CardPartStackView()
+    private let adtv120LabelPart = CardPartTitleView(type: .titleOnly)
+    private let adtv120DataPart = CardPartTitleView(type: .titleOnly)
+    private let adtv120CardPartSV = CardPartStackView()
     private let cardPartSV = CardPartStackView()
     
     override func viewDidLoad() {
@@ -84,6 +87,21 @@ extension NewADTVCardController {
         adtv60CardPartSV.distribution = .equalSpacing
         adtv60CardPartSV.addArrangedSubview(adtv60LabelPart)
         adtv60CardPartSV.addArrangedSubview(adtv60DataPart)
+        
+        adtv120LabelPart.title = "120"
+        adtv120LabelPart.titleColor = .systemGray
+        adtv120LabelPart.titleFont = .preferredFont(forTextStyle: .subheadline)
+        adtv120LabelPart.label.adjustsFontForContentSizeCategory = true
+        
+        adtv120DataPart.title = "100,000,000"
+        adtv120DataPart.titleColor = .label
+        adtv120DataPart.titleFont = .preferredFont(forTextStyle: .subheadline)
+        adtv120DataPart.label.adjustsFontForContentSizeCategory = true
+        
+        adtv120CardPartSV.axis = .horizontal
+        adtv120CardPartSV.distribution = .equalSpacing
+        adtv120CardPartSV.addArrangedSubview(adtv120LabelPart)
+        adtv120CardPartSV.addArrangedSubview(adtv120DataPart)
     }
     
     private func configCardPartSV() {
@@ -95,5 +113,6 @@ extension NewADTVCardController {
         cardPartSV.addArrangedSubview(adtv10CardPartSV)
         cardPartSV.addArrangedSubview(adtv20CardPartSV)
         cardPartSV.addArrangedSubview(adtv60CardPartSV)
+        cardPartSV.addArrangedSubview(adtv120CardPartSV)
     }
 }
