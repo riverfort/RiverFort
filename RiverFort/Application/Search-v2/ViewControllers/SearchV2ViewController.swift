@@ -35,14 +35,9 @@ extension SearchV2ViewController {
         let searchController = UISearchController(searchResultsController: searchResultV2TableViewController)
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
-        searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "Symbols, Companies"
         navigationItem.searchController = searchController
     }
-}
-
-extension SearchV2ViewController: UISearchBarDelegate {
-    
 }
 
 extension SearchV2ViewController: UISearchResultsUpdating {
@@ -50,16 +45,10 @@ extension SearchV2ViewController: UISearchResultsUpdating {
         guard let searchText = searchController.searchBar.text else {
             return
         }
-        yahooFinanceSearch(for: searchText)
-    }
-}
-
-extension SearchV2ViewController {
-    private func yahooFinanceSearch(for searchTerm: String) {
-        guard !searchTerm.isEmpty else {
+        guard !searchText.isEmpty else {
             return
         }
-        SearchAPIFunction.yahooFinanceSearch(for: searchTerm)
+        SearchAPIFunction.yahooFinanceSearch(for: searchText)
             .responseDecodable(of: YahooFinanceSearchedResult.self) { [self] response in
                 guard let yahooFinanceSearchedResult = response.value else { return }
                 searchResultV2TableViewController.setCompanies(companies: yahooFinanceSearchedResult.items)
