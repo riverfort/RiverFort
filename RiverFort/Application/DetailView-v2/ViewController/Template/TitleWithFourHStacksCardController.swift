@@ -37,6 +37,10 @@ class TitleWithFourHStacksCardController: TemplateCardController {
 }
 
 extension TitleWithFourHStacksCardController {
+    public func setTitle(title: String) {
+        titlePart.title = title
+    }
+    
     public func setFirstLabelPart(title: String) {
         firstLabelPart.title = title
     }
