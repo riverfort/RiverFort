@@ -13,61 +13,59 @@ class NewProfileCardController: TemplateCardController {
     private let exchPart = CardPartTitleView(type: .titleOnly)
     private let pricePart  = CardPartTitleView(type: .titleOnly)
     private let changePart = CardPartTitleView(type: .titleOnly)
+    
     private let cardPartSV1 = CardPartStackView()
     private let cardPartSV2 = CardPartStackView()
     
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        createObservesr()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        configNamePart()
-        configExchPart()
-        configPricePart()
-        configChangePart()
-        configCardPartSV1()
-        configCardPartSV2()
         configCardParts()
     }
 }
 
 extension NewProfileCardController {
-    private func configNamePart() {
-        namePart.title = "Company Name"
+    private func configTitleView() {
         namePart.label.numberOfLines = 0
+        namePart.label.textAlignment = .left
         namePart.titleColor = .label
         namePart.titleFont = .preferredFont(forTextStyle: .headline)
         namePart.label.adjustsFontForContentSizeCategory = true
-    }
-    
-    private func configExchPart() {
-        exchPart.title = "Exch"
-        exchPart.titleColor = .label
+        
+        exchPart.label.textAlignment = .right
+        exchPart.titleColor = .systemGray
         exchPart.titleFont = .preferredFont(forTextStyle: .subheadline)
         exchPart.label.adjustsFontForContentSizeCategory = true
-    }
-    
-    private func configPricePart() {
-        pricePart.title = "122.33"
+        
         pricePart.titleColor = .label
         pricePart.titleFont = .preferredFont(forTextStyle: .headline)
         pricePart.label.adjustsFontForContentSizeCategory = true
-    }
-    
-    private func configChangePart() {
-        changePart.title = "+10.0%"
+        
         changePart.titleColor = .label
         changePart.titleFont = .preferredFont(forTextStyle: .subheadline)
         changePart.label.adjustsFontForContentSizeCategory = true
     }
     
-    private func configCardPartSV1() {
+    private func configStackView() {
         cardPartSV1.axis = .horizontal
-        cardPartSV1.distribution = .equalSpacing
+        cardPartSV1.distribution = .fillEqually
         cardPartSV1.addArrangedSubview(namePart)
         cardPartSV1.addArrangedSubview(exchPart)
-    }
-    
-    private func configCardPartSV2() {
-        cardPartSV2.axis = .vertical
+        
         cardPartSV2.spacing = 5
+        cardPartSV2.axis = .vertical
         cardPartSV2.distribution = .equalSpacing
         cardPartSV2.margins = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
         cardPartSV2.addArrangedSubview(cardPartSV1)
@@ -75,6 +73,23 @@ extension NewProfileCardController {
     }
     
     private func configCardParts() {
+        configTitleView()
+        configStackView()
         setupCardParts([cardPartSV2])
+    }
+}
+
+extension NewProfileCardController {
+    private func createObservesr() {
+        let aName = Notification.Name(NewSearchConstant.SELECT_SEARCH_COMPANY)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: aName, object: nil)
+    }
+    
+    @objc private func prepareView(notification: Notification) {
+        guard let company = notification.object as? YahooFinanceSearchedCompany else {
+            return
+        }
+        namePart.title = company.name
+        exchPart.title = company.exch
     }
 }
