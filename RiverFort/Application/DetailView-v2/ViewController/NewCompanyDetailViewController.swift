@@ -9,7 +9,6 @@ import UIKit
 import CardParts
 
 class NewCompanyDetailViewController: CardsViewController {
-    private var symbol: String = ""
     private let cards = [NewProfileCardController(),
                          NewPriceChartCardController(),
                          NewADTVChartCardController(),
@@ -31,12 +30,6 @@ extension NewCompanyDetailViewController {
     }
     
     private func configNavigationController() {
-        navigationItem.title = symbol
-    }
-}
-
-extension NewCompanyDetailViewController {
-    public func setSymbol(of symbol: String) {
-        self.symbol = symbol
+        navigationItem.title = "symbol"
     }
 }
