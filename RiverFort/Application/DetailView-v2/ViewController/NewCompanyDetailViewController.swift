@@ -43,12 +43,12 @@ extension NewCompanyDetailViewController {
 }
 
 extension NewCompanyDetailViewController {
-    func createObservesr() {
+    private func createObservesr() {
         let aName = Notification.Name(NewSearchConstant.SELECT_SEARCH_COMPANY)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: aName, object: nil)
     }
     
-    @objc func prepareView(notification: Notification) {
+    @objc private func prepareView(notification: Notification) {
         guard let company = notification.object as? YahooFinanceSearchedCompany else {
             return
         }
