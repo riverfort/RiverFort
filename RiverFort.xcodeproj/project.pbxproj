@@ -65,7 +65,6 @@
 		77887D1426E12C210016192D /* NewAADTVCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77887D1326E12C210016192D /* NewAADTVCardController.swift */; };
 		7789470626AEF1C2005FDED7 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789470526AEF1C2005FDED7 /* ProgressViewController.swift */; };
 		7789A82B266A30B300B71294 /* ADTVChartCardPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789A82A266A30B300B71294 /* ADTVChartCardPartView.swift */; };
-		778B3AFD26E12D9A009CBE7E /* TitleWithFourHStacksCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778B3AFC26E12D9A009CBE7E /* TitleWithFourHStacksCardController.swift */; };
 		7791881226E0E7FE005B7D38 /* NewADTVCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791881126E0E7FE005B7D38 /* NewADTVCardController.swift */; };
 		7793E87E261F53DE00D8D3FA /* CompanyAdtv60.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7793E87D261F53DE00D8D3FA /* CompanyAdtv60.swift */; };
 		77950FC82643DBEB002AC408 /* QuotesCardPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77950FC72643DBEB002AC408 /* QuotesCardPartView.swift */; };
@@ -172,7 +171,6 @@
 		77887D1326E12C210016192D /* NewAADTVCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAADTVCardController.swift; sourceTree = "<group>"; };
 		7789470526AEF1C2005FDED7 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		7789A82A266A30B300B71294 /* ADTVChartCardPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTVChartCardPartView.swift; sourceTree = "<group>"; };
-		778B3AFC26E12D9A009CBE7E /* TitleWithFourHStacksCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleWithFourHStacksCardController.swift; sourceTree = "<group>"; };
 		7791881126E0E7FE005B7D38 /* NewADTVCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewADTVCardController.swift; sourceTree = "<group>"; };
 		7793E87D261F53DE00D8D3FA /* CompanyAdtv60.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyAdtv60.swift; sourceTree = "<group>"; };
 		77950FC72643DBEB002AC408 /* QuotesCardPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesCardPartView.swift; sourceTree = "<group>"; };
@@ -585,7 +583,6 @@
 			isa = PBXGroup;
 			children = (
 				7748987926E0C229000933A6 /* TemplateCardController.swift */,
-				778B3AFC26E12D9A009CBE7E /* TitleWithFourHStacksCardController.swift */,
 			);
 			path = Template;
 			sourceTree = "<group>";
@@ -932,7 +929,6 @@
 				77CBB6BC26B92BA500CCD0A6 /* WatchlistTableView.swift in Sources */,
 				7728847B265B962F001C0D4F /* FeedsViewModel.swift in Sources */,
 				776F657E26BBF15900CAA5A6 /* EditWatchlistTableView.swift in Sources */,
-				778B3AFD26E12D9A009CBE7E /* TitleWithFourHStacksCardController.swift in Sources */,
 				779A46F826D4F6210072CE0B /* NotificationHelper.swift in Sources */,
 				77F93372261A3675007662D5 /* DateFormatterUtils.swift in Sources */,
 				7760164C26B98E9700BA7C41 /* WatchlistConstant.swift in Sources */,
