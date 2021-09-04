@@ -37,6 +37,6 @@ extension NewPriceChartCardController {
         guard let company = notification.object as? YahooFinanceSearchedCompany else {
             return
         }
-        print(company)
+//        print(company)
     }
 }
