@@ -1,5 +1,5 @@
 //
-//  NewProfileCardController.swift
+//  HeaderCardController.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 01/09/2021.
@@ -8,7 +8,7 @@
 import UIKit
 import CardParts
 
-class NewProfileCardController: TemplateCardController {
+class HeaderCardController: TemplateCardController {
     private let namePart = CardPartTitleView(type: .titleOnly)
     private let exchPart = CardPartTitleView(type: .titleOnly)
     private let pricePart  = CardPartTitleView(type: .titleOnly)
@@ -36,7 +36,7 @@ class NewProfileCardController: TemplateCardController {
     }
 }
 
-extension NewProfileCardController {
+extension HeaderCardController {
     private func configTitleView() {
         namePart.label.numberOfLines = 0
         namePart.label.textAlignment = .left
@@ -80,7 +80,7 @@ extension NewProfileCardController {
     }
 }
 
-extension NewProfileCardController {
+extension HeaderCardController {
     private func createObservesr() {
         let selectSearchCompanyName = Notification.Name(NewSearchConstant.SELECT_SEARCH_COMPANY)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareNameAndExch), name: selectSearchCompanyName, object: nil)

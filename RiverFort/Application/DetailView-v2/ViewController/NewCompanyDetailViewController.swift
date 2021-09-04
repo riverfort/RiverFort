@@ -9,7 +9,7 @@ import UIKit
 import CardParts
 
 class NewCompanyDetailViewController: CardsViewController {
-    private let cards = [NewProfileCardController(),
+    private let cards = [HeaderCardController(),
                          NewPriceChartCardController(),
                          NewADTVChartCardController(),
                          NewADTVCardController(),
