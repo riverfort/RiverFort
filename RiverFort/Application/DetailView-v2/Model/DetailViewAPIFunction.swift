@@ -16,4 +16,8 @@ class DetailViewAPIFunction {
     static func fetchUKNewsfeed(symbol: String) -> DataRequest {
         AF.request("https://www.investegate.co.uk/Rss.aspx?company=\(symbol)").validate()
     }
+    
+    static func fetchQuoteFromYahoo(symbol: String) -> DataRequest {
+        AF.request("https://query2.finance.yahoo.com/v7/finance/options/\(symbol)").validate()
+    }
 }
