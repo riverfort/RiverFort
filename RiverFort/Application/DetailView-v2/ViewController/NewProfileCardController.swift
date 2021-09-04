@@ -100,6 +100,7 @@ extension NewProfileCardController {
         guard let yahooFinanceQuoteResult = notification.object as? YahooFinanceQuoteResult else {
             return
         }
-        pricePart.title = "\(yahooFinanceQuoteResult.optionChain.result[0].quote.regularMarketPrice)"
+        let yahooFinanceQuote = yahooFinanceQuoteResult.optionChain.result[0].quote
+        pricePart.title = "\(yahooFinanceQuote.currency) \(yahooFinanceQuote.regularMarketPrice)"
     }
 }
