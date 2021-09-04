@@ -23,19 +23,28 @@ class DetailViewAPIFunction {
 }
 
 struct YahooFinanceQuoteResult: Decodable {
+    struct OptionChain: Decodable {
+        struct OptionChainResult: Decodable {
+            let underlyingSymbol: String
+            let quote: YahooFinanceQuote
+        }
+        let result: [OptionChainResult]
+    }
     let optionChain: OptionChain
 }
 
-struct OptionChain: Decodable {
-    struct OptionChainResult: Decodable {
-        let underlyingSymbol: String
-        let quote: YahooFinanceQuote
-    }
-    let result: [OptionChainResult]
-}
-
 struct YahooFinanceQuote: Decodable {
-    let marketCap: Double?
     let symbol: String
+    let currency: String
+    let marketState: String
+    let marketCap: Double?
+    let regularMarketTime: Int
+    let regularMarketVolume: Int
+    let regularMarketChange: Double
+    let regularMarketChangePercent: Double
+    let regularMarketPrice: Double
+    let regularMarketOpen: Double
+    let regularMarketDayHigh: Double
+    let regularMarketDayLow: Double
 }
 
