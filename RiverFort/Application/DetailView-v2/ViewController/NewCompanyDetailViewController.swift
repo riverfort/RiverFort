@@ -53,5 +53,16 @@ extension NewCompanyDetailViewController {
             return
         }
         navigationItem.title = company.symbol
+        getQuote(symbol: company.symbol)
+    }
+}
+
+extension NewCompanyDetailViewController {
+    private func getQuote(symbol: String) {
+        DetailViewAPIFunction.fetchQuoteFromYahooFinance(symbol: symbol)
+            .responseDecodable(of: YahooFinanceQuoteResult.self) { (response) in
+                guard let yahooFinanceQuoteResult = response.value else { return }
+                print("---\(yahooFinanceQuoteResult)---")
+            }
     }
 }
