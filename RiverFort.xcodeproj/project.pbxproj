@@ -45,6 +45,7 @@
 		7760164926B984C100BA7C41 /* WatchedCompanyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760164826B984C100BA7C41 /* WatchedCompanyDetail.swift */; };
 		7760164C26B98E9700BA7C41 /* WatchlistConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760164B26B98E9700BA7C41 /* WatchlistConstant.swift */; };
 		7762C77226BAE258008DE1BA /* NumberShortScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7762C77126BAE258008DE1BA /* NumberShortScale.swift */; };
+		776A913526E3B5E50012D0D5 /* NewProfileCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776A913426E3B5E50012D0D5 /* NewProfileCardController.swift */; };
 		776D13C3261E087500B9CF97 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D13C2261E087500B9CF97 /* HomeViewController.swift */; };
 		776F657A26BBDB6400CAA5A6 /* WindowInterfaceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776F657926BBDB6400CAA5A6 /* WindowInterfaceOrientation.swift */; };
 		776F657C26BBEF2D00CAA5A6 /* EditWatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776F657B26BBEF2D00CAA5A6 /* EditWatchlistViewController.swift */; };
@@ -153,6 +154,7 @@
 		7760164826B984C100BA7C41 /* WatchedCompanyDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchedCompanyDetail.swift; sourceTree = "<group>"; };
 		7760164B26B98E9700BA7C41 /* WatchlistConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistConstant.swift; sourceTree = "<group>"; };
 		7762C77126BAE258008DE1BA /* NumberShortScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberShortScale.swift; sourceTree = "<group>"; };
+		776A913426E3B5E50012D0D5 /* NewProfileCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProfileCardController.swift; sourceTree = "<group>"; };
 		776D13C2261E087500B9CF97 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		776F657926BBDB6400CAA5A6 /* WindowInterfaceOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowInterfaceOrientation.swift; sourceTree = "<group>"; };
 		776F657B26BBEF2D00CAA5A6 /* EditWatchlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWatchlistViewController.swift; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 				772A747426DF93890088A604 /* HeaderCardController.swift */,
 				7748987B26E0C396000933A6 /* NewPriceChartCardController.swift */,
 				7748988626E0E454000933A6 /* NewADTVChartCardController.swift */,
+				776A913426E3B5E50012D0D5 /* NewProfileCardController.swift */,
 				7791881126E0E7FE005B7D38 /* NewADTVCardController.swift */,
 				77887D1326E12C210016192D /* NewAADTVCardController.swift */,
 				77FF535A26E12826001FAACA /* OHLCCardController.swift */,
@@ -896,6 +899,7 @@
 				7720570626DE6E8300063A9A /* NewCompanyDetailViewController.swift in Sources */,
 				771D16AE263989C10034193A /* AppVersion.swift in Sources */,
 				77FBC8C226C557E500C35E9C /* WatchlistSync.swift in Sources */,
+				776A913526E3B5E50012D0D5 /* NewProfileCardController.swift in Sources */,
 				7774DBED264BF451002752B4 /* NewSymbolRequest.swift in Sources */,
 				7785EF2D26AAA24500AEB5FE /* SearchResultCell.swift in Sources */,
 				779B886226BD2B4900FB06A1 /* SettingsSection.swift in Sources */,
