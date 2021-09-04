@@ -49,6 +49,7 @@ extension NewProfileCardController {
         exchPart.titleFont = .preferredFont(forTextStyle: .subheadline)
         exchPart.label.adjustsFontForContentSizeCategory = true
         
+        pricePart.title = "-"
         pricePart.titleColor = .label
         pricePart.titleFont = .preferredFont(forTextStyle: .headline)
         pricePart.label.adjustsFontForContentSizeCategory = true
