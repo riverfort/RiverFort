@@ -15,9 +15,6 @@ class SearchAPIFunction {
 }
 
 struct YahooFinanceSearchedResult: Decodable {
-    let suggestionTitleAccessor: String
-    let suggestionMeta: [String]
-    let hiConf: Bool
     let items: [YahooFinanceSearchedCompany]
 }
 
