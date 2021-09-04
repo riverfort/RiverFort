@@ -81,15 +81,24 @@ extension NewProfileCardController {
 
 extension NewProfileCardController {
     private func createObservesr() {
-        let aName = Notification.Name(NewSearchConstant.SELECT_SEARCH_COMPANY)
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: aName, object: nil)
+        let selectSearchCompanyName = Notification.Name(NewSearchConstant.SELECT_SEARCH_COMPANY)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareNameAndExch), name: selectSearchCompanyName, object: nil)
+        let yahooFinanceQuoteResultName = Notification.Name(NewDetailViewConstant.YAHOO_FINANCE_QUOTE_RESULT)
+        NotificationCenter.default.addObserver(self, selector: #selector(preparePrice), name: yahooFinanceQuoteResultName, object: nil)
     }
     
-    @objc private func prepareView(notification: Notification) {
+    @objc private func prepareNameAndExch(notification: Notification) {
         guard let company = notification.object as? YahooFinanceSearchedCompany else {
             return
         }
         namePart.title = company.name
         exchPart.title = company.exch
+    }
+    
+    @objc private func preparePrice(notification: Notification) {
+        guard let yahooFinanceQuoteResult = notification.object as? YahooFinanceQuoteResult else {
+            return
+        }
+        pricePart.title = "\(yahooFinanceQuoteResult.optionChain.result[0].quote.regularMarketPrice)"
     }
 }
