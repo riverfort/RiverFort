@@ -47,4 +47,3 @@ struct YahooFinanceQuote: Decodable {
     let regularMarketDayHigh: Double
     let regularMarketDayLow: Double
 }
-
