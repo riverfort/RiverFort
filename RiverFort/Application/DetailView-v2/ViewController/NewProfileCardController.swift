@@ -19,6 +19,7 @@ class NewProfileCardController: TemplateCardController {
     private let sectorDataPart = CardPartTitleView(type: .titleOnly)
     
     private let readMoreButtonPart = CardPartButtonView()
+    private var readMoreURL = URL(string: "")
     
     private let cardPartSV = CardPartStackView()
     
@@ -100,8 +101,10 @@ extension NewProfileCardController {
 
 extension NewProfileCardController {
     @objc private func readMoreButtonTapped() {
-        print("button tapped")
-        let vc = SFSafariViewController(url: URL(string: "https://www.google.com")!)
+        guard let url = readMoreURL else {
+            return
+        }
+        let vc = SFSafariViewController(url: url)
         present(vc, animated: true, completion: nil)
     }
 }
@@ -117,5 +120,12 @@ extension NewProfileCardController {
             return
         }
         let yahooFinanceQuote = yahooFinanceQuoteResult.optionChain.result[0].quote
+        let exchange = yahooFinanceQuote.exchange
+        switch exchange {
+        case "AQS":
+            readMoreURL = DetailViewReadMoreURLs.AQUIS_EXCHANGE_URL(symbol: yahooFinanceQuote.symbol)
+        default:
+            readMoreURL = DetailViewReadMoreURLs.YAHOO_FINANCE_URL(symbol: yahooFinanceQuote.symbol)
+        }
     }
 }
