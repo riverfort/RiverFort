@@ -75,6 +75,8 @@ extension NewProfileCardController {
         sectorDataPart.label.adjustsFontForContentSizeCategory = true
         
         readMoreButtonPart.setTitle("Read more", for: .normal)
+        readMoreButtonPart.titleLabel?.font = .preferredFont(forTextStyle: .subheadline)
+        readMoreButtonPart.titleLabel?.adjustsFontForContentSizeCategory = true
         readMoreButtonPart.setTitleColor(.link, for: .normal)
         readMoreButtonPart.addTarget(self, action: #selector(readMoreButtonTapped), for: .touchUpInside)
     }
@@ -123,8 +125,10 @@ extension NewProfileCardController {
         let exchange = yahooFinanceQuote.exchange
         switch exchange {
         case "AQS":
+            readMoreButtonPart.setTitle("Read more on Aquis Stock Exchange (AQSE)", for: .normal)
             readMoreURL = DetailViewReadMoreURLs.AQUIS_EXCHANGE_URL(symbol: yahooFinanceQuote.symbol)
         default:
+            readMoreButtonPart.setTitle("Read more on Yahoo Finance", for: .normal)
             readMoreURL = DetailViewReadMoreURLs.YAHOO_FINANCE_URL(symbol: yahooFinanceQuote.symbol)
         }
     }
