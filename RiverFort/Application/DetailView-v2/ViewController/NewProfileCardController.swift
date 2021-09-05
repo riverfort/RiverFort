@@ -17,6 +17,8 @@ class NewProfileCardController: TemplateCardController {
     private let sectorLabelPart = CardPartTitleView(type: .titleOnly)
     private let sectorDataPart = CardPartTitleView(type: .titleOnly)
     
+    private let readMoreButtonPart = CardPartButtonView()
+    
     private let cardPartSV = CardPartStackView()
     
     override func viewDidLoad() {
@@ -56,6 +58,10 @@ extension NewProfileCardController {
         sectorDataPart.titleColor = .label
         sectorDataPart.titleFont = .preferredFont(forTextStyle: .subheadline)
         sectorDataPart.label.adjustsFontForContentSizeCategory = true
+        
+        readMoreButtonPart.setTitle("Read more", for: .normal)
+        readMoreButtonPart.setTitleColor(.link, for: .normal)
+        readMoreButtonPart.addTarget(self, action: #selector(readMoreButtonTapped), for: .touchUpInside)
     }
     
     private func configStackView() {
@@ -68,11 +74,18 @@ extension NewProfileCardController {
         cardPartSV.addArrangedSubview(industryDataPart)
         cardPartSV.addArrangedSubview(sectorLabelPart)
         cardPartSV.addArrangedSubview(sectorDataPart)
+        cardPartSV.addArrangedSubview(readMoreButtonPart)
     }
     
     private func configCardParts() {
         configTitleView()
         configStackView()
         setupCardParts([cardPartSV])
+    }
+}
+
+extension NewProfileCardController {
+    @objc private func readMoreButtonTapped() {
+        print("button tapped")
     }
 }
