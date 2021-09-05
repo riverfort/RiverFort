@@ -7,6 +7,7 @@
 
 import UIKit
 import CardParts
+import SafariServices
 
 class NewProfileCardController: TemplateCardController {
     private let titlePart = CardPartTitleView(type: .titleOnly)
@@ -100,6 +101,8 @@ extension NewProfileCardController {
 extension NewProfileCardController {
     @objc private func readMoreButtonTapped() {
         print("button tapped")
+        let vc = SFSafariViewController(url: URL(string: "https://www.google.com")!)
+        present(vc, animated: true, completion: nil)
     }
 }
 
