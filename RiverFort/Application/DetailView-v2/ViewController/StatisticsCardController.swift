@@ -148,7 +148,7 @@ extension StatisticsCardController {
         }
         let yahooFinanceQuote = yahooFinanceQuoteResult.optionChain.result[0].quote
         if let mktCap = yahooFinanceQuote.marketCap {
-            mktCapDataPart.title = "\(mktCap)"
+            mktCapDataPart.title = NumberShortScale.formatNumber(mktCap)
         }
     }
 }
