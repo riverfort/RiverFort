@@ -36,7 +36,6 @@ class NewsCardController: TemplateCardController {
 extension NewsCardController {
     private func configTitleView() {
         titlePart.title = "News"
-        titlePart.label.numberOfLines = 0
         titlePart.titleColor = .label
         titlePart.titleFont = .preferredFont(forTextStyle: .headline)
         titlePart.label.adjustsFontForContentSizeCategory = true
