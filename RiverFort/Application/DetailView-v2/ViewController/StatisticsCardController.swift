@@ -19,14 +19,6 @@ class StatisticsCardController: TemplateCardController {
     private let volDataPart = CardPartTitleView(type: .titleOnly)
     private let volCardPartSV = CardPartStackView()
     
-    private let avgVolLabelPart = CardPartTitleView(type: .titleOnly)
-    private let avgVolDataPart = CardPartTitleView(type: .titleOnly)
-    private let avgVolCardPartSV = CardPartStackView()
-    
-    private let closeLabelPart = CardPartTitleView(type: .titleOnly)
-    private let closeDataPart = CardPartTitleView(type: .titleOnly)
-    private let closeCardPartSV = CardPartStackView()
-    
     private let cardPartSV = CardPartStackView()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -85,36 +77,6 @@ extension StatisticsCardController {
         volCardPartSV.distribution = .equalSpacing
         volCardPartSV.addArrangedSubview(volLabelPart)
         volCardPartSV.addArrangedSubview(volDataPart)
-        
-        avgVolLabelPart.title = "Avg. Vol"
-        avgVolLabelPart.titleColor = .systemGray
-        avgVolLabelPart.titleFont = .preferredFont(forTextStyle: .subheadline)
-        avgVolLabelPart.label.adjustsFontForContentSizeCategory = true
-        
-        avgVolDataPart.title = "-"
-        avgVolDataPart.titleColor = .label
-        avgVolDataPart.titleFont = .preferredFont(forTextStyle: .subheadline)
-        avgVolDataPart.label.adjustsFontForContentSizeCategory = true
-        
-        avgVolCardPartSV.axis = .horizontal
-        avgVolCardPartSV.distribution = .equalSpacing
-        avgVolCardPartSV.addArrangedSubview(avgVolLabelPart)
-        avgVolCardPartSV.addArrangedSubview(avgVolDataPart)
-        
-        closeLabelPart.title = "C"
-        closeLabelPart.titleColor = .systemGray
-        closeLabelPart.titleFont = .preferredFont(forTextStyle: .subheadline)
-        closeLabelPart.label.adjustsFontForContentSizeCategory = true
-        
-        closeDataPart.title = "-"
-        closeDataPart.titleColor = .label
-        closeDataPart.titleFont = .preferredFont(forTextStyle: .subheadline)
-        closeDataPart.label.adjustsFontForContentSizeCategory = true
-        
-        closeCardPartSV.axis = .horizontal
-        closeCardPartSV.distribution = .equalSpacing
-        closeCardPartSV.addArrangedSubview(closeLabelPart)
-        closeCardPartSV.addArrangedSubview(closeDataPart)
     }
     
     private func configStackView() {
@@ -125,8 +87,6 @@ extension StatisticsCardController {
         cardPartSV.addArrangedSubview(titlePart)
         cardPartSV.addArrangedSubview(mktCapCardPartSV)
         cardPartSV.addArrangedSubview(volCardPartSV)
-        cardPartSV.addArrangedSubview(avgVolCardPartSV)
-        cardPartSV.addArrangedSubview(closeCardPartSV)
     }
     
     private func configCardParts() {
