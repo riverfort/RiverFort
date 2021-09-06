@@ -13,6 +13,7 @@
 		771E328126D6525E002CC604 /* AcknowledgementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E328026D6525E002CC604 /* AcknowledgementsViewController.swift */; };
 		7720570626DE6E8300063A9A /* NewCompanyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7720570526DE6E8300063A9A /* NewCompanyDetailViewController.swift */; };
 		772845A926E613210003F13E /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772845A826E613210003F13E /* NewsViewModel.swift */; };
+		772845AB26E615FA0003F13E /* DetailViewNewsfeedURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772845AA26E615FA0003F13E /* DetailViewNewsfeedURLs.swift */; };
 		7728847B265B962F001C0D4F /* FeedsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7728847A265B962F001C0D4F /* FeedsViewModel.swift */; };
 		772A747526DF93890088A604 /* HeaderCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772A747426DF93890088A604 /* HeaderCardController.swift */; };
 		772C3F6A2627457C0044001B /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772C3F692627457C0044001B /* UITableViewExtension.swift */; };
@@ -122,6 +123,7 @@
 		771E328026D6525E002CC604 /* AcknowledgementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementsViewController.swift; sourceTree = "<group>"; };
 		7720570526DE6E8300063A9A /* NewCompanyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCompanyDetailViewController.swift; sourceTree = "<group>"; };
 		772845A826E613210003F13E /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
+		772845AA26E615FA0003F13E /* DetailViewNewsfeedURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewNewsfeedURLs.swift; sourceTree = "<group>"; };
 		7728847A265B962F001C0D4F /* FeedsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewModel.swift; sourceTree = "<group>"; };
 		772A747426DF93890088A604 /* HeaderCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCardController.swift; sourceTree = "<group>"; };
 		772C3F692627457C0044001B /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
@@ -722,6 +724,7 @@
 			children = (
 				77CD33FD26E39DBE00950F2A /* NewDetailViewConstant.swift */,
 				77C82A2F26E4E6E800768FDB /* DetailViewReadMoreURLs.swift */,
+				772845AA26E615FA0003F13E /* DetailViewNewsfeedURLs.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -996,6 +999,7 @@
 				77F93368261A3271007662D5 /* UINavigationItemExtension.swift in Sources */,
 				77950FC82643DBEB002AC408 /* QuotesCardPartView.swift in Sources */,
 				779A46F626D4EFE10072CE0B /* UIApplication+AppVersion.swift in Sources */,
+				772845AB26E615FA0003F13E /* DetailViewNewsfeedURLs.swift in Sources */,
 				773A0BB0261726C7002B9875 /* CompanyTrading.swift in Sources */,
 				7796865626E5F963002A9980 /* StatisticsCardController.swift in Sources */,
 				773A0BA726172670002B9875 /* APIFunctions.swift in Sources */,
