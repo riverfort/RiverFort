@@ -150,5 +150,6 @@ extension StatisticsCardController {
         if let mktCap = yahooFinanceQuote.marketCap {
             mktCapDataPart.title = NumberShortScale.formatNumber(mktCap)
         }
+        volDataPart.title = NumberShortScale.formatNumber(Double(yahooFinanceQuote.regularMarketVolume))
     }
 }
