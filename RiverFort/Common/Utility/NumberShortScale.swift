@@ -13,19 +13,24 @@ class NumberShortScale {
         let sign = (n < 0) ? "-" : ""
 
         switch num {
+        case 1_000_000_000_000...:
+            var formatted = num / 1_000_000_000_000
+            formatted = formatted.reduceScale(to: 2)
+            return "\(sign)\(formatted)T"
+        
         case 1_000_000_000...:
             var formatted = num / 1_000_000_000
-            formatted = formatted.reduceScale(to: 1)
+            formatted = formatted.reduceScale(to: 2)
             return "\(sign)\(formatted)B"
 
         case 1_000_000...:
             var formatted = num / 1_000_000
-            formatted = formatted.reduceScale(to: 1)
+            formatted = formatted.reduceScale(to: 2)
             return "\(sign)\(formatted)M"
 
         case 1_000...:
             var formatted = num / 1_000
-            formatted = formatted.reduceScale(to: 1)
+            formatted = formatted.reduceScale(to: 2)
             return "\(sign)\(formatted)K"
 
         case 0...:
