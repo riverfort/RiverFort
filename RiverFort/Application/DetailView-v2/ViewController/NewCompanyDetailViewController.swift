@@ -13,6 +13,7 @@ class NewCompanyDetailViewController: CardsViewController {
                          NewPriceChartCardController(),
                          NewADTVChartCardController(),
                          NewProfileCardController(),
+                         StatisticsCardController(),
                          NewADTVCardController(),
                          NewAADTVCardController(),
                          OHLCCardController()]

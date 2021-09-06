@@ -73,6 +73,7 @@
 		77950FCE2643EA4B002AC408 /* ChartCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77950FCD2643EA4B002AC408 /* ChartCardController.swift */; };
 		77950FD42644270C002AC408 /* SymbolProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77950FD32644270C002AC408 /* SymbolProfile.swift */; };
 		77950FD626443A79002AC408 /* ProfileCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77950FD526443A79002AC408 /* ProfileCardController.swift */; };
+		7796865626E5F963002A9980 /* StatisticsCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7796865526E5F963002A9980 /* StatisticsCardController.swift */; };
 		779A46F426D4EE740072CE0B /* UIDevice+modelName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A46F326D4EE740072CE0B /* UIDevice+modelName.swift */; };
 		779A46F626D4EFE10072CE0B /* UIApplication+AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A46F526D4EFE10072CE0B /* UIApplication+AppVersion.swift */; };
 		779A46F826D4F6210072CE0B /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A46F726D4F6210072CE0B /* NotificationHelper.swift */; };
@@ -183,6 +184,7 @@
 		77950FCD2643EA4B002AC408 /* ChartCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCardController.swift; sourceTree = "<group>"; };
 		77950FD32644270C002AC408 /* SymbolProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolProfile.swift; sourceTree = "<group>"; };
 		77950FD526443A79002AC408 /* ProfileCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCardController.swift; sourceTree = "<group>"; };
+		7796865526E5F963002A9980 /* StatisticsCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCardController.swift; sourceTree = "<group>"; };
 		779A46F326D4EE740072CE0B /* UIDevice+modelName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+modelName.swift"; sourceTree = "<group>"; };
 		779A46F526D4EFE10072CE0B /* UIApplication+AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+AppVersion.swift"; sourceTree = "<group>"; };
 		779A46F726D4F6210072CE0B /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 				7748987B26E0C396000933A6 /* NewPriceChartCardController.swift */,
 				7748988626E0E454000933A6 /* NewADTVChartCardController.swift */,
 				776A913426E3B5E50012D0D5 /* NewProfileCardController.swift */,
+				7796865526E5F963002A9980 /* StatisticsCardController.swift */,
 				7791881126E0E7FE005B7D38 /* NewADTVCardController.swift */,
 				77887D1326E12C210016192D /* NewAADTVCardController.swift */,
 				77FF535A26E12826001FAACA /* OHLCCardController.swift */,
@@ -986,6 +989,7 @@
 				77950FC82643DBEB002AC408 /* QuotesCardPartView.swift in Sources */,
 				779A46F626D4EFE10072CE0B /* UIApplication+AppVersion.swift in Sources */,
 				773A0BB0261726C7002B9875 /* CompanyTrading.swift in Sources */,
+				7796865626E5F963002A9980 /* StatisticsCardController.swift in Sources */,
 				773A0BA726172670002B9875 /* APIFunctions.swift in Sources */,
 				77814CD626469D6B008C832C /* ADTV.swift in Sources */,
 				773A0BCB26176C8F002B9875 /* Currency.swift in Sources */,
