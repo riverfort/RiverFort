@@ -14,9 +14,9 @@ class NewCompanyDetailViewController: CardsViewController {
                          NewADTVChartCardController(),
                          NewProfileCardController(),
                          StatisticsCardController(),
+                         OHLCCardController(),
                          NewADTVCardController(),
-                         NewAADTVCardController(),
-                         OHLCCardController()]
+                         NewAADTVCardController()]
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
