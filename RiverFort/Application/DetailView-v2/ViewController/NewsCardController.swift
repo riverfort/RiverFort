@@ -42,27 +42,31 @@ extension NewsCardController {
         titlePart.label.adjustsFontForContentSizeCategory = true
     }
     
+    private func configTableViewModel() {
+        newsViewModel.rssItems.asObservable().bind(to: newsTableView.tableView.rx.items) { tableView, index, data in
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "CellId", for: IndexPath(item: index, section: 0)) as? CardPartTableViewCell else { return UITableViewCell() }
+                      
+            cell.backgroundColor = .secondarySystemGroupedBackground
+            cell.accessoryType = .disclosureIndicator
+                        
+            cell.leftTitleLabel.text = data.title
+            cell.leftTitleLabel.numberOfLines = 2
+            cell.leftTitleLabel.textColor = .label
+            cell.leftTitleFont = .preferredFont(forTextStyle: .headline)
+            cell.leftTitleLabel.adjustsFontForContentSizeCategory = true
+            
+            cell.leftDescriptionLabel.text = data.pubDate
+            cell.leftDescriptionLabel.textColor = .secondaryLabel
+            cell.leftDescriptionLabel.font = .preferredFont(forTextStyle: .subheadline)
+            cell.leftDescriptionLabel.adjustsFontForContentSizeCategory = true
+            return cell
+        }.disposed(by: bag)
+    }
+    
     private func configTableView() {
-        newsViewModel
-            .rssItems
-            .asObservable()
-            .bind(to: newsTableView.tableView.rx.items) { tableView, index, data in
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: "CellId", for: IndexPath(item: index, section: 0)) as? CardPartTableViewCell else { return UITableViewCell() }
-                tableView.separatorColor = .systemGray
-                cell.accessoryType = .disclosureIndicator
-                
-                cell.leftTitleLabel.text = data.title
-                cell.leftTitleLabel.numberOfLines = 2
-                cell.leftTitleLabel.textColor = .label
-                cell.leftTitleFont = .preferredFont(forTextStyle: .headline)
-                cell.leftTitleLabel.adjustsFontForContentSizeCategory = true
-                
-                cell.leftDescriptionLabel.text = data.pubDate
-                cell.leftDescriptionLabel.textColor = .secondaryLabel
-                cell.leftDescriptionLabel.font = .preferredFont(forTextStyle: .subheadline)
-                cell.leftDescriptionLabel.adjustsFontForContentSizeCategory = true
-                return cell
-            }.disposed(by: bag)
+        newsTableView.delegate = self
+        newsTableView.tableView.backgroundColor = .secondarySystemGroupedBackground
+        newsTableView.tableView.separatorColor = .systemGray
     }
     
     private func configStackView() {
@@ -75,9 +79,20 @@ extension NewsCardController {
     
     private func configCardParts() {
         configTitleView()
+        configTableViewModel()
         configTableView()
         configStackView()
         setupCardParts([cardPartSV])
+    }
+}
+
+extension NewsCardController: CardPartTableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
 }
 
