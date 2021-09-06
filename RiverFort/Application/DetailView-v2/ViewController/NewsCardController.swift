@@ -12,7 +12,6 @@ class NewsCardController: TemplateCardController {
     private let titlePart = CardPartTitleView(type: .titleOnly)
     private let newsTableView = CardPartTableView()
     private let newsViewModel = NewsViewModel()
-    private let cardPartSV = CardPartStackView()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -39,6 +38,7 @@ extension NewsCardController {
         titlePart.titleColor = .label
         titlePart.titleFont = .preferredFont(forTextStyle: .headline)
         titlePart.label.adjustsFontForContentSizeCategory = true
+        titlePart.margins = UIEdgeInsets(top: 15, left: 15, bottom: 0, right: 15)
     }
     
     private func configTableViewModel() {
@@ -63,21 +63,14 @@ extension NewsCardController {
         newsTableView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         newsTableView.tableView.backgroundColor = .secondarySystemGroupedBackground
         newsTableView.tableView.separatorStyle = .none
-    }
-    
-    private func configStackView() {
-        cardPartSV.axis = .vertical
-        cardPartSV.spacing = 5
-        cardPartSV.distribution = .equalSpacing
-        cardPartSV.margins = UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0)
+        newsTableView.margins = UIEdgeInsets(top: 5, left: 0, bottom: 15, right: 0)
     }
     
     private func configCardParts() {
         configTitleView()
         configTableViewModel()
         configTableView()
-        configStackView()
-        setupCardParts([cardPartSV])
+        setupCardParts([titlePart, newsTableView])
     }
 }
 
@@ -105,7 +98,6 @@ extension NewsCardController {
         let market = yahooFinanceQuote.market
         switch market {
         case "gb_market":
-            cardPartSV.addArrangedSubview(newsTableView)
             newsViewModel.fetchRSSFeedsUK(symbol: yahooFinanceQuote.symbol)
         default:
             return
