@@ -1,5 +1,5 @@
 //
-//  FeedParser.swift
+//  RSSFeedParser.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 13/05/2021.
@@ -18,7 +18,7 @@ struct RSSItem {
 // parse xml to foundation objects
 // call back
 
-class FeedParser: NSObject, XMLParserDelegate {
+class RSSFeedParser: NSObject, XMLParserDelegate {
     private var rssItems: [RSSItem] = []
     private var currentElement = ""
     private var currentTitle   = "" {

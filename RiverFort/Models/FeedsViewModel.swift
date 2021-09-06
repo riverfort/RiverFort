@@ -11,7 +11,7 @@ import RxSwift
 
 final class FeedsViewModel {
     let listData: BehaviorRelay<[RSSItem]> = BehaviorRelay(value: [])
-    let feedParser = FeedParser()
+    let feedParser = RSSFeedParser()
     
     init(symbol: String) {
         var myrssItems: [RSSItem] = []
