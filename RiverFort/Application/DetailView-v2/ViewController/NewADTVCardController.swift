@@ -10,6 +10,14 @@ import CardParts
 
 class NewADTVCardController: TemplateCardController {
     private let titlePart = CardPartTitleView(type: .titleOnly)
+
+    private let adtv1LabelPart = CardPartTitleView(type: .titleOnly)
+    private let adtv1DataPart = CardPartTitleView(type: .titleOnly)
+    private let adtv1CardPartSV = CardPartStackView()
+    
+    private let adtv5LabelPart = CardPartTitleView(type: .titleOnly)
+    private let adtv5DataPart = CardPartTitleView(type: .titleOnly)
+    private let adtv5CardPartSV = CardPartStackView()
     
     private let adtv10LabelPart = CardPartTitleView(type: .titleOnly)
     private let adtv10DataPart = CardPartTitleView(type: .titleOnly)
@@ -55,6 +63,36 @@ extension NewADTVCardController {
         titlePart.titleColor = .label
         titlePart.titleFont = .preferredFont(forTextStyle: .headline)
         titlePart.label.adjustsFontForContentSizeCategory = true
+        
+        adtv1LabelPart.title = "1"
+        adtv1LabelPart.titleColor = .systemGray
+        adtv1LabelPart.titleFont = .preferredFont(forTextStyle: .subheadline)
+        adtv1LabelPart.label.adjustsFontForContentSizeCategory = true
+        
+        adtv1DataPart.title = "-"
+        adtv1DataPart.titleColor = .label
+        adtv1DataPart.titleFont = .preferredFont(forTextStyle: .subheadline)
+        adtv1DataPart.label.adjustsFontForContentSizeCategory = true
+        
+        adtv1CardPartSV.axis = .horizontal
+        adtv1CardPartSV.distribution = .equalSpacing
+        adtv1CardPartSV.addArrangedSubview(adtv1LabelPart)
+        adtv1CardPartSV.addArrangedSubview(adtv1DataPart)
+        
+        adtv5LabelPart.title = "5"
+        adtv5LabelPart.titleColor = .systemGray
+        adtv5LabelPart.titleFont = .preferredFont(forTextStyle: .subheadline)
+        adtv5LabelPart.label.adjustsFontForContentSizeCategory = true
+        
+        adtv5DataPart.title = "-"
+        adtv5DataPart.titleColor = .label
+        adtv5DataPart.titleFont = .preferredFont(forTextStyle: .subheadline)
+        adtv5DataPart.label.adjustsFontForContentSizeCategory = true
+        
+        adtv5CardPartSV.axis = .horizontal
+        adtv5CardPartSV.distribution = .equalSpacing
+        adtv5CardPartSV.addArrangedSubview(adtv5LabelPart)
+        adtv5CardPartSV.addArrangedSubview(adtv5DataPart)
         
         adtv10LabelPart.title = "10"
         adtv10LabelPart.titleColor = .systemGray
@@ -123,6 +161,8 @@ extension NewADTVCardController {
         cardPartSV.distribution = .equalSpacing
         cardPartSV.margins = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
         cardPartSV.addArrangedSubview(titlePart)
+        cardPartSV.addArrangedSubview(adtv1CardPartSV)
+        cardPartSV.addArrangedSubview(adtv5CardPartSV)
         cardPartSV.addArrangedSubview(adtv10CardPartSV)
         cardPartSV.addArrangedSubview(adtv20CardPartSV)
         cardPartSV.addArrangedSubview(adtv60CardPartSV)
