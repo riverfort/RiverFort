@@ -11,6 +11,7 @@ import CardParts
 class NewsCardController: TemplateCardController {
     private let titlePart = CardPartTitleView(type: .titleOnly)
     private let newsTableView = CardPartTableView()
+    private let newsViewModel = NewsViewModel()
     private let cardPartSV = CardPartStackView()
     
     override func viewDidLoad() {
@@ -28,6 +29,8 @@ extension NewsCardController {
         titlePart.label.adjustsFontForContentSizeCategory = true
     }
     
+    private func configTableView() {}
+    
     private func configStackView() {
         cardPartSV.axis = .vertical
         cardPartSV.spacing = 5
@@ -39,6 +42,7 @@ extension NewsCardController {
     
     private func configCardParts() {
         configTitleView()
+        configTableView()
         configStackView()
         setupCardParts([cardPartSV])
     }
