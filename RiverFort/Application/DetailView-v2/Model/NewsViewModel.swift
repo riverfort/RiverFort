@@ -18,8 +18,8 @@ extension NewsViewModel {
         let urlStr = DetailViewNewsfeedURLs.UK_INVESTEGATE_URL(symbol: symbol)
         rssFeedParser.parseFeed(url: urlStr) { [self] response in
             switch response.count {
-            case let count where count > 50:
-                rssItems.accept(Array(response[0..<50]))
+            case let count where count > 25:
+                rssItems.accept(Array(response[0..<25]))
             default:
                 rssItems.accept(Array(response))
             }
