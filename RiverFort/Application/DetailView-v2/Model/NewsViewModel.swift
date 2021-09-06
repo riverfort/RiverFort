@@ -10,7 +10,7 @@ import RxCocoa
 
 class NewsViewModel {
     private let rssFeedParser = RSSFeedParser()
-    private let rssItems: BehaviorRelay<[RSSItem]> = BehaviorRelay(value: [])
+    public let rssItems: BehaviorRelay<[RSSItem]> = BehaviorRelay(value: [])
 }
 
 extension NewsViewModel {

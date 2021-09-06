@@ -42,7 +42,28 @@ extension NewsCardController {
         titlePart.label.adjustsFontForContentSizeCategory = true
     }
     
-    private func configTableView() {}
+    private func configTableView() {
+        newsViewModel
+            .rssItems
+            .asObservable()
+            .bind(to: newsTableView.tableView.rx.items) { tableView, index, data in
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "CellId", for: IndexPath(item: index, section: 0)) as? CardPartTableViewCell else { return UITableViewCell() }
+                tableView.separatorColor = .systemGray
+                cell.accessoryType = .disclosureIndicator
+                
+                cell.leftTitleLabel.text = data.title
+                cell.leftTitleLabel.numberOfLines = 2
+                cell.leftTitleLabel.textColor = .label
+                cell.leftTitleFont = .preferredFont(forTextStyle: .headline)
+                cell.leftTitleLabel.adjustsFontForContentSizeCategory = true
+                
+                cell.leftDescriptionLabel.text = data.pubDate
+                cell.leftDescriptionLabel.textColor = .secondaryLabel
+                cell.leftDescriptionLabel.font = .preferredFont(forTextStyle: .subheadline)
+                cell.leftDescriptionLabel.adjustsFontForContentSizeCategory = true
+                return cell
+            }.disposed(by: bag)
+    }
     
     private func configStackView() {
         cardPartSV.axis = .vertical
@@ -50,7 +71,6 @@ extension NewsCardController {
         cardPartSV.distribution = .equalSpacing
         cardPartSV.margins = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
         cardPartSV.addArrangedSubview(titlePart)
-        cardPartSV.addArrangedSubview(newsTableView)
     }
     
     private func configCardParts() {
@@ -72,5 +92,13 @@ extension NewsCardController {
             return
         }
         let yahooFinanceQuote = yahooFinanceQuoteResult.optionChain.result[0].quote
+        let market = yahooFinanceQuote.market
+        switch market {
+        case "gb_market":
+            cardPartSV.addArrangedSubview(newsTableView)
+            newsViewModel.fetchRSSFeedsUK(symbol: yahooFinanceQuote.symbol)
+        default:
+            return
+        }
     }
 }

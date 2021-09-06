@@ -37,7 +37,7 @@ struct YahooFinanceQuote: Decodable {
     let symbol: String
     let exchange: String
     let currency: String
-    let marketState: String
+    let market: String
     let marketCap: Double?
     let regularMarketTime: Int
     let regularMarketVolume: Int
