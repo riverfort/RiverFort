@@ -7,11 +7,14 @@
 
 import UIKit
 import CardParts
+import SafariServices
 
 class NewsCardController: TemplateCardController {
     private let titlePart = CardPartTitleView(type: .titleOnly)
     private let newsTableView = CardPartTableView()
     private let newsViewModel = NewsViewModel()
+    private let readMoreButtonPart = CardPartButtonView()
+    private var readMoreURL = URL(string: "")
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -63,14 +66,34 @@ extension NewsCardController {
         newsTableView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         newsTableView.tableView.backgroundColor = .secondarySystemGroupedBackground
         newsTableView.tableView.separatorStyle = .none
-        newsTableView.margins = UIEdgeInsets(top: 5, left: 0, bottom: 15, right: 0)
+        newsTableView.margins = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
+    }
+    
+    private func configButton() {
+        readMoreButtonPart.setTitle("Read more", for: .normal)
+        readMoreButtonPart.titleLabel?.font = .preferredFont(forTextStyle: .subheadline)
+        readMoreButtonPart.titleLabel?.adjustsFontForContentSizeCategory = true
+        readMoreButtonPart.setTitleColor(.link, for: .normal)
+        readMoreButtonPart.addTarget(self, action: #selector(readMoreButtonTapped), for: .touchUpInside)
+        readMoreButtonPart.margins = UIEdgeInsets(top: 0, left: 15, bottom: 15, right: 15)
     }
     
     private func configCardParts() {
         configTitleView()
         configTableViewModel()
         configTableView()
-        setupCardParts([titlePart, newsTableView])
+        configButton()
+        setupCardParts([titlePart, newsTableView, readMoreButtonPart])
+    }
+}
+
+extension NewsCardController {
+    @objc private func readMoreButtonTapped() {
+        guard let url = readMoreURL else {
+            return
+        }
+        let vc = SFSafariViewController(url: url)
+        present(vc, animated: true, completion: nil)
     }
 }
 
@@ -98,6 +121,8 @@ extension NewsCardController {
         let market = yahooFinanceQuote.market
         switch market {
         case "gb_market":
+            readMoreButtonPart.setTitle("Read more on Investegate", for: .normal)
+            readMoreURL = URL(string: DetailViewNewsURLs.UK_INVESTEGATE_URL(symbol: yahooFinanceQuote.symbol))
             newsViewModel.fetchRSSFeedsUK(symbol: yahooFinanceQuote.symbol)
         default:
             return

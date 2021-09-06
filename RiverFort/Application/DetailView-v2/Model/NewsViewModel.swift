@@ -15,7 +15,7 @@ class NewsViewModel {
 
 extension NewsViewModel {
     func fetchRSSFeedsUK(symbol: String) {
-        let urlStr = DetailViewNewsfeedURLs.UK_INVESTEGATE_URL(symbol: symbol)
+        let urlStr = DetailViewNewsURLs.UK_INVESTEGATE_RSS_URL(symbol: symbol)
         rssFeedParser.parseFeed(url: urlStr) { [self] response in
             switch response.count {
             case let count where count > 15:
