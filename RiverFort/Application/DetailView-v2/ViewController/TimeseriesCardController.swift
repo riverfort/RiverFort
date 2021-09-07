@@ -8,7 +8,7 @@
 import UIKit
 import CardParts
 
-class TimeseriesCardController: TemplateCardController {
+class TimeseriesCardController: TransparentTemplateCardController {
     private let timeseriesCardPartView = TimeseriesCardPartView()
     
     override func viewDidLoad() {
