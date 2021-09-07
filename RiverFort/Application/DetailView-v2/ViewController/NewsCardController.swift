@@ -125,6 +125,7 @@ extension NewsCardController {
             readMoreURL = URL(string: DetailViewNewsURLs.UK_INVESTEGATE_URL(symbol: yahooFinanceQuote.symbol))
             newsViewModel.fetchRSSFeedsUK(symbol: yahooFinanceQuote.symbol)
         default:
+            newsTableView.tableView.isHidden = true
             return
         }
     }
