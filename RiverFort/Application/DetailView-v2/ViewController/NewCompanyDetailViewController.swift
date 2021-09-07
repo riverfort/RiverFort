@@ -68,7 +68,6 @@ extension NewCompanyDetailViewController {
                 guard let yahooFinanceQuoteResult = response.value else { return }
                 let yahooFinanceQuoteResultName = Notification.Name(NewDetailViewConstant.YAHOO_FINANCE_QUOTE_RESULT)
                 NotificationCenter.default.post(name: yahooFinanceQuoteResultName, object: yahooFinanceQuoteResult)
-                print(yahooFinanceQuoteResult)
             }
     }
 }
@@ -78,6 +77,8 @@ extension NewCompanyDetailViewController {
         DetailViewAPIFunction.fetchHistPriceFromFMP(symbol: symbol, timeseries: timeseries)
             .responseDecodable(of: FMPHistPriceResult.self) { (response) in
                 guard let fmpHistPriceResult = response.value else { return }
+                let fmpHistPriceResultName = Notification.Name(NewDetailViewConstant.FMP_HIST_PRICE_RESULT)
+                NotificationCenter.default.post(name: fmpHistPriceResultName, object: fmpHistPriceResult)
                 print(fmpHistPriceResult)
             }
     }
