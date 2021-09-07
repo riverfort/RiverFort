@@ -10,6 +10,7 @@ import CardParts
 
 class NewCompanyDetailViewController: CardsViewController {
     private let cards = [HeaderCardController(),
+                         TimeseriesCardController(),
                          NewPriceChartCardController(),
                          NewADTVChartCardController(),
                          NewProfileCardController(),
