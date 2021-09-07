@@ -68,7 +68,7 @@ extension NewPriceChartCardPartView {
     private func configLineChartDataSet(with lineChartDataSet: LineChartDataSet) {
         lineChartDataSet.drawCirclesEnabled = false
         lineChartDataSet.drawValuesEnabled  = false
-        lineChartDataSet.drawFilledEnabled  = true
+        lineChartDataSet.drawFilledEnabled  = false
         lineChartDataSet.drawHorizontalHighlightIndicatorEnabled = false
         lineChartDataSet.lineWidth = 2.5
         lineChartDataSet.highlightLineWidth = 1.5
