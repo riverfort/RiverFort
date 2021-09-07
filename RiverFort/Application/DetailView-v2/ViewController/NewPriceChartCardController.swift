@@ -49,6 +49,6 @@ extension NewPriceChartCardController {
         guard let selectedSegmentIndex = notification.userInfo?["selectedSegmentIndex"] as? Int else {
             return
         }
-        print(selectedSegmentIndex)
+        priceChartPart.changeTimeseries(for: selectedSegmentIndex)
     }
 }

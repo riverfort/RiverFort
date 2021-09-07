@@ -10,6 +10,7 @@ import Charts
 
 class NewPriceChartCardPartView: UIView, CardPartView, MyChartViewDelegate {
     internal var margins: UIEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
+    private var histPriceDataEntries = [ChartDataEntry]()
     private let chartView: MyLineChartView = {
         let chartView = MyLineChartView()
         chartView.animate(xAxisDuration: 0.5)
@@ -51,7 +52,7 @@ extension NewPriceChartCardPartView {
             let change: Double
             let changePercent: Double
         }
-        let histPriceDataEntries: [ChartDataEntry] = histPrice.enumerated().map { (index, dailyPrice) in
+        histPriceDataEntries = histPrice.enumerated().map { (index, dailyPrice) in
             ChartDataEntry(x: Double(index), y: dailyPrice.close,
                            data: HistPriceDataEntryData(
                             date: dailyPrice.date,
@@ -59,6 +60,27 @@ extension NewPriceChartCardPartView {
                             change: dailyPrice.change,
                             changePercent: dailyPrice.changePercent))}
         let lineChartDataSet = LineChartDataSet(entries: histPriceDataEntries)
+        configLineChartDataSet(with: lineChartDataSet)
+        chartView.data = LineChartData(dataSet: lineChartDataSet)
+    }
+    
+    public func changeTimeseries(for selectedSegmentIndex: Int) {
+        var adjustedHistPriceDataEntries = [ChartDataEntry]()
+        switch selectedSegmentIndex {
+        case 0:
+            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(7)
+        case 1:
+            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(30)
+        case 2:
+            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(60)
+        case 3:
+            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(120)
+        case 4:
+            adjustedHistPriceDataEntries = histPriceDataEntries
+        default:
+            return
+        }
+        let lineChartDataSet = LineChartDataSet(entries: adjustedHistPriceDataEntries)
         configLineChartDataSet(with: lineChartDataSet)
         chartView.data = LineChartData(dataSet: lineChartDataSet)
     }
