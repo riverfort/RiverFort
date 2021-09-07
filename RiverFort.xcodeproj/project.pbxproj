@@ -105,6 +105,7 @@
 		77CD33FE26E39DBE00950F2A /* NewDetailViewConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CD33FD26E39DBE00950F2A /* NewDetailViewConstant.swift */; };
 		77CF843226316DB2009A5E21 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CF843126316DB2009A5E21 /* UIAlertControllerExtension.swift */; };
 		77DAF9CD26B05853008662E0 /* RecentSearchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DAF9CC26B05853008662E0 /* RecentSearchTableView.swift */; };
+		77E763EF26E75D76005AED84 /* TimeseriesCardControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E763EE26E75D76005AED84 /* TimeseriesCardControllerViewController.swift */; };
 		77E7E6AA26206667003323DA /* ChartColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7E6A926206667003323DA /* ChartColours.swift */; };
 		77F93361261A321F007662D5 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F93360261A321F007662D5 /* DateExtension.swift */; };
 		77F93365261A3251007662D5 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F93364261A3251007662D5 /* DoubleExtension.swift */; };
@@ -219,6 +220,7 @@
 		77CD33FD26E39DBE00950F2A /* NewDetailViewConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDetailViewConstant.swift; sourceTree = "<group>"; };
 		77CF843126316DB2009A5E21 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		77DAF9CC26B05853008662E0 /* RecentSearchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchTableView.swift; sourceTree = "<group>"; };
+		77E763EE26E75D76005AED84 /* TimeseriesCardControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeseriesCardControllerViewController.swift; sourceTree = "<group>"; };
 		77E7E6A926206667003323DA /* ChartColours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartColours.swift; sourceTree = "<group>"; };
 		77F85A0226C92B6D00EAE363 /* RiverFort.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RiverFort.entitlements; sourceTree = "<group>"; };
 		77F93360261A321F007662D5 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				778B3AFB26E12CF8009CBE7E /* Template */,
 				7720570526DE6E8300063A9A /* NewCompanyDetailViewController.swift */,
 				772A747426DF93890088A604 /* HeaderCardController.swift */,
+				77E763EE26E75D76005AED84 /* TimeseriesCardControllerViewController.swift */,
 				7748987B26E0C396000933A6 /* NewPriceChartCardController.swift */,
 				7748988626E0E454000933A6 /* NewADTVChartCardController.swift */,
 				776A913426E3B5E50012D0D5 /* NewProfileCardController.swift */,
@@ -966,6 +969,7 @@
 				779A470026D515020072CE0B /* SettingsSectionTitleConstant.swift in Sources */,
 				77876E96264D5FE700798106 /* StringExtension.swift in Sources */,
 				77CBB6B926B9276300CCD0A6 /* WatchlistViewController.swift in Sources */,
+				77E763EF26E75D76005AED84 /* TimeseriesCardControllerViewController.swift in Sources */,
 				77F93365261A3251007662D5 /* DoubleExtension.swift in Sources */,
 				772E63DE26E224AF00EA9FB0 /* NewSearchConstant.swift in Sources */,
 				77CD33FE26E39DBE00950F2A /* NewDetailViewConstant.swift in Sources */,
