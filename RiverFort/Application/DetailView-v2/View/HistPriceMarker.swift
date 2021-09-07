@@ -10,20 +10,24 @@ import Charts
 class HistPriceMarker: MarkerImage {
     @objc var color: UIColor = .red
     @objc var radius: CGFloat = 4
-    
     private var date = "-"
     private var price = "-"
     private var volume = "-"
-
     private var dateAttributes = [NSAttributedString.Key : Any]()
     private var priceAttributes = [NSAttributedString.Key : Any]()
     private var volumeAttributes = [NSAttributedString.Key : Any]()
 
     override func draw(context: CGContext, point: CGPoint) {
         configView()
-        drawDate(text: " \(date) " as NSString, rect: CGRect(origin: CGPoint(x: point.x, y: point.y), size: size), withAttributes: dateAttributes)
-        drawPrice(text: " \(price) " as NSString, rect: CGRect(origin: CGPoint(x: point.x, y: point.y), size: size), withAttributes: priceAttributes)
-        drawVolume(text: " \(volume) " as NSString, rect: CGRect(origin: CGPoint(x: point.x, y: point.y), size: size), withAttributes: volumeAttributes)
+        drawDate(text: "\(date)" as NSString,
+                 rect: CGRect(origin: CGPoint(x: point.x, y: point.y), size: size),
+                 withAttributes: dateAttributes)
+        drawPrice(text: "\(price)" as NSString,
+                  rect: CGRect(origin: CGPoint(x: point.x, y: point.y), size: size),
+                  withAttributes: priceAttributes)
+        drawVolume(text: "\(volume)" as NSString,
+                   rect: CGRect(origin: CGPoint(x: point.x, y: point.y), size: size),
+                   withAttributes: volumeAttributes)
         drawHighlightPoint(context: context, point: point)
     }
     
@@ -52,19 +56,19 @@ extension HistPriceMarker {
 extension HistPriceMarker {
     private func drawDate(text: NSString, rect: CGRect, withAttributes attributes: [NSAttributedString.Key : Any]? = nil) {
         let size = text.size(withAttributes: attributes)
-        let centeredRect = CGRect(x: 13, y: 0, width: size.width, height: size.height)
+        let centeredRect = CGRect(x: 15, y: 0, width: size.width, height: size.height)
         text.draw(in: centeredRect, withAttributes: attributes)
     }
     
     private func drawPrice(text: NSString, rect: CGRect, withAttributes attributes: [NSAttributedString.Key : Any]? = nil) {
         let size = text.size(withAttributes: attributes)
-        let centeredRect = CGRect(x: 13, y: 20, width: size.width, height: size.height)
+        let centeredRect = CGRect(x: 15, y: 20, width: size.width, height: size.height)
         text.draw(in: centeredRect, withAttributes: attributes)
     }
     
     private func drawVolume(text: NSString, rect: CGRect, withAttributes attributes: [NSAttributedString.Key : Any]? = nil) {
         let size = text.size(withAttributes: attributes)
-        let centeredRect = CGRect(x: 13, y: 40, width: size.width, height: size.height)
+        let centeredRect = CGRect(x: 15, y: 40, width: size.width, height: size.height)
         text.draw(in: centeredRect, withAttributes: attributes)
     }
     
