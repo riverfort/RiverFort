@@ -127,6 +127,7 @@ extension NewPriceChartCardPartView: ChartViewDelegate, MyChartViewDelegate {
     }
     
     func chartValueNoLongerSelected(_ chartView: MyLineChartView) {
+        chartView.highlightValue(nil)
         let chartValueNoLongerSelectedName = Notification.Name(NewDetailViewConstant.CHART_VALUE_NO_LONGER_SELECTED)
         NotificationCenter.default.post(name: chartValueNoLongerSelectedName, object: nil)
     }
