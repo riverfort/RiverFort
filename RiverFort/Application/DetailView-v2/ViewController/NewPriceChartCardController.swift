@@ -37,6 +37,7 @@ extension NewPriceChartCardController {
         guard let fmpHistPriceResult = notification.object as? FMPHistPriceResult else {
             return
         }
-        print(fmpHistPriceResult)
+        let histPrice = fmpHistPriceResult.historical
+        print(histPrice)
     }
 }
