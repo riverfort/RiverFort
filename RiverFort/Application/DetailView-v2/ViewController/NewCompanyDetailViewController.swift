@@ -50,6 +50,10 @@ extension NewCompanyDetailViewController {
     private func createObservesr() {
         let selectSearchCompanyName = Notification.Name(NewSearchConstant.SELECT_SEARCH_COMPANY)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: selectSearchCompanyName, object: nil)
+        let chartValueSelectedName = Notification.Name(NewDetailViewConstant.CHART_VALUE_SELECTED)
+        NotificationCenter.default.addObserver(self, selector: #selector(chartValueSelected), name: chartValueSelectedName, object: nil)
+        let chartValueNoLongerSelectedName = Notification.Name(NewDetailViewConstant.CHART_VALUE_NO_LONGER_SELECTED)
+        NotificationCenter.default.addObserver(self, selector: #selector(chartValueNoLongerSelected), name: chartValueNoLongerSelectedName, object: nil)
     }
     
     @objc private func prepareView(notification: Notification) {
@@ -59,6 +63,14 @@ extension NewCompanyDetailViewController {
         navigationItem.title = company.symbol
         getQuoteFromYahooFinance(symbol: company.symbol)
         getHistPriceFromFMP(symbol: company.symbol, timeseries: 180)
+    }
+    
+    @objc private func chartValueSelected() {
+        print("chartValueSelected")
+    }
+    
+    @objc private func chartValueNoLongerSelected() {
+        print("chartValueNoLongerSelected")
     }
 }
 

@@ -87,6 +87,7 @@ extension NewPriceChartCardPartView {
     private func configChartView() {
         chartView.marker = marker
         chartView.delegate = self
+        chartView.myChartViewDelegate = self
     }
     
     private func configChartViewTimeseriesAnimation() {
