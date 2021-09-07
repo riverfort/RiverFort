@@ -41,7 +41,8 @@ extension NewPriceChartCardController {
         guard let fmpHistPriceResult = notification.object as? FMPHistPriceResult else {
             return
         }
-        let histPrice = fmpHistPriceResult.historical
+        var histPrice = fmpHistPriceResult.historical
+        histPrice.reverse()
         priceChartPart.setChartData(with: histPrice)
     }
     
