@@ -19,6 +19,18 @@ class TimeseriesCardController: TransparentTemplateCardController {
 
 extension TimeseriesCardController {
     private func configCardParts() {
+        configSegmentedControl()
         setupCardParts([timeseriesCardPartView])
+    }
+}
+
+extension TimeseriesCardController {
+    private func configSegmentedControl() {
+        timeseriesCardPartView.segmentedControl.addTarget(self, action: #selector(segmentedControlHandled), for: .valueChanged)
+    }
+    
+    @objc private func segmentedControlHandled() {
+        HapticsManager.shared.impact(style: .light)
+        print("hello")
     }
 }
