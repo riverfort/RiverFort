@@ -40,6 +40,6 @@ extension NewPriceChartCardController {
             return
         }
         let histPrice = fmpHistPriceResult.historical
-        print(histPrice)
+        priceChartPart.setChartData(with: histPrice)
     }
 }

@@ -44,6 +44,26 @@ class NewPriceChartCardPartView: UIView, CardPartView, MyChartViewDelegate {
 }
 
 extension NewPriceChartCardPartView {
+    public func setChartData(with histPrice: [FMPHistPriceResult.FMPHistPrice]) {
+        struct HistPriceDataEntryData {
+            let date: String
+            let volume: Double
+            let change: Double
+            let changePercent: Double
+        }
+        let histPriceDataEntries: [ChartDataEntry] = histPrice.enumerated().map { (index, dailyPrice) in
+            ChartDataEntry(x: Double(index), y: dailyPrice.close,
+                           data: HistPriceDataEntryData(
+                            date: dailyPrice.date,
+                            volume: dailyPrice.volume,
+                            change: dailyPrice.change,
+                            changePercent: dailyPrice.changePercent))}
+        let lineChartDataSet = LineChartDataSet(entries: histPriceDataEntries)
+        chartView.data = LineChartData(dataSet: lineChartDataSet)
+    }
+}
+
+extension NewPriceChartCardPartView {
     private func setChartViewConstraints() {
         chartView.translatesAutoresizingMaskIntoConstraints = false
         chartView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
