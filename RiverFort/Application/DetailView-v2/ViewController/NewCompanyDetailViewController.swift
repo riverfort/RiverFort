@@ -66,11 +66,11 @@ extension NewCompanyDetailViewController {
     }
     
     @objc private func chartValueSelected() {
-        print("chartValueSelected")
+        super.collectionView.isScrollEnabled = false
     }
     
     @objc private func chartValueNoLongerSelected() {
-        print("chartValueNoLongerSelected")
+        super.collectionView.isScrollEnabled = true
     }
 }
 
