@@ -31,15 +31,24 @@ class NewPriceChartCardController: TemplateCardController {
 
 extension NewPriceChartCardController {
     private func createObservesr() {
-        let aName = Notification.Name(NewDetailViewConstant.FMP_HIST_PRICE_RESULT)
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: aName, object: nil)
+        let fmpHistPriceResultName = Notification.Name(NewDetailViewConstant.FMP_HIST_PRICE_RESULT)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareChartData), name: fmpHistPriceResultName, object: nil)
+        let timeseriesChangedName = Notification.Name(NewDetailViewConstant.TIMESERIES_CHANGED)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareChartTimeseries), name: timeseriesChangedName, object: nil)
     }
     
-    @objc private func prepareView(notification: Notification) {
+    @objc private func prepareChartData(notification: Notification) {
         guard let fmpHistPriceResult = notification.object as? FMPHistPriceResult else {
             return
         }
         let histPrice = fmpHistPriceResult.historical
         priceChartPart.setChartData(with: histPrice)
+    }
+    
+    @objc private func prepareChartTimeseries(notification: Notification) {
+        guard let selectedSegmentIndex = notification.userInfo?["selectedSegmentIndex"] as? Int else {
+            return
+        }
+        print(selectedSegmentIndex)
     }
 }
