@@ -11,9 +11,9 @@ class HistPriceMarker: MarkerImage {
     @objc var color: UIColor = .red
     @objc var radius: CGFloat = 4
     
-    private var date = "07 Sep, 2021"
-    private var price = "100"
-    private var volume = "10000"
+    private var date = "-"
+    private var price = "-"
+    private var volume = "-"
 
     private var dateAttributes = [NSAttributedString.Key : Any]()
     private var priceAttributes = [NSAttributedString.Key : Any]()
@@ -25,6 +25,16 @@ class HistPriceMarker: MarkerImage {
         drawPrice(text: " \(price) " as NSString, rect: CGRect(origin: CGPoint(x: point.x, y: point.y), size: size), withAttributes: priceAttributes)
         drawVolume(text: " \(volume) " as NSString, rect: CGRect(origin: CGPoint(x: point.x, y: point.y), size: size), withAttributes: volumeAttributes)
         drawHighlightPoint(context: context, point: point)
+    }
+    
+    override func refreshContent(entry: ChartDataEntry, highlight: Highlight) {
+        super.refreshContent(entry: entry, highlight: highlight)
+        guard let histPriceChartDataEntryData = entry.data as? HistPriceChartDataEntryData else {
+            return
+        }
+        date = histPriceChartDataEntryData.date
+        price = "\(entry.y)"
+        volume = "\(histPriceChartDataEntryData.volume)"
     }
 }
 

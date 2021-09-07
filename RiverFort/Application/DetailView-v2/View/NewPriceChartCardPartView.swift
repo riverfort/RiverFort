@@ -48,15 +48,9 @@ class NewPriceChartCardPartView: UIView, CardPartView, MyChartViewDelegate {
 
 extension NewPriceChartCardPartView {
     public func setChartData(with histPrice: [FMPHistPriceResult.FMPHistPrice]) {
-        struct HistPriceDataEntryData {
-            let date: String
-            let volume: Double
-            let change: Double
-            let changePercent: Double
-        }
         histPriceDataEntries = histPrice.enumerated().map { (index, dailyPrice) in
             ChartDataEntry(x: Double(index), y: dailyPrice.close,
-                           data: HistPriceDataEntryData(
+                           data: HistPriceChartDataEntryData(
                             date: dailyPrice.date,
                             volume: dailyPrice.volume,
                             change: dailyPrice.change,
