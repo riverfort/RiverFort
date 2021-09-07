@@ -102,9 +102,10 @@ extension NewPriceChartCardPartView {
         lineChartDataSet.drawHorizontalHighlightIndicatorEnabled = false
         lineChartDataSet.lineWidth = 2.5
         lineChartDataSet.highlightLineWidth = 1.5
-        lineChartDataSet.highlightColor = UIColor(rgb: 0xccccff)
+        lineChartDataSet.highlightColor = .secondaryLabel
         lineChartDataSet.lineCapType = .square
         lineChartDataSet.mode = .linear
+        lineChartDataSet.setColor(.label)
     }
 }
 

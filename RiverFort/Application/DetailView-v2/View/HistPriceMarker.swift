@@ -8,8 +8,8 @@
 import Charts
 
 class HistPriceMarker: MarkerImage {
-    @objc var color: UIColor = .red
-    @objc var radius: CGFloat = 4
+    @objc var color: UIColor = .systemRed
+    @objc var radius: CGFloat = 5
     private var price = "-"
     private var date = "-"
     private var priceAttributes = [NSAttributedString.Key : Any]()
