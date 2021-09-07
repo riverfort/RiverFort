@@ -9,7 +9,7 @@ import CardParts
 import Charts
 
 class NewPriceChartCardPartView: UIView, CardPartView, MyChartViewDelegate {
-    internal var margins: UIEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
+    internal var margins: UIEdgeInsets = UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0)
     private var histPriceDataEntries = [ChartDataEntry]()
     private let marker = HistPriceMarker()
     private let chartView: MyLineChartView = {
