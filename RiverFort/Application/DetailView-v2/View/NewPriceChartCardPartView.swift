@@ -16,7 +16,7 @@ class NewPriceChartCardPartView: UIView, CardPartView {
         let chartView = MyLineChartView()
         chartView.animate(xAxisDuration: 0.5)
         chartView.minOffset = 0
-        chartView.extraTopOffset = 70
+        chartView.extraTopOffset = 50
         chartView.legend.enabled = false
         chartView.leftAxis.enabled  = false
         chartView.rightAxis.enabled = false
