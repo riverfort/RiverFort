@@ -9,7 +9,7 @@ import CardParts
 
 class TimeseriesCardPartView: UIView, CardPartView {
     internal var margins: UIEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
-    private let segmentedControl = UISegmentedControl()
+    private let segmentedControl = UISegmentedControl(items: ["1W", "1M", "3M", "6M", "ALL"])
     
     init() {
         super.init(frame: CGRect.zero)
