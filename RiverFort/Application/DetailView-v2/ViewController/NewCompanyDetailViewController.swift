@@ -57,6 +57,7 @@ extension NewCompanyDetailViewController {
         }
         navigationItem.title = company.symbol
         getQuoteFromYahooFinance(symbol: company.symbol)
+        getHistPriceFromFMP(symbol: company.symbol, timeseries: 180)
     }
 }
 
@@ -68,6 +69,16 @@ extension NewCompanyDetailViewController {
                 let yahooFinanceQuoteResultName = Notification.Name(NewDetailViewConstant.YAHOO_FINANCE_QUOTE_RESULT)
                 NotificationCenter.default.post(name: yahooFinanceQuoteResultName, object: yahooFinanceQuoteResult)
                 print(yahooFinanceQuoteResult)
+            }
+    }
+}
+
+extension NewCompanyDetailViewController {
+    private func getHistPriceFromFMP(symbol: String, timeseries: Int) {
+        DetailViewAPIFunction.fetchHistPriceFromFMP(symbol: symbol, timeseries: timeseries)
+            .responseDecodable(of: FMPHistPriceResult.self) { (response) in
+                guard let fmpHistPriceResult = response.value else { return }
+                print(fmpHistPriceResult)
             }
     }
 }
