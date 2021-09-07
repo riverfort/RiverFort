@@ -8,6 +8,8 @@
 import UIKit
 
 class NewPriceChartCardController: TemplateCardController {
+    private let priceChartPart = NewPriceChartCardPartView()
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         createObservesr()
@@ -23,7 +25,7 @@ class NewPriceChartCardController: TemplateCardController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCardParts([NewPriceChartCardPartView()])
+        setupCardParts([priceChartPart])
     }
 }
 
