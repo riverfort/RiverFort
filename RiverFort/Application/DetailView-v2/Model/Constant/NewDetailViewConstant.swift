@@ -9,4 +9,5 @@ import Foundation
 
 struct NewDetailViewConstant {
     static var YAHOO_FINANCE_QUOTE_RESULT = "com.riverfort.yahooFinanceQuoteResult"
+    static var FMP_HIST_PRICE_RESULT = "com.riverfort.fmpHistPriceResult"
 }
