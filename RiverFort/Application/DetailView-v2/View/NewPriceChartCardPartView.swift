@@ -59,7 +59,22 @@ extension NewPriceChartCardPartView {
                             change: dailyPrice.change,
                             changePercent: dailyPrice.changePercent))}
         let lineChartDataSet = LineChartDataSet(entries: histPriceDataEntries)
+        configLineChartDataSet(with: lineChartDataSet)
         chartView.data = LineChartData(dataSet: lineChartDataSet)
+    }
+}
+
+extension NewPriceChartCardPartView {
+    private func configLineChartDataSet(with lineChartDataSet: LineChartDataSet) {
+        lineChartDataSet.drawCirclesEnabled = false
+        lineChartDataSet.drawValuesEnabled  = false
+        lineChartDataSet.drawFilledEnabled  = true
+        lineChartDataSet.drawHorizontalHighlightIndicatorEnabled = false
+        lineChartDataSet.lineWidth = 2.5
+        lineChartDataSet.highlightLineWidth = 1.5
+        lineChartDataSet.highlightColor = UIColor(rgb: 0xccccff)
+        lineChartDataSet.lineCapType = .square
+        lineChartDataSet.mode = .linear
     }
 }
 
