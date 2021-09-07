@@ -29,8 +29,10 @@ extension TimeseriesCardController {
         timeseriesCardPartView.segmentedControl.addTarget(self, action: #selector(segmentedControlHandled), for: .valueChanged)
     }
     
-    @objc private func segmentedControlHandled() {
+    @objc private func segmentedControlHandled(_ sender: UISegmentedControl) {
         HapticsManager.shared.impact(style: .light)
-        print("hello")
+        let selectedSegmentIndexDict = ["selectedSegmentIndex": sender.selectedSegmentIndex]
+        let timeseriesChangedName = Notification.Name(NewDetailViewConstant.TIMESERIES_CHANGED)
+        NotificationCenter.default.post(name: timeseriesChangedName, object: nil, userInfo: selectedSegmentIndexDict)
     }
 }
