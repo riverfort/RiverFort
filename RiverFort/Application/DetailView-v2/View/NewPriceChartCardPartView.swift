@@ -8,7 +8,7 @@
 import CardParts
 import Charts
 
-class NewPriceChartCardPartView: UIView, CardPartView, MyChartViewDelegate {
+class NewPriceChartCardPartView: UIView, CardPartView {
     internal var margins: UIEdgeInsets = UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0)
     private var histPriceDataEntries = [ChartDataEntry]()
     private let marker = HistPriceMarker()
@@ -86,6 +86,7 @@ extension NewPriceChartCardPartView {
 extension NewPriceChartCardPartView {
     private func configChartView() {
         chartView.marker = marker
+        chartView.delegate = self
     }
     
     private func configChartViewTimeseriesAnimation() {
@@ -114,5 +115,15 @@ extension NewPriceChartCardPartView {
         chartView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         chartView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         chartView.heightAnchor.constraint(equalToConstant: 250).isActive = true
+    }
+}
+
+extension NewPriceChartCardPartView: ChartViewDelegate, MyChartViewDelegate {
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        
+    }
+    
+    func chartValueNoLongerSelected(_ chartView: MyLineChartView) {
+        
     }
 }
