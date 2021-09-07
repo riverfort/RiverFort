@@ -29,14 +29,14 @@ class NewPriceChartCardController: TemplateCardController {
 
 extension NewPriceChartCardController {
     private func createObservesr() {
-        let aName = Notification.Name(NewSearchConstant.SELECT_SEARCH_COMPANY)
+        let aName = Notification.Name(NewDetailViewConstant.FMP_HIST_PRICE_RESULT)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: aName, object: nil)
     }
     
     @objc private func prepareView(notification: Notification) {
-        guard let company = notification.object as? YahooFinanceSearchedCompany else {
+        guard let fmpHistPriceResult = notification.object as? FMPHistPriceResult else {
             return
         }
-//        print(company)
+        print(fmpHistPriceResult)
     }
 }

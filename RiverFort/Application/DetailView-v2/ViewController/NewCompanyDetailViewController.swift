@@ -79,7 +79,6 @@ extension NewCompanyDetailViewController {
                 guard let fmpHistPriceResult = response.value else { return }
                 let fmpHistPriceResultName = Notification.Name(NewDetailViewConstant.FMP_HIST_PRICE_RESULT)
                 NotificationCenter.default.post(name: fmpHistPriceResultName, object: fmpHistPriceResult)
-                print(fmpHistPriceResult)
             }
     }
 }
