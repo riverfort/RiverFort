@@ -11,6 +11,7 @@ import Charts
 class NewPriceChartCardPartView: UIView, CardPartView, MyChartViewDelegate {
     internal var margins: UIEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
     private var histPriceDataEntries = [ChartDataEntry]()
+    private let marker = HistPriceMarker()
     private let chartView: MyLineChartView = {
         let chartView = MyLineChartView()
         chartView.animate(xAxisDuration: 0.5)
@@ -36,6 +37,7 @@ class NewPriceChartCardPartView: UIView, CardPartView, MyChartViewDelegate {
     init() {
         super.init(frame: CGRect.zero)
         view.addSubview(chartView)
+        configChartView()
         setChartViewConstraints()
     }
     
@@ -88,6 +90,10 @@ extension NewPriceChartCardPartView {
 }
 
 extension NewPriceChartCardPartView {
+    private func configChartView() {
+        chartView.marker = marker
+    }
+    
     private func configChartViewTimeseriesAnimation() {
         chartView.animate(yAxisDuration: 0.3, easingOption: .easeOutSine)
         chartView.zoom(scaleX: 0, scaleY: 0, x: 0, y: 0)
