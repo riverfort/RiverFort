@@ -83,10 +83,16 @@ extension NewPriceChartCardPartView {
         let lineChartDataSet = LineChartDataSet(entries: adjustedHistPriceDataEntries)
         configLineChartDataSet(with: lineChartDataSet)
         chartView.data = LineChartData(dataSet: lineChartDataSet)
+        configChartViewTimeseriesAnimation()
     }
 }
 
 extension NewPriceChartCardPartView {
+    private func configChartViewTimeseriesAnimation() {
+        chartView.animate(yAxisDuration: 0.3, easingOption: .easeOutSine)
+        chartView.zoom(scaleX: 0, scaleY: 0, x: 0, y: 0)
+    }
+    
     private func configLineChartDataSet(with lineChartDataSet: LineChartDataSet) {
         lineChartDataSet.drawCirclesEnabled = false
         lineChartDataSet.drawValuesEnabled  = false
