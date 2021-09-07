@@ -36,9 +36,9 @@ class HistPriceMarker: MarkerImage {
         guard let histPriceChartDataEntryData = entry.data as? HistPriceChartDataEntryData else {
             return
         }
-        date = histPriceChartDataEntryData.date
-        price = "\(entry.y)"
-        volume = "\(histPriceChartDataEntryData.volume)"
+        date = DateFormatterUtils.convertDateFormater(histPriceChartDataEntryData.date)
+        price = "Price: \(entry.y)"
+        volume = "Vol: \(histPriceChartDataEntryData.volume.withCommas())"
     }
 }
 
