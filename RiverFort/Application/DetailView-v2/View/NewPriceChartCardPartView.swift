@@ -120,10 +120,12 @@ extension NewPriceChartCardPartView {
 
 extension NewPriceChartCardPartView: ChartViewDelegate, MyChartViewDelegate {
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-        
+        let chartValueSelectedName = Notification.Name(NewDetailViewConstant.CHART_VALUE_SELECTED)
+        NotificationCenter.default.post(name: chartValueSelectedName, object: nil)
     }
     
     func chartValueNoLongerSelected(_ chartView: MyLineChartView) {
-        
+        let chartValueNoLongerSelectedName = Notification.Name(NewDetailViewConstant.CHART_VALUE_NO_LONGER_SELECTED)
+        NotificationCenter.default.post(name: chartValueNoLongerSelectedName, object: nil)
     }
 }
