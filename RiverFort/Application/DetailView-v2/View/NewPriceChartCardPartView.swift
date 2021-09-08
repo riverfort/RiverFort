@@ -65,12 +65,14 @@ extension NewPriceChartCardPartView {
         case 0:
             adjustedHistPriceDataEntries = histPriceDataEntries.suffix(7)
         case 1:
-            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(30)
+            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(14)
         case 2:
-            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(60)
+            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(30)
         case 3:
-            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(120)
+            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(60)
         case 4:
+            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(120)
+        case 5:
             adjustedHistPriceDataEntries = histPriceDataEntries
         default:
             return
