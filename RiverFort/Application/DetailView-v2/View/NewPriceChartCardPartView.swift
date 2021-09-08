@@ -11,6 +11,7 @@ import Charts
 class NewPriceChartCardPartView: UIView, CardPartView {
     internal var margins: UIEdgeInsets = UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0)
     private var histPriceDataEntries = [ChartDataEntry]()
+    private var newsDataEntries = [ChartDataEntry]()
     private let marker = HistPriceMarker()
     private let chartView: MyLineChartView = {
         let chartView = MyLineChartView()
@@ -46,7 +47,7 @@ class NewPriceChartCardPartView: UIView, CardPartView {
 }
 
 extension NewPriceChartCardPartView {
-    public func setChartData(with histPrice: [FMPHistPriceResult.FMPHistPrice]) {
+    public func setChartDataForHistPrice(with histPrice: [FMPHistPriceResult.FMPHistPrice]) {
         histPriceDataEntries = histPrice.enumerated().map { (index, dailyPrice) in
             ChartDataEntry(x: Double(index), y: dailyPrice.close,
                            data: HistPriceChartDataEntryData(
@@ -57,6 +58,10 @@ extension NewPriceChartCardPartView {
         let lineChartDataSet = LineChartDataSet(entries: histPriceDataEntries)
         configLineChartDataSet(with: lineChartDataSet)
         chartView.data = LineChartData(dataSet: lineChartDataSet)
+    }
+    
+    public func setChartDataForUKNews(with rssItems: [RSSItem]) {
+        print("---\(rssItems)---")
     }
     
     public func changeTimeseries(for selectedSegmentIndex: Int) {

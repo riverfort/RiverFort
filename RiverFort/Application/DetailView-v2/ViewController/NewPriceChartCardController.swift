@@ -9,6 +9,7 @@ import UIKit
 
 class NewPriceChartCardController: TemplateCardController {
     private let priceChartPart = NewPriceChartCardPartView()
+    private let newsViewModel = NewsViewModel()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -43,7 +44,7 @@ extension NewPriceChartCardController {
         }
         var histPrice = fmpHistPriceResult.historical
         histPrice.reverse()
-        priceChartPart.setChartData(with: histPrice)
+        priceChartPart.setChartDataForHistPrice(with: histPrice)
     }
     
     @objc private func prepareChartTimeseries(notification: Notification) {
@@ -51,5 +52,13 @@ extension NewPriceChartCardController {
             return
         }
         priceChartPart.changeTimeseries(for: selectedSegmentIndex)
+    }
+}
+
+extension NewPriceChartCardController {
+    private func observeRSSFeedsUK() {
+        newsViewModel.rssItems.asObservable().subscribe(
+            onNext: { print($0) }
+        ).disposed(by: bag)
     }
 }
