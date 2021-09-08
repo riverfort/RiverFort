@@ -61,7 +61,9 @@ extension NewPriceChartCardPartView {
     }
     
     public func setChartDataForUKNews(with rssItems: [RSSItem]) {
-        print("---\(rssItems)---")
+        print("handle start")
+        print("\(rssItems.count)")
+        print("handle finished")
     }
     
     public func changeTimeseries(for selectedSegmentIndex: Int) {

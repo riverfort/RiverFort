@@ -45,7 +45,7 @@ extension NewsCardController {
     }
     
     private func configTableViewModel() {
-        newsViewModel.rssItems.asObservable().bind(to: newsTableView.tableView.rx.items) { tableView, index, data in
+        newsViewModel.rssItemsForNews.asObservable().bind(to: newsTableView.tableView.rx.items) { tableView, index, data in
             let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
             cell.backgroundColor = .secondarySystemGroupedBackground
             cell.textLabel?.text = data.title

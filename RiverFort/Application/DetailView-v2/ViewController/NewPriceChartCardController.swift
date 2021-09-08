@@ -57,7 +57,8 @@ extension NewPriceChartCardController {
         let market = yahooFinanceQuote.market
         switch market {
         case "gb_market":
-            newsViewModel.fetchRSSFeedsUK(symbol: yahooFinanceQuote.symbol)
+            newsViewModel.fetchRSSFeedsUK(symbol: yahooFinanceQuote.symbol, timeseries: 180)
+            observeRSSFeedsUK()
         default:
             return
         }
@@ -73,8 +74,9 @@ extension NewPriceChartCardController {
 
 extension NewPriceChartCardController {
     private func observeRSSFeedsUK() {
-        newsViewModel.rssItems.asObservable().subscribe(
-            onNext: { print($0) }
+        newsViewModel.rssItemsForChart.asObservable().subscribe(
+            onNext: { [self] in priceChartPart.setChartDataForUKNews(with: $0) },
+            onCompleted: { print("done") }
         ).disposed(by: bag)
     }
 }
