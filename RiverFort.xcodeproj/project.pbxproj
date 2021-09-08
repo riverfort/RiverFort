@@ -109,7 +109,7 @@
 		77E763F126E75FE5005AED84 /* TimeseriesCardPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E763F026E75FE5005AED84 /* TimeseriesCardPartView.swift */; };
 		77E763F326E76488005AED84 /* TransparentTemplateCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E763F226E76488005AED84 /* TransparentTemplateCardController.swift */; };
 		77E7B3FB26E7838F000EABC6 /* HistPriceMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7B3FA26E7838F000EABC6 /* HistPriceMarker.swift */; };
-		77E7B3FD26E7AA56000EABC6 /* HistPriceChartDataEntryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7B3FC26E7AA56000EABC6 /* HistPriceChartDataEntryData.swift */; };
+		77E7B3FD26E7AA56000EABC6 /* ChartDataEntryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7B3FC26E7AA56000EABC6 /* ChartDataEntryData.swift */; };
 		77E7E6AA26206667003323DA /* ChartColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7E6A926206667003323DA /* ChartColours.swift */; };
 		77F93361261A321F007662D5 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F93360261A321F007662D5 /* DateExtension.swift */; };
 		77F93365261A3251007662D5 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F93364261A3251007662D5 /* DoubleExtension.swift */; };
@@ -228,7 +228,7 @@
 		77E763F026E75FE5005AED84 /* TimeseriesCardPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeseriesCardPartView.swift; sourceTree = "<group>"; };
 		77E763F226E76488005AED84 /* TransparentTemplateCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentTemplateCardController.swift; sourceTree = "<group>"; };
 		77E7B3FA26E7838F000EABC6 /* HistPriceMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistPriceMarker.swift; sourceTree = "<group>"; };
-		77E7B3FC26E7AA56000EABC6 /* HistPriceChartDataEntryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistPriceChartDataEntryData.swift; sourceTree = "<group>"; };
+		77E7B3FC26E7AA56000EABC6 /* ChartDataEntryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataEntryData.swift; sourceTree = "<group>"; };
 		77E7E6A926206667003323DA /* ChartColours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartColours.swift; sourceTree = "<group>"; };
 		77F85A0226C92B6D00EAE363 /* RiverFort.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RiverFort.entitlements; sourceTree = "<group>"; };
 		77F93360261A321F007662D5 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
@@ -757,7 +757,7 @@
 				7748988226E0D598000933A6 /* DetailViewAPIFunction.swift */,
 				772845A826E613210003F13E /* NewsViewModel.swift */,
 				77876E97264D69B300798106 /* RSSFeedParser.swift */,
-				77E7B3FC26E7AA56000EABC6 /* HistPriceChartDataEntryData.swift */,
+				77E7B3FC26E7AA56000EABC6 /* ChartDataEntryData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -968,7 +968,7 @@
 				7762C77226BAE258008DE1BA /* NumberShortScale.swift in Sources */,
 				779A46F426D4EE740072CE0B /* UIDevice+modelName.swift in Sources */,
 				77420217264AA033002F6104 /* UIScrollView+EmptyDataSet.m in Sources */,
-				77E7B3FD26E7AA56000EABC6 /* HistPriceChartDataEntryData.swift in Sources */,
+				77E7B3FD26E7AA56000EABC6 /* ChartDataEntryData.swift in Sources */,
 				7748988126E0CF9B000933A6 /* SearchAPIFunction.swift in Sources */,
 				7789470626AEF1C2005FDED7 /* ProgressViewController.swift in Sources */,
 				773A0B6326171238002B9875 /* AppDelegate.swift in Sources */,

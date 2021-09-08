@@ -56,14 +56,28 @@ extension NewPriceChartCardPartView {
                             change: dailyPrice.change,
                             changePercent: dailyPrice.changePercent))}
         let lineChartDataSet = LineChartDataSet(entries: histPriceDataEntries)
-        configLineChartDataSet(with: lineChartDataSet)
+        configLineChartDataSetForHistPrice(with: lineChartDataSet)
         chartView.data = LineChartData(dataSet: lineChartDataSet)
     }
     
     public func setChartDataForNews(with rssItems: [RSSItem]) {
-        print("handle start")
-        print("\(rssItems.count)")
-        print("handle finished")
+        rssItems.forEach { rssItem in
+            let newsDate = DateFormatterUtils.convertDateFormate_DMY_YMD(rssItem.pubDate)
+            histPriceDataEntries.forEach { histPrice in
+                guard let histPriceChartDataEntryData = histPrice.data as? HistPriceChartDataEntryData else {
+                    return
+                }
+                if histPriceChartDataEntryData.date == newsDate {
+                    let newsDataEntry = ChartDataEntry(
+                        x: histPrice.x,
+                        y: histPrice.y,
+                        data: NewsChartDataEntryData(date: newsDate, title: rssItem.title))
+                    let lineChartDataSet = LineChartDataSet(entries: [newsDataEntry])
+                    configLineChartDataSetForNews(with: lineChartDataSet)
+                    chartView.data?.addDataSet(lineChartDataSet)
+                }
+            }
+        }
     }
     
     public func changeTimeseries(for selectedSegmentIndex: Int) {
@@ -85,7 +99,7 @@ extension NewPriceChartCardPartView {
             return
         }
         let lineChartDataSet = LineChartDataSet(entries: adjustedHistPriceDataEntries)
-        configLineChartDataSet(with: lineChartDataSet)
+        configLineChartDataSetForHistPrice(with: lineChartDataSet)
         chartView.data = LineChartData(dataSet: lineChartDataSet)
         configChartViewTimeseriesAnimation()
     }
@@ -104,7 +118,7 @@ extension NewPriceChartCardPartView {
         chartView.zoom(scaleX: 0, scaleY: 0, x: 0, y: 0)
     }
     
-    private func configLineChartDataSet(with lineChartDataSet: LineChartDataSet) {
+    private func configLineChartDataSetForHistPrice(with lineChartDataSet: LineChartDataSet) {
         lineChartDataSet.drawCirclesEnabled = false
         lineChartDataSet.drawValuesEnabled  = false
         lineChartDataSet.drawFilledEnabled  = false
@@ -115,6 +129,15 @@ extension NewPriceChartCardPartView {
         lineChartDataSet.lineCapType = .square
         lineChartDataSet.mode = .linear
         lineChartDataSet.setColor(.systemIndigo)
+    }
+    
+    private func configLineChartDataSetForNews(with lineChartDataSet: LineChartDataSet) {
+        lineChartDataSet.setCircleColor(UIColor.red)
+        lineChartDataSet.highlightColor = .secondaryLabel
+        lineChartDataSet.highlightEnabled = false
+        lineChartDataSet.highlightLineWidth = 1.5
+        lineChartDataSet.circleRadius = 3
+        lineChartDataSet.circleHoleColor = .red
     }
 }
 

@@ -13,3 +13,8 @@ struct HistPriceChartDataEntryData {
     let change: Double
     let changePercent: Double
 }
+
+struct NewsChartDataEntryData {
+    let date: String
+    let title: String
+}
