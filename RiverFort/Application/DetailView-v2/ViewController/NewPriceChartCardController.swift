@@ -14,6 +14,7 @@ class NewPriceChartCardController: TemplateCardController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         createObservesr()
+        subscribeNewsViewModel()
     }
     
     required init?(coder: NSCoder) {
@@ -49,11 +50,6 @@ extension NewPriceChartCardController {
         switch market {
         case "gb_market":
             newsViewModel.fetchRSSFeedsUK(symbol: yahooFinanceQuote.symbol, timeseries: 30)
-            newsViewModel.rssItemsForNews.asObservable().subscribe(
-                onNext: { [self] in
-                    priceChartPart.setChartDataForNews(with: $0)
-                }
-            ).disposed(by: bag)
         default:
             return
         }
@@ -73,5 +69,15 @@ extension NewPriceChartCardController {
             return
         }
         priceChartPart.changeTimeseries(for: selectedSegmentIndex)
+    }
+}
+
+extension NewPriceChartCardController {
+    private func subscribeNewsViewModel() {
+        newsViewModel.rssItemsForNews.asObservable().subscribe(
+            onNext: { [self] in
+                priceChartPart.setChartDataForNews(with: $0)
+            }
+        ).disposed(by: bag)
     }
 }
