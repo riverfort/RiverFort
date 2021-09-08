@@ -123,7 +123,7 @@ extension NewsCardController {
         case "gb_market":
             readMoreButtonPart.setTitle("Read more on Investegate", for: .normal)
             readMoreURL = URL(string: DetailViewNewsURLs.UK_INVESTEGATE_URL(symbol: yahooFinanceQuote.symbol))
-            newsViewModel.fetchRSSFeedsUK(symbol: yahooFinanceQuote.symbol)
+            newsViewModel.fetchRSSFeedsUK(symbol: yahooFinanceQuote.symbol, timeseries: 15)
         default:
             newsTableView.tableView.isHidden = true
             return
