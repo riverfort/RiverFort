@@ -51,22 +51,35 @@ extension NewCompanyDetailViewController {
         let add = UIButton(type: .system)
         add.setImage(UIImage(systemName: "plus.circle", withConfiguration: configuration), for: .normal)
         
+        let more = UIButton(type: .system)
+        more.setImage(UIImage(systemName: "ellipsis.circle", withConfiguration: configuration), for: .normal)
+        more.showsMenuAsPrimaryAction = true
+        
         var menu: UIMenu {
             return UIMenu(title: "Share Price Chart", image: nil, identifier: nil, options: [], children: menuItems)
         }
         var menuItems: [UIAction] {
             return [
-                UIAction(title: "Price & Vol", image: UIImage(systemName: "chart.bar"), handler: { (_) in
-                }),
-                UIAction(title: "News", image: UIImage(systemName: "newspaper"), handler: { (_) in
-                }),
+                UIAction(title: "Price & Vol",
+                         image: UIImage(systemName: "chart.bar"),
+                         state: UserDefaults.standard.bool(forKey: "com.riverfort.DetailView.news") ? .off : .on,
+                         handler: { (_) in
+                            UserDefaults.standard.setValue(false, forKey: "com.riverfort.DetailView.news")
+                            more.menu = menu
+                            print("price mode")
+                         }),
+                UIAction(title: "News",
+                         image: UIImage(systemName: "newspaper"),
+                         state: UserDefaults.standard.bool(forKey: "com.riverfort.DetailView.news") ? .on : .off,
+                         handler: { (_) in
+                            UserDefaults.standard.setValue(true, forKey: "com.riverfort.DetailView.news")
+                            more.menu = menu
+                            print("news mode")
+                         }),
             ]
         }
-        let more = UIButton(type: .system)
-        more.setImage(UIImage(systemName: "ellipsis.circle", withConfiguration: configuration), for: .normal)
         more.menu = menu
-        more.showsMenuAsPrimaryAction = true
-        
+
         let stackview = UIStackView.init(arrangedSubviews: [add, more])
         stackview.distribution = .equalSpacing
         stackview.axis = .horizontal
