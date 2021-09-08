@@ -22,7 +22,7 @@ extension NewsViewModel {
                 rssItemsForNews.onNext(Array(response[0..<15]))
                 rssItemsForNews.onCompleted()
             default:
-                rssItemsForNews.onNext(Array(response[0..<15]))
+                rssItemsForNews.onNext(Array(response))
                 rssItemsForNews.onCompleted()
             }
         }
