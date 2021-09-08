@@ -52,6 +52,7 @@ extension NewCompanyDetailViewController {
         add.setImage(UIImage(systemName: "plus.circle", withConfiguration: configuration), for: .normal)
         let more = UIButton(type: .system)
         more.setImage(UIImage(systemName: "ellipsis.circle", withConfiguration: configuration), for: .normal)
+        more.addTarget(self, action: #selector(onDidTapMoreButton), for: .touchUpInside)
         
         let stackview = UIStackView.init(arrangedSubviews: [add, more])
         stackview.distribution = .equalSpacing
@@ -59,6 +60,12 @@ extension NewCompanyDetailViewController {
         stackview.alignment = .center
         stackview.spacing = 8
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: stackview)
+    }
+}
+
+extension NewCompanyDetailViewController {
+    @objc private func onDidTapMoreButton() {
+        print("hello")
     }
 }
 
