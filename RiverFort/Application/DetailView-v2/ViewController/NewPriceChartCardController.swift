@@ -32,8 +32,6 @@ class NewPriceChartCardController: TemplateCardController {
 
 extension NewPriceChartCardController {
     private func createObservesr() {
-        let yahooFinanceQuoteResultName = Notification.Name(NewDetailViewConstant.YAHOO_FINANCE_QUOTE_RESULT)
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareChartDateForNews), name: yahooFinanceQuoteResultName, object: nil)
         let fmpHistPriceResultName = Notification.Name(NewDetailViewConstant.FMP_HIST_PRICE_RESULT)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareChartDataForHistPrice), name: fmpHistPriceResultName, object: nil)
         let timeseriesChangedName = Notification.Name(NewDetailViewConstant.TIMESERIES_CHANGED)
@@ -48,35 +46,11 @@ extension NewPriceChartCardController {
         histPrice.reverse()
         priceChartPart.setChartDataForHistPrice(with: histPrice)
     }
-    
-    @objc private func prepareChartDateForNews(notification: Notification) {
-        guard let yahooFinanceQuoteResult = notification.object as? YahooFinanceQuoteResult else {
-            return
-        }
-        let yahooFinanceQuote = yahooFinanceQuoteResult.optionChain.result[0].quote
-        let market = yahooFinanceQuote.market
-        switch market {
-        case "gb_market":
-            newsViewModel.fetchRSSFeedsUK(symbol: yahooFinanceQuote.symbol, timeseries: 180)
-            observeRSSFeedsUK()
-        default:
-            return
-        }
-    }
-    
+        
     @objc private func prepareChartTimeseries(notification: Notification) {
         guard let selectedSegmentIndex = notification.userInfo?["selectedSegmentIndex"] as? Int else {
             return
         }
         priceChartPart.changeTimeseries(for: selectedSegmentIndex)
-    }
-}
-
-extension NewPriceChartCardController {
-    private func observeRSSFeedsUK() {
-        newsViewModel.rssItemsForChart.asObservable().subscribe(
-            onNext: { [self] in priceChartPart.setChartDataForUKNews(with: $0) },
-            onCompleted: { print("done") }
-        ).disposed(by: bag)
     }
 }
