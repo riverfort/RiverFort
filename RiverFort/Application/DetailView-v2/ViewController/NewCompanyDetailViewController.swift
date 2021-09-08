@@ -41,8 +41,24 @@ class NewCompanyDetailViewController: CardsViewController {
 
 extension NewCompanyDetailViewController {
     private func configView() {
+        configBarButtonItem()
         collectionView.backgroundColor = .systemGroupedBackground
         loadCards(cards: cards)
+    }
+    
+    private func configBarButtonItem() {
+        let configuration = UIImage.SymbolConfiguration(weight: .semibold)
+        let add = UIButton(type: .system)
+        add.setImage(UIImage(systemName: "plus.circle", withConfiguration: configuration), for: .normal)
+        let more = UIButton(type: .system)
+        more.setImage(UIImage(systemName: "ellipsis.circle", withConfiguration: configuration), for: .normal)
+        
+        let stackview = UIStackView.init(arrangedSubviews: [add, more])
+        stackview.distribution = .equalSpacing
+        stackview.axis = .horizontal
+        stackview.alignment = .center
+        stackview.spacing = 8
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: stackview)
     }
 }
 
