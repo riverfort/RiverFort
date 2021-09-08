@@ -60,7 +60,7 @@ extension NewPriceChartCardPartView {
         chartView.data = LineChartData(dataSet: lineChartDataSet)
     }
     
-    public func setChartDataForUKNews(with rssItems: [RSSItem]) {
+    public func setChartDataForNews(with rssItems: [RSSItem]) {
         print("handle start")
         print("\(rssItems.count)")
         print("handle finished")
