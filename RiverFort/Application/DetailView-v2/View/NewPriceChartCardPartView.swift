@@ -30,7 +30,6 @@ class NewPriceChartCardPartView: UIView, CardPartView {
         chartView.xAxis.drawAxisLineEnabled  = false
         chartView.xAxis.setLabelCount(3, force: true)
         chartView.xAxis.avoidFirstLastClippingEnabled = true
-        chartView.xAxis.labelFont = UIFont(name: "Avenir-Medium", size: 10.0)!
         return chartView
     }()
     
