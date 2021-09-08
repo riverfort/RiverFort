@@ -32,10 +32,34 @@ class NewPriceChartCardController: TemplateCardController {
 
 extension NewPriceChartCardController {
     private func createObservesr() {
+        let yahooFinanceQuoteResultName = Notification.Name(NewDetailViewConstant.YAHOO_FINANCE_QUOTE_RESULT)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareChartDateForNews), name: yahooFinanceQuoteResultName, object: nil)
         let fmpHistPriceResultName = Notification.Name(NewDetailViewConstant.FMP_HIST_PRICE_RESULT)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareChartDataForHistPrice), name: fmpHistPriceResultName, object: nil)
         let timeseriesChangedName = Notification.Name(NewDetailViewConstant.TIMESERIES_CHANGED)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareChartTimeseries), name: timeseriesChangedName, object: nil)
+    }
+    
+    @objc private func prepareChartDateForNews(notification: Notification) {
+        guard let yahooFinanceQuoteResult = notification.object as? YahooFinanceQuoteResult else {
+            return
+        }
+        let yahooFinanceQuote = yahooFinanceQuoteResult.optionChain.result[0].quote
+        let market = yahooFinanceQuote.market
+        switch market {
+        case "gb_market":
+            newsViewModel.fetchRSSFeedsUK(symbol: yahooFinanceQuote.symbol, timeseries: 5)
+            newsViewModel.rssItemsForNews.asObservable().subscribe(
+                onNext: {
+                    print($0)
+                },
+                onCompleted: {
+                    print("done")
+                }
+            ).disposed(by: bag)
+        default:
+            return
+        }
     }
     
     @objc private func prepareChartDataForHistPrice(notification: Notification) {
