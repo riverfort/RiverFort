@@ -100,12 +100,12 @@ extension NewPriceChartCardPartView {
         lineChartDataSet.drawValuesEnabled  = false
         lineChartDataSet.drawFilledEnabled  = false
         lineChartDataSet.drawHorizontalHighlightIndicatorEnabled = false
-        lineChartDataSet.lineWidth = 2.5
+        lineChartDataSet.lineWidth = 2
         lineChartDataSet.highlightLineWidth = 1.5
         lineChartDataSet.highlightColor = .secondaryLabel
         lineChartDataSet.lineCapType = .square
         lineChartDataSet.mode = .linear
-        lineChartDataSet.setColor(.label)
+        lineChartDataSet.setColor(.systemIndigo)
     }
 }
 
