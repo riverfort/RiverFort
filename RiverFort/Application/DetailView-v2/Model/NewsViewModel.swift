@@ -10,7 +10,7 @@ import RxCocoa
 
 class NewsViewModel {
     private let rssFeedParser = RSSFeedParser()
-    public let rssItemsForNews: BehaviorRelay<[RSSItem]> = BehaviorRelay(value: [])
+    public let rssItemsForNews: PublishSubject<[RSSItem]> = PublishSubject<[RSSItem]>()
 }
 
 extension NewsViewModel {
@@ -19,9 +19,11 @@ extension NewsViewModel {
         rssFeedParser.parseFeed(url: urlStr) { [self] response in
             switch response.count {
             case let count where count > 15:
-                rssItemsForNews.accept(Array(response[0..<15]))
+                rssItemsForNews.onNext(Array(response[0..<15]))
+                rssItemsForNews.onCompleted()
             default:
-                rssItemsForNews.accept(Array(response))
+                rssItemsForNews.onNext(Array(response[0..<15]))
+                rssItemsForNews.onCompleted()
             }
         }
     }
