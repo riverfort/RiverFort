@@ -28,7 +28,7 @@ class NewPriceChartCardPartView: UIView, CardPartView {
         chartView.xAxis.labelPosition = .bottom
         chartView.xAxis.drawGridLinesEnabled = false
         chartView.xAxis.drawAxisLineEnabled  = false
-        chartView.xAxis.setLabelCount(3, force: true)
+        chartView.xAxis.setLabelCount(4, force: false)
         chartView.xAxis.avoidFirstLastClippingEnabled = true
         return chartView
     }()
@@ -87,6 +87,7 @@ extension NewPriceChartCardPartView {
         chartView.marker = marker
         chartView.delegate = self
         chartView.myChartViewDelegate = self
+        chartView.xAxis.valueFormatter = self
     }
     
     private func configChartViewTimeseriesAnimation() {
@@ -129,5 +130,14 @@ extension NewPriceChartCardPartView: ChartViewDelegate, MyChartViewDelegate {
         chartView.highlightValue(nil)
         let chartValueNoLongerSelectedName = Notification.Name(NewDetailViewConstant.CHART_VALUE_NO_LONGER_SELECTED)
         NotificationCenter.default.post(name: chartValueNoLongerSelectedName, object: nil)
+    }
+}
+
+extension NewPriceChartCardPartView: IAxisValueFormatter {
+    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        guard let histPriceChartDataEntryData = histPriceDataEntries[Int(value)].data as? HistPriceChartDataEntryData else {
+            return ""
+        }
+        return DateFormatterUtils.convertDateFormate_DM(histPriceChartDataEntryData.date)
     }
 }
