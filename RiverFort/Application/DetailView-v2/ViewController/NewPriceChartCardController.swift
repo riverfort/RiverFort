@@ -68,11 +68,9 @@ extension NewPriceChartCardController {
     }
     
     @objc private func prepareChartDataForHistPrice(notification: Notification) {
-        guard let fmpHistPriceResult = notification.object as? FMPHistPriceResult else {
+        guard let histPrice = notification.object as? [FMPHistPriceResult.FMPHistPrice] else {
             return
         }
-        var histPrice = fmpHistPriceResult.historical
-        histPrice.reverse()
         priceChartPart.setChartDataForHistPrice(with: histPrice)
     }
 

@@ -34,9 +34,9 @@ extension NewADTVChartCardController {
     }
     
     @objc private func prepareView(notification: Notification) {
-        guard let fmpHistPriceResult = notification.object as? FMPHistPriceResult else {
+        guard let histPrice = notification.object as? [FMPHistPriceResult.FMPHistPrice] else {
             return
         }
-        print("--\(fmpHistPriceResult.historical.count)")
+        print("--\(histPrice.count)")
     }
 }
