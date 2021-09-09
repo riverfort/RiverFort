@@ -26,12 +26,7 @@ extension TimeseriesCardController {
 
 extension TimeseriesCardController {
     private func configSegmentedControl() {
-        let timeseriesDefaultIndex = 5
-        let timeseriesDefaultIndexDict = ["timeseriesDefaultIndex": timeseriesDefaultIndex]
-        let timeseriesDefaultIndexName = Notification.Name(NewDetailViewConstant.TIMESERIES_DEFAULT_INDEX)
-        NotificationCenter.default.post(name: timeseriesDefaultIndexName, object: nil, userInfo: timeseriesDefaultIndexDict)
         timeseriesCardPartView.segmentedControl.addTarget(self, action: #selector(segmentedControlHandled), for: .valueChanged)
-        timeseriesCardPartView.segmentedControl.selectedSegmentIndex = timeseriesDefaultIndex
     }
     
     @objc private func segmentedControlHandled(_ sender: UISegmentedControl) {

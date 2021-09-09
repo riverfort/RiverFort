@@ -10,7 +10,6 @@ import Foundation
 struct NewDetailViewConstant {
     static var PRICE_CHART_DISPLAY_MODE_CHANGED = "com.riverfort.PriceChartDisplayModeChanged"
     static var TIMESERIES_CHANGED = "com.riverfort.timeseriesChanged"
-    static var TIMESERIES_DEFAULT_INDEX = "com.riverfort.timeseriesDefaultIndex"
     static var CHART_VALUE_SELECTED = "com.riverfort.chartValueSelected"
     static var CHART_VALUE_NO_LONGER_SELECTED = "com.riverfort.chartValueNoLongerSelected"
     static var YAHOO_FINANCE_QUOTE_RESULT = "com.riverfort.yahooFinanceQuoteResult"
