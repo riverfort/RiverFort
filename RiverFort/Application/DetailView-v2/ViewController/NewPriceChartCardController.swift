@@ -42,6 +42,9 @@ extension NewPriceChartCardController {
     }
     
     @objc private func prepareChartDateForNews(notification: Notification) {
+        guard UserDefaults.standard.bool(forKey: "com.riverfort.DetailView.news") == true else {
+            return
+        }
         guard let yahooFinanceQuoteResult = notification.object as? YahooFinanceQuoteResult else {
             return
         }
