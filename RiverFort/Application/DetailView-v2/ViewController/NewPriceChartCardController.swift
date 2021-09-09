@@ -33,14 +33,21 @@ class NewPriceChartCardController: TemplateCardController {
 
 extension NewPriceChartCardController {
     private func createObservesr() {
+        let timeseriesChangedName = Notification.Name(NewDetailViewConstant.TIMESERIES_CHANGED)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareChartTimeseries), name: timeseriesChangedName, object: nil)
         let yahooFinanceQuoteResultName = Notification.Name(NewDetailViewConstant.YAHOO_FINANCE_QUOTE_RESULT)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareChartDateForNews), name: yahooFinanceQuoteResultName, object: nil)
         let fmpHistPriceResultName = Notification.Name(NewDetailViewConstant.FMP_HIST_PRICE_RESULT)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareChartDataForHistPrice), name: fmpHistPriceResultName, object: nil)
-        let timeseriesChangedName = Notification.Name(NewDetailViewConstant.TIMESERIES_CHANGED)
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareChartTimeseries), name: timeseriesChangedName, object: nil)
         let priceChartDisplayModeChangedName = Notification.Name(NewDetailViewConstant.PRICE_CHART_DISPLAY_MODE_CHANGED)
         NotificationCenter.default.addObserver(self, selector: #selector(preparePriceChartDisplayModeChanged), name: priceChartDisplayModeChangedName, object: nil)
+    }
+    
+    @objc private func prepareChartTimeseries(notification: Notification) {
+        guard let selectedSegmentIndex = notification.userInfo?["selectedSegmentIndex"] as? Int else {
+            return
+        }
+        priceChartPart.changeTimeseries(for: selectedSegmentIndex)
     }
     
     @objc private func prepareChartDateForNews(notification: Notification) {
@@ -68,14 +75,7 @@ extension NewPriceChartCardController {
         histPrice.reverse()
         priceChartPart.setChartDataForHistPrice(with: histPrice)
     }
-        
-    @objc private func prepareChartTimeseries(notification: Notification) {
-        guard let selectedSegmentIndex = notification.userInfo?["selectedSegmentIndex"] as? Int else {
-            return
-        }
-        priceChartPart.changeTimeseries(for: selectedSegmentIndex)
-    }
-    
+
     @objc private func preparePriceChartDisplayModeChanged() {
         print(UserDefaults.standard.bool(forKey: "com.riverfort.DetailView.news"))
     }
