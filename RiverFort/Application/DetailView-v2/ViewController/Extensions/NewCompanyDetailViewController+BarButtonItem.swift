@@ -36,7 +36,7 @@ extension NewCompanyDetailViewController {
                             more.menu = menu
                             print("price mode")
                          }),
-                UIAction(title: "News",
+                UIAction(title: "With News",
                          image: UIImage(systemName: "newspaper"),
                          state: UserDefaults.standard.bool(forKey: "com.riverfort.DetailView.news") ? .on : .off,
                          handler: { (_) in
