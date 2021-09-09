@@ -34,7 +34,8 @@ extension NewCompanyDetailViewController {
                          handler: { (_) in
                             UserDefaults.standard.setValue(false, forKey: "com.riverfort.DetailView.news")
                             more.menu = menu
-                            print("price mode")
+                            let priceChartDisplayModeChangedName = Notification.Name(NewDetailViewConstant.PRICE_CHART_DISPLAY_MODE_CHANGED)
+                            NotificationCenter.default.post(name: priceChartDisplayModeChangedName, object: nil)
                          }),
                 UIAction(title: "With News",
                          image: UIImage(systemName: "newspaper"),
@@ -42,7 +43,8 @@ extension NewCompanyDetailViewController {
                          handler: { (_) in
                             UserDefaults.standard.setValue(true, forKey: "com.riverfort.DetailView.news")
                             more.menu = menu
-                            print("news mode")
+                            let priceChartDisplayModeChangedName = Notification.Name(NewDetailViewConstant.PRICE_CHART_DISPLAY_MODE_CHANGED)
+                            NotificationCenter.default.post(name: priceChartDisplayModeChangedName, object: nil)
                          }),
             ]
         }
