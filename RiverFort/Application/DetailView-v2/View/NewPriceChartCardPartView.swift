@@ -78,6 +78,7 @@ extension NewPriceChartCardPartView {
         lineChartDataSet.highlightLineWidth = 1.5
         lineChartDataSet.circleRadius = 3
         lineChartDataSet.circleHoleColor = .red
+        lineChartDataSet.drawValuesEnabled = false
     }
 }
 
