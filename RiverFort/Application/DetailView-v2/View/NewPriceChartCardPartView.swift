@@ -58,28 +58,6 @@ extension NewPriceChartCardPartView {
         chartView.animate(yAxisDuration: 0.3, easingOption: .easeOutSine)
         chartView.zoom(scaleX: 0, scaleY: 0, x: 0, y: 0)
     }
-    
-    private func configLineChartDataSetForHistPrice(with lineChartDataSet: LineChartDataSet) {
-        lineChartDataSet.drawCirclesEnabled = false
-        lineChartDataSet.drawValuesEnabled  = false
-        lineChartDataSet.drawFilledEnabled  = false
-        lineChartDataSet.drawHorizontalHighlightIndicatorEnabled = false
-        lineChartDataSet.lineWidth = 2
-        lineChartDataSet.highlightLineWidth = 1.5
-        lineChartDataSet.highlightColor = .secondaryLabel
-        lineChartDataSet.lineCapType = .square
-        lineChartDataSet.mode = .linear
-        lineChartDataSet.setColor(.systemIndigo)
-    }
-    
-    private func configLineChartDataSetForNews(with lineChartDataSet: LineChartDataSet) {
-        lineChartDataSet.setCircleColor(UIColor.red)
-        lineChartDataSet.highlightColor = .secondaryLabel
-        lineChartDataSet.highlightLineWidth = 1.5
-        lineChartDataSet.circleRadius = 3
-        lineChartDataSet.circleHoleColor = .red
-        lineChartDataSet.drawValuesEnabled = false
-    }
 }
 
 extension NewPriceChartCardPartView {
@@ -112,6 +90,30 @@ extension NewPriceChartCardPartView: IAxisValueFormatter {
             return ""
         }
         return DateFormatterUtils.convertDateFormate_DM(histPriceChartDataEntryData.date)
+    }
+}
+
+extension NewPriceChartCardPartView {
+    private func configLineChartDataSetForHistPrice(with lineChartDataSet: LineChartDataSet) {
+        lineChartDataSet.drawCirclesEnabled = false
+        lineChartDataSet.drawValuesEnabled  = false
+        lineChartDataSet.drawFilledEnabled  = false
+        lineChartDataSet.drawHorizontalHighlightIndicatorEnabled = false
+        lineChartDataSet.lineWidth = 2
+        lineChartDataSet.highlightLineWidth = 1.5
+        lineChartDataSet.highlightColor = .secondaryLabel
+        lineChartDataSet.lineCapType = .square
+        lineChartDataSet.mode = .linear
+        lineChartDataSet.setColor(.systemIndigo)
+    }
+    
+    private func configLineChartDataSetForNews(with lineChartDataSet: LineChartDataSet) {
+        lineChartDataSet.setCircleColor(UIColor.red)
+        lineChartDataSet.highlightColor = .secondaryLabel
+        lineChartDataSet.highlightLineWidth = 1.5
+        lineChartDataSet.circleRadius = 3
+        lineChartDataSet.circleHoleColor = .red
+        lineChartDataSet.drawValuesEnabled = false
     }
 }
 
