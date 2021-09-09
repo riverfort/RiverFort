@@ -90,10 +90,10 @@ extension NewCompanyDetailViewController {
     private func getHistPriceFromFMP(symbol: String, timeseries: Int) {
         DetailViewAPIFunction.fetchHistPriceFromFMP(symbol: symbol, timeseries: timeseries)
             .responseDecodable(of: FMPHistPriceResult.self) { (response) in
-                guard var histPrice = response.value?.historical else { return }
-                histPrice.reverse()
-                let fmpHistPriceResultName = Notification.Name(NewDetailViewConstant.FMP_HIST_PRICE_RESULT)
-                NotificationCenter.default.post(name: fmpHistPriceResultName, object: histPrice)
+                guard var fmpHistPrice = response.value?.historical else { return }
+                fmpHistPrice.reverse()
+                let fmpHistPriceName = Notification.Name(NewDetailViewConstant.FMP_HIST_PRICE)
+                NotificationCenter.default.post(name: fmpHistPriceName, object: fmpHistPrice)
             }
     }
 }

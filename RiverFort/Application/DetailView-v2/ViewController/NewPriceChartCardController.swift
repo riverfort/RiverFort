@@ -37,7 +37,7 @@ extension NewPriceChartCardController {
         NotificationCenter.default.addObserver(self, selector: #selector(prepareChartTimeseries), name: timeseriesChangedName, object: nil)
         let yahooFinanceQuoteResultName = Notification.Name(NewDetailViewConstant.YAHOO_FINANCE_QUOTE_RESULT)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareChartDateForNews), name: yahooFinanceQuoteResultName, object: nil)
-        let fmpHistPriceResultName = Notification.Name(NewDetailViewConstant.FMP_HIST_PRICE_RESULT)
+        let fmpHistPriceResultName = Notification.Name(NewDetailViewConstant.FMP_HIST_PRICE)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareChartDataForHistPrice), name: fmpHistPriceResultName, object: nil)
         let priceChartDisplayModeChangedName = Notification.Name(NewDetailViewConstant.PRICE_CHART_DISPLAY_MODE_CHANGED)
         NotificationCenter.default.addObserver(self, selector: #selector(preparePriceChartDisplayModeChanged), name: priceChartDisplayModeChangedName, object: nil)

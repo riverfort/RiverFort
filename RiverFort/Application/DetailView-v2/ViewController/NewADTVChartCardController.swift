@@ -29,7 +29,7 @@ class NewADTVChartCardController: TemplateCardController {
 
 extension NewADTVChartCardController {
     private func createObservesr() {
-        let fmpHistPriceResultName = Notification.Name(NewDetailViewConstant.FMP_HIST_PRICE_RESULT)
+        let fmpHistPriceResultName = Notification.Name(NewDetailViewConstant.FMP_HIST_PRICE)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: fmpHistPriceResultName, object: nil)
     }
     
