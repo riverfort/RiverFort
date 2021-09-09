@@ -154,6 +154,7 @@ extension NewPriceChartCardPartView {
     }
     
     public func changeTimeseries(for selectedSegmentIndex: Int) {
+        configChartViewTimeseriesAnimation()
         var adjustedHistPriceDataEntries = [ChartDataEntry]()
         switch selectedSegmentIndex {
         case 0:
@@ -174,6 +175,7 @@ extension NewPriceChartCardPartView {
         let lineChartDataSetForHistPrice = LineChartDataSet(entries: adjustedHistPriceDataEntries)
         configLineChartDataSetForHistPrice(with: lineChartDataSetForHistPrice)
         chartView.data = LineChartData(dataSet: lineChartDataSetForHistPrice)
+        guard !newsDataEntries.isEmpty else { return }
         adjustedHistPriceDataEntries.forEach { adjustedHistPriceDataEntry in
             newsDataEntries.forEach { newsDataEntry in
                 if adjustedHistPriceDataEntry.x == newsDataEntry.x {
@@ -183,6 +185,5 @@ extension NewPriceChartCardPartView {
                 }
             }
         }
-        configChartViewTimeseriesAnimation()
     }
 }
