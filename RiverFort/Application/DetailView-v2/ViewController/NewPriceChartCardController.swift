@@ -39,6 +39,8 @@ extension NewPriceChartCardController {
         NotificationCenter.default.addObserver(self, selector: #selector(prepareChartDataForHistPrice), name: fmpHistPriceResultName, object: nil)
         let timeseriesChangedName = Notification.Name(NewDetailViewConstant.TIMESERIES_CHANGED)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareChartTimeseries), name: timeseriesChangedName, object: nil)
+        let priceChartDisplayModeChangedName = Notification.Name(NewDetailViewConstant.PRICE_CHART_DISPLAY_MODE_CHANGED)
+        NotificationCenter.default.addObserver(self, selector: #selector(preparePriceChartDisplayModeChanged), name: priceChartDisplayModeChangedName, object: nil)
     }
     
     @objc private func prepareChartDateForNews(notification: Notification) {
@@ -72,6 +74,10 @@ extension NewPriceChartCardController {
             return
         }
         priceChartPart.changeTimeseries(for: selectedSegmentIndex)
+    }
+    
+    @objc private func preparePriceChartDisplayModeChanged() {
+        print(UserDefaults.standard.bool(forKey: "com.riverfort.DetailView.news"))
     }
 }
 
