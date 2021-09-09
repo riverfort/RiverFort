@@ -75,7 +75,6 @@ extension NewPriceChartCardPartView {
     private func configLineChartDataSetForNews(with lineChartDataSet: LineChartDataSet) {
         lineChartDataSet.setCircleColor(UIColor.red)
         lineChartDataSet.highlightColor = .secondaryLabel
-        lineChartDataSet.highlightEnabled = false
         lineChartDataSet.highlightLineWidth = 1.5
         lineChartDataSet.circleRadius = 3
         lineChartDataSet.circleHoleColor = .red
