@@ -47,75 +47,6 @@ class NewPriceChartCardPartView: UIView, CardPartView {
 }
 
 extension NewPriceChartCardPartView {
-    public func setChartDataForHistPrice(with histPrice: [FMPHistPriceResult.FMPHistPrice]) {
-        histPriceDataEntries = histPrice.enumerated().map { (index, dailyPrice) in
-            ChartDataEntry(x: Double(index),
-                           y: dailyPrice.close,
-                           data: HistPriceChartDataEntryData(date: dailyPrice.date,
-                                                             volume: dailyPrice.volume,
-                                                             change: dailyPrice.change,
-                                                             changePercent: dailyPrice.changePercent))}
-        let lineChartDataSet = LineChartDataSet(entries: histPriceDataEntries)
-        configLineChartDataSetForHistPrice(with: lineChartDataSet)
-        chartView.data = LineChartData(dataSet: lineChartDataSet)
-    }
-    
-    public func setChartDataForNews(with rssItems: [RSSItem]) {
-        rssItems.forEach { rssItem in
-            let newsDate = DateFormatterUtils.convertDateFormate_DMY_YMD(rssItem.pubDate)
-            histPriceDataEntries.forEach { histPrice in
-                guard let histPriceChartDataEntryData = histPrice.data as? HistPriceChartDataEntryData else {
-                    return
-                }
-                if histPriceChartDataEntryData.date == newsDate {
-                    let newsDataEntry = ChartDataEntry(
-                        x: histPrice.x,
-                        y: histPrice.y,
-                        data: NewsChartDataEntryData(date: newsDate, title: rssItem.title))
-                    newsDataEntries.append(newsDataEntry)
-                    let lineChartDataSet = LineChartDataSet(entries: [newsDataEntry])
-                    configLineChartDataSetForNews(with: lineChartDataSet)
-                    chartView.data?.addDataSet(lineChartDataSet)
-                }
-            }
-        }
-    }
-    
-    public func changeTimeseries(for selectedSegmentIndex: Int) {
-        var adjustedHistPriceDataEntries = [ChartDataEntry]()
-        switch selectedSegmentIndex {
-        case 0:
-            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(7)
-        case 1:
-            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(14)
-        case 2:
-            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(30)
-        case 3:
-            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(60)
-        case 4:
-            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(120)
-        case 5:
-            adjustedHistPriceDataEntries = histPriceDataEntries
-        default:
-            return
-        }
-        let lineChartDataSetForHistPrice = LineChartDataSet(entries: adjustedHistPriceDataEntries)
-        configLineChartDataSetForHistPrice(with: lineChartDataSetForHistPrice)
-        chartView.data = LineChartData(dataSet: lineChartDataSetForHistPrice)
-        adjustedHistPriceDataEntries.forEach { adjustedHistPriceDataEntry in
-            newsDataEntries.forEach { newsDataEntry in
-                if adjustedHistPriceDataEntry.x == newsDataEntry.x {
-                    let lineChartDataSet = LineChartDataSet(entries: [newsDataEntry])
-                    configLineChartDataSetForNews(with: lineChartDataSet)
-                    chartView.data?.addDataSet(lineChartDataSet)
-                }
-            }
-        }
-        configChartViewTimeseriesAnimation()
-    }
-}
-
-extension NewPriceChartCardPartView {
     private func configChartView() {
         chartView.marker = marker
         chartView.delegate = self
@@ -181,5 +112,74 @@ extension NewPriceChartCardPartView: IAxisValueFormatter {
             return ""
         }
         return DateFormatterUtils.convertDateFormate_DM(histPriceChartDataEntryData.date)
+    }
+}
+
+extension NewPriceChartCardPartView {
+    public func setChartDataForHistPrice(with histPrice: [FMPHistPriceResult.FMPHistPrice]) {
+        histPriceDataEntries = histPrice.enumerated().map { (index, dailyPrice) in
+            ChartDataEntry(x: Double(index),
+                           y: dailyPrice.close,
+                           data: HistPriceChartDataEntryData(date: dailyPrice.date,
+                                                             volume: dailyPrice.volume,
+                                                             change: dailyPrice.change,
+                                                             changePercent: dailyPrice.changePercent))}
+        let lineChartDataSet = LineChartDataSet(entries: histPriceDataEntries)
+        configLineChartDataSetForHistPrice(with: lineChartDataSet)
+        chartView.data = LineChartData(dataSet: lineChartDataSet)
+    }
+    
+    public func setChartDataForNews(with rssItems: [RSSItem]) {
+        rssItems.forEach { rssItem in
+            let newsDate = DateFormatterUtils.convertDateFormate_DMY_YMD(rssItem.pubDate)
+            histPriceDataEntries.forEach { histPrice in
+                guard let histPriceChartDataEntryData = histPrice.data as? HistPriceChartDataEntryData else {
+                    return
+                }
+                if histPriceChartDataEntryData.date == newsDate {
+                    let newsDataEntry = ChartDataEntry(
+                        x: histPrice.x,
+                        y: histPrice.y,
+                        data: NewsChartDataEntryData(date: newsDate, title: rssItem.title))
+                    newsDataEntries.append(newsDataEntry)
+                    let lineChartDataSet = LineChartDataSet(entries: [newsDataEntry])
+                    configLineChartDataSetForNews(with: lineChartDataSet)
+                    chartView.data?.addDataSet(lineChartDataSet)
+                }
+            }
+        }
+    }
+    
+    public func changeTimeseries(for selectedSegmentIndex: Int) {
+        var adjustedHistPriceDataEntries = [ChartDataEntry]()
+        switch selectedSegmentIndex {
+        case 0:
+            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(7)
+        case 1:
+            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(14)
+        case 2:
+            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(30)
+        case 3:
+            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(60)
+        case 4:
+            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(120)
+        case 5:
+            adjustedHistPriceDataEntries = histPriceDataEntries
+        default:
+            return
+        }
+        let lineChartDataSetForHistPrice = LineChartDataSet(entries: adjustedHistPriceDataEntries)
+        configLineChartDataSetForHistPrice(with: lineChartDataSetForHistPrice)
+        chartView.data = LineChartData(dataSet: lineChartDataSetForHistPrice)
+        adjustedHistPriceDataEntries.forEach { adjustedHistPriceDataEntry in
+            newsDataEntries.forEach { newsDataEntry in
+                if adjustedHistPriceDataEntry.x == newsDataEntry.x {
+                    let lineChartDataSet = LineChartDataSet(entries: [newsDataEntry])
+                    configLineChartDataSetForNews(with: lineChartDataSet)
+                    chartView.data?.addDataSet(lineChartDataSet)
+                }
+            }
+        }
+        configChartViewTimeseriesAnimation()
     }
 }
