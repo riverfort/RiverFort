@@ -72,6 +72,7 @@ extension NewPriceChartCardPartView {
                         x: histPrice.x,
                         y: histPrice.y,
                         data: NewsChartDataEntryData(date: newsDate, title: rssItem.title))
+                    newsDataEntries.append(newsDataEntry)
                     let lineChartDataSet = LineChartDataSet(entries: [newsDataEntry])
                     configLineChartDataSetForNews(with: lineChartDataSet)
                     chartView.data?.addDataSet(lineChartDataSet)
@@ -101,6 +102,15 @@ extension NewPriceChartCardPartView {
         let lineChartDataSetForHistPrice = LineChartDataSet(entries: adjustedHistPriceDataEntries)
         configLineChartDataSetForHistPrice(with: lineChartDataSetForHistPrice)
         chartView.data = LineChartData(dataSet: lineChartDataSetForHistPrice)
+        adjustedHistPriceDataEntries.forEach { adjustedHistPriceDataEntry in
+            newsDataEntries.forEach { newsDataEntry in
+                if adjustedHistPriceDataEntry.x == newsDataEntry.x {
+                    let lineChartDataSet = LineChartDataSet(entries: [newsDataEntry])
+                    configLineChartDataSetForNews(with: lineChartDataSet)
+                    chartView.data?.addDataSet(lineChartDataSet)
+                }
+            }
+        }
         configChartViewTimeseriesAnimation()
     }
 }
