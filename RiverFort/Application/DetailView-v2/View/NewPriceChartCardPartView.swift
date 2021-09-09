@@ -98,9 +98,9 @@ extension NewPriceChartCardPartView {
         default:
             return
         }
-        let lineChartDataSet = LineChartDataSet(entries: adjustedHistPriceDataEntries)
-        configLineChartDataSetForHistPrice(with: lineChartDataSet)
-        chartView.data = LineChartData(dataSet: lineChartDataSet)
+        let lineChartDataSetForHistPrice = LineChartDataSet(entries: adjustedHistPriceDataEntries)
+        configLineChartDataSetForHistPrice(with: lineChartDataSetForHistPrice)
+        chartView.data = LineChartData(dataSet: lineChartDataSetForHistPrice)
         configChartViewTimeseriesAnimation()
     }
 }
