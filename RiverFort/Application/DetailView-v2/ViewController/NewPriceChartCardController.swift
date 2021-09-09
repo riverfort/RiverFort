@@ -77,6 +77,9 @@ extension NewPriceChartCardController {
 
 extension NewPriceChartCardController {
     private func subscribeNewsViewModel() {
+        guard UserDefaults.standard.bool(forKey: "com.riverfort.DetailView.news") == true else {
+            return
+        }
         newsViewModel.rssItemsForNews.asObservable().subscribe(
             onNext: { [self] in
                 priceChartPart.setChartDataForNews(with: $0)
