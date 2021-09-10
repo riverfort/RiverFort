@@ -31,7 +31,7 @@ class NewADTVMarker: MarkerImage {
         guard let adtvChartDataEntryData = entry.data as? String else {
             return
         }
-        adtv = String(format: "%.2f", entry.y)
+        adtv = NumberShortScale.formatNumber(entry.y)
         date = DateFormatterUtils.convertDateFormater(adtvChartDataEntryData)
     }
 }
