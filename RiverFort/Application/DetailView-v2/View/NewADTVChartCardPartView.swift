@@ -15,10 +15,6 @@ class NewADTVChartCardPartView: UIView, CardPartView {
     private let marker = NewADTVMarker()
     private lazy var chartView: MyLineChartView = {
         let chartView = MyLineChartView()
-        let valFormatter = NumberFormatter()
-        valFormatter.numberStyle = .currency
-        valFormatter.maximumFractionDigits = 0
-        valFormatter.currencySymbol = ""
         chartView.animate(xAxisDuration: 0.5)
         chartView.minOffset = 0
         chartView.extraTopOffset = 50
@@ -67,6 +63,7 @@ extension NewADTVChartCardPartView {
         chartView.delegate = self
         chartView.myChartViewDelegate = self
         chartView.xAxis.valueFormatter = self
+        leftAxisFormatting()
     }
     
     private func configChartViewTimeseriesAnimation() {
@@ -105,6 +102,16 @@ extension NewADTVChartCardPartView: IAxisValueFormatter {
             return ""
         }
         return DateFormatterUtils.convertDateFormate_DM(adtvChartDataEntryData)
+    }
+}
+
+extension NewADTVChartCardPartView {
+    private func leftAxisFormatting() {
+        let valFormatter = NumberFormatter()
+        valFormatter.numberStyle = .currency
+        valFormatter.maximumFractionDigits = 0
+        valFormatter.currencySymbol = ""
+        chartView.leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: valFormatter)
     }
 }
 
