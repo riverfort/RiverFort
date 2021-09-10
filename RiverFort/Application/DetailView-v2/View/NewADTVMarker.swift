@@ -10,14 +10,14 @@ import Charts
 class NewADTVMarker: MarkerImage {
     @objc var color: UIColor = .systemRed
     @objc var radius: CGFloat = 5
-    private var price = "-"
+    private var adtv = "-"
     private var date = "-"
     private var priceAttributes = [NSAttributedString.Key : Any]()
     private var dateAttributes = [NSAttributedString.Key : Any]()
 
     override func draw(context: CGContext, point: CGPoint) {
         configView()
-        drawPrice(text: "\(price)" as NSString,
+        drawADTV(text: "\(adtv)" as NSString,
                   rect: CGRect(origin: CGPoint(x: point.x, y: point.y), size: size),
                   withAttributes: priceAttributes)
         drawDate(text: "\(date)" as NSString,
@@ -28,11 +28,11 @@ class NewADTVMarker: MarkerImage {
     
     override func refreshContent(entry: ChartDataEntry, highlight: Highlight) {
         super.refreshContent(entry: entry, highlight: highlight)
-        guard let histPriceChartDataEntryData = entry.data as? HistPriceChartDataEntryData else {
+        guard let adtvChartDataEntryData = entry.data as? String else {
             return
         }
-        price = "\(entry.y) (\(histPriceChartDataEntryData.volume.withCommas()))"
-        date = DateFormatterUtils.convertDateFormater(histPriceChartDataEntryData.date)
+        adtv = "\(entry.y)"
+        date = DateFormatterUtils.convertDateFormater(adtvChartDataEntryData)
     }
 }
 
@@ -46,7 +46,7 @@ extension NewADTVMarker {
 }
 
 extension NewADTVMarker {
-    private func drawPrice(text: NSString, rect: CGRect, withAttributes attributes: [NSAttributedString.Key : Any]? = nil) {
+    private func drawADTV(text: NSString, rect: CGRect, withAttributes attributes: [NSAttributedString.Key : Any]? = nil) {
         let size = text.size(withAttributes: attributes)
         let centeredRect = CGRect(x: 15, y: 0, width: size.width, height: size.height)
         text.draw(in: centeredRect, withAttributes: attributes)

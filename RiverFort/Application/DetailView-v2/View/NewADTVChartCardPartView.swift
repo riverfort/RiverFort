@@ -12,6 +12,7 @@ import Charts
 class NewADTVChartCardPartView: UIView, CardPartView, MyChartViewDelegate {
     internal var margins: UIEdgeInsets = UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0)
     private var adtvDataEntries = [ChartDataEntry]()
+    private let marker = NewADTVMarker()
     private lazy var chartView: MyLineChartView = {
         let chartView = MyLineChartView()
         let valFormatter = NumberFormatter()
@@ -62,6 +63,7 @@ class NewADTVChartCardPartView: UIView, CardPartView, MyChartViewDelegate {
 
 extension NewADTVChartCardPartView {
     private func configChartView() {
+        chartView.marker = marker
         chartView.xAxis.valueFormatter = self
     }
     
