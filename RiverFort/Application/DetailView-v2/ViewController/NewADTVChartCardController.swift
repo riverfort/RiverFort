@@ -29,14 +29,14 @@ class NewADTVChartCardController: TemplateCardController {
 
 extension NewADTVChartCardController {
     private func createObservesr() {
-        let fmpHistPriceResultName = Notification.Name(NewDetailViewConstant.FMP_HIST_PRICE)
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: fmpHistPriceResultName, object: nil)
+        let adtvName = Notification.Name(NewDetailViewConstant.ADTV)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: adtvName, object: nil)
     }
     
     @objc private func prepareView(notification: Notification) {
-        guard let histPrice = notification.object as? [FMPHistPriceResult.FMPHistPrice] else {
+        guard let adtvs = notification.object as? [Double] else {
             return
         }
-        print("--\(histPrice.count)")
+        print(adtvs)
     }
 }

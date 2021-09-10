@@ -63,7 +63,7 @@ extension NewCompanyDetailViewController {
         }
         navigationItem.title = company.symbol
         getQuoteFromYahooFinance(symbol: company.symbol)
-        getHistPriceFromFMP(symbol: company.symbol, timeseries: 180)
+        getHistPriceFromFMP(symbol: company.symbol, exch: company.exch, timeseries: 180)
     }
     
     @objc private func chartValueSelected() {
@@ -87,13 +87,27 @@ extension NewCompanyDetailViewController {
 }
 
 extension NewCompanyDetailViewController {
-    private func getHistPriceFromFMP(symbol: String, timeseries: Int) {
+    private func getHistPriceFromFMP(symbol: String, exch: String, timeseries: Int) {
         DetailViewAPIFunction.fetchHistPriceFromFMP(symbol: symbol, timeseries: timeseries)
-            .responseDecodable(of: FMPHistPriceResult.self) { (response) in
+            .responseDecodable(of: FMPHistPriceResult.self) { [self] (response) in
                 guard var fmpHistPrice = response.value?.historical else { return }
                 fmpHistPrice.reverse()
+                let adtvs = getADTVs(exch: exch, fmpHistPrice: fmpHistPrice)
                 let fmpHistPriceName = Notification.Name(NewDetailViewConstant.FMP_HIST_PRICE)
                 NotificationCenter.default.post(name: fmpHistPriceName, object: fmpHistPrice)
+                let adtvName = Notification.Name(NewDetailViewConstant.ADTV)
+                NotificationCenter.default.post(name: adtvName, object: adtvs)
             }
+    }
+}
+
+extension NewCompanyDetailViewController {
+    private func getADTVs(exch: String, fmpHistPrice: [FMPHistPriceResult.FMPHistPrice]) -> [Double] {
+        switch exch {
+        case "LSE":
+            return fmpHistPrice.map { $0.vwap * $0.volume / 100 }
+        default:
+            return fmpHistPrice.map { $0.vwap * $0.volume }
+        }
     }
 }
