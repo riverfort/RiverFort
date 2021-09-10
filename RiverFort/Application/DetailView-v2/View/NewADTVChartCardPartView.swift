@@ -134,7 +134,7 @@ extension NewADTVChartCardPartView {
         default:
             return
         }
-        let lineChartDataSetForADTV = LineChartDataSet(entries: adjustedHistPriceDataEntries)
+        let lineChartDataSetForADTV = LineChartDataSet(entries: adjustedHistPriceDataEntries, label: "ADTV")
         configLineChartDataSetForADTV(with: lineChartDataSetForADTV)
         chartView.data = LineChartData(dataSet: lineChartDataSetForADTV)
     }

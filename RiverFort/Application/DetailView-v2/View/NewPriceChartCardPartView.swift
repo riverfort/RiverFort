@@ -127,7 +127,7 @@ extension NewPriceChartCardPartView {
                                                              volume: dailyPrice.volume,
                                                              change: dailyPrice.change,
                                                              changePercent: dailyPrice.changePercent))}
-        let lineChartDataSet = LineChartDataSet(entries: histPriceDataEntries)
+        let lineChartDataSet = LineChartDataSet(entries: histPriceDataEntries, label: "Historical Price")
         configLineChartDataSetForHistPrice(with: lineChartDataSet)
         chartView.data = LineChartData(dataSet: lineChartDataSet)
     }
@@ -145,7 +145,7 @@ extension NewPriceChartCardPartView {
                         y: histPrice.y,
                         data: NewsChartDataEntryData(date: newsDate, title: rssItem.title))
                     newsDataEntries.append(newsDataEntry)
-                    let lineChartDataSet = LineChartDataSet(entries: [newsDataEntry])
+                    let lineChartDataSet = LineChartDataSet(entries: [newsDataEntry], label: "News")
                     configLineChartDataSetForNews(with: lineChartDataSet)
                     chartView.data?.addDataSet(lineChartDataSet)
                 }
@@ -172,14 +172,14 @@ extension NewPriceChartCardPartView {
         default:
             return
         }
-        let lineChartDataSetForHistPrice = LineChartDataSet(entries: adjustedHistPriceDataEntries)
+        let lineChartDataSetForHistPrice = LineChartDataSet(entries: adjustedHistPriceDataEntries, label: "Historical Price")
         configLineChartDataSetForHistPrice(with: lineChartDataSetForHistPrice)
         chartView.data = LineChartData(dataSet: lineChartDataSetForHistPrice)
         guard !newsDataEntries.isEmpty else { return }
         adjustedHistPriceDataEntries.forEach { adjustedHistPriceDataEntry in
             newsDataEntries.forEach { newsDataEntry in
                 if adjustedHistPriceDataEntry.x == newsDataEntry.x {
-                    let lineChartDataSet = LineChartDataSet(entries: [newsDataEntry])
+                    let lineChartDataSet = LineChartDataSet(entries: [newsDataEntry], label: "News")
                     configLineChartDataSetForNews(with: lineChartDataSet)
                     chartView.data?.addDataSet(lineChartDataSet)
                 }
