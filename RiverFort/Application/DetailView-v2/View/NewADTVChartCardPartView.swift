@@ -9,7 +9,7 @@ import Foundation
 import CardParts
 import Charts
 
-class NewADTVChartCardPartView: UIView, CardPartView, MyChartViewDelegate {
+class NewADTVChartCardPartView: UIView, CardPartView {
     internal var margins: UIEdgeInsets = UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0)
     private var adtvDataEntries = [ChartDataEntry]()
     private let marker = NewADTVMarker()
@@ -64,6 +64,8 @@ class NewADTVChartCardPartView: UIView, CardPartView, MyChartViewDelegate {
 extension NewADTVChartCardPartView {
     private func configChartView() {
         chartView.marker = marker
+        chartView.delegate = self
+        chartView.myChartViewDelegate = self
         chartView.xAxis.valueFormatter = self
     }
     
@@ -81,6 +83,19 @@ extension NewADTVChartCardPartView {
         chartView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         chartView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         chartView.heightAnchor.constraint(equalToConstant: 250).isActive = true
+    }
+}
+
+extension NewADTVChartCardPartView: ChartViewDelegate, MyChartViewDelegate {
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        let chartValueSelectedName = Notification.Name(NewDetailViewConstant.CHART_VALUE_SELECTED)
+        NotificationCenter.default.post(name: chartValueSelectedName, object: nil)
+    }
+    
+    func chartValueNoLongerSelected(_ chartView: MyLineChartView) {
+        chartView.highlightValue(nil)
+        let chartValueNoLongerSelectedName = Notification.Name(NewDetailViewConstant.CHART_VALUE_NO_LONGER_SELECTED)
+        NotificationCenter.default.post(name: chartValueNoLongerSelectedName, object: nil)
     }
 }
 
