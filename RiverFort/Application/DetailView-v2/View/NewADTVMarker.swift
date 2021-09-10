@@ -12,14 +12,14 @@ class NewADTVMarker: MarkerImage {
     @objc var radius: CGFloat = 5
     private var adtv = "-"
     private var date = "-"
-    private var priceAttributes = [NSAttributedString.Key : Any]()
+    private var adtvAttributes = [NSAttributedString.Key : Any]()
     private var dateAttributes = [NSAttributedString.Key : Any]()
 
     override func draw(context: CGContext, point: CGPoint) {
         configView()
         drawADTV(text: "\(adtv)" as NSString,
                   rect: CGRect(origin: CGPoint(x: point.x, y: point.y), size: size),
-                  withAttributes: priceAttributes)
+                  withAttributes: adtvAttributes)
         drawDate(text: "\(date)" as NSString,
                  rect: CGRect(origin: CGPoint(x: point.x, y: point.y), size: size),
                  withAttributes: dateAttributes)
@@ -38,8 +38,8 @@ class NewADTVMarker: MarkerImage {
 
 extension NewADTVMarker {
     private func configView() {
-        priceAttributes[.font] = UIFont.preferredFont(forTextStyle: .headline)
-        priceAttributes[.foregroundColor] = UIColor.label
+        adtvAttributes[.font] = UIFont.preferredFont(forTextStyle: .headline)
+        adtvAttributes[.foregroundColor] = UIColor.cerulean
         dateAttributes[.font] = UIFont.preferredFont(forTextStyle: .subheadline)
         dateAttributes[.foregroundColor] = UIColor.secondaryLabel
     }
