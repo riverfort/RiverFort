@@ -102,12 +102,17 @@ extension NewCompanyDetailViewController {
 }
 
 extension NewCompanyDetailViewController {
-    private func getADTVs(exch: String, fmpHistPrice: [FMPHistPriceResult.FMPHistPrice]) -> [Double] {
+    private func getADTVs(exch: String, fmpHistPrice: [FMPHistPriceResult.FMPHistPrice]) -> [NewADTV] {
         switch exch {
         case "LSE":
-            return fmpHistPrice.map { $0.vwap * $0.volume / 100 }
+            return fmpHistPrice.map { NewADTV(date: $0.date, adtv: $0.vwap * $0.volume / 100) }
         default:
-            return fmpHistPrice.map { $0.vwap * $0.volume }
+            return fmpHistPrice.map { NewADTV(date: $0.date, adtv: $0.vwap * $0.volume) }
         }
     }
+}
+
+struct NewADTV {
+    let date: String
+    let adtv: Double
 }

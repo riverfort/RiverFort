@@ -69,9 +69,9 @@ extension NewADTVChartCardPartView {
 }
 
 extension NewADTVChartCardPartView {
-    public func setChartDataForADTV(with adtvs: [Double]) {
+    public func setChartDataForADTV(with adtvs: [NewADTV]) {
         let adtvDataEntries = adtvs.enumerated().map { (index, adtv) in
-            ChartDataEntry(x: Double(index), y: adtv)
+            ChartDataEntry(x: Double(index), y: adtv.adtv, data: adtv.date)
         }
     }
 }

@@ -34,7 +34,7 @@ extension NewADTVChartCardController {
     }
     
     @objc private func prepareView(notification: Notification) {
-        guard let adtvs = notification.object as? [Double] else {
+        guard let adtvs = notification.object as? [NewADTV] else {
             return
         }
         print(adtvs)
