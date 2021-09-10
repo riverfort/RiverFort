@@ -8,6 +8,8 @@
 import UIKit
 
 class NewADTVChartCardController: TemplateCardController {
+    private let adtvChartPart = NewADTVChartCardPartView()
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         createObservesr()
@@ -23,7 +25,7 @@ class NewADTVChartCardController: TemplateCardController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCardParts([NewADTVChartCardPartView()])
+        setupCardParts([adtvChartPart])
     }
 }
 
@@ -37,6 +39,6 @@ extension NewADTVChartCardController {
         guard let adtvs = notification.object as? [NewADTV] else {
             return
         }
-        print(adtvs)
+        adtvChartPart.setChartDataForADTV(with: adtvs)
     }
 }

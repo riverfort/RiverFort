@@ -69,9 +69,27 @@ extension NewADTVChartCardPartView {
 }
 
 extension NewADTVChartCardPartView {
+    private func configLineChartDataSetForADTV(with lineChartDataSet: LineChartDataSet) {
+        lineChartDataSet.drawCirclesEnabled = false
+        lineChartDataSet.drawValuesEnabled  = false
+        lineChartDataSet.drawFilledEnabled  = false
+        lineChartDataSet.drawHorizontalHighlightIndicatorEnabled = false
+        lineChartDataSet.lineWidth = 2
+        lineChartDataSet.highlightLineWidth = 1.5
+        lineChartDataSet.highlightColor = .secondaryLabel
+        lineChartDataSet.lineCapType = .square
+        lineChartDataSet.mode = .linear
+        lineChartDataSet.setColor(.systemIndigo)
+    }
+}
+
+extension NewADTVChartCardPartView {
     public func setChartDataForADTV(with adtvs: [NewADTV]) {
         let adtvDataEntries = adtvs.enumerated().map { (index, adtv) in
             ChartDataEntry(x: Double(index), y: adtv.adtv, data: adtv.date)
         }
+        let lineChartDataSet = LineChartDataSet(entries: adtvDataEntries, label: "ADTV")
+        configLineChartDataSetForADTV(with: lineChartDataSet)
+        chartView.data = LineChartData(dataSet: lineChartDataSet)
     }
 }
