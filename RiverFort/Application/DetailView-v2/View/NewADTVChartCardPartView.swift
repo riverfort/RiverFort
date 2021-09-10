@@ -22,6 +22,7 @@ class NewADTVChartCardPartView: UIView, CardPartView, MyChartViewDelegate {
         chartView.minOffset = 0
         chartView.extraTopOffset = 50
         chartView.setScaleEnabled(false)
+        chartView.legend.font = chartView.legend.font.withSize(12)
         chartView.rightAxis.enabled = false
         chartView.leftAxis.enabled   = true
         chartView.leftAxis.labelFont = chartView.leftAxis.labelFont.withSize(14)
@@ -101,7 +102,7 @@ extension NewADTVChartCardPartView {
         lineChartDataSet.highlightColor = .secondaryLabel
         lineChartDataSet.lineCapType = .square
         lineChartDataSet.mode = .linear
-        lineChartDataSet.setColor(.systemIndigo)
+        lineChartDataSet.setColor(.cerulean)
     }
 }
 
