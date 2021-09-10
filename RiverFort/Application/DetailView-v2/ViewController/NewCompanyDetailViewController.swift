@@ -12,10 +12,10 @@ class NewCompanyDetailViewController: CardsViewController {
     private let cards = [HeaderCardController(),
                          TimeseriesCardController(),
                          NewPriceChartCardController(),
-                         NewADTVChartCardController(),
                          NewProfileCardController(),
                          StatisticsCardController(),
                          OHLCCardController(),
+                         NewADTVChartCardController(),
                          NewADTVCardController(),
                          NewAADTVCardController(),
                          NewsCardController()]
