@@ -23,7 +23,7 @@ class NewADTVChartCardPartView: UIView, CardPartView, MyChartViewDelegate {
         chartView.setScaleEnabled(false)
         chartView.rightAxis.enabled = false
         chartView.leftAxis.enabled   = true
-        chartView.leftAxis.labelFont = UIFont(name: "Avenir-Medium", size: 14)!
+        chartView.leftAxis.labelFont = chartView.leftAxis.labelFont.withSize(14)
         chartView.leftAxis.labelPosition  = .insideChart
         chartView.leftAxis.gridLineDashLengths = [3, 3]
         chartView.leftAxis.gridColor      = UIColor.systemGray
@@ -39,7 +39,7 @@ class NewADTVChartCardPartView: UIView, CardPartView, MyChartViewDelegate {
         chartView.xAxis.drawAxisLineEnabled  = false
         chartView.xAxis.setLabelCount(3, force: true)
         chartView.xAxis.avoidFirstLastClippingEnabled = true
-        chartView.xAxis.labelFont = UIFont(name: "Avenir-Medium", size: 10.0)!
+        chartView.xAxis.labelFont = chartView.xAxis.labelFont.withSize(12)
         chartView.myChartViewDelegate = self
         chartView.highlightPerDragEnabled = false
         chartView.highlightPerTapEnabled = false
