@@ -114,4 +114,28 @@ extension NewADTVChartCardPartView {
         configLineChartDataSetForADTV(with: lineChartDataSet)
         chartView.data = LineChartData(dataSet: lineChartDataSet)
     }
+    
+    public func changeTimeseries(for selectedSegmentIndex: Int) {
+        configChartViewTimeseriesAnimation()
+        var adjustedHistPriceDataEntries = [ChartDataEntry]()
+        switch selectedSegmentIndex {
+        case 0:
+            adjustedHistPriceDataEntries = adtvDataEntries.suffix(7)
+        case 1:
+            adjustedHistPriceDataEntries = adtvDataEntries.suffix(14)
+        case 2:
+            adjustedHistPriceDataEntries = adtvDataEntries.suffix(30)
+        case 3:
+            adjustedHistPriceDataEntries = adtvDataEntries.suffix(60)
+        case 4:
+            adjustedHistPriceDataEntries = adtvDataEntries.suffix(120)
+        case 5:
+            adjustedHistPriceDataEntries = adtvDataEntries
+        default:
+            return
+        }
+        let lineChartDataSetForADTV = LineChartDataSet(entries: adjustedHistPriceDataEntries)
+        configLineChartDataSetForADTV(with: lineChartDataSetForADTV)
+        chartView.data = LineChartData(dataSet: lineChartDataSetForADTV)
+    }
 }

@@ -31,8 +31,17 @@ class NewADTVChartCardController: TemplateCardController {
 
 extension NewADTVChartCardController {
     private func createObservesr() {
+        let timeseriesChangedName = Notification.Name(NewDetailViewConstant.TIMESERIES_CHANGED)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareChartTimeseries), name: timeseriesChangedName, object: nil)
         let adtvName = Notification.Name(NewDetailViewConstant.ADTV)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: adtvName, object: nil)
+    }
+    
+    @objc private func prepareChartTimeseries(notification: Notification) {
+        guard let selectedSegmentIndex = notification.userInfo?["selectedSegmentIndex"] as? Int else {
+            return
+        }
+        adtvChartPart.changeTimeseries(for: selectedSegmentIndex)
     }
     
     @objc private func prepareView(notification: Notification) {
