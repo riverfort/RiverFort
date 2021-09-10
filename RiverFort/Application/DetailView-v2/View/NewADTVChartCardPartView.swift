@@ -23,7 +23,7 @@ class NewADTVChartCardPartView: UIView, CardPartView, MyChartViewDelegate {
         chartView.minOffset = 0
         chartView.extraTopOffset = 50
         chartView.setScaleEnabled(false)
-        chartView.legend.font = chartView.legend.font.withSize(12)
+        chartView.legend.font = chartView.legend.font.withSize(14)
         chartView.rightAxis.enabled = false
         chartView.leftAxis.enabled   = true
         chartView.leftAxis.labelFont = chartView.leftAxis.labelFont.withSize(14)
