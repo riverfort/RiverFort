@@ -17,7 +17,7 @@ class NewADTVChartCardPartView: UIView, CardPartView {
         let chartView = MyLineChartView()
         chartView.animate(xAxisDuration: 0.5)
         chartView.minOffset = 0
-        chartView.extraTopOffset = 50
+        chartView.extraTopOffset = 45
         chartView.setScaleEnabled(false)
         chartView.legend.font = chartView.legend.font.withSize(14)
         chartView.legend.textColor = .systemGray
@@ -33,7 +33,6 @@ class NewADTVChartCardPartView: UIView, CardPartView {
         chartView.leftAxis.drawTopYLabelEntryEnabled    = false
         chartView.leftAxis.axisLineColor  = .clear
         chartView.xAxis.enabled = true
-        chartView.xAxis.yOffset = 10
         chartView.xAxis.labelPosition = .bottom
         chartView.xAxis.drawGridLinesEnabled = false
         chartView.xAxis.drawAxisLineEnabled  = false
@@ -81,7 +80,7 @@ extension NewADTVChartCardPartView {
         chartView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         chartView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         chartView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        chartView.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        chartView.heightAnchor.constraint(equalToConstant: 230).isActive = true
     }
 }
 

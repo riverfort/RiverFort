@@ -17,7 +17,7 @@ class NewPriceChartCardPartView: UIView, CardPartView {
         let chartView = MyLineChartView()
         chartView.animate(xAxisDuration: 0.5)
         chartView.minOffset = 0
-        chartView.extraTopOffset = 50
+        chartView.extraTopOffset = 45
         chartView.legend.enabled = false
         chartView.leftAxis.enabled  = false
         chartView.rightAxis.enabled = false
@@ -25,7 +25,6 @@ class NewPriceChartCardPartView: UIView, CardPartView {
         chartView.highlightPerDragEnabled = false
         chartView.highlightPerTapEnabled = false
         chartView.xAxis.enabled = true
-        chartView.xAxis.yOffset = 10
         chartView.xAxis.labelPosition = .bottom
         chartView.xAxis.drawGridLinesEnabled = false
         chartView.xAxis.drawAxisLineEnabled  = false
@@ -69,7 +68,7 @@ extension NewPriceChartCardPartView {
         chartView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         chartView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         chartView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        chartView.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        chartView.heightAnchor.constraint(equalToConstant: 230).isActive = true
     }
 }
 
