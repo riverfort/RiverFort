@@ -7,6 +7,7 @@
 
 import Foundation
 import CardParts
+import Charts
 
 class NewADTVChartCardPartView: UIView, CardPartView, MyChartViewDelegate {
     internal var margins: UIEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
@@ -64,5 +65,13 @@ extension NewADTVChartCardPartView {
         chartView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         chartView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         chartView.heightAnchor.constraint(equalToConstant: 250).isActive = true
+    }
+}
+
+extension NewADTVChartCardPartView {
+    public func setChartDataForADTV(with adtvs: [Double]) {
+        let adtvDataEntries = adtvs.enumerated().map { (index, adtv) in
+            ChartDataEntry(x: Double(index), y: adtv)
+        }
     }
 }
