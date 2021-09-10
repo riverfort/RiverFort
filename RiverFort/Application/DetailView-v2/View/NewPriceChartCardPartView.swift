@@ -32,6 +32,7 @@ class NewPriceChartCardPartView: UIView, CardPartView {
         chartView.xAxis.setLabelCount(4, force: false)
         chartView.xAxis.avoidFirstLastClippingEnabled = true
         chartView.xAxis.labelFont = chartView.xAxis.labelFont.withSize(12)
+        chartView.xAxis.labelTextColor = .systemGray
         return chartView
     }()
     

@@ -39,6 +39,7 @@ class NewADTVChartCardPartView: UIView, CardPartView {
         chartView.xAxis.setLabelCount(4, force: false)
         chartView.xAxis.avoidFirstLastClippingEnabled = true
         chartView.xAxis.labelFont = chartView.xAxis.labelFont.withSize(12)
+        chartView.xAxis.labelTextColor = .systemGray
         chartView.myChartViewDelegate = self
         chartView.highlightPerDragEnabled = false
         chartView.highlightPerTapEnabled = false
