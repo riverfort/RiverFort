@@ -103,9 +103,7 @@ extension NewADTVChartCardPartView: IAxisValueFormatter {
         }
         return DateFormatterUtils.convertDateFormate_DM(adtvChartDataEntryData)
     }
-}
-
-extension NewADTVChartCardPartView {
+    
     private func leftAxisFormatting() {
         let valFormatter = NumberFormatter()
         valFormatter.numberStyle = .currency
