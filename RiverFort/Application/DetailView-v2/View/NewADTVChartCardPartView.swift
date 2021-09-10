@@ -11,6 +11,7 @@ import Charts
 
 class NewADTVChartCardPartView: UIView, CardPartView, MyChartViewDelegate {
     internal var margins: UIEdgeInsets = UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0)
+    private var adtvDataEntries = [ChartDataEntry]()
     private lazy var chartView: MyLineChartView = {
         let chartView = MyLineChartView()
         let valFormatter = NumberFormatter()
@@ -37,7 +38,7 @@ class NewADTVChartCardPartView: UIView, CardPartView, MyChartViewDelegate {
         chartView.xAxis.labelPosition = .bottom
         chartView.xAxis.drawGridLinesEnabled = false
         chartView.xAxis.drawAxisLineEnabled  = false
-        chartView.xAxis.setLabelCount(3, force: true)
+        chartView.xAxis.setLabelCount(4, force: false)
         chartView.xAxis.avoidFirstLastClippingEnabled = true
         chartView.xAxis.labelFont = chartView.xAxis.labelFont.withSize(12)
         chartView.myChartViewDelegate = self
@@ -49,11 +50,23 @@ class NewADTVChartCardPartView: UIView, CardPartView, MyChartViewDelegate {
     init() {
         super.init(frame: CGRect.zero)
         view.addSubview(chartView)
+        configChartView()
         setChartViewConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension NewADTVChartCardPartView {
+    private func configChartView() {
+        chartView.xAxis.valueFormatter = self
+    }
+    
+    private func configChartViewTimeseriesAnimation() {
+        chartView.animate(yAxisDuration: 0.3, easingOption: .easeOutSine)
+        chartView.zoom(scaleX: 0, scaleY: 0, x: 0, y: 0)
     }
 }
 
@@ -65,6 +78,15 @@ extension NewADTVChartCardPartView {
         chartView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         chartView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         chartView.heightAnchor.constraint(equalToConstant: 250).isActive = true
+    }
+}
+
+extension NewADTVChartCardPartView: IAxisValueFormatter {
+    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        guard let adtvChartDataEntryData = adtvDataEntries[Int(value)].data as? String else {
+            return ""
+        }
+        return DateFormatterUtils.convertDateFormate_DM(adtvChartDataEntryData)
     }
 }
 
@@ -85,7 +107,7 @@ extension NewADTVChartCardPartView {
 
 extension NewADTVChartCardPartView {
     public func setChartDataForADTV(with adtvs: [NewADTV]) {
-        let adtvDataEntries = adtvs.enumerated().map { (index, adtv) in
+        adtvDataEntries = adtvs.enumerated().map { (index, adtv) in
             ChartDataEntry(x: Double(index), y: adtv.adtv, data: adtv.date)
         }
         let lineChartDataSet = LineChartDataSet(entries: adtvDataEntries, label: "ADTV")
