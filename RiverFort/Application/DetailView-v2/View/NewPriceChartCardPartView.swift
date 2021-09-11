@@ -127,7 +127,24 @@ extension NewPriceChartCardPartView {
                                                              volume: dailyPrice.volume,
                                                              change: dailyPrice.change,
                                                              changePercent: dailyPrice.changePercent))}
-        let lineChartDataSet = LineChartDataSet(entries: histPriceDataEntries, label: "Historical Price")
+        var adjustedHistPriceDataEntries = [ChartDataEntry]()
+        switch UserDefaults.standard.integer(forKey: "timeseriesSelectedSegmentIndex") {
+        case 0:
+            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(7)
+        case 1:
+            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(14)
+        case 2:
+            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(30)
+        case 3:
+            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(60)
+        case 4:
+            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(120)
+        case 5:
+            adjustedHistPriceDataEntries = histPriceDataEntries
+        default:
+            return
+        }
+        let lineChartDataSet = LineChartDataSet(entries: adjustedHistPriceDataEntries, label: "Historical Price")
         configLineChartDataSetForHistPrice(with: lineChartDataSet)
         chartView.data = LineChartData(dataSet: lineChartDataSet)
     }

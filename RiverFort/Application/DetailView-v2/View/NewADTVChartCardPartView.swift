@@ -134,7 +134,26 @@ extension NewADTVChartCardPartView {
         adtvDataEntries = adtvs.enumerated().map { (index, adtv) in
             ChartDataEntry(x: Double(index), y: adtv.adtv, data: adtv.date)
         }
-        let lineChartDataSet = LineChartDataSet(entries: adtvDataEntries, label: "ADTV")
+        
+        var adjustedHistPriceDataEntries = [ChartDataEntry]()
+        switch UserDefaults.standard.integer(forKey: "timeseriesSelectedSegmentIndex") {
+        case 0:
+            adjustedHistPriceDataEntries = adtvDataEntries.suffix(7)
+        case 1:
+            adjustedHistPriceDataEntries = adtvDataEntries.suffix(14)
+        case 2:
+            adjustedHistPriceDataEntries = adtvDataEntries.suffix(30)
+        case 3:
+            adjustedHistPriceDataEntries = adtvDataEntries.suffix(60)
+        case 4:
+            adjustedHistPriceDataEntries = adtvDataEntries.suffix(120)
+        case 5:
+            adjustedHistPriceDataEntries = adtvDataEntries
+        default:
+            return
+        }
+        
+        let lineChartDataSet = LineChartDataSet(entries: adjustedHistPriceDataEntries, label: "ADTV")
         configLineChartDataSetForADTV(with: lineChartDataSet)
         chartView.data = LineChartData(dataSet: lineChartDataSet)
     }
