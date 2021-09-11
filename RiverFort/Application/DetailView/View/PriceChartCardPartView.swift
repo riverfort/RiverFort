@@ -408,25 +408,25 @@ open class MyLineChartView: LineChartView {
         return super.gestureRecognizerShouldBegin(gestureRecognizer)
     }
 
-    override open func nsuiTouchesBegan(_ touches: Set<NSUITouch>, withEvent event: NSUIEvent?) {
-        impactGenerator.impactOccurred()
-        selectionGenerator.prepare()
-        // adds the highlight to the graph when tapped
-        super.nsuiTouchesBegan(touches, withEvent: event)
-        touchesMoved = false
-        if let touch = touches.first {
-            let h = getHighlightByTouchPoint(touch.location(in: self))
-
-            if h === nil || h == self.lastHighlighted {
-                lastHighlighted = nil
-                highlightValue(nil, callDelegate: true)
-            }
-            else {
-                lastHighlighted = h
-                highlightValue(h, callDelegate: true)
-            }
-        }
-    }
+//    override open func nsuiTouchesBegan(_ touches: Set<NSUITouch>, withEvent event: NSUIEvent?) {
+//        impactGenerator.impactOccurred()
+//        selectionGenerator.prepare()
+//        // adds the highlight to the graph when tapped
+//        super.nsuiTouchesBegan(touches, withEvent: event)
+//        touchesMoved = false
+//        if let touch = touches.first {
+//            let h = getHighlightByTouchPoint(touch.location(in: self))
+//
+//            if h === nil || h == self.lastHighlighted {
+//                lastHighlighted = nil
+//                highlightValue(nil, callDelegate: true)
+//            }
+//            else {
+//                lastHighlighted = h
+//                highlightValue(h, callDelegate: true)
+//            }
+//        }
+//    }
 
     open override func nsuiTouchesEnded(_ touches: Set<NSUITouch>, withEvent event: NSUIEvent?) {
         super.nsuiTouchesEnded(touches, withEvent: event)
