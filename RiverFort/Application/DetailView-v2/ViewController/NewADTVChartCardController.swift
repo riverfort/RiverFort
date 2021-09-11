@@ -38,10 +38,7 @@ extension NewADTVChartCardController {
     }
     
     @objc private func prepareChartTimeseries(notification: Notification) {
-        guard let selectedSegmentIndex = notification.userInfo?["selectedSegmentIndex"] as? Int else {
-            return
-        }
-        adtvChartPart.changeTimeseries(for: selectedSegmentIndex)
+        adtvChartPart.changeTimeseries(for: UserDefaults.standard.integer(forKey: "timeseriesSelectedSegmentIndex"))
     }
     
     @objc private func prepareView(notification: Notification) {

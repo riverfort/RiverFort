@@ -44,10 +44,7 @@ extension NewPriceChartCardController {
     }
     
     @objc private func prepareChartTimeseries(notification: Notification) {
-        guard let selectedSegmentIndex = notification.userInfo?["selectedSegmentIndex"] as? Int else {
-            return
-        }
-        priceChartPart.changeTimeseries(for: selectedSegmentIndex)
+        priceChartPart.changeTimeseries(for: UserDefaults.standard.integer(forKey: "timeseriesSelectedSegmentIndex"))
     }
     
     @objc private func prepareChartDateForNews(notification: Notification) {
