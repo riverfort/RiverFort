@@ -124,6 +124,9 @@ extension NewProfileCardController {
         let yahooFinanceQuote = yahooFinanceQuoteResult.optionChain.result[0].quote
         let exchange = yahooFinanceQuote.exchange
         switch exchange {
+        case "LSE":
+            readMoreButtonPart.setTitle("Read more on London Stock Exchange (LSE)", for: .normal)
+            readMoreURL = DetailViewReadMoreURLs.LSE_EXCHANGE_URL(symbol: yahooFinanceQuote.symbol, name: yahooFinanceQuote.longName)
         case "AQS":
             readMoreButtonPart.setTitle("Read more on Aquis Stock Exchange (AQSE)", for: .normal)
             readMoreURL = DetailViewReadMoreURLs.AQUIS_EXCHANGE_URL(symbol: yahooFinanceQuote.symbol)

@@ -30,4 +30,13 @@ struct DetailViewReadMoreURLs {
         }
         return url
     }
+    
+    static func LSE_EXCHANGE_URL(symbol: String, name: String) -> URL? {
+        let adjustedSymbol = symbol.components(separatedBy: ".")[0]
+        let adjustedName = name.lowercased().replacingOccurrences(of: " ", with: "-")
+        guard let url = URL(string: "https://www.londonstockexchange.com/stock/\(adjustedSymbol)/\(adjustedName)/company-page") else {
+            return nil
+        }
+        return url
+    }
 }
