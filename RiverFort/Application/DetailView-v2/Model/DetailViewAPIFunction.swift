@@ -53,7 +53,7 @@ struct YahooFinanceQuoteResult: Decodable {
 
 struct YahooFinanceQuote: Decodable {
     let symbol: String
-    let longName: String
+    let longName: String?
     let exchange: String
     let currency: String
     let market: String

@@ -126,7 +126,8 @@ extension NewProfileCardController {
         switch exchange {
         case "LSE":
             readMoreButtonPart.setTitle("Read more on London Stock Exchange (LSE)", for: .normal)
-            readMoreURL = DetailViewReadMoreURLs.LSE_EXCHANGE_URL(symbol: yahooFinanceQuote.symbol, name: yahooFinanceQuote.longName)
+            guard let name = yahooFinanceQuote.longName else { return }
+            readMoreURL = DetailViewReadMoreURLs.LSE_EXCHANGE_URL(symbol: yahooFinanceQuote.symbol, name: name)
         case "AQS":
             readMoreButtonPart.setTitle("Read more on Aquis Stock Exchange (AQSE)", for: .normal)
             readMoreURL = DetailViewReadMoreURLs.AQUIS_EXCHANGE_URL(symbol: yahooFinanceQuote.symbol)
