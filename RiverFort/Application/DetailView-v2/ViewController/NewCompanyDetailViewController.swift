@@ -63,7 +63,7 @@ extension NewCompanyDetailViewController {
         }
         navigationItem.title = company.symbol
         getQuoteFromYahooFinance(symbol: company.symbol)
-        getHistPriceFromFMP(symbol: company.symbol, exch: company.exch, timeseries: 180)
+        getHistPriceFromFMP(symbol: company.symbol, exch: company.exch, timeseries: 253)
     }
     
     @objc private func chartValueSelected() {
