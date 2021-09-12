@@ -10,7 +10,10 @@ import Alamofire
 
 class SearchAPIFunction {
     static func searchFromYahooFinance(for searchTerm: String) -> DataRequest {
-        AF.request("https://finance.yahoo.com/_finance_doubledown/api/resource/searchassist;searchTerm=\(searchTerm)").validate()
+        guard let encodedSearchTerm = searchTerm.addingPercentEncoding(withAllowedCharacters: .afURLQueryAllowed) else {
+            return AF.request("https://finance.yahoo.com/_finance_doubledown/api/resource/searchassist;searchTerm=\(searchTerm)").validate()
+        }
+        return AF.request("https://finance.yahoo.com/_finance_doubledown/api/resource/searchassist;searchTerm=\(encodedSearchTerm)").validate()
     }
 }
 
