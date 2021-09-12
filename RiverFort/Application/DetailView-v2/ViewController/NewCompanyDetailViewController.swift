@@ -64,7 +64,6 @@ extension NewCompanyDetailViewController {
         navigationItem.title = company.symbol
         getQuoteFromYahooFinance(symbol: company.symbol)
         getHistPriceFromFMP(symbol: company.symbol, exch: company.exch, timeseries: 253)
-        getProfileFromFMP(symbol: company.symbol)
     }
     
     @objc private func chartValueSelected() {
@@ -98,18 +97,6 @@ extension NewCompanyDetailViewController {
                 NotificationCenter.default.post(name: fmpHistPriceName, object: fmpHistPrice)
                 let adtvName = Notification.Name(NewDetailViewConstant.ADTV)
                 NotificationCenter.default.post(name: adtvName, object: adtvs)
-            }
-    }
-}
-
-extension NewCompanyDetailViewController {
-    private func getProfileFromFMP(symbol: String) {
-        DetailViewAPIFunction.fetchProfileFromFMP(symbol: symbol)
-            .responseDecodable(of: [FMPProfile].self) { (response) in
-                guard let fmpProfile = response.value else { return }
-                guard let fmpProfileValue = fmpProfile.first else { return }
-                print(fmpProfileValue.industry)
-                print(fmpProfileValue.sector)
             }
     }
 }
