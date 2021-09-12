@@ -130,11 +130,11 @@ extension NewPriceChartCardPartView {
         var adjustedHistPriceDataEntries = [ChartDataEntry]()
         switch UserDefaults.standard.integer(forKey: "timeseriesSelectedSegmentIndex") {
         case 0:
-            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(7)
+            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(5)
         case 1:
-            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(14)
+            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(10)
         case 2:
-            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(30)
+            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(20)
         case 3:
             adjustedHistPriceDataEntries = histPriceDataEntries.suffix(60)
         case 4:
@@ -175,11 +175,11 @@ extension NewPriceChartCardPartView {
         var adjustedHistPriceDataEntries = [ChartDataEntry]()
         switch selectedSegmentIndex {
         case 0:
-            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(7)
+            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(5)
         case 1:
-            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(14)
+            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(10)
         case 2:
-            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(30)
+            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(20)
         case 3:
             adjustedHistPriceDataEntries = histPriceDataEntries.suffix(60)
         case 4:

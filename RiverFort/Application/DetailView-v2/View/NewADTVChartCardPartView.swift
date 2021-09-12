@@ -138,11 +138,11 @@ extension NewADTVChartCardPartView {
         var adjustedHistPriceDataEntries = [ChartDataEntry]()
         switch UserDefaults.standard.integer(forKey: "timeseriesSelectedSegmentIndex") {
         case 0:
-            adjustedHistPriceDataEntries = adtvDataEntries.suffix(7)
+            adjustedHistPriceDataEntries = adtvDataEntries.suffix(5)
         case 1:
-            adjustedHistPriceDataEntries = adtvDataEntries.suffix(14)
+            adjustedHistPriceDataEntries = adtvDataEntries.suffix(10)
         case 2:
-            adjustedHistPriceDataEntries = adtvDataEntries.suffix(30)
+            adjustedHistPriceDataEntries = adtvDataEntries.suffix(20)
         case 3:
             adjustedHistPriceDataEntries = adtvDataEntries.suffix(60)
         case 4:
@@ -163,11 +163,11 @@ extension NewADTVChartCardPartView {
         var adjustedHistPriceDataEntries = [ChartDataEntry]()
         switch selectedSegmentIndex {
         case 0:
-            adjustedHistPriceDataEntries = adtvDataEntries.suffix(7)
+            adjustedHistPriceDataEntries = adtvDataEntries.suffix(5)
         case 1:
-            adjustedHistPriceDataEntries = adtvDataEntries.suffix(14)
+            adjustedHistPriceDataEntries = adtvDataEntries.suffix(10)
         case 2:
-            adjustedHistPriceDataEntries = adtvDataEntries.suffix(30)
+            adjustedHistPriceDataEntries = adtvDataEntries.suffix(20)
         case 3:
             adjustedHistPriceDataEntries = adtvDataEntries.suffix(60)
         case 4:
