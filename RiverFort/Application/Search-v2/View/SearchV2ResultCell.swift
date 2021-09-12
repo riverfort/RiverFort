@@ -105,7 +105,7 @@ extension SearchV2ResultCell {
     public func setCell(for yahooFinanceSearchedCompany: YahooFinanceSearchedCompany) {
         symbol.text = yahooFinanceSearchedCompany.symbol
         name.text = yahooFinanceSearchedCompany.name
-        exch.text = yahooFinanceSearchedCompany.exch
+        exch.text = yahooFinanceSearchedCompany.exchDisp
         type.text = yahooFinanceSearchedCompany.typeDisp
     }
 }

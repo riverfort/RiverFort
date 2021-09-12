@@ -93,7 +93,7 @@ extension HeaderCardController {
             return
         }
         namePart.title = company.name
-        exchPart.title = company.exch
+        exchPart.title = "\(company.exchDisp)"
     }
     
     @objc private func preparePrice(notification: Notification) {
