@@ -22,4 +22,12 @@ struct DetailViewReadMoreURLs {
         }
         return url
     }
+    
+    static func ASX_EXCHANGE_URL(symbol: String) -> URL? {
+        let adjustedSymbol = symbol.components(separatedBy: ".")[0]
+        guard let url = URL(string: "https://www2.asx.com.au/markets/company/\(adjustedSymbol)") else {
+            return nil
+        }
+        return url
+    }
 }

@@ -127,6 +127,9 @@ extension NewProfileCardController {
         case "AQS":
             readMoreButtonPart.setTitle("Read more on Aquis Stock Exchange (AQSE)", for: .normal)
             readMoreURL = DetailViewReadMoreURLs.AQUIS_EXCHANGE_URL(symbol: yahooFinanceQuote.symbol)
+        case "ASX":
+            readMoreButtonPart.setTitle("Read more on Australian Securities Exchange (ASX)", for: .normal)
+            readMoreURL = DetailViewReadMoreURLs.ASX_EXCHANGE_URL(symbol: yahooFinanceQuote.symbol)
         default:
             readMoreButtonPart.setTitle("Read more on Yahoo Finance", for: .normal)
             readMoreURL = DetailViewReadMoreURLs.YAHOO_FINANCE_URL(symbol: yahooFinanceQuote.symbol)
