@@ -14,5 +14,6 @@ struct NewDetailViewConstant {
     static var CHART_VALUE_NO_LONGER_SELECTED = "com.riverfort.chartValueNoLongerSelected"
     static var YAHOO_FINANCE_QUOTE_RESULT = "com.riverfort.yahooFinanceQuoteResult"
     static var FMP_HIST_PRICE = "com.riverfort.fmpHistPrice"
+    static var FMP_PROFILE = "com.riverfort.fmpProfile"
     static var ADTV = "com.riverfort.ADTV"
 }

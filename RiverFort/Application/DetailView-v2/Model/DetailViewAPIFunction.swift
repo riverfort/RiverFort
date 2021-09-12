@@ -24,6 +24,12 @@ extension DetailViewAPIFunction {
     }
 }
 
+extension DetailViewAPIFunction {
+    static func fetchProfileFMP(symbol: String) -> DataRequest {
+        AF.request("https://financialmodelingprep.com/api/v3/profile/\(symbol)?apikey=2797db3c7193bf4ec7231be3cba5f27c").validate()
+    }
+}
+
 struct FMPHistPriceResult: Decodable {
     struct FMPHistPrice: Decodable {
         let date: String
@@ -38,6 +44,11 @@ struct FMPHistPriceResult: Decodable {
     }
     let symbol: String
     let historical: [FMPHistPrice]
+}
+
+struct FMPProfile: Decodable {
+    let industry: String
+    let sector: String
 }
 
 struct YahooFinanceQuoteResult: Decodable {

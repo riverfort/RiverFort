@@ -113,11 +113,13 @@ extension NewProfileCardController {
 
 extension NewProfileCardController {
     private func createObservesr() {
-        let aName = Notification.Name(NewDetailViewConstant.YAHOO_FINANCE_QUOTE_RESULT)
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: aName, object: nil)
+        let yahooFinanceQuoteResultName = Notification.Name(NewDetailViewConstant.YAHOO_FINANCE_QUOTE_RESULT)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareReadMoreButton), name: yahooFinanceQuoteResultName, object: nil)
+        let fmpProfiletName = Notification.Name(NewDetailViewConstant.FMP_PROFILE)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: fmpProfiletName, object: nil)
     }
     
-    @objc private func prepareView(notification: Notification) {
+    @objc private func prepareReadMoreButton(notification: Notification) {
         guard let yahooFinanceQuoteResult = notification.object as? YahooFinanceQuoteResult else {
             return
         }
@@ -138,5 +140,11 @@ extension NewProfileCardController {
             readMoreButtonPart.setTitle("Read more on Yahoo Finance", for: .normal)
             readMoreURL = DetailViewReadMoreURLs.YAHOO_FINANCE_URL(symbol: yahooFinanceQuote.symbol)
         }
+    }
+    
+    @objc private func prepareView(notification: Notification) {
+        guard let fmpProfile = notification.object as? FMPProfile else { return }
+        industryDataPart.title = fmpProfile.industry
+        sectorDataPart.title = fmpProfile.sector
     }
 }
