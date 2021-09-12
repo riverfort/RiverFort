@@ -54,8 +54,9 @@ extension HeaderCardController {
         pricePart.titleFont = .preferredFont(forTextStyle: .headline)
         pricePart.label.adjustsFontForContentSizeCategory = true
         
+        changePart.title = "-"
         changePart.titleColor = .label
-        changePart.titleFont = .preferredFont(forTextStyle: .subheadline)
+        changePart.titleFont = .preferredFont(forTextStyle: .headline)
         changePart.label.adjustsFontForContentSizeCategory = true
     }
     
@@ -71,6 +72,7 @@ extension HeaderCardController {
         cardPartSV2.margins = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
         cardPartSV2.addArrangedSubview(cardPartSV1)
         cardPartSV2.addArrangedSubview(pricePart)
+        cardPartSV2.addArrangedSubview(changePart)
     }
     
     private func configCardParts() {
@@ -101,6 +103,19 @@ extension HeaderCardController {
             return
         }
         let yahooFinanceQuote = yahooFinanceQuoteResult.optionChain.result[0].quote
+        let changeDisp = String(format: "%.2f", yahooFinanceQuote.regularMarketChange)
+        let changePercentDisp = String(format: "%.2f", yahooFinanceQuote.regularMarketChangePercent)
+        switch yahooFinanceQuote.regularMarketChange {
+        case let change where change > 0:
+            changePart.titleColor = .systemGreen
+            changePart.title = "+\(changeDisp)(+\(changePercentDisp)%)"
+        case let change where change < 0:
+            changePart.titleColor = .systemRed
+            changePart.title = "\(changeDisp)(\(changePercentDisp)%)"
+        default:
+            changePart.titleColor = .label
+            changePart.title = "\(changeDisp)(\(changePercentDisp)%)"
+        }
         pricePart.title = "\(yahooFinanceQuote.currency) \(yahooFinanceQuote.regularMarketPrice)"
     }
 }
