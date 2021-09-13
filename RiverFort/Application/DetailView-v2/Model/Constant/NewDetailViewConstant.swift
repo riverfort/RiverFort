@@ -15,5 +15,6 @@ struct NewDetailViewConstant {
     static var YAHOO_FINANCE_QUOTE_RESULT = "com.riverfort.yahooFinanceQuoteResult"
     static var FMP_HIST_PRICE = "com.riverfort.fmpHistPrice"
     static var FMP_PROFILE = "com.riverfort.fmpProfile"
+    static var YAHOO_FINANCE_HIST_PRICE = "com.riverfort.yahooFinanceHistPrice"
     static var ADTV = "com.riverfort.ADTV"
 }

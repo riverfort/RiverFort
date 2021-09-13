@@ -111,7 +111,8 @@ extension NewCompanyDetailViewController {
                     date: result.timestamp,
                     close: quote.close,
                     volume: quote.volume)
-                print(yahooFinanceHistPrice)
+                let yahooFinanceHistPriceName = Notification.Name(NewDetailViewConstant.YAHOO_FINANCE_HIST_PRICE)
+                NotificationCenter.default.post(name: yahooFinanceHistPriceName, object: yahooFinanceHistPrice)
             }
     }
 }
