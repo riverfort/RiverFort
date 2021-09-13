@@ -88,7 +88,7 @@ extension NewCompanyDetailViewController {
     }
 }
 
-extension NewCompanyDetailViewController {    
+extension NewCompanyDetailViewController {
     private func getHistPriceFromFMP(symbol: String, exch: String, timeseries: Int) {
         DetailViewAPIFunction.fetchHistPriceFromFMP(symbol: symbol, timeseries: timeseries)
             .responseDecodable(of: FMPHistPriceResult.self) { [self] (response) in
