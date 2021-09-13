@@ -22,59 +22,14 @@ extension DetailViewAPIFunction {
     static func fetchHistPriceFromFMP(symbol: String, timeseries: Int) -> DataRequest {
         AF.request("https://financialmodelingprep.com/api/v3/historical-price-full/\(symbol)?timeseries=\(timeseries)&apikey=2797db3c7193bf4ec7231be3cba5f27c").validate()
     }
+    
+    static func fetchHistPriceFromYahooFinance(symbol: String) -> DataRequest {
+        AF.request("https://query2.finance.yahoo.com/v8/finance/chart/\(symbol)?range=1y&interval=1d").validate()
+    }
 }
 
 extension DetailViewAPIFunction {
     static func fetchProfileFMP(symbol: String) -> DataRequest {
         AF.request("https://financialmodelingprep.com/api/v3/profile/\(symbol)?apikey=2797db3c7193bf4ec7231be3cba5f27c").validate()
     }
-}
-
-struct FMPHistPriceResult: Decodable {
-    struct FMPHistPrice: Decodable {
-        let date: String
-        let open: Double
-        let high: Double
-        let low: Double
-        let close: Double
-        let volume: Double
-        let change: Double
-        let changePercent: Double
-        let vwap: Double
-    }
-    let symbol: String
-    let historical: [FMPHistPrice]
-}
-
-struct FMPProfile: Decodable {
-    let industry: String
-    let sector: String
-}
-
-struct YahooFinanceQuoteResult: Decodable {
-    struct OptionChain: Decodable {
-        struct OptionChainResult: Decodable {
-            let underlyingSymbol: String
-            let quote: YahooFinanceQuote
-        }
-        let result: [OptionChainResult]
-    }
-    let optionChain: OptionChain
-}
-
-struct YahooFinanceQuote: Decodable {
-    let symbol: String
-    let longName: String?
-    let exchange: String
-    let currency: String
-    let market: String
-    let marketCap: Double?
-    let regularMarketTime: Int
-    let regularMarketVolume: Int
-    let regularMarketChange: Double
-    let regularMarketChangePercent: Double
-    let regularMarketPrice: Double
-    let regularMarketOpen: Double
-    let regularMarketDayHigh: Double
-    let regularMarketDayLow: Double
 }
