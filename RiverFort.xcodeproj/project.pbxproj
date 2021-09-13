@@ -513,6 +513,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		7765434626EF610000E91C25 /* ChartModel */ = {
+			isa = PBXGroup;
+			children = (
+				77E7B3FC26E7AA56000EABC6 /* ChartDataEntryData.swift */,
+			);
+			path = ChartModel;
+			sourceTree = "<group>";
+		};
 		776F657826BBDB4C00CAA5A6 /* Orientation */ = {
 			isa = PBXGroup;
 			children = (
@@ -802,9 +810,9 @@
 			children = (
 				7765434026EF3BFD00E91C25 /* APIModel */,
 				7765434526EF5FF600E91C25 /* ViewModel */,
+				7765434626EF610000E91C25 /* ChartModel */,
 				77CD33FC26E39DAD00950F2A /* Constant */,
 				7748988226E0D598000933A6 /* DetailViewAPIFunction.swift */,
-				77E7B3FC26E7AA56000EABC6 /* ChartDataEntryData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
