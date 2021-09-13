@@ -109,6 +109,8 @@ extension NewCompanyDetailViewController {
                 guard let quote = result.indicators.quote.first else { return }
                 let yahooFinanceHistPrice = YahooFinanceHistPriceAdjcResult(
                     date: result.timestamp,
+                    high: quote.high,
+                    low: quote.low,
                     close: quote.close,
                     volume: quote.volume)
                 let yahooFinanceHistPriceName = Notification.Name(NewDetailViewConstant.YAHOO_FINANCE_HIST_PRICE)
