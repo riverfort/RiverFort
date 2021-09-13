@@ -10,8 +10,8 @@ import Foundation
 struct HistPriceChartDataEntryData {
     let date: String
     let volume: Double
-    let change: Double
-    let changePercent: Double
+    let change: Double?
+    let changePercent: Double?
 }
 
 struct NewsChartDataEntryData {
