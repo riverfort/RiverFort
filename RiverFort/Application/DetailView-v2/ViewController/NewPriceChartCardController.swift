@@ -37,8 +37,8 @@ extension NewPriceChartCardController {
         NotificationCenter.default.addObserver(self, selector: #selector(prepareChartTimeseries), name: timeseriesChangedName, object: nil)
         let yahooFinanceQuoteResultName = Notification.Name(NewDetailViewConstant.YAHOO_FINANCE_QUOTE_RESULT)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareChartDateForNews), name: yahooFinanceQuoteResultName, object: nil)
-        let fmpHistPriceResultName = Notification.Name(NewDetailViewConstant.FMP_HIST_PRICE)
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareChartDataForHistPrice), name: fmpHistPriceResultName, object: nil)
+        let yahooFinanceHistPriceName = Notification.Name(NewDetailViewConstant.YAHOO_FINANCE_HIST_PRICE)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareChartDataForHistPrice), name: yahooFinanceHistPriceName, object: nil)
         let priceChartDisplayModeChangedName = Notification.Name(NewDetailViewConstant.PRICE_CHART_DISPLAY_MODE_CHANGED)
         NotificationCenter.default.addObserver(self, selector: #selector(preparePriceChartDisplayModeChanged), name: priceChartDisplayModeChangedName, object: nil)
     }
@@ -65,12 +65,18 @@ extension NewPriceChartCardController {
     }
     
     @objc private func prepareChartDataForHistPrice(notification: Notification) {
-        guard let histPrice = notification.object as? [FMPHistPriceResult.FMPHistPrice] else {
+        guard let yahooFinanceHistPriceAdjcResult = notification.object as? YahooFinanceHistPriceAdjcResult else {
             return
         }
-        priceChartPart.setChartDataForHistPrice(with: histPrice)
+        let dates = yahooFinanceHistPriceAdjcResult.date
+        let closes = yahooFinanceHistPriceAdjcResult.close
+        let vols = yahooFinanceHistPriceAdjcResult.volume
+        let histPrice = zip(dates, zip(closes, vols))
+            .map { (date, pv) in HistPrice(date: date, close: pv.0, volume: pv.1) }
+            .filter { $0.close != nil || $0.volume != nil }
+        priceChartPart.setChartData(with: histPrice)
     }
-
+    
     @objc private func preparePriceChartDisplayModeChanged() {
         print(UserDefaults.standard.bool(forKey: "com.riverfort.DetailView.news"))
     }

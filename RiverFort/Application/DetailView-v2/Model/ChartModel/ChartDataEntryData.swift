@@ -7,6 +7,12 @@
 
 import Foundation
 
+struct HistPrice {
+    let date: Int
+    let close: Double?
+    let volume: Int?
+ }
+
 struct HistPriceChartDataEntryData {
     let date: String
     let volume: Double

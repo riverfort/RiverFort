@@ -40,9 +40,9 @@ struct YahooFinanceHistPriceResult: Decodable {
         struct YahooFinanceHistPriceChartResult: Decodable {
             struct YahooFinanceHistPriceChartResultIndicators: Decodable {
                 struct YahooFinanceHistPriceQuote: Decodable {
-                    let close, low, high: [Double]
-                    let volume: [Int]
-                    let quoteOpen: [Double]
+                    let close, low, high: [Double?]
+                    let volume: [Int?]
+                    let quoteOpen: [Double?]
 
                     enum CodingKeys: String, CodingKey {
                         case close, low, high, volume
@@ -50,7 +50,7 @@ struct YahooFinanceHistPriceResult: Decodable {
                     }
                 }
                 struct YahooFinanceHistPriceChartResultIndicatorsAdjclose: Decodable {
-                    let adjclose: [Double]
+                    let adjclose: [Double?]
                 }
                 let quote: [YahooFinanceHistPriceQuote]
                 let adjclose: [YahooFinanceHistPriceChartResultIndicatorsAdjclose]
@@ -66,6 +66,6 @@ struct YahooFinanceHistPriceResult: Decodable {
 
 struct YahooFinanceHistPriceAdjcResult {
     let date: [Int]
-    let close: [Double]
-    let volume: [Int]
+    let close: [Double?]
+    let volume: [Int?]
 }

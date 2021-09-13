@@ -87,7 +87,8 @@ extension NewPriceChartCardPartView: ChartViewDelegate, MyChartViewDelegate {
 
 extension NewPriceChartCardPartView: IAxisValueFormatter {
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-        guard let histPriceChartDataEntryData = histPriceDataEntries[Int(value)].data as? HistPriceChartDataEntryData else {
+        guard let histPriceChartDataEntryData =
+                histPriceDataEntries[Int(value) % histPriceDataEntries.count].data as? HistPriceChartDataEntryData else {
             return ""
         }
         return DateFormatterUtils.convertDateFormate_DM(histPriceChartDataEntryData.date)
@@ -118,15 +119,16 @@ extension NewPriceChartCardPartView {
     }
 }
 
-extension NewPriceChartCardPartView {
-    public func setChartDataForHistPrice(with histPrice: [FMPHistPriceResult.FMPHistPrice]) {
-        histPriceDataEntries = histPrice.enumerated().map { (index, dailyPrice) in
-            ChartDataEntry(x: Double(index),
-                           y: dailyPrice.close,
-                           data: HistPriceChartDataEntryData(date: dailyPrice.date,
-                                                             volume: dailyPrice.volume,
-                                                             change: dailyPrice.change,
-                                                             changePercent: dailyPrice.changePercent))}
+extension NewPriceChartCardPartView {     
+    public func setChartData(with histPrice: [HistPrice]) {
+        histPriceDataEntries = histPrice.enumerated().map{ (index, dailyPrice) in
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            let date = Date(timeIntervalSince1970: TimeInterval(dailyPrice.date))
+            let dateStr = dateFormatter.string(from: date)
+            return ChartDataEntry(x: Double(index),
+                                  y: dailyPrice.close ?? 0,
+                                  data: HistPriceChartDataEntryData(date: dateStr, volume: Double(dailyPrice.volume ?? 0)))}
         var adjustedHistPriceDataEntries = [ChartDataEntry]()
         switch UserDefaults.standard.integer(forKey: "timeseriesSelectedSegmentIndex") {
         case 0:
@@ -148,7 +150,7 @@ extension NewPriceChartCardPartView {
         configLineChartDataSetForHistPrice(with: lineChartDataSet)
         chartView.data = LineChartData(dataSet: lineChartDataSet)
     }
-    
+
     public func setChartDataForNews(with rssItems: [RSSItem]) {
         rssItems.forEach { rssItem in
             let newsDate = DateFormatterUtils.convertDateFormate_DMY_YMD(rssItem.pubDate)
