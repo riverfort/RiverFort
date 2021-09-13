@@ -63,3 +63,9 @@ struct YahooFinanceHistPriceResult: Decodable {
     }
     let chart: YahooFinanceHistPriceChart
 }
+
+struct YahooFinanceHistPriceAdjcResult {
+    let date: [Int]
+    let close: [Double]
+    let volume: [Int]
+}

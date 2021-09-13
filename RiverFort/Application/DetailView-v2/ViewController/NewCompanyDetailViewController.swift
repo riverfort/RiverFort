@@ -88,7 +88,7 @@ extension NewCompanyDetailViewController {
     }
 }
 
-extension NewCompanyDetailViewController {
+extension NewCompanyDetailViewController {    
     private func getHistPriceFromFMP(symbol: String, exch: String, timeseries: Int) {
         DetailViewAPIFunction.fetchHistPriceFromFMP(symbol: symbol, timeseries: timeseries)
             .responseDecodable(of: FMPHistPriceResult.self) { [self] (response) in
@@ -105,8 +105,13 @@ extension NewCompanyDetailViewController {
     private func getHistPriceFromYahooFinance(symbol: String) {
         DetailViewAPIFunction.fetchHistPriceFromYahooFinance(symbol: symbol)
             .responseDecodable(of: YahooFinanceHistPriceResult.self) { (response) in
-                guard let yahooFinanceHistPrice = response.value?.chart.result.first?.indicators.quote.first else { return }
-                print(yahooFinanceHistPrice.close)
+                guard let result = response.value?.chart.result.first else { return }
+                guard let quote = result.indicators.quote.first else { return }
+                let yahooFinanceHistPrice = YahooFinanceHistPriceAdjcResult(
+                    date: result.timestamp,
+                    close: quote.close,
+                    volume: quote.volume)
+                print(yahooFinanceHistPrice)
             }
     }
 }
