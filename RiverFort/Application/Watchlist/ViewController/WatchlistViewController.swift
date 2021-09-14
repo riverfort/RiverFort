@@ -17,8 +17,6 @@ class WatchlistViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configView()
-        configNavigationController()
-        configWatchlistTableView()
         createObservers()
         watchlistTableView.registerWatchedCompanies()
     }
@@ -37,6 +35,8 @@ class WatchlistViewController: UIViewController {
 extension WatchlistViewController {
     private func configView() {
         view.backgroundColor = .systemBackground
+        configNavigationController()
+        configWatchlistTableView()
     }
     
     private func configNavigationController() {
@@ -84,7 +84,6 @@ extension WatchlistViewController {
     @objc private func reloadWatchlist() {
         DispatchQueue.main.async { [self] in
             watchlistTableView.removeAllWatchedCompanies()
-            watchlistTableView.configureAPI()
             watchlistTableView.getWatchedCompanies()
             watchlistTableView.reloadData()
         }
@@ -105,7 +104,6 @@ extension WatchlistViewController {
         let editWatchlistViewController = EditWatchlistViewController()
         editWatchlistViewController.editCompletion = { [self] in
             watchlistTableView.removeAllWatchedCompanies()
-            watchlistTableView.configureAPI()
             watchlistTableView.getWatchedCompanies()
             reloadWatchlistTableView()
         }
