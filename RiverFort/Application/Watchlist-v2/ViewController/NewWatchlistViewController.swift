@@ -11,7 +11,7 @@ class NewWatchlistViewController: UIViewController {
     private let watchlistTableView = UITableView(frame: .zero, style: .insetGrouped)
     private struct Cell { static let cell = "cell" }
     private var watchedCompanies = [WatchedCompany]()
-    private var watchedCompanysQuotes = [YahooFinanceQuote2]()
+    private var watchedCompaniesQuote = [YahooFinanceQuote2]()
     private var isChangePercentInDataButton = true
     
     override func viewDidLoad() {
@@ -70,7 +70,7 @@ extension NewWatchlistViewController {
         WatchlistAPIFunction.fetchQuotesFromYahooFinance(symbols: symbols)
             .responseDecodable(of: YahooFinanceQuoteResult2.self) { response in
                 guard let yahooFinanceQuoteResult2 = response.value else { return }
-                self.watchedCompanysQuotes = yahooFinanceQuoteResult2.quoteResponse.result
+                self.watchedCompaniesQuote = yahooFinanceQuoteResult2.quoteResponse.result
             }
     }
 }
