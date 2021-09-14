@@ -11,11 +11,12 @@ import CoreData
 class WatchlistTableView: UITableView {
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     private var watchedCompanies      = [WatchedCompany]()
-//    private var watchedCompanyDetails = [CompanyDetail]()
+    private var watchedCompanyDetails = [CompanyDetail]()
     private var isChangePercentInDataButton = true
 
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
+        configureAPI()
         getWatchedCompanies()
         configureTableView()
     }
@@ -42,19 +43,19 @@ extension WatchlistTableView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WatchlistTableViewCell
         let watchedCompanySymbol = watchedCompanies[indexPath.row].company_ticker
-//        if let i = watchedCompanyDetails.firstIndex(where: {$0.company_ticker == watchedCompanySymbol}) {
-//            let watchedCompanyDetail = WatchedCompanyDetail(
-//                symbol: watchedCompanyDetails[i].company_ticker,
-//                name: watchedCompanyDetails[i].company_name,
-//                currency: watchedCompanyDetails[i].currency,
-//                price: watchedCompanyDetails[i].close,
-//                mktCap: watchedCompanyDetails[i].market_cap!,
-//                changePercent: watchedCompanyDetails[i].change_percent,
-//                mktDate: watchedCompanyDetails[i].market_date)
-//            cell.setWatchlistTableViewCell(watchedCompanyDetail: watchedCompanyDetail)
-//            cell.setDataButtonTitle(isChangePercentInDataButton: isChangePercentInDataButton)
-//            cell.dataButton.addTarget(self, action: #selector(switchData), for: .touchUpInside)
-//        }
+        if let i = watchedCompanyDetails.firstIndex(where: {$0.company_ticker == watchedCompanySymbol}) {
+            let watchedCompanyDetail = WatchedCompanyDetail(
+                symbol: watchedCompanyDetails[i].company_ticker,
+                name: watchedCompanyDetails[i].company_name,
+                currency: watchedCompanyDetails[i].currency,
+                price: watchedCompanyDetails[i].close,
+                mktCap: watchedCompanyDetails[i].market_cap!,
+                changePercent: watchedCompanyDetails[i].change_percent,
+                mktDate: watchedCompanyDetails[i].market_date)
+            cell.setWatchlistTableViewCell(watchedCompanyDetail: watchedCompanyDetail)
+            cell.setDataButtonTitle(isChangePercentInDataButton: isChangePercentInDataButton)
+            cell.dataButton.addTarget(self, action: #selector(switchData), for: .touchUpInside)
+        }
         return cell
     }
 }
@@ -103,6 +104,9 @@ extension WatchlistTableView {
             let sort = NSSortDescriptor(key: "rowOrder", ascending: true)
             request.sortDescriptors = [sort]
             watchedCompanies = try context.fetch(request)
+            for watchedCompany in watchedCompanies {
+                APIFunctions.functions.fetchCompanyDetail(companyTicker: watchedCompany.company_ticker!)
+            }
         } catch {
             print("error")
         }
@@ -119,6 +123,21 @@ extension WatchlistTableView {
             }
         } catch {
             print("error")
+        }
+    }
+}
+
+extension WatchlistTableView: CompanyDetailDataDelegate {
+    public func configureAPI() {
+        APIFunctions.functions.companyDetailDeleagate = self
+    }
+    
+    func updateCompanyDetail(newCompanyDetail: String) {
+        do {
+            let companyDetail = try JSONDecoder().decode([CompanyDetail].self, from: newCompanyDetail.data(using: .utf8)!)
+            watchedCompanyDetails.append(companyDetail[0])
+        } catch {
+            print("Failed to decode company detail!")
         }
     }
 }
