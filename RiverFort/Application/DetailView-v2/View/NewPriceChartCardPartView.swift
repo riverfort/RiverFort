@@ -122,13 +122,9 @@ extension NewPriceChartCardPartView {
 extension NewPriceChartCardPartView {     
     public func setChartData(with histPrice: [HistPrice]) {
         histPriceDataEntries = histPrice.enumerated().map{ (index, dailyPrice) in
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-            let date = Date(timeIntervalSince1970: TimeInterval(dailyPrice.date))
-            let dateStr = dateFormatter.string(from: date)
             return ChartDataEntry(x: Double(index),
                                   y: dailyPrice.close ?? 0,
-                                  data: HistPriceChartDataEntryData(date: dateStr, volume: Double(dailyPrice.volume ?? 0)))}
+                                  data: HistPriceChartDataEntryData(date: dailyPrice.date, volume: Double(dailyPrice.volume ?? 0)))}
         var adjustedHistPriceDataEntries = [ChartDataEntry]()
         switch UserDefaults.standard.integer(forKey: "timeseriesSelectedSegmentIndex") {
         case 0:

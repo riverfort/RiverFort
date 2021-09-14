@@ -107,7 +107,9 @@ extension NewCompanyDetailViewController {
             .responseDecodable(of: YahooFinanceHistPriceResult.self) { [self] (response) in
                 guard let result = response.value?.chart.result.first else { return }
                 guard let quote = result.indicators.quote.first else { return }
-                let dates = result.timestamp
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let dates = result.timestamp.map { day -> String in dateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(day))) }
                 let highs = quote.high
                 let lows = quote.low
                 let closes = quote.close
@@ -116,9 +118,11 @@ extension NewCompanyDetailViewController {
                     .enumerated()
                     .map { (i, date) in HistPrice(date: date, high: highs[i], low: lows[i], close: closes[i], volume: volumes[i]) }
                     .filter { $0.high != nil && $0.low != nil && $0.close != nil && $0.volume != nil }
-                getADTVs(exch: exch, histPrice: histPrice)
+                let adtvs = getADTVs(exch: exch, histPrice: histPrice)
                 let histPriceName = Notification.Name(NewDetailViewConstant.HIST_PRICE)
                 NotificationCenter.default.post(name: histPriceName, object: histPrice)
+                let adtvName = Notification.Name(NewDetailViewConstant.ADTV)
+                NotificationCenter.default.post(name: adtvName, object: adtvs)
             }
     }
 }
@@ -136,17 +140,19 @@ extension NewCompanyDetailViewController {
 }
 
 extension NewCompanyDetailViewController {
-    private func getADTVs(exch: String, histPrice: [HistPrice]) {
-        let vwaps = histPrice.map { ($0.high! + $0.low! + $0.close!) / 3 }
-        let adtvs = histPrice
-            .enumerated()
-            .map { (i, dailyPrice) in vwaps[i] * Double(dailyPrice.volume!) }
-        print(adtvs)
+    private func getADTVs(exch: String, histPrice: [HistPrice]) -> [NewADTV] {
+        let adtvs = histPrice.map { dailyPrice -> NewADTV in
+            let vwap = (dailyPrice.high! + dailyPrice.low! + dailyPrice.close!) / 3
+            let adtv = vwap * Double(dailyPrice.volume!)
+            return NewADTV(date: dailyPrice.date, adtv: adtv)
+        }
         switch exch {
         case "LSE":
-            return
+            return adtvs.map { adtv in
+                NewADTV(date: adtv.date, adtv: adtv.adtv/100)
+            }
         default:
-            return
+            return adtvs
         }
     }
 }

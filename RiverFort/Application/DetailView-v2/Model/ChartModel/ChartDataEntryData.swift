@@ -8,7 +8,7 @@
 import Foundation
 
 struct HistPrice {
-    let date: Int
+    let date: String
     let high: Double?
     let low: Double?
     let close: Double?

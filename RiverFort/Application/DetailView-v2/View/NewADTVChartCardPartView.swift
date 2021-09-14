@@ -99,7 +99,7 @@ extension NewADTVChartCardPartView: ChartViewDelegate, MyChartViewDelegate {
 
 extension NewADTVChartCardPartView: IAxisValueFormatter {
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-        guard let adtvChartDataEntryData = adtvDataEntries[Int(value)].data as? String else {
+        guard let adtvChartDataEntryData = adtvDataEntries[Int(value) % adtvDataEntries.count].data as? String else {
             return ""
         }
         return DateFormatterUtils.convertDateFormate_DM(adtvChartDataEntryData)
