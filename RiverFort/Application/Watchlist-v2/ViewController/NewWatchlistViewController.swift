@@ -8,7 +8,10 @@
 import UIKit
 
 class NewWatchlistViewController: UIViewController {
+    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    private var watchedCompanies = [WatchedCompany]()
     private let watchlistTableView = UITableView()
+    private var isChangePercentInDataButton = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
