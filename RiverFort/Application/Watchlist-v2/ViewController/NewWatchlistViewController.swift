@@ -8,16 +8,24 @@
 import UIKit
 
 class NewWatchlistViewController: UIViewController {
+    private let watchlistTableView = NewWatchlistTableView(frame: .zero, style: .plain)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configView()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setWatchlistTableViewConstraints()
     }
 }
 
 extension NewWatchlistViewController {
     private func configView() {
-        view.backgroundColor = .systemBackground
         configNavigationController()
+        view.backgroundColor = .systemBackground
+        view.addSubview(watchlistTableView)
     }
     
     private func configNavigationController() {
@@ -25,5 +33,15 @@ extension NewWatchlistViewController {
         navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.tintColor = .systemIndigo
+    }
+}
+
+extension NewWatchlistViewController {
+    private func setWatchlistTableViewConstraints() {
+        watchlistTableView.translatesAutoresizingMaskIntoConstraints = false
+        watchlistTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive   = true
+        watchlistTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        watchlistTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive     = true
+        watchlistTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive           = true
     }
 }
