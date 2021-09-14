@@ -24,14 +24,6 @@ class NewWatchlistTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configContentView()
         setStacksConstraints()
-        setDataButtonConstraints()
-        configSymbolLabel()
-        configNameLabel()
-        configCurrencyLabel()
-        configPriceLabel()
-        configChangePercentLabel()
-        configMktCapLabel()
-        configDateLabel()
     }
     
     required init?(coder: NSCoder) {
@@ -40,47 +32,16 @@ class NewWatchlistTableViewCell: UITableViewCell {
 }
 
 extension NewWatchlistTableViewCell {
-    public func setWatchlistTableViewCell(watchedCompanyDetail: WatchedCompanyDetail) {
-        symbol.text = watchedCompanyDetail.symbol
-        name.text   = watchedCompanyDetail.name
-        mktCap.text = NumberShortScale.formatNumber(watchedCompanyDetail.mktCap)
-        date.text   = "\(watchedCompanyDetail.mktDate)"
-        changePercent.text = watchedCompanyDetail.changePercent < 0 ? "\(watchedCompanyDetail.changePercent)%" : "+\(watchedCompanyDetail.changePercent)%"
-        setPriceLabelText(watchedCompanyDetail: watchedCompanyDetail)
-        setDataButtonBackgroundColour(changePercent: watchedCompanyDetail.changePercent)
-    }
-    
-    public func setDataButtonTitle(isChangePercentInDataButton: Bool) {
-        if isChangePercentInDataButton {
-            dataButton.setTitle(changePercent.text, for: .normal)
-        } else {
-            dataButton.setTitle(mktCap.text, for: .normal)
-        }
-    }
-}
-
-extension NewWatchlistTableViewCell {
-    private func setDataButtonBackgroundColour(changePercent: Double) {
-        if changePercent < 0 {
-            dataButton.backgroundColor = .systemRed
-        } else {
-            dataButton.backgroundColor = .systemGreen
-        }
-    }
-    
-    private func setPriceLabelText(watchedCompanyDetail: WatchedCompanyDetail) {
-        guard let windowInterfaceOrientation = WindowInterfaceOrientation.windowInterfaceOrientation else { return }
-        if windowInterfaceOrientation.isLandscape {
-            price.text  = "\(watchedCompanyDetail.currency) \(watchedCompanyDetail.price)"
-        } else {
-            price.text  = "\(watchedCompanyDetail.price)"
-        }
-    }
-}
-
-extension NewWatchlistTableViewCell {
     private func configContentView() {
         contentView.isUserInteractionEnabled = true
+        configSymbolLabel()
+        configNameLabel()
+        configCurrencyLabel()
+        configPriceLabel()
+        configChangePercentLabel()
+        configMktCapLabel()
+        configDateLabel()
+        configStacks()
     }
     
     private func configSymbolLabel() {
@@ -119,8 +80,8 @@ extension NewWatchlistTableViewCell {
         date.font = .preferredFont(forTextStyle: .body)
         date.adjustsFontForContentSizeCategory = true
     }
-        
-    private func setStacksConstraints() {
+    
+    private func configStacks() {
         addSubview(leftStack)
         leftStack.addArrangedSubview(symbol)
         leftStack.addArrangedSubview(name)
@@ -134,7 +95,9 @@ extension NewWatchlistTableViewCell {
         rightStack.axis         = .vertical
         rightStack.distribution = .equalSpacing
         rightStack.alignment    = .trailing
+    }
         
+    private func setStacksConstraints() {
         leftStack.translatesAutoresizingMaskIntoConstraints = false
         leftStack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         leftStack.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7).isActive = true
@@ -146,6 +109,7 @@ extension NewWatchlistTableViewCell {
         rightStack.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7).isActive = true
         rightStack.leadingAnchor.constraint(equalTo: leftStack.trailingAnchor).isActive = true
         rightStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -systemMinimumLayoutMarginsLeading).isActive = true
+        setDataButtonConstraints()
     }
     
     private func setDataButtonConstraints() {
@@ -159,5 +123,44 @@ extension NewWatchlistTableViewCell {
         dataButton.translatesAutoresizingMaskIntoConstraints = false
         dataButton.widthAnchor.constraint(equalTo: rightStack.widthAnchor, multiplier: 1).isActive = true
         dataButton.heightAnchor.constraint(equalTo: rightStack.heightAnchor, multiplier: 0.5).isActive = true
+    }
+}
+
+extension NewWatchlistTableViewCell {
+    private func setDataButtonBackgroundColour(changePercent: Double) {
+        if changePercent < 0 {
+            dataButton.backgroundColor = .systemRed
+        } else {
+            dataButton.backgroundColor = .systemGreen
+        }
+    }
+    
+    private func setPriceLabelText(watchedCompanyDetail: WatchedCompanyDetail) {
+        guard let windowInterfaceOrientation = WindowInterfaceOrientation.windowInterfaceOrientation else { return }
+        if windowInterfaceOrientation.isLandscape {
+            price.text  = "\(watchedCompanyDetail.currency) \(watchedCompanyDetail.price)"
+        } else {
+            price.text  = "\(watchedCompanyDetail.price)"
+        }
+    }
+}
+
+extension NewWatchlistTableViewCell {
+    public func setWatchlistTableViewCell(watchedCompanyDetail: WatchedCompanyDetail) {
+        symbol.text = watchedCompanyDetail.symbol
+        name.text   = watchedCompanyDetail.name
+        mktCap.text = NumberShortScale.formatNumber(watchedCompanyDetail.mktCap)
+        date.text   = "\(watchedCompanyDetail.mktDate)"
+        changePercent.text = watchedCompanyDetail.changePercent < 0 ? "\(watchedCompanyDetail.changePercent)%" : "+\(watchedCompanyDetail.changePercent)%"
+        setPriceLabelText(watchedCompanyDetail: watchedCompanyDetail)
+        setDataButtonBackgroundColour(changePercent: watchedCompanyDetail.changePercent)
+    }
+    
+    public func setDataButtonTitle(isChangePercentInDataButton: Bool) {
+        if isChangePercentInDataButton {
+            dataButton.setTitle(changePercent.text, for: .normal)
+        } else {
+            dataButton.setTitle(mktCap.text, for: .normal)
+        }
     }
 }
