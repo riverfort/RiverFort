@@ -24,6 +24,7 @@
 		773131BA26DCEC710068AAD8 /* SearchV2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773131B926DCEC710068AAD8 /* SearchV2ViewController.swift */; };
 		773131BC26DCF87B0068AAD8 /* SearchResultV2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773131BB26DCF87B0068AAD8 /* SearchResultV2TableViewController.swift */; };
 		773131BF26DCFE5D0068AAD8 /* SearchV2ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773131BE26DCFE5D0068AAD8 /* SearchV2ResultCell.swift */; };
+		77384E8B26F0CAAC00C23217 /* NewWatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77384E8A26F0CAAC00C23217 /* NewWatchlistViewController.swift */; };
 		773A0B6326171238002B9875 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0B6226171238002B9875 /* AppDelegate.swift */; };
 		773A0B6526171238002B9875 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0B6426171238002B9875 /* SceneDelegate.swift */; };
 		773A0B6C2617123B002B9875 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 773A0B6B2617123B002B9875 /* Assets.xcassets */; };
@@ -144,6 +145,7 @@
 		773131B926DCEC710068AAD8 /* SearchV2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchV2ViewController.swift; sourceTree = "<group>"; };
 		773131BB26DCF87B0068AAD8 /* SearchResultV2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultV2TableViewController.swift; sourceTree = "<group>"; };
 		773131BE26DCFE5D0068AAD8 /* SearchV2ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchV2ResultCell.swift; sourceTree = "<group>"; };
+		77384E8A26F0CAAC00C23217 /* NewWatchlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWatchlistViewController.swift; sourceTree = "<group>"; };
 		773A0B5F26171238002B9875 /* RiverFort.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RiverFort.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		773A0B6226171238002B9875 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		773A0B6426171238002B9875 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -375,6 +377,38 @@
 				773131BE26DCFE5D0068AAD8 /* SearchV2ResultCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		77384E8626F0CA6300C23217 /* Watchlist-v2 */ = {
+			isa = PBXGroup;
+			children = (
+				77384E8726F0CA7600C23217 /* ViewController */,
+				77384E8826F0CA8000C23217 /* View */,
+				77384E8926F0CA8400C23217 /* Model */,
+			);
+			path = "Watchlist-v2";
+			sourceTree = "<group>";
+		};
+		77384E8726F0CA7600C23217 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				77384E8A26F0CAAC00C23217 /* NewWatchlistViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		77384E8826F0CA8000C23217 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		77384E8926F0CA8400C23217 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		773A0B5626171238002B9875 = {
@@ -612,6 +646,7 @@
 				7780B8B526CFAFE500561789 /* Main */,
 				773131B726DCEC3F0068AAD8 /* Search-v2 */,
 				7720570226DE6E1D00063A9A /* DetailView-v2 */,
+				77384E8626F0CA6300C23217 /* Watchlist-v2 */,
 				77CBB6B626B9271300CCD0A6 /* Watchlist */,
 				7785EF2926AAA1C200AEB5FE /* Search */,
 				7780B8B926CFBB7000561789 /* DetailView */,
@@ -1070,6 +1105,7 @@
 				77876E90264D484700798106 /* FeedsCardController.swift in Sources */,
 				77950FCE2643EA4B002AC408 /* ChartCardController.swift in Sources */,
 				776F657A26BBDB6400CAA5A6 /* WindowInterfaceOrientation.swift in Sources */,
+				77384E8B26F0CAAC00C23217 /* NewWatchlistViewController.swift in Sources */,
 				77CB234526B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift in Sources */,
 				77950FD626443A79002AC408 /* ProfileCardController.swift in Sources */,
 				773A0BAA26172690002B9875 /* Company.swift in Sources */,
