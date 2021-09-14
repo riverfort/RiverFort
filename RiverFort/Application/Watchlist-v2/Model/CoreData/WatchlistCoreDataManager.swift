@@ -10,7 +10,7 @@ import CoreData
 class WatchlistCoreDataManager {
     private static let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    static func getWatchedCompanies() -> [WatchedCompany]? {
+    static func fetchWatchedCompanies() -> [WatchedCompany]? {
         do {
             let request = WatchedCompany.fetchRequest() as NSFetchRequest<WatchedCompany>
             let sort = NSSortDescriptor(key: "rowOrder", ascending: true)

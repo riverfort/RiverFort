@@ -158,6 +158,10 @@ extension NewWatchlistTableViewCell {
         name.text   = watchedCompany.company_name
     }
     
+    public func setStatisticsForWatchlistTableViewCell() {
+        
+    }
+    
     public func setDataButtonTitle(isChangePercentInDataButton: Bool) {
         if isChangePercentInDataButton {
             dataButton.setTitle(changePercent.text, for: .normal)

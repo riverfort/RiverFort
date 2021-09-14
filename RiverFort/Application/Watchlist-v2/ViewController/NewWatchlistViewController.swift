@@ -16,7 +16,7 @@ class NewWatchlistViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configView()
-        fetchWatchedCompanies()
+        getWatchedCompanies()
     }
     
     override func viewDidLayoutSubviews() {
@@ -58,8 +58,8 @@ extension NewWatchlistViewController {
 }
 
 extension NewWatchlistViewController {
-    private func fetchWatchedCompanies() {
-        guard let watchedCompanies = WatchlistCoreDataManager.getWatchedCompanies() else { return }
+    private func getWatchedCompanies() {
+        guard let watchedCompanies = WatchlistCoreDataManager.fetchWatchedCompanies() else { return }
         self.watchedCompanies = watchedCompanies
     }
 }
