@@ -27,7 +27,7 @@ class NewWatchlistViewController: UIViewController {
 
 extension NewWatchlistViewController {
     private func configView() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemGroupedBackground
         configNavigationController()
         configTableView()
     }
