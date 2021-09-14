@@ -23,7 +23,6 @@ class NewWatchlistTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configContentView()
-        setStacksConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -42,6 +41,7 @@ extension NewWatchlistTableViewCell {
         configMktCapLabel()
         configDateLabel()
         configStacks()
+        setStacksConstraints()
     }
     
     private func configSymbolLabel() {
