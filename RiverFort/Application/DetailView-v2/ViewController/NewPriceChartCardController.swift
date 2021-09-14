@@ -37,8 +37,8 @@ extension NewPriceChartCardController {
         NotificationCenter.default.addObserver(self, selector: #selector(prepareChartTimeseries), name: timeseriesChangedName, object: nil)
         let yahooFinanceQuoteResultName = Notification.Name(NewDetailViewConstant.YAHOO_FINANCE_QUOTE_RESULT)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareChartDateForNews), name: yahooFinanceQuoteResultName, object: nil)
-        let yahooFinanceHistPriceName = Notification.Name(NewDetailViewConstant.YAHOO_FINANCE_HIST_PRICE)
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareChartDataForHistPrice), name: yahooFinanceHistPriceName, object: nil)
+        let histPriceName = Notification.Name(NewDetailViewConstant.HIST_PRICE)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareChartDataForHistPrice), name: histPriceName, object: nil)
         let priceChartDisplayModeChangedName = Notification.Name(NewDetailViewConstant.PRICE_CHART_DISPLAY_MODE_CHANGED)
         NotificationCenter.default.addObserver(self, selector: #selector(preparePriceChartDisplayModeChanged), name: priceChartDisplayModeChangedName, object: nil)
     }
@@ -65,15 +65,9 @@ extension NewPriceChartCardController {
     }
     
     @objc private func prepareChartDataForHistPrice(notification: Notification) {
-        guard let yahooFinanceHistPriceAdjcResult = notification.object as? YahooFinanceHistPriceAdjcResult else {
+        guard let histPrice = notification.object as? [HistPrice] else {
             return
         }
-        let dates = yahooFinanceHistPriceAdjcResult.date
-        let closes = yahooFinanceHistPriceAdjcResult.close
-        let vols = yahooFinanceHistPriceAdjcResult.volume
-        let histPrice = zip(dates, zip(closes, vols))
-            .map { (date, pv) in HistPrice(date: date, close: pv.0, volume: pv.1) }
-            .filter { $0.close != nil || $0.volume != nil }
         priceChartPart.setChartData(with: histPrice)
     }
     

@@ -107,14 +107,17 @@ extension NewCompanyDetailViewController {
             .responseDecodable(of: YahooFinanceHistPriceResult.self) { (response) in
                 guard let result = response.value?.chart.result.first else { return }
                 guard let quote = result.indicators.quote.first else { return }
-                let yahooFinanceHistPrice = YahooFinanceHistPriceAdjcResult(
-                    date: result.timestamp,
-                    high: quote.high,
-                    low: quote.low,
-                    close: quote.close,
-                    volume: quote.volume)
-                let yahooFinanceHistPriceName = Notification.Name(NewDetailViewConstant.YAHOO_FINANCE_HIST_PRICE)
-                NotificationCenter.default.post(name: yahooFinanceHistPriceName, object: yahooFinanceHistPrice)
+                let dates = result.timestamp
+                let highs = quote.high
+                let lows = quote.low
+                let closes = quote.close
+                let volumes = quote.volume
+                let histPrice = dates
+                    .enumerated()
+                    .map { (i, date) in HistPrice(date: date, high: highs[i], low: lows[i], close: closes[i], volume: volumes[i]) }
+                    .filter { $0.high != nil && $0.low != nil && $0.close != nil && $0.volume != nil }
+                let histPriceName = Notification.Name(NewDetailViewConstant.HIST_PRICE)
+                NotificationCenter.default.post(name: histPriceName, object: histPrice)
             }
     }
 }
