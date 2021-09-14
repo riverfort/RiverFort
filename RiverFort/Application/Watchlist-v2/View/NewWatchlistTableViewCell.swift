@@ -118,7 +118,7 @@ extension NewWatchlistTableViewCell {
     }
     
     private func setDataButtonConstraints() {
-        dataButton.backgroundColor = .secondarySystemGroupedBackground
+        dataButton.backgroundColor = .tertiarySystemGroupedBackground
         dataButton.setTitle("--", for: .normal)
         dataButton.layer.cornerRadius = 5
         dataButton.setTitleColor(.label, for: .normal)

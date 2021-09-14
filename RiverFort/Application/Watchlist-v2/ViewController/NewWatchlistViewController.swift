@@ -8,7 +8,7 @@
 import UIKit
 
 class NewWatchlistViewController: UIViewController {
-    private let watchlistTableView = UITableView()
+    private let watchlistTableView = UITableView(frame: .zero, style: .insetGrouped)
     private struct Cell { static let cell = "cell" }
     private var watchedCompanies = [WatchedCompany]()
     private var isChangePercentInDataButton = true
