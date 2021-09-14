@@ -153,7 +153,7 @@ extension NewWatchlistTableViewCell {
 }
 
 extension NewWatchlistTableViewCell {
-    public func setWatchlistTableViewCell(watchedCompany: WatchedCompany) {
+    public func setSymbolAndNameForWatchlistTableViewCell(watchedCompany: WatchedCompany) {
         symbol.text = watchedCompany.company_ticker
         name.text   = watchedCompany.company_name
     }
