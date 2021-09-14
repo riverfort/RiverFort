@@ -26,6 +26,7 @@
 		773131BF26DCFE5D0068AAD8 /* SearchV2ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773131BE26DCFE5D0068AAD8 /* SearchV2ResultCell.swift */; };
 		77384E8B26F0CAAC00C23217 /* NewWatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77384E8A26F0CAAC00C23217 /* NewWatchlistViewController.swift */; };
 		77384E8F26F0D50A00C23217 /* NewWatchlistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77384E8E26F0D50A00C23217 /* NewWatchlistTableViewCell.swift */; };
+		77384E9126F0DBC100C23217 /* WatchlistAPIFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77384E9026F0DBC100C23217 /* WatchlistAPIFunction.swift */; };
 		773A0B6326171238002B9875 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0B6226171238002B9875 /* AppDelegate.swift */; };
 		773A0B6526171238002B9875 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0B6426171238002B9875 /* SceneDelegate.swift */; };
 		773A0B6C2617123B002B9875 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 773A0B6B2617123B002B9875 /* Assets.xcassets */; };
@@ -148,6 +149,7 @@
 		773131BE26DCFE5D0068AAD8 /* SearchV2ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchV2ResultCell.swift; sourceTree = "<group>"; };
 		77384E8A26F0CAAC00C23217 /* NewWatchlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWatchlistViewController.swift; sourceTree = "<group>"; };
 		77384E8E26F0D50A00C23217 /* NewWatchlistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWatchlistTableViewCell.swift; sourceTree = "<group>"; };
+		77384E9026F0DBC100C23217 /* WatchlistAPIFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistAPIFunction.swift; sourceTree = "<group>"; };
 		773A0B5F26171238002B9875 /* RiverFort.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RiverFort.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		773A0B6226171238002B9875 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		773A0B6426171238002B9875 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -410,6 +412,7 @@
 		77384E8926F0CA8400C23217 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				77384E9026F0DBC100C23217 /* WatchlistAPIFunction.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1072,6 +1075,7 @@
 				7789470626AEF1C2005FDED7 /* ProgressViewController.swift in Sources */,
 				773A0B6326171238002B9875 /* AppDelegate.swift in Sources */,
 				772C3F6A2627457C0044001B /* UITableViewExtension.swift in Sources */,
+				77384E9126F0DBC100C23217 /* WatchlistAPIFunction.swift in Sources */,
 				773A0B6526171238002B9875 /* SceneDelegate.swift in Sources */,
 				779A46FE26D50C780072CE0B /* SettingsNotificationConstant.swift in Sources */,
 				77CAA2E626679043003A0246 /* UserDefaults+.swift in Sources */,
