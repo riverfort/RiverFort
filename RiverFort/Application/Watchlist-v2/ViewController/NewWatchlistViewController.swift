@@ -8,7 +8,7 @@
 import UIKit
 
 class NewWatchlistViewController: UIViewController {
-    private let watchlistTableView = NewWatchlistTableView(frame: .zero, style: .plain)
+    private let watchlistTableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,9 +23,9 @@ class NewWatchlistViewController: UIViewController {
 
 extension NewWatchlistViewController {
     private func configView() {
-        configNavigationController()
         view.backgroundColor = .systemBackground
-        view.addSubview(watchlistTableView)
+        configNavigationController()
+        configTableView()
     }
     
     private func configNavigationController() {
@@ -33,6 +33,12 @@ extension NewWatchlistViewController {
         navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.tintColor = .systemIndigo
+    }
+    
+    private func configTableView() {
+        view.addSubview(watchlistTableView)
+        watchlistTableView.delegate = self
+        watchlistTableView.dataSource = self
     }
 }
 
@@ -43,5 +49,15 @@ extension NewWatchlistViewController {
         watchlistTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         watchlistTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive     = true
         watchlistTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive           = true
+    }
+}
+
+extension NewWatchlistViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
     }
 }
