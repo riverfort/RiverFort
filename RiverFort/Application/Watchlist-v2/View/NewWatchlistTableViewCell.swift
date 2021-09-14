@@ -118,8 +118,10 @@ extension NewWatchlistTableViewCell {
     }
     
     private func setDataButtonConstraints() {
+        dataButton.backgroundColor = .secondarySystemBackground
+        dataButton.setTitle("--", for: .normal)
         dataButton.layer.cornerRadius = 5
-        dataButton.setTitleColor(.systemBackground, for: .normal)
+        dataButton.setTitleColor(.label, for: .normal)
         dataButton.titleLabel?.font = .preferredFont(forTextStyle: .headline)
         dataButton.titleLabel?.adjustsFontForContentSizeCategory = true
         dataButton.contentEdgeInsets = UIEdgeInsets(top: 3, left: 4, bottom: 3, right: 4)
