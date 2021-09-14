@@ -64,7 +64,7 @@ extension NewCompanyDetailViewController {
         navigationItem.title = company.symbol
         getQuoteFromYahooFinance(symbol: company.symbol)
 //        getHistPriceFromFMP(symbol: company.symbol, exch: company.exch, timeseries: 253)
-        getHistPriceFromYahooFinance(symbol: company.symbol)
+        getHistPriceFromYahooFinance(symbol: company.symbol, exch: company.exch)
         getProfileFromFMP(symbol: company.symbol)
     }
     
@@ -89,22 +89,22 @@ extension NewCompanyDetailViewController {
 }
 
 extension NewCompanyDetailViewController {
-    private func getHistPriceFromFMP(symbol: String, exch: String, timeseries: Int) {
-        DetailViewAPIFunction.fetchHistPriceFromFMP(symbol: symbol, timeseries: timeseries)
-            .responseDecodable(of: FMPHistPriceResult.self) { [self] (response) in
-                guard var fmpHistPrice = response.value?.historical else { return }
-                fmpHistPrice.reverse()
-                let adtvs = getADTVs(exch: exch, fmpHistPrice: fmpHistPrice)
-                let fmpHistPriceName = Notification.Name(NewDetailViewConstant.FMP_HIST_PRICE)
-                NotificationCenter.default.post(name: fmpHistPriceName, object: fmpHistPrice)
-                let adtvName = Notification.Name(NewDetailViewConstant.ADTV)
-                NotificationCenter.default.post(name: adtvName, object: adtvs)
-            }
-    }
+//    private func getHistPriceFromFMP(symbol: String, exch: String, timeseries: Int) {
+//        DetailViewAPIFunction.fetchHistPriceFromFMP(symbol: symbol, timeseries: timeseries)
+//            .responseDecodable(of: FMPHistPriceResult.self) { [self] (response) in
+//                guard var fmpHistPrice = response.value?.historical else { return }
+//                fmpHistPrice.reverse()
+//                let adtvs = getADTVs(exch: exch, fmpHistPrice: fmpHistPrice)
+//                let fmpHistPriceName = Notification.Name(NewDetailViewConstant.FMP_HIST_PRICE)
+//                NotificationCenter.default.post(name: fmpHistPriceName, object: fmpHistPrice)
+//                let adtvName = Notification.Name(NewDetailViewConstant.ADTV)
+//                NotificationCenter.default.post(name: adtvName, object: adtvs)
+//            }
+//    }
     
-    private func getHistPriceFromYahooFinance(symbol: String) {
+    private func getHistPriceFromYahooFinance(symbol: String, exch: String) {
         DetailViewAPIFunction.fetchHistPriceFromYahooFinance(symbol: symbol)
-            .responseDecodable(of: YahooFinanceHistPriceResult.self) { (response) in
+            .responseDecodable(of: YahooFinanceHistPriceResult.self) { [self] (response) in
                 guard let result = response.value?.chart.result.first else { return }
                 guard let quote = result.indicators.quote.first else { return }
                 let dates = result.timestamp
@@ -116,6 +116,7 @@ extension NewCompanyDetailViewController {
                     .enumerated()
                     .map { (i, date) in HistPrice(date: date, high: highs[i], low: lows[i], close: closes[i], volume: volumes[i]) }
                     .filter { $0.high != nil && $0.low != nil && $0.close != nil && $0.volume != nil }
+                getADTVs(exch: exch, histPrice: histPrice)
                 let histPriceName = Notification.Name(NewDetailViewConstant.HIST_PRICE)
                 NotificationCenter.default.post(name: histPriceName, object: histPrice)
             }
@@ -135,12 +136,17 @@ extension NewCompanyDetailViewController {
 }
 
 extension NewCompanyDetailViewController {
-    private func getADTVs(exch: String, fmpHistPrice: [FMPHistPriceResult.FMPHistPrice]) -> [NewADTV] {
+    private func getADTVs(exch: String, histPrice: [HistPrice]) {
+        let vwaps = histPrice.map { ($0.high! + $0.low! + $0.close!) / 3 }
+        let adtvs = histPrice
+            .enumerated()
+            .map { (i, dailyPrice) in vwaps[i] * Double(dailyPrice.volume!) }
+        print(adtvs)
         switch exch {
         case "LSE":
-            return fmpHistPrice.map { NewADTV(date: $0.date, adtv: $0.vwap * $0.volume / 100) }
+            return
         default:
-            return fmpHistPrice.map { NewADTV(date: $0.date, adtv: $0.vwap * $0.volume) }
+            return
         }
     }
 }
