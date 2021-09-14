@@ -61,6 +61,12 @@ extension NewWatchlistViewController {
     private func getWatchedCompanies() {
         guard let watchedCompanies = WatchlistCoreDataManager.fetchWatchedCompanies() else { return }
         self.watchedCompanies = watchedCompanies
+        getWatchedCompaniesQuote()
+    }
+    
+    private func getWatchedCompaniesQuote() {
+        let symbols = watchedCompanies.compactMap { $0.company_ticker }
+        print(symbols)
     }
 }
 
