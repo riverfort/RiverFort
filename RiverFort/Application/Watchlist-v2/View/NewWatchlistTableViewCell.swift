@@ -56,27 +56,32 @@ extension NewWatchlistTableViewCell {
     }
     
     private func configCurrencyLabel() {
+        currency.text = "-"
         currency.font = .preferredFont(forTextStyle: .body)
         currency.adjustsFontForContentSizeCategory = true
         currency.textColor = .systemGray
     }
     
     private func configPriceLabel() {
+        price.text = "-"
         price.font = .preferredFont(forTextStyle: .headline)
         price.adjustsFontForContentSizeCategory = true
     }
     
     private func configChangePercentLabel() {
+        changePercent.text = "-"
         changePercent.font = .preferredFont(forTextStyle: .body)
         changePercent.adjustsFontForContentSizeCategory = true
     }
     
     private func configMktCapLabel() {
+        mktCap.text = "-"
         mktCap.font = .preferredFont(forTextStyle: .body)
         mktCap.adjustsFontForContentSizeCategory = true
     }
     
     private func configDateLabel() {
+        date.text = "-"
         date.font = .preferredFont(forTextStyle: .body)
         date.adjustsFontForContentSizeCategory = true
     }
@@ -146,14 +151,9 @@ extension NewWatchlistTableViewCell {
 }
 
 extension NewWatchlistTableViewCell {
-    public func setWatchlistTableViewCell(watchedCompanyDetail: WatchedCompanyDetail) {
-        symbol.text = watchedCompanyDetail.symbol
-        name.text   = watchedCompanyDetail.name
-        mktCap.text = NumberShortScale.formatNumber(watchedCompanyDetail.mktCap)
-        date.text   = "\(watchedCompanyDetail.mktDate)"
-        changePercent.text = watchedCompanyDetail.changePercent < 0 ? "\(watchedCompanyDetail.changePercent)%" : "+\(watchedCompanyDetail.changePercent)%"
-        setPriceLabelText(watchedCompanyDetail: watchedCompanyDetail)
-        setDataButtonBackgroundColour(changePercent: watchedCompanyDetail.changePercent)
+    public func setWatchlistTableViewCell(watchedCompany: WatchedCompany) {
+        symbol.text = watchedCompany.company_ticker
+        name.text   = watchedCompany.company_name
     }
     
     public func setDataButtonTitle(isChangePercentInDataButton: Bool) {

@@ -9,12 +9,14 @@ import UIKit
 
 class NewWatchlistViewController: UIViewController {
     private let watchlistTableView = UITableView()
+    private struct Cell { static let cell = "cell" }
     private var watchedCompanies = [WatchedCompany]()
     private var isChangePercentInDataButton = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configView()
+        fetchWatchedCompanies()
     }
     
     override func viewDidLayoutSubviews() {
@@ -41,6 +43,7 @@ extension NewWatchlistViewController {
         view.addSubview(watchlistTableView)
         watchlistTableView.delegate = self
         watchlistTableView.dataSource = self
+        watchlistTableView.register(NewWatchlistTableViewCell.self, forCellReuseIdentifier: Cell.cell)
     }
 }
 
@@ -54,12 +57,22 @@ extension NewWatchlistViewController {
     }
 }
 
+extension NewWatchlistViewController {
+    private func fetchWatchedCompanies() {
+        guard let watchedCompanies = WatchlistCoreDataManager.getWatchedCompanies() else { return }
+        self.watchedCompanies = watchedCompanies
+    }
+}
+
 extension NewWatchlistViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return watchedCompanies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: Cell.cell) as! NewWatchlistTableViewCell
+        let watchedCompany = watchedCompanies[indexPath.row]
+        cell.setWatchlistTableViewCell(watchedCompany: watchedCompany)
+        return cell
     }
 }
