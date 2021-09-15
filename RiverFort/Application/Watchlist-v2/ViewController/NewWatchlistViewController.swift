@@ -71,6 +71,9 @@ extension NewWatchlistViewController {
             .responseDecodable(of: YahooFinanceQuoteResult2.self) { response in
                 guard let yahooFinanceQuoteResult2 = response.value else { return }
                 self.watchedCompaniesQuote = yahooFinanceQuoteResult2.quoteResponse.result
+                DispatchQueue.main.async {
+                    self.watchlistTableView.reloadData()
+                }
             }
     }
 }
@@ -83,6 +86,9 @@ extension NewWatchlistViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Cell.cell) as! NewWatchlistTableViewCell
         let watchedCompany = watchedCompanies[indexPath.row]
+        if let i = watchedCompaniesQuote.firstIndex(where: {$0.symbol == watchedCompany.company_ticker }) {
+            cell.setStatisticsForWatchlistTableViewCell(watchedCompanyQuote: watchedCompaniesQuote[i])
+        }
         cell.setSymbolAndNameForWatchlistTableViewCell(watchedCompany: watchedCompany)
         return cell
     }
