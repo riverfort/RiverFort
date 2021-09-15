@@ -51,7 +51,9 @@ extension NewCompanyDetailViewController {
         }
         more.menu = menu
     }
-    
+}
+
+extension NewCompanyDetailViewController {
     @objc private func didTapAddToWatchlist() {
         print("Hello")
     }

@@ -28,7 +28,6 @@
 		77384E8F26F0D50A00C23217 /* NewWatchlistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77384E8E26F0D50A00C23217 /* NewWatchlistTableViewCell.swift */; };
 		77384E9126F0DBC100C23217 /* WatchlistAPIFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77384E9026F0DBC100C23217 /* WatchlistAPIFunction.swift */; };
 		77384E9426F0E62600C23217 /* WatchlistCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77384E9326F0E62600C23217 /* WatchlistCoreDataManager.swift */; };
-		77384E9726F0EF0300C23217 /* NewWatchlistViewController+BarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77384E9626F0EF0300C23217 /* NewWatchlistViewController+BarButtonItem.swift */; };
 		773A0B6326171238002B9875 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0B6226171238002B9875 /* AppDelegate.swift */; };
 		773A0B6526171238002B9875 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0B6426171238002B9875 /* SceneDelegate.swift */; };
 		773A0B6C2617123B002B9875 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 773A0B6B2617123B002B9875 /* Assets.xcassets */; };
@@ -153,7 +152,6 @@
 		77384E8E26F0D50A00C23217 /* NewWatchlistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWatchlistTableViewCell.swift; sourceTree = "<group>"; };
 		77384E9026F0DBC100C23217 /* WatchlistAPIFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistAPIFunction.swift; sourceTree = "<group>"; };
 		77384E9326F0E62600C23217 /* WatchlistCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistCoreDataManager.swift; sourceTree = "<group>"; };
-		77384E9626F0EF0300C23217 /* NewWatchlistViewController+BarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewWatchlistViewController+BarButtonItem.swift"; sourceTree = "<group>"; };
 		773A0B5F26171238002B9875 /* RiverFort.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RiverFort.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		773A0B6226171238002B9875 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		773A0B6426171238002B9875 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -399,7 +397,6 @@
 		77384E8726F0CA7600C23217 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				77384E9526F0EEB500C23217 /* Extension */,
 				77384E8A26F0CAAC00C23217 /* NewWatchlistViewController.swift */,
 			);
 			path = ViewController;
@@ -428,14 +425,6 @@
 				77384E9326F0E62600C23217 /* WatchlistCoreDataManager.swift */,
 			);
 			path = CoreData;
-			sourceTree = "<group>";
-		};
-		77384E9526F0EEB500C23217 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				77384E9626F0EF0300C23217 /* NewWatchlistViewController+BarButtonItem.swift */,
-			);
-			path = Extension;
 			sourceTree = "<group>";
 		};
 		773A0B5626171238002B9875 = {
@@ -1041,7 +1030,6 @@
 				771D16AE263989C10034193A /* AppVersion.swift in Sources */,
 				77FBC8C226C557E500C35E9C /* WatchlistSync.swift in Sources */,
 				77384E9426F0E62600C23217 /* WatchlistCoreDataManager.swift in Sources */,
-				77384E9726F0EF0300C23217 /* NewWatchlistViewController+BarButtonItem.swift in Sources */,
 				776A913526E3B5E50012D0D5 /* NewProfileCardController.swift in Sources */,
 				7774DBED264BF451002752B4 /* NewSymbolRequest.swift in Sources */,
 				7785EF2D26AAA24500AEB5FE /* SearchResultCell.swift in Sources */,
