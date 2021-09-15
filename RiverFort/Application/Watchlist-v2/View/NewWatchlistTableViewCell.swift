@@ -142,12 +142,14 @@ extension NewWatchlistTableViewCell {
         }
     }
     
-    private func setPriceLabelText(watchedCompanyDetail: WatchedCompanyDetail) {
+    private func setPriceLabelText(watchedCompanyQuote: YahooFinanceQuote2) {
         guard let windowInterfaceOrientation = WindowInterfaceOrientation.windowInterfaceOrientation else { return }
-        if windowInterfaceOrientation.isLandscape {
-            price.text  = "\(watchedCompanyDetail.currency) \(watchedCompanyDetail.price)"
-        } else {
-            price.text  = "\(watchedCompanyDetail.price)"
+        if let priceData = watchedCompanyQuote.regularMarketPrice, let currencyData = watchedCompanyQuote.currency {
+            if windowInterfaceOrientation.isLandscape {
+                price.text  = "\(currencyData) \(priceData)"
+            } else {
+                price.text  = "\(priceData)"
+            }
         }
     }
 }
@@ -158,8 +160,15 @@ extension NewWatchlistTableViewCell {
         name.text   = watchedCompany.company_name
     }
     
-    public func setStatisticsForWatchlistTableViewCell() {
-        
+    public func setStatisticsForWatchlistTableViewCell(watchedCompanyQuote: YahooFinanceQuote2) {
+        setPriceLabelText(watchedCompanyQuote: watchedCompanyQuote)
+        if let mktCapData = watchedCompanyQuote.marketCap {
+            mktCap.text = NumberShortScale.formatNumber(Double(mktCapData))
+        }
+        if let changePercentData = watchedCompanyQuote.regularMarketChangePercent {
+            setDataButtonBackgroundColour(changePercent: changePercentData)
+            changePercent.text = changePercentData < 0 ? "\(changePercentData)%" : "+\(changePercentData)%"
+        }
     }
     
     public func setDataButtonTitle(isChangePercentInDataButton: Bool) {
