@@ -387,6 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				77384E8A26F0CAAC00C23217 /* NewWatchlistViewController.swift */,
+				776F657B26BBEF2D00CAA5A6 /* EditWatchlistViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -402,6 +403,7 @@
 		77384E8926F0CA8400C23217 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7785D7872630144200988C28 /* WatchedCompany */,
 				77384E9226F0E06C00C23217 /* CoreData */,
 				77384E9026F0DBC100C23217 /* WatchlistAPIFunction.swift */,
 			);
@@ -505,7 +507,6 @@
 			isa = PBXGroup;
 			children = (
 				7760164826B984C100BA7C41 /* WatchedCompanyDetail.swift */,
-				7785D7872630144200988C28 /* WatchedCompany */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -813,7 +814,6 @@
 			isa = PBXGroup;
 			children = (
 				77CBB6B826B9276300CCD0A6 /* WatchlistViewController.swift */,
-				776F657B26BBEF2D00CAA5A6 /* EditWatchlistViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
