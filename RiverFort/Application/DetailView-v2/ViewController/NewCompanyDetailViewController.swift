@@ -188,9 +188,7 @@ extension NewCompanyDetailViewController {
         }
         switch exch {
         case "LSE":
-            return adtvs.map { adtv in
-                NewADTV(date: adtv.date, adtv: adtv.adtv/100)
-            }
+            return adtvs.map { NewADTV(date: $0.date, adtv: $0.adtv/100) }
         default:
             return adtvs
         }
