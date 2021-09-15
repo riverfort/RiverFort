@@ -186,20 +186,20 @@ extension SearchViewController {
                                                         currency: recentSearchedCompany.currency!,
                                                         stockExchange: recentSearchedCompany.stockExchange!,
                                                         exchangeShortName: recentSearchedCompany.exchangeShortName!)
-        let companyDetailViewController = CompanyDetailViewController()
-        companyDetailViewController.company = Company(company_ticker: recentSearchedCompany.symbol!, company_name: recentSearchedCompany.name!)
-        navigationController?.pushViewController(companyDetailViewController, animated: true)
-        deleteRecentSearchCompany(recentSearchCompany: recentSearchedCompany)
-        createRecentSearchCompany(fmpStockTickerSearch: fmpStockTickerSearch)
+//        let companyDetailViewController = CompanyDetailViewController()
+//        companyDetailViewController.company = Company(company_ticker: recentSearchedCompany.symbol!, company_name: recentSearchedCompany.name!)
+//        navigationController?.pushViewController(companyDetailViewController, animated: true)
+//        deleteRecentSearchCompany(recentSearchCompany: recentSearchedCompany)
+//        createRecentSearchCompany(fmpStockTickerSearch: fmpStockTickerSearch)
     }
     
     @objc private func prepareSelectSearchCompany(notification: Notification) {
         guard let fmpCompany = notification.object as? FMPStockTickerSearch else {
             return
         }
-        let companyDetailViewController = CompanyDetailViewController()
-        companyDetailViewController.company = Company(company_ticker: fmpCompany.symbol, company_name: fmpCompany.name)
-        navigationController?.pushViewController(companyDetailViewController, animated: true)
+//        let companyDetailViewController = CompanyDetailViewController()
+//        companyDetailViewController.company = Company(company_ticker: fmpCompany.symbol, company_name: fmpCompany.name)
+//        navigationController?.pushViewController(companyDetailViewController, animated: true)
     }
 }
 

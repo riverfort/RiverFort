@@ -94,9 +94,9 @@ extension WatchlistViewController {
         guard let selectedWatchlistCompany = notification.object as? WatchedCompany else {
             return
         }
-        let companyDetailViewController = CompanyDetailViewController()
-        companyDetailViewController.company = Company(company_ticker: selectedWatchlistCompany.company_ticker!, company_name: selectedWatchlistCompany.company_name!)
-        navigationController?.pushViewController(companyDetailViewController, animated: true)
+//        let companyDetailViewController = CompanyDetailViewController()
+//        companyDetailViewController.company = Company(company_ticker: selectedWatchlistCompany.company_ticker!, company_name: selectedWatchlistCompany.company_name!)
+//        navigationController?.pushViewController(companyDetailViewController, animated: true)
     }
 }
 
