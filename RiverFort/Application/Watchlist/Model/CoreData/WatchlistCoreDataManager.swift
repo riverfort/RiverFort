@@ -45,7 +45,6 @@ class WatchlistCoreDataManager {
         watchedCompany.rowOrder       = (watchedCompanies.last?.rowOrder ?? 0) + 1
         do {
             try context.save()
-            NotificationCenter.default.post(name: Notification.Name(WatchlistConstant.ADD_TO_WATCHLIST), object: nil)
         } catch {
             print("Failed to add watched company to core data")
         }

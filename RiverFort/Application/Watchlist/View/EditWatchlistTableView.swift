@@ -115,8 +115,6 @@ extension EditWatchlistTableView {
     }
     
     private func removeWatchedCompany(watchedCompany: WatchedCompany) {
-        let deviceToken = UserDefaults.standard.string(forKey: "deviceToken")
-        WatchlistSync.prepDeleteWatchlist(deviceToken: deviceToken!, companyTicker: watchedCompany.company_ticker!)
         PersistentContainer.context.delete(watchedCompany)
         do {
             try PersistentContainer.context.save()

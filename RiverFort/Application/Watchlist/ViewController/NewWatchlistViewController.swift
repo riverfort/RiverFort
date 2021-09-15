@@ -18,7 +18,6 @@ class NewWatchlistViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createObservers()
         configView()
         getWatchedCompanies()
     }
@@ -80,19 +79,6 @@ extension NewWatchlistViewController {
         }
         let editWatchlistNavigationController = UINavigationController(rootViewController: editWatchlistViewController)
         present(editWatchlistNavigationController, animated: true)
-    }
-}
-
-extension NewWatchlistViewController {
-    private func createObservers() {
-        let addToWatchlistName = Notification.Name(WatchlistConstant.ADD_TO_WATCHLIST)
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadWatchlist), name: addToWatchlistName, object: nil)
-    }
-    
-    @objc private func reloadWatchlist() {
-        watchedCompanies.removeAll()
-        watchedCompaniesQuote.removeAll()
-        getWatchedCompanies()
     }
 }
 
