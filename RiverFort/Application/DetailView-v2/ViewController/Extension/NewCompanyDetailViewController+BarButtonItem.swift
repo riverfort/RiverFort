@@ -11,6 +11,7 @@ extension NewCompanyDetailViewController {
     public func configBarButtonItem() {
         let add = UIButton(type: .system)
         add.setImage(UIImage(systemName: "plus.circle", withConfiguration: Configuration.symbolConfiguration), for: .normal)
+        add.addTarget(self, action: #selector(didTapAddToWatchlist), for: .touchUpInside)
 
         let more = UIButton(type: .system)
         more.setImage(UIImage(systemName: "ellipsis.circle", withConfiguration: Configuration.symbolConfiguration), for: .normal)
@@ -49,5 +50,9 @@ extension NewCompanyDetailViewController {
             ]
         }
         more.menu = menu
+    }
+    
+    @objc private func didTapAddToWatchlist() {
+        print("Hello")
     }
 }
