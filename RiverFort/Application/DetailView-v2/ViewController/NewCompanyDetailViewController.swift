@@ -8,7 +8,14 @@
 import UIKit
 import CardParts
 
+struct NewCompany {
+    let symbol: String
+    let name: String
+    let exch: String
+}
+
 class NewCompanyDetailViewController: CardsViewController {
+    public var company: NewCompany?
     private let add  = UIButton(type: .system)
     private let more = UIButton(type: .system)
     private let cards = [HeaderCardController(),
@@ -38,10 +45,19 @@ class NewCompanyDetailViewController: CardsViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configView()
+        prepareView()
     }
 }
 
 extension NewCompanyDetailViewController {
+    private func prepareView() {
+        guard let company = company else { return }
+        navigationItem.title = company.symbol
+        getQuoteFromYahooFinance(symbol: company.symbol)
+        getHistPriceFromYahooFinance(symbol: company.symbol, exch: company.exch)
+        getProfileFromFMP(symbol: company.symbol)
+    }
+    
     private func configView() {
         collectionView.backgroundColor = .systemGroupedBackground
         configBarButtonItem()
@@ -105,22 +121,10 @@ extension NewCompanyDetailViewController {
 
 extension NewCompanyDetailViewController {
     private func createObservesr() {
-        let selectSearchCompanyName = Notification.Name(NewSearchConstant.SELECT_SEARCH_COMPANY)
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: selectSearchCompanyName, object: nil)
         let chartValueSelectedName = Notification.Name(NewDetailViewConstant.CHART_VALUE_SELECTED)
         NotificationCenter.default.addObserver(self, selector: #selector(chartValueSelected), name: chartValueSelectedName, object: nil)
         let chartValueNoLongerSelectedName = Notification.Name(NewDetailViewConstant.CHART_VALUE_NO_LONGER_SELECTED)
         NotificationCenter.default.addObserver(self, selector: #selector(chartValueNoLongerSelected), name: chartValueNoLongerSelectedName, object: nil)
-    }
-    
-    @objc private func prepareView(notification: Notification) {
-        guard let company = notification.object as? YahooFinanceSearchedCompany else {
-            return
-        }
-        navigationItem.title = company.symbol
-        getQuoteFromYahooFinance(symbol: company.symbol)
-        getHistPriceFromYahooFinance(symbol: company.symbol, exch: company.exch)
-        getProfileFromFMP(symbol: company.symbol)
     }
     
     @objc private func chartValueSelected() {

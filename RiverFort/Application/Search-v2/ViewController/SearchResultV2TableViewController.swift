@@ -56,6 +56,7 @@ extension SearchResultV2TableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         let selectedCompany = companies[indexPath.row]
         let detailVC = NewCompanyDetailViewController()
+        detailVC.company = NewCompany(symbol: selectedCompany.symbol, name: selectedCompany.name, exch: selectedCompany.exch)
         presentingViewController?.navigationController?.pushViewController(detailVC, animated: true)
         let aName = Notification.Name(NewSearchConstant.SELECT_SEARCH_COMPANY)
         NotificationCenter.default.post(name: aName, object: selectedCompany)
