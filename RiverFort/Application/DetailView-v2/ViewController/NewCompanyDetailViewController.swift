@@ -63,7 +63,6 @@ extension NewCompanyDetailViewController {
         }
         navigationItem.title = company.symbol
         getQuoteFromYahooFinance(symbol: company.symbol)
-//        getHistPriceFromFMP(symbol: company.symbol, exch: company.exch, timeseries: 253)
         getHistPriceFromYahooFinance(symbol: company.symbol, exch: company.exch)
         getProfileFromFMP(symbol: company.symbol)
     }
@@ -89,19 +88,6 @@ extension NewCompanyDetailViewController {
 }
 
 extension NewCompanyDetailViewController {
-//    private func getHistPriceFromFMP(symbol: String, exch: String, timeseries: Int) {
-//        DetailViewAPIFunction.fetchHistPriceFromFMP(symbol: symbol, timeseries: timeseries)
-//            .responseDecodable(of: FMPHistPriceResult.self) { [self] (response) in
-//                guard var fmpHistPrice = response.value?.historical else { return }
-//                fmpHistPrice.reverse()
-//                let adtvs = getADTVs(exch: exch, fmpHistPrice: fmpHistPrice)
-//                let fmpHistPriceName = Notification.Name(NewDetailViewConstant.FMP_HIST_PRICE)
-//                NotificationCenter.default.post(name: fmpHistPriceName, object: fmpHistPrice)
-//                let adtvName = Notification.Name(NewDetailViewConstant.ADTV)
-//                NotificationCenter.default.post(name: adtvName, object: adtvs)
-//            }
-//    }
-    
     private func getHistPriceFromYahooFinance(symbol: String, exch: String) {
         DetailViewAPIFunction.fetchHistPriceFromYahooFinance(symbol: symbol)
             .responseDecodable(of: YahooFinanceHistPriceResult.self) { [self] (response) in
