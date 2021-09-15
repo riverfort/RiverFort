@@ -44,8 +44,8 @@ class NewCompanyDetailViewController: CardsViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configView()
         prepareView()
+        configView()
     }
 }
 
