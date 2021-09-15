@@ -39,6 +39,7 @@
 		773A0BBA26172872002B9875 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0BB926172872002B9875 /* Constants.swift */; };
 		773A0BCB26176C8F002B9875 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0BCA26176C8F002B9875 /* Currency.swift */; };
 		773A86F0263C34A9008105A1 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A86EF263C34A9008105A1 /* PrivacyPolicyViewController.swift */; };
+		773C3FCB26F2160800EA6A41 /* NewEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C3FCA26F2160800EA6A41 /* NewEditViewController.swift */; };
 		77420217264AA033002F6104 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 77420216264AA033002F6104 /* UIScrollView+EmptyDataSet.m */; };
 		7748987A26E0C229000933A6 /* TemplateCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748987926E0C229000933A6 /* TemplateCardController.swift */; };
 		7748987C26E0C396000933A6 /* NewPriceChartCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748987B26E0C396000933A6 /* NewPriceChartCardController.swift */; };
@@ -164,6 +165,7 @@
 		773A0BB926172872002B9875 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		773A0BCA26176C8F002B9875 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		773A86EF263C34A9008105A1 /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
+		773C3FCA26F2160800EA6A41 /* NewEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEditViewController.swift; sourceTree = "<group>"; };
 		77420214264AA032002F6104 /* RiverFort-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RiverFort-Bridging-Header.h"; sourceTree = "<group>"; };
 		77420215264AA033002F6104 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
 		77420216264AA033002F6104 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
@@ -388,6 +390,7 @@
 			children = (
 				77384E8A26F0CAAC00C23217 /* NewWatchlistViewController.swift */,
 				776F657B26BBEF2D00CAA5A6 /* EditWatchlistViewController.swift */,
+				773C3FCA26F2160800EA6A41 /* NewEditViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 		77384E8826F0CA8000C23217 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				776F657D26BBF15900CAA5A6 /* EditWatchlistTableView.swift */,
 				77384E8E26F0D50A00C23217 /* NewWatchlistTableViewCell.swift */,
 			);
 			path = View;
@@ -831,7 +835,6 @@
 			children = (
 				77CBB6BB26B92BA500CCD0A6 /* WatchlistTableView.swift */,
 				77CBB6BD26B9355A00CCD0A6 /* WatchlistTableViewCell.swift */,
-				776F657D26BBF15900CAA5A6 /* EditWatchlistTableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1095,6 +1098,7 @@
 				77E763F326E76488005AED84 /* TransparentTemplateCardController.swift in Sources */,
 				77DAF9CD26B05853008662E0 /* RecentSearchTableView.swift in Sources */,
 				77CBB6BC26B92BA500CCD0A6 /* WatchlistTableView.swift in Sources */,
+				773C3FCB26F2160800EA6A41 /* NewEditViewController.swift in Sources */,
 				7728847B265B962F001C0D4F /* FeedsViewModel.swift in Sources */,
 				776F657E26BBF15900CAA5A6 /* EditWatchlistTableView.swift in Sources */,
 				779A46F826D4F6210072CE0B /* NotificationHelper.swift in Sources */,
