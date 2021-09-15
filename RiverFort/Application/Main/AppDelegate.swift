@@ -125,10 +125,7 @@ extension AppDelegate {
       _ application: UIApplication,
       didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
     ) {
-      let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
-      let token = tokenParts.joined()
-      WatchlistSync.prepRegisterUserDevice(deviceToken: token)
-        UserDefaults.standard.setValue(token, forKey: "deviceToken")
+
     }
     
     func application(
