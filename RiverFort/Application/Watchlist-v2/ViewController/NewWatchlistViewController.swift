@@ -12,7 +12,6 @@ class NewWatchlistViewController: UIViewController {
     private struct Cell { static let cell = "cell" }
     private var watchedCompanies = [WatchedCompany]()
     private var watchedCompaniesQuote = [YahooFinanceQuote2]()
-    private var isChangePercentInDataButton = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
