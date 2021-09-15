@@ -7,6 +7,7 @@
 
 import UIKit
 import CardParts
+import SPAlert
 
 struct NewCompany {
     let symbol: String
@@ -204,5 +205,8 @@ extension NewCompanyDetailViewController {
     @objc private func didTapAddToWatchlist() {
         guard let company = company else { return }
         guard !WatchlistCoreDataManager.isWatchedCompany(company_ticker: company.symbol) else { return }
+        WatchlistCoreDataManager.addToWatchlist(company_ticker: company.symbol, company_name: company.name, exch: company.exch)
+        SPAlert.present(title: "Added to Watchlist", preset: .done, haptic: .success)
+        add.isHidden = true
     }
 }

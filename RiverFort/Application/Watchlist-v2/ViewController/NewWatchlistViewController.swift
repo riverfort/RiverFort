@@ -12,8 +12,13 @@ class NewWatchlistViewController: UIViewController {
     private var watchedCompanies = [WatchedCompany]()
     private var watchedCompaniesQuote = [YahooFinanceQuote2]()
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        createObservers()
         configView()
         getWatchedCompanies()
     }
@@ -79,8 +84,22 @@ extension NewWatchlistViewController {
 }
 
 extension NewWatchlistViewController {
+    private func createObservers() {
+        let addToWatchlistName = Notification.Name(WatchlistConstant.ADD_TO_WATCHLIST)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadWatchlist), name: addToWatchlistName, object: nil)
+    }
+    
+    @objc private func reloadWatchlist() {
+        watchedCompanies.removeAll()
+        watchedCompaniesQuote.removeAll()
+        getWatchedCompanies()
+    }
+}
+
+extension NewWatchlistViewController {
     private func getWatchedCompanies() {
         guard let watchedCompanies = WatchlistCoreDataManager.fetchWatchedCompanies() else { return }
+        print(watchedCompanies)
         self.watchedCompanies = watchedCompanies
         getWatchedCompaniesQuote()
     }

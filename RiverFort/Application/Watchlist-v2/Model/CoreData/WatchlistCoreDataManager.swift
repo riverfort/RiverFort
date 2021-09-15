@@ -35,16 +35,16 @@ class WatchlistCoreDataManager {
         return results.count > 0
     }
     
-    static func addToWatchlist(company_ticker: String, company_name: String) {
+    static func addToWatchlist(company_ticker: String, company_name: String, exch: String) {
         guard let watchedCompanies = fetchWatchedCompanies() else { return }
         let watchedCompany = WatchedCompany(context: context)
         watchedCompany.company_ticker = company_ticker
         watchedCompany.company_name   = company_name
+        watchedCompany.exch           = exch
         watchedCompany.addedAt        = Date()
         watchedCompany.rowOrder       = (watchedCompanies.last?.rowOrder ?? 0) + 1
         do {
             try context.save()
-            NotificationCenter.default.post(name: Notification.Name("addedToWatchlist"), object: nil)
             NotificationCenter.default.post(name: Notification.Name(WatchlistConstant.ADD_TO_WATCHLIST), object: nil)
         } catch {
             print("Failed to add watched company to core data")
