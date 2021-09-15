@@ -297,14 +297,14 @@
 			path = Haptics;
 			sourceTree = "<group>";
 		};
-		7720570226DE6E1D00063A9A /* DetailView-v2 */ = {
+		7720570226DE6E1D00063A9A /* DetailView */ = {
 			isa = PBXGroup;
 			children = (
 				7720570326DE6E2F00063A9A /* ViewController */,
 				7720570426DE6E3A00063A9A /* View */,
 				77EF139726DF919400EDFC17 /* Model */,
 			);
-			path = "DetailView-v2";
+			path = DetailView;
 			sourceTree = "<group>";
 		};
 		7720570326DE6E2F00063A9A /* ViewController */ = {
@@ -346,14 +346,14 @@
 			path = Constant;
 			sourceTree = "<group>";
 		};
-		773131B726DCEC3F0068AAD8 /* Search-v2 */ = {
+		773131B726DCEC3F0068AAD8 /* Search */ = {
 			isa = PBXGroup;
 			children = (
 				773131B826DCEC500068AAD8 /* ViewController */,
 				773131BD26DCFE3B0068AAD8 /* View */,
 				7748987F26E0CECD000933A6 /* Model */,
 			);
-			path = "Search-v2";
+			path = Search;
 			sourceTree = "<group>";
 		};
 		773131B826DCEC500068AAD8 /* ViewController */ = {
@@ -373,14 +373,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		77384E8626F0CA6300C23217 /* Watchlist-v2 */ = {
+		77384E8626F0CA6300C23217 /* Watchlist */ = {
 			isa = PBXGroup;
 			children = (
 				77384E8726F0CA7600C23217 /* ViewController */,
 				77384E8826F0CA8000C23217 /* View */,
 				77384E8926F0CA8400C23217 /* Model */,
 			);
-			path = "Watchlist-v2";
+			path = Watchlist;
 			sourceTree = "<group>";
 		};
 		77384E8726F0CA7600C23217 /* ViewController */ = {
@@ -442,6 +442,7 @@
 				77104EEE26B4497B0058E2C2 /* Common */,
 				773A0B9C26172370002B9875 /* Storyboards */,
 				7780B8B826CFB14500561789 /* Application */,
+				773C3FC926F2148900EA6A41 /* Deprecated */,
 				773A0B9D2617237C002B9875 /* Models */,
 				77F9335F261A2BA1007662D5 /* Extensions */,
 				773A0B9B26172364002B9875 /* Helpers */,
@@ -492,6 +493,16 @@
 				7728847A265B962F001C0D4F /* FeedsViewModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		773C3FC926F2148900EA6A41 /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				7780B8B926CFBB7000561789 /* DetailView */,
+				7785EF2926AAA1C200AEB5FE /* Search */,
+				77CBB6B626B9271300CCD0A6 /* Watchlist */,
+			);
+			path = Deprecated;
 			sourceTree = "<group>";
 		};
 		7748987F26E0CECD000933A6 /* Model */ = {
@@ -650,12 +661,9 @@
 			isa = PBXGroup;
 			children = (
 				7780B8B526CFAFE500561789 /* Main */,
-				773131B726DCEC3F0068AAD8 /* Search-v2 */,
-				7720570226DE6E1D00063A9A /* DetailView-v2 */,
-				77384E8626F0CA6300C23217 /* Watchlist-v2 */,
-				77CBB6B626B9271300CCD0A6 /* Watchlist */,
-				7785EF2926AAA1C200AEB5FE /* Search */,
-				7780B8B926CFBB7000561789 /* DetailView */,
+				773131B726DCEC3F0068AAD8 /* Search */,
+				7720570226DE6E1D00063A9A /* DetailView */,
+				77384E8626F0CA6300C23217 /* Watchlist */,
 				776F658226BC366100CAA5A6 /* Settings */,
 			);
 			path = Application;
