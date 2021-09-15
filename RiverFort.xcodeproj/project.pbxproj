@@ -50,8 +50,6 @@
 		7748988726E0E454000933A6 /* NewADTVChartCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748988626E0E454000933A6 /* NewADTVChartCardController.swift */; };
 		774DB74C2623144900A92D13 /* RiverFort.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 774DB74A2623144900A92D13 /* RiverFort.xcdatamodeld */; };
 		775DFDA92645849400D9A4AF /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775DFDA82645849400D9A4AF /* Quote.swift */; };
-		7760164926B984C100BA7C41 /* WatchedCompanyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760164826B984C100BA7C41 /* WatchedCompanyDetail.swift */; };
-		7760164C26B98E9700BA7C41 /* WatchlistConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760164B26B98E9700BA7C41 /* WatchlistConstant.swift */; };
 		7762C77226BAE258008DE1BA /* NumberShortScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7762C77126BAE258008DE1BA /* NumberShortScale.swift */; };
 		7765434226EF3C3800E91C25 /* YahooFinance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7765434126EF3C3800E91C25 /* YahooFinance.swift */; };
 		7765434426EF3C5700E91C25 /* FMP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7765434326EF3C5700E91C25 /* FMP.swift */; };
@@ -95,9 +93,6 @@
 		77CAA2E626679043003A0246 /* UserDefaults+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CAA2E526679043003A0246 /* UserDefaults+.swift */; };
 		77CB234526B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB234326B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift */; };
 		77CB234626B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB234426B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift */; };
-		77CBB6B926B9276300CCD0A6 /* WatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBB6B826B9276300CCD0A6 /* WatchlistViewController.swift */; };
-		77CBB6BC26B92BA500CCD0A6 /* WatchlistTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBB6BB26B92BA500CCD0A6 /* WatchlistTableView.swift */; };
-		77CBB6BE26B9355A00CCD0A6 /* WatchlistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBB6BD26B9355A00CCD0A6 /* WatchlistTableViewCell.swift */; };
 		77CD33FE26E39DBE00950F2A /* NewDetailViewConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CD33FD26E39DBE00950F2A /* NewDetailViewConstant.swift */; };
 		77CF843226316DB2009A5E21 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CF843126316DB2009A5E21 /* UIAlertControllerExtension.swift */; };
 		77E763EF26E75D76005AED84 /* TimeseriesCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E763EE26E75D76005AED84 /* TimeseriesCardController.swift */; };
@@ -164,8 +159,6 @@
 		7748988626E0E454000933A6 /* NewADTVChartCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewADTVChartCardController.swift; sourceTree = "<group>"; };
 		774DB74B2623144900A92D13 /* RiverFort.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RiverFort.xcdatamodel; sourceTree = "<group>"; };
 		775DFDA82645849400D9A4AF /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
-		7760164826B984C100BA7C41 /* WatchedCompanyDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchedCompanyDetail.swift; sourceTree = "<group>"; };
-		7760164B26B98E9700BA7C41 /* WatchlistConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistConstant.swift; sourceTree = "<group>"; };
 		7762C77126BAE258008DE1BA /* NumberShortScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberShortScale.swift; sourceTree = "<group>"; };
 		7765434126EF3C3800E91C25 /* YahooFinance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YahooFinance.swift; sourceTree = "<group>"; };
 		7765434326EF3C5700E91C25 /* FMP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMP.swift; sourceTree = "<group>"; };
@@ -209,9 +202,6 @@
 		77CAA2E526679043003A0246 /* UserDefaults+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+.swift"; sourceTree = "<group>"; };
 		77CB234326B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecentSearchedCompany+CoreDataClass.swift"; sourceTree = "<group>"; };
 		77CB234426B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecentSearchedCompany+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		77CBB6B826B9276300CCD0A6 /* WatchlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistViewController.swift; sourceTree = "<group>"; };
-		77CBB6BB26B92BA500CCD0A6 /* WatchlistTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistTableView.swift; sourceTree = "<group>"; };
-		77CBB6BD26B9355A00CCD0A6 /* WatchlistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistTableViewCell.swift; sourceTree = "<group>"; };
 		77CD33FD26E39DBE00950F2A /* NewDetailViewConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDetailViewConstant.swift; sourceTree = "<group>"; };
 		77CF843126316DB2009A5E21 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		77E763EE26E75D76005AED84 /* TimeseriesCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeseriesCardController.swift; sourceTree = "<group>"; };
@@ -352,6 +342,7 @@
 		77384E8626F0CA6300C23217 /* Watchlist */ = {
 			isa = PBXGroup;
 			children = (
+				77FBC8C126C557E500C35E9C /* WatchlistSync.swift */,
 				77384E8726F0CA7600C23217 /* ViewController */,
 				77384E8826F0CA8000C23217 /* View */,
 				77384E8926F0CA8400C23217 /* Model */,
@@ -420,7 +411,6 @@
 				77104EEE26B4497B0058E2C2 /* Common */,
 				773A0B9C26172370002B9875 /* Storyboards */,
 				7780B8B826CFB14500561789 /* Application */,
-				773C3FC926F2148900EA6A41 /* Deprecated */,
 				773A0B9D2617237C002B9875 /* Models */,
 				77F9335F261A2BA1007662D5 /* Extensions */,
 				773A0B9B26172364002B9875 /* Helpers */,
@@ -473,27 +463,11 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		773C3FC926F2148900EA6A41 /* Deprecated */ = {
-			isa = PBXGroup;
-			children = (
-				77CBB6B626B9271300CCD0A6 /* Watchlist */,
-			);
-			path = Deprecated;
-			sourceTree = "<group>";
-		};
 		7748987F26E0CECD000933A6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				772E63DC26E2249400EA9FB0 /* Constant */,
 				7748988026E0CF9B000933A6 /* SearchAPIFunction.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7760164626B977EF00BA7C41 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7760164826B984C100BA7C41 /* WatchedCompanyDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -504,14 +478,6 @@
 				773A0BAC261726B2002B9875 /* CompanyDetail.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		7760164A26B98E3800BA7C41 /* Constant */ = {
-			isa = PBXGroup;
-			children = (
-				7760164B26B98E9700BA7C41 /* WatchlistConstant.swift */,
-			);
-			path = Constant;
 			sourceTree = "<group>";
 		};
 		7762C77026BAE1DF008DE1BA /* Utility */ = {
@@ -694,35 +660,6 @@
 			path = RecentSearchedCompany;
 			sourceTree = "<group>";
 		};
-		77CBB6B626B9271300CCD0A6 /* Watchlist */ = {
-			isa = PBXGroup;
-			children = (
-				77CBB6B726B9272900CCD0A6 /* ViewController */,
-				77CBB6BA26B92B4C00CCD0A6 /* View */,
-				7760164626B977EF00BA7C41 /* Model */,
-				7760164A26B98E3800BA7C41 /* Constant */,
-				77FBC8C026C557A900C35E9C /* Helper */,
-			);
-			path = Watchlist;
-			sourceTree = "<group>";
-		};
-		77CBB6B726B9272900CCD0A6 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				77CBB6B826B9276300CCD0A6 /* WatchlistViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		77CBB6BA26B92B4C00CCD0A6 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				77CBB6BB26B92BA500CCD0A6 /* WatchlistTableView.swift */,
-				77CBB6BD26B9355A00CCD0A6 /* WatchlistTableViewCell.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		77CD33FC26E39DAD00950F2A /* Constant */ = {
 			isa = PBXGroup;
 			children = (
@@ -760,14 +697,6 @@
 				770E4C5A26F249080010EE7B /* UIApplicationExtension.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		77FBC8C026C557A900C35E9C /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				77FBC8C126C557E500C35E9C /* WatchlistSync.swift */,
-			);
-			path = Helper;
 			sourceTree = "<group>";
 		};
 		C6A17D5492E623A9D1FC58BD /* Frameworks */ = {
@@ -956,24 +885,20 @@
 				77887D1426E12C210016192D /* NewAADTVCardController.swift in Sources */,
 				7791881226E0E7FE005B7D38 /* NewADTVCardController.swift in Sources */,
 				77E763F126E75FE5005AED84 /* TimeseriesCardPartView.swift in Sources */,
-				77CBB6BE26B9355A00CCD0A6 /* WatchlistTableViewCell.swift in Sources */,
 				779A470026D515020072CE0B /* SettingsSectionTitleConstant.swift in Sources */,
 				77876E96264D5FE700798106 /* StringExtension.swift in Sources */,
-				77CBB6B926B9276300CCD0A6 /* WatchlistViewController.swift in Sources */,
 				77E763EF26E75D76005AED84 /* TimeseriesCardController.swift in Sources */,
 				77F93365261A3251007662D5 /* DoubleExtension.swift in Sources */,
 				772E63DE26E224AF00EA9FB0 /* NewSearchConstant.swift in Sources */,
 				77CD33FE26E39DBE00950F2A /* NewDetailViewConstant.swift in Sources */,
 				774DB74C2623144900A92D13 /* RiverFort.xcdatamodeld in Sources */,
 				77E763F326E76488005AED84 /* TransparentTemplateCardController.swift in Sources */,
-				77CBB6BC26B92BA500CCD0A6 /* WatchlistTableView.swift in Sources */,
 				773C3FCB26F2160800EA6A41 /* NewEditViewController.swift in Sources */,
 				7728847B265B962F001C0D4F /* FeedsViewModel.swift in Sources */,
 				776F657E26BBF15900CAA5A6 /* EditWatchlistTableView.swift in Sources */,
 				779A46F826D4F6210072CE0B /* NotificationHelper.swift in Sources */,
 				77C82A3026E4E6E800768FDB /* DetailViewReadMoreURLs.swift in Sources */,
 				77F93372261A3675007662D5 /* DateFormatterUtils.swift in Sources */,
-				7760164C26B98E9700BA7C41 /* WatchlistConstant.swift in Sources */,
 				776F657C26BBEF2D00CAA5A6 /* EditWatchlistViewController.swift in Sources */,
 				779A46FC26D508AA0072CE0B /* LogGenerator.swift in Sources */,
 				7748987E26E0C3E7000933A6 /* NewPriceChartCardPartView.swift in Sources */,
@@ -985,7 +910,6 @@
 				77384E8B26F0CAAC00C23217 /* NewWatchlistViewController.swift in Sources */,
 				77CB234526B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift in Sources */,
 				773A0BAA26172690002B9875 /* Company.swift in Sources */,
-				7760164926B984C100BA7C41 /* WatchedCompanyDetail.swift in Sources */,
 				77876E94264D5D6700798106 /* Regex.swift in Sources */,
 				779B886026BD213D00FB06A1 /* SettingsStaticTableViewCell.swift in Sources */,
 				77F93368261A3271007662D5 /* UINavigationItemExtension.swift in Sources */,
