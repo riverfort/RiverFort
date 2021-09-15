@@ -9,7 +9,6 @@ import UIKit
 
 class NewWatchlistViewController: UIViewController {
     private let watchlistTableView = UITableView(frame: .zero, style: .insetGrouped)
-    private struct Cell { static let cell = "cell" }
     private var watchedCompanies = [WatchedCompany]()
     private var watchedCompaniesQuote = [YahooFinanceQuote2]()
     
@@ -48,7 +47,7 @@ extension NewWatchlistViewController {
         view.addSubview(watchlistTableView)
         watchlistTableView.delegate = self
         watchlistTableView.dataSource = self
-        watchlistTableView.register(NewWatchlistTableViewCell.self, forCellReuseIdentifier: Cell.cell)
+        watchlistTableView.register(NewWatchlistTableViewCell.self, forCellReuseIdentifier: "cell")
     }
 }
 
@@ -88,7 +87,7 @@ extension NewWatchlistViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Cell.cell) as! NewWatchlistTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! NewWatchlistTableViewCell
         let watchedCompany = watchedCompanies[indexPath.row]
         cell.setSymbolAndNameForWatchlistTableViewCell(watchedCompany: watchedCompany)
         if let i = watchedCompaniesQuote.firstIndex(where: {$0.symbol == watchedCompany.company_ticker }) {
