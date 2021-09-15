@@ -51,12 +51,7 @@ extension NewCompanyDetailViewController {
     private func configBarButtonItem() {
         configAddButton()
         configMoreButton()
-        let barButtonStack = UIStackView.init(arrangedSubviews: [add, more])
-        barButtonStack.distribution = .equalSpacing
-        barButtonStack.axis = .horizontal
-        barButtonStack.alignment = .center
-        barButtonStack.spacing = 8
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: barButtonStack)
+        configBarButtonStack()
     }
     
     private func configAddButton() {
@@ -96,6 +91,15 @@ extension NewCompanyDetailViewController {
             ]
         }
         more.menu = menu
+    }
+    
+    private func configBarButtonStack() {
+        let barButtonStack = UIStackView.init(arrangedSubviews: [add, more])
+        barButtonStack.distribution = .equalSpacing
+        barButtonStack.axis = .horizontal
+        barButtonStack.alignment = .center
+        barButtonStack.spacing = 8
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: barButtonStack)
     }
 }
 
