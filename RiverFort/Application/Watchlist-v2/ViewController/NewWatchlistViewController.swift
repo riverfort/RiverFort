@@ -32,6 +32,7 @@ class NewWatchlistViewController: UIViewController {
 extension NewWatchlistViewController {
     private func configView() {
         view.backgroundColor = .systemGroupedBackground
+        configBarButtonItem()
         configNavigationController()
         configTableView()
     }
@@ -56,6 +57,24 @@ extension NewWatchlistViewController {
         watchlistTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         watchlistTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive     = true
         watchlistTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive           = true
+    }
+}
+
+extension NewWatchlistViewController {
+    private func configBarButtonItem() {
+        let editBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editWathclist))
+        navigationItem.rightBarButtonItem = editBarButtonItem
+    }
+    
+    @objc private func editWathclist() {
+        let editWatchlistViewController = EditWatchlistViewController()
+        editWatchlistViewController.editCompletion = { [self] in
+            watchedCompanies.removeAll()
+            watchedCompaniesQuote.removeAll()
+            getWatchedCompanies()
+        }
+        let editWatchlistNavigationController = UINavigationController(rootViewController: editWatchlistViewController)
+        present(editWatchlistNavigationController, animated: true)
     }
 }
 
