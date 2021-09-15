@@ -204,7 +204,7 @@ struct NewADTV {
 
 extension NewCompanyDetailViewController {
     @objc private func didTapAddToWatchlist() {
-        guard let symbol = navigationItem.title else { return }
-        guard !WatchlistCoreDataManager.isWatchedCompany(company_ticker: symbol) else { return }
+        guard let company = company else { return }
+        guard !WatchlistCoreDataManager.isWatchedCompany(company_ticker: company.symbol) else { return }
     }
 }
