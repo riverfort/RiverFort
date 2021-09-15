@@ -92,3 +92,11 @@ extension NewWatchlistViewController: UITableViewDelegate, UITableViewDataSource
         return cell
     }
 }
+
+extension NewWatchlistViewController {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCompany = watchedCompanies[indexPath.row]
+        let detailVC = NewCompanyDetailViewController()
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+}
