@@ -134,7 +134,7 @@ extension NewWatchlistTableViewCell {
 }
 
 extension NewWatchlistTableViewCell {
-    private func setDataButtonBackgroundColour(changePercent: Double) {
+    private func configDataButtonBackgroundColour(changePercent: Double) {
         if changePercent < 0 {
             dataButton.backgroundColor = .systemRed
         } else {
@@ -164,7 +164,7 @@ extension NewWatchlistTableViewCell {
         setPriceLabelText(watchedCompanyQuote: watchedCompanyQuote)
         if let mktCapData = watchedCompanyQuote.marketCap,
            let changePercentData = watchedCompanyQuote.regularMarketChangePercent {
-            setDataButtonBackgroundColour(changePercent: changePercentData)
+            configDataButtonBackgroundColour(changePercent: changePercentData)
             mktCap.text = NumberShortScale.formatNumber(Double(mktCapData))
             changePercent.text = changePercentData < 0 ? "\(changePercentData)%" : "+\(changePercentData)%"
         }
