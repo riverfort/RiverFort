@@ -86,10 +86,10 @@ extension NewWatchlistViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Cell.cell) as! NewWatchlistTableViewCell
         let watchedCompany = watchedCompanies[indexPath.row]
+        cell.setSymbolAndNameForWatchlistTableViewCell(watchedCompany: watchedCompany)
         if let i = watchedCompaniesQuote.firstIndex(where: {$0.symbol == watchedCompany.company_ticker }) {
             cell.setStatisticsForWatchlistTableViewCell(watchedCompanyQuote: watchedCompaniesQuote[i])
         }
-        cell.setSymbolAndNameForWatchlistTableViewCell(watchedCompany: watchedCompany)
         return cell
     }
 }
