@@ -10,19 +10,8 @@ import CoreData
 import UserNotifications
 import SafariServices
 
-enum Identifiers {
-  static let viewAction = "VIEW_IDENTIFIER"
-  static let newsCategory = "NEWS_CATEGORY"
-}
-
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        UNUserNotificationCenter.current().delegate = self
-        registerForPushNotifications()
-        return true
-    }
-
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
@@ -81,85 +70,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-}
-
-extension AppDelegate {
-    func registerForPushNotifications() {
-        UNUserNotificationCenter.current()
-          .requestAuthorization(
-            options: [.alert, .sound, .badge]) { [weak self] granted, _ in
-//            print("Permission granted: \(granted)")
-            guard granted else { return }
-            // 1
-            let viewAction = UNNotificationAction(
-              identifier: Identifiers.viewAction,
-              title: "View",
-              options: [.foreground])
-
-            // 2
-            let newsCategory = UNNotificationCategory(
-              identifier: Identifiers.newsCategory,
-              actions: [viewAction],
-              intentIdentifiers: [],
-              options: [])
-
-            // 3
-            UNUserNotificationCenter.current().setNotificationCategories([newsCategory])
-            self?.getNotificationSettings()
-          }
-    }
-    
-    func getNotificationSettings() {
-      UNUserNotificationCenter.current().getNotificationSettings { settings in
-//        print("Notification settings: \(settings)")
-        guard settings.authorizationStatus == .authorized else { return }
-        DispatchQueue.main.async {
-          UIApplication.shared.registerForRemoteNotifications()
-        }
-      }
-    }
-}
-
-extension AppDelegate {
-    func application(
-      _ application: UIApplication,
-      didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
-    ) {
-
-    }
-    
-    func application(
-      _ application: UIApplication,
-      didFailToRegisterForRemoteNotificationsWithError error: Error
-    ) {
-      print("Failed to register for remote notifications: \(error)")
-    }
-}
-
-// MARK: - UNUserNotificationCenterDelegate
-
-extension AppDelegate: UNUserNotificationCenterDelegate {
-  func userNotificationCenter(
-    _ center: UNUserNotificationCenter,
-    didReceive response: UNNotificationResponse,
-    withCompletionHandler completionHandler: @escaping () -> Void
-  ) {
-    // 1
-    let userInfo = response.notification.request.content.userInfo
-    // 2
-    if let aps = userInfo["aps"] as? [String: AnyObject] {
-        if let url = URL(string: aps["link"] as! String) {
-            let safari = SFSafariViewController(url: url)
-            UIApplication.topViewController()?.present(safari, animated: true)
-        }
-      // 3
-      if response.actionIdentifier == Identifiers.viewAction,
-         let url = URL(string: aps["link"] as! String) {
-        let safari = SFSafariViewController(url: url)
-        UIApplication.topViewController()?.present(safari, animated: true)
-      }
-    }
-    // 4
-    completionHandler()
-  }
 }
