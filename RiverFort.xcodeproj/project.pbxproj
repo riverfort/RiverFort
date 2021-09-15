@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7707A46B26E9EAAB00329CB0 /* NewCompanyDetailViewController+BarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7707A46A26E9EAAB00329CB0 /* NewCompanyDetailViewController+BarButtonItem.swift */; };
 		7707A46E26E9EBDC00329CB0 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7707A46D26E9EBDC00329CB0 /* Configuration.swift */; };
 		770B22AF26EB8D6400731C58 /* NewADTVMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B22AE26EB8D6400731C58 /* NewADTVMarker.swift */; };
 		771263C626A95CAC00B57C04 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771263C526A95CAC00B57C04 /* SearchViewController.swift */; };
@@ -131,7 +130,6 @@
 
 /* Begin PBXFileReference section */
 		69D13D5B19688F922B9BB9AD /* Pods-RiverFort.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RiverFort.release.xcconfig"; path = "Target Support Files/Pods-RiverFort/Pods-RiverFort.release.xcconfig"; sourceTree = "<group>"; };
-		7707A46A26E9EAAB00329CB0 /* NewCompanyDetailViewController+BarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewCompanyDetailViewController+BarButtonItem.swift"; sourceTree = "<group>"; };
 		7707A46D26E9EBDC00329CB0 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		770B22AE26EB8D6400731C58 /* NewADTVMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewADTVMarker.swift; sourceTree = "<group>"; };
 		771263C526A95CAC00B57C04 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -271,14 +269,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7707A46926E9EA8700329CB0 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				7707A46A26E9EAAB00329CB0 /* NewCompanyDetailViewController+BarButtonItem.swift */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
 		7707A46C26E9EBB400329CB0 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,7 +311,6 @@
 			isa = PBXGroup;
 			children = (
 				778B3AFB26E12CF8009CBE7E /* Template */,
-				7707A46926E9EA8700329CB0 /* Extension */,
 				7720570526DE6E8300063A9A /* NewCompanyDetailViewController.swift */,
 				772A747426DF93890088A604 /* HeaderCardController.swift */,
 				77E763EE26E75D76005AED84 /* TimeseriesCardController.swift */,
@@ -1043,7 +1032,6 @@
 				77F93361261A321F007662D5 /* DateExtension.swift in Sources */,
 				7707A46E26E9EBDC00329CB0 /* Configuration.swift in Sources */,
 				773A0BBA26172872002B9875 /* Constants.swift in Sources */,
-				7707A46B26E9EAAB00329CB0 /* NewCompanyDetailViewController+BarButtonItem.swift in Sources */,
 				77950FD42644270C002AC408 /* SymbolProfile.swift in Sources */,
 				77CF843226316DB2009A5E21 /* UIAlertControllerExtension.swift in Sources */,
 				775DFDA72645440E00D9A4AF /* QuotesCardController.swift in Sources */,
