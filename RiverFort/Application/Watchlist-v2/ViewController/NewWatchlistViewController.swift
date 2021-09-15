@@ -72,9 +72,7 @@ extension NewWatchlistViewController {
             .responseDecodable(of: YahooFinanceQuoteResult2.self) { response in
                 guard let yahooFinanceQuoteResult2 = response.value else { return }
                 self.watchedCompaniesQuote = yahooFinanceQuoteResult2.quoteResponse.result
-                DispatchQueue.main.async {
-                    self.watchlistTableView.reloadData()
-                }
+                self.watchlistTableView.reloadData()
             }
     }
 }
