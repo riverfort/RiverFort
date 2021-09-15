@@ -10,8 +10,7 @@
 		7707A46E26E9EBDC00329CB0 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7707A46D26E9EBDC00329CB0 /* Configuration.swift */; };
 		770B22AF26EB8D6400731C58 /* NewADTVMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B22AE26EB8D6400731C58 /* NewADTVMarker.swift */; };
 		770E4C5926F245FD0010EE7B /* MyLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770E4C5826F245FD0010EE7B /* MyLineChartView.swift */; };
-		771263C626A95CAC00B57C04 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771263C526A95CAC00B57C04 /* SearchViewController.swift */; };
-		771263CC26A97EED00B57C04 /* SearchResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771263CB26A97EED00B57C04 /* SearchResultTableViewController.swift */; };
+		770E4C5B26F249080010EE7B /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770E4C5A26F249080010EE7B /* UIApplicationExtension.swift */; };
 		771D16AE263989C10034193A /* AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D16AD263989C10034193A /* AppVersion.swift */; };
 		771E328126D6525E002CC604 /* AcknowledgementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E328026D6525E002CC604 /* AcknowledgementsViewController.swift */; };
 		7720570626DE6E8300063A9A /* NewCompanyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7720570526DE6E8300063A9A /* NewCompanyDetailViewController.swift */; };
@@ -67,14 +66,11 @@
 		77814CD626469D6B008C832C /* ADTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77814CD526469D6B008C832C /* ADTV.swift */; };
 		7785D7842630142600988C28 /* WatchedCompany+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785D7822630142600988C28 /* WatchedCompany+CoreDataClass.swift */; };
 		7785D7852630142600988C28 /* WatchedCompany+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785D7832630142600988C28 /* WatchedCompany+CoreDataProperties.swift */; };
-		7785EF2B26AAA22300AEB5FE /* FMPStockTickerSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785EF2A26AAA22300AEB5FE /* FMPStockTickerSearch.swift */; };
-		7785EF2D26AAA24500AEB5FE /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785EF2C26AAA24500AEB5FE /* SearchResultCell.swift */; };
 		77876E92264D5CA400798106 /* NSRegularExpressionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77876E91264D5CA400798106 /* NSRegularExpressionExtension.swift */; };
 		77876E94264D5D6700798106 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77876E93264D5D6700798106 /* Regex.swift */; };
 		77876E96264D5FE700798106 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77876E95264D5FE700798106 /* StringExtension.swift */; };
 		77876E98264D69B300798106 /* RSSFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77876E97264D69B300798106 /* RSSFeedParser.swift */; };
 		77887D1426E12C210016192D /* NewAADTVCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77887D1326E12C210016192D /* NewAADTVCardController.swift */; };
-		7789470626AEF1C2005FDED7 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7789470526AEF1C2005FDED7 /* ProgressViewController.swift */; };
 		7791881226E0E7FE005B7D38 /* NewADTVCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791881126E0E7FE005B7D38 /* NewADTVCardController.swift */; };
 		7793E87E261F53DE00D8D3FA /* CompanyAdtv60.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7793E87D261F53DE00D8D3FA /* CompanyAdtv60.swift */; };
 		77950FD42644270C002AC408 /* SymbolProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77950FD32644270C002AC408 /* SymbolProfile.swift */; };
@@ -93,7 +89,6 @@
 		779B886026BD213D00FB06A1 /* SettingsStaticTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B885F26BD213D00FB06A1 /* SettingsStaticTableViewCell.swift */; };
 		779B886226BD2B4900FB06A1 /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B886126BD2B4900FB06A1 /* SettingsSection.swift */; };
 		779B886426BD3DE200FB06A1 /* SettingsSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B886326BD3DE200FB06A1 /* SettingsSwitchTableViewCell.swift */; };
-		77A9758826B3EEC700E150CA /* SearchConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A9758726B3EEC700E150CA /* SearchConstants.swift */; };
 		77C4BD85261CAF9100B8C748 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C4BD84261CAF9100B8C748 /* HapticsManager.swift */; };
 		77C4BD88261CB8D500B8C748 /* ColourExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C4BD87261CB8D400B8C748 /* ColourExtension.swift */; };
 		77C82A3026E4E6E800768FDB /* DetailViewReadMoreURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C82A2F26E4E6E800768FDB /* DetailViewReadMoreURLs.swift */; };
@@ -105,7 +100,6 @@
 		77CBB6BE26B9355A00CCD0A6 /* WatchlistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBB6BD26B9355A00CCD0A6 /* WatchlistTableViewCell.swift */; };
 		77CD33FE26E39DBE00950F2A /* NewDetailViewConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CD33FD26E39DBE00950F2A /* NewDetailViewConstant.swift */; };
 		77CF843226316DB2009A5E21 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CF843126316DB2009A5E21 /* UIAlertControllerExtension.swift */; };
-		77DAF9CD26B05853008662E0 /* RecentSearchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DAF9CC26B05853008662E0 /* RecentSearchTableView.swift */; };
 		77E763EF26E75D76005AED84 /* TimeseriesCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E763EE26E75D76005AED84 /* TimeseriesCardController.swift */; };
 		77E763F126E75FE5005AED84 /* TimeseriesCardPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E763F026E75FE5005AED84 /* TimeseriesCardPartView.swift */; };
 		77E763F326E76488005AED84 /* TransparentTemplateCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E763F226E76488005AED84 /* TransparentTemplateCardController.swift */; };
@@ -126,8 +120,7 @@
 		7707A46D26E9EBDC00329CB0 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		770B22AE26EB8D6400731C58 /* NewADTVMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewADTVMarker.swift; sourceTree = "<group>"; };
 		770E4C5826F245FD0010EE7B /* MyLineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLineChartView.swift; sourceTree = "<group>"; };
-		771263C526A95CAC00B57C04 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		771263CB26A97EED00B57C04 /* SearchResultTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewController.swift; sourceTree = "<group>"; };
+		770E4C5A26F249080010EE7B /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		771D16AD263989C10034193A /* AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersion.swift; sourceTree = "<group>"; };
 		771E328026D6525E002CC604 /* AcknowledgementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementsViewController.swift; sourceTree = "<group>"; };
 		7720570526DE6E8300063A9A /* NewCompanyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCompanyDetailViewController.swift; sourceTree = "<group>"; };
@@ -187,14 +180,11 @@
 		77814CD526469D6B008C832C /* ADTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTV.swift; sourceTree = "<group>"; };
 		7785D7822630142600988C28 /* WatchedCompany+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WatchedCompany+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7785D7832630142600988C28 /* WatchedCompany+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WatchedCompany+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		7785EF2A26AAA22300AEB5FE /* FMPStockTickerSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMPStockTickerSearch.swift; sourceTree = "<group>"; };
-		7785EF2C26AAA24500AEB5FE /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		77876E91264D5CA400798106 /* NSRegularExpressionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSRegularExpressionExtension.swift; sourceTree = "<group>"; };
 		77876E93264D5D6700798106 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		77876E95264D5FE700798106 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		77876E97264D69B300798106 /* RSSFeedParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeedParser.swift; sourceTree = "<group>"; };
 		77887D1326E12C210016192D /* NewAADTVCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAADTVCardController.swift; sourceTree = "<group>"; };
-		7789470526AEF1C2005FDED7 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		7791881126E0E7FE005B7D38 /* NewADTVCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewADTVCardController.swift; sourceTree = "<group>"; };
 		7793E87D261F53DE00D8D3FA /* CompanyAdtv60.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyAdtv60.swift; sourceTree = "<group>"; };
 		77950FD32644270C002AC408 /* SymbolProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolProfile.swift; sourceTree = "<group>"; };
@@ -213,7 +203,6 @@
 		779B885F26BD213D00FB06A1 /* SettingsStaticTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStaticTableViewCell.swift; sourceTree = "<group>"; };
 		779B886126BD2B4900FB06A1 /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
 		779B886326BD3DE200FB06A1 /* SettingsSwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSwitchTableViewCell.swift; sourceTree = "<group>"; };
-		77A9758726B3EEC700E150CA /* SearchConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchConstants.swift; sourceTree = "<group>"; };
 		77C4BD84261CAF9100B8C748 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		77C4BD87261CB8D400B8C748 /* ColourExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourExtension.swift; sourceTree = "<group>"; };
 		77C82A2F26E4E6E800768FDB /* DetailViewReadMoreURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewReadMoreURLs.swift; sourceTree = "<group>"; };
@@ -225,7 +214,6 @@
 		77CBB6BD26B9355A00CCD0A6 /* WatchlistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistTableViewCell.swift; sourceTree = "<group>"; };
 		77CD33FD26E39DBE00950F2A /* NewDetailViewConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDetailViewConstant.swift; sourceTree = "<group>"; };
 		77CF843126316DB2009A5E21 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
-		77DAF9CC26B05853008662E0 /* RecentSearchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchTableView.swift; sourceTree = "<group>"; };
 		77E763EE26E75D76005AED84 /* TimeseriesCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeseriesCardController.swift; sourceTree = "<group>"; };
 		77E763F026E75FE5005AED84 /* TimeseriesCardPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeseriesCardPartView.swift; sourceTree = "<group>"; };
 		77E763F226E76488005AED84 /* TransparentTemplateCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentTemplateCardController.swift; sourceTree = "<group>"; };
@@ -336,6 +324,7 @@
 		773131B726DCEC3F0068AAD8 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				77CB234826B166B200023934 /* RecentSearchedCompany */,
 				773131B826DCEC500068AAD8 /* ViewController */,
 				773131BD26DCFE3B0068AAD8 /* View */,
 				7748987F26E0CECD000933A6 /* Model */,
@@ -487,7 +476,6 @@
 		773C3FC926F2148900EA6A41 /* Deprecated */ = {
 			isa = PBXGroup;
 			children = (
-				7785EF2926AAA1C200AEB5FE /* Search */,
 				77CBB6B626B9271300CCD0A6 /* Watchlist */,
 			);
 			path = Deprecated;
@@ -599,34 +587,6 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		7770081626B1A5650021A9BB /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				771263C526A95CAC00B57C04 /* SearchViewController.swift */,
-				771263CB26A97EED00B57C04 /* SearchResultTableViewController.swift */,
-				7789470526AEF1C2005FDED7 /* ProgressViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		7770081726B1A5820021A9BB /* View */ = {
-			isa = PBXGroup;
-			children = (
-				7785EF2C26AAA24500AEB5FE /* SearchResultCell.swift */,
-				77DAF9CC26B05853008662E0 /* RecentSearchTableView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		7770081826B1A5980021A9BB /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				77CB234826B166B200023934 /* RecentSearchedCompany */,
-				7785EF2A26AAA22300AEB5FE /* FMPStockTickerSearch.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		7780B8B526CFAFE500561789 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -664,18 +624,6 @@
 				7785D7832630142600988C28 /* WatchedCompany+CoreDataProperties.swift */,
 			);
 			path = WatchedCompany;
-			sourceTree = "<group>";
-		};
-		7785EF2926AAA1C200AEB5FE /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				77A9758926B3F75A00E150CA /* Extension */,
-				7770081626B1A5650021A9BB /* ViewController */,
-				7770081726B1A5820021A9BB /* View */,
-				7770081826B1A5980021A9BB /* Model */,
-				77A9758626B3EE7400E150CA /* Constants */,
-			);
-			path = Search;
 			sourceTree = "<group>";
 		};
 		778B3AFB26E12CF8009CBE7E /* Template */ = {
@@ -735,21 +683,6 @@
 				779B886126BD2B4900FB06A1 /* SettingsSection.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		77A9758626B3EE7400E150CA /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-				77A9758726B3EEC700E150CA /* SearchConstants.swift */,
-			);
-			path = Constants;
-			sourceTree = "<group>";
-		};
-		77A9758926B3F75A00E150CA /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extension;
 			sourceTree = "<group>";
 		};
 		77CB234826B166B200023934 /* RecentSearchedCompany */ = {
@@ -824,6 +757,7 @@
 				77876E91264D5CA400798106 /* NSRegularExpressionExtension.swift */,
 				77876E95264D5FE700798106 /* StringExtension.swift */,
 				77CAA2E526679043003A0246 /* UserDefaults+.swift */,
+				770E4C5A26F249080010EE7B /* UIApplicationExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -968,7 +902,6 @@
 				7793E87E261F53DE00D8D3FA /* CompanyAdtv60.swift in Sources */,
 				77876E98264D69B300798106 /* RSSFeedParser.swift in Sources */,
 				779A46FA26D5028D0072CE0B /* SettingsOptionTitleConstant.swift in Sources */,
-				7785EF2B26AAA22300AEB5FE /* FMPStockTickerSearch.swift in Sources */,
 				776F658526BC36C600CAA5A6 /* SettingsViewController.swift in Sources */,
 				7720570626DE6E8300063A9A /* NewCompanyDetailViewController.swift in Sources */,
 				771D16AE263989C10034193A /* AppVersion.swift in Sources */,
@@ -976,7 +909,6 @@
 				77384E9426F0E62600C23217 /* WatchlistCoreDataManager.swift in Sources */,
 				776A913526E3B5E50012D0D5 /* NewProfileCardController.swift in Sources */,
 				7774DBED264BF451002752B4 /* NewSymbolRequest.swift in Sources */,
-				7785EF2D26AAA24500AEB5FE /* SearchResultCell.swift in Sources */,
 				770B22AF26EB8D6400731C58 /* NewADTVMarker.swift in Sources */,
 				779B886226BD2B4900FB06A1 /* SettingsSection.swift in Sources */,
 				775DFDA92645849400D9A4AF /* Quote.swift in Sources */,
@@ -986,6 +918,7 @@
 				77C4BD88261CB8D500B8C748 /* ColourExtension.swift in Sources */,
 				77F93361261A321F007662D5 /* DateExtension.swift in Sources */,
 				7707A46E26E9EBDC00329CB0 /* Configuration.swift in Sources */,
+				770E4C5B26F249080010EE7B /* UIApplicationExtension.swift in Sources */,
 				773A0BBA26172872002B9875 /* Constants.swift in Sources */,
 				77950FD42644270C002AC408 /* SymbolProfile.swift in Sources */,
 				77CF843226316DB2009A5E21 /* UIAlertControllerExtension.swift in Sources */,
@@ -994,13 +927,11 @@
 				773131BC26DCF87B0068AAD8 /* SearchResultV2TableViewController.swift in Sources */,
 				77FF535B26E12826001FAACA /* OHLCCardController.swift in Sources */,
 				77CB234626B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift in Sources */,
-				771263C626A95CAC00B57C04 /* SearchViewController.swift in Sources */,
 				7765434226EF3C3800E91C25 /* YahooFinance.swift in Sources */,
 				776D13C3261E087500B9CF97 /* HomeViewController.swift in Sources */,
 				7748988726E0E454000933A6 /* NewADTVChartCardController.swift in Sources */,
 				773A86F0263C34A9008105A1 /* PrivacyPolicyViewController.swift in Sources */,
 				77E7B3FB26E7838F000EABC6 /* HistPriceMarker.swift in Sources */,
-				77A9758826B3EEC700E150CA /* SearchConstants.swift in Sources */,
 				7785D7842630142600988C28 /* WatchedCompany+CoreDataClass.swift in Sources */,
 				773A0BB3261726E6002B9875 /* CompanyAdtv20.swift in Sources */,
 				772A747526DF93890088A604 /* HeaderCardController.swift in Sources */,
@@ -1015,7 +946,6 @@
 				77420217264AA033002F6104 /* UIScrollView+EmptyDataSet.m in Sources */,
 				77E7B3FD26E7AA56000EABC6 /* ChartDataEntryData.swift in Sources */,
 				7748988126E0CF9B000933A6 /* SearchAPIFunction.swift in Sources */,
-				7789470626AEF1C2005FDED7 /* ProgressViewController.swift in Sources */,
 				773A0B6326171238002B9875 /* AppDelegate.swift in Sources */,
 				772C3F6A2627457C0044001B /* UITableViewExtension.swift in Sources */,
 				77384E9126F0DBC100C23217 /* WatchlistAPIFunction.swift in Sources */,
@@ -1036,7 +966,6 @@
 				77CD33FE26E39DBE00950F2A /* NewDetailViewConstant.swift in Sources */,
 				774DB74C2623144900A92D13 /* RiverFort.xcdatamodeld in Sources */,
 				77E763F326E76488005AED84 /* TransparentTemplateCardController.swift in Sources */,
-				77DAF9CD26B05853008662E0 /* RecentSearchTableView.swift in Sources */,
 				77CBB6BC26B92BA500CCD0A6 /* WatchlistTableView.swift in Sources */,
 				773C3FCB26F2160800EA6A41 /* NewEditViewController.swift in Sources */,
 				7728847B265B962F001C0D4F /* FeedsViewModel.swift in Sources */,
@@ -1047,7 +976,6 @@
 				7760164C26B98E9700BA7C41 /* WatchlistConstant.swift in Sources */,
 				776F657C26BBEF2D00CAA5A6 /* EditWatchlistViewController.swift in Sources */,
 				779A46FC26D508AA0072CE0B /* LogGenerator.swift in Sources */,
-				771263CC26A97EED00B57C04 /* SearchResultTableViewController.swift in Sources */,
 				7748987E26E0C3E7000933A6 /* NewPriceChartCardPartView.swift in Sources */,
 				779B885B26BD1B0100FB06A1 /* SettingsTableViewConstant.swift in Sources */,
 				771E328126D6525E002CC604 /* AcknowledgementsViewController.swift in Sources */,
