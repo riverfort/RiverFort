@@ -162,11 +162,11 @@ extension NewWatchlistTableViewCell {
     
     public func setStatisticsForWatchlistTableViewCell(watchedCompanyQuote: YahooFinanceQuote2) {
         setPriceLabelText(watchedCompanyQuote: watchedCompanyQuote)
-        if let mktCapData = watchedCompanyQuote.marketCap,
-           let changePercentData = watchedCompanyQuote.regularMarketChangePercent {
+        if let changePercentData = watchedCompanyQuote.regularMarketChangePercent {
             configDataButtonBackgroundColour(changePercent: changePercentData)
-            mktCap.text = NumberShortScale.formatNumber(Double(mktCapData))
-            changePercent.text = changePercentData < 0 ? "\(changePercentData)%" : "+\(changePercentData)%"
+            let changePercentStr = String(format: "%.2f", changePercentData)
+            let changePercent = changePercentData < 0 ? "\(changePercentStr)%" : "+\(changePercentStr)%"
+            dataButton.setTitle(changePercent, for: .normal)
         }
     }
 }
