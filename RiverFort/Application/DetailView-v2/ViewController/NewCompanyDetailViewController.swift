@@ -87,9 +87,7 @@ extension NewCompanyDetailViewController {
                 NotificationCenter.default.post(name: yahooFinanceQuoteResultName, object: yahooFinanceQuoteResult)
             }
     }
-}
-
-extension NewCompanyDetailViewController {
+    
     private func getHistPriceFromYahooFinance(symbol: String, exch: String) {
         DetailViewAPIFunction.fetchHistPriceFromYahooFinance(symbol: symbol)
             .responseDecodable(of: YahooFinanceHistPriceResult.self) { [self] (response) in
@@ -113,9 +111,7 @@ extension NewCompanyDetailViewController {
                 NotificationCenter.default.post(name: adtvName, object: adtvs)
             }
     }
-}
-
-extension NewCompanyDetailViewController {
+    
     private func getProfileFromFMP(symbol: String) {
         DetailViewAPIFunction.fetchProfileFMP(symbol: symbol)
             .responseDecodable(of: [FMPProfile].self) { (response) in
@@ -125,9 +121,7 @@ extension NewCompanyDetailViewController {
                 NotificationCenter.default.post(name: fmpProfileName, object: fmpProfile)
             }
     }
-}
-
-extension NewCompanyDetailViewController {
+    
     private func getADTVs(exch: String, histPrice: [HistPrice]) -> [NewADTV] {
         let adtvs = histPrice.map { dailyPrice -> NewADTV in
             let vwap = (dailyPrice.high! + dailyPrice.low! + dailyPrice.close!) / 3
@@ -149,7 +143,6 @@ struct NewADTV {
     let date: String
     let adtv: Double
 }
-
 
 extension NewCompanyDetailViewController {
     private func configAddButton() {
