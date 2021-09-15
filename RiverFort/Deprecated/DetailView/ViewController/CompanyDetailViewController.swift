@@ -9,12 +9,9 @@ import UIKit
 import CoreData
 import CardParts
 import SPAlert
-
 import RxSwift
 
-
 class CompanyDetailViewController: CardsViewController {
-    
     public  var company: Company?
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     private var watchedCompanies = [WatchedCompany]()
@@ -69,8 +66,8 @@ class CompanyDetailViewController: CardsViewController {
         }
 
         let cards: [CardPartsViewController] = [
-            ThemedCardController(quotes: CardPartQuotesView(company: company!), demoChart: CardPartPriceChartView(company: company!, feedsViewModel: self.feedsViewModel)),
-            ThemedCardController(adtvChart: ADTVChartView(company: company!)),
+            ChartCardController(quotesCardPartView: QuotesCardPartView(company: company!), priceChartCardPartView: PriceChartCardPartView(company: company!, feedsViewModel: self.feedsViewModel)),
+            ChartCardController(adtvChartCardPartView: ADTVChartCardPartView(company: company!)),
             ProfileCardController(title: "Profile", company: company!),
             QuotesCardController(company: company!),
             ADTVCardController(company: company!),
@@ -113,11 +110,6 @@ class CompanyDetailViewController: CardsViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-//        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

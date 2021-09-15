@@ -44,7 +44,7 @@ extension WatchlistTableView: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WatchlistTableViewCell
         let watchedCompanySymbol = watchedCompanies[indexPath.row].company_ticker
         if let i = watchedCompanyDetails.firstIndex(where: {$0.company_ticker == watchedCompanySymbol}) {
-            let watchedCompanyDetail = WatchedCompanyDetailNew(
+            let watchedCompanyDetail = WatchedCompanyDetail(
                 symbol: watchedCompanyDetails[i].company_ticker,
                 name: watchedCompanyDetails[i].company_name,
                 currency: watchedCompanyDetails[i].currency,
@@ -104,9 +104,9 @@ extension WatchlistTableView {
             let sort = NSSortDescriptor(key: "rowOrder", ascending: true)
             request.sortDescriptors = [sort]
             watchedCompanies = try context.fetch(request)
-            for watchedCompany in watchedCompanies {
-                APIFunctions.functions.fetchCompanyDetail(companyTicker: watchedCompany.company_ticker!)
-            }
+//            for watchedCompany in watchedCompanies {
+//                APIFunctions.functions.fetchCompanyDetail(companyTicker: watchedCompany.company_ticker!)
+//            }
         } catch {
             print("error")
         }

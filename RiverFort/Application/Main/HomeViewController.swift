@@ -10,20 +10,18 @@ import UIKit
 class HomeViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        let searchVC = UINavigationController(rootViewController: SearchViewController())
-        let newWatchlistVC = UINavigationController(rootViewController: WatchlistViewController())
+        let searchVC = UINavigationController(rootViewController: SearchV2ViewController())
         let settingsVC = UINavigationController(rootViewController: SettingsViewController())
         
         searchVC.title = "Search"
-        newWatchlistVC.title = "Watchlist"
         settingsVC.title = "Settings"
 
-        self.setViewControllers([searchVC, newWatchlistVC, settingsVC], animated: true)
+        self.setViewControllers([searchVC, settingsVC], animated: true)
         guard let items = self.tabBar.items else {
             return
         }
         
-        let images = ["magnifyingglass.circle.fill", "heart.text.square.fill", "gear"]
+        let images = ["magnifyingglass.circle.fill", "gear"]
         
         let configuration = UIImage.SymbolConfiguration(weight: .heavy)
         for x in 0..<items.count {

@@ -8,7 +8,7 @@
 import UIKit
 
 class EditWatchlistViewController: UIViewController {
-    private let editWatchlistTableView = EditWatchlistTableView(frame: .zero, style: .plain)
+    private let editWatchlistTableView = EditWatchlistTableView(frame: .zero, style: .insetGrouped)
     public var editCompletion: (() -> Void)?
 
     override func viewDidLoad() {
@@ -31,7 +31,7 @@ class EditWatchlistViewController: UIViewController {
 
 extension EditWatchlistViewController {
     private func configView() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemGroupedBackground
     }
     
     private func configNavigationController() {
@@ -49,6 +49,7 @@ extension EditWatchlistViewController {
     
     private func configEditWatchlistTableView() {
         view.addSubview(editWatchlistTableView)
+        editWatchlistTableView.backgroundColor = .systemGroupedBackground
     }
     
     private func setEditWatchlistTableViewConstraints() {

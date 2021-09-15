@@ -17,6 +17,7 @@ extension WatchedCompany {
     }
 
     @NSManaged public var addedAt: Date?
+    @NSManaged public var exch: String?
     @NSManaged public var company_name: String?
     @NSManaged public var company_ticker: String?
     @NSManaged public var rowOrder: Int64

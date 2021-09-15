@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="RecentSearchedCompany" representedClassName="RecentSearchedCompany" syncable="YES">
         <attribute name="currency" optional="YES" attributeType="String"/>
         <attribute name="exchangeShortName" optional="YES" attributeType="String"/>
@@ -11,10 +11,11 @@
         <attribute name="addedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="company_name" optional="YES" attributeType="String"/>
         <attribute name="company_ticker" optional="YES" attributeType="String"/>
+        <attribute name="exch" optional="YES" attributeType="String"/>
         <attribute name="rowOrder" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="WatchedCompany" positionX="-63" positionY="-18" width="128" height="89"/>
         <element name="RecentSearchedCompany" positionX="-63" positionY="9" width="128" height="104"/>
+        <element name="WatchedCompany" positionX="-63" positionY="-18" width="128" height="104"/>
     </elements>
 </model>

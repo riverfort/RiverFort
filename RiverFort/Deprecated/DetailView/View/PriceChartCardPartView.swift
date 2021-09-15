@@ -24,7 +24,7 @@ private struct ExtraNewsData {
     var pubDate: String
 }
 
-public class CardPartPriceChartView: UIView, CardPartView {
+public class PriceChartCardPartView: UIView, CardPartView {
     
     private let company: Company
     private let feedsViewModel: FeedsViewModel
@@ -127,7 +127,7 @@ public class CardPartPriceChartView: UIView, CardPartView {
 
 // MARK: - load feeds
 
-extension CardPartPriceChartView {
+extension PriceChartCardPartView {
     private func loadFeeds() {
         self.feedsViewModel.listData.asObservable().subscribe { rssItems in
             for rssItem in rssItems.element!.prefix(40) {
@@ -163,7 +163,7 @@ extension CardPartPriceChartView {
 
 // MARK: - handle API call
 
-extension CardPartPriceChartView: CompanyTradingDataDeleagate {
+extension PriceChartCardPartView: CompanyTradingDataDeleagate {
     func updateCompanyTrading(newCompanyTrading: String) {
         do {
             let companyTradings: [CompanyTrading] = try JSONDecoder().decode([CompanyTrading].self, from: newCompanyTrading.data(using: .utf8)!)
@@ -188,7 +188,7 @@ extension CardPartPriceChartView: CompanyTradingDataDeleagate {
 
 // MARK: - set data for the chart
 
-extension CardPartPriceChartView {
+extension PriceChartCardPartView {
     private func setDataForChart(values: [ChartDataEntry]) {
         var valuesRange = [ChartDataEntry]()
         switch timeSegmentedControl.selectedSegmentIndex {
@@ -242,7 +242,7 @@ extension CardPartPriceChartView {
 
 // MARK: - handle segemented controls
 
-extension CardPartPriceChartView {
+extension PriceChartCardPartView {
     @objc private func handleChartModeSegmentedControlValueChanged(_ sender: UISegmentedControl) {
         HapticsManager.shared.impact(style: .light)
         sharepriceChartView.animate(xAxisDuration: 0.3, easingOption: .easeInSine)
@@ -309,13 +309,13 @@ extension CardPartPriceChartView {
 
 // MARK: - chart interaction
 
-extension CardPartPriceChartView: ChartViewDelegate {
+extension PriceChartCardPartView: ChartViewDelegate {
     public func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         NotificationCenter.default.post(name: Notification.Name("Interacting"), object: nil)
     }
 }
 
-extension CardPartPriceChartView: MyChartViewDelegate {
+extension PriceChartCardPartView: MyChartViewDelegate {
     func chartValueNoLongerSelected(_ chartView: MyLineChartView) {
         // Do something on deselection
         if !isNewsModeEnable {
@@ -327,7 +327,7 @@ extension CardPartPriceChartView: MyChartViewDelegate {
 
 // MARK: - x-axis format
 
-extension CardPartPriceChartView: IAxisValueFormatter {
+extension PriceChartCardPartView: IAxisValueFormatter {
     public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         if value < 0 || tradings.count == 1 {
             sharepriceChartView.data = nil
@@ -353,7 +353,7 @@ extension CardPartPriceChartView: IAxisValueFormatter {
 
 // MARK: - handle theme appearance
 
-extension CardPartPriceChartView {
+extension PriceChartCardPartView {
     public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         if #available(iOS 13.0, *) {
@@ -408,25 +408,25 @@ open class MyLineChartView: LineChartView {
         return super.gestureRecognizerShouldBegin(gestureRecognizer)
     }
 
-    override open func nsuiTouchesBegan(_ touches: Set<NSUITouch>, withEvent event: NSUIEvent?) {
-        impactGenerator.impactOccurred()
-        selectionGenerator.prepare()
-        // adds the highlight to the graph when tapped
-        super.nsuiTouchesBegan(touches, withEvent: event)
-        touchesMoved = false
-        if let touch = touches.first {
-            let h = getHighlightByTouchPoint(touch.location(in: self))
-
-            if h === nil || h == self.lastHighlighted {
-                lastHighlighted = nil
-                highlightValue(nil, callDelegate: true)
-            }
-            else {
-                lastHighlighted = h
-                highlightValue(h, callDelegate: true)
-            }
-        }
-    }
+//    override open func nsuiTouchesBegan(_ touches: Set<NSUITouch>, withEvent event: NSUIEvent?) {
+//        impactGenerator.impactOccurred()
+//        selectionGenerator.prepare()
+//        // adds the highlight to the graph when tapped
+//        super.nsuiTouchesBegan(touches, withEvent: event)
+//        touchesMoved = false
+//        if let touch = touches.first {
+//            let h = getHighlightByTouchPoint(touch.location(in: self))
+//
+//            if h === nil || h == self.lastHighlighted {
+//                lastHighlighted = nil
+//                highlightValue(nil, callDelegate: true)
+//            }
+//            else {
+//                lastHighlighted = h
+//                highlightValue(h, callDelegate: true)
+//            }
+//        }
+//    }
 
     open override func nsuiTouchesEnded(_ touches: Set<NSUITouch>, withEvent event: NSUIEvent?) {
         super.nsuiTouchesEnded(touches, withEvent: event)

@@ -1,13 +1,13 @@
 //
-//  WatchlistTableViewCell.swift
+//  NewWatchlistTableViewCell.swift
 //  RiverFort
 //
-//  Created by Qiuyang Nie on 03/08/2021.
+//  Created by Qiuyang Nie on 14/09/2021.
 //
 
 import UIKit
 
-class WatchlistTableViewCell: UITableViewCell {
+class NewWatchlistTableViewCell: UITableViewCell {
     private let systemMinimumLayoutMarginsLeading = (UIApplication.topViewController()?.systemMinimumLayoutMargins.leading)!
     private let symbol        = UILabel()
     private let name          = UILabel()
@@ -23,15 +23,6 @@ class WatchlistTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configContentView()
-        setStacksConstraints()
-        setDataButtonConstraints()
-        configSymbolLabel()
-        configNameLabel()
-        configCurrencyLabel()
-        configPriceLabel()
-        configChangePercentLabel()
-        configMktCapLabel()
-        configDateLabel()
     }
     
     required init?(coder: NSCoder) {
@@ -39,48 +30,18 @@ class WatchlistTableViewCell: UITableViewCell {
     }
 }
 
-extension WatchlistTableViewCell {
-    public func setWatchlistTableViewCell(watchedCompanyDetail: WatchedCompanyDetailNew) {
-        symbol.text = watchedCompanyDetail.symbol
-        name.text   = watchedCompanyDetail.name
-        mktCap.text = NumberShortScale.formatNumber(watchedCompanyDetail.mktCap)
-        date.text   = "\(watchedCompanyDetail.mktDate)"
-        changePercent.text = watchedCompanyDetail.changePercent < 0 ? "\(watchedCompanyDetail.changePercent)%" : "+\(watchedCompanyDetail.changePercent)%"
-        setPriceLabelText(watchedCompanyDetail: watchedCompanyDetail)
-        setDataButtonBackgroundColour(changePercent: watchedCompanyDetail.changePercent)
-    }
-    
-    public func setDataButtonTitle(isChangePercentInDataButton: Bool) {
-        if isChangePercentInDataButton {
-            dataButton.setTitle(changePercent.text, for: .normal)
-        } else {
-            dataButton.setTitle(mktCap.text, for: .normal)
-        }
-    }
-}
-
-extension WatchlistTableViewCell {
-    private func setDataButtonBackgroundColour(changePercent: Double) {
-        if changePercent < 0 {
-            dataButton.backgroundColor = .systemRed
-        } else {
-            dataButton.backgroundColor = .systemGreen
-        }
-    }
-    
-    private func setPriceLabelText(watchedCompanyDetail: WatchedCompanyDetailNew) {
-        guard let windowInterfaceOrientation = WindowInterfaceOrientation.windowInterfaceOrientation else { return }
-        if windowInterfaceOrientation.isLandscape {
-            price.text  = "\(watchedCompanyDetail.currency) \(watchedCompanyDetail.price)"
-        } else {
-            price.text  = "\(watchedCompanyDetail.price)"
-        }
-    }
-}
-
-extension WatchlistTableViewCell {
+extension NewWatchlistTableViewCell {
     private func configContentView() {
         contentView.isUserInteractionEnabled = true
+        configSymbolLabel()
+        configNameLabel()
+        configCurrencyLabel()
+        configPriceLabel()
+        configChangePercentLabel()
+        configMktCapLabel()
+        configDateLabel()
+        configStacks()
+        setStacksConstraints()
     }
     
     private func configSymbolLabel() {
@@ -95,32 +56,37 @@ extension WatchlistTableViewCell {
     }
     
     private func configCurrencyLabel() {
+        currency.text = "-"
         currency.font = .preferredFont(forTextStyle: .body)
         currency.adjustsFontForContentSizeCategory = true
         currency.textColor = .systemGray
     }
     
     private func configPriceLabel() {
+        price.text = "-"
         price.font = .preferredFont(forTextStyle: .headline)
         price.adjustsFontForContentSizeCategory = true
     }
     
     private func configChangePercentLabel() {
+        changePercent.text = "-"
         changePercent.font = .preferredFont(forTextStyle: .body)
         changePercent.adjustsFontForContentSizeCategory = true
     }
     
     private func configMktCapLabel() {
+        mktCap.text = "-"
         mktCap.font = .preferredFont(forTextStyle: .body)
         mktCap.adjustsFontForContentSizeCategory = true
     }
     
     private func configDateLabel() {
+        date.text = "-"
         date.font = .preferredFont(forTextStyle: .body)
         date.adjustsFontForContentSizeCategory = true
     }
-        
-    private func setStacksConstraints() {
+    
+    private func configStacks() {
         addSubview(leftStack)
         leftStack.addArrangedSubview(symbol)
         leftStack.addArrangedSubview(name)
@@ -134,7 +100,9 @@ extension WatchlistTableViewCell {
         rightStack.axis         = .vertical
         rightStack.distribution = .equalSpacing
         rightStack.alignment    = .trailing
+    }
         
+    private func setStacksConstraints() {
         leftStack.translatesAutoresizingMaskIntoConstraints = false
         leftStack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         leftStack.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7).isActive = true
@@ -146,11 +114,14 @@ extension WatchlistTableViewCell {
         rightStack.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7).isActive = true
         rightStack.leadingAnchor.constraint(equalTo: leftStack.trailingAnchor).isActive = true
         rightStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -systemMinimumLayoutMarginsLeading).isActive = true
+        setDataButtonConstraints()
     }
     
     private func setDataButtonConstraints() {
+        dataButton.backgroundColor = .tertiarySystemGroupedBackground
+        dataButton.setTitle("--", for: .normal)
         dataButton.layer.cornerRadius = 5
-        dataButton.setTitleColor(.systemBackground, for: .normal)
+        dataButton.setTitleColor(.label, for: .normal)
         dataButton.titleLabel?.font = .preferredFont(forTextStyle: .headline)
         dataButton.titleLabel?.adjustsFontForContentSizeCategory = true
         dataButton.contentEdgeInsets = UIEdgeInsets(top: 3, left: 4, bottom: 3, right: 4)
@@ -159,5 +130,43 @@ extension WatchlistTableViewCell {
         dataButton.translatesAutoresizingMaskIntoConstraints = false
         dataButton.widthAnchor.constraint(equalTo: rightStack.widthAnchor, multiplier: 1).isActive = true
         dataButton.heightAnchor.constraint(equalTo: rightStack.heightAnchor, multiplier: 0.5).isActive = true
+    }
+}
+
+extension NewWatchlistTableViewCell {
+    private func configDataButtonBackgroundColour(changePercent: Double) {
+        if changePercent < 0 {
+            dataButton.backgroundColor = .systemRed
+        } else {
+            dataButton.backgroundColor = .systemGreen
+        }
+    }
+    
+    private func setPriceLabelText(watchedCompanyQuote: YahooFinanceQuote2) {
+        guard let windowInterfaceOrientation = WindowInterfaceOrientation.windowInterfaceOrientation else { return }
+        if let priceData = watchedCompanyQuote.regularMarketPrice, let currencyData = watchedCompanyQuote.currency {
+            if windowInterfaceOrientation.isLandscape {
+                price.text  = "\(currencyData) \(priceData)"
+            } else {
+                price.text  = "\(priceData)"
+            }
+        }
+    }
+}
+
+extension NewWatchlistTableViewCell {
+    public func setSymbolAndNameForWatchlistTableViewCell(watchedCompany: WatchedCompany) {
+        symbol.text = watchedCompany.company_ticker
+        name.text   = watchedCompany.company_name
+    }
+    
+    public func setStatisticsForWatchlistTableViewCell(watchedCompanyQuote: YahooFinanceQuote2) {
+        setPriceLabelText(watchedCompanyQuote: watchedCompanyQuote)
+        if let changePercentData = watchedCompanyQuote.regularMarketChangePercent {
+            configDataButtonBackgroundColour(changePercent: changePercentData)
+            let changePercentStr = String(format: "%.2f", changePercentData)
+            let changePercent = changePercentData < 0 ? "\(changePercentStr)%" : "+\(changePercentStr)%"
+            dataButton.setTitle(changePercent, for: .normal)
+        }
     }
 }
