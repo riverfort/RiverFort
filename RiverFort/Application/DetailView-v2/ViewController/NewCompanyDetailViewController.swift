@@ -47,6 +47,56 @@ extension NewCompanyDetailViewController {
         configBarButtonItem()
         loadCards(cards: cards)
     }
+    
+    private func configBarButtonItem() {
+        configAddButton()
+        configMoreButton()
+        let barButtonStack = UIStackView.init(arrangedSubviews: [add, more])
+        barButtonStack.distribution = .equalSpacing
+        barButtonStack.axis = .horizontal
+        barButtonStack.alignment = .center
+        barButtonStack.spacing = 8
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: barButtonStack)
+    }
+    
+    private func configAddButton() {
+        guard let symbol = navigationItem.title else { return }
+        let isCompanyInWatchlist = WatchlistCoreDataManager.isWatchedCompany(company_ticker: symbol)
+        if isCompanyInWatchlist { add.isHidden = true }
+        add.setImage(UIImage(systemName: "plus.circle", withConfiguration: Configuration.symbolConfiguration), for: .normal)
+        add.addTarget(self, action: #selector(didTapAddToWatchlist), for: .touchUpInside)
+    }
+    
+    private func configMoreButton() {
+        more.setImage(UIImage(systemName: "ellipsis.circle", withConfiguration: Configuration.symbolConfiguration), for: .normal)
+        more.showsMenuAsPrimaryAction = true
+        var menu: UIMenu {
+            return UIMenu(title: "Share Price Chart", image: nil, identifier: nil, options: [], children: menuItems)
+        }
+        var menuItems: [UIAction] {
+            return [
+                UIAction(title: "Price & Vol",
+                         image: UIImage(systemName: "chart.bar"),
+                         state: UserDefaults.standard.bool(forKey: "com.riverfort.DetailView.news") ? .off : .on,
+                         handler: { [self] (_) in
+                            UserDefaults.standard.setValue(false, forKey: "com.riverfort.DetailView.news")
+                            more.menu = menu
+                            let priceChartDisplayModeChangedName = Notification.Name(NewDetailViewConstant.PRICE_CHART_DISPLAY_MODE_CHANGED)
+                            NotificationCenter.default.post(name: priceChartDisplayModeChangedName, object: nil)
+                         }),
+                UIAction(title: "With News",
+                         image: UIImage(systemName: "newspaper"),
+                         state: UserDefaults.standard.bool(forKey: "com.riverfort.DetailView.news") ? .on : .off,
+                         handler: { [self] (_) in
+                            UserDefaults.standard.setValue(true, forKey: "com.riverfort.DetailView.news")
+                            more.menu = menu
+                            let priceChartDisplayModeChangedName = Notification.Name(NewDetailViewConstant.PRICE_CHART_DISPLAY_MODE_CHANGED)
+                            NotificationCenter.default.post(name: priceChartDisplayModeChangedName, object: nil)
+                         }),
+            ]
+        }
+        more.menu = menu
+    }
 }
 
 extension NewCompanyDetailViewController {
@@ -142,58 +192,6 @@ extension NewCompanyDetailViewController {
 struct NewADTV {
     let date: String
     let adtv: Double
-}
-
-extension NewCompanyDetailViewController {
-    private func configAddButton() {
-        guard let symbol = navigationItem.title else { return }
-        let isCompanyInWatchlist = WatchlistCoreDataManager.isWatchedCompany(company_ticker: symbol)
-        if isCompanyInWatchlist { add.isHidden = true }
-        add.setImage(UIImage(systemName: "plus.circle", withConfiguration: Configuration.symbolConfiguration), for: .normal)
-        add.addTarget(self, action: #selector(didTapAddToWatchlist), for: .touchUpInside)
-    }
-    
-    private func configMoreButton() {
-        more.setImage(UIImage(systemName: "ellipsis.circle", withConfiguration: Configuration.symbolConfiguration), for: .normal)
-        more.showsMenuAsPrimaryAction = true
-        var menu: UIMenu {
-            return UIMenu(title: "Share Price Chart", image: nil, identifier: nil, options: [], children: menuItems)
-        }
-        var menuItems: [UIAction] {
-            return [
-                UIAction(title: "Price & Vol",
-                         image: UIImage(systemName: "chart.bar"),
-                         state: UserDefaults.standard.bool(forKey: "com.riverfort.DetailView.news") ? .off : .on,
-                         handler: { [self] (_) in
-                            UserDefaults.standard.setValue(false, forKey: "com.riverfort.DetailView.news")
-                            more.menu = menu
-                            let priceChartDisplayModeChangedName = Notification.Name(NewDetailViewConstant.PRICE_CHART_DISPLAY_MODE_CHANGED)
-                            NotificationCenter.default.post(name: priceChartDisplayModeChangedName, object: nil)
-                         }),
-                UIAction(title: "With News",
-                         image: UIImage(systemName: "newspaper"),
-                         state: UserDefaults.standard.bool(forKey: "com.riverfort.DetailView.news") ? .on : .off,
-                         handler: { [self] (_) in
-                            UserDefaults.standard.setValue(true, forKey: "com.riverfort.DetailView.news")
-                            more.menu = menu
-                            let priceChartDisplayModeChangedName = Notification.Name(NewDetailViewConstant.PRICE_CHART_DISPLAY_MODE_CHANGED)
-                            NotificationCenter.default.post(name: priceChartDisplayModeChangedName, object: nil)
-                         }),
-            ]
-        }
-        more.menu = menu
-    }
-    
-    private func configBarButtonItem() {
-        configAddButton()
-        configMoreButton()
-        let barButtonStack = UIStackView.init(arrangedSubviews: [add, more])
-        barButtonStack.distribution = .equalSpacing
-        barButtonStack.axis = .horizontal
-        barButtonStack.alignment = .center
-        barButtonStack.spacing = 8
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: barButtonStack)
-    }
 }
 
 extension NewCompanyDetailViewController {
