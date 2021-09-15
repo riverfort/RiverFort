@@ -49,9 +49,7 @@ extension NewWatchlistViewController {
         watchlistTableView.dataSource = self
         watchlistTableView.register(NewWatchlistTableViewCell.self, forCellReuseIdentifier: "cell")
     }
-}
-
-extension NewWatchlistViewController {
+    
     private func setWatchlistTableViewConstraints() {
         watchlistTableView.translatesAutoresizingMaskIntoConstraints = false
         watchlistTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive   = true
