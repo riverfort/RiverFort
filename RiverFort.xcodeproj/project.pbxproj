@@ -292,7 +292,6 @@
 		77104EEE26B4497B0058E2C2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				77FBC8C326C55DC000C35E9C /* Extension */,
 				776F657F26BBFF5200CAA5A6 /* PersistentStore */,
 				776F657826BBDB4C00CAA5A6 /* Orientation */,
 				7762C77026BAE1DF008DE1BA /* Utility */,
@@ -902,13 +901,6 @@
 				77FBC8C126C557E500C35E9C /* WatchlistSync.swift */,
 			);
 			path = Helper;
-			sourceTree = "<group>";
-		};
-		77FBC8C326C55DC000C35E9C /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extension;
 			sourceTree = "<group>";
 		};
 		C6A17D5492E623A9D1FC58BD /* Frameworks */ = {
