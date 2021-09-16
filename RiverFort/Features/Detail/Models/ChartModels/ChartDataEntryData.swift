@@ -7,14 +7,6 @@
 
 import Foundation
 
-struct HistoricalPriceQuote {
-    let date: String
-    let high: Double?
-    let low: Double?
-    let close: Double?
-    let volume: Int?
- }
-
 struct HistoricalPriceChartDataEntryData {
     let date: String
     let volume: Double
