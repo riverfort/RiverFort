@@ -8,12 +8,14 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-    private let searchResultV2TableViewController = SearchResultTableViewController(style: .insetGrouped)
+    private lazy var searchResultTableVC = SearchResultTableViewController(style: .insetGrouped)
+}
 
+extension SearchViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configView()
-        configNavigationController()
+        configNavigation()
         configSearchController()
     }
 }
@@ -23,7 +25,7 @@ extension SearchViewController {
         view.backgroundColor = .systemBackground
     }
     
-    private func configNavigationController() {
+    private func configNavigation() {
         navigationItem.title = "Search"
         navigationItem.largeTitleDisplayMode = .always
         navigationItem.hidesSearchBarWhenScrolling = false
@@ -32,7 +34,7 @@ extension SearchViewController {
     }
     
     private func configSearchController() {
-        let searchController = UISearchController(searchResultsController: searchResultV2TableViewController)
+        let searchController = UISearchController(searchResultsController: searchResultTableVC)
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
@@ -43,34 +45,26 @@ extension SearchViewController {
 
 extension SearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        guard let searchText = searchController.searchBar.text else {
-            return
-        }
-        guard !searchText.isEmpty else {
-            return
-        }
+        guard let searchText = searchController.searchBar.text else { return }
+        guard !searchText.isEmpty else { return }
         SearchAPIFunction.searchFromYahooFinance(for: searchText)
             .responseDecodable(of: YahooFinanceSearchedResult.self) { [self] response in
                 guard let yahooFinanceSearchedResult = response.value else { return }
-                searchResultV2TableViewController.setCompanies(companies: yahooFinanceSearchedResult.items)
-                searchResultV2TableViewController.tableView.reloadData()
+                searchResultTableVC.setCompanies(companies: yahooFinanceSearchedResult.items)
+                searchResultTableVC.tableView.reloadData()
             }
     }
 }
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchText = searchBar.text else {
-            return
-        }
-        guard !searchText.isEmpty else {
-            return
-        }
+        guard let searchText = searchBar.text else { return }
+        guard !searchText.isEmpty else { return }
         SearchAPIFunction.searchFromYahooFinance(for: searchText)
             .responseDecodable(of: YahooFinanceSearchedResult.self) { [self] response in
                 guard let yahooFinanceSearchedResult = response.value else { return }
-                searchResultV2TableViewController.setCompanies(companies: yahooFinanceSearchedResult.items)
-                searchResultV2TableViewController.tableView.reloadData()
+                searchResultTableVC.setCompanies(companies: yahooFinanceSearchedResult.items)
+                searchResultTableVC.tableView.reloadData()
             }
     }
 }
