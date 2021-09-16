@@ -178,8 +178,7 @@ extension NewAADTVCardController {
 
 extension NewAADTVCardController {
     private func createObservesr() {
-        let aName = Notification.Name(NewSearchConstant.SELECT_SEARCH_COMPANY)
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: aName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: .selectCompanyFromSearchResult, object: nil)
     }
     
     @objc private func prepareView(notification: Notification) {
