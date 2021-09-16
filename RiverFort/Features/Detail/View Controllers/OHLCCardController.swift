@@ -8,25 +8,25 @@
 import CardParts
 
 class OHLCCardController: BaseCardController {
-    private let titlePart = CardPartTitleView(type: .titleOnly)
+    private lazy var titlePart = CardPartTitleView(type: .titleOnly)
     
-    private let openLabelPart = CardPartTitleView(type: .titleOnly)
-    private let openDataPart = CardPartTitleView(type: .titleOnly)
-    private let openCardPartSV = CardPartStackView()
+    private lazy var openLabelPart = CardPartTitleView(type: .titleOnly)
+    private lazy var openDataPart = CardPartTitleView(type: .titleOnly)
+    private lazy var openCardPartSV = CardPartStackView()
     
-    private let highLabelPart = CardPartTitleView(type: .titleOnly)
-    private let highDataPart = CardPartTitleView(type: .titleOnly)
-    private let highCardPartSV = CardPartStackView()
+    private lazy var highLabelPart = CardPartTitleView(type: .titleOnly)
+    private lazy var highDataPart = CardPartTitleView(type: .titleOnly)
+    private lazy var highCardPartSV = CardPartStackView()
     
-    private let lowLabelPart = CardPartTitleView(type: .titleOnly)
-    private let lowDataPart = CardPartTitleView(type: .titleOnly)
-    private let lowCardPartSV = CardPartStackView()
+    private lazy var lowLabelPart = CardPartTitleView(type: .titleOnly)
+    private lazy var lowDataPart = CardPartTitleView(type: .titleOnly)
+    private lazy var lowCardPartSV = CardPartStackView()
     
-    private let closeLabelPart = CardPartTitleView(type: .titleOnly)
-    private let closeDataPart = CardPartTitleView(type: .titleOnly)
-    private let closeCardPartSV = CardPartStackView()
+    private lazy var closeLabelPart = CardPartTitleView(type: .titleOnly)
+    private lazy var closeDataPart = CardPartTitleView(type: .titleOnly)
+    private lazy var closeCardPartSV = CardPartStackView()
     
-    private let cardPartSV = CardPartStackView()
+    private lazy var cardPartSV = CardPartStackView()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
