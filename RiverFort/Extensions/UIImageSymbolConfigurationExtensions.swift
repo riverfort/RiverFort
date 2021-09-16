@@ -7,6 +7,6 @@
 
 import UIKit
 
-extension UIImage.SymbolConfiguration {
+extension UIImage.Configuration {
     static let heavy = UIImage.SymbolConfiguration(weight: .heavy)
 }
