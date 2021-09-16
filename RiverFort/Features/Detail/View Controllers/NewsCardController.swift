@@ -5,17 +5,16 @@
 //  Created by Qiuyang Nie on 06/09/2021.
 //
 
-import UIKit
 import CardParts
 import SafariServices
 
 class NewsCardController: BaseCardController {
-    private let titlePart = CardPartTitleView(type: .titleOnly)
-    private let newsTableView = CardPartTableView()
-    private let newsViewModel = NewsViewModel()
-    private var newsItems = [RSSItem]()
-    private let readMoreButtonPart = CardPartButtonView()
-    private var readMoreURL = URL(string: "")
+    private lazy var titlePart     = CardPartTitleView(type: .titleOnly)
+    private lazy var newsTableView = CardPartTableView()
+    private lazy var readMoreButtonPart = CardPartButtonView()
+    private lazy var readMoreURL = URL(string: "")
+    private lazy var newsViewModel = NewsViewModel()
+    private lazy var newsItems = [RSSItem]()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -29,7 +28,9 @@ class NewsCardController: BaseCardController {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    
+}
+
+extension NewsCardController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configCardParts()
@@ -43,24 +44,6 @@ extension NewsCardController {
         titlePart.titleFont = .preferredFont(forTextStyle: .headline)
         titlePart.label.adjustsFontForContentSizeCategory = true
         titlePart.margins = UIEdgeInsets(top: 15, left: 15, bottom: 0, right: 15)
-    }
-    
-    private func configTableViewModel() {
-        newsViewModel.rssItemsForNews.asObservable().bind(to: newsTableView.tableView.rx.items) { [self] tableView, index, data in
-            newsItems.append(data)
-            let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
-            cell.backgroundColor = .secondarySystemGroupedBackground
-            cell.textLabel?.text = data.title
-            cell.textLabel?.numberOfLines = 0
-            cell.textLabel?.font = .preferredFont(forTextStyle: .headline)
-            cell.textLabel?.adjustsFontForContentSizeCategory = true
-
-            cell.detailTextLabel?.text = data.pubDate
-            cell.detailTextLabel?.textColor = .secondaryLabel
-            cell.detailTextLabel?.font = .preferredFont(forTextStyle: .subheadline)
-            cell.detailTextLabel?.adjustsFontForContentSizeCategory = true
-            return cell
-        }.disposed(by: bag)
     }
     
     private func configTableView() {
@@ -90,10 +73,28 @@ extension NewsCardController {
 }
 
 extension NewsCardController {
+    private func configTableViewModel() {
+        newsViewModel.rssItemsForNews.asObservable().bind(to: newsTableView.tableView.rx.items) { [self] tableView, index, data in
+            newsItems.append(data)
+            let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
+            cell.backgroundColor = .secondarySystemGroupedBackground
+            cell.textLabel?.text = data.title
+            cell.textLabel?.numberOfLines = 0
+            cell.textLabel?.font = .preferredFont(forTextStyle: .headline)
+            cell.textLabel?.adjustsFontForContentSizeCategory = true
+
+            cell.detailTextLabel?.text = data.pubDate
+            cell.detailTextLabel?.textColor = .secondaryLabel
+            cell.detailTextLabel?.font = .preferredFont(forTextStyle: .subheadline)
+            cell.detailTextLabel?.adjustsFontForContentSizeCategory = true
+            return cell
+        }.disposed(by: bag)
+    }
+}
+
+extension NewsCardController {
     @objc private func readMoreButtonTapped() {
-        guard let url = readMoreURL else {
-            return
-        }
+        guard let url = readMoreURL else { return }
         let vc = SFSafariViewController(url: url)
         present(vc, animated: true, completion: nil)
     }
