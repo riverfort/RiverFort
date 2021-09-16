@@ -5,7 +5,6 @@
 //  Created by Qiuyang Nie on 02/09/2021.
 //
 
-import UIKit
 import CardParts
 
 class TemplateCardController: CardPartsViewController {
