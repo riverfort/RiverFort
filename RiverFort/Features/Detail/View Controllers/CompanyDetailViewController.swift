@@ -16,8 +16,8 @@ struct NewCompany {
 
 class CompanyDetailViewController: CardsViewController {
     public var company: NewCompany?
-    private let add  = UIButton(type: .system)
-    private let more = UIButton(type: .system)
+    private lazy var add  = UIButton(type: .system)
+    private lazy var more = UIButton(type: .system)
     private let cards = [HeaderCardController(),
                          TimeseriesCardController(),
                          PriceChartCardController(),
