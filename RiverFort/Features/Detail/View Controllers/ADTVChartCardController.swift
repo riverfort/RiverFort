@@ -8,7 +8,7 @@
 import UIKit
 
 class ADTVChartCardController: BaseCardController {
-    private let adtvChartPart = NewADTVChartCardPartView()
+    private lazy var adtvChartPart = NewADTVChartCardPartView()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
