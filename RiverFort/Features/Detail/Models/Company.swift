@@ -10,12 +10,6 @@ import Foundation
 struct Company {
     let symbol: String
     let name: String
-    let exch: String
-}
-
-struct NewCompany {
-    let symbol: String
-    let name: String
     let exchange: String
     let exchangeShortName: String
     let type: String?

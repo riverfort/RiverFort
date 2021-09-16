@@ -90,7 +90,7 @@ extension HeaderCardController {
     }
     
     @objc private func prepareNameAndExch(notification: Notification) {
-        guard let company = notification.object as? NewCompany else { return }
+        guard let company = notification.object as? Company else { return }
         namePart.title = company.name
         exchPart.title = "\(company.exchange)"
     }

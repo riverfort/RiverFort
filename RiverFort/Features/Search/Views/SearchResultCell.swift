@@ -102,7 +102,7 @@ extension SearchResultCell {
 }
 
 extension SearchResultCell {
-    public func setCell(for company: NewCompany) {
+    public func setCell(for company: Company) {
         symbol.text = company.symbol
         name.text = company.name
         exch.text = company.exchange

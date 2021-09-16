@@ -51,7 +51,7 @@ extension CompanyDetailViewController {
         navigationItem.title = company.symbol
         getProfile(symbol: company.symbol)
         getQuote(symbol: company.symbol)
-        getHistoricalPrice(symbol: company.symbol, exch: company.exch)
+        getHistoricalPrice(symbol: company.symbol, exch: company.exchangeShortName)
     }
     
     private func configView() {
@@ -141,7 +141,7 @@ extension CompanyDetailViewController {
     @objc private func didTapAddToWatchlist() {
         guard let company = company else { return }
         guard !WatchlistCoreDataManager.isWatchedCompany(company_ticker: company.symbol) else { return }
-        WatchlistCoreDataManager.addToWatchlist(company_ticker: company.symbol, company_name: company.name, exch: company.exch)
+        WatchlistCoreDataManager.addToWatchlist(company_ticker: company.symbol, company_name: company.name, exch: company.exchange)
         SPAlert.present(title: "Added to Watchlist", preset: .done, haptic: .success)
         add.isHidden = true
     }
