@@ -111,9 +111,7 @@ extension NewsCardController {
     }
     
     @objc private func prepareView(notification: Notification) {
-        guard let yahooFinanceQuoteResult = notification.object as? YahooFinanceQuoteResult else {
-            return
-        }
+        guard let yahooFinanceQuoteResult = notification.object as? YahooFinanceQuoteResult else { return }
         let yahooFinanceQuote = yahooFinanceQuoteResult.optionChain.result[0].quote
         let market = yahooFinanceQuote.market
         switch market {

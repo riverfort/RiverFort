@@ -143,9 +143,7 @@ extension OHLCCardController {
     }
     
     @objc private func prepareView(notification: Notification) {
-        guard let yahooFinanceQuoteResult = notification.object as? YahooFinanceQuoteResult else {
-            return
-        }
+        guard let yahooFinanceQuoteResult = notification.object as? YahooFinanceQuoteResult else { return }
         let yahooFinanceQuote = yahooFinanceQuoteResult.optionChain.result[0].quote
         openDataPart.title = "\(yahooFinanceQuote.regularMarketOpen)"
         highDataPart.title = "\(yahooFinanceQuote.regularMarketDayHigh)"
