@@ -8,13 +8,13 @@
 import CardParts
 
 class HeaderCardController: BaseCardController {
-    private let namePart = CardPartTitleView(type: .titleOnly)
-    private let exchPart = CardPartTitleView(type: .titleOnly)
-    private let pricePart  = CardPartTitleView(type: .titleOnly)
-    private let changePart = CardPartTitleView(type: .titleOnly)
+    private lazy var namePart = CardPartTitleView(type: .titleOnly)
+    private lazy var exchPart = CardPartTitleView(type: .titleOnly)
+    private lazy var pricePart  = CardPartTitleView(type: .titleOnly)
+    private lazy var changePart = CardPartTitleView(type: .titleOnly)
     
-    private let cardPartSV1 = CardPartStackView()
-    private let cardPartSV2 = CardPartStackView()
+    private lazy var cardPartSV1 = CardPartStackView()
+    private lazy var cardPartSV2 = CardPartStackView()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
