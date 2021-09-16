@@ -397,12 +397,12 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		7765434626EF610000E91C25 /* ChartModels */ = {
+		7765434626EF610000E91C25 /* Chart Models */ = {
 			isa = PBXGroup;
 			children = (
 				77E7B3FC26E7AA56000EABC6 /* ChartDataEntryData.swift */,
 			);
-			path = ChartModels;
+			path = "Chart Models";
 			sourceTree = "<group>";
 		};
 		776F657826BBDB4C00CAA5A6 /* Orientation */ = {
@@ -542,6 +542,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		77B11DAB26F381DF0093FBE9 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				7748988226E0D598000933A6 /* DetailViewAPIFunction.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		77BD838326F3295700CD3F60 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -559,13 +567,13 @@
 			path = RecentSearchedCompany;
 			sourceTree = "<group>";
 		};
-		77CD33FC26E39DAD00950F2A /* Constant */ = {
+		77CD33FC26E39DAD00950F2A /* Constants */ = {
 			isa = PBXGroup;
 			children = (
 				77C82A2F26E4E6E800768FDB /* ReadMoreURLs.swift */,
 				772845AA26E615FA0003F13E /* NewsURLs.swift */,
 			);
-			path = Constant;
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		77D6FC8E26F370F10074137C /* Card Controllers */ = {
@@ -608,11 +616,11 @@
 		77EF139726DF919400EDFC17 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				77B11DAB26F381DF0093FBE9 /* Networking */,
 				7765434026EF3BFD00E91C25 /* API Models */,
+				7765434626EF610000E91C25 /* Chart Models */,
 				7765434526EF5FF600E91C25 /* ViewModels */,
-				7765434626EF610000E91C25 /* ChartModels */,
-				77CD33FC26E39DAD00950F2A /* Constant */,
-				7748988226E0D598000933A6 /* DetailViewAPIFunction.swift */,
+				77CD33FC26E39DAD00950F2A /* Constants */,
 				77B11DA926F380AF0093FBE9 /* HistoricalPriceQuote.swift */,
 				77B11DA726F37FC40093FBE9 /* ADTV.swift */,
 			);
