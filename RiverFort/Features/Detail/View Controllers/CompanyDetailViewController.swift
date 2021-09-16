@@ -139,18 +139,18 @@ extension CompanyDetailViewController {
                 guard let quote = result.indicators.quote.first else { return }
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd"
-                let dates = result.timestamp.map { day -> String in dateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(day))) }
+                let dates = result.timestamp.map { date -> String in dateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(date))) }
                 let highs = quote.high
                 let lows = quote.low
                 let closes = quote.close
                 let volumes = quote.volume
-                let histPrice = dates
+                let historicalPriceQuotes = dates
                     .enumerated()
                     .map { (i, date) in HistoricalPriceQuote(date: date, high: highs[i], low: lows[i], close: closes[i], volume: volumes[i]) }
                     .filter { $0.high != nil && $0.low != nil && $0.close != nil && $0.volume != nil }
-                let adtvs = getHistoricalADTVs(exch: exch, histPrice: histPrice)
-                NotificationCenter.default.post(name: .receiveYahooFinanceHistoricalPrice, object: histPrice)
-                NotificationCenter.default.post(name: .getHistoricalADTV, object: adtvs)
+                let historicalADTVs = getHistoricalADTVs(exch: exch, historicalPriceQuotes: historicalPriceQuotes)
+                NotificationCenter.default.post(name: .receiveYahooFinanceHistoricalPrice, object: historicalPriceQuotes)
+                NotificationCenter.default.post(name: .getHistoricalADTV, object: historicalADTVs)
             }
     }
     
@@ -163,17 +163,17 @@ extension CompanyDetailViewController {
             }
     }
     
-    private func getHistoricalADTVs(exch: String, histPrice: [HistoricalPriceQuote]) -> [ADTV] {
-        let adtvs = histPrice.map { dailyPrice -> ADTV in
+    private func getHistoricalADTVs(exch: String, historicalPriceQuotes: [HistoricalPriceQuote]) -> [ADTV] {
+        let historicalADTVs = historicalPriceQuotes.map { dailyPrice -> ADTV in
             let vwap = (dailyPrice.high! + dailyPrice.low! + dailyPrice.close!) / 3
             let adtv = vwap * Double(dailyPrice.volume!)
             return ADTV(date: dailyPrice.date, adtv: adtv)
         }
         switch exch {
         case "LSE":
-            return adtvs.map { ADTV(date: $0.date, adtv: $0.adtv/100) }
+            return historicalADTVs.map { ADTV(date: $0.date, adtv: $0.adtv/100) }
         default:
-            return adtvs
+            return historicalADTVs
         }
     }
 }
