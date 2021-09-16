@@ -8,7 +8,7 @@
 import CardParts
 
 class TimeseriesCardController: TransparentCardController {
-    private let timeseriesCardPartView = TimeseriesCardPartView()
+    private lazy var timeseriesCardPartView = TimeseriesCardPartView()
 }
 
 extension TimeseriesCardController {
