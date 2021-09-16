@@ -1,5 +1,5 @@
 //
-//  SearchV2ResultCell.swift
+//  SearchResultCell.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 30/08/2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchV2ResultCell: UITableViewCell {
+class SearchResultCell: UITableViewCell {
     private let systemMinimumLayoutMarginsLeading = (UIApplication.topViewController()?.systemMinimumLayoutMargins.leading)!
     private let symbol = UILabel()
     private let exch   = UILabel()
@@ -33,7 +33,7 @@ class SearchV2ResultCell: UITableViewCell {
     }
 }
 
-extension SearchV2ResultCell {
+extension SearchResultCell {
     private func configSymbolAndExchStack() {
         addSubview(leftStack)
         leftStack.addArrangedSubview(symbol)
@@ -55,7 +55,7 @@ extension SearchV2ResultCell {
     }
 }
 
-extension SearchV2ResultCell {
+extension SearchResultCell {
     private func configSymbolLabel() {
         symbol.font = .preferredFont(forTextStyle: .headline)
         symbol.adjustsFontForContentSizeCategory = true
@@ -83,7 +83,7 @@ extension SearchV2ResultCell {
     }
 }
 
-extension SearchV2ResultCell {
+extension SearchResultCell {
     private func setSymbolAndExchStackConstraint() {
         leftStack.translatesAutoresizingMaskIntoConstraints = false
         leftStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: systemMinimumLayoutMarginsLeading).isActive = true
@@ -101,7 +101,7 @@ extension SearchV2ResultCell {
     }
 }
 
-extension SearchV2ResultCell {
+extension SearchResultCell {
     public func setCell(for yahooFinanceSearchedCompany: YahooFinanceSearchedCompany) {
         symbol.text = yahooFinanceSearchedCompany.symbol
         name.text = yahooFinanceSearchedCompany.name

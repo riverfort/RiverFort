@@ -1,5 +1,5 @@
 //
-//  SearchResultV2TableViewController.swift
+//  SearchResultTableViewController.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 30/08/2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchResultV2TableViewController: UITableViewController {
+class SearchResultTableViewController: UITableViewController {
     private var companies: [YahooFinanceSearchedCompany] = []
 
     override func viewDidLoad() {
@@ -16,7 +16,7 @@ class SearchResultV2TableViewController: UITableViewController {
     }
 }
 
-extension SearchResultV2TableViewController {
+extension SearchResultTableViewController {
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if companies.count == 0 {
             return 0
@@ -32,7 +32,7 @@ extension SearchResultV2TableViewController {
     }
 }
 
-extension SearchResultV2TableViewController {
+extension SearchResultTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -42,16 +42,16 @@ extension SearchResultV2TableViewController {
     }
 }
 
-extension SearchResultV2TableViewController {
+extension SearchResultTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SearchV2ResultCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SearchResultCell
         let company = companies[indexPath.row]
         cell.setCell(for: company)
         return cell
     }
 }
 
-extension SearchResultV2TableViewController {
+extension SearchResultTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let selectedCompany = companies[indexPath.row]
@@ -63,7 +63,7 @@ extension SearchResultV2TableViewController {
     }
 }
 
-extension SearchResultV2TableViewController {
+extension SearchResultTableViewController {
     private func configHeaderView(of view: UIView, with label: UILabel) {
         view.addSubview(label)
         label.text = "Symbols"
@@ -76,14 +76,14 @@ extension SearchResultV2TableViewController {
     }
     
     private func configTableView() {
-        tableView.register(SearchV2ResultCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(SearchResultCell.self, forCellReuseIdentifier: "cell")
         tableView.keyboardDismissMode = .onDrag
         tableView.estimatedRowHeight = 85.0
         tableView.rowHeight = UITableView.automaticDimension
     }
 }
 
-extension SearchResultV2TableViewController {
+extension SearchResultTableViewController {
     public func setCompanies(companies: [YahooFinanceSearchedCompany]) {
         self.companies = companies
     }

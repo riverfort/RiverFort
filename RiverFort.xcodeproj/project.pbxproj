@@ -17,9 +17,9 @@
 		772845AB26E615FA0003F13E /* DetailViewNewsURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772845AA26E615FA0003F13E /* DetailViewNewsURLs.swift */; };
 		772A747526DF93890088A604 /* HeaderCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772A747426DF93890088A604 /* HeaderCardController.swift */; };
 		772E63DE26E224AF00EA9FB0 /* NewSearchConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772E63DD26E224AF00EA9FB0 /* NewSearchConstant.swift */; };
-		773131BA26DCEC710068AAD8 /* SearchV2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773131B926DCEC710068AAD8 /* SearchV2ViewController.swift */; };
-		773131BC26DCF87B0068AAD8 /* SearchResultV2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773131BB26DCF87B0068AAD8 /* SearchResultV2TableViewController.swift */; };
-		773131BF26DCFE5D0068AAD8 /* SearchV2ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773131BE26DCFE5D0068AAD8 /* SearchV2ResultCell.swift */; };
+		773131BA26DCEC710068AAD8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773131B926DCEC710068AAD8 /* SearchViewController.swift */; };
+		773131BC26DCF87B0068AAD8 /* SearchResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773131BB26DCF87B0068AAD8 /* SearchResultTableViewController.swift */; };
+		773131BF26DCFE5D0068AAD8 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773131BE26DCFE5D0068AAD8 /* SearchResultCell.swift */; };
 		77384E8B26F0CAAC00C23217 /* NewWatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77384E8A26F0CAAC00C23217 /* NewWatchlistViewController.swift */; };
 		77384E8F26F0D50A00C23217 /* NewWatchlistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77384E8E26F0D50A00C23217 /* NewWatchlistTableViewCell.swift */; };
 		77384E9126F0DBC100C23217 /* WatchlistAPIFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77384E9026F0DBC100C23217 /* WatchlistAPIFunction.swift */; };
@@ -100,9 +100,9 @@
 		772845AA26E615FA0003F13E /* DetailViewNewsURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewNewsURLs.swift; sourceTree = "<group>"; };
 		772A747426DF93890088A604 /* HeaderCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCardController.swift; sourceTree = "<group>"; };
 		772E63DD26E224AF00EA9FB0 /* NewSearchConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSearchConstant.swift; sourceTree = "<group>"; };
-		773131B926DCEC710068AAD8 /* SearchV2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchV2ViewController.swift; sourceTree = "<group>"; };
-		773131BB26DCF87B0068AAD8 /* SearchResultV2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultV2TableViewController.swift; sourceTree = "<group>"; };
-		773131BE26DCFE5D0068AAD8 /* SearchV2ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchV2ResultCell.swift; sourceTree = "<group>"; };
+		773131B926DCEC710068AAD8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		773131BB26DCF87B0068AAD8 /* SearchResultTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewController.swift; sourceTree = "<group>"; };
+		773131BE26DCFE5D0068AAD8 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		77384E8A26F0CAAC00C23217 /* NewWatchlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWatchlistViewController.swift; sourceTree = "<group>"; };
 		77384E8E26F0D50A00C23217 /* NewWatchlistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWatchlistTableViewCell.swift; sourceTree = "<group>"; };
 		77384E9026F0DBC100C23217 /* WatchlistAPIFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistAPIFunction.swift; sourceTree = "<group>"; };
@@ -280,8 +280,8 @@
 		773131B826DCEC500068AAD8 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				773131B926DCEC710068AAD8 /* SearchV2ViewController.swift */,
-				773131BB26DCF87B0068AAD8 /* SearchResultV2TableViewController.swift */,
+				773131B926DCEC710068AAD8 /* SearchViewController.swift */,
+				773131BB26DCF87B0068AAD8 /* SearchResultTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -289,7 +289,7 @@
 		773131BD26DCFE3B0068AAD8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				773131BE26DCFE5D0068AAD8 /* SearchV2ResultCell.swift */,
+				773131BE26DCFE5D0068AAD8 /* SearchResultCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -740,7 +740,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77384E8F26F0D50A00C23217 /* NewWatchlistTableViewCell.swift in Sources */,
-				773131BF26DCFE5D0068AAD8 /* SearchV2ResultCell.swift in Sources */,
+				773131BF26DCFE5D0068AAD8 /* SearchResultCell.swift in Sources */,
 				77876E98264D69B300798106 /* RSSFeedParser.swift in Sources */,
 				779A46FA26D5028D0072CE0B /* SettingsOptionTitleConstant.swift in Sources */,
 				776F658526BC36C600CAA5A6 /* SettingsViewController.swift in Sources */,
@@ -756,7 +756,7 @@
 				7707A46E26E9EBDC00329CB0 /* Configuration.swift in Sources */,
 				770E4C5B26F249080010EE7B /* UIApplicationExtensions.swift in Sources */,
 				7748987A26E0C229000933A6 /* TemplateCardController.swift in Sources */,
-				773131BC26DCF87B0068AAD8 /* SearchResultV2TableViewController.swift in Sources */,
+				773131BC26DCF87B0068AAD8 /* SearchResultTableViewController.swift in Sources */,
 				77FF535B26E12826001FAACA /* OHLCCardController.swift in Sources */,
 				77CB234626B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift in Sources */,
 				7765434226EF3C3800E91C25 /* YahooFinance.swift in Sources */,
@@ -768,7 +768,7 @@
 				772A747526DF93890088A604 /* HeaderCardController.swift in Sources */,
 				7765434426EF3C5700E91C25 /* FMP.swift in Sources */,
 				779B885E26BD1E9600FB06A1 /* SettingsOption.swift in Sources */,
-				773131BA26DCEC710068AAD8 /* SearchV2ViewController.swift in Sources */,
+				773131BA26DCEC710068AAD8 /* SearchViewController.swift in Sources */,
 				7748988326E0D598000933A6 /* DetailViewAPIFunction.swift in Sources */,
 				772845A926E613210003F13E /* NewsViewModel.swift in Sources */,
 				779B885826BD192D00FB06A1 /* SettingsTableView.swift in Sources */,

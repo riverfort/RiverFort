@@ -1,5 +1,5 @@
 //
-//  SearchV2ViewController.swift
+//  SearchViewController.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 30/08/2021.
@@ -7,8 +7,8 @@
 
 import UIKit
 
-class SearchV2ViewController: UIViewController {
-    private let searchResultV2TableViewController = SearchResultV2TableViewController(style: .insetGrouped)
+class SearchViewController: UIViewController {
+    private let searchResultV2TableViewController = SearchResultTableViewController(style: .insetGrouped)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +18,7 @@ class SearchV2ViewController: UIViewController {
     }
 }
 
-extension SearchV2ViewController {
+extension SearchViewController {
     private func configView() {
         view.backgroundColor = .systemBackground
     }
@@ -41,7 +41,7 @@ extension SearchV2ViewController {
     }
 }
 
-extension SearchV2ViewController: UISearchResultsUpdating {
+extension SearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text else {
             return
@@ -58,7 +58,7 @@ extension SearchV2ViewController: UISearchResultsUpdating {
     }
 }
 
-extension SearchV2ViewController: UISearchBarDelegate {
+extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text else {
             return

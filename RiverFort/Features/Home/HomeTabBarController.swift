@@ -11,7 +11,7 @@ class HomeTabBarController: UITabBarController {
     // MARK: - Add new tabs here:
     
     private lazy var tabBarImages = ["magnifyingglass.circle.fill", "gear"]
-    private lazy var searchVC   = UINavigationController(rootViewController: SearchV2ViewController())
+    private lazy var searchVC   = UINavigationController(rootViewController: SearchViewController())
     private lazy var settingsVC = UINavigationController(rootViewController: SettingsViewController())
 }
 
