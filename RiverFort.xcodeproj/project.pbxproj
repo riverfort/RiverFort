@@ -197,8 +197,8 @@
 			isa = PBXGroup;
 			children = (
 				77F93371261A3675007662D5 /* DateFormatterUtils.swift */,
-				7707A46C26E9EBB400329CB0 /* Configuration */,
 				776F657F26BBFF5200CAA5A6 /* PersistentStore */,
+				7707A46C26E9EBB400329CB0 /* Configuration */,
 				776F657826BBDB4C00CAA5A6 /* Orientation */,
 				7762C77026BAE1DF008DE1BA /* Utility */,
 				77104EEF26B4499D0058E2C2 /* Haptics */,
