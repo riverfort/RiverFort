@@ -43,18 +43,6 @@ extension SearchViewController {
     }
 }
 
-extension SearchViewController {
-    private func search(for searchText: String) {
-        guard !searchText.isEmpty else { return }
-        SearchAPIFunction.searchFromYahooFinance(for: searchText)
-            .responseDecodable(of: YahooFinanceSearchResult.self) { [self] response in
-                guard let yahooFinanceSearchedResult = response.value else { return }
-                searchResultTableVC.setCompanies(companies: yahooFinanceSearchedResult.items)
-                searchResultTableVC.tableView.reloadData()
-            }
-    }
-}
-
 extension SearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text else { return }
@@ -66,5 +54,23 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text else { return }
         search(for: searchText)
+    }
+}
+
+extension SearchViewController {
+    private func search(for searchText: String) {
+        searchFromYahooFinance(for: searchText)
+    }
+}
+
+extension SearchViewController {
+    private func searchFromYahooFinance(for searchText: String) {
+        guard !searchText.isEmpty else { return }
+        SearchAPIFunction.searchFromYahooFinance(for: searchText)
+            .responseDecodable(of: YahooFinanceSearchResult.self) { [self] response in
+                guard let yahooFinanceSearchedResult = response.value else { return }
+                searchResultTableVC.setCompanies(companies: yahooFinanceSearchedResult.items)
+                searchResultTableVC.tableView.reloadData()
+            }
     }
 }
