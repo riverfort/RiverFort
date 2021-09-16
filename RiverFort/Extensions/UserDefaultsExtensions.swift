@@ -8,15 +8,18 @@
 import Foundation
 
 extension UserDefaults {
-    func setDarkModeEnabled(value: Bool) {
-        setValue(value, forKey: UserDefaultsKeys.isDarkMode.rawValue)
-    }
-    
-    func isDarkModeEnabled() -> Bool {
-        return bool(forKey: UserDefaultsKeys.isDarkMode.rawValue)
+    struct Keys {
+        static let isDarkModeOn  = "is_dark_mode_on"
     }
 }
 
-enum UserDefaultsKeys : String {
-    case isDarkMode
+extension UserDefaults {
+    func setDarkModeEnabled(value: Bool) {
+        setValue(value, forKey: UserDefaults.Keys.isDarkModeOn)
+    }
+    
+    func isDarkModeEnabled() -> Bool {
+        return bool(forKey: UserDefaults.Keys.isDarkModeOn)
+    }
 }
+

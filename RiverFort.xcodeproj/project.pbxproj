@@ -594,10 +594,10 @@
 			children = (
 				77F93360261A321F007662D5 /* DateExtensions.swift */,
 				77F93364261A3251007662D5 /* DoubleExtensions.swift */,
-				77CAA2E526679043003A0246 /* UserDefaultsExtensions.swift */,
 				770E4C5A26F249080010EE7B /* UIApplicationExtensions.swift */,
 				778FD76726F33110002CA424 /* UIImageConfigurationExtensions.swift */,
 				77F262E726F33C480000593C /* NotificationNameExtensions.swift */,
+				77CAA2E526679043003A0246 /* UserDefaultsExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
