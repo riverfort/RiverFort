@@ -35,7 +35,7 @@
 		7748988126E0CF9B000933A6 /* SearchAPIFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748988026E0CF9B000933A6 /* SearchAPIFunction.swift */; };
 		7748988326E0D598000933A6 /* DetailViewAPIFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748988226E0D598000933A6 /* DetailViewAPIFunction.swift */; };
 		7748988526E0E235000933A6 /* NewADTVChartCardPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748988426E0E235000933A6 /* NewADTVChartCardPartView.swift */; };
-		7748988726E0E454000933A6 /* NewADTVChartCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748988626E0E454000933A6 /* NewADTVChartCardController.swift */; };
+		7748988726E0E454000933A6 /* ADTVChartCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748988626E0E454000933A6 /* ADTVChartCardController.swift */; };
 		774DB74C2623144900A92D13 /* RiverFort.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 774DB74A2623144900A92D13 /* RiverFort.xcdatamodeld */; };
 		7762C77226BAE258008DE1BA /* NumberShortScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7762C77126BAE258008DE1BA /* NumberShortScale.swift */; };
 		7765434226EF3C3800E91C25 /* YahooFinance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7765434126EF3C3800E91C25 /* YahooFinance.swift */; };
@@ -120,7 +120,7 @@
 		7748988026E0CF9B000933A6 /* SearchAPIFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIFunction.swift; sourceTree = "<group>"; };
 		7748988226E0D598000933A6 /* DetailViewAPIFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewAPIFunction.swift; sourceTree = "<group>"; };
 		7748988426E0E235000933A6 /* NewADTVChartCardPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewADTVChartCardPartView.swift; sourceTree = "<group>"; };
-		7748988626E0E454000933A6 /* NewADTVChartCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewADTVChartCardController.swift; sourceTree = "<group>"; };
+		7748988626E0E454000933A6 /* ADTVChartCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTVChartCardController.swift; sourceTree = "<group>"; };
 		774DB74B2623144900A92D13 /* RiverFort.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RiverFort.xcdatamodel; sourceTree = "<group>"; };
 		7762C77126BAE258008DE1BA /* NumberShortScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberShortScale.swift; sourceTree = "<group>"; };
 		7765434126EF3C3800E91C25 /* YahooFinance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YahooFinance.swift; sourceTree = "<group>"; };
@@ -234,7 +234,7 @@
 				772A747426DF93890088A604 /* HeaderCardController.swift */,
 				77E763EE26E75D76005AED84 /* TimeseriesCardController.swift */,
 				7748987B26E0C396000933A6 /* NewPriceChartCardController.swift */,
-				7748988626E0E454000933A6 /* NewADTVChartCardController.swift */,
+				7748988626E0E454000933A6 /* ADTVChartCardController.swift */,
 				776A913426E3B5E50012D0D5 /* ProfileCardController.swift */,
 				7796865526E5F963002A9980 /* StatisticsCardController.swift */,
 				7791881126E0E7FE005B7D38 /* ADTVCardController.swift */,
@@ -754,7 +754,7 @@
 				77CB234626B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift in Sources */,
 				7765434226EF3C3800E91C25 /* YahooFinance.swift in Sources */,
 				776D13C3261E087500B9CF97 /* HomeTabBarController.swift in Sources */,
-				7748988726E0E454000933A6 /* NewADTVChartCardController.swift in Sources */,
+				7748988726E0E454000933A6 /* ADTVChartCardController.swift in Sources */,
 				773A86F0263C34A9008105A1 /* PrivacyPolicyViewController.swift in Sources */,
 				77E7B3FB26E7838F000EABC6 /* HistPriceMarker.swift in Sources */,
 				7785D7842630142600988C28 /* WatchedCompany+CoreDataClass.swift in Sources */,

@@ -9,11 +9,9 @@ import Foundation
 
 struct NewDetailViewConstant {
     static var PRICE_CHART_DISPLAY_MODE_CHANGED = "com.riverfort.PriceChartDisplayModeChanged"
-    static var TIMESERIES_CHANGED = "com.riverfort.timeseriesChanged"
     static var CHART_VALUE_SELECTED = "com.riverfort.chartValueSelected"
     static var CHART_VALUE_NO_LONGER_SELECTED = "com.riverfort.chartValueNoLongerSelected"
     static var FMP_HIST_PRICE = "com.riverfort.fmpHistPrice"
     static var YAHOO_FINANCE_HIST_PRICE = "com.riverfort.yahooFinanceHistPrice"
-    static var ADTV = "com.riverfort.ADTV"
     static var HIST_PRICE = "com.riverfort.histPrice"
 }

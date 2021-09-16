@@ -33,8 +33,7 @@ class NewPriceChartCardController: BaseCardController {
 
 extension NewPriceChartCardController {
     private func createObservesr() {
-        let timeseriesChangedName = Notification.Name(NewDetailViewConstant.TIMESERIES_CHANGED)
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareChartTimeseries), name: timeseriesChangedName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareChartTimeseries), name: .timeseriesUpdated, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareChartDateForNews), name: .receiveYahooFinanceQuoteResult, object: nil)
         let histPriceName = Notification.Name(NewDetailViewConstant.HIST_PRICE)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareChartDataForHistPrice), name: histPriceName, object: nil)

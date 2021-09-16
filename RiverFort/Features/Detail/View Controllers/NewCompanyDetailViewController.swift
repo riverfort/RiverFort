@@ -25,7 +25,7 @@ class NewCompanyDetailViewController: CardsViewController {
                          ProfileCardController(),
                          StatisticsCardController(),
                          OHLCCardController(),
-                         NewADTVChartCardController(),
+                         ADTVChartCardController(),
                          ADTVCardController(),
                          AADTVCardController(),
                          NewsCardController()]
@@ -165,8 +165,7 @@ extension NewCompanyDetailViewController {
                 let adtvs = getADTVs(exch: exch, histPrice: histPrice)
                 let histPriceName = Notification.Name(NewDetailViewConstant.HIST_PRICE)
                 NotificationCenter.default.post(name: histPriceName, object: histPrice)
-                let adtvName = Notification.Name(NewDetailViewConstant.ADTV)
-                NotificationCenter.default.post(name: adtvName, object: adtvs)
+                NotificationCenter.default.post(name: .getHistoricalADTV, object: adtvs)
             }
     }
     

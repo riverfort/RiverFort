@@ -1,5 +1,5 @@
 //
-//  NewADTVChartCardController.swift
+//  ADTVChartCardController.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 02/09/2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewADTVChartCardController: BaseCardController {
+class ADTVChartCardController: BaseCardController {
     private let adtvChartPart = NewADTVChartCardPartView()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -22,19 +22,19 @@ class NewADTVChartCardController: BaseCardController {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    
+}
+
+extension ADTVChartCardController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCardParts([adtvChartPart])
     }
 }
 
-extension NewADTVChartCardController {
+extension ADTVChartCardController {
     private func createObservesr() {
-        let timeseriesChangedName = Notification.Name(NewDetailViewConstant.TIMESERIES_CHANGED)
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareChartTimeseries), name: timeseriesChangedName, object: nil)
-        let adtvName = Notification.Name(NewDetailViewConstant.ADTV)
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: adtvName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareChartTimeseries), name: .timeseriesUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: .getHistoricalADTV, object: nil)
     }
     
     @objc private func prepareChartTimeseries(notification: Notification) {
@@ -42,9 +42,7 @@ extension NewADTVChartCardController {
     }
     
     @objc private func prepareView(notification: Notification) {
-        guard let adtvs = notification.object as? [NewADTV] else {
-            return
-        }
+        guard let adtvs = notification.object as? [NewADTV] else { return }
         adtvChartPart.setChartDataForADTV(with: adtvs)
     }
 }
