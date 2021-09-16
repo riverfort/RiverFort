@@ -47,7 +47,7 @@ extension SearchViewController {
     private func search(for searchText: String) {
         guard !searchText.isEmpty else { return }
         SearchAPIFunction.searchFromYahooFinance(for: searchText)
-            .responseDecodable(of: YahooFinanceSearchedResult.self) { [self] response in
+            .responseDecodable(of: YahooFinanceSearchResult.self) { [self] response in
                 guard let yahooFinanceSearchedResult = response.value else { return }
                 searchResultTableVC.setCompanies(companies: yahooFinanceSearchedResult.items)
                 searchResultTableVC.tableView.reloadData()

@@ -8,7 +8,7 @@
 import UIKit
 
 class SearchResultViewController: UITableViewController {
-    private lazy var companies: [YahooFinanceSearchedCompany] = []
+    private lazy var companies: [YahooFinanceSearchCompany] = []
 }
 
 extension SearchResultViewController {
@@ -79,7 +79,7 @@ extension SearchResultViewController {
 }
 
 extension SearchResultViewController {
-    public func setCompanies(companies: [YahooFinanceSearchedCompany]) {
+    public func setCompanies(companies: [YahooFinanceSearchCompany]) {
         self.companies = companies
     }
 }

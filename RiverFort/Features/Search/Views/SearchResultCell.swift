@@ -102,10 +102,10 @@ extension SearchResultCell {
 }
 
 extension SearchResultCell {
-    public func setCell(for yahooFinanceSearchedCompany: YahooFinanceSearchedCompany) {
-        symbol.text = yahooFinanceSearchedCompany.symbol
-        name.text = yahooFinanceSearchedCompany.name
-        exch.text = yahooFinanceSearchedCompany.exchDisp
-        type.text = yahooFinanceSearchedCompany.typeDisp
+    public func setCell(for yahooFinanceSearchCompany: YahooFinanceSearchCompany) {
+        symbol.text = yahooFinanceSearchCompany.symbol
+        name.text = yahooFinanceSearchCompany.name
+        exch.text = yahooFinanceSearchCompany.exchDisp
+        type.text = yahooFinanceSearchCompany.typeDisp
     }
 }

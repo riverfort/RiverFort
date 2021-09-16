@@ -15,16 +15,3 @@ class SearchAPIFunction {
         return AF.request("https://finance.yahoo.com/_finance_doubledown/api/resource/searchassist;searchTerm=\(encodedSearchTerm)").validate()
     }
 }
-
-struct YahooFinanceSearchedResult: Decodable {
-    let items: [YahooFinanceSearchedCompany]
-}
-
-struct YahooFinanceSearchedCompany: Decodable {
-    let symbol: String
-    let name: String
-    let exch: String
-    let type: String
-    let exchDisp: String
-    let typeDisp: String
-}

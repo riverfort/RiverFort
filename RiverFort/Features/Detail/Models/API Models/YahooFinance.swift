@@ -7,6 +7,18 @@
 
 import Foundation
 
+struct YahooFinanceSearchResult: Codable {
+    let suggestionTitleAccessor: String
+    let suggestionMeta: [String]
+    let hiConf: Bool
+    let items: [YahooFinanceSearchCompany]
+}
+
+struct YahooFinanceSearchCompany: Codable {
+    let symbol, name, exch, type: String
+    let exchDisp, typeDisp: String
+}
+
 struct YahooFinanceQuoteResult: Decodable {
     struct OptionChain: Decodable {
         struct OptionChainResult: Decodable {
