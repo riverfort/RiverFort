@@ -28,7 +28,7 @@ class PriceMarker: MarkerImage {
     
     override func refreshContent(entry: ChartDataEntry, highlight: Highlight) {
         super.refreshContent(entry: entry, highlight: highlight)
-        guard let histPriceChartDataEntryData = entry.data as? HistPriceChartDataEntryData else {
+        guard let histPriceChartDataEntryData = entry.data as? HistoricalPriceChartDataEntryData else {
             return
         }
         price = String(format: "%.2f", entry.y) + " " + "(\(histPriceChartDataEntryData.volume.withCommas()))"

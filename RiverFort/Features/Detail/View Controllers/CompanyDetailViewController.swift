@@ -56,7 +56,7 @@ extension CompanyDetailViewController {
         guard let company = company else { return }
         navigationItem.title = company.symbol
         getQuoteFromYahooFinance(symbol: company.symbol)
-        getHistPriceFromYahooFinance(symbol: company.symbol, exch: company.exch)
+        getHistoricalPriceFromYahooFinance(symbol: company.symbol, exch: company.exch)
         getProfileFromFMP(symbol: company.symbol)
     }
     
@@ -143,7 +143,7 @@ extension CompanyDetailViewController {
             }
     }
     
-    private func getHistPriceFromYahooFinance(symbol: String, exch: String) {
+    private func getHistoricalPriceFromYahooFinance(symbol: String, exch: String) {
         DetailViewAPIFunction.fetchHistPriceFromYahooFinance(symbol: symbol)
             .responseDecodable(of: YahooFinanceHistPriceResult.self) { [self] (response) in
                 guard let result = response.value?.chart.result.first else { return }
@@ -157,9 +157,9 @@ extension CompanyDetailViewController {
                 let volumes = quote.volume
                 let histPrice = dates
                     .enumerated()
-                    .map { (i, date) in HistPrice(date: date, high: highs[i], low: lows[i], close: closes[i], volume: volumes[i]) }
+                    .map { (i, date) in HistoricalPriceQuote(date: date, high: highs[i], low: lows[i], close: closes[i], volume: volumes[i]) }
                     .filter { $0.high != nil && $0.low != nil && $0.close != nil && $0.volume != nil }
-                let adtvs = getADTVs(exch: exch, histPrice: histPrice)
+                let adtvs = getHistoricalADTVs(exch: exch, histPrice: histPrice)
                 NotificationCenter.default.post(name: .receiveYahooFinanceHistoricalPrice, object: histPrice)
                 NotificationCenter.default.post(name: .getHistoricalADTV, object: adtvs)
             }
@@ -174,7 +174,7 @@ extension CompanyDetailViewController {
             }
     }
     
-    private func getADTVs(exch: String, histPrice: [HistPrice]) -> [ADTV] {
+    private func getHistoricalADTVs(exch: String, histPrice: [HistoricalPriceQuote]) -> [ADTV] {
         let adtvs = histPrice.map { dailyPrice -> ADTV in
             let vwap = (dailyPrice.high! + dailyPrice.low! + dailyPrice.close!) / 3
             let adtv = vwap * Double(dailyPrice.volume!)

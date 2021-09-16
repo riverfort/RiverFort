@@ -1,5 +1,5 @@
 //
-//  HistPriceChartDataEntryData.swift
+//  HistoricalPriceChartDataEntryData.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 07/09/2021.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct HistPrice {
+struct HistoricalPriceQuote {
     let date: String
     let high: Double?
     let low: Double?
@@ -15,7 +15,7 @@ struct HistPrice {
     let volume: Int?
  }
 
-struct HistPriceChartDataEntryData {
+struct HistoricalPriceChartDataEntryData {
     let date: String
     let volume: Double
     var change: Double? = nil

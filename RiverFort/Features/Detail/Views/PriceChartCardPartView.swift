@@ -86,7 +86,7 @@ extension PriceChartCardPartView: ChartViewDelegate, BaseChartViewDelegate {
 extension PriceChartCardPartView: IAxisValueFormatter {
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         guard let histPriceChartDataEntryData =
-                histPriceDataEntries[Int(value) % histPriceDataEntries.count].data as? HistPriceChartDataEntryData else {
+                histPriceDataEntries[Int(value) % histPriceDataEntries.count].data as? HistoricalPriceChartDataEntryData else {
             return ""
         }
         return DateFormatterUtils.convertDateFormate_DM(histPriceChartDataEntryData.date)
@@ -118,11 +118,11 @@ extension PriceChartCardPartView {
 }
 
 extension PriceChartCardPartView {     
-    public func setChartData(with histPrice: [HistPrice]) {
+    public func setChartData(with histPrice: [HistoricalPriceQuote]) {
         histPriceDataEntries = histPrice.enumerated().map{ (index, dailyPrice) in
             return ChartDataEntry(x: Double(index),
                                   y: dailyPrice.close ?? 0,
-                                  data: HistPriceChartDataEntryData(date: dailyPrice.date, volume: Double(dailyPrice.volume ?? 0)))}
+                                  data: HistoricalPriceChartDataEntryData(date: dailyPrice.date, volume: Double(dailyPrice.volume ?? 0)))}
         var adjustedHistPriceDataEntries = [ChartDataEntry]()
         switch UserDefaults.standard.integer(forKey: UserDefaults.Keys.timeseriesSelectedSegmentIndex) {
         case 0:
@@ -149,7 +149,7 @@ extension PriceChartCardPartView {
         rssItems.forEach { rssItem in
             let newsDate = DateFormatterUtils.convertDateFormate_DMY_YMD(rssItem.pubDate)
             histPriceDataEntries.forEach { histPrice in
-                guard let histPriceChartDataEntryData = histPrice.data as? HistPriceChartDataEntryData else {
+                guard let histPriceChartDataEntryData = histPrice.data as? HistoricalPriceChartDataEntryData else {
                     return
                 }
                 if histPriceChartDataEntryData.date == newsDate {
