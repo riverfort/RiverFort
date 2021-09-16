@@ -42,7 +42,7 @@ extension PriceChartCardController {
     }
     
     @objc private func prepareChartTimeseries(notification: Notification) {
-        priceChartPart.changeTimeseries(for: UserDefaults.standard.integer(forKey: "timeseriesSelectedSegmentIndex"))
+        priceChartPart.changeTimeseries(for: UserDefaults.standard.integer(forKey: UserDefaults.Keys.timeseriesSelectedSegmentIndex))
     }
     
     @objc private func prepareChartDateForNews(notification: Notification) {

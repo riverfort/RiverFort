@@ -133,7 +133,7 @@ extension ADTVChartCardPartView {
         }
         
         var adjustedHistPriceDataEntries = [ChartDataEntry]()
-        switch UserDefaults.standard.integer(forKey: "timeseriesSelectedSegmentIndex") {
+        switch UserDefaults.standard.integer(forKey: UserDefaults.Keys.timeseriesSelectedSegmentIndex) {
         case 0:
             adjustedHistPriceDataEntries = adtvDataEntries.suffix(5)
         case 1:

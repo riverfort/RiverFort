@@ -10,6 +10,7 @@ import Foundation
 extension UserDefaults {
     struct Keys {
         static let isDarkModeOn  = "is_dark_mode_on"
+        static let timeseriesSelectedSegmentIndex = "timeseries_selected_segment_index"
     }
 }
 

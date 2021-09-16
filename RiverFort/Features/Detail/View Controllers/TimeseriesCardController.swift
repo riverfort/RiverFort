@@ -32,7 +32,7 @@ extension TimeseriesCardController {
     
     @objc private func segmentedControlHandled(_ sender: UISegmentedControl) {
         HapticsManager.shared.impact(style: .light)
-        UserDefaults.standard.set(sender.selectedSegmentIndex, forKey: "timeseriesSelectedSegmentIndex")
+        UserDefaults.standard.set(sender.selectedSegmentIndex, forKey: UserDefaults.Keys.timeseriesSelectedSegmentIndex)
         NotificationCenter.default.post(name: .timeseriesUpdated, object: nil)
     }
 }

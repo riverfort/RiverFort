@@ -124,7 +124,7 @@ extension PriceChartCardPartView {
                                   y: dailyPrice.close ?? 0,
                                   data: HistPriceChartDataEntryData(date: dailyPrice.date, volume: Double(dailyPrice.volume ?? 0)))}
         var adjustedHistPriceDataEntries = [ChartDataEntry]()
-        switch UserDefaults.standard.integer(forKey: "timeseriesSelectedSegmentIndex") {
+        switch UserDefaults.standard.integer(forKey: UserDefaults.Keys.timeseriesSelectedSegmentIndex) {
         case 0:
             adjustedHistPriceDataEntries = histPriceDataEntries.suffix(5)
         case 1:
