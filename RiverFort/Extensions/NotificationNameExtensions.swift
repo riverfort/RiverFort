@@ -15,4 +15,5 @@ extension Notification.Name {
     static let getHistoricalADTV = Notification.Name("get_historical_adtv")
     
     static let timeseriesUpdated = Notification.Name("timeseries_updated")
+    static let priceChartDisplayModeUpdated = Notification.Name("price_chart_display_mode_updated")
 }

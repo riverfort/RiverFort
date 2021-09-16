@@ -38,8 +38,7 @@ extension PriceChartCardController {
         NotificationCenter.default.addObserver(self, selector: #selector(prepareChartTimeseries), name: .timeseriesUpdated, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareChartDateForNews), name: .receiveYahooFinanceQuoteResult, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareChartDataForHistPrice), name: .receiveYahooFinanceHistoricalPrice, object: nil)
-        let priceChartDisplayModeChangedName = Notification.Name(NewDetailViewConstant.PRICE_CHART_DISPLAY_MODE_CHANGED)
-        NotificationCenter.default.addObserver(self, selector: #selector(preparePriceChartDisplayModeChanged), name: priceChartDisplayModeChangedName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(preparePriceChartDisplayModeChanged), name: .priceChartDisplayModeUpdated, object: nil)
     }
     
     @objc private func prepareChartTimeseries(notification: Notification) {
