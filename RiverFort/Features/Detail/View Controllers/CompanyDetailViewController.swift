@@ -8,12 +8,6 @@
 import CardParts
 import SPAlert
 
-struct Company {
-    let symbol: String
-    let name: String
-    let exch: String
-}
-
 class CompanyDetailViewController: CardsViewController {
     public var company: Company?
     private lazy var add  = UIButton(type: .system)
