@@ -9,7 +9,7 @@ import Foundation
 
 extension Notification.Name {
     static let selectCompanyFromSearchResult = Notification.Name("select_company_from_search_result")
-    static let receiveYahooFinanceQuoteResult = Notification.Name("receive_yahoo_finance_quote_result")
+    static let receiveQuote = Notification.Name("receive_quote")
     static let receiveYahooFinanceHistoricalPrice = Notification.Name("receive_yahoo_finance_historical_price")
     static let receiveProfile = Notification.Name("receive_profile")
     static let getHistoricalADTV = Notification.Name("get_historical_adtv")

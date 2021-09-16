@@ -12,7 +12,22 @@ extension CompanyDetailViewController {
         DetailViewAPIFunction.fetchQuoteFromYahooFinance(symbol: symbol)
             .responseDecodable(of: YahooFinanceQuoteResult.self) { response in
                 guard let yahooFinanceQuoteResult = response.value else { return }
-                NotificationCenter.default.post(name: .receiveYahooFinanceQuoteResult, object: yahooFinanceQuoteResult)
+                guard let yahooFinanceQuote = yahooFinanceQuoteResult.optionChain.result.first?.quote else { return }
+                let quote = Quote(symbol: yahooFinanceQuote.symbol,
+                                  name: yahooFinanceQuote.longName,
+                                  exchange: yahooFinanceQuote.exchange,
+                                  open: yahooFinanceQuote.regularMarketOpen,
+                                  dayHigh: yahooFinanceQuote.regularMarketDayHigh,
+                                  dayLow: yahooFinanceQuote.regularMarketDayLow,
+                                  price: yahooFinanceQuote.regularMarketPrice,
+                                  change: yahooFinanceQuote.regularMarketChange,
+                                  changePercent: yahooFinanceQuote.regularMarketChange,
+                                  volume: yahooFinanceQuote.regularMarketVolume,
+                                  marketCap: yahooFinanceQuote.marketCap,
+                                  timestamp: yahooFinanceQuote.regularMarketTime,
+                                  currency: yahooFinanceQuote.currency,
+                                  market: yahooFinanceQuote.market)
+                NotificationCenter.default.post(name: .receiveQuote, object: quote)
             }
     }
     

@@ -107,18 +107,17 @@ extension NewsCardController: CardPartTableViewDelegate {
 
 extension NewsCardController {
     private func createObservesr() {
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: .receiveYahooFinanceQuoteResult, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: .receiveQuote, object: nil)
     }
     
     @objc private func prepareView(notification: Notification) {
-        guard let yahooFinanceQuoteResult = notification.object as? YahooFinanceQuoteResult else { return }
-        let yahooFinanceQuote = yahooFinanceQuoteResult.optionChain.result[0].quote
-        let market = yahooFinanceQuote.market
+        guard let quote = notification.object as? Quote else { return }
+        let market = quote.market
         switch market {
         case "gb_market":
             readMoreButtonPart.setTitle("Read more on Investegate", for: .normal)
-            readMoreURL = URL(string: NewsURLs.UK_INVESTEGATE_COMPANY_ANNOUNCEMENTS_URL(symbol: yahooFinanceQuote.symbol))
-            newsViewModel.fetchRSSFeedsUK(symbol: yahooFinanceQuote.symbol, timeseries: 15)
+            readMoreURL = URL(string: NewsURLs.UK_INVESTEGATE_COMPANY_ANNOUNCEMENTS_URL(symbol: quote.symbol))
+            newsViewModel.fetchRSSFeedsUK(symbol: quote.symbol, timeseries: 15)
         default:
             newsTableView.tableView.isHidden = true
             return

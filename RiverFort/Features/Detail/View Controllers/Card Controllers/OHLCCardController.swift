@@ -139,15 +139,14 @@ extension OHLCCardController {
 
 extension OHLCCardController {
     private func createObservesr() {
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: .receiveYahooFinanceQuoteResult, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: .receiveQuote, object: nil)
     }
     
     @objc private func prepareView(notification: Notification) {
-        guard let yahooFinanceQuoteResult = notification.object as? YahooFinanceQuoteResult else { return }
-        let yahooFinanceQuote = yahooFinanceQuoteResult.optionChain.result[0].quote
-        openDataPart.title = "\(yahooFinanceQuote.regularMarketOpen)"
-        highDataPart.title = "\(yahooFinanceQuote.regularMarketDayHigh)"
-        lowDataPart.title  = "\(yahooFinanceQuote.regularMarketDayLow)"
-        closeDataPart.title = "\(yahooFinanceQuote.regularMarketPrice)"
+        guard let quote = notification.object as? Quote else { return }
+        openDataPart.title = "\(quote.open)"
+        highDataPart.title = "\(quote.dayHigh)"
+        lowDataPart.title  = "\(quote.dayLow)"
+        closeDataPart.title = "\(quote.price)"
     }
 }

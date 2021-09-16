@@ -36,7 +36,7 @@ extension PriceChartCardController {
 extension PriceChartCardController {
     private func createObservesr() {
         NotificationCenter.default.addObserver(self, selector: #selector(prepareChartTimeseries), name: .timeseriesUpdated, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareChartDateForNews), name: .receiveYahooFinanceQuoteResult, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareChartDateForNews), name: .receiveQuote, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareChartDataForHistPrice), name: .receiveYahooFinanceHistoricalPrice, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(preparePriceChartDisplayModeChanged), name: .priceChartDisplayModeUpdated, object: nil)
     }
@@ -47,12 +47,11 @@ extension PriceChartCardController {
     
     @objc private func prepareChartDateForNews(notification: Notification) {
         guard UserDefaults.standard.bool(forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn) == true else { return }
-        guard let yahooFinanceQuoteResult = notification.object as? YahooFinanceQuoteResult else { return }
-        let yahooFinanceQuote = yahooFinanceQuoteResult.optionChain.result[0].quote
-        let market = yahooFinanceQuote.market
+        guard let quote = notification.object as? Quote else { return }
+        let market = quote.market
         switch market {
         case "gb_market":
-            newsViewModel.fetchRSSFeedsUK(symbol: yahooFinanceQuote.symbol, timeseries: 30)
+            newsViewModel.fetchRSSFeedsUK(symbol: quote.symbol, timeseries: 30)
         default:
             return
         }

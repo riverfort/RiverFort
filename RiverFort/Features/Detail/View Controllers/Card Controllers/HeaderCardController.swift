@@ -86,7 +86,7 @@ extension HeaderCardController {
 extension HeaderCardController {
     private func createObservesr() {
         NotificationCenter.default.addObserver(self, selector: #selector(prepareNameAndExch), name: .selectCompanyFromSearchResult, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(preparePrice), name: .receiveYahooFinanceQuoteResult, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(preparePrice), name: .receiveQuote, object: nil)
     }
     
     @objc private func prepareNameAndExch(notification: Notification) {
@@ -96,21 +96,21 @@ extension HeaderCardController {
     }
     
     @objc private func preparePrice(notification: Notification) {
-        guard let yahooFinanceQuoteResult = notification.object as? YahooFinanceQuoteResult else { return }
-        let yahooFinanceQuote = yahooFinanceQuoteResult.optionChain.result[0].quote
-        let changeDisp = String(format: "%.2f", yahooFinanceQuote.regularMarketChange)
-        let changePercentDisp = String(format: "%.2f", yahooFinanceQuote.regularMarketChangePercent)
-        switch yahooFinanceQuote.regularMarketChange {
+        guard let quote = notification.object as? Quote else { return }
+        let change = String(format: "%.2f", quote.change)
+        let changePercent = String(format: "%.2f", quote.changePercent)
+        switch quote.change {
         case let change where change > 0:
             changePart.titleColor = .systemGreen
-            changePart.title = "+\(changeDisp)(+\(changePercentDisp)%)"
+            changePart.title = "+\(change)(+\(changePercent)%)"
         case let change where change < 0:
             changePart.titleColor = .systemRed
-            changePart.title = "\(changeDisp)(\(changePercentDisp)%)"
+            changePart.title = "\(change)(\(changePercent)%)"
         default:
             changePart.titleColor = .label
-            changePart.title = "\(changeDisp)(\(changePercentDisp)%)"
+            changePart.title = "\(change)(\(changePercent)%)"
         }
-        pricePart.title = "\(yahooFinanceQuote.currency) \(yahooFinanceQuote.regularMarketPrice)"
+        if let currency = quote.currency { pricePart.title = "\(currency) \(quote.price)" }
+        else { pricePart.title = "\(quote.price)" }
     }
 }

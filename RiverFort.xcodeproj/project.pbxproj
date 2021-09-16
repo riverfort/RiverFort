@@ -14,6 +14,7 @@
 		771E328126D6525E002CC604 /* AcknowledgementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E328026D6525E002CC604 /* AcknowledgementsViewController.swift */; };
 		7720570626DE6E8300063A9A /* CompanyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7720570526DE6E8300063A9A /* CompanyDetailViewController.swift */; };
 		77227AA026F3953D00C5867D /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77227A9F26F3953D00C5867D /* Profile.swift */; };
+		77227AA226F396D900C5867D /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77227AA126F396D900C5867D /* Quote.swift */; };
 		772845A926E613210003F13E /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772845A826E613210003F13E /* NewsViewModel.swift */; };
 		772845AB26E615FA0003F13E /* NewsURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772845AA26E615FA0003F13E /* NewsURLs.swift */; };
 		772A747526DF93890088A604 /* HeaderCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772A747426DF93890088A604 /* HeaderCardController.swift */; };
@@ -101,6 +102,7 @@
 		771E328026D6525E002CC604 /* AcknowledgementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementsViewController.swift; sourceTree = "<group>"; };
 		7720570526DE6E8300063A9A /* CompanyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailViewController.swift; sourceTree = "<group>"; };
 		77227A9F26F3953D00C5867D /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		77227AA126F396D900C5867D /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		772845A826E613210003F13E /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		772845AA26E615FA0003F13E /* NewsURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsURLs.swift; sourceTree = "<group>"; };
 		772A747426DF93890088A604 /* HeaderCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCardController.swift; sourceTree = "<group>"; };
@@ -646,6 +648,7 @@
 				77CD33FC26E39DAD00950F2A /* Constants */,
 				77B11DAC26F382140093FBE9 /* Company.swift */,
 				77227A9F26F3953D00C5867D /* Profile.swift */,
+				77227AA126F396D900C5867D /* Quote.swift */,
 				77B11DA926F380AF0093FBE9 /* HistoricalPriceQuote.swift */,
 				77B11DA726F37FC40093FBE9 /* ADTV.swift */,
 			);
@@ -813,6 +816,7 @@
 				7748987A26E0C229000933A6 /* BaseCardController.swift in Sources */,
 				77F262E826F33C480000593C /* NotificationNameExtensions.swift in Sources */,
 				773131BC26DCF87B0068AAD8 /* SearchResultViewController.swift in Sources */,
+				77227AA226F396D900C5867D /* Quote.swift in Sources */,
 				77FF535B26E12826001FAACA /* OHLCCardController.swift in Sources */,
 				77CB234626B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift in Sources */,
 				7765434226EF3C3800E91C25 /* YahooFinance.swift in Sources */,

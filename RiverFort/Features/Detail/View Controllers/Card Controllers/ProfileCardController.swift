@@ -104,28 +104,27 @@ extension ProfileCardController {
 
 extension ProfileCardController {
     private func createObservesr() {
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareReadMoreButton), name: .receiveYahooFinanceQuoteResult, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareReadMoreButton), name: .receiveQuote, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: .receiveProfile, object: nil)
     }
     
     @objc private func prepareReadMoreButton(notification: Notification) {
-        guard let yahooFinanceQuoteResult = notification.object as? YahooFinanceQuoteResult else { return }
-        let yahooFinanceQuote = yahooFinanceQuoteResult.optionChain.result[0].quote
-        let exchange = yahooFinanceQuote.exchange
+        guard let quote = notification.object as? Quote else { return }
+        let exchange = quote.exchange
         switch exchange {
         case "LSE":
             readMoreButtonPart.setTitle("Read more on London Stock Exchange (LSE)", for: .normal)
-            guard let name = yahooFinanceQuote.longName else { return }
-            readMoreURL = ReadMoreURLs.LSE_EXCHANGE_URL(symbol: yahooFinanceQuote.symbol, name: name)
+            guard let name = quote.name else { return }
+            readMoreURL = ReadMoreURLs.LSE_EXCHANGE_URL(symbol: quote.symbol, name: name)
         case "AQS":
             readMoreButtonPart.setTitle("Read more on Aquis Stock Exchange (AQSE)", for: .normal)
-            readMoreURL = ReadMoreURLs.AQUIS_EXCHANGE_URL(symbol: yahooFinanceQuote.symbol)
+            readMoreURL = ReadMoreURLs.AQUIS_EXCHANGE_URL(symbol: quote.symbol)
         case "ASX":
             readMoreButtonPart.setTitle("Read more on Australian Securities Exchange (ASX)", for: .normal)
-            readMoreURL = ReadMoreURLs.ASX_EXCHANGE_URL(symbol: yahooFinanceQuote.symbol)
+            readMoreURL = ReadMoreURLs.ASX_EXCHANGE_URL(symbol: quote.symbol)
         default:
             readMoreButtonPart.setTitle("Read more on Yahoo Finance", for: .normal)
-            readMoreURL = ReadMoreURLs.YAHOO_FINANCE_URL(symbol: yahooFinanceQuote.symbol)
+            readMoreURL = ReadMoreURLs.YAHOO_FINANCE_URL(symbol: quote.symbol)
         }
     }
     
