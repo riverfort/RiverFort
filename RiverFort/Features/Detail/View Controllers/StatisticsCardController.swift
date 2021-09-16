@@ -8,17 +8,17 @@
 import CardParts
 
 class StatisticsCardController: BaseCardController {
-    private let titlePart = CardPartTitleView(type: .titleOnly)
+    private lazy var titlePart = CardPartTitleView(type: .titleOnly)
     
-    private let mktCapLabelPart = CardPartTitleView(type: .titleOnly)
-    private let mktCapDataPart = CardPartTitleView(type: .titleOnly)
-    private let mktCapCardPartSV = CardPartStackView()
+    private lazy var mktCapLabelPart = CardPartTitleView(type: .titleOnly)
+    private lazy var mktCapDataPart = CardPartTitleView(type: .titleOnly)
+    private lazy var mktCapCardPartSV = CardPartStackView()
     
-    private let volLabelPart = CardPartTitleView(type: .titleOnly)
-    private let volDataPart = CardPartTitleView(type: .titleOnly)
-    private let volCardPartSV = CardPartStackView()
+    private lazy var volLabelPart = CardPartTitleView(type: .titleOnly)
+    private lazy var volDataPart = CardPartTitleView(type: .titleOnly)
+    private lazy var volCardPartSV = CardPartStackView()
     
-    private let cardPartSV = CardPartStackView()
+    private lazy var cardPartSV = CardPartStackView()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
