@@ -8,7 +8,7 @@
 import UIKit
 
 class HomeTabBarController: UITabBarController {
-    private lazy var images = ["magnifyingglass.circle.fill", "gear"]
+    private lazy var tabBarImages = ["magnifyingglass.circle.fill", "gear"]
     private lazy var searchVC   = UINavigationController(rootViewController: SearchV2ViewController())
     private lazy var settingsVC = UINavigationController(rootViewController: SettingsViewController())
 }
@@ -27,6 +27,6 @@ extension HomeTabBarController {
         setViewControllers([searchVC, settingsVC], animated: true)
         tabBar.tintColor = .systemIndigo
         guard let items = tabBar.items else { return }
-        for i in 0..<items.count { items[i].image = UIImage(systemName: images[i], withConfiguration: .heavy) }
+        for i in 0..<items.count { items[i].image = UIImage(systemName: tabBarImages[i], withConfiguration: .heavy) }
     }
 }
