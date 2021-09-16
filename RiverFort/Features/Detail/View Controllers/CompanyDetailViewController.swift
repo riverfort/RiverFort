@@ -90,17 +90,17 @@ extension CompanyDetailViewController {
             return [
                 UIAction(title: "Price & Vol",
                          image: UIImage(systemName: "chart.bar"),
-                         state: UserDefaults.standard.bool(forKey: "com.riverfort.DetailView.news") ? .off : .on,
+                         state: UserDefaults.standard.bool(forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn) ? .off : .on,
                          handler: { [self] (_) in
-                            UserDefaults.standard.setValue(false, forKey: "com.riverfort.DetailView.news")
+                            UserDefaults.standard.setValue(false, forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn)
                             more.menu = menu
                             NotificationCenter.default.post(name: .priceChartDisplayModeUpdated, object: nil)
                          }),
                 UIAction(title: "With News",
                          image: UIImage(systemName: "newspaper"),
-                         state: UserDefaults.standard.bool(forKey: "com.riverfort.DetailView.news") ? .on : .off,
+                         state: UserDefaults.standard.bool(forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn) ? .on : .off,
                          handler: { [self] (_) in
-                            UserDefaults.standard.setValue(true, forKey: "com.riverfort.DetailView.news")
+                            UserDefaults.standard.setValue(true, forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn)
                             more.menu = menu
                             NotificationCenter.default.post(name: .priceChartDisplayModeUpdated, object: nil)
                          }),

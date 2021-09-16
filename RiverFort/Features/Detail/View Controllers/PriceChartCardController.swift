@@ -46,7 +46,7 @@ extension PriceChartCardController {
     }
     
     @objc private func prepareChartDateForNews(notification: Notification) {
-        guard UserDefaults.standard.bool(forKey: "com.riverfort.DetailView.news") == true else { return }
+        guard UserDefaults.standard.bool(forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn) == true else { return }
         guard let yahooFinanceQuoteResult = notification.object as? YahooFinanceQuoteResult else { return }
         let yahooFinanceQuote = yahooFinanceQuoteResult.optionChain.result[0].quote
         let market = yahooFinanceQuote.market
@@ -64,13 +64,13 @@ extension PriceChartCardController {
     }
     
     @objc private func preparePriceChartDisplayModeChanged() {
-        print(UserDefaults.standard.bool(forKey: "com.riverfort.DetailView.news"))
+        print(UserDefaults.standard.bool(forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn))
     }
 }
 
 extension PriceChartCardController {
     private func subscribeNewsViewModel() {
-        guard UserDefaults.standard.bool(forKey: "com.riverfort.DetailView.news") == true else { return }
+        guard UserDefaults.standard.bool(forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn) == true else { return }
         newsViewModel.rssItemsForNews.asObservable().subscribe(
             onNext: { [self] in
                 priceChartPart.setChartDataForNews(with: $0)
