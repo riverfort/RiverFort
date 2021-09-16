@@ -261,10 +261,10 @@
 		773131B726DCEC3F0068AAD8 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				77CB234826B166B200023934 /* RecentSearchedCompany */,
 				773131B826DCEC500068AAD8 /* View Controllers */,
 				773131BD26DCFE3B0068AAD8 /* Views */,
 				7748987F26E0CECD000933A6 /* Models */,
-				77CB234826B166B200023934 /* RecentSearchedCompany */,
 			);
 			path = Search;
 			sourceTree = "<group>";
