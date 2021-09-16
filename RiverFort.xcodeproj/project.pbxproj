@@ -375,13 +375,13 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
-		7765434026EF3BFD00E91C25 /* APIModels */ = {
+		7765434026EF3BFD00E91C25 /* API Models */ = {
 			isa = PBXGroup;
 			children = (
 				7765434126EF3C3800E91C25 /* YahooFinance.swift */,
 				7765434326EF3C5700E91C25 /* FMP.swift */,
 			);
-			path = APIModels;
+			path = "API Models";
 			sourceTree = "<group>";
 		};
 		7765434526EF5FF600E91C25 /* ViewModel */ = {
@@ -604,7 +604,7 @@
 		77EF139726DF919400EDFC17 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				7765434026EF3BFD00E91C25 /* APIModels */,
+				7765434026EF3BFD00E91C25 /* API Models */,
 				7765434526EF5FF600E91C25 /* ViewModel */,
 				7765434626EF610000E91C25 /* ChartModel */,
 				77CD33FC26E39DAD00950F2A /* Constant */,
