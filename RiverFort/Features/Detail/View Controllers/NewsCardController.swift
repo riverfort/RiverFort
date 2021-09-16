@@ -92,14 +92,6 @@ extension NewsCardController {
     }
 }
 
-extension NewsCardController {
-    @objc private func readMoreButtonTapped() {
-        guard let url = readMoreURL else { return }
-        let vc = SFSafariViewController(url: url)
-        present(vc, animated: true, completion: nil)
-    }
-}
-
 extension NewsCardController: CardPartTableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -133,5 +125,13 @@ extension NewsCardController {
             newsTableView.tableView.isHidden = true
             return
         }
+    }
+}
+
+extension NewsCardController {
+    @objc private func readMoreButtonTapped() {
+        guard let url = readMoreURL else { return }
+        let vc = SFSafariViewController(url: url)
+        present(vc, animated: true, completion: nil)
     }
 }
