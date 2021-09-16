@@ -90,9 +90,9 @@ extension HeaderCardController {
     }
     
     @objc private func prepareNameAndExch(notification: Notification) {
-        guard let company = notification.object as? YahooFinanceSearchCompany else { return }
+        guard let company = notification.object as? NewCompany else { return }
         namePart.title = company.name
-        exchPart.title = "\(company.exchDisp)"
+        exchPart.title = "\(company.exchange)"
     }
     
     @objc private func preparePrice(notification: Notification) {
