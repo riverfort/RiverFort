@@ -105,7 +105,7 @@ extension ProfileCardController {
 extension ProfileCardController {
     private func createObservesr() {
         NotificationCenter.default.addObserver(self, selector: #selector(prepareReadMoreButton), name: .receiveYahooFinanceQuoteResult, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: .receiveFMPProfile, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: .receiveProfile, object: nil)
     }
     
     @objc private func prepareReadMoreButton(notification: Notification) {
@@ -130,9 +130,9 @@ extension ProfileCardController {
     }
     
     @objc private func prepareView(notification: Notification) {
-        guard let fmpProfile = notification.object as? FMPProfile else { return }
-        industryDataPart.title = fmpProfile.industry
-        sectorDataPart.title = fmpProfile.sector
+        guard let profile = notification.object as? Profile else { return }
+        industryDataPart.title = profile.industry
+        sectorDataPart.title = profile.sector
     }
 }
 

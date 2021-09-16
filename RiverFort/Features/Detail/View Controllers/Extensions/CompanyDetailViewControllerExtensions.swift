@@ -43,7 +43,8 @@ extension CompanyDetailViewController {
             .responseDecodable(of: [FMPProfile].self) { response in
                 guard let fmpProfileValue = response.value else { return }
                 guard let fmpProfile = fmpProfileValue.first else { return }
-                NotificationCenter.default.post(name: .receiveFMPProfile, object: fmpProfile)
+                let profile = Profile(industry: fmpProfile.industry, sector: fmpProfile.sector)
+                NotificationCenter.default.post(name: .receiveProfile, object: profile)
             }
     }
     
