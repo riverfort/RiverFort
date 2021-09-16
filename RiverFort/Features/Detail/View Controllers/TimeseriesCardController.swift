@@ -5,12 +5,13 @@
 //  Created by Qiuyang Nie on 07/09/2021.
 //
 
-import UIKit
 import CardParts
 
 class TimeseriesCardController: TransparentCardController {
     private let timeseriesCardPartView = TimeseriesCardPartView()
-    
+}
+
+extension TimeseriesCardController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configCardParts()
