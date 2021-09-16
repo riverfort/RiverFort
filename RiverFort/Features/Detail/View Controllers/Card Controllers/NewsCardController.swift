@@ -95,7 +95,7 @@ extension NewsCardController {
 extension NewsCardController: CardPartTableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        guard let url = URL(string: NewsURLs.UK_INVESTEGATE_COMPANY_ANNOUNCEMENT_ADJUSTED_URL(link: newsItems[indexPath.row].link)) else { return }
+        guard let url = URL(string: NewsURLs.UK_INVESTEGATE_COMPANY_ANNOUNCEMENT_LINK_ADJUSTED_URL(link: newsItems[indexPath.row].link)) else { return }
         let vc = SFSafariViewController(url: url)
         present(vc, animated: true, completion: nil)
     }

@@ -20,7 +20,7 @@ struct NewsURLs {
         return urlStr
     }
     
-    static func UK_INVESTEGATE_COMPANY_ANNOUNCEMENT_ADJUSTED_URL(link: String) -> String {
+    static func UK_INVESTEGATE_COMPANY_ANNOUNCEMENT_LINK_ADJUSTED_URL(link: String) -> String {
         let urlStr = "https\(link.dropFirst(4))"
         return urlStr
     }
