@@ -1,15 +1,14 @@
 //
-//  NewADTVChartCardPartView.swift
+//  ADTVChartCardPartView.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 02/09/2021.
 //
 
-import Foundation
 import CardParts
 import Charts
 
-class NewADTVChartCardPartView: UIView, CardPartView {
+class ADTVChartCardPartView: UIView, CardPartView {
     internal var margins: UIEdgeInsets = UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0)
     private var adtvDataEntries = [ChartDataEntry]()
     private let marker = NewADTVMarker()
@@ -58,7 +57,7 @@ class NewADTVChartCardPartView: UIView, CardPartView {
     }
 }
 
-extension NewADTVChartCardPartView {
+extension ADTVChartCardPartView {
     private func configChartView() {
         chartView.marker = marker
         chartView.delegate = self
@@ -73,7 +72,7 @@ extension NewADTVChartCardPartView {
     }
 }
 
-extension NewADTVChartCardPartView {
+extension ADTVChartCardPartView {
     private func setChartViewConstraints() {
         chartView.translatesAutoresizingMaskIntoConstraints = false
         chartView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
@@ -84,7 +83,7 @@ extension NewADTVChartCardPartView {
     }
 }
 
-extension NewADTVChartCardPartView: ChartViewDelegate, MyChartViewDelegate {
+extension ADTVChartCardPartView: ChartViewDelegate, MyChartViewDelegate {
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         let chartValueSelectedName = Notification.Name(NewDetailViewConstant.CHART_VALUE_SELECTED)
         NotificationCenter.default.post(name: chartValueSelectedName, object: nil)
@@ -97,7 +96,7 @@ extension NewADTVChartCardPartView: ChartViewDelegate, MyChartViewDelegate {
     }
 }
 
-extension NewADTVChartCardPartView: IAxisValueFormatter {
+extension ADTVChartCardPartView: IAxisValueFormatter {
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         guard let adtvChartDataEntryData = adtvDataEntries[Int(value) % adtvDataEntries.count].data as? String else {
             return ""
@@ -114,7 +113,7 @@ extension NewADTVChartCardPartView: IAxisValueFormatter {
     }
 }
 
-extension NewADTVChartCardPartView {
+extension ADTVChartCardPartView {
     private func configLineChartDataSetForADTV(with lineChartDataSet: LineChartDataSet) {
         lineChartDataSet.drawCirclesEnabled = false
         lineChartDataSet.drawValuesEnabled  = false
@@ -129,7 +128,7 @@ extension NewADTVChartCardPartView {
     }
 }
 
-extension NewADTVChartCardPartView {
+extension ADTVChartCardPartView {
     public func setChartDataForADTV(with adtvs: [NewADTV]) {
         adtvDataEntries = adtvs.enumerated().map { (index, adtv) in
             ChartDataEntry(x: Double(index), y: adtv.adtv, data: adtv.date)

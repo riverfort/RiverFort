@@ -1,5 +1,5 @@
 //
-//  NewPriceChartCardPartView.swift
+//  PriceChartCardPartView.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 02/09/2021.
@@ -8,7 +8,7 @@
 import CardParts
 import Charts
 
-class NewPriceChartCardPartView: UIView, CardPartView {
+class PriceChartCardPartView: UIView, CardPartView {
     internal var margins: UIEdgeInsets = UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0)
     private var histPriceDataEntries = [ChartDataEntry]()
     private var newsDataEntries = [ChartDataEntry]()
@@ -47,7 +47,7 @@ class NewPriceChartCardPartView: UIView, CardPartView {
     }
 }
 
-extension NewPriceChartCardPartView {
+extension PriceChartCardPartView {
     private func configChartView() {
         chartView.marker = marker
         chartView.delegate = self
@@ -61,7 +61,7 @@ extension NewPriceChartCardPartView {
     }
 }
 
-extension NewPriceChartCardPartView {
+extension PriceChartCardPartView {
     private func setChartViewConstraints() {
         chartView.translatesAutoresizingMaskIntoConstraints = false
         chartView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
@@ -72,7 +72,7 @@ extension NewPriceChartCardPartView {
     }
 }
 
-extension NewPriceChartCardPartView: ChartViewDelegate, MyChartViewDelegate {
+extension PriceChartCardPartView: ChartViewDelegate, MyChartViewDelegate {
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         let chartValueSelectedName = Notification.Name(NewDetailViewConstant.CHART_VALUE_SELECTED)
         NotificationCenter.default.post(name: chartValueSelectedName, object: nil)
@@ -85,7 +85,7 @@ extension NewPriceChartCardPartView: ChartViewDelegate, MyChartViewDelegate {
     }
 }
 
-extension NewPriceChartCardPartView: IAxisValueFormatter {
+extension PriceChartCardPartView: IAxisValueFormatter {
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         guard let histPriceChartDataEntryData =
                 histPriceDataEntries[Int(value) % histPriceDataEntries.count].data as? HistPriceChartDataEntryData else {
@@ -95,7 +95,7 @@ extension NewPriceChartCardPartView: IAxisValueFormatter {
     }
 }
 
-extension NewPriceChartCardPartView {
+extension PriceChartCardPartView {
     private func configLineChartDataSetForHistPrice(with lineChartDataSet: LineChartDataSet) {
         lineChartDataSet.drawCirclesEnabled = false
         lineChartDataSet.drawValuesEnabled  = false
@@ -119,7 +119,7 @@ extension NewPriceChartCardPartView {
     }
 }
 
-extension NewPriceChartCardPartView {     
+extension PriceChartCardPartView {     
     public func setChartData(with histPrice: [HistPrice]) {
         histPriceDataEntries = histPrice.enumerated().map{ (index, dailyPrice) in
             return ChartDataEntry(x: Double(index),

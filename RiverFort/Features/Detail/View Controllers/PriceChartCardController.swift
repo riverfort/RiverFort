@@ -8,7 +8,7 @@
 import UIKit
 
 class PriceChartCardController: BaseCardController {
-    private lazy var priceChartPart = NewPriceChartCardPartView()
+    private lazy var priceChartPart = PriceChartCardPartView()
     private lazy var newsViewModel = NewsViewModel()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
