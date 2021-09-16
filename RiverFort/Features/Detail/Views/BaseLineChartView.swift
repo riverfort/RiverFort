@@ -1,5 +1,5 @@
 //
-//  MyLineChartView.swift
+//  BaseLineChartView.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 15/09/2021.
@@ -7,13 +7,13 @@
 
 import Charts
 
-@objc protocol MyChartViewDelegate {
-    @objc optional func chartValueNoLongerSelected(_ chartView: MyLineChartView)
+@objc protocol BaseChartViewDelegate {
+    @objc optional func chartValueNoLongerSelected(_ chartView: BaseLineChartView)
 }
 
-open class MyLineChartView: LineChartView {
+open class BaseLineChartView: LineChartView {
 
-    @objc weak var myChartViewDelegate: MyChartViewDelegate?
+    @objc weak var myChartViewDelegate: BaseChartViewDelegate?
 
     private var touchesMoved = false
 

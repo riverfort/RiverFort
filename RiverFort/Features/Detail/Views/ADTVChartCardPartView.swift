@@ -12,8 +12,8 @@ class ADTVChartCardPartView: UIView, CardPartView {
     internal var margins: UIEdgeInsets = UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0)
     private var adtvDataEntries = [ChartDataEntry]()
     private let marker = ADTVMarker()
-    private lazy var chartView: MyLineChartView = {
-        let chartView = MyLineChartView()
+    private lazy var chartView: BaseLineChartView = {
+        let chartView = BaseLineChartView()
         chartView.animate(xAxisDuration: 0.5)
         chartView.minOffset = 0
         chartView.extraTopOffset = 45
@@ -83,13 +83,13 @@ extension ADTVChartCardPartView {
     }
 }
 
-extension ADTVChartCardPartView: ChartViewDelegate, MyChartViewDelegate {
+extension ADTVChartCardPartView: ChartViewDelegate, BaseChartViewDelegate {
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         let chartValueSelectedName = Notification.Name(NewDetailViewConstant.CHART_VALUE_SELECTED)
         NotificationCenter.default.post(name: chartValueSelectedName, object: nil)
     }
     
-    func chartValueNoLongerSelected(_ chartView: MyLineChartView) {
+    func chartValueNoLongerSelected(_ chartView: BaseLineChartView) {
         chartView.highlightValue(nil)
         let chartValueNoLongerSelectedName = Notification.Name(NewDetailViewConstant.CHART_VALUE_NO_LONGER_SELECTED)
         NotificationCenter.default.post(name: chartValueNoLongerSelectedName, object: nil)

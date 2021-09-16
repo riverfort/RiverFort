@@ -13,8 +13,8 @@ class PriceChartCardPartView: UIView, CardPartView {
     private var histPriceDataEntries = [ChartDataEntry]()
     private var newsDataEntries = [ChartDataEntry]()
     private let marker = PriceMarker()
-    private let chartView: MyLineChartView = {
-        let chartView = MyLineChartView()
+    private let chartView: BaseLineChartView = {
+        let chartView = BaseLineChartView()
         chartView.animate(xAxisDuration: 0.5)
         chartView.minOffset = 0
         chartView.extraTopOffset = 45
@@ -72,13 +72,13 @@ extension PriceChartCardPartView {
     }
 }
 
-extension PriceChartCardPartView: ChartViewDelegate, MyChartViewDelegate {
+extension PriceChartCardPartView: ChartViewDelegate, BaseChartViewDelegate {
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         let chartValueSelectedName = Notification.Name(NewDetailViewConstant.CHART_VALUE_SELECTED)
         NotificationCenter.default.post(name: chartValueSelectedName, object: nil)
     }
     
-    func chartValueNoLongerSelected(_ chartView: MyLineChartView) {
+    func chartValueNoLongerSelected(_ chartView: BaseLineChartView) {
         chartView.highlightValue(nil)
         let chartValueNoLongerSelectedName = Notification.Name(NewDetailViewConstant.CHART_VALUE_NO_LONGER_SELECTED)
         NotificationCenter.default.post(name: chartValueNoLongerSelectedName, object: nil)
