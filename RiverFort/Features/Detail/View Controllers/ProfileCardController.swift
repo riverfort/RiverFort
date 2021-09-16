@@ -1,15 +1,14 @@
 //
-//  NewProfileCardController.swift
+//  ProfileCardController.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 04/09/2021.
 //
 
-import UIKit
 import CardParts
 import SafariServices
 
-class NewProfileCardController: BaseCardController {
+class ProfileCardController: BaseCardController {
     private let titlePart = CardPartTitleView(type: .titleOnly)
     
     private let industryLabelPart = CardPartTitleView(type: .titleOnly)
@@ -35,14 +34,16 @@ class NewProfileCardController: BaseCardController {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    
+}
+
+extension ProfileCardController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configCardParts()
     }
 }
 
-extension NewProfileCardController {
+extension ProfileCardController {
     private func configTitleView() {
         titlePart.title = "Profie"
         titlePart.label.numberOfLines = 0
@@ -101,27 +102,14 @@ extension NewProfileCardController {
     }
 }
 
-extension NewProfileCardController {
-    @objc private func readMoreButtonTapped() {
-        guard let url = readMoreURL else {
-            return
-        }
-        let vc = SFSafariViewController(url: url)
-        present(vc, animated: true, completion: nil)
-    }
-}
-
-extension NewProfileCardController {
+extension ProfileCardController {
     private func createObservesr() {
         NotificationCenter.default.addObserver(self, selector: #selector(prepareReadMoreButton), name: .receiveYahooFinanceQuoteResult, object: nil)
-        let fmpProfiletName = Notification.Name(NewDetailViewConstant.FMP_PROFILE)
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: fmpProfiletName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: .receiveFMPProfile, object: nil)
     }
     
     @objc private func prepareReadMoreButton(notification: Notification) {
-        guard let yahooFinanceQuoteResult = notification.object as? YahooFinanceQuoteResult else {
-            return
-        }
+        guard let yahooFinanceQuoteResult = notification.object as? YahooFinanceQuoteResult else { return }
         let yahooFinanceQuote = yahooFinanceQuoteResult.optionChain.result[0].quote
         let exchange = yahooFinanceQuote.exchange
         switch exchange {
@@ -145,5 +133,13 @@ extension NewProfileCardController {
         guard let fmpProfile = notification.object as? FMPProfile else { return }
         industryDataPart.title = fmpProfile.industry
         sectorDataPart.title = fmpProfile.sector
+    }
+}
+
+extension ProfileCardController {
+    @objc private func readMoreButtonTapped() {
+        guard let url = readMoreURL else { return }
+        let vc = SFSafariViewController(url: url)
+        present(vc, animated: true, completion: nil)
     }
 }

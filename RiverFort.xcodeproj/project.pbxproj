@@ -40,7 +40,7 @@
 		7762C77226BAE258008DE1BA /* NumberShortScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7762C77126BAE258008DE1BA /* NumberShortScale.swift */; };
 		7765434226EF3C3800E91C25 /* YahooFinance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7765434126EF3C3800E91C25 /* YahooFinance.swift */; };
 		7765434426EF3C5700E91C25 /* FMP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7765434326EF3C5700E91C25 /* FMP.swift */; };
-		776A913526E3B5E50012D0D5 /* NewProfileCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776A913426E3B5E50012D0D5 /* NewProfileCardController.swift */; };
+		776A913526E3B5E50012D0D5 /* ProfileCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776A913426E3B5E50012D0D5 /* ProfileCardController.swift */; };
 		776D13C3261E087500B9CF97 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D13C2261E087500B9CF97 /* HomeTabBarController.swift */; };
 		776F657A26BBDB6400CAA5A6 /* WindowInterfaceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776F657926BBDB6400CAA5A6 /* WindowInterfaceOrientation.swift */; };
 		776F657C26BBEF2D00CAA5A6 /* EditWatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776F657B26BBEF2D00CAA5A6 /* EditWatchlistViewController.swift */; };
@@ -125,7 +125,7 @@
 		7762C77126BAE258008DE1BA /* NumberShortScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberShortScale.swift; sourceTree = "<group>"; };
 		7765434126EF3C3800E91C25 /* YahooFinance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YahooFinance.swift; sourceTree = "<group>"; };
 		7765434326EF3C5700E91C25 /* FMP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMP.swift; sourceTree = "<group>"; };
-		776A913426E3B5E50012D0D5 /* NewProfileCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProfileCardController.swift; sourceTree = "<group>"; };
+		776A913426E3B5E50012D0D5 /* ProfileCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCardController.swift; sourceTree = "<group>"; };
 		776D13C2261E087500B9CF97 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		776F657926BBDB6400CAA5A6 /* WindowInterfaceOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowInterfaceOrientation.swift; sourceTree = "<group>"; };
 		776F657B26BBEF2D00CAA5A6 /* EditWatchlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWatchlistViewController.swift; sourceTree = "<group>"; };
@@ -235,7 +235,7 @@
 				77E763EE26E75D76005AED84 /* TimeseriesCardController.swift */,
 				7748987B26E0C396000933A6 /* NewPriceChartCardController.swift */,
 				7748988626E0E454000933A6 /* NewADTVChartCardController.swift */,
-				776A913426E3B5E50012D0D5 /* NewProfileCardController.swift */,
+				776A913426E3B5E50012D0D5 /* ProfileCardController.swift */,
 				7796865526E5F963002A9980 /* StatisticsCardController.swift */,
 				7791881126E0E7FE005B7D38 /* ADTVCardController.swift */,
 				77887D1326E12C210016192D /* AADTVCardController.swift */,
@@ -739,7 +739,7 @@
 				7720570626DE6E8300063A9A /* NewCompanyDetailViewController.swift in Sources */,
 				77FBC8C226C557E500C35E9C /* WatchlistSync.swift in Sources */,
 				77384E9426F0E62600C23217 /* WatchlistCoreDataManager.swift in Sources */,
-				776A913526E3B5E50012D0D5 /* NewProfileCardController.swift in Sources */,
+				776A913526E3B5E50012D0D5 /* ProfileCardController.swift in Sources */,
 				770B22AF26EB8D6400731C58 /* NewADTVMarker.swift in Sources */,
 				779B886226BD2B4900FB06A1 /* SettingsSection.swift in Sources */,
 				7796865826E6102C002A9980 /* NewsCardController.swift in Sources */,

@@ -22,7 +22,7 @@ class NewCompanyDetailViewController: CardsViewController {
     private let cards = [HeaderCardController(),
                          TimeseriesCardController(),
                          NewPriceChartCardController(),
-                         NewProfileCardController(),
+                         ProfileCardController(),
                          StatisticsCardController(),
                          OHLCCardController(),
                          NewADTVChartCardController(),
@@ -175,8 +175,7 @@ extension NewCompanyDetailViewController {
             .responseDecodable(of: [FMPProfile].self) { (response) in
                 guard let fmpProfileValue = response.value else { return }
                 guard let fmpProfile = fmpProfileValue.first else { return }
-                let fmpProfileName = Notification.Name(NewDetailViewConstant.FMP_PROFILE)
-                NotificationCenter.default.post(name: fmpProfileName, object: fmpProfile)
+                NotificationCenter.default.post(name: .receiveFMPProfile, object: fmpProfile)
             }
     }
     

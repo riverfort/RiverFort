@@ -13,7 +13,6 @@ struct NewDetailViewConstant {
     static var CHART_VALUE_SELECTED = "com.riverfort.chartValueSelected"
     static var CHART_VALUE_NO_LONGER_SELECTED = "com.riverfort.chartValueNoLongerSelected"
     static var FMP_HIST_PRICE = "com.riverfort.fmpHistPrice"
-    static var FMP_PROFILE = "com.riverfort.fmpProfile"
     static var YAHOO_FINANCE_HIST_PRICE = "com.riverfort.yahooFinanceHistPrice"
     static var ADTV = "com.riverfort.ADTV"
     static var HIST_PRICE = "com.riverfort.histPrice"
