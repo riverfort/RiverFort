@@ -142,8 +142,7 @@ extension NewCompanyDetailViewController {
         DetailViewAPIFunction.fetchQuoteFromYahooFinance(symbol: symbol)
             .responseDecodable(of: YahooFinanceQuoteResult.self) { (response) in
                 guard let yahooFinanceQuoteResult = response.value else { return }
-                let yahooFinanceQuoteResultName = Notification.Name(NewDetailViewConstant.YAHOO_FINANCE_QUOTE_RESULT)
-                NotificationCenter.default.post(name: yahooFinanceQuoteResultName, object: yahooFinanceQuoteResult)
+                NotificationCenter.default.post(name: .receiveYahooFinanceQuoteResult, object: yahooFinanceQuoteResult)
             }
     }
     

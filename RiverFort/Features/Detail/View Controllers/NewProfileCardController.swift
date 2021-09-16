@@ -113,8 +113,7 @@ extension NewProfileCardController {
 
 extension NewProfileCardController {
     private func createObservesr() {
-        let yahooFinanceQuoteResultName = Notification.Name(NewDetailViewConstant.YAHOO_FINANCE_QUOTE_RESULT)
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareReadMoreButton), name: yahooFinanceQuoteResultName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareReadMoreButton), name: .receiveYahooFinanceQuoteResult, object: nil)
         let fmpProfiletName = Notification.Name(NewDetailViewConstant.FMP_PROFILE)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: fmpProfiletName, object: nil)
     }

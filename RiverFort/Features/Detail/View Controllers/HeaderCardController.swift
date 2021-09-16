@@ -85,8 +85,7 @@ extension HeaderCardController {
 extension HeaderCardController {
     private func createObservesr() {
         NotificationCenter.default.addObserver(self, selector: #selector(prepareNameAndExch), name: .selectCompanyFromSearchResult, object: nil)
-        let yahooFinanceQuoteResultName = Notification.Name(NewDetailViewConstant.YAHOO_FINANCE_QUOTE_RESULT)
-        NotificationCenter.default.addObserver(self, selector: #selector(preparePrice), name: yahooFinanceQuoteResultName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(preparePrice), name: .receiveYahooFinanceQuoteResult, object: nil)
     }
     
     @objc private func prepareNameAndExch(notification: Notification) {

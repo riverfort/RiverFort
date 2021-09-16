@@ -138,8 +138,7 @@ extension OHLCCardController {
 
 extension OHLCCardController {
     private func createObservesr() {
-        let aName = Notification.Name(NewDetailViewConstant.YAHOO_FINANCE_QUOTE_RESULT)
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: aName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: .receiveYahooFinanceQuoteResult, object: nil)
     }
     
     @objc private func prepareView(notification: Notification) {
