@@ -8,33 +8,33 @@
 import CardParts
 
 class AADTVCardController: BaseCardController {
-    private let titlePart = CardPartTitleView(type: .titleOnly)
+    private lazy var titlePart = CardPartTitleView(type: .titleOnly)
     
-    private let aadtv1LabelPart = CardPartTitleView(type: .titleOnly)
-    private let aadtv1DataPart = CardPartTitleView(type: .titleOnly)
-    private let aadtv1CardPartSV = CardPartStackView()
+    private lazy var aadtv1LabelPart = CardPartTitleView(type: .titleOnly)
+    private lazy var aadtv1DataPart = CardPartTitleView(type: .titleOnly)
+    private lazy var aadtv1CardPartSV = CardPartStackView()
     
-    private let aadtv5LabelPart = CardPartTitleView(type: .titleOnly)
-    private let aadtv5DataPart = CardPartTitleView(type: .titleOnly)
-    private let aadtv5CardPartSV = CardPartStackView()
+    private lazy var aadtv5LabelPart = CardPartTitleView(type: .titleOnly)
+    private lazy var aadtv5DataPart = CardPartTitleView(type: .titleOnly)
+    private lazy var aadtv5CardPartSV = CardPartStackView()
     
-    private let aadtv10LabelPart = CardPartTitleView(type: .titleOnly)
-    private let aadtv10DataPart = CardPartTitleView(type: .titleOnly)
-    private let aadtv10CardPartSV = CardPartStackView()
+    private lazy var aadtv10LabelPart = CardPartTitleView(type: .titleOnly)
+    private lazy var aadtv10DataPart = CardPartTitleView(type: .titleOnly)
+    private lazy var aadtv10CardPartSV = CardPartStackView()
     
-    private let aadtv20LabelPart = CardPartTitleView(type: .titleOnly)
-    private let aadtv20DataPart = CardPartTitleView(type: .titleOnly)
-    private let aadtv20CardPartSV = CardPartStackView()
+    private lazy var aadtv20LabelPart = CardPartTitleView(type: .titleOnly)
+    private lazy var aadtv20DataPart = CardPartTitleView(type: .titleOnly)
+    private lazy var aadtv20CardPartSV = CardPartStackView()
     
-    private let aadtv60LabelPart = CardPartTitleView(type: .titleOnly)
-    private let aadtv60DataPart = CardPartTitleView(type: .titleOnly)
-    private let aadtv60CardPartSV = CardPartStackView()
+    private lazy var aadtv60LabelPart = CardPartTitleView(type: .titleOnly)
+    private lazy var aadtv60DataPart = CardPartTitleView(type: .titleOnly)
+    private lazy var aadtv60CardPartSV = CardPartStackView()
     
-    private let aadtv120LabelPart = CardPartTitleView(type: .titleOnly)
-    private let aadtv120DataPart = CardPartTitleView(type: .titleOnly)
-    private let aadtv120CardPartSV = CardPartStackView()
+    private lazy var aadtv120LabelPart = CardPartTitleView(type: .titleOnly)
+    private lazy var aadtv120DataPart = CardPartTitleView(type: .titleOnly)
+    private lazy var aadtv120CardPartSV = CardPartStackView()
     
-    private let cardPartSV = CardPartStackView()
+    private lazy var cardPartSV = CardPartStackView()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
