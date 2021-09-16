@@ -8,10 +8,10 @@
 import Alamofire
 
 class SearchAPIFunction {
-    static func searchFromYahooFinance(for searchTerm: String) -> DataRequest {
-        guard let encodedSearchTerm = searchTerm.addingPercentEncoding(withAllowedCharacters: .afURLQueryAllowed) else {
-            return AF.request("https://finance.yahoo.com/_finance_doubledown/api/resource/searchassist;searchTerm=\(searchTerm)").validate()
+    static func searchFromYahooFinance(for searchText: String) -> DataRequest {
+        guard let encodedSearchText = searchText.addingPercentEncoding(withAllowedCharacters: .afURLQueryAllowed) else {
+            return AF.request("https://finance.yahoo.com/_finance_doubledown/api/resource/searchassist;searchTerm=\(searchText)").validate()
         }
-        return AF.request("https://finance.yahoo.com/_finance_doubledown/api/resource/searchassist;searchTerm=\(encodedSearchTerm)").validate()
+        return AF.request("https://finance.yahoo.com/_finance_doubledown/api/resource/searchassist;searchTerm=\(encodedSearchText)").validate()
     }
 }
