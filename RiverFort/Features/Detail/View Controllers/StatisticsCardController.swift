@@ -5,7 +5,6 @@
 //  Created by Qiuyang Nie on 06/09/2021.
 //
 
-import UIKit
 import CardParts
 
 class StatisticsCardController: BaseCardController {
@@ -33,7 +32,9 @@ class StatisticsCardController: BaseCardController {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    
+}
+
+extension StatisticsCardController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configCardParts()
@@ -102,9 +103,7 @@ extension StatisticsCardController {
     }
     
     @objc private func prepareView(notification: Notification) {
-        guard let yahooFinanceQuoteResult = notification.object as? YahooFinanceQuoteResult else {
-            return
-        }
+        guard let yahooFinanceQuoteResult = notification.object as? YahooFinanceQuoteResult else { return }
         let yahooFinanceQuote = yahooFinanceQuoteResult.optionChain.result[0].quote
         if let mktCap = yahooFinanceQuote.marketCap {
             mktCapDataPart.title = NumberShortScale.formatNumber(mktCap)
