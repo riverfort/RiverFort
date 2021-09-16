@@ -8,7 +8,7 @@
 import UIKit
 import CardParts
 
-class NewADTVCardController: TemplateCardController {
+class NewADTVCardController: BaseCardController {
     private let titlePart = CardPartTitleView(type: .titleOnly)
 
     private let adtv1LabelPart = CardPartTitleView(type: .titleOnly)

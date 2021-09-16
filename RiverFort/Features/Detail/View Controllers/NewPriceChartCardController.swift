@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewPriceChartCardController: TemplateCardController {
+class NewPriceChartCardController: BaseCardController {
     private let priceChartPart = NewPriceChartCardPartView()
     private let newsViewModel = NewsViewModel()
     

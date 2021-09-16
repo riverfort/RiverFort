@@ -8,7 +8,7 @@
 import UIKit
 import CardParts
 
-class OHLCCardController: TemplateCardController {
+class OHLCCardController: BaseCardController {
     private let titlePart = CardPartTitleView(type: .titleOnly)
     
     private let openLabelPart = CardPartTitleView(type: .titleOnly)

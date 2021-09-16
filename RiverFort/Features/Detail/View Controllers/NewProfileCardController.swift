@@ -9,7 +9,7 @@ import UIKit
 import CardParts
 import SafariServices
 
-class NewProfileCardController: TemplateCardController {
+class NewProfileCardController: BaseCardController {
     private let titlePart = CardPartTitleView(type: .titleOnly)
     
     private let industryLabelPart = CardPartTitleView(type: .titleOnly)

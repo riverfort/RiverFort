@@ -9,7 +9,7 @@ import UIKit
 import CardParts
 import SafariServices
 
-class NewsCardController: TemplateCardController {
+class NewsCardController: BaseCardController {
     private let titlePart = CardPartTitleView(type: .titleOnly)
     private let newsTableView = CardPartTableView()
     private let newsViewModel = NewsViewModel()

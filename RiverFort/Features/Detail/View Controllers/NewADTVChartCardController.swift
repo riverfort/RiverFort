@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewADTVChartCardController: TemplateCardController {
+class NewADTVChartCardController: BaseCardController {
     private let adtvChartPart = NewADTVChartCardPartView()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {

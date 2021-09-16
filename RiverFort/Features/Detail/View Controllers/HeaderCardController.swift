@@ -8,7 +8,7 @@
 import UIKit
 import CardParts
 
-class HeaderCardController: TemplateCardController {
+class HeaderCardController: BaseCardController {
     private let namePart = CardPartTitleView(type: .titleOnly)
     private let exchPart = CardPartTitleView(type: .titleOnly)
     private let pricePart  = CardPartTitleView(type: .titleOnly)
