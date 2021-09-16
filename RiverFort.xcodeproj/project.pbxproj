@@ -384,21 +384,21 @@
 			path = "API Models";
 			sourceTree = "<group>";
 		};
-		7765434526EF5FF600E91C25 /* ViewModel */ = {
+		7765434526EF5FF600E91C25 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				77876E97264D69B300798106 /* RSSFeedParser.swift */,
 				772845A826E613210003F13E /* NewsViewModel.swift */,
 			);
-			path = ViewModel;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		7765434626EF610000E91C25 /* ChartModel */ = {
+		7765434626EF610000E91C25 /* ChartModels */ = {
 			isa = PBXGroup;
 			children = (
 				77E7B3FC26E7AA56000EABC6 /* ChartDataEntryData.swift */,
 			);
-			path = ChartModel;
+			path = ChartModels;
 			sourceTree = "<group>";
 		};
 		776F657826BBDB4C00CAA5A6 /* Orientation */ = {
@@ -605,8 +605,8 @@
 			isa = PBXGroup;
 			children = (
 				7765434026EF3BFD00E91C25 /* API Models */,
-				7765434526EF5FF600E91C25 /* ViewModel */,
-				7765434626EF610000E91C25 /* ChartModel */,
+				7765434526EF5FF600E91C25 /* ViewModels */,
+				7765434626EF610000E91C25 /* ChartModels */,
 				77CD33FC26E39DAD00950F2A /* Constant */,
 				7748988226E0D598000933A6 /* DetailViewAPIFunction.swift */,
 			);
