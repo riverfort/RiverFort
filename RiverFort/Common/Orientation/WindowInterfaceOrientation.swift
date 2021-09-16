@@ -5,7 +5,7 @@
 //  Created by Qiuyang Nie on 05/08/2021.
 //
 
-import Foundation
+import UIKit
 
 class WindowInterfaceOrientation {
     public static var windowInterfaceOrientation: UIInterfaceOrientation? {

@@ -5,7 +5,7 @@
 //  Created by Qiuyang Nie on 24/08/2021.
 //
 
-import Foundation
+import UIKit
 import UserNotifications
 
 class NotificationHelper {

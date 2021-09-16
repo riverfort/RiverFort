@@ -5,7 +5,7 @@
 //  Created by Qiuyang Nie on 30/08/2021.
 //
 
-import Foundation
+import UIKit
 
 class SearchV2ResultCell: UITableViewCell {
     private let systemMinimumLayoutMarginsLeading = (UIApplication.topViewController()?.systemMinimumLayoutMargins.leading)!

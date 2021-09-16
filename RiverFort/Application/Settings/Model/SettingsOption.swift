@@ -5,7 +5,7 @@
 //  Created by Qiuyang Nie on 06/08/2021.
 //
 
-import Foundation
+import UIKit
 
 struct SettingsStaticOption {
     let title: String

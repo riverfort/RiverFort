@@ -5,6 +5,7 @@
 //  Created by Qiuyang Nie on 14/09/2021.
 //
 
+import UIKit
 import CoreData
 
 class WatchlistCoreDataManager {

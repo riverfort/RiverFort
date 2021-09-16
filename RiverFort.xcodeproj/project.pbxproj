@@ -31,7 +31,6 @@
 		773A0BAD261726B2002B9875 /* CompanyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0BAC261726B2002B9875 /* CompanyDetail.swift */; };
 		773A86F0263C34A9008105A1 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A86EF263C34A9008105A1 /* PrivacyPolicyViewController.swift */; };
 		773C3FCB26F2160800EA6A41 /* NewEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773C3FCA26F2160800EA6A41 /* NewEditViewController.swift */; };
-		77420217264AA033002F6104 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 77420216264AA033002F6104 /* UIScrollView+EmptyDataSet.m */; };
 		7748987A26E0C229000933A6 /* TemplateCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748987926E0C229000933A6 /* TemplateCardController.swift */; };
 		7748987C26E0C396000933A6 /* NewPriceChartCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748987B26E0C396000933A6 /* NewPriceChartCardController.swift */; };
 		7748987E26E0C3E7000933A6 /* NewPriceChartCardPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748987D26E0C3E7000933A6 /* NewPriceChartCardPartView.swift */; };
@@ -117,9 +116,6 @@
 		773A0BAC261726B2002B9875 /* CompanyDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetail.swift; sourceTree = "<group>"; };
 		773A86EF263C34A9008105A1 /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		773C3FCA26F2160800EA6A41 /* NewEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEditViewController.swift; sourceTree = "<group>"; };
-		77420214264AA032002F6104 /* RiverFort-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RiverFort-Bridging-Header.h"; sourceTree = "<group>"; };
-		77420215264AA033002F6104 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
-		77420216264AA033002F6104 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
 		7748987926E0C229000933A6 /* TemplateCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCardController.swift; sourceTree = "<group>"; };
 		7748987B26E0C396000933A6 /* NewPriceChartCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPriceChartCardController.swift; sourceTree = "<group>"; };
 		7748987D26E0C3E7000933A6 /* NewPriceChartCardPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPriceChartCardPartView.swift; sourceTree = "<group>"; };
@@ -383,9 +379,6 @@
 			isa = PBXGroup;
 			children = (
 				77F93371261A3675007662D5 /* DateFormatterUtils.swift */,
-				77420215264AA033002F6104 /* UIScrollView+EmptyDataSet.h */,
-				77420216264AA033002F6104 /* UIScrollView+EmptyDataSet.m */,
-				77420214264AA032002F6104 /* RiverFort-Bridging-Header.h */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -798,7 +791,6 @@
 				779B885826BD192D00FB06A1 /* SettingsTableView.swift in Sources */,
 				7762C77226BAE258008DE1BA /* NumberShortScale.swift in Sources */,
 				779A46F426D4EE740072CE0B /* UIDevice+modelName.swift in Sources */,
-				77420217264AA033002F6104 /* UIScrollView+EmptyDataSet.m in Sources */,
 				77E7B3FD26E7AA56000EABC6 /* ChartDataEntryData.swift in Sources */,
 				7748988126E0CF9B000933A6 /* SearchAPIFunction.swift in Sources */,
 				773A0B6326171238002B9875 /* AppDelegate.swift in Sources */,
@@ -998,7 +990,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.RiverFort;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "RiverFort/Helpers/RiverFort-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1027,7 +1019,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.RiverFort;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "RiverFort/Helpers/RiverFort-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

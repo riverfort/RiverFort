@@ -5,7 +5,7 @@
 //  Created by Qiuyang Nie on 09/09/2021.
 //
 
-import Foundation
+import UIKit
 
 class Configuration {
     static let symbolConfiguration = UIImage.SymbolConfiguration(weight: .semibold)
