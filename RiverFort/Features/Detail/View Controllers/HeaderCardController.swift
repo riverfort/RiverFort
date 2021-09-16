@@ -5,7 +5,6 @@
 //  Created by Qiuyang Nie on 01/09/2021.
 //
 
-import UIKit
 import CardParts
 
 class HeaderCardController: BaseCardController {
@@ -29,7 +28,9 @@ class HeaderCardController: BaseCardController {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    
+}
+
+extension HeaderCardController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configCardParts()
@@ -89,17 +90,13 @@ extension HeaderCardController {
     }
     
     @objc private func prepareNameAndExch(notification: Notification) {
-        guard let company = notification.object as? YahooFinanceSearchedCompany else {
-            return
-        }
+        guard let company = notification.object as? YahooFinanceSearchedCompany else { return }
         namePart.title = company.name
         exchPart.title = "\(company.exchDisp)"
     }
     
     @objc private func preparePrice(notification: Notification) {
-        guard let yahooFinanceQuoteResult = notification.object as? YahooFinanceQuoteResult else {
-            return
-        }
+        guard let yahooFinanceQuoteResult = notification.object as? YahooFinanceQuoteResult else { return }
         let yahooFinanceQuote = yahooFinanceQuoteResult.optionChain.result[0].quote
         let changeDisp = String(format: "%.2f", yahooFinanceQuote.regularMarketChange)
         let changePercentDisp = String(format: "%.2f", yahooFinanceQuote.regularMarketChangePercent)
