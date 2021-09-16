@@ -5,7 +5,6 @@
 //  Created by Qiuyang Nie on 02/09/2021.
 //
 
-import UIKit
 import CardParts
 
 class OHLCCardController: BaseCardController {
@@ -41,7 +40,9 @@ class OHLCCardController: BaseCardController {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    
+}
+
+extension OHLCCardController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configCardParts()
