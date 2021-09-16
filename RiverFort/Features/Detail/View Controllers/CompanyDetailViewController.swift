@@ -135,11 +135,11 @@ extension CompanyDetailViewController {
     private func getHistoricalPriceFromYahooFinance(symbol: String, exch: String) {
         DetailViewAPIFunction.fetchHistoricalPriceFromYahooFinance(symbol: symbol)
             .responseDecodable(of: YahooFinanceHistoricalPriceResult.self) { [self] response in
-                guard let result = response.value?.chart.result.first else { return }
-                guard let quote = result.indicators.quote.first else { return }
+                guard let yahooFinanceHistoricalPriceResult = response.value?.chart.result.first else { return }
+                guard let quote = yahooFinanceHistoricalPriceResult.indicators.quote.first else { return }
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd"
-                let dates = result.timestamp.map { date -> String in dateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(date))) }
+                let dates = yahooFinanceHistoricalPriceResult.timestamp.map { date -> String in dateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(date))) }
                 let highs = quote.high
                 let lows = quote.low
                 let closes = quote.close
