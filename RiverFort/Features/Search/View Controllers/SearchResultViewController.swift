@@ -74,8 +74,7 @@ extension SearchResultViewController {
         let detailVC = NewCompanyDetailViewController()
         detailVC.company = NewCompany(symbol: selectedCompany.symbol, name: selectedCompany.name, exch: selectedCompany.exch)
         presentingViewController?.navigationController?.pushViewController(detailVC, animated: true)
-        let aName = Notification.Name(NewSearchConstant.SELECT_SEARCH_COMPANY)
-        NotificationCenter.default.post(name: aName, object: selectedCompany)
+        NotificationCenter.default.post(name: .selectCompanyFromSearchResult, object: selectedCompany)
     }
 }
 
