@@ -228,17 +228,8 @@
 			isa = PBXGroup;
 			children = (
 				778B3AFB26E12CF8009CBE7E /* Templates */,
+				77D6FC8E26F370F10074137C /* Card Controllers */,
 				7720570526DE6E8300063A9A /* CompanyDetailViewController.swift */,
-				772A747426DF93890088A604 /* HeaderCardController.swift */,
-				77E763EE26E75D76005AED84 /* TimeseriesCardController.swift */,
-				7748987B26E0C396000933A6 /* PriceChartCardController.swift */,
-				7748988626E0E454000933A6 /* ADTVChartCardController.swift */,
-				776A913426E3B5E50012D0D5 /* ProfileCardController.swift */,
-				7796865526E5F963002A9980 /* StatisticsCardController.swift */,
-				7791881126E0E7FE005B7D38 /* ADTVCardController.swift */,
-				77887D1326E12C210016192D /* AADTVCardController.swift */,
-				77FF535A26E12826001FAACA /* OHLCCardController.swift */,
-				7796865726E6102C002A9980 /* NewsCardController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -575,6 +566,23 @@
 				772845AA26E615FA0003F13E /* DetailViewNewsURLs.swift */,
 			);
 			path = Constant;
+			sourceTree = "<group>";
+		};
+		77D6FC8E26F370F10074137C /* Card Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				772A747426DF93890088A604 /* HeaderCardController.swift */,
+				77E763EE26E75D76005AED84 /* TimeseriesCardController.swift */,
+				7748987B26E0C396000933A6 /* PriceChartCardController.swift */,
+				7748988626E0E454000933A6 /* ADTVChartCardController.swift */,
+				776A913426E3B5E50012D0D5 /* ProfileCardController.swift */,
+				7796865526E5F963002A9980 /* StatisticsCardController.swift */,
+				7791881126E0E7FE005B7D38 /* ADTVCardController.swift */,
+				77887D1326E12C210016192D /* AADTVCardController.swift */,
+				77FF535A26E12826001FAACA /* OHLCCardController.swift */,
+				7796865726E6102C002A9980 /* NewsCardController.swift */,
+			);
+			path = "Card Controllers";
 			sourceTree = "<group>";
 		};
 		77EF139726DF919400EDFC17 /* Models */ = {
