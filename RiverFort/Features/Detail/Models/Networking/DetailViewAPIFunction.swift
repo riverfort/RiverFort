@@ -15,15 +15,15 @@ class DetailViewAPIFunction {
 }
 
 extension DetailViewAPIFunction {
-    static func fetchHistPriceFromRiverFort(symbol: String) -> DataRequest {
+    static func fetchHistoricalPriceFromRiverFort(symbol: String) -> DataRequest {
         AF.request("https://data.riverfort.com/api/v1/companies/\(symbol)/trading?ordering=market_date").validate()
     }
     
-    static func fetchHistPriceFromFMP(symbol: String, timeseries: Int) -> DataRequest {
+    static func fetchHistoricalPriceFromFMP(symbol: String, timeseries: Int) -> DataRequest {
         AF.request("https://financialmodelingprep.com/api/v3/historical-price-full/\(symbol)?timeseries=\(timeseries)&apikey=2797db3c7193bf4ec7231be3cba5f27c").validate()
     }
     
-    static func fetchHistPriceFromYahooFinance(symbol: String) -> DataRequest {
+    static func fetchHistoricalPriceFromYahooFinance(symbol: String) -> DataRequest {
         AF.request("https://query2.finance.yahoo.com/v8/finance/chart/\(symbol)?range=1y&interval=1d").validate()
     }
 }

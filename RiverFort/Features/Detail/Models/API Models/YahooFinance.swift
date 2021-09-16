@@ -35,11 +35,11 @@ struct YahooFinanceQuote: Decodable {
     let regularMarketDayLow: Double
 }
 
-struct YahooFinanceHistPriceResult: Decodable {
-    struct YahooFinanceHistPriceChart: Decodable {
-        struct YahooFinanceHistPriceChartResult: Decodable {
-            struct YahooFinanceHistPriceChartResultIndicators: Decodable {
-                struct YahooFinanceHistPriceQuote: Decodable {
+struct YahooFinanceHistoricalPriceResult: Decodable {
+    struct YahooFinanceHistoricalPriceChart: Decodable {
+        struct YahooFinanceHistoricalPriceChartResult: Decodable {
+            struct YahooFinanceHistoricalPriceChartResultIndicators: Decodable {
+                struct YahooFinanceHistoricalPriceQuote: Decodable {
                     let close, low, high: [Double?]
                     let volume: [Int?]
                     let quoteOpen: [Double?]
@@ -49,17 +49,17 @@ struct YahooFinanceHistPriceResult: Decodable {
                         case quoteOpen = "open"
                     }
                 }
-                struct YahooFinanceHistPriceChartResultIndicatorsAdjclose: Decodable {
+                struct YahooFinanceHistoricalPriceChartResultIndicatorsAdjclose: Decodable {
                     let adjclose: [Double?]
                 }
-                let quote: [YahooFinanceHistPriceQuote]
-                let adjclose: [YahooFinanceHistPriceChartResultIndicatorsAdjclose]
+                let quote: [YahooFinanceHistoricalPriceQuote]
+                let adjclose: [YahooFinanceHistoricalPriceChartResultIndicatorsAdjclose]
             }
             let timestamp: [Int]
-            let indicators: YahooFinanceHistPriceChartResultIndicators
+            let indicators: YahooFinanceHistoricalPriceChartResultIndicators
         }
-        let result: [YahooFinanceHistPriceChartResult]
+        let result: [YahooFinanceHistoricalPriceChartResult]
         let error: String?
     }
-    let chart: YahooFinanceHistPriceChart
+    let chart: YahooFinanceHistoricalPriceChart
 }

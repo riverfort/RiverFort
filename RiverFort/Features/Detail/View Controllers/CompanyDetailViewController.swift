@@ -119,27 +119,22 @@ extension CompanyDetailViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(chartValueNoLongerSelected), name: .chartValueNoLongerSelected, object: nil)
     }
     
-    @objc private func chartValueSelected() {
-        super.collectionView.isScrollEnabled = false
-    }
-    
-    @objc private func chartValueNoLongerSelected() {
-        super.collectionView.isScrollEnabled = true
-    }
+    @objc private func chartValueSelected() { super.collectionView.isScrollEnabled = false }
+    @objc private func chartValueNoLongerSelected() { super.collectionView.isScrollEnabled = true }
 }
 
 extension CompanyDetailViewController {
     private func getQuoteFromYahooFinance(symbol: String) {
         DetailViewAPIFunction.fetchQuoteFromYahooFinance(symbol: symbol)
-            .responseDecodable(of: YahooFinanceQuoteResult.self) { (response) in
+            .responseDecodable(of: YahooFinanceQuoteResult.self) { response in
                 guard let yahooFinanceQuoteResult = response.value else { return }
                 NotificationCenter.default.post(name: .receiveYahooFinanceQuoteResult, object: yahooFinanceQuoteResult)
             }
     }
     
     private func getHistoricalPriceFromYahooFinance(symbol: String, exch: String) {
-        DetailViewAPIFunction.fetchHistPriceFromYahooFinance(symbol: symbol)
-            .responseDecodable(of: YahooFinanceHistPriceResult.self) { [self] (response) in
+        DetailViewAPIFunction.fetchHistoricalPriceFromYahooFinance(symbol: symbol)
+            .responseDecodable(of: YahooFinanceHistoricalPriceResult.self) { [self] response in
                 guard let result = response.value?.chart.result.first else { return }
                 guard let quote = result.indicators.quote.first else { return }
                 let dateFormatter = DateFormatter()
@@ -161,7 +156,7 @@ extension CompanyDetailViewController {
     
     private func getProfileFromFMP(symbol: String) {
         DetailViewAPIFunction.fetchProfileFMP(symbol: symbol)
-            .responseDecodable(of: [FMPProfile].self) { (response) in
+            .responseDecodable(of: [FMPProfile].self) { response in
                 guard let fmpProfileValue = response.value else { return }
                 guard let fmpProfile = fmpProfileValue.first else { return }
                 NotificationCenter.default.post(name: .receiveFMPProfile, object: fmpProfile)
