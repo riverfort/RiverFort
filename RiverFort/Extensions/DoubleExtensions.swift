@@ -14,3 +14,13 @@ extension Double {
         return numberFormatter.string(from: NSNumber(value:self))!
     }
 }
+
+extension Double {
+    func reduceScale(to places: Int) -> Double {
+        let multiplier = pow(10, Double(places))
+        let newDecimal = multiplier * self
+        let truncated = Double(Int(newDecimal))
+        let originalDecimal = truncated / multiplier
+        return originalDecimal
+    }
+}
