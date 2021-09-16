@@ -237,12 +237,8 @@
 		7720570426DE6E3A00063A9A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7748987D26E0C3E7000933A6 /* PriceChartCardPartView.swift */,
-				7748988426E0E235000933A6 /* ADTVChartCardPartView.swift */,
-				77E763F026E75FE5005AED84 /* TimeseriesCardPartView.swift */,
-				77E7B3FA26E7838F000EABC6 /* PriceMarker.swift */,
-				770B22AE26EB8D6400731C58 /* ADTVMarker.swift */,
-				770E4C5826F245FD0010EE7B /* BaseLineChartView.swift */,
+				77D6FC9026F371830074137C /* CardPart Views */,
+				77D6FC8F26F3716C0074137C /* Charts */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -583,6 +579,26 @@
 				7796865726E6102C002A9980 /* NewsCardController.swift */,
 			);
 			path = "Card Controllers";
+			sourceTree = "<group>";
+		};
+		77D6FC8F26F3716C0074137C /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				770E4C5826F245FD0010EE7B /* BaseLineChartView.swift */,
+				77E7B3FA26E7838F000EABC6 /* PriceMarker.swift */,
+				770B22AE26EB8D6400731C58 /* ADTVMarker.swift */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
+		77D6FC9026F371830074137C /* CardPart Views */ = {
+			isa = PBXGroup;
+			children = (
+				7748987D26E0C3E7000933A6 /* PriceChartCardPartView.swift */,
+				7748988426E0E235000933A6 /* ADTVChartCardPartView.swift */,
+				77E763F026E75FE5005AED84 /* TimeseriesCardPartView.swift */,
+			);
+			path = "CardPart Views";
 			sourceTree = "<group>";
 		};
 		77EF139726DF919400EDFC17 /* Models */ = {
