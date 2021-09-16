@@ -1,5 +1,5 @@
 //
-//  DetailViewReadMoreURLs.swift
+//  ReadMoreURLs.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 05/09/2021.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DetailViewReadMoreURLs {
+struct ReadMoreURLs {
     static func YAHOO_FINANCE_URL(symbol: String) -> URL? {
         guard let url = URL(string: "https://finance.yahoo.com/quote/\(symbol)") else {
             return nil

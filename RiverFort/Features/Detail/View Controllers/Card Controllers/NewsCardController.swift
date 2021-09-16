@@ -95,7 +95,7 @@ extension NewsCardController {
 extension NewsCardController: CardPartTableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        guard let url = URL(string: DetailViewNewsURLs.UK_INVESTEGATE_COMPANY_ANNOUNCEMENT_ADJUSTED_URL(link: newsItems[indexPath.row].link)) else { return }
+        guard let url = URL(string: NewsURLs.UK_INVESTEGATE_COMPANY_ANNOUNCEMENT_ADJUSTED_URL(link: newsItems[indexPath.row].link)) else { return }
         let vc = SFSafariViewController(url: url)
         present(vc, animated: true, completion: nil)
     }
@@ -117,7 +117,7 @@ extension NewsCardController {
         switch market {
         case "gb_market":
             readMoreButtonPart.setTitle("Read more on Investegate", for: .normal)
-            readMoreURL = URL(string: DetailViewNewsURLs.UK_INVESTEGATE_COMPANY_ANNOUNCEMENTS_URL(symbol: yahooFinanceQuote.symbol))
+            readMoreURL = URL(string: NewsURLs.UK_INVESTEGATE_COMPANY_ANNOUNCEMENTS_URL(symbol: yahooFinanceQuote.symbol))
             newsViewModel.fetchRSSFeedsUK(symbol: yahooFinanceQuote.symbol, timeseries: 15)
         default:
             newsTableView.tableView.isHidden = true
