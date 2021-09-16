@@ -71,6 +71,7 @@
 		77B11DA826F37FC40093FBE9 /* ADTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B11DA726F37FC40093FBE9 /* ADTV.swift */; };
 		77B11DAA26F380AF0093FBE9 /* HistoricalPriceQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B11DA926F380AF0093FBE9 /* HistoricalPriceQuote.swift */; };
 		77B11DAD26F382140093FBE9 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B11DAC26F382140093FBE9 /* Company.swift */; };
+		77B11DB026F389230093FBE9 /* CompanyDetailViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B11DAF26F389230093FBE9 /* CompanyDetailViewControllerExtensions.swift */; };
 		77C4BD85261CAF9100B8C748 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C4BD84261CAF9100B8C748 /* HapticsManager.swift */; };
 		77C82A3026E4E6E800768FDB /* ReadMoreURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C82A2F26E4E6E800768FDB /* ReadMoreURLs.swift */; };
 		77CAA2E626679043003A0246 /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CAA2E526679043003A0246 /* UserDefaultsExtensions.swift */; };
@@ -158,6 +159,7 @@
 		77B11DA726F37FC40093FBE9 /* ADTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTV.swift; sourceTree = "<group>"; };
 		77B11DA926F380AF0093FBE9 /* HistoricalPriceQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalPriceQuote.swift; sourceTree = "<group>"; };
 		77B11DAC26F382140093FBE9 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		77B11DAF26F389230093FBE9 /* CompanyDetailViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailViewControllerExtensions.swift; sourceTree = "<group>"; };
 		77C4BD84261CAF9100B8C748 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		77C82A2F26E4E6E800768FDB /* ReadMoreURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMoreURLs.swift; sourceTree = "<group>"; };
 		77CAA2E526679043003A0246 /* UserDefaultsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensions.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 			children = (
 				778B3AFB26E12CF8009CBE7E /* Templates */,
 				77D6FC8E26F370F10074137C /* Card Controllers */,
+				77B11DAE26F389010093FBE9 /* Extensions */,
 				7720570526DE6E8300063A9A /* CompanyDetailViewController.swift */,
 			);
 			path = "View Controllers";
@@ -552,6 +555,14 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		77B11DAE26F389010093FBE9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				77B11DAF26F389230093FBE9 /* CompanyDetailViewControllerExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		77BD838326F3295700CD3F60 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -776,6 +787,7 @@
 				776F658526BC36C600CAA5A6 /* SettingsViewController.swift in Sources */,
 				7720570626DE6E8300063A9A /* CompanyDetailViewController.swift in Sources */,
 				77FBC8C226C557E500C35E9C /* WatchlistSync.swift in Sources */,
+				77B11DB026F389230093FBE9 /* CompanyDetailViewControllerExtensions.swift in Sources */,
 				77384E9426F0E62600C23217 /* WatchlistCoreDataManager.swift in Sources */,
 				776A913526E3B5E50012D0D5 /* ProfileCardController.swift in Sources */,
 				770B22AF26EB8D6400731C58 /* ADTVMarker.swift in Sources */,
