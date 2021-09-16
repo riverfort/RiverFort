@@ -252,6 +252,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		77227A9E26F393F100C5867D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				7748988026E0CF9B000933A6 /* SearchAPIFunction.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		773131B726DCEC3F0068AAD8 /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -371,7 +379,7 @@
 		7748987F26E0CECD000933A6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				7748988026E0CF9B000933A6 /* SearchAPIFunction.swift */,
+				77227A9E26F393F100C5867D /* Networking */,
 			);
 			path = Models;
 			sourceTree = "<group>";
