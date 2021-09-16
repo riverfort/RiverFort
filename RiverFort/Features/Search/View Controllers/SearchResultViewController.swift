@@ -8,7 +8,7 @@
 import UIKit
 
 class SearchResultViewController: UITableViewController {
-    private lazy var companies: [YahooFinanceSearchCompany] = []
+    private lazy var companies: [NewCompany] = []
 }
 
 extension SearchResultViewController {
@@ -72,14 +72,14 @@ extension SearchResultViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         let selectedCompany = companies[indexPath.row]
         let detailVC = CompanyDetailViewController()
-        detailVC.company = Company(symbol: selectedCompany.symbol, name: selectedCompany.name, exch: selectedCompany.exch)
+        detailVC.company = Company(symbol: selectedCompany.symbol, name: selectedCompany.name, exch: selectedCompany.exchange)
         presentingViewController?.navigationController?.pushViewController(detailVC, animated: true)
         NotificationCenter.default.post(name: .selectCompanyFromSearchResult, object: selectedCompany)
     }
 }
 
 extension SearchResultViewController {
-    public func setCompanies(companies: [YahooFinanceSearchCompany]) {
+    public func setCompanies(companies: [NewCompany]) {
         self.companies = companies
     }
 }

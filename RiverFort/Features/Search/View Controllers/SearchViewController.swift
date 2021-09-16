@@ -69,7 +69,10 @@ extension SearchViewController {
         SearchAPIFunction.searchFromYahooFinance(for: searchText)
             .responseDecodable(of: YahooFinanceSearchResult.self) { [self] response in
                 guard let yahooFinanceSearchResult = response.value else { return }
-                searchResultTableVC.setCompanies(companies: yahooFinanceSearchResult.items)
+                let yahooFinanceSearchCompanies = yahooFinanceSearchResult.items
+                let companies = yahooFinanceSearchCompanies
+                    .map { NewCompany(symbol: $0.symbol, name: $0.name, exchange: $0.exchDisp, exchangeShortName: $0.exch, type: $0.typeDisp) }
+                searchResultTableVC.setCompanies(companies: companies)
                 searchResultTableVC.tableView.reloadData()
             }
     }
