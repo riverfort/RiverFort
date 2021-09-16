@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7707A46E26E9EBDC00329CB0 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7707A46D26E9EBDC00329CB0 /* Configuration.swift */; };
-		770B22AF26EB8D6400731C58 /* NewADTVMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B22AE26EB8D6400731C58 /* NewADTVMarker.swift */; };
+		770B22AF26EB8D6400731C58 /* ADTVMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B22AE26EB8D6400731C58 /* ADTVMarker.swift */; };
 		770E4C5926F245FD0010EE7B /* MyLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770E4C5826F245FD0010EE7B /* MyLineChartView.swift */; };
 		770E4C5B26F249080010EE7B /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770E4C5A26F249080010EE7B /* UIApplicationExtensions.swift */; };
 		771E328126D6525E002CC604 /* AcknowledgementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E328026D6525E002CC604 /* AcknowledgementsViewController.swift */; };
@@ -77,7 +77,7 @@
 		77E763EF26E75D76005AED84 /* TimeseriesCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E763EE26E75D76005AED84 /* TimeseriesCardController.swift */; };
 		77E763F126E75FE5005AED84 /* TimeseriesCardPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E763F026E75FE5005AED84 /* TimeseriesCardPartView.swift */; };
 		77E763F326E76488005AED84 /* TransparentCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E763F226E76488005AED84 /* TransparentCardController.swift */; };
-		77E7B3FB26E7838F000EABC6 /* HistPriceMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7B3FA26E7838F000EABC6 /* HistPriceMarker.swift */; };
+		77E7B3FB26E7838F000EABC6 /* PriceMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7B3FA26E7838F000EABC6 /* PriceMarker.swift */; };
 		77E7B3FD26E7AA56000EABC6 /* ChartDataEntryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7B3FC26E7AA56000EABC6 /* ChartDataEntryData.swift */; };
 		77F262E826F33C480000593C /* NotificationNameExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F262E726F33C480000593C /* NotificationNameExtensions.swift */; };
 		77F93361261A321F007662D5 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F93360261A321F007662D5 /* DateExtensions.swift */; };
@@ -91,7 +91,7 @@
 /* Begin PBXFileReference section */
 		69D13D5B19688F922B9BB9AD /* Pods-RiverFort.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RiverFort.release.xcconfig"; path = "Target Support Files/Pods-RiverFort/Pods-RiverFort.release.xcconfig"; sourceTree = "<group>"; };
 		7707A46D26E9EBDC00329CB0 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		770B22AE26EB8D6400731C58 /* NewADTVMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewADTVMarker.swift; sourceTree = "<group>"; };
+		770B22AE26EB8D6400731C58 /* ADTVMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTVMarker.swift; sourceTree = "<group>"; };
 		770E4C5826F245FD0010EE7B /* MyLineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLineChartView.swift; sourceTree = "<group>"; };
 		770E4C5A26F249080010EE7B /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
 		771E328026D6525E002CC604 /* AcknowledgementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementsViewController.swift; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 		77E763EE26E75D76005AED84 /* TimeseriesCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeseriesCardController.swift; sourceTree = "<group>"; };
 		77E763F026E75FE5005AED84 /* TimeseriesCardPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeseriesCardPartView.swift; sourceTree = "<group>"; };
 		77E763F226E76488005AED84 /* TransparentCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentCardController.swift; sourceTree = "<group>"; };
-		77E7B3FA26E7838F000EABC6 /* HistPriceMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistPriceMarker.swift; sourceTree = "<group>"; };
+		77E7B3FA26E7838F000EABC6 /* PriceMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceMarker.swift; sourceTree = "<group>"; };
 		77E7B3FC26E7AA56000EABC6 /* ChartDataEntryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataEntryData.swift; sourceTree = "<group>"; };
 		77F262E726F33C480000593C /* NotificationNameExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtensions.swift; sourceTree = "<group>"; };
 		77F85A0226C92B6D00EAE363 /* RiverFort.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RiverFort.entitlements; sourceTree = "<group>"; };
@@ -251,8 +251,8 @@
 				7748987D26E0C3E7000933A6 /* PriceChartCardPartView.swift */,
 				7748988426E0E235000933A6 /* ADTVChartCardPartView.swift */,
 				77E763F026E75FE5005AED84 /* TimeseriesCardPartView.swift */,
-				77E7B3FA26E7838F000EABC6 /* HistPriceMarker.swift */,
-				770B22AE26EB8D6400731C58 /* NewADTVMarker.swift */,
+				77E7B3FA26E7838F000EABC6 /* PriceMarker.swift */,
+				770B22AE26EB8D6400731C58 /* ADTVMarker.swift */,
 				770E4C5826F245FD0010EE7B /* MyLineChartView.swift */,
 			);
 			path = Views;
@@ -740,7 +740,7 @@
 				77FBC8C226C557E500C35E9C /* WatchlistSync.swift in Sources */,
 				77384E9426F0E62600C23217 /* WatchlistCoreDataManager.swift in Sources */,
 				776A913526E3B5E50012D0D5 /* ProfileCardController.swift in Sources */,
-				770B22AF26EB8D6400731C58 /* NewADTVMarker.swift in Sources */,
+				770B22AF26EB8D6400731C58 /* ADTVMarker.swift in Sources */,
 				779B886226BD2B4900FB06A1 /* SettingsSection.swift in Sources */,
 				7796865826E6102C002A9980 /* NewsCardController.swift in Sources */,
 				779B886426BD3DE200FB06A1 /* SettingsSwitchTableViewCell.swift in Sources */,
@@ -756,7 +756,7 @@
 				776D13C3261E087500B9CF97 /* HomeTabBarController.swift in Sources */,
 				7748988726E0E454000933A6 /* ADTVChartCardController.swift in Sources */,
 				773A86F0263C34A9008105A1 /* PrivacyPolicyViewController.swift in Sources */,
-				77E7B3FB26E7838F000EABC6 /* HistPriceMarker.swift in Sources */,
+				77E7B3FB26E7838F000EABC6 /* PriceMarker.swift in Sources */,
 				7785D7842630142600988C28 /* WatchedCompany+CoreDataClass.swift in Sources */,
 				772A747526DF93890088A604 /* HeaderCardController.swift in Sources */,
 				7765434426EF3C5700E91C25 /* FMP.swift in Sources */,

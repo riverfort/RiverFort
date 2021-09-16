@@ -12,7 +12,7 @@ class PriceChartCardPartView: UIView, CardPartView {
     internal var margins: UIEdgeInsets = UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0)
     private var histPriceDataEntries = [ChartDataEntry]()
     private var newsDataEntries = [ChartDataEntry]()
-    private let marker = HistPriceMarker()
+    private let marker = PriceMarker()
     private let chartView: MyLineChartView = {
         let chartView = MyLineChartView()
         chartView.animate(xAxisDuration: 0.5)

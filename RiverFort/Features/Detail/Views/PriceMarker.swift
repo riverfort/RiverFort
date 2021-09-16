@@ -1,25 +1,25 @@
 //
-//  NewADTVMarker.swift
+//  PriceMarker.swift
 //  RiverFort
 //
-//  Created by Qiuyang Nie on 10/09/2021.
+//  Created by Qiuyang Nie on 07/09/2021.
 //
 
 import Charts
 
-class NewADTVMarker: MarkerImage {
+class PriceMarker: MarkerImage {
     @objc var color: UIColor = .systemRed
     @objc var radius: CGFloat = 5
-    private var adtv = "-"
+    private var price = "-"
     private var date = "-"
-    private var adtvAttributes = [NSAttributedString.Key : Any]()
+    private var priceAttributes = [NSAttributedString.Key : Any]()
     private var dateAttributes = [NSAttributedString.Key : Any]()
 
     override func draw(context: CGContext, point: CGPoint) {
         configView()
-        drawADTV(text: "\(adtv)" as NSString,
+        drawPrice(text: "\(price)" as NSString,
                   rect: CGRect(origin: CGPoint(x: point.x, y: point.y), size: size),
-                  withAttributes: adtvAttributes)
+                  withAttributes: priceAttributes)
         drawDate(text: "\(date)" as NSString,
                  rect: CGRect(origin: CGPoint(x: point.x, y: point.y), size: size),
                  withAttributes: dateAttributes)
@@ -28,25 +28,25 @@ class NewADTVMarker: MarkerImage {
     
     override func refreshContent(entry: ChartDataEntry, highlight: Highlight) {
         super.refreshContent(entry: entry, highlight: highlight)
-        guard let adtvChartDataEntryData = entry.data as? String else {
+        guard let histPriceChartDataEntryData = entry.data as? HistPriceChartDataEntryData else {
             return
         }
-        adtv = NumberShortScale.formatNumber(entry.y)
-        date = DateFormatterUtils.convertDateFormater(adtvChartDataEntryData)
+        price = String(format: "%.2f", entry.y) + " " + "(\(histPriceChartDataEntryData.volume.withCommas()))"
+        date = DateFormatterUtils.convertDateFormater(histPriceChartDataEntryData.date)
     }
 }
 
-extension NewADTVMarker {
+extension PriceMarker {
     private func configView() {
-        adtvAttributes[.font] = UIFont.preferredFont(forTextStyle: .headline)
-        adtvAttributes[.foregroundColor] = UIColor.cerulean
+        priceAttributes[.font] = UIFont.preferredFont(forTextStyle: .headline)
+        priceAttributes[.foregroundColor] = UIColor.label
         dateAttributes[.font] = UIFont.preferredFont(forTextStyle: .subheadline)
         dateAttributes[.foregroundColor] = UIColor.secondaryLabel
     }
 }
 
-extension NewADTVMarker {
-    private func drawADTV(text: NSString, rect: CGRect, withAttributes attributes: [NSAttributedString.Key : Any]? = nil) {
+extension PriceMarker {
+    private func drawPrice(text: NSString, rect: CGRect, withAttributes attributes: [NSAttributedString.Key : Any]? = nil) {
         let size = text.size(withAttributes: attributes)
         let centeredRect = CGRect(x: 15, y: 0, width: size.width, height: size.height)
         text.draw(in: centeredRect, withAttributes: attributes)

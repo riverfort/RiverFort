@@ -11,7 +11,7 @@ import Charts
 class ADTVChartCardPartView: UIView, CardPartView {
     internal var margins: UIEdgeInsets = UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0)
     private var adtvDataEntries = [ChartDataEntry]()
-    private let marker = NewADTVMarker()
+    private let marker = ADTVMarker()
     private lazy var chartView: MyLineChartView = {
         let chartView = MyLineChartView()
         chartView.animate(xAxisDuration: 0.5)
