@@ -1,5 +1,5 @@
 //
-//  SearchResultTableViewController.swift
+//  SearchResultViewController.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 30/08/2021.
@@ -7,18 +7,18 @@
 
 import UIKit
 
-class SearchResultTableViewController: UITableViewController {
+class SearchResultViewController: UITableViewController {
     private lazy var companies: [YahooFinanceSearchedCompany] = []
 }
 
-extension SearchResultTableViewController {
+extension SearchResultViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
     }
 }
 
-extension SearchResultTableViewController {
+extension SearchResultViewController {
     private func configTableHeaderView(of view: UIView, with label: UILabel) {
         view.addSubview(label)
         label.text = "Symbols"
@@ -38,7 +38,7 @@ extension SearchResultTableViewController {
     }
 }
 
-extension SearchResultTableViewController {
+extension SearchResultViewController {
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if companies.count == 0 { return 0 }
         return 60
@@ -52,11 +52,11 @@ extension SearchResultTableViewController {
     }
 }
 
-extension SearchResultTableViewController {
+extension SearchResultViewController {
     override func numberOfSections(in tableView: UITableView) -> Int { return 1 }
 }
 
-extension SearchResultTableViewController {
+extension SearchResultViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { return companies.count }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -67,7 +67,7 @@ extension SearchResultTableViewController {
     }
 }
 
-extension SearchResultTableViewController {
+extension SearchResultViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let selectedCompany = companies[indexPath.row]
@@ -79,7 +79,7 @@ extension SearchResultTableViewController {
     }
 }
 
-extension SearchResultTableViewController {
+extension SearchResultViewController {
     public func setCompanies(companies: [YahooFinanceSearchedCompany]) {
         self.companies = companies
     }

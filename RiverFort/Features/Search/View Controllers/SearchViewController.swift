@@ -8,7 +8,7 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-    private lazy var searchResultTableVC = SearchResultTableViewController(style: .insetGrouped)
+    private lazy var searchResultTableVC = SearchResultViewController(style: .insetGrouped)
 }
 
 extension SearchViewController {
