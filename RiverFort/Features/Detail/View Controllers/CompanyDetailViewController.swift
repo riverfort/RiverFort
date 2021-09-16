@@ -8,14 +8,14 @@
 import CardParts
 import SPAlert
 
-struct NewCompany {
+struct Company {
     let symbol: String
     let name: String
     let exch: String
 }
 
 class CompanyDetailViewController: CardsViewController {
-    public var company: NewCompany?
+    public var company: Company?
     private lazy var add  = UIButton(type: .system)
     private lazy var more = UIButton(type: .system)
     private let cards = [HeaderCardController(),
