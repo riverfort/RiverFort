@@ -193,15 +193,17 @@
 			path = Configuration;
 			sourceTree = "<group>";
 		};
-		77104EEE26B4497B0058E2C2 /* Common */ = {
+		77104EEE26B4497B0058E2C2 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				77F93371261A3675007662D5 /* DateFormatterUtils.swift */,
+				7707A46C26E9EBB400329CB0 /* Configuration */,
 				776F657F26BBFF5200CAA5A6 /* PersistentStore */,
 				776F657826BBDB4C00CAA5A6 /* Orientation */,
 				7762C77026BAE1DF008DE1BA /* Utility */,
 				77104EEF26B4499D0058E2C2 /* Haptics */,
 			);
-			path = Common;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		77104EEF26B4499D0058E2C2 /* Haptics */ = {
@@ -362,22 +364,12 @@
 				773A0B9C26172370002B9875 /* Storyboards */,
 				7780B8B826CFB14500561789 /* Features */,
 				77F9335F261A2BA1007662D5 /* Extensions */,
-				77104EEE26B4497B0058E2C2 /* Common */,
-				773A0B9D2617237C002B9875 /* Models */,
-				773A0B9B26172364002B9875 /* Helpers */,
+				77104EEE26B4497B0058E2C2 /* Utilities */,
 				7780B8B726CFB03F00561789 /* Assets */,
 				77F85A0226C92B6D00EAE363 /* RiverFort.entitlements */,
 				773A0B702617123B002B9875 /* Info.plist */,
 			);
 			path = RiverFort;
-			sourceTree = "<group>";
-		};
-		773A0B9B26172364002B9875 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				77F93371261A3675007662D5 /* DateFormatterUtils.swift */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		773A0B9C26172370002B9875 /* Storyboards */ = {
@@ -386,14 +378,6 @@
 				773A0B6D2617123B002B9875 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
-			sourceTree = "<group>";
-		};
-		773A0B9D2617237C002B9875 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				7707A46C26E9EBB400329CB0 /* Configuration */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		7748987F26E0CECD000933A6 /* Models */ = {
