@@ -39,7 +39,6 @@ class NewADTVCardController: BaseCardController {
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        createObservesr()
     }
     
     required init?(coder: NSCoder) {
@@ -49,7 +48,9 @@ class NewADTVCardController: BaseCardController {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    
+}
+
+extension NewADTVCardController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configCardParts()
@@ -173,18 +174,5 @@ extension NewADTVCardController {
         configTitleView()
         configStackView()
         setupCardParts([cardPartSV])
-    }
-}
-
-extension NewADTVCardController {
-    private func createObservesr() {
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: .selectCompanyFromSearchResult, object: nil)
-    }
-    
-    @objc private func prepareView(notification: Notification) {
-        guard let company = notification.object as? YahooFinanceSearchedCompany else {
-            return
-        }
-//        print(company)
     }
 }
