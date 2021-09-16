@@ -8,8 +8,10 @@
 import UIKit
 
 class SearchResultTableViewController: UITableViewController {
-    private var companies: [YahooFinanceSearchedCompany] = []
+    private lazy var companies: [YahooFinanceSearchedCompany] = []
+}
 
+extension SearchResultTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
@@ -17,32 +19,46 @@ class SearchResultTableViewController: UITableViewController {
 }
 
 extension SearchResultTableViewController {
+    private func configTableHeaderView(of view: UIView, with label: UILabel) {
+        view.addSubview(label)
+        label.text = "Symbols"
+        label.font = .preferredFont(forTextStyle: .headline)
+        label.adjustsFontForContentSizeCategory = true
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: systemMinimumLayoutMargins.leading).isActive = true
+        label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        label.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor).isActive = true
+    }
+    
+    private func configTableView() {
+        tableView.register(SearchResultCell.self, forCellReuseIdentifier: "cell")
+        tableView.keyboardDismissMode = .onDrag
+        tableView.estimatedRowHeight = 85.0
+        tableView.rowHeight = UITableView.automaticDimension
+    }
+}
+
+extension SearchResultTableViewController {
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if companies.count == 0 {
-            return 0
-        }
+        if companies.count == 0 { return 0 }
         return 60
     }
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
         let symbolTitle = UILabel()
-        configHeaderView(of: headerView, with: symbolTitle)
+        configTableHeaderView(of: headerView, with: symbolTitle)
         return headerView
     }
 }
 
 extension SearchResultTableViewController {
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return companies.count
-    }
+    override func numberOfSections(in tableView: UITableView) -> Int { return 1 }
 }
 
 extension SearchResultTableViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { return companies.count }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SearchResultCell
         let company = companies[indexPath.row]
@@ -60,26 +76,6 @@ extension SearchResultTableViewController {
         presentingViewController?.navigationController?.pushViewController(detailVC, animated: true)
         let aName = Notification.Name(NewSearchConstant.SELECT_SEARCH_COMPANY)
         NotificationCenter.default.post(name: aName, object: selectedCompany)
-    }
-}
-
-extension SearchResultTableViewController {
-    private func configHeaderView(of view: UIView, with label: UILabel) {
-        view.addSubview(label)
-        label.text = "Symbols"
-        label.font = .preferredFont(forTextStyle: .headline)
-        label.adjustsFontForContentSizeCategory = true
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: systemMinimumLayoutMargins.leading).isActive = true
-        label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        label.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor).isActive = true
-    }
-    
-    private func configTableView() {
-        tableView.register(SearchResultCell.self, forCellReuseIdentifier: "cell")
-        tableView.keyboardDismissMode = .onDrag
-        tableView.estimatedRowHeight = 85.0
-        tableView.rowHeight = UITableView.automaticDimension
     }
 }
 
