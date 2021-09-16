@@ -41,7 +41,9 @@ class CompanyDetailViewController: CardsViewController {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    
+}
+
+extension CompanyDetailViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareView()
