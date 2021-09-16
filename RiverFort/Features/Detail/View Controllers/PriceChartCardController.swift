@@ -1,5 +1,5 @@
 //
-//  NewPriceChartViewController.swift
+//  PriceChartCardController.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 02/09/2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewPriceChartCardController: BaseCardController {
+class PriceChartCardController: BaseCardController {
     private let priceChartPart = NewPriceChartCardPartView()
     private let newsViewModel = NewsViewModel()
     
@@ -24,19 +24,20 @@ class NewPriceChartCardController: BaseCardController {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    
+}
+
+extension PriceChartCardController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCardParts([priceChartPart])
     }
 }
 
-extension NewPriceChartCardController {
+extension PriceChartCardController {
     private func createObservesr() {
         NotificationCenter.default.addObserver(self, selector: #selector(prepareChartTimeseries), name: .timeseriesUpdated, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareChartDateForNews), name: .receiveYahooFinanceQuoteResult, object: nil)
-        let histPriceName = Notification.Name(NewDetailViewConstant.HIST_PRICE)
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareChartDataForHistPrice), name: histPriceName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareChartDataForHistPrice), name: .receiveYahooFinanceHistoricalPrice, object: nil)
         let priceChartDisplayModeChangedName = Notification.Name(NewDetailViewConstant.PRICE_CHART_DISPLAY_MODE_CHANGED)
         NotificationCenter.default.addObserver(self, selector: #selector(preparePriceChartDisplayModeChanged), name: priceChartDisplayModeChangedName, object: nil)
     }
@@ -46,12 +47,8 @@ extension NewPriceChartCardController {
     }
     
     @objc private func prepareChartDateForNews(notification: Notification) {
-        guard UserDefaults.standard.bool(forKey: "com.riverfort.DetailView.news") == true else {
-            return
-        }
-        guard let yahooFinanceQuoteResult = notification.object as? YahooFinanceQuoteResult else {
-            return
-        }
+        guard UserDefaults.standard.bool(forKey: "com.riverfort.DetailView.news") == true else { return }
+        guard let yahooFinanceQuoteResult = notification.object as? YahooFinanceQuoteResult else { return }
         let yahooFinanceQuote = yahooFinanceQuoteResult.optionChain.result[0].quote
         let market = yahooFinanceQuote.market
         switch market {
@@ -63,9 +60,7 @@ extension NewPriceChartCardController {
     }
     
     @objc private func prepareChartDataForHistPrice(notification: Notification) {
-        guard let histPrice = notification.object as? [HistPrice] else {
-            return
-        }
+        guard let histPrice = notification.object as? [HistPrice] else { return }
         priceChartPart.setChartData(with: histPrice)
     }
     
@@ -74,11 +69,9 @@ extension NewPriceChartCardController {
     }
 }
 
-extension NewPriceChartCardController {
+extension PriceChartCardController {
     private func subscribeNewsViewModel() {
-        guard UserDefaults.standard.bool(forKey: "com.riverfort.DetailView.news") == true else {
-            return
-        }
+        guard UserDefaults.standard.bool(forKey: "com.riverfort.DetailView.news") == true else { return }
         newsViewModel.rssItemsForNews.asObservable().subscribe(
             onNext: { [self] in
                 priceChartPart.setChartDataForNews(with: $0)

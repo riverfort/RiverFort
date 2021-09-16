@@ -21,7 +21,7 @@ class NewCompanyDetailViewController: CardsViewController {
     private let more = UIButton(type: .system)
     private let cards = [HeaderCardController(),
                          TimeseriesCardController(),
-                         NewPriceChartCardController(),
+                         PriceChartCardController(),
                          ProfileCardController(),
                          StatisticsCardController(),
                          OHLCCardController(),
@@ -163,8 +163,7 @@ extension NewCompanyDetailViewController {
                     .map { (i, date) in HistPrice(date: date, high: highs[i], low: lows[i], close: closes[i], volume: volumes[i]) }
                     .filter { $0.high != nil && $0.low != nil && $0.close != nil && $0.volume != nil }
                 let adtvs = getADTVs(exch: exch, histPrice: histPrice)
-                let histPriceName = Notification.Name(NewDetailViewConstant.HIST_PRICE)
-                NotificationCenter.default.post(name: histPriceName, object: histPrice)
+                NotificationCenter.default.post(name: .receiveYahooFinanceHistoricalPrice, object: histPrice)
                 NotificationCenter.default.post(name: .getHistoricalADTV, object: adtvs)
             }
     }
