@@ -85,14 +85,12 @@ extension ADTVChartCardPartView {
 
 extension ADTVChartCardPartView: ChartViewDelegate, BaseChartViewDelegate {
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-        let chartValueSelectedName = Notification.Name(NewDetailViewConstant.CHART_VALUE_SELECTED)
-        NotificationCenter.default.post(name: chartValueSelectedName, object: nil)
+        NotificationCenter.default.post(name: .chartValueSelected, object: nil)
     }
     
     func chartValueNoLongerSelected(_ chartView: BaseLineChartView) {
         chartView.highlightValue(nil)
-        let chartValueNoLongerSelectedName = Notification.Name(NewDetailViewConstant.CHART_VALUE_NO_LONGER_SELECTED)
-        NotificationCenter.default.post(name: chartValueNoLongerSelectedName, object: nil)
+        NotificationCenter.default.post(name: .chartValueNoLongerSelected, object: nil)
     }
 }
 

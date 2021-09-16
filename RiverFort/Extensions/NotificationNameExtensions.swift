@@ -16,4 +16,7 @@ extension Notification.Name {
     
     static let timeseriesUpdated = Notification.Name("timeseries_updated")
     static let priceChartDisplayModeUpdated = Notification.Name("price_chart_display_mode_updated")
+    
+    static let chartValueSelected = Notification.Name("chart_value_selected")
+    static let chartValueNoLongerSelected = Notification.Name("chart_value_no_longer_selected")
 }
