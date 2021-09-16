@@ -50,9 +50,9 @@
 		7785D7842630142600988C28 /* WatchedCompany+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785D7822630142600988C28 /* WatchedCompany+CoreDataClass.swift */; };
 		7785D7852630142600988C28 /* WatchedCompany+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785D7832630142600988C28 /* WatchedCompany+CoreDataProperties.swift */; };
 		77876E98264D69B300798106 /* RSSFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77876E97264D69B300798106 /* RSSFeedParser.swift */; };
-		77887D1426E12C210016192D /* NewAADTVCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77887D1326E12C210016192D /* NewAADTVCardController.swift */; };
+		77887D1426E12C210016192D /* AADTVCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77887D1326E12C210016192D /* AADTVCardController.swift */; };
 		778FD76826F33110002CA424 /* UIImageConfigurationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778FD76726F33110002CA424 /* UIImageConfigurationExtensions.swift */; };
-		7791881226E0E7FE005B7D38 /* NewADTVCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791881126E0E7FE005B7D38 /* NewADTVCardController.swift */; };
+		7791881226E0E7FE005B7D38 /* ADTVCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791881126E0E7FE005B7D38 /* ADTVCardController.swift */; };
 		7796865626E5F963002A9980 /* StatisticsCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7796865526E5F963002A9980 /* StatisticsCardController.swift */; };
 		7796865826E6102C002A9980 /* NewsCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7796865726E6102C002A9980 /* NewsCardController.swift */; };
 		779A46F426D4EE740072CE0B /* UIDevice+modelName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A46F326D4EE740072CE0B /* UIDevice+modelName.swift */; };
@@ -135,9 +135,9 @@
 		7785D7822630142600988C28 /* WatchedCompany+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WatchedCompany+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7785D7832630142600988C28 /* WatchedCompany+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WatchedCompany+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		77876E97264D69B300798106 /* RSSFeedParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeedParser.swift; sourceTree = "<group>"; };
-		77887D1326E12C210016192D /* NewAADTVCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAADTVCardController.swift; sourceTree = "<group>"; };
+		77887D1326E12C210016192D /* AADTVCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AADTVCardController.swift; sourceTree = "<group>"; };
 		778FD76726F33110002CA424 /* UIImageConfigurationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageConfigurationExtensions.swift; sourceTree = "<group>"; };
-		7791881126E0E7FE005B7D38 /* NewADTVCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewADTVCardController.swift; sourceTree = "<group>"; };
+		7791881126E0E7FE005B7D38 /* ADTVCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTVCardController.swift; sourceTree = "<group>"; };
 		7796865526E5F963002A9980 /* StatisticsCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCardController.swift; sourceTree = "<group>"; };
 		7796865726E6102C002A9980 /* NewsCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCardController.swift; sourceTree = "<group>"; };
 		779A46F326D4EE740072CE0B /* UIDevice+modelName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+modelName.swift"; sourceTree = "<group>"; };
@@ -237,8 +237,8 @@
 				7748988626E0E454000933A6 /* NewADTVChartCardController.swift */,
 				776A913426E3B5E50012D0D5 /* NewProfileCardController.swift */,
 				7796865526E5F963002A9980 /* StatisticsCardController.swift */,
-				7791881126E0E7FE005B7D38 /* NewADTVCardController.swift */,
-				77887D1326E12C210016192D /* NewAADTVCardController.swift */,
+				7791881126E0E7FE005B7D38 /* ADTVCardController.swift */,
+				77887D1326E12C210016192D /* AADTVCardController.swift */,
 				77FF535A26E12826001FAACA /* OHLCCardController.swift */,
 				7796865726E6102C002A9980 /* NewsCardController.swift */,
 			);
@@ -775,8 +775,8 @@
 				779A46FE26D50C780072CE0B /* SettingsNotificationConstant.swift in Sources */,
 				77CAA2E626679043003A0246 /* UserDefaultsExtensions.swift in Sources */,
 				7748988526E0E235000933A6 /* NewADTVChartCardPartView.swift in Sources */,
-				77887D1426E12C210016192D /* NewAADTVCardController.swift in Sources */,
-				7791881226E0E7FE005B7D38 /* NewADTVCardController.swift in Sources */,
+				77887D1426E12C210016192D /* AADTVCardController.swift in Sources */,
+				7791881226E0E7FE005B7D38 /* ADTVCardController.swift in Sources */,
 				77E763F126E75FE5005AED84 /* TimeseriesCardPartView.swift in Sources */,
 				779A470026D515020072CE0B /* SettingsSectionTitleConstant.swift in Sources */,
 				77E763EF26E75D76005AED84 /* TimeseriesCardController.swift in Sources */,

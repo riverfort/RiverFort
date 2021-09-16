@@ -1,14 +1,13 @@
 //
-//  NewADTVCardController.swift
+//  ADTVCardController.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 02/09/2021.
 //
 
-import UIKit
 import CardParts
 
-class NewADTVCardController: BaseCardController {
+class ADTVCardController: BaseCardController {
     private let titlePart = CardPartTitleView(type: .titleOnly)
 
     private let adtv1LabelPart = CardPartTitleView(type: .titleOnly)
@@ -50,14 +49,14 @@ class NewADTVCardController: BaseCardController {
     }
 }
 
-extension NewADTVCardController {
+extension ADTVCardController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configCardParts()
     }
 }
 
-extension NewADTVCardController {
+extension ADTVCardController {
     private func configTitleView() {
         titlePart.title = "ADTV"
         titlePart.label.numberOfLines = 0
