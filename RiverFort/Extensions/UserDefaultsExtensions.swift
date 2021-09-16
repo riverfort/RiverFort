@@ -8,7 +8,6 @@
 import Foundation
 
 extension UserDefaults {
-    
     func setDarkModeEnabled(value: Bool) {
         setValue(value, forKey: UserDefaultsKeys.isDarkMode.rawValue)
     }
