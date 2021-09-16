@@ -121,7 +121,7 @@ extension NewWatchlistViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let selectedCompany = watchedCompanies[indexPath.row]
-        let detailVC = NewCompanyDetailViewController()
+        let detailVC = CompanyDetailViewController()
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }

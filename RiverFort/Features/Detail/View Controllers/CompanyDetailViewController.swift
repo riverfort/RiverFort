@@ -1,11 +1,10 @@
 //
-//  NewCompanyDetailViewController.swift
+//  CompanyDetailViewController.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 31/08/2021.
 //
 
-import UIKit
 import CardParts
 import SPAlert
 
@@ -15,7 +14,7 @@ struct NewCompany {
     let exch: String
 }
 
-class NewCompanyDetailViewController: CardsViewController {
+class CompanyDetailViewController: CardsViewController {
     public var company: NewCompany?
     private let add  = UIButton(type: .system)
     private let more = UIButton(type: .system)
@@ -50,7 +49,7 @@ class NewCompanyDetailViewController: CardsViewController {
     }
 }
 
-extension NewCompanyDetailViewController {
+extension CompanyDetailViewController {
     private func prepareView() {
         guard let company = company else { return }
         navigationItem.title = company.symbol
@@ -118,7 +117,7 @@ extension NewCompanyDetailViewController {
     }
 }
 
-extension NewCompanyDetailViewController {
+extension CompanyDetailViewController {
     private func createObservesr() {
         let chartValueSelectedName = Notification.Name(NewDetailViewConstant.CHART_VALUE_SELECTED)
         NotificationCenter.default.addObserver(self, selector: #selector(chartValueSelected), name: chartValueSelectedName, object: nil)
@@ -135,7 +134,7 @@ extension NewCompanyDetailViewController {
     }
 }
 
-extension NewCompanyDetailViewController {
+extension CompanyDetailViewController {
     private func getQuoteFromYahooFinance(symbol: String) {
         DetailViewAPIFunction.fetchQuoteFromYahooFinance(symbol: symbol)
             .responseDecodable(of: YahooFinanceQuoteResult.self) { (response) in
@@ -195,7 +194,7 @@ struct NewADTV {
     let adtv: Double
 }
 
-extension NewCompanyDetailViewController {
+extension CompanyDetailViewController {
     @objc private func didTapAddToWatchlist() {
         guard let company = company else { return }
         guard !WatchlistCoreDataManager.isWatchedCompany(company_ticker: company.symbol) else { return }

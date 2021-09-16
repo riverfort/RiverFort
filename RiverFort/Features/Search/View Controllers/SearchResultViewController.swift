@@ -71,7 +71,7 @@ extension SearchResultViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let selectedCompany = companies[indexPath.row]
-        let detailVC = NewCompanyDetailViewController()
+        let detailVC = CompanyDetailViewController()
         detailVC.company = NewCompany(symbol: selectedCompany.symbol, name: selectedCompany.name, exch: selectedCompany.exch)
         presentingViewController?.navigationController?.pushViewController(detailVC, animated: true)
         NotificationCenter.default.post(name: .selectCompanyFromSearchResult, object: selectedCompany)
