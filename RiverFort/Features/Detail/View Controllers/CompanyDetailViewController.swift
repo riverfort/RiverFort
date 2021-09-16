@@ -176,22 +176,22 @@ extension CompanyDetailViewController {
             }
     }
     
-    private func getADTVs(exch: String, histPrice: [HistPrice]) -> [NewADTV] {
-        let adtvs = histPrice.map { dailyPrice -> NewADTV in
+    private func getADTVs(exch: String, histPrice: [HistPrice]) -> [ADTV] {
+        let adtvs = histPrice.map { dailyPrice -> ADTV in
             let vwap = (dailyPrice.high! + dailyPrice.low! + dailyPrice.close!) / 3
             let adtv = vwap * Double(dailyPrice.volume!)
-            return NewADTV(date: dailyPrice.date, adtv: adtv)
+            return ADTV(date: dailyPrice.date, adtv: adtv)
         }
         switch exch {
         case "LSE":
-            return adtvs.map { NewADTV(date: $0.date, adtv: $0.adtv/100) }
+            return adtvs.map { ADTV(date: $0.date, adtv: $0.adtv/100) }
         default:
             return adtvs
         }
     }
 }
 
-struct NewADTV {
+struct ADTV {
     let date: String
     let adtv: Double
 }

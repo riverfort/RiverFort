@@ -42,7 +42,7 @@ extension ADTVChartCardController {
     }
     
     @objc private func prepareView(notification: Notification) {
-        guard let adtvs = notification.object as? [NewADTV] else { return }
+        guard let adtvs = notification.object as? [ADTV] else { return }
         adtvChartPart.setChartDataForADTV(with: adtvs)
     }
 }
