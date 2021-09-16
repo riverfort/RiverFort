@@ -9,18 +9,18 @@ import CardParts
 import SafariServices
 
 class ProfileCardController: BaseCardController {
-    private let titlePart = CardPartTitleView(type: .titleOnly)
+    private lazy var titlePart = CardPartTitleView(type: .titleOnly)
     
-    private let industryLabelPart = CardPartTitleView(type: .titleOnly)
-    private let industryDataPart = CardPartTitleView(type: .titleOnly)
+    private lazy var industryLabelPart = CardPartTitleView(type: .titleOnly)
+    private lazy var industryDataPart = CardPartTitleView(type: .titleOnly)
 
-    private let sectorLabelPart = CardPartTitleView(type: .titleOnly)
-    private let sectorDataPart = CardPartTitleView(type: .titleOnly)
+    private lazy var sectorLabelPart = CardPartTitleView(type: .titleOnly)
+    private lazy var sectorDataPart = CardPartTitleView(type: .titleOnly)
     
-    private let readMoreButtonPart = CardPartButtonView()
-    private var readMoreURL = URL(string: "")
+    private lazy var readMoreButtonPart = CardPartButtonView()
+    private lazy var readMoreURL = URL(string: "")
     
-    private let cardPartSV = CardPartStackView()
+    private lazy var cardPartSV = CardPartStackView()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
