@@ -189,11 +189,6 @@ extension CompanyDetailViewController {
     }
 }
 
-struct ADTV {
-    let date: String
-    let adtv: Double
-}
-
 extension CompanyDetailViewController {
     @objc private func didTapAddToWatchlist() {
         guard let company = company else { return }
