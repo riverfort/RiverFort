@@ -5,7 +5,6 @@
 //  Created by Qiuyang Nie on 07/09/2021.
 //
 
-import UIKit
 import CardParts
 
 class TransparentTemplateCardController: CardPartsViewController {
