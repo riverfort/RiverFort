@@ -52,17 +52,7 @@ extension CompanyDetailViewController {
                 NotificationCenter.default.post(name: .getHistoricalADTV, object: historicalADTVs)
             }
     }
-    
-    public func getProfileFromFMP(symbol: String) {
-        DetailViewAPIFunction.fetchProfileFMP(symbol: symbol)
-            .responseDecodable(of: [FMPProfile].self) { response in
-                guard let fmpProfileValue = response.value else { return }
-                guard let fmpProfile = fmpProfileValue.first else { return }
-                let profile = Profile(industry: fmpProfile.industry, sector: fmpProfile.sector)
-                NotificationCenter.default.post(name: .receiveProfile, object: profile)
-            }
-    }
-    
+        
     public func getHistoricalADTVs(exch: String, historicalPriceQuotes: [HistoricalPriceQuote]) -> [ADTV] {
         let historicalADTVs = historicalPriceQuotes.map { dailyPrice -> ADTV in
             let vwap = (dailyPrice.high! + dailyPrice.low! + dailyPrice.close!) / 3
@@ -75,5 +65,17 @@ extension CompanyDetailViewController {
         default:
             return historicalADTVs
         }
+    }
+}
+
+extension CompanyDetailViewController {
+    public func getProfileFromFMP(symbol: String) {
+        DetailViewAPIFunction.fetchProfileFMP(symbol: symbol)
+            .responseDecodable(of: [FMPProfile].self) { response in
+                guard let fmpProfileValue = response.value else { return }
+                guard let fmpProfile = fmpProfileValue.first else { return }
+                let profile = Profile(industry: fmpProfile.industry, sector: fmpProfile.sector)
+                NotificationCenter.default.post(name: .receiveProfile, object: profile)
+            }
     }
 }
