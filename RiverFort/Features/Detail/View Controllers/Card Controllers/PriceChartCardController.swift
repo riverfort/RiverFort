@@ -70,10 +70,10 @@ extension PriceChartCardController {
 extension PriceChartCardController {
     private func subscribeNewsViewModel() {
         guard UserDefaults.standard.bool(forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn) == true else { return }
-        newsViewModel.rssItemsForNews.asObservable().subscribe(
-            onNext: { [self] in
-                priceChartPart.setChartDataForNews(with: $0)
-            }
-        ).disposed(by: bag)
+//        newsViewModel.rssItemsForNews.asObservable().subscribe(
+//            onNext: { [self] in
+//                priceChartPart.setChartDataForNews(with: $0)
+//            }
+//        ).disposed(by: bag)
     }
 }

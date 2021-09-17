@@ -89,7 +89,7 @@ extension PriceChartCardPartView: IAxisValueFormatter {
                 histPriceDataEntries[Int(value) % histPriceDataEntries.count].data as? HistoricalPriceChartDataEntryData else {
             return ""
         }
-        return DateFormatterUtils.convertDateFormate_DM(histPriceChartDataEntryData.date)
+        return "\(histPriceChartDataEntryData.date)"
     }
 }
 
@@ -145,26 +145,26 @@ extension PriceChartCardPartView {
         chartView.data = LineChartData(dataSet: lineChartDataSet)
     }
 
-    public func setChartDataForNews(with rssItems: [RSSItem]) {
-        rssItems.forEach { rssItem in
-            let newsDate = DateFormatterUtils.convertDateFormate_DMY_YMD(rssItem.pubDate)
-            histPriceDataEntries.forEach { histPrice in
-                guard let histPriceChartDataEntryData = histPrice.data as? HistoricalPriceChartDataEntryData else {
-                    return
-                }
-                if histPriceChartDataEntryData.date == newsDate {
-                    let newsDataEntry = ChartDataEntry(
-                        x: histPrice.x,
-                        y: histPrice.y,
-                        data: NewsChartDataEntryData(date: newsDate, title: rssItem.title))
-                    newsDataEntries.append(newsDataEntry)
-                    let lineChartDataSet = LineChartDataSet(entries: [newsDataEntry], label: "News")
-                    configLineChartDataSetForNews(with: lineChartDataSet)
-                    chartView.data?.addDataSet(lineChartDataSet)
-                }
-            }
-        }
-    }
+//    public func setChartDataForNews(with rssItems: [RSSItem]) {
+//        rssItems.forEach { rssItem in
+//            let newsDate = DateFormatterUtils.convertDateFormate_DMY_YMD(rssItem.pubDate)
+//            histPriceDataEntries.forEach { histPrice in
+//                guard let histPriceChartDataEntryData = histPrice.data as? HistoricalPriceChartDataEntryData else {
+//                    return
+//                }
+//                if histPriceChartDataEntryData.date == newsDate {
+//                    let newsDataEntry = ChartDataEntry(
+//                        x: histPrice.x,
+//                        y: histPrice.y,
+//                        data: NewsChartDataEntryData(date: newsDate, title: rssItem.title))
+//                    newsDataEntries.append(newsDataEntry)
+//                    let lineChartDataSet = LineChartDataSet(entries: [newsDataEntry], label: "News")
+//                    configLineChartDataSetForNews(with: lineChartDataSet)
+//                    chartView.data?.addDataSet(lineChartDataSet)
+//                }
+//            }
+//        }
+//    }
     
     public func changeTimeseries(for selectedSegmentIndex: Int) {
         configChartViewTimeseriesAnimation()

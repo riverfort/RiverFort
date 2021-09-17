@@ -36,9 +36,7 @@ extension CompanyDetailViewController {
             .responseDecodable(of: YahooFinanceHistoricalPriceResult.self) { [self] response in
                 guard let yahooFinanceHistoricalPriceResult = response.value?.chart.result.first else { return }
                 guard let yahooFinanceHistoricalPriceQuote = yahooFinanceHistoricalPriceResult.indicators.quote.first else { return }
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd"
-                let dates = yahooFinanceHistoricalPriceResult.timestamp.map { date -> String in dateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(date))) }
+                let dates = yahooFinanceHistoricalPriceResult.timestamp.map { Date(timeIntervalSince1970: TimeInterval($0)) }
                 let highs = yahooFinanceHistoricalPriceQuote.high
                 let lows = yahooFinanceHistoricalPriceQuote.low
                 let closes = yahooFinanceHistoricalPriceQuote.close

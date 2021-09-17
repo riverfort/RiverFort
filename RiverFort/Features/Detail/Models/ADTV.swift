@@ -8,6 +8,6 @@
 import Foundation
 
 struct ADTV {
-    let date: String
+    let date: Date
     let adtv: Double
 }

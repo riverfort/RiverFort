@@ -28,11 +28,9 @@ class ADTVMarker: MarkerImage {
     
     override func refreshContent(entry: ChartDataEntry, highlight: Highlight) {
         super.refreshContent(entry: entry, highlight: highlight)
-        guard let adtvChartDataEntryData = entry.data as? String else {
-            return
-        }
+        guard let adtvChartDataEntryData = entry.data as? Date else { return }
         adtv = NumberShortScale.formatNumber(entry.y)
-        date = DateFormatterUtils.convertDateFormater(adtvChartDataEntryData)
+        date = "\(adtvChartDataEntryData)"
     }
 }
 
