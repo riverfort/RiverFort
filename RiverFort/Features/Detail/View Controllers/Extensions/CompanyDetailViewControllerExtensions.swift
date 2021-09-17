@@ -45,9 +45,13 @@ extension CompanyDetailViewController {
                     .enumerated()
                     .map { (i, date) in HistoricalPriceQuote(date: date, high: highs[i], low: lows[i], close: closes[i], volume: volumes[i]) }
                     .filter { $0.high != nil && $0.low != nil && $0.close != nil && $0.volume != nil }
-                let historicalADTVs = getHistoricalADTVs(exchange: exchange, historicalPriceQuotes: historicalPriceQuotes)
-                NotificationCenter.default.post(name: .receiveYahooFinanceHistoricalPrice, object: historicalPriceQuotes)
+                let historicalADTVs   = getHistoricalADTVs(exchange: exchange, historicalPriceQuotes: historicalPriceQuotes)
+                let historicalADTV20s = getHistoricalADTVns(adtvs: historicalADTVs, n: 20)
+                let historicalADTV60s = getHistoricalADTVns(adtvs: historicalADTVs, n: 60)
+                NotificationCenter.default.post(name: .receiveHistoricalPrice, object: historicalPriceQuotes)
                 NotificationCenter.default.post(name: .getHistoricalADTV, object: historicalADTVs)
+                NotificationCenter.default.post(name: .getHistoricalADTV20, object: historicalADTV20s)
+                NotificationCenter.default.post(name: .getHistoricalADTV60, object: historicalADTV60s)
             }
     }
         
@@ -64,6 +68,21 @@ extension CompanyDetailViewController {
             return historicalADTVs
         }
     }
+        
+    private func getHistoricalADTVns(adtvs: [ADTV], n: Int) -> [ADTV] {
+        let dates = adtvs.map { $0.date }.dropFirst(n-1)
+        let adtvs = adtvs.map { $0.adtv }
+        let adtvns = getADTVns(adtvs: adtvs, n: n)
+        return dates.enumerated().map { (i, date) in ADTV(date: date, adtv: adtvns[i]) }
+    }
+    
+    private func getADTVns(adtvs: [Double], n: Int) -> [Double] {
+        return adtvs.enumerated().flatMap { (i, adtv) -> [Double] in
+            if i < n-1 { return [] }
+            else { return [Array(adtvs[i-(n-1)...i]).reduce(0, +)/Double(n)] }
+        }
+    }
+    
 }
 
 extension CompanyDetailViewController {
