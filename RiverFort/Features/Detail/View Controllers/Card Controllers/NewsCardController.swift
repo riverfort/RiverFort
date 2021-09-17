@@ -66,6 +66,7 @@ extension NewsCardController {
     private func configCardParts() {
         configTitleView()
         configTableView()
+        configTableViewModel()
         configButton()
         setupCardParts([titlePart, newsTableView, readMoreButtonPart])
     }
@@ -94,7 +95,6 @@ extension NewsCardController {
         let market = quote.market
         switch market {
         case "gb_market":
-            configTableViewModel()
             readMoreButtonPart.setTitle("Read more on Investegate", for: .normal)
             readMoreURL = URL(string: NewsURLs.UK_INVESTEGATE_COMPANY_ANNOUNCEMENTS_URL(symbol: quote.symbol))
             newsViewModel.fetchRSSFeedsUK(symbol: quote.symbol, timeseries: 15)
