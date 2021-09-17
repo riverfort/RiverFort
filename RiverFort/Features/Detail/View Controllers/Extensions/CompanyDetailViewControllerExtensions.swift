@@ -31,7 +31,7 @@ extension CompanyDetailViewController {
             }
     }
     
-    public func getHistoricalPriceFromYahooFinance(symbol: String, exch: String) {
+    public func getHistoricalPriceFromYahooFinance(symbol: String, exchange: String) {
         DetailViewAPIFunction.fetchHistoricalPriceFromYahooFinance(symbol: symbol)
             .responseDecodable(of: YahooFinanceHistoricalPriceResult.self) { [self] response in
                 guard let yahooFinanceHistoricalPriceResult = response.value?.chart.result.first else { return }
@@ -45,19 +45,19 @@ extension CompanyDetailViewController {
                     .enumerated()
                     .map { (i, date) in HistoricalPriceQuote(date: date, high: highs[i], low: lows[i], close: closes[i], volume: volumes[i]) }
                     .filter { $0.high != nil && $0.low != nil && $0.close != nil && $0.volume != nil }
-                let historicalADTVs = getHistoricalADTVs(exch: exch, historicalPriceQuotes: historicalPriceQuotes)
+                let historicalADTVs = getHistoricalADTVs(exchange: exchange, historicalPriceQuotes: historicalPriceQuotes)
                 NotificationCenter.default.post(name: .receiveYahooFinanceHistoricalPrice, object: historicalPriceQuotes)
                 NotificationCenter.default.post(name: .getHistoricalADTV, object: historicalADTVs)
             }
     }
         
-    public func getHistoricalADTVs(exch: String, historicalPriceQuotes: [HistoricalPriceQuote]) -> [ADTV] {
+    public func getHistoricalADTVs(exchange: String, historicalPriceQuotes: [HistoricalPriceQuote]) -> [ADTV] {
         let historicalADTVs = historicalPriceQuotes.map { dailyPrice -> ADTV in
             let vwap = (dailyPrice.high! + dailyPrice.low! + dailyPrice.close!) / 3
             let adtv = vwap * Double(dailyPrice.volume!)
             return ADTV(date: dailyPrice.date, adtv: adtv)
         }
-        switch exch {
+        switch exchange {
         case "LSE":
             return historicalADTVs.map { ADTV(date: $0.date, adtv: $0.adtv/100) }
         default:

@@ -133,7 +133,7 @@ extension CompanyDetailViewController {
     }
 
     private func getHistoricalPrice(symbol: String, exch: String) {
-        getHistoricalPriceFromYahooFinance(symbol: symbol, exch: exch)
+        getHistoricalPriceFromYahooFinance(symbol: symbol, exchange: exch)
     }
 }
 
