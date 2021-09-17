@@ -86,7 +86,6 @@
 		77E7B3FD26E7AA56000EABC6 /* ChartDataEntryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7B3FC26E7AA56000EABC6 /* ChartDataEntryData.swift */; };
 		77F262E826F33C480000593C /* NotificationNameExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F262E726F33C480000593C /* NotificationNameExtensions.swift */; };
 		77F93365261A3251007662D5 /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F93364261A3251007662D5 /* DoubleExtensions.swift */; };
-		77F93372261A3675007662D5 /* DateFormatterUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F93371261A3675007662D5 /* DateFormatterUtils.swift */; };
 		77FBC8C226C557E500C35E9C /* WatchlistSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FBC8C126C557E500C35E9C /* WatchlistSync.swift */; };
 		77FF535B26E12826001FAACA /* OHLCCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FF535A26E12826001FAACA /* OHLCCardController.swift */; };
 		FB8907E2A79EF7F14ACDADD8 /* Pods_RiverFort.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4FDABEC850381C29B4A9FCA /* Pods_RiverFort.framework */; };
@@ -176,7 +175,6 @@
 		77F262E726F33C480000593C /* NotificationNameExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtensions.swift; sourceTree = "<group>"; };
 		77F85A0226C92B6D00EAE363 /* RiverFort.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RiverFort.entitlements; sourceTree = "<group>"; };
 		77F93364261A3251007662D5 /* DoubleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
-		77F93371261A3675007662D5 /* DateFormatterUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterUtils.swift; sourceTree = "<group>"; };
 		77FBC8C126C557E500C35E9C /* WatchlistSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistSync.swift; sourceTree = "<group>"; };
 		77FF535A26E12826001FAACA /* OHLCCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OHLCCardController.swift; sourceTree = "<group>"; };
 		BA0BAB84004CD658A66B157B /* Pods-RiverFort.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RiverFort.debug.xcconfig"; path = "Target Support Files/Pods-RiverFort/Pods-RiverFort.debug.xcconfig"; sourceTree = "<group>"; };
@@ -206,7 +204,6 @@
 		77104EEE26B4497B0058E2C2 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				77F93371261A3675007662D5 /* DateFormatterUtils.swift */,
 				776F657F26BBFF5200CAA5A6 /* PersistentStore */,
 				7707A46C26E9EBB400329CB0 /* Configuration */,
 				776F657826BBDB4C00CAA5A6 /* Orientation */,
@@ -852,7 +849,6 @@
 				776F657E26BBF15900CAA5A6 /* EditWatchlistTableView.swift in Sources */,
 				779A46F826D4F6210072CE0B /* NotificationHelper.swift in Sources */,
 				77C82A3026E4E6E800768FDB /* ReadMoreURLs.swift in Sources */,
-				77F93372261A3675007662D5 /* DateFormatterUtils.swift in Sources */,
 				776F657C26BBEF2D00CAA5A6 /* EditWatchlistViewController.swift in Sources */,
 				778FD76826F33110002CA424 /* UIImageConfigurationExtensions.swift in Sources */,
 				779A46FC26D508AA0072CE0B /* LogGenerator.swift in Sources */,
