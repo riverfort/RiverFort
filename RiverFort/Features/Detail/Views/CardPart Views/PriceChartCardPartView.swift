@@ -89,7 +89,11 @@ extension PriceChartCardPartView: IAxisValueFormatter {
                 histPriceDataEntries[Int(value) % histPriceDataEntries.count].data as? HistoricalPriceChartDataEntryData else {
             return ""
         }
-        return "\(histPriceChartDataEntryData.date)"
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .none
+        let datetime = formatter.string(from: histPriceChartDataEntryData.date)
+        return datetime
     }
 }
 

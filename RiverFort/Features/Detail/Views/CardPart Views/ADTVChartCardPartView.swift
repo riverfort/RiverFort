@@ -97,7 +97,11 @@ extension ADTVChartCardPartView: ChartViewDelegate, BaseChartViewDelegate {
 extension ADTVChartCardPartView: IAxisValueFormatter {
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         guard let adtvChartDataEntryData = adtvDataEntries[Int(value) % adtvDataEntries.count].data as? Date else { return "" }
-        return "\(adtvChartDataEntryData)"
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .none
+        let datetime = formatter.string(from: adtvChartDataEntryData)
+        return datetime
     }
     
     private func leftAxisFormatting() {
