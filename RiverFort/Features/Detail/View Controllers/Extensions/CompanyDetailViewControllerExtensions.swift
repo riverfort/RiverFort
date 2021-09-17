@@ -21,7 +21,7 @@ extension CompanyDetailViewController {
                                   dayLow: yahooFinanceQuote.regularMarketDayLow,
                                   price: yahooFinanceQuote.regularMarketPrice,
                                   change: yahooFinanceQuote.regularMarketChange,
-                                  changePercent: yahooFinanceQuote.regularMarketChange,
+                                  changePercent: yahooFinanceQuote.regularMarketChangePercent,
                                   volume: yahooFinanceQuote.regularMarketVolume,
                                   marketCap: yahooFinanceQuote.marketCap,
                                   timestamp: yahooFinanceQuote.regularMarketTime,

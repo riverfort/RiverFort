@@ -97,18 +97,18 @@ extension HeaderCardController {
     
     @objc private func preparePrice(notification: Notification) {
         guard let quote = notification.object as? Quote else { return }
-        let change = String(format: "%.2f", quote.change)
-        let changePercent = String(format: "%.2f", quote.changePercent)
+        let changeDisp = String(format: "%.2f", quote.change)
+        let changePercentDisp = String(format: "%.2f", quote.changePercent)
         switch quote.change {
         case let change where change > 0:
             changePart.titleColor = .systemGreen
-            changePart.title = "+\(change)(+\(changePercent)%)"
+            changePart.title = "+\(changeDisp)(+\(changePercentDisp)%)"
         case let change where change < 0:
             changePart.titleColor = .systemRed
-            changePart.title = "\(change)(\(changePercent)%)"
+            changePart.title = "\(changeDisp)(\(changePercentDisp)%)"
         default:
             changePart.titleColor = .label
-            changePart.title = "\(change)(\(changePercent)%)"
+            changePart.title = "\(changeDisp)(\(changePercentDisp)%)"
         }
         if let currency = quote.currency { pricePart.title = "\(currency) \(quote.price)" }
         else { pricePart.title = "\(quote.price)" }
