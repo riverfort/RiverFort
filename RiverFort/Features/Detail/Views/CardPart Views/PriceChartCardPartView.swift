@@ -28,7 +28,7 @@ class PriceChartCardPartView: UIView, CardPartView {
         chartView.xAxis.labelPosition = .bottom
         chartView.xAxis.drawGridLinesEnabled = false
         chartView.xAxis.drawAxisLineEnabled  = false
-        chartView.xAxis.setLabelCount(4, force: false)
+        chartView.xAxis.setLabelCount(3, force: false)
         chartView.xAxis.avoidFirstLastClippingEnabled = true
         chartView.xAxis.labelFont = chartView.xAxis.labelFont.withSize(12)
         chartView.xAxis.labelTextColor = .systemGray
