@@ -85,7 +85,6 @@
 		77E7B3FB26E7838F000EABC6 /* PriceMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7B3FA26E7838F000EABC6 /* PriceMarker.swift */; };
 		77E7B3FD26E7AA56000EABC6 /* ChartDataEntryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7B3FC26E7AA56000EABC6 /* ChartDataEntryData.swift */; };
 		77F262E826F33C480000593C /* NotificationNameExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F262E726F33C480000593C /* NotificationNameExtensions.swift */; };
-		77F93361261A321F007662D5 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F93360261A321F007662D5 /* DateExtensions.swift */; };
 		77F93365261A3251007662D5 /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F93364261A3251007662D5 /* DoubleExtensions.swift */; };
 		77F93372261A3675007662D5 /* DateFormatterUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F93371261A3675007662D5 /* DateFormatterUtils.swift */; };
 		77FBC8C226C557E500C35E9C /* WatchlistSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FBC8C126C557E500C35E9C /* WatchlistSync.swift */; };
@@ -176,7 +175,6 @@
 		77E7B3FC26E7AA56000EABC6 /* ChartDataEntryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataEntryData.swift; sourceTree = "<group>"; };
 		77F262E726F33C480000593C /* NotificationNameExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtensions.swift; sourceTree = "<group>"; };
 		77F85A0226C92B6D00EAE363 /* RiverFort.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RiverFort.entitlements; sourceTree = "<group>"; };
-		77F93360261A321F007662D5 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		77F93364261A3251007662D5 /* DoubleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
 		77F93371261A3675007662D5 /* DateFormatterUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterUtils.swift; sourceTree = "<group>"; };
 		77FBC8C126C557E500C35E9C /* WatchlistSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistSync.swift; sourceTree = "<group>"; };
@@ -658,7 +656,6 @@
 		77F9335F261A2BA1007662D5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				77F93360261A321F007662D5 /* DateExtensions.swift */,
 				77F93364261A3251007662D5 /* DoubleExtensions.swift */,
 				770E4C5A26F249080010EE7B /* UIApplicationExtensions.swift */,
 				778FD76726F33110002CA424 /* UIImageConfigurationExtensions.swift */,
@@ -810,7 +807,6 @@
 				7796865826E6102C002A9980 /* NewsCardController.swift in Sources */,
 				77B11DA826F37FC40093FBE9 /* ADTV.swift in Sources */,
 				779B886426BD3DE200FB06A1 /* SettingsSwitchTableViewCell.swift in Sources */,
-				77F93361261A321F007662D5 /* DateExtensions.swift in Sources */,
 				7707A46E26E9EBDC00329CB0 /* Configuration.swift in Sources */,
 				770E4C5B26F249080010EE7B /* UIApplicationExtensions.swift in Sources */,
 				7748987A26E0C229000933A6 /* BaseCardController.swift in Sources */,

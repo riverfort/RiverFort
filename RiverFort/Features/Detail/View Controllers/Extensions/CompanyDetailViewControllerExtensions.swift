@@ -35,14 +35,14 @@ extension CompanyDetailViewController {
         DetailViewAPIFunction.fetchHistoricalPriceFromYahooFinance(symbol: symbol)
             .responseDecodable(of: YahooFinanceHistoricalPriceResult.self) { [self] response in
                 guard let yahooFinanceHistoricalPriceResult = response.value?.chart.result.first else { return }
-                guard let quote = yahooFinanceHistoricalPriceResult.indicators.quote.first else { return }
+                guard let yahooFinanceHistoricalPriceQuote = yahooFinanceHistoricalPriceResult.indicators.quote.first else { return }
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd"
                 let dates = yahooFinanceHistoricalPriceResult.timestamp.map { date -> String in dateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(date))) }
-                let highs = quote.high
-                let lows = quote.low
-                let closes = quote.close
-                let volumes = quote.volume
+                let highs = yahooFinanceHistoricalPriceQuote.high
+                let lows = yahooFinanceHistoricalPriceQuote.low
+                let closes = yahooFinanceHistoricalPriceQuote.close
+                let volumes = yahooFinanceHistoricalPriceQuote.volume
                 let historicalPriceQuotes = dates
                     .enumerated()
                     .map { (i, date) in HistoricalPriceQuote(date: date, high: highs[i], low: lows[i], close: closes[i], volume: volumes[i]) }
