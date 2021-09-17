@@ -30,7 +30,11 @@ class ADTVMarker: MarkerImage {
         super.refreshContent(entry: entry, highlight: highlight)
         guard let adtvChartDataEntryData = entry.data as? Date else { return }
         adtv = NumberShortScale.formatNumber(entry.y)
-        date = "\(adtvChartDataEntryData)"
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        let datetime = formatter.string(from: adtvChartDataEntryData)
+        date = datetime
     }
 }
 
