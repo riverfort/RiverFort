@@ -24,7 +24,7 @@ extension CompanyDetailViewController {
                                   changePercent: yahooFinanceQuote.regularMarketChangePercent,
                                   volume: yahooFinanceQuote.regularMarketVolume,
                                   marketCap: yahooFinanceQuote.marketCap,
-                                  timestamp: yahooFinanceQuote.regularMarketTime,
+                                  date: Date(timeIntervalSince1970: TimeInterval(yahooFinanceQuote.regularMarketTime)),
                                   currency: yahooFinanceQuote.currency,
                                   market: yahooFinanceQuote.market)
                 NotificationCenter.default.post(name: .receiveQuote, object: quote)
