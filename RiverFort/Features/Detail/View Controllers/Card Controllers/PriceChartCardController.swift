@@ -14,7 +14,6 @@ class PriceChartCardController: BaseCardController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         createObservesr()
-        subscribeNewsViewModel()
     }
     
     required init?(coder: NSCoder) {
@@ -51,6 +50,7 @@ extension PriceChartCardController {
         let market = quote.market
         switch market {
         case "gb_market":
+            subscribeNewsViewModel()
             newsViewModel.fetchRSSFeedsUK(symbol: quote.symbol, timeseries: 30)
         default:
             return
