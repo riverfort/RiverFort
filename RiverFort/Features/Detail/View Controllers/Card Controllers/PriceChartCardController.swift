@@ -36,7 +36,7 @@ extension PriceChartCardController {
 extension PriceChartCardController {
     private func createObservesr() {
         NotificationCenter.default.addObserver(self, selector: #selector(prepareChartTimeseries), name: .timeseriesUpdated, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareChartDateForNews), name: .receiveQuote, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareChartDataForNews), name: .receiveQuote, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareChartDataForHistPrice), name: .receiveHistoricalPrice, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(preparePriceChartDisplayModeChanged), name: .priceChartDisplayModeUpdated, object: nil)
     }
@@ -45,7 +45,7 @@ extension PriceChartCardController {
         priceChartPart.changeTimeseries(for: UserDefaults.standard.integer(forKey: UserDefaults.Keys.timeseriesSelectedSegmentIndex))
     }
     
-    @objc private func prepareChartDateForNews(notification: Notification) {
+    @objc private func prepareChartDataForNews(notification: Notification) {
         guard UserDefaults.standard.bool(forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn) == true else { return }
         guard let quote = notification.object as? Quote else { return }
         let market = quote.market
