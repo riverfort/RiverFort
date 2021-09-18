@@ -19,6 +19,7 @@
 		772845AB26E615FA0003F13E /* NewsURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772845AA26E615FA0003F13E /* NewsURLs.swift */; };
 		772A747526DF93890088A604 /* HeaderCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772A747426DF93890088A604 /* HeaderCardController.swift */; };
 		772C241826F6212900202E14 /* ADTV20ChartCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772C241726F6212900202E14 /* ADTV20ChartCardController.swift */; };
+		772C241A26F6220900202E14 /* ADTV60ChartCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772C241926F6220900202E14 /* ADTV60ChartCardController.swift */; };
 		773131BA26DCEC710068AAD8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773131B926DCEC710068AAD8 /* SearchViewController.swift */; };
 		773131BC26DCF87B0068AAD8 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773131BB26DCF87B0068AAD8 /* SearchResultViewController.swift */; };
 		773131BF26DCFE5D0068AAD8 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773131BE26DCFE5D0068AAD8 /* SearchResultCell.swift */; };
@@ -106,6 +107,7 @@
 		772845AA26E615FA0003F13E /* NewsURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsURLs.swift; sourceTree = "<group>"; };
 		772A747426DF93890088A604 /* HeaderCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCardController.swift; sourceTree = "<group>"; };
 		772C241726F6212900202E14 /* ADTV20ChartCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTV20ChartCardController.swift; sourceTree = "<group>"; };
+		772C241926F6220900202E14 /* ADTV60ChartCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTV60ChartCardController.swift; sourceTree = "<group>"; };
 		773131B926DCEC710068AAD8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		773131BB26DCF87B0068AAD8 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		773131BE26DCFE5D0068AAD8 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
@@ -606,6 +608,7 @@
 				7748987B26E0C396000933A6 /* PriceChartCardController.swift */,
 				7748988626E0E454000933A6 /* ADTVChartCardController.swift */,
 				772C241726F6212900202E14 /* ADTV20ChartCardController.swift */,
+				772C241926F6220900202E14 /* ADTV60ChartCardController.swift */,
 				776A913426E3B5E50012D0D5 /* ProfileCardController.swift */,
 				7796865526E5F963002A9980 /* StatisticsCardController.swift */,
 				7791881126E0E7FE005B7D38 /* ADTVCardController.swift */,
@@ -841,6 +844,7 @@
 				779A46FE26D50C780072CE0B /* SettingsNotificationConstant.swift in Sources */,
 				77CAA2E626679043003A0246 /* UserDefaultsExtensions.swift in Sources */,
 				7748988526E0E235000933A6 /* ADTVChartCardPartView.swift in Sources */,
+				772C241A26F6220900202E14 /* ADTV60ChartCardController.swift in Sources */,
 				77887D1426E12C210016192D /* AADTVCardController.swift in Sources */,
 				7791881226E0E7FE005B7D38 /* ADTVCardController.swift in Sources */,
 				77E763F126E75FE5005AED84 /* TimeseriesCardPartView.swift in Sources */,
