@@ -8,6 +8,7 @@
 import CardParts
 
 class ADTVDetailViewController: CardsViewController {
+    public var historicalPrice: [HistoricalPriceQuote]?
     private lazy var cards = [TimeseriesCardController(),
                               ADTVChartCardController(),
                               ADTV20ChartCardController(),

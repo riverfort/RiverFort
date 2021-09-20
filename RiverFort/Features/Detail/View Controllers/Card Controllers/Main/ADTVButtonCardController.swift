@@ -9,6 +9,7 @@ import CardParts
 
 class ADTVButtonCardController: TransparentCardController {
     private lazy var viewADTVTrendsButton = ButtonCardPartView()
+    private lazy var adtvDetailVC = ADTVDetailViewController()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -46,7 +47,7 @@ extension ADTVButtonCardController {
 
 extension ADTVButtonCardController: ButtonCardPartViewDelegate {
     func buttonDidTap() {
-        navigationController?.pushViewController(ADTVDetailViewController(), animated: true)
+        navigationController?.pushViewController(adtvDetailVC, animated: true)
     }
 }
 
@@ -57,6 +58,6 @@ extension ADTVButtonCardController {
     
     @objc private func didReceiveHistoricalPrice(notification: Notification) {
         guard let historicalPrice = notification.object as? [HistoricalPriceQuote] else { return }
-        print(historicalPrice)
+        adtvDetailVC.historicalPrice = historicalPrice
     }
 }
