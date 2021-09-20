@@ -12,16 +12,16 @@ class CompanyDetailViewController: CardsViewController {
     public var company: Company?
     private lazy var add  = UIButton(type: .system)
     private lazy var more = UIButton(type: .system)
-    private let cards = [HeaderCardController(),
-                         TimeseriesCardController(),
-                         PriceChartCardController(),
-                         ProfileCardController(),
-                         StatisticsCardController(),
-                         OHLCCardController(),
-                         ADTVButtonCardController(),
-                         ADTVStatisticsCardController(),
-                         AADTVStatisticsCardController(),
-                         NewsCardController()]
+    private lazy var header = HeaderCardController()
+    private lazy var timeseries = TimeseriesCardController()
+    private lazy var priceChart = PriceChartCardController()
+    private lazy var profile = ProfileCardController()
+    private lazy var statistics = StatisticsCardController()
+    private lazy var ohlc = OHLCCardController()
+    private lazy var adtvButton = ADTVButtonCardController()
+    private lazy var adtvStatistics = ADTVStatisticsCardController()
+    private lazy var aadtvStatistics = AADTVStatisticsCardController()
+    private lazy var news = NewsCardController()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -57,15 +57,23 @@ extension CompanyDetailViewController {
     private func configView() {
         collectionView.backgroundColor = .systemGroupedBackground
         configBarButtonItem()
-        loadCards(cards: cards)
+        configCards()
     }
-    
+
     private func configBarButtonItem() {
         configAddButton()
         configMoreButton()
         configBarButtonStack()
     }
     
+    private func configCards() {
+        let cards = [header, timeseries, priceChart, profile, statistics, ohlc, adtvButton, adtvStatistics, aadtvStatistics, news]
+        header.company = company
+        loadCards(cards: cards)
+    }
+}
+
+extension CompanyDetailViewController {
     private func configAddButton() {
         guard let symbol = navigationItem.title else { return }
         let isCompanyInWatchlist = WatchlistCoreDataManager.isWatchedCompany(company_ticker: symbol)
