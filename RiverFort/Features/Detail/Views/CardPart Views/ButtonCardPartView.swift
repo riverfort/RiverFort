@@ -35,7 +35,7 @@ extension ButtonCardPartView {
         button.layer.cornerRadius = 10
         button.clipsToBounds = true
         button.backgroundColor = .systemBackground
-        button.setTitleColor(.label, for: .normal)
+        button.setTitleColor(.link, for: .normal)
         button.setTitle("View ADTV Trends", for: .normal)
         button.titleLabel?.font = .preferredFont(forTextStyle: .subheadline)
         button.titleLabel?.adjustsFontForContentSizeCategory = true
