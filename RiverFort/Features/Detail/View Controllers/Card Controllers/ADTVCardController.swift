@@ -8,7 +8,7 @@
 import CardParts
 
 class ADTVCardController: TransparentCardController {
-    private lazy var button = ButtonCardPartView()
+    private lazy var viewADTVTrendsButton = ButtonCardPartView()
 }
 
 extension ADTVCardController {
@@ -20,6 +20,6 @@ extension ADTVCardController {
 
 extension ADTVCardController {
     private func configCardParts() {
-        setupCardParts([button])
+        setupCardParts([viewADTVTrendsButton])
     }
 }
