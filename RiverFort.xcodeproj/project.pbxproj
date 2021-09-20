@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7707A46E26E9EBDC00329CB0 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7707A46D26E9EBDC00329CB0 /* Configuration.swift */; };
 		770B22AF26EB8D6400731C58 /* ADTVMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B22AE26EB8D6400731C58 /* ADTVMarker.swift */; };
+		770C438D26F8DDFA0040F891 /* ADTV5ChartCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770C438C26F8DDFA0040F891 /* ADTV5ChartCardController.swift */; };
+		770C438F26F8DF8B0040F891 /* ADTV120ChartCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770C438E26F8DF8B0040F891 /* ADTV120ChartCardController.swift */; };
 		770E4C5926F245FD0010EE7B /* BaseLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770E4C5826F245FD0010EE7B /* BaseLineChartView.swift */; };
 		770E4C5B26F249080010EE7B /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770E4C5A26F249080010EE7B /* UIApplicationExtensions.swift */; };
 		771E328126D6525E002CC604 /* AcknowledgementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E328026D6525E002CC604 /* AcknowledgementsViewController.swift */; };
@@ -100,6 +102,8 @@
 		69D13D5B19688F922B9BB9AD /* Pods-RiverFort.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RiverFort.release.xcconfig"; path = "Target Support Files/Pods-RiverFort/Pods-RiverFort.release.xcconfig"; sourceTree = "<group>"; };
 		7707A46D26E9EBDC00329CB0 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		770B22AE26EB8D6400731C58 /* ADTVMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTVMarker.swift; sourceTree = "<group>"; };
+		770C438C26F8DDFA0040F891 /* ADTV5ChartCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTV5ChartCardController.swift; sourceTree = "<group>"; };
+		770C438E26F8DF8B0040F891 /* ADTV120ChartCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTV120ChartCardController.swift; sourceTree = "<group>"; };
 		770E4C5826F245FD0010EE7B /* BaseLineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLineChartView.swift; sourceTree = "<group>"; };
 		770E4C5A26F249080010EE7B /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
 		771E328026D6525E002CC604 /* AcknowledgementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementsViewController.swift; sourceTree = "<group>"; };
@@ -232,8 +236,10 @@
 			isa = PBXGroup;
 			children = (
 				7748988626E0E454000933A6 /* ADTVChartCardController.swift */,
+				770C438C26F8DDFA0040F891 /* ADTV5ChartCardController.swift */,
 				772C241726F6212900202E14 /* ADTV20ChartCardController.swift */,
 				772C241926F6220900202E14 /* ADTV60ChartCardController.swift */,
+				770C438E26F8DF8B0040F891 /* ADTV120ChartCardController.swift */,
 			);
 			path = ADTV;
 			sourceTree = "<group>";
@@ -819,6 +825,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				770C438F26F8DF8B0040F891 /* ADTV120ChartCardController.swift in Sources */,
 				77384E8F26F0D50A00C23217 /* NewWatchlistTableViewCell.swift in Sources */,
 				773131BF26DCFE5D0068AAD8 /* SearchResultCell.swift in Sources */,
 				77876E98264D69B300798106 /* RSSFeedParser.swift in Sources */,
@@ -830,6 +837,7 @@
 				77384E9426F0E62600C23217 /* WatchlistCoreDataManager.swift in Sources */,
 				776A913526E3B5E50012D0D5 /* ProfileCardController.swift in Sources */,
 				770B22AF26EB8D6400731C58 /* ADTVMarker.swift in Sources */,
+				770C438D26F8DDFA0040F891 /* ADTV5ChartCardController.swift in Sources */,
 				779B886226BD2B4900FB06A1 /* SettingsSection.swift in Sources */,
 				77B11DAD26F382140093FBE9 /* Company.swift in Sources */,
 				7796865826E6102C002A9980 /* NewsCardController.swift in Sources */,
