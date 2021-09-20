@@ -8,6 +8,7 @@
 import CardParts
 
 class ADTVButtonCardController: TransparentCardController {
+    public var company: Company?
     private lazy var viewADTVTrendsButton = ButtonCardPartView()
     private lazy var adtvDetailVC = ADTVDetailViewController()
     
@@ -48,6 +49,7 @@ extension ADTVButtonCardController {
 extension ADTVButtonCardController: ButtonCardPartViewDelegate {
     func buttonDidTap() {
         navigationController?.pushViewController(adtvDetailVC, animated: true)
+        adtvDetailVC.company = company
     }
 }
 

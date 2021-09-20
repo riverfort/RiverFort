@@ -69,6 +69,7 @@ extension CompanyDetailViewController {
     private func configCards() {
         let cards = [header, timeseries, priceChart, profile, statistics, ohlc, adtvButton, adtvStatistics, aadtvStatistics, news]
         header.company = company
+        adtvButton.company = company
         loadCards(cards: cards)
     }
 }
