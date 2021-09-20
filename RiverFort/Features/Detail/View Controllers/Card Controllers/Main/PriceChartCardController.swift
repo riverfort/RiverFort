@@ -58,8 +58,8 @@ extension PriceChartCardController {
     }
     
     @objc private func prepareChartDataForHistPrice(notification: Notification) {
-        guard let histPrice = notification.object as? [HistoricalPriceQuote] else { return }
-        priceChartPart.setChartData(with: histPrice)
+        guard let historicalPrice = notification.object as? [HistoricalPriceQuote] else { return }
+        priceChartPart.setChartData(with: historicalPrice)
     }
     
     @objc private func preparePriceChartDisplayModeChanged() {

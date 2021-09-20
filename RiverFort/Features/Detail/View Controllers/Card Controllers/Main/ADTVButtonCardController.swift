@@ -55,7 +55,8 @@ extension ADTVButtonCardController {
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveHistoricalPrice), name: .receiveHistoricalPrice, object: nil)
     }
     
-    @objc private func didReceiveHistoricalPrice() {
-        print("didReceiveHistoricalPrice")
+    @objc private func didReceiveHistoricalPrice(notification: Notification) {
+        guard let historicalPrice = notification.object as? [HistoricalPriceQuote] else { return }
+        print(historicalPrice)
     }
 }
