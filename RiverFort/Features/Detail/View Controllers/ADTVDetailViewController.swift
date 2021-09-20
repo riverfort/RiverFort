@@ -26,6 +26,7 @@ extension ADTVDetailViewController {
 extension ADTVDetailViewController {
     private func prepareView() {
         navigationItem.title = "ADTV"
+        guard let historicalPrice = historicalPrice else { return }
     }
     
     private func configView() {
