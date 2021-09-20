@@ -58,8 +58,15 @@ extension ADTVDetailViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(chartValueNoLongerSelected), name: .chartValueNoLongerSelected, object: nil)
     }
     
-    @objc private func chartValueSelected() { super.collectionView.isScrollEnabled = false }
-    @objc private func chartValueNoLongerSelected() { super.collectionView.isScrollEnabled = true }
+    @objc private func chartValueSelected() {
+        guard super.collectionView != nil else { return }
+        super.collectionView.isScrollEnabled = false
+    }
+    
+    @objc private func chartValueNoLongerSelected() {
+        guard super.collectionView != nil else { return }
+        super.collectionView.isScrollEnabled = true
+    }
 }
 
 extension ADTVDetailViewController {
