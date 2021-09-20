@@ -81,7 +81,7 @@
 		77CAA2E626679043003A0246 /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CAA2E526679043003A0246 /* UserDefaultsExtensions.swift */; };
 		77CB234526B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB234326B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift */; };
 		77CB234626B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB234426B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift */; };
-		77DA186B26F86C1F00919D11 /* ADTVCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DA186A26F86C1F00919D11 /* ADTVCardController.swift */; };
+		77DA186B26F86C1F00919D11 /* ADTVButtonCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DA186A26F86C1F00919D11 /* ADTVButtonCardController.swift */; };
 		77DA186D26F86F6D00919D11 /* ButtonCardPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DA186C26F86F6D00919D11 /* ButtonCardPartView.swift */; };
 		77DA186F26F89A4700919D11 /* ADTVDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DA186E26F89A4700919D11 /* ADTVDetailViewController.swift */; };
 		77E763EF26E75D76005AED84 /* TimeseriesCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E763EE26E75D76005AED84 /* TimeseriesCardController.swift */; };
@@ -174,7 +174,7 @@
 		77CAA2E526679043003A0246 /* UserDefaultsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensions.swift; sourceTree = "<group>"; };
 		77CB234326B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecentSearchedCompany+CoreDataClass.swift"; sourceTree = "<group>"; };
 		77CB234426B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecentSearchedCompany+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		77DA186A26F86C1F00919D11 /* ADTVCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTVCardController.swift; sourceTree = "<group>"; };
+		77DA186A26F86C1F00919D11 /* ADTVButtonCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTVButtonCardController.swift; sourceTree = "<group>"; };
 		77DA186C26F86F6D00919D11 /* ButtonCardPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCardPartView.swift; sourceTree = "<group>"; };
 		77DA186E26F89A4700919D11 /* ADTVDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTVDetailViewController.swift; sourceTree = "<group>"; };
 		77E763EE26E75D76005AED84 /* TimeseriesCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeseriesCardController.swift; sourceTree = "<group>"; };
@@ -220,7 +220,7 @@
 				776A913426E3B5E50012D0D5 /* ProfileCardController.swift */,
 				7796865526E5F963002A9980 /* StatisticsCardController.swift */,
 				77FF535A26E12826001FAACA /* OHLCCardController.swift */,
-				77DA186A26F86C1F00919D11 /* ADTVCardController.swift */,
+				77DA186A26F86C1F00919D11 /* ADTVButtonCardController.swift */,
 				7791881126E0E7FE005B7D38 /* ADTVStatisticsCardController.swift */,
 				77887D1326E12C210016192D /* AADTVStatisticsCardController.swift */,
 				7796865726E6102C002A9980 /* NewsCardController.swift */,
@@ -859,7 +859,7 @@
 				7762C77226BAE258008DE1BA /* NumberShortScale.swift in Sources */,
 				779A46F426D4EE740072CE0B /* UIDevice+modelName.swift in Sources */,
 				77E7B3FD26E7AA56000EABC6 /* ChartDataEntryData.swift in Sources */,
-				77DA186B26F86C1F00919D11 /* ADTVCardController.swift in Sources */,
+				77DA186B26F86C1F00919D11 /* ADTVButtonCardController.swift in Sources */,
 				7748988126E0CF9B000933A6 /* SearchAPIFunction.swift in Sources */,
 				77227AA026F3953D00C5867D /* Profile.swift in Sources */,
 				77B11DAA26F380AF0093FBE9 /* HistoricalPriceQuote.swift in Sources */,
