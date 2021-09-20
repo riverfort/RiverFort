@@ -12,7 +12,7 @@ protocol ButtonCardPartViewDelegate { func buttonDidTap() }
 class ButtonCardPartView: UIView, CardPartView {
     internal var margins: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     public var delegate: ButtonCardPartViewDelegate?
-    public let button = UIButton()
+    public let button = UIButton(type: .system)
     
     init() {
         super.init(frame: CGRect.zero)
