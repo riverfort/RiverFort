@@ -33,6 +33,6 @@ extension ADTVCardController {
 
 extension ADTVCardController: ButtonCardPartViewDelegate {
     func buttonDidTap() {
-        print("hello")
+        navigationController?.pushViewController(ADTVViewController(), animated: true)
     }
 }

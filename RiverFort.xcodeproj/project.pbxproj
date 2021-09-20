@@ -83,6 +83,7 @@
 		77CB234626B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB234426B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift */; };
 		77DA186B26F86C1F00919D11 /* ADTVCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DA186A26F86C1F00919D11 /* ADTVCardController.swift */; };
 		77DA186D26F86F6D00919D11 /* ButtonCardPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DA186C26F86F6D00919D11 /* ButtonCardPartView.swift */; };
+		77DA186F26F89A4700919D11 /* ADTVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DA186E26F89A4700919D11 /* ADTVViewController.swift */; };
 		77E763EF26E75D76005AED84 /* TimeseriesCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E763EE26E75D76005AED84 /* TimeseriesCardController.swift */; };
 		77E763F126E75FE5005AED84 /* TimeseriesCardPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E763F026E75FE5005AED84 /* TimeseriesCardPartView.swift */; };
 		77E763F326E76488005AED84 /* TransparentCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E763F226E76488005AED84 /* TransparentCardController.swift */; };
@@ -175,6 +176,7 @@
 		77CB234426B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecentSearchedCompany+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		77DA186A26F86C1F00919D11 /* ADTVCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTVCardController.swift; sourceTree = "<group>"; };
 		77DA186C26F86F6D00919D11 /* ButtonCardPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCardPartView.swift; sourceTree = "<group>"; };
+		77DA186E26F89A4700919D11 /* ADTVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTVViewController.swift; sourceTree = "<group>"; };
 		77E763EE26E75D76005AED84 /* TimeseriesCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeseriesCardController.swift; sourceTree = "<group>"; };
 		77E763F026E75FE5005AED84 /* TimeseriesCardPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeseriesCardPartView.swift; sourceTree = "<group>"; };
 		77E763F226E76488005AED84 /* TransparentCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentCardController.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				77D6FC8E26F370F10074137C /* Card Controllers */,
 				77B11DAE26F389010093FBE9 /* Extensions */,
 				7720570526DE6E8300063A9A /* CompanyDetailViewController.swift */,
+				77DA186E26F89A4700919D11 /* ADTVViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -861,6 +864,7 @@
 				77F93365261A3251007662D5 /* DoubleExtensions.swift in Sources */,
 				774DB74C2623144900A92D13 /* RiverFort.xcdatamodeld in Sources */,
 				77E763F326E76488005AED84 /* TransparentCardController.swift in Sources */,
+				77DA186F26F89A4700919D11 /* ADTVViewController.swift in Sources */,
 				773C3FCB26F2160800EA6A41 /* NewEditViewController.swift in Sources */,
 				776F657E26BBF15900CAA5A6 /* EditWatchlistTableView.swift in Sources */,
 				779A46F826D4F6210072CE0B /* NotificationHelper.swift in Sources */,
