@@ -82,6 +82,7 @@
 		77CB234526B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB234326B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift */; };
 		77CB234626B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB234426B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift */; };
 		77DA186B26F86C1F00919D11 /* ADTVCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DA186A26F86C1F00919D11 /* ADTVCardController.swift */; };
+		77DA186D26F86F6D00919D11 /* ButtonCardPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DA186C26F86F6D00919D11 /* ButtonCardPartView.swift */; };
 		77E763EF26E75D76005AED84 /* TimeseriesCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E763EE26E75D76005AED84 /* TimeseriesCardController.swift */; };
 		77E763F126E75FE5005AED84 /* TimeseriesCardPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E763F026E75FE5005AED84 /* TimeseriesCardPartView.swift */; };
 		77E763F326E76488005AED84 /* TransparentCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E763F226E76488005AED84 /* TransparentCardController.swift */; };
@@ -173,6 +174,7 @@
 		77CB234326B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecentSearchedCompany+CoreDataClass.swift"; sourceTree = "<group>"; };
 		77CB234426B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecentSearchedCompany+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		77DA186A26F86C1F00919D11 /* ADTVCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTVCardController.swift; sourceTree = "<group>"; };
+		77DA186C26F86F6D00919D11 /* ButtonCardPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCardPartView.swift; sourceTree = "<group>"; };
 		77E763EE26E75D76005AED84 /* TimeseriesCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeseriesCardController.swift; sourceTree = "<group>"; };
 		77E763F026E75FE5005AED84 /* TimeseriesCardPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeseriesCardPartView.swift; sourceTree = "<group>"; };
 		77E763F226E76488005AED84 /* TransparentCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentCardController.swift; sourceTree = "<group>"; };
@@ -638,6 +640,7 @@
 				7748987D26E0C3E7000933A6 /* PriceChartCardPartView.swift */,
 				7748988426E0E235000933A6 /* ADTVChartCardPartView.swift */,
 				77E763F026E75FE5005AED84 /* TimeseriesCardPartView.swift */,
+				77DA186C26F86F6D00919D11 /* ButtonCardPartView.swift */,
 			);
 			path = "CardPart Views";
 			sourceTree = "<group>";
@@ -841,6 +844,7 @@
 				7748988126E0CF9B000933A6 /* SearchAPIFunction.swift in Sources */,
 				77227AA026F3953D00C5867D /* Profile.swift in Sources */,
 				77B11DAA26F380AF0093FBE9 /* HistoricalPriceQuote.swift in Sources */,
+				77DA186D26F86F6D00919D11 /* ButtonCardPartView.swift in Sources */,
 				772C241826F6212900202E14 /* ADTV20ChartCardController.swift in Sources */,
 				773A0B6326171238002B9875 /* AppDelegate.swift in Sources */,
 				77384E9126F0DBC100C23217 /* WatchlistAPIFunction.swift in Sources */,

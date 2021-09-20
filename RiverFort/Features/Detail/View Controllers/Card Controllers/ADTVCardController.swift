@@ -8,7 +8,18 @@
 import CardParts
 
 class ADTVCardController: TransparentCardController {
+    private lazy var button = ButtonCardPartView()
+}
+
+extension ADTVCardController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        configCardParts()
+    }
+}
+
+extension ADTVCardController {
+    private func configCardParts() {
+        setupCardParts([button])
     }
 }
