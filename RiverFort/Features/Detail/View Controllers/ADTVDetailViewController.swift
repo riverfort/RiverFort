@@ -1,5 +1,5 @@
 //
-//  ADTVViewController.swift
+//  ADTVDetailViewController.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 20/09/2021.
@@ -7,14 +7,14 @@
 
 import CardParts
 
-class ADTVViewController: CardsViewController {
+class ADTVDetailViewController: CardsViewController {
     private lazy var cards = [TimeseriesCardController(),
                               ADTVChartCardController(),
                               ADTV20ChartCardController(),
                               ADTV60ChartCardController(),]
 }
 
-extension ADTVViewController {
+extension ADTVDetailViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareView()
@@ -22,7 +22,7 @@ extension ADTVViewController {
     }
 }
 
-extension ADTVViewController {
+extension ADTVDetailViewController {
     private func prepareView() {
         navigationItem.title = "ADTV"
     }
