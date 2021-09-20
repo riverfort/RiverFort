@@ -10,10 +10,10 @@ import CardParts
 class ADTVDetailViewController: CardsViewController {
     public var company: Company?
     public var historicalPrice: [HistoricalPriceQuote]?
-    private lazy var cards = [TimeseriesCardController(),
-                              ADTVChartCardController(),
-                              ADTV20ChartCardController(),
-                              ADTV60ChartCardController(),]
+    private lazy var timeseries = TimeseriesCardController()
+    private lazy var adtv = ADTVChartCardController()
+    private lazy var adtv20 = ADTV20ChartCardController()
+    private lazy var adtv60 = ADTV60ChartCardController()
 }
 
 extension ADTVDetailViewController {
@@ -35,6 +35,11 @@ extension ADTVDetailViewController {
     
     private func configView() {
         collectionView.backgroundColor = .systemGroupedBackground
+        configCards()
+    }
+    
+    private func configCards() {
+        let cards = [timeseries, adtv, adtv20, adtv60]
         loadCards(cards: cards)
     }
 }
