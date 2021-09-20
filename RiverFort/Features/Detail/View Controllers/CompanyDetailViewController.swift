@@ -21,6 +21,7 @@ class CompanyDetailViewController: CardsViewController {
                          ADTVChartCardController(),
                          ADTV20ChartCardController(),
                          ADTV60ChartCardController(),
+                         ADTVCardController(),
                          ADTVStatisticsCardController(),
                          AADTVStatisticsCardController(),
                          NewsCardController()]
