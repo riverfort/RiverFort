@@ -14,6 +14,13 @@ class ADTVCardController: TransparentCardController {
 extension ADTVCardController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        configView()
+    }
+}
+
+extension ADTVCardController {
+    private func configView() {
+        viewADTVTrendsButton.delegate = self
         configCardParts()
     }
 }
@@ -21,5 +28,11 @@ extension ADTVCardController {
 extension ADTVCardController {
     private func configCardParts() {
         setupCardParts([viewADTVTrendsButton])
+    }
+}
+
+extension ADTVCardController: ButtonCardPartViewDelegate {
+    func buttonDidTap() {
+        print("hello")
     }
 }
