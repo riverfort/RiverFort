@@ -38,11 +38,11 @@ extension ADTV60ChartCardController {
     }
     
     @objc private func prepareChartTimeseries(notification: Notification) {
-        adtvChartPart.changeTimeseries(for: UserDefaults.standard.integer(forKey: UserDefaults.Keys.timeseriesSelectedSegmentIndex), label: "ADTV60", colour: .brown)
+        adtvChartPart.changeTimeseries(for: UserDefaults.standard.integer(forKey: UserDefaults.Keys.timeseriesSelectedSegmentIndex), label: "ADTV60", colour: .systemTeal)
     }
     
     @objc private func prepareADTV60(notification: Notification) {
         guard let adtvs = notification.object as? [ADTV] else { return }
-        adtvChartPart.setChartDataForADTV(with: adtvs, label: "ADTV60", colour: .brown)
+        adtvChartPart.setChartDataForADTV(with: adtvs, label: "ADTV60", colour: .systemTeal)
     }
 }

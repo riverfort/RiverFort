@@ -41,7 +41,7 @@ class ADTVMarker: MarkerImage {
 extension ADTVMarker {
     private func configView() {
         adtvAttributes[.font] = UIFont.preferredFont(forTextStyle: .headline)
-        adtvAttributes[.foregroundColor] = UIColor.cerulean
+        adtvAttributes[.foregroundColor] = UIColor.systemTeal
         dateAttributes[.font] = UIFont.preferredFont(forTextStyle: .subheadline)
         dateAttributes[.foregroundColor] = UIColor.secondaryLabel
     }
