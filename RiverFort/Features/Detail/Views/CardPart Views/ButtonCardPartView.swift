@@ -34,7 +34,7 @@ extension ButtonCardPartView {
     private func configButton() {
         button.layer.cornerRadius = 10
         button.clipsToBounds = true
-        button.backgroundColor = .systemBackground
+        button.backgroundColor = .secondarySystemGroupedBackground
         button.setTitleColor(.link, for: .normal)
         button.setTitle("View ADTV Trends", for: .normal)
         button.titleLabel?.font = .preferredFont(forTextStyle: .subheadline)
