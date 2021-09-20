@@ -1,5 +1,5 @@
 //
-//  AADTVCardController.swift
+//  AADTVStatisticsCardController.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 02/09/2021.
@@ -7,7 +7,7 @@
 
 import CardParts
 
-class AADTVCardController: BaseCardController {
+class AADTVStatisticsCardController: BaseCardController {
     private lazy var titlePart = CardPartTitleView(type: .titleOnly)
     
     private lazy var aadtv1LabelPart = CardPartTitleView(type: .titleOnly)
@@ -49,14 +49,14 @@ class AADTVCardController: BaseCardController {
     }
 }
 
-extension AADTVCardController {
+extension AADTVStatisticsCardController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configCardParts()
     }
 }
 
-extension AADTVCardController {
+extension AADTVStatisticsCardController {
     private func configTitleView() {
         titlePart.title = "AADTV"
         titlePart.label.numberOfLines = 0

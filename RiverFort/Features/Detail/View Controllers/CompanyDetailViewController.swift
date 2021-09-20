@@ -21,8 +21,8 @@ class CompanyDetailViewController: CardsViewController {
                          ADTVChartCardController(),
                          ADTV20ChartCardController(),
                          ADTV60ChartCardController(),
-                         ADTVCardController(),
-                         AADTVCardController(),
+                         ADTVStatisticsCardController(),
+                         AADTVStatisticsCardController(),
                          NewsCardController()]
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
