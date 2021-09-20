@@ -8,7 +8,8 @@
 import CardParts
 
 class ADTVViewController: CardsViewController {
-    private lazy var cards = [ADTVChartCardController(),
+    private lazy var cards = [TimeseriesCardController(),
+                              ADTVChartCardController(),
                               ADTV20ChartCardController(),
                               ADTV60ChartCardController(),]
 }
