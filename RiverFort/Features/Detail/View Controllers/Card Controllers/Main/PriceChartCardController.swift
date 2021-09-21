@@ -34,17 +34,17 @@ extension PriceChartCardController {
 
 extension PriceChartCardController {
     private func createObservesr() {
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareChartTimeseries), name: .timeseriesUpdated, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareChartDataForNews), name: .receiveQuote, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareChartDataForHistPrice), name: .receiveHistoricalPrice, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(preparePriceChartDisplayModeChanged), name: .priceChartDisplayModeUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onTimeseriesUpdated), name: .timeseriesUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveQuote), name: .receiveQuote, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveHistoricalPrice), name: .receiveHistoricalPrice, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onPriceChartDisplayModeUpdated), name: .priceChartDisplayModeUpdated, object: nil)
     }
     
-    @objc private func prepareChartTimeseries(notification: Notification) {
+    @objc private func onTimeseriesUpdated(notification: Notification) {
         priceChartPart.changeTimeseries(for: UserDefaults.standard.integer(forKey: UserDefaults.Keys.timeseriesSelectedSegmentIndex))
     }
     
-    @objc private func prepareChartDataForNews(notification: Notification) {
+    @objc private func onDidReceiveQuote(notification: Notification) {
         guard UserDefaults.standard.bool(forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn) == true else { return }
         guard let quote = notification.object as? Quote else { return }
         let market = quote.market
@@ -52,17 +52,16 @@ extension PriceChartCardController {
         case "gb_market":
             subscribeNewsViewModel()
             newsViewModel.fetchRSSFeedsUK(symbol: quote.symbol, timeseries: 30)
-        default:
-            return
+        default: return
         }
     }
     
-    @objc private func prepareChartDataForHistPrice(notification: Notification) {
+    @objc private func onDidReceiveHistoricalPrice(notification: Notification) {
         guard let historicalPrice = notification.object as? [HistoricalPriceQuote] else { return }
         priceChartPart.setChartData(with: historicalPrice)
     }
     
-    @objc private func preparePriceChartDisplayModeChanged() {
+    @objc private func onPriceChartDisplayModeUpdated() {
         print(UserDefaults.standard.bool(forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn))
     }
 }
@@ -70,10 +69,8 @@ extension PriceChartCardController {
 extension PriceChartCardController {
     private func subscribeNewsViewModel() {
         guard UserDefaults.standard.bool(forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn) == true else { return }
-//        newsViewModel.rssItemsForNews.asObservable().subscribe(
-//            onNext: { [self] in
-//                priceChartPart.setChartDataForNews(with: $0)
-//            }
-//        ).disposed(by: bag)
+        newsViewModel.rssItemsForNews.asObservable().subscribe(
+            onNext: { [self] in priceChartPart.setChartDataForNews(with: $0) }
+        ).disposed(by: bag)
     }
 }
