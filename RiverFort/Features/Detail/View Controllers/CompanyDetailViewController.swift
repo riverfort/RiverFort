@@ -84,12 +84,12 @@ extension CompanyDetailViewController {
         guard let symbol = navigationItem.title else { return }
         let isCompanyInWatchlist = WatchlistCoreDataManager.isWatchedCompany(company_ticker: symbol)
         if isCompanyInWatchlist { add.isHidden = true }
-        add.setImage(UIImage(systemName: "plus.circle", withConfiguration: Configuration.symbolConfiguration), for: .normal)
+        add.setImage(UIImage(systemName: "plus.circle", withConfiguration: UIImage.Configuration.semibold), for: .normal)
         add.addTarget(self, action: #selector(didTapAddToWatchlist), for: .touchUpInside)
     }
     
     private func configMoreButton() {
-        more.setImage(UIImage(systemName: "ellipsis.circle", withConfiguration: Configuration.symbolConfiguration), for: .normal)
+        more.setImage(UIImage(systemName: "ellipsis.circle", withConfiguration: UIImage.Configuration.semibold), for: .normal)
         more.showsMenuAsPrimaryAction = true
         var menu: UIMenu {
             return UIMenu(title: "Share Price Chart", image: nil, identifier: nil, options: [], children: menuItems)

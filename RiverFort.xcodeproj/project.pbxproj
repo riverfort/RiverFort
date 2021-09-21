@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7707A46E26E9EBDC00329CB0 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7707A46D26E9EBDC00329CB0 /* Configuration.swift */; };
 		770B22AF26EB8D6400731C58 /* ADTVMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B22AE26EB8D6400731C58 /* ADTVMarker.swift */; };
 		770C438D26F8DDFA0040F891 /* ADTV5ChartCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770C438C26F8DDFA0040F891 /* ADTV5ChartCardController.swift */; };
 		770C438F26F8DF8B0040F891 /* ADTV120ChartCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770C438E26F8DF8B0040F891 /* ADTV120ChartCardController.swift */; };
@@ -100,7 +99,6 @@
 
 /* Begin PBXFileReference section */
 		69D13D5B19688F922B9BB9AD /* Pods-RiverFort.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RiverFort.release.xcconfig"; path = "Target Support Files/Pods-RiverFort/Pods-RiverFort.release.xcconfig"; sourceTree = "<group>"; };
-		7707A46D26E9EBDC00329CB0 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		770B22AE26EB8D6400731C58 /* ADTVMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTVMarker.swift; sourceTree = "<group>"; };
 		770C438C26F8DDFA0040F891 /* ADTV5ChartCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTV5ChartCardController.swift; sourceTree = "<group>"; };
 		770C438E26F8DF8B0040F891 /* ADTV120ChartCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTV120ChartCardController.swift; sourceTree = "<group>"; };
@@ -207,14 +205,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7707A46C26E9EBB400329CB0 /* Configuration */ = {
-			isa = PBXGroup;
-			children = (
-				7707A46D26E9EBDC00329CB0 /* Configuration.swift */,
-			);
-			path = Configuration;
-			sourceTree = "<group>";
-		};
 		770C438A26F8A0C30040F891 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,7 +238,6 @@
 			isa = PBXGroup;
 			children = (
 				776F657F26BBFF5200CAA5A6 /* PersistentStore */,
-				7707A46C26E9EBB400329CB0 /* Configuration */,
 				776F657826BBDB4C00CAA5A6 /* Orientation */,
 				7762C77026BAE1DF008DE1BA /* Utility */,
 				77104EEF26B4499D0058E2C2 /* Haptics */,
@@ -843,7 +832,6 @@
 				7796865826E6102C002A9980 /* NewsCardController.swift in Sources */,
 				77B11DA826F37FC40093FBE9 /* ADTV.swift in Sources */,
 				779B886426BD3DE200FB06A1 /* SettingsSwitchTableViewCell.swift in Sources */,
-				7707A46E26E9EBDC00329CB0 /* Configuration.swift in Sources */,
 				770E4C5B26F249080010EE7B /* UIApplicationExtensions.swift in Sources */,
 				7748987A26E0C229000933A6 /* BaseCardController.swift in Sources */,
 				77F262E826F33C480000593C /* NotificationNameExtensions.swift in Sources */,
