@@ -20,7 +20,6 @@ class CompanyDetailViewController: CardsViewController {
     private lazy var ohlc = OHLCCardController()
     private lazy var adtvStatistics = ADTVStatisticsCardController()
     private lazy var adtvButton = ADTVButtonCardController()
-    private lazy var aadtvStatistics = AADTVStatisticsCardController()
     private lazy var news = NewsCardController()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -72,7 +71,7 @@ extension CompanyDetailViewController {
     }
     
     private func configCards() {
-        let cards = [header, timeseries, priceChart, profile, statistics, ohlc, adtvStatistics, adtvButton, aadtvStatistics, news]
+        let cards = [header, timeseries, priceChart, profile, statistics, ohlc, adtvStatistics, adtvButton, news]
         header.company = company
         adtvStatistics.company = company
         adtvButton.company = company
