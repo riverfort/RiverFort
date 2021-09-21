@@ -111,11 +111,11 @@ extension ADTVDetailViewController {
     private func getHistoricalADTVns(adtvs: [ADTV], n: Int) -> [ADTV] {
         let dates = adtvs.map { $0.date }.dropFirst(n-1)
         let adtvs = adtvs.map { $0.adtv }
-        let adtvns = getADTVns(adtvs: adtvs, n: n)
+        let adtvns = calculateADTVns(adtvs: adtvs, n: n)
         return dates.enumerated().map { (i, date) in ADTV(date: date, adtv: adtvns[i]) }
     }
     
-    private func getADTVns(adtvs: [Double], n: Int) -> [Double] {
+    private func calculateADTVns(adtvs: [Double], n: Int) -> [Double] {
         return adtvs.enumerated().flatMap { (i, adtv) -> [Double] in
             if i < n-1 { return [] }
             else { return [Array(adtvs[i-(n-1)...i]).reduce(0, +)/Double(n)] }
