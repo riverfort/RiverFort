@@ -13,12 +13,12 @@ struct ADTV {
 }
 
 struct ADTVQuote {
-    let adtv1: Double
-    let adtv5: Double
-    let adtv10: Double
-    let adtv20: Double
-    let adtv60: Double
-    let adtv120: Double
+    let adtv1: Double?
+    let adtv5: Double?
+    let adtv10: Double?
+    let adtv20: Double?
+    let adtv60: Double?
+    let adtv120: Double?
 }
 
 extension ADTV {
