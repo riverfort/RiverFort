@@ -8,6 +8,7 @@
 import CardParts
 
 class ADTVStatisticsCardController: BaseCardController {
+    public var company: Company?
     private lazy var titlePart = CardPartTitleView(type: .titleOnly)
 
     private lazy var adtv1LabelPart = CardPartTitleView(type: .titleOnly)
@@ -183,7 +184,7 @@ extension ADTVStatisticsCardController {
     }
     
     @objc private func didReceiveHistoricalPrice(notification: Notification) {
+        guard let company = company else { return }
         guard let historicalPrice = notification.object as? [HistoricalPriceQuote] else { return }
-        print(historicalPrice)
     }
 }
