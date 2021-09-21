@@ -193,11 +193,16 @@ extension ADTVStatisticsCardController {
         let adtv20 = ADTV.calculateADTVns(adtvs: adtvs, n: 20).last
         let adtv60 = ADTV.calculateADTVns(adtvs: adtvs, n: 60).last
         let adtv120 = ADTV.calculateADTVns(adtvs: adtvs, n: 120).last
-        adtv1DataPart.title = adtv1?.withCommas()
-        adtv5DataPart.title = adtv5?.withCommas()
-        adtv10DataPart.title = adtv10?.withCommas()
-        adtv20DataPart.title = adtv20?.withCommas()
-        adtv60DataPart.title = adtv60?.withCommas()
-        adtv120DataPart.title = adtv120?.withCommas()
+        if let adtv1 = adtv1, let adtv5 = adtv5, let adtv10 = adtv10, let adtv20 = adtv20, let adtv60 = adtv60, let adtv120 = adtv120 {
+            let numberFormatter = NumberFormatter()
+            numberFormatter.numberStyle = .decimal
+            numberFormatter.maximumFractionDigits = 0
+            adtv1DataPart.title = numberFormatter.string(from: NSNumber(value: adtv1))
+            adtv5DataPart.title = numberFormatter.string(from: NSNumber(value: adtv5))
+            adtv10DataPart.title = numberFormatter.string(from: NSNumber(value: adtv10))
+            adtv20DataPart.title = numberFormatter.string(from: NSNumber(value: adtv20))
+            adtv60DataPart.title = numberFormatter.string(from: NSNumber(value: adtv60))
+            adtv120DataPart.title = numberFormatter.string(from: NSNumber(value: adtv120))
+        }
     }
 }
