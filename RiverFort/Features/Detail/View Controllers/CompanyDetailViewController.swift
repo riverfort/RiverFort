@@ -88,35 +88,6 @@ extension CompanyDetailViewController {
         add.addTarget(self, action: #selector(didTapAddToWatchlist), for: .touchUpInside)
     }
     
-    private func configMoreButton() {
-        more.setImage(UIImage(systemName: "ellipsis.circle", withConfiguration: UIImage.Configuration.semibold), for: .normal)
-        more.showsMenuAsPrimaryAction = true
-        var menu: UIMenu {
-            return UIMenu(title: "Share Price Chart", image: nil, identifier: nil, options: [], children: menuItems)
-        }
-        var menuItems: [UIAction] {
-            return [
-                UIAction(title: "Price & Vol",
-                         image: UIImage(systemName: "chart.bar"),
-                         state: UserDefaults.standard.bool(forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn) ? .off : .on,
-                         handler: { [self] (_) in
-                            UserDefaults.standard.setValue(false, forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn)
-                            more.menu = menu
-                            NotificationCenter.default.post(name: .priceChartDisplayModeUpdated, object: nil)
-                         }),
-                UIAction(title: "With News",
-                         image: UIImage(systemName: "newspaper"),
-                         state: UserDefaults.standard.bool(forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn) ? .on : .off,
-                         handler: { [self] (_) in
-                            UserDefaults.standard.setValue(true, forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn)
-                            more.menu = menu
-                            NotificationCenter.default.post(name: .priceChartDisplayModeUpdated, object: nil)
-                         }),
-            ]
-        }
-        more.menu = menu
-    }
-    
     private func configBarButtonStack() {
         let barButtonStack = UIStackView.init(arrangedSubviews: [add, more])
         barButtonStack.distribution = .equalSpacing
@@ -158,5 +129,33 @@ extension CompanyDetailViewController {
         WatchlistCoreDataManager.addToWatchlist(company_ticker: company.symbol, company_name: company.name, exch: company.exchange)
         SPAlert.present(title: "Added to Watchlist", preset: .done, haptic: .success)
         add.isHidden = true
+    }
+}
+
+extension CompanyDetailViewController {
+    private func configMoreButton() {
+        more.setImage(UIImage(systemName: "ellipsis.circle", withConfiguration: UIImage.Configuration.semibold), for: .normal)
+        more.showsMenuAsPrimaryAction = true
+        var menu: UIMenu { UIMenu(title: "Share Price Chart", image: nil, identifier: nil, options: [], children: menuItems) }
+        var menuItems: [UIAction] { [
+            UIAction(title: "Price & Vol",
+                     image: UIImage(systemName: "chart.bar"),
+                     state: UserDefaults.standard.bool(forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn) ? .off : .on,
+                     handler: { [self] (_) in
+                        UserDefaults.standard.setValue(false, forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn)
+                        more.menu = menu
+                        NotificationCenter.default.post(name: .priceChartDisplayModeUpdated, object: nil)
+                        
+                     }),
+            UIAction(title: "With News",
+                     image: UIImage(systemName: "newspaper"),
+                     state: UserDefaults.standard.bool(forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn) ? .on : .off,
+                     handler: { [self] (_) in
+                        UserDefaults.standard.setValue(true, forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn)
+                        more.menu = menu
+                        NotificationCenter.default.post(name: .priceChartDisplayModeUpdated, object: nil)
+                     }),
+        ]}
+        more.menu = menu
     }
 }
