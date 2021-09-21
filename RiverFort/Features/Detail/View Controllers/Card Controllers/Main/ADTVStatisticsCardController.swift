@@ -193,16 +193,14 @@ extension ADTVStatisticsCardController {
         let adtv20 = ADTV.calculateADTVns(adtvs: adtvs, n: 20).last
         let adtv60 = ADTV.calculateADTVns(adtvs: adtvs, n: 60).last
         let adtv120 = ADTV.calculateADTVns(adtvs: adtvs, n: 120).last
-        if let adtv1 = adtv1, let adtv5 = adtv5, let adtv10 = adtv10, let adtv20 = adtv20, let adtv60 = adtv60, let adtv120 = adtv120 {
-            let numberFormatter = NumberFormatter()
-            numberFormatter.numberStyle = .decimal
-            numberFormatter.maximumFractionDigits = 0
-            adtv1DataPart.title = numberFormatter.string(from: NSNumber(value: adtv1))
-            adtv5DataPart.title = numberFormatter.string(from: NSNumber(value: adtv5))
-            adtv10DataPart.title = numberFormatter.string(from: NSNumber(value: adtv10))
-            adtv20DataPart.title = numberFormatter.string(from: NSNumber(value: adtv20))
-            adtv60DataPart.title = numberFormatter.string(from: NSNumber(value: adtv60))
-            adtv120DataPart.title = numberFormatter.string(from: NSNumber(value: adtv120))
-        }
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.maximumFractionDigits = 0
+        if let adtv1 = adtv1 { adtv1DataPart.title = numberFormatter.string(from: NSNumber(value: adtv1)) }
+        if let adtv5 = adtv5 { adtv5DataPart.title = numberFormatter.string(from: NSNumber(value: adtv5)) }
+        if let adtv10 = adtv10 { adtv10DataPart.title = numberFormatter.string(from: NSNumber(value: adtv10)) }
+        if let adtv20 = adtv20 { adtv20DataPart.title = numberFormatter.string(from: NSNumber(value: adtv20)) }
+        if let adtv60 = adtv60 { adtv60DataPart.title = numberFormatter.string(from: NSNumber(value: adtv60)) }
+        if let adtv120 = adtv120 { adtv120DataPart.title = numberFormatter.string(from: NSNumber(value: adtv120)) }
     }
 }
