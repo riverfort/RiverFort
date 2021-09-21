@@ -81,47 +81,17 @@ extension ADTVDetailViewController {
     private func getADTVs() {
         guard let company = company else { return }
         guard let historicalPrice = historicalPrice else { return }
-        let historicalADTVs   = getHistoricalADTVs(exchange: company.exchangeShortName, historicalPriceQuotes: historicalPrice)
-        let historicalADTV5s = getHistoricalADTVns(adtvs: historicalADTVs, n: 5)
-        let historicalADTV10s = getHistoricalADTVns(adtvs: historicalADTVs, n: 10)
-        let historicalADTV20s = getHistoricalADTVns(adtvs: historicalADTVs, n: 20)
-        let historicalADTV60s = getHistoricalADTVns(adtvs: historicalADTVs, n: 60)
-        let historicalADTV120s = getHistoricalADTVns(adtvs: historicalADTVs, n: 120)
+        let historicalADTVs = ADTV.getHistoricalADTVs(exchange: company.exchange, historicalPriceQuotes: historicalPrice)
+        let historicalADTV5s = ADTV.getHistoricalADTVns(adtvs: historicalADTVs, n: 5)
+        let historicalADTV10s = ADTV.getHistoricalADTVns(adtvs: historicalADTVs, n: 10)
+        let historicalADTV20s = ADTV.getHistoricalADTVns(adtvs: historicalADTVs, n: 20)
+        let historicalADTV60s = ADTV.getHistoricalADTVns(adtvs: historicalADTVs, n: 60)
+        let historicalADTV120s = ADTV.getHistoricalADTVns(adtvs: historicalADTVs, n: 120)
         NotificationCenter.default.post(name: .getHistoricalADTV, object: historicalADTVs)
         NotificationCenter.default.post(name: .getHistoricalADTV5, object: historicalADTV5s)
         NotificationCenter.default.post(name: .getHistoricalADTV10, object: historicalADTV10s)
         NotificationCenter.default.post(name: .getHistoricalADTV20, object: historicalADTV20s)
         NotificationCenter.default.post(name: .getHistoricalADTV60, object: historicalADTV60s)
         NotificationCenter.default.post(name: .getHistoricalADTV120, object: historicalADTV120s)
-    }
-}
-
-extension ADTVDetailViewController {
-    private func getHistoricalADTVs(exchange: String, historicalPriceQuotes: [HistoricalPriceQuote]) -> [ADTV] {
-        let historicalADTVs = historicalPriceQuotes.map { dailyPrice -> ADTV in
-            let vwap = (dailyPrice.high! + dailyPrice.low! + dailyPrice.close!) / 3
-            let adtv = vwap * Double(dailyPrice.volume!)
-            return ADTV(date: dailyPrice.date, adtv: adtv)
-        }
-        switch exchange {
-        case "LSE":
-            return historicalADTVs.map { ADTV(date: $0.date, adtv: $0.adtv/100) }
-        default:
-            return historicalADTVs
-        }
-    }
-        
-    private func getHistoricalADTVns(adtvs: [ADTV], n: Int) -> [ADTV] {
-        let dates = adtvs.map { $0.date }.dropFirst(n-1)
-        let adtvs = adtvs.map { $0.adtv }
-        let adtvns = calculateADTVns(adtvs: adtvs, n: n)
-        return dates.enumerated().map { (i, date) in ADTV(date: date, adtv: adtvns[i]) }
-    }
-    
-    private func calculateADTVns(adtvs: [Double], n: Int) -> [Double] {
-        return adtvs.enumerated().flatMap { (i, adtv) -> [Double] in
-            if i < n-1 { return [] }
-            else { return [Array(adtvs[i-(n-1)...i]).reduce(0, +)/Double(n)] }
-        }
     }
 }
