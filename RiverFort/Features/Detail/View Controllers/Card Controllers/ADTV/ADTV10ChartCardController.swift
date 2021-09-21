@@ -1,5 +1,5 @@
 //
-//  ADTV5ChartCardController.swift
+//  ADTV10ChartCardController.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 02/09/2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ADTV5ChartCardController: BaseCardController {
+class ADTV10ChartCardController: BaseCardController {
     private lazy var adtvChartPart = ADTVChartCardPartView()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -24,25 +24,25 @@ class ADTV5ChartCardController: BaseCardController {
     }
 }
 
-extension ADTV5ChartCardController {
+extension ADTV10ChartCardController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCardParts([adtvChartPart])
     }
 }
 
-extension ADTV5ChartCardController {
+extension ADTV10ChartCardController {
     private func createObservesr() {
         NotificationCenter.default.addObserver(self, selector: #selector(prepareChartTimeseries), name: .timeseriesUpdated, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareADTV5), name: .getHistoricalADTV5, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareADTV10), name: .getHistoricalADTV10, object: nil)
     }
     
     @objc private func prepareChartTimeseries(notification: Notification) {
-        adtvChartPart.changeTimeseries(for: UserDefaults.standard.integer(forKey: UserDefaults.Keys.timeseriesSelectedSegmentIndex), label: "ADTV5", colour: .systemTeal)
+        adtvChartPart.changeTimeseries(for: UserDefaults.standard.integer(forKey: UserDefaults.Keys.timeseriesSelectedSegmentIndex), label: "ADTV10", colour: .systemTeal)
     }
     
-    @objc private func prepareADTV5(notification: Notification) {
+    @objc private func prepareADTV10(notification: Notification) {
         guard let adtvs = notification.object as? [ADTV] else { return }
-        adtvChartPart.setChartDataForADTV(with: adtvs, label: "ADTV5", colour: .systemTeal)
+        adtvChartPart.setChartDataForADTV(with: adtvs, label: "ADTV10", colour: .systemTeal)
     }
 }

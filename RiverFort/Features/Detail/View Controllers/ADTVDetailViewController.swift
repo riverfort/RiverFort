@@ -13,6 +13,7 @@ class ADTVDetailViewController: CardsViewController {
     private lazy var timeseries = TimeseriesCardController()
     private lazy var adtv = ADTVChartCardController()
     private lazy var adtv5 = ADTV5ChartCardController()
+    private lazy var adtv10 = ADTV10ChartCardController()
     private lazy var adtv20 = ADTV20ChartCardController()
     private lazy var adtv60 = ADTV60ChartCardController()
     private lazy var adtv120 = ADTV120ChartCardController()
@@ -53,7 +54,7 @@ extension ADTVDetailViewController {
     }
     
     private func configCards() {
-        let cards = [timeseries, adtv, adtv5, adtv20, adtv60, adtv120]
+        let cards = [timeseries, adtv, adtv5, adtv10, adtv20, adtv60, adtv120]
         loadCards(cards: cards)
         getADTVs()
     }
@@ -82,11 +83,13 @@ extension ADTVDetailViewController {
         guard let historicalPrice = historicalPrice else { return }
         let historicalADTVs   = getHistoricalADTVs(exchange: company.exchangeShortName, historicalPriceQuotes: historicalPrice)
         let historicalADTV5s = getHistoricalADTVns(adtvs: historicalADTVs, n: 5)
+        let historicalADTV10s = getHistoricalADTVns(adtvs: historicalADTVs, n: 10)
         let historicalADTV20s = getHistoricalADTVns(adtvs: historicalADTVs, n: 20)
         let historicalADTV60s = getHistoricalADTVns(adtvs: historicalADTVs, n: 60)
         let historicalADTV120s = getHistoricalADTVns(adtvs: historicalADTVs, n: 120)
         NotificationCenter.default.post(name: .getHistoricalADTV, object: historicalADTVs)
         NotificationCenter.default.post(name: .getHistoricalADTV5, object: historicalADTV5s)
+        NotificationCenter.default.post(name: .getHistoricalADTV10, object: historicalADTV10s)
         NotificationCenter.default.post(name: .getHistoricalADTV20, object: historicalADTV20s)
         NotificationCenter.default.post(name: .getHistoricalADTV60, object: historicalADTV60s)
         NotificationCenter.default.post(name: .getHistoricalADTV120, object: historicalADTV120s)

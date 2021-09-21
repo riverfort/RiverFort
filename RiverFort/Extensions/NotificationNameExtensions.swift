@@ -16,6 +16,7 @@ extension Notification.Name {
     
     static let getHistoricalADTV = Notification.Name("get_historical_adtv")
     static let getHistoricalADTV5 = Notification.Name("get_historical_adtv5")
+    static let getHistoricalADTV10 = Notification.Name("get_historical_adtv10")
     static let getHistoricalADTV20 = Notification.Name("get_historical_adtv20")
     static let getHistoricalADTV60 = Notification.Name("get_historical_adtv60")
     static let getHistoricalADTV120 = Notification.Name("get_historical_adtv120")
