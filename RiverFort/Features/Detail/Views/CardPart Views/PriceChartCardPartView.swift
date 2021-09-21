@@ -171,6 +171,12 @@ extension PriceChartCardPartView {
         }
     }
     
+    public func removeChartDataForNews() {
+        guard let dataSets = chartView.data?.dataSets else { return }
+        let newsDataSets = dataSets.filter { $0.label == "News" }
+        newsDataSets.forEach { newsDataSet in chartView.data?.removeDataSet(newsDataSet) }
+    }
+    
     public func changeTimeseries(for selectedSegmentIndex: Int) {
         configChartViewTimeseriesAnimation()
         var adjustedHistPriceDataEntries = [ChartDataEntry]()
