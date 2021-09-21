@@ -38,6 +38,7 @@ class ADTVStatisticsCardController: BaseCardController {
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        createObserver()
     }
     
     required init?(coder: NSCoder) {
@@ -173,5 +174,16 @@ extension ADTVStatisticsCardController {
         configTitleView()
         configStackView()
         setupCardParts([cardPartSV])
+    }
+}
+
+extension ADTVStatisticsCardController {
+    private func createObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveHistoricalPrice), name: .receiveHistoricalPrice, object: nil)
+    }
+    
+    @objc private func didReceiveHistoricalPrice(notification: Notification) {
+        guard let historicalPrice = notification.object as? [HistoricalPriceQuote] else { return }
+        print(historicalPrice)
     }
 }
