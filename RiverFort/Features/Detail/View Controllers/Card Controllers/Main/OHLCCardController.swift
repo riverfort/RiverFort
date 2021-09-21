@@ -144,9 +144,12 @@ extension OHLCCardController {
     
     @objc private func prepareView(notification: Notification) {
         guard let quote = notification.object as? Quote else { return }
-        openDataPart.title = "\(quote.open)"
-        highDataPart.title = "\(quote.dayHigh)"
-        lowDataPart.title  = "\(quote.dayLow)"
-        closeDataPart.title = "\(quote.price)"
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.maximumFractionDigits = 2
+        openDataPart.title = numberFormatter.string(from: NSNumber(value: quote.open))
+        highDataPart.title = numberFormatter.string(from: NSNumber(value: quote.dayHigh))
+        lowDataPart.title  = numberFormatter.string(from: NSNumber(value: quote.dayLow))
+        closeDataPart.title = numberFormatter.string(from: NSNumber(value: quote.price))
     }
 }
