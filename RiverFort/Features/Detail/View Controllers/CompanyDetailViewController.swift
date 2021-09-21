@@ -43,6 +43,11 @@ extension CompanyDetailViewController {
         prepareView()
         configView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        timeseries.setSelectedSegmentIndex()
+    }
 }
 
 extension CompanyDetailViewController {
