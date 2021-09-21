@@ -237,7 +237,7 @@
 		77104EEE26B4497B0058E2C2 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				776F657F26BBFF5200CAA5A6 /* PersistentStore */,
+				776F657F26BBFF5200CAA5A6 /* Core Data */,
 				776F657826BBDB4C00CAA5A6 /* Orientation */,
 				7762C77026BAE1DF008DE1BA /* Utility */,
 				77104EEF26B4499D0058E2C2 /* Haptics */,
@@ -458,13 +458,13 @@
 			path = Orientation;
 			sourceTree = "<group>";
 		};
-		776F657F26BBFF5200CAA5A6 /* PersistentStore */ = {
+		776F657F26BBFF5200CAA5A6 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
 				774DB74A2623144900A92D13 /* RiverFort.xcdatamodeld */,
 				776F658026BBFF7900CAA5A6 /* PersistentContainer.swift */,
 			);
-			path = PersistentStore;
+			path = "Core Data";
 			sourceTree = "<group>";
 		};
 		776F658226BC366100CAA5A6 /* Settings */ = {
