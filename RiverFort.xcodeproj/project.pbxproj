@@ -216,8 +216,8 @@
 				776A913426E3B5E50012D0D5 /* ProfileCardController.swift */,
 				7796865526E5F963002A9980 /* StatisticsCardController.swift */,
 				77FF535A26E12826001FAACA /* OHLCCardController.swift */,
-				77DA186A26F86C1F00919D11 /* ADTVButtonCardController.swift */,
 				7791881126E0E7FE005B7D38 /* ADTVStatisticsCardController.swift */,
+				77DA186A26F86C1F00919D11 /* ADTVButtonCardController.swift */,
 				77887D1326E12C210016192D /* AADTVStatisticsCardController.swift */,
 				7796865726E6102C002A9980 /* NewsCardController.swift */,
 			);
