@@ -30,10 +30,10 @@ class PriceMarker: MarkerImage {
         super.refreshContent(entry: entry, highlight: highlight)
         guard let histPriceChartDataEntryData = entry.data as? HistoricalPriceChartDataEntryData else { return }
         price = String(format: "%.2f", entry.y) + " " + "(\(histPriceChartDataEntryData.volume.withCommas()))"
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .none
-        let datetime = formatter.string(from: histPriceChartDataEntryData.date)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        let datetime = dateFormatter.string(from: histPriceChartDataEntryData.date)
         date = datetime
     }
 }
