@@ -9,6 +9,7 @@ import UIKit
 
 class PriceChartCardController: BaseCardController {
     public var company: Company?
+    private let defaults = UserDefaults.standard
     private lazy var priceChartPart = PriceChartCardPartView()
     private lazy var newsViewModel = NewsViewModel()
     
@@ -36,7 +37,7 @@ extension PriceChartCardController {
 
 extension PriceChartCardController {
     private func configPriceChartWithNews() {
-        if UserDefaults.standard.bool(forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn) { addNews() }
+        if defaults.bool(forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn) { addNews() }
     }
 }
 
@@ -48,7 +49,7 @@ extension PriceChartCardController {
     }
     
     @objc private func onTimeseriesUpdated(notification: Notification) {
-        priceChartPart.changeTimeseries(for: UserDefaults.standard.integer(forKey: UserDefaults.Keys.timeseriesSelectedSegmentIndex))
+        priceChartPart.changeTimeseries(for: defaults.integer(forKey: UserDefaults.Keys.timeseriesSelectedSegmentIndex))
     }
     
     @objc private func onDidReceiveHistoricalPrice(notification: Notification) {
@@ -57,7 +58,7 @@ extension PriceChartCardController {
     }
     
     @objc private func onPriceChartDisplayModeUpdated() {
-        if UserDefaults.standard.bool(forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn) { addNews() }
+        if defaults.bool(forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn) { addNews() }
         else { priceChartPart.removeChartDataForNews() }
     }
 }
@@ -76,7 +77,7 @@ extension PriceChartCardController {
 
 extension PriceChartCardController {
     private func subscribeNewsViewModel() {
-        guard UserDefaults.standard.bool(forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn) == true else { return }
+        guard defaults.bool(forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn) == true else { return }
         newsViewModel.rssItemsForNews.asObservable().subscribe(
             onNext: { [self] in priceChartPart.setChartDataForNews(with: $0) }
         ).disposed(by: bag)
