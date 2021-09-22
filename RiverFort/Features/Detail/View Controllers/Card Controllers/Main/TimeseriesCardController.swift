@@ -36,3 +36,9 @@ extension TimeseriesCardController {
         NotificationCenter.default.post(name: .timeseriesUpdated, object: nil)
     }
 }
+
+extension TimeseriesCardController {
+    public func setSelectedSegmentIndex() {
+        timeseriesCardPartView.segmentedControl.selectedSegmentIndex = UserDefaults.standard.integer(forKey: UserDefaults.Keys.timeseriesSelectedSegmentIndex)
+    }
+}

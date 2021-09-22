@@ -19,7 +19,7 @@ struct Quote {
     let changePercent: Double
     let volume: Int
     let marketCap: Double?
-    let timestamp: Int
+    let date: Date
     let currency: String?
     let market: String
 }

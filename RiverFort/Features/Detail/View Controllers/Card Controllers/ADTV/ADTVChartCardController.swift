@@ -34,15 +34,15 @@ extension ADTVChartCardController {
 extension ADTVChartCardController {
     private func createObservesr() {
         NotificationCenter.default.addObserver(self, selector: #selector(prepareChartTimeseries), name: .timeseriesUpdated, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: .getHistoricalADTV, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareADTV), name: .getHistoricalADTV, object: nil)
     }
     
     @objc private func prepareChartTimeseries(notification: Notification) {
-        adtvChartPart.changeTimeseries(for: UserDefaults.standard.integer(forKey: UserDefaults.Keys.timeseriesSelectedSegmentIndex))
+        adtvChartPart.changeTimeseries(for: UserDefaults.standard.integer(forKey: UserDefaults.Keys.timeseriesSelectedSegmentIndex), label: "ADTV", colour: .systemTeal)
     }
     
-    @objc private func prepareView(notification: Notification) {
+    @objc private func prepareADTV(notification: Notification) {
         guard let adtvs = notification.object as? [ADTV] else { return }
-        adtvChartPart.setChartDataForADTV(with: adtvs)
+        adtvChartPart.setChartDataForADTV(with: adtvs, label: "ADTV", colour: .systemTeal)
     }
 }

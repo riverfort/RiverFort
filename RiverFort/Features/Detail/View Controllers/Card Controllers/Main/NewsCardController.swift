@@ -65,30 +65,10 @@ extension NewsCardController {
     
     private func configCardParts() {
         configTitleView()
-        configTableViewModel()
         configTableView()
+        configTableViewModel()
         configButton()
         setupCardParts([titlePart, newsTableView, readMoreButtonPart])
-    }
-}
-
-extension NewsCardController {
-    private func configTableViewModel() {
-        newsViewModel.rssItemsForNews.asObservable().bind(to: newsTableView.tableView.rx.items) { [self] tableView, index, data in
-            newsItems.append(data)
-            let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
-            cell.backgroundColor = .secondarySystemGroupedBackground
-            cell.textLabel?.text = data.title
-            cell.textLabel?.numberOfLines = 0
-            cell.textLabel?.font = .preferredFont(forTextStyle: .headline)
-            cell.textLabel?.adjustsFontForContentSizeCategory = true
-
-            cell.detailTextLabel?.text = data.pubDate
-            cell.detailTextLabel?.textColor = .secondaryLabel
-            cell.detailTextLabel?.font = .preferredFont(forTextStyle: .subheadline)
-            cell.detailTextLabel?.adjustsFontForContentSizeCategory = true
-            return cell
-        }.disposed(by: bag)
     }
 }
 
@@ -130,5 +110,25 @@ extension NewsCardController {
         guard let url = readMoreURL else { return }
         let vc = SFSafariViewController(url: url)
         present(vc, animated: true, completion: nil)
+    }
+}
+
+extension NewsCardController {
+    private func configTableViewModel() {
+        newsViewModel.rssItemsForNews.asObservable().bind(to: newsTableView.tableView.rx.items) { [self] tableView, index, data in
+            newsItems.append(data)
+            let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
+            cell.backgroundColor = .secondarySystemGroupedBackground
+            cell.textLabel?.text = data.title
+            cell.textLabel?.numberOfLines = 0
+            cell.textLabel?.font = .preferredFont(forTextStyle: .headline)
+            cell.textLabel?.adjustsFontForContentSizeCategory = true
+
+            cell.detailTextLabel?.text = data.pubDate
+            cell.detailTextLabel?.textColor = .secondaryLabel
+            cell.detailTextLabel?.font = .preferredFont(forTextStyle: .subheadline)
+            cell.detailTextLabel?.adjustsFontForContentSizeCategory = true
+            return cell
+        }.disposed(by: bag)
     }
 }

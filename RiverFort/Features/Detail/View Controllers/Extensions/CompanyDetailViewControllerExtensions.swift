@@ -24,35 +24,33 @@ extension CompanyDetailViewController {
                                   changePercent: yahooFinanceQuote.regularMarketChangePercent,
                                   volume: yahooFinanceQuote.regularMarketVolume,
                                   marketCap: yahooFinanceQuote.marketCap,
-                                  timestamp: yahooFinanceQuote.regularMarketTime,
+                                  date: Date(timeIntervalSince1970: TimeInterval(yahooFinanceQuote.regularMarketTime)),
                                   currency: yahooFinanceQuote.currency,
                                   market: yahooFinanceQuote.market)
                 NotificationCenter.default.post(name: .receiveQuote, object: quote)
             }
     }
     
-    public func getHistoricalPriceFromYahooFinance(symbol: String, exch: String) {
+    public func getHistoricalPriceFromYahooFinance(symbol: String, exchange: String) {
         DetailViewAPIFunction.fetchHistoricalPriceFromYahooFinance(symbol: symbol)
-            .responseDecodable(of: YahooFinanceHistoricalPriceResult.self) { [self] response in
+            .responseDecodable(of: YahooFinanceHistoricalPriceResult.self) { response in
                 guard let yahooFinanceHistoricalPriceResult = response.value?.chart.result.first else { return }
-                guard let quote = yahooFinanceHistoricalPriceResult.indicators.quote.first else { return }
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd"
-                let dates = yahooFinanceHistoricalPriceResult.timestamp.map { date -> String in dateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(date))) }
-                let highs = quote.high
-                let lows = quote.low
-                let closes = quote.close
-                let volumes = quote.volume
+                guard let yahooFinanceHistoricalPriceQuote = yahooFinanceHistoricalPriceResult.indicators.quote.first else { return }
+                let dates = yahooFinanceHistoricalPriceResult.timestamp.map { Date(timeIntervalSince1970: TimeInterval($0)) }
+                let highs = yahooFinanceHistoricalPriceQuote.high
+                let lows = yahooFinanceHistoricalPriceQuote.low
+                let closes = yahooFinanceHistoricalPriceQuote.close
+                let volumes = yahooFinanceHistoricalPriceQuote.volume
                 let historicalPriceQuotes = dates
                     .enumerated()
                     .map { (i, date) in HistoricalPriceQuote(date: date, high: highs[i], low: lows[i], close: closes[i], volume: volumes[i]) }
                     .filter { $0.high != nil && $0.low != nil && $0.close != nil && $0.volume != nil }
-                let historicalADTVs = getHistoricalADTVs(exch: exch, historicalPriceQuotes: historicalPriceQuotes)
-                NotificationCenter.default.post(name: .receiveYahooFinanceHistoricalPrice, object: historicalPriceQuotes)
-                NotificationCenter.default.post(name: .getHistoricalADTV, object: historicalADTVs)
+                NotificationCenter.default.post(name: .receiveHistoricalPrice, object: historicalPriceQuotes)
             }
     }
-    
+}
+
+extension CompanyDetailViewController {
     public func getProfileFromFMP(symbol: String) {
         DetailViewAPIFunction.fetchProfileFMP(symbol: symbol)
             .responseDecodable(of: [FMPProfile].self) { response in
@@ -61,19 +59,5 @@ extension CompanyDetailViewController {
                 let profile = Profile(industry: fmpProfile.industry, sector: fmpProfile.sector)
                 NotificationCenter.default.post(name: .receiveProfile, object: profile)
             }
-    }
-    
-    public func getHistoricalADTVs(exch: String, historicalPriceQuotes: [HistoricalPriceQuote]) -> [ADTV] {
-        let historicalADTVs = historicalPriceQuotes.map { dailyPrice -> ADTV in
-            let vwap = (dailyPrice.high! + dailyPrice.low! + dailyPrice.close!) / 3
-            let adtv = vwap * Double(dailyPrice.volume!)
-            return ADTV(date: dailyPrice.date, adtv: adtv)
-        }
-        switch exch {
-        case "LSE":
-            return historicalADTVs.map { ADTV(date: $0.date, adtv: $0.adtv/100) }
-        default:
-            return historicalADTVs
-        }
     }
 }

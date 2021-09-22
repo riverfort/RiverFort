@@ -28,7 +28,7 @@ class PriceChartCardPartView: UIView, CardPartView {
         chartView.xAxis.labelPosition = .bottom
         chartView.xAxis.drawGridLinesEnabled = false
         chartView.xAxis.drawAxisLineEnabled  = false
-        chartView.xAxis.setLabelCount(4, force: false)
+        chartView.xAxis.setLabelCount(3, force: false)
         chartView.xAxis.avoidFirstLastClippingEnabled = true
         chartView.xAxis.labelFont = chartView.xAxis.labelFont.withSize(12)
         chartView.xAxis.labelTextColor = .systemGray
@@ -89,7 +89,11 @@ extension PriceChartCardPartView: IAxisValueFormatter {
                 histPriceDataEntries[Int(value) % histPriceDataEntries.count].data as? HistoricalPriceChartDataEntryData else {
             return ""
         }
-        return DateFormatterUtils.convertDateFormate_DM(histPriceChartDataEntryData.date)
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .none
+        let datetime = formatter.string(from: histPriceChartDataEntryData.date)
+        return datetime
     }
 }
 
@@ -146,17 +150,18 @@ extension PriceChartCardPartView {
     }
 
     public func setChartDataForNews(with rssItems: [RSSItem]) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM, yyyy HH:mm:ss"
         rssItems.forEach { rssItem in
-            let newsDate = DateFormatterUtils.convertDateFormate_DMY_YMD(rssItem.pubDate)
+            let newsDatetime = dateFormatter.date(from: rssItem.pubDate)!
             histPriceDataEntries.forEach { histPrice in
-                guard let histPriceChartDataEntryData = histPrice.data as? HistoricalPriceChartDataEntryData else {
-                    return
-                }
-                if histPriceChartDataEntryData.date == newsDate {
+                guard let histPriceChartDataEntryData = histPrice.data as? HistoricalPriceChartDataEntryData else { return }
+                let order = Calendar.current.compare(histPriceChartDataEntryData.date, to: newsDatetime, toGranularity: .day)
+                if order == .orderedSame {
                     let newsDataEntry = ChartDataEntry(
                         x: histPrice.x,
                         y: histPrice.y,
-                        data: NewsChartDataEntryData(date: newsDate, title: rssItem.title))
+                        data: NewsChartDataEntryData(date: newsDatetime, title: rssItem.title))
                     newsDataEntries.append(newsDataEntry)
                     let lineChartDataSet = LineChartDataSet(entries: [newsDataEntry], label: "News")
                     configLineChartDataSetForNews(with: lineChartDataSet)
@@ -164,6 +169,12 @@ extension PriceChartCardPartView {
                 }
             }
         }
+    }
+    
+    public func removeChartDataForNews() {
+        guard let dataSets = chartView.data?.dataSets else { return }
+        let newsDataSets = dataSets.filter { $0.label == "News" }
+        newsDataSets.forEach { newsDataSet in chartView.data?.removeDataSet(newsDataSet) }
     }
     
     public func changeTimeseries(for selectedSegmentIndex: Int) {

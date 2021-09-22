@@ -12,16 +12,15 @@ class CompanyDetailViewController: CardsViewController {
     public var company: Company?
     private lazy var add  = UIButton(type: .system)
     private lazy var more = UIButton(type: .system)
-    private let cards = [HeaderCardController(),
-                         TimeseriesCardController(),
-                         PriceChartCardController(),
-                         ProfileCardController(),
-                         StatisticsCardController(),
-                         OHLCCardController(),
-                         ADTVChartCardController(),
-                         ADTVCardController(),
-                         AADTVCardController(),
-                         NewsCardController()]
+    private lazy var header = HeaderCardController()
+    private lazy var timeseries = TimeseriesCardController()
+    private lazy var priceChart = PriceChartCardController()
+    private lazy var profile = ProfileCardController()
+    private lazy var statistics = StatisticsCardController()
+    private lazy var ohlc = OHLCCardController()
+    private lazy var adtvStatistics = ADTVStatisticsCardController()
+    private lazy var adtvButton = ADTVButtonCardController()
+    private lazy var news = NewsCardController()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -43,6 +42,11 @@ extension CompanyDetailViewController {
         prepareView()
         configView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        timeseries.setSelectedSegmentIndex()
+    }
 }
 
 extension CompanyDetailViewController {
@@ -57,50 +61,32 @@ extension CompanyDetailViewController {
     private func configView() {
         collectionView.backgroundColor = .systemGroupedBackground
         configBarButtonItem()
-        loadCards(cards: cards)
+        configCards()
     }
-    
+
     private func configBarButtonItem() {
         configAddButton()
         configMoreButton()
         configBarButtonStack()
     }
     
+    private func configCards() {
+        let cards = [header, timeseries, priceChart, profile, statistics, ohlc, adtvStatistics, adtvButton, news]
+        header.company = company
+        priceChart.company = company
+        adtvStatistics.company = company
+        adtvButton.company = company
+        loadCards(cards: cards)
+    }
+}
+
+extension CompanyDetailViewController {
     private func configAddButton() {
         guard let symbol = navigationItem.title else { return }
         let isCompanyInWatchlist = WatchlistCoreDataManager.isWatchedCompany(company_ticker: symbol)
         if isCompanyInWatchlist { add.isHidden = true }
-        add.setImage(UIImage(systemName: "plus.circle", withConfiguration: Configuration.symbolConfiguration), for: .normal)
+        add.setImage(UIImage(systemName: "plus.circle", withConfiguration: UIImage.Configuration.semibold), for: .normal)
         add.addTarget(self, action: #selector(didTapAddToWatchlist), for: .touchUpInside)
-    }
-    
-    private func configMoreButton() {
-        more.setImage(UIImage(systemName: "ellipsis.circle", withConfiguration: Configuration.symbolConfiguration), for: .normal)
-        more.showsMenuAsPrimaryAction = true
-        var menu: UIMenu {
-            return UIMenu(title: "Share Price Chart", image: nil, identifier: nil, options: [], children: menuItems)
-        }
-        var menuItems: [UIAction] {
-            return [
-                UIAction(title: "Price & Vol",
-                         image: UIImage(systemName: "chart.bar"),
-                         state: UserDefaults.standard.bool(forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn) ? .off : .on,
-                         handler: { [self] (_) in
-                            UserDefaults.standard.setValue(false, forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn)
-                            more.menu = menu
-                            NotificationCenter.default.post(name: .priceChartDisplayModeUpdated, object: nil)
-                         }),
-                UIAction(title: "With News",
-                         image: UIImage(systemName: "newspaper"),
-                         state: UserDefaults.standard.bool(forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn) ? .on : .off,
-                         handler: { [self] (_) in
-                            UserDefaults.standard.setValue(true, forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn)
-                            more.menu = menu
-                            NotificationCenter.default.post(name: .priceChartDisplayModeUpdated, object: nil)
-                         }),
-            ]
-        }
-        more.menu = menu
     }
     
     private func configBarButtonStack() {
@@ -133,7 +119,7 @@ extension CompanyDetailViewController {
     }
 
     private func getHistoricalPrice(symbol: String, exch: String) {
-        getHistoricalPriceFromYahooFinance(symbol: symbol, exch: exch)
+        getHistoricalPriceFromYahooFinance(symbol: symbol, exchange: exch)
     }
 }
 
@@ -144,5 +130,33 @@ extension CompanyDetailViewController {
         WatchlistCoreDataManager.addToWatchlist(company_ticker: company.symbol, company_name: company.name, exch: company.exchange)
         SPAlert.present(title: "Added to Watchlist", preset: .done, haptic: .success)
         add.isHidden = true
+    }
+}
+
+extension CompanyDetailViewController {
+    private func configMoreButton() {
+        more.setImage(UIImage(systemName: "ellipsis.circle", withConfiguration: UIImage.Configuration.semibold), for: .normal)
+        more.showsMenuAsPrimaryAction = true
+        var menu: UIMenu { UIMenu(title: "Share Price Chart", image: nil, identifier: nil, options: [], children: menuItems) }
+        var menuItems: [UIAction] { [
+            UIAction(title: "Price & Vol",
+                     image: UIImage(systemName: "chart.bar"),
+                     state: UserDefaults.standard.bool(forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn) ? .off : .on,
+                     handler: { [self] (_) in
+                        UserDefaults.standard.setValue(false, forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn)
+                        more.menu = menu
+                        NotificationCenter.default.post(name: .priceChartDisplayModeUpdated, object: nil)
+                        
+                     }),
+            UIAction(title: "With News",
+                     image: UIImage(systemName: "newspaper"),
+                     state: UserDefaults.standard.bool(forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn) ? .on : .off,
+                     handler: { [self] (_) in
+                        UserDefaults.standard.setValue(true, forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn)
+                        more.menu = menu
+                        NotificationCenter.default.post(name: .priceChartDisplayModeUpdated, object: nil)
+                     }),
+        ]}
+        more.menu = menu
     }
 }

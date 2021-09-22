@@ -28,18 +28,20 @@ class ADTVMarker: MarkerImage {
     
     override func refreshContent(entry: ChartDataEntry, highlight: Highlight) {
         super.refreshContent(entry: entry, highlight: highlight)
-        guard let adtvChartDataEntryData = entry.data as? String else {
-            return
-        }
+        guard let adtvChartDataEntryData = entry.data as? Date else { return }
         adtv = NumberShortScale.formatNumber(entry.y)
-        date = DateFormatterUtils.convertDateFormater(adtvChartDataEntryData)
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        let datetime = formatter.string(from: adtvChartDataEntryData)
+        date = datetime
     }
 }
 
 extension ADTVMarker {
     private func configView() {
         adtvAttributes[.font] = UIFont.preferredFont(forTextStyle: .headline)
-        adtvAttributes[.foregroundColor] = UIColor.cerulean
+        adtvAttributes[.foregroundColor] = UIColor.systemTeal
         dateAttributes[.font] = UIFont.preferredFont(forTextStyle: .subheadline)
         dateAttributes[.foregroundColor] = UIColor.secondaryLabel
     }

@@ -35,7 +35,7 @@ class ADTVChartCardPartView: UIView, CardPartView {
         chartView.xAxis.labelPosition = .bottom
         chartView.xAxis.drawGridLinesEnabled = false
         chartView.xAxis.drawAxisLineEnabled  = false
-        chartView.xAxis.setLabelCount(4, force: false)
+        chartView.xAxis.setLabelCount(3, force: false)
         chartView.xAxis.avoidFirstLastClippingEnabled = true
         chartView.xAxis.labelFont = chartView.xAxis.labelFont.withSize(12)
         chartView.xAxis.labelTextColor = .systemGray
@@ -96,10 +96,12 @@ extension ADTVChartCardPartView: ChartViewDelegate, BaseChartViewDelegate {
 
 extension ADTVChartCardPartView: IAxisValueFormatter {
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-        guard let adtvChartDataEntryData = adtvDataEntries[Int(value) % adtvDataEntries.count].data as? String else {
-            return ""
-        }
-        return DateFormatterUtils.convertDateFormate_DM(adtvChartDataEntryData)
+        guard let adtvChartDataEntryData = adtvDataEntries[Int(value) % adtvDataEntries.count].data as? Date else { return "" }
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .none
+        let datetime = formatter.string(from: adtvChartDataEntryData)
+        return datetime
     }
     
     private func leftAxisFormatting() {
@@ -112,7 +114,7 @@ extension ADTVChartCardPartView: IAxisValueFormatter {
 }
 
 extension ADTVChartCardPartView {
-    private func configLineChartDataSetForADTV(with lineChartDataSet: LineChartDataSet) {
+    private func configLineChartDataSetForADTV(with lineChartDataSet: LineChartDataSet, colour: UIColor) {
         lineChartDataSet.drawCirclesEnabled = false
         lineChartDataSet.drawValuesEnabled  = false
         lineChartDataSet.drawFilledEnabled  = false
@@ -122,12 +124,12 @@ extension ADTVChartCardPartView {
         lineChartDataSet.highlightColor = .secondaryLabel
         lineChartDataSet.lineCapType = .square
         lineChartDataSet.mode = .linear
-        lineChartDataSet.setColor(.cerulean)
+        lineChartDataSet.setColor(colour)
     }
 }
 
 extension ADTVChartCardPartView {
-    public func setChartDataForADTV(with adtvs: [ADTV]) {
+    public func setChartDataForADTV(with adtvs: [ADTV], label: String, colour: UIColor) {
         adtvDataEntries = adtvs.enumerated().map { (index, adtv) in
             ChartDataEntry(x: Double(index), y: adtv.adtv, data: adtv.date)
         }
@@ -150,12 +152,12 @@ extension ADTVChartCardPartView {
             return
         }
         
-        let lineChartDataSet = LineChartDataSet(entries: adjustedHistPriceDataEntries, label: "ADTV")
-        configLineChartDataSetForADTV(with: lineChartDataSet)
+        let lineChartDataSet = LineChartDataSet(entries: adjustedHistPriceDataEntries, label: label)
+        configLineChartDataSetForADTV(with: lineChartDataSet, colour: colour)
         chartView.data = LineChartData(dataSet: lineChartDataSet)
     }
     
-    public func changeTimeseries(for selectedSegmentIndex: Int) {
+    public func changeTimeseries(for selectedSegmentIndex: Int, label: String, colour: UIColor) {
         configChartViewTimeseriesAnimation()
         var adjustedHistPriceDataEntries = [ChartDataEntry]()
         switch selectedSegmentIndex {
@@ -174,8 +176,8 @@ extension ADTVChartCardPartView {
         default:
             return
         }
-        let lineChartDataSetForADTV = LineChartDataSet(entries: adjustedHistPriceDataEntries, label: "ADTV")
-        configLineChartDataSetForADTV(with: lineChartDataSetForADTV)
+        let lineChartDataSetForADTV = LineChartDataSet(entries: adjustedHistPriceDataEntries, label: label)
+        configLineChartDataSetForADTV(with: lineChartDataSetForADTV, colour: colour)
         chartView.data = LineChartData(dataSet: lineChartDataSetForADTV)
     }
 }

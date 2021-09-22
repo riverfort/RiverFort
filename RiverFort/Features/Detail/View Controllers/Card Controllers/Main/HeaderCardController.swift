@@ -8,6 +8,7 @@
 import CardParts
 
 class HeaderCardController: BaseCardController {
+    public var company: Company?
     private lazy var namePart = CardPartTitleView(type: .titleOnly)
     private lazy var exchPart = CardPartTitleView(type: .titleOnly)
     private lazy var pricePart  = CardPartTitleView(type: .titleOnly)
@@ -34,6 +35,7 @@ extension HeaderCardController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configCardParts()
+        prepareNameAndExch()
     }
 }
 
@@ -85,12 +87,11 @@ extension HeaderCardController {
 
 extension HeaderCardController {
     private func createObservesr() {
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareNameAndExch), name: .selectCompanyFromSearchResult, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(preparePrice), name: .receiveQuote, object: nil)
     }
     
-    @objc private func prepareNameAndExch(notification: Notification) {
-        guard let company = notification.object as? Company else { return }
+    private func prepareNameAndExch() {
+        guard let company = company else { return }
         namePart.title = company.name
         exchPart.title = "\(company.exchange)"
     }

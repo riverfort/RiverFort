@@ -1,5 +1,5 @@
 //
-//  ADTVCardController.swift
+//  ADTVStatisticsCardController.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 02/09/2021.
@@ -7,7 +7,8 @@
 
 import CardParts
 
-class ADTVCardController: BaseCardController {
+class ADTVStatisticsCardController: BaseCardController {
+    public var company: Company?
     private lazy var titlePart = CardPartTitleView(type: .titleOnly)
 
     private lazy var adtv1LabelPart = CardPartTitleView(type: .titleOnly)
@@ -38,6 +39,7 @@ class ADTVCardController: BaseCardController {
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        createObserver()
     }
     
     required init?(coder: NSCoder) {
@@ -49,14 +51,14 @@ class ADTVCardController: BaseCardController {
     }
 }
 
-extension ADTVCardController {
+extension ADTVStatisticsCardController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configCardParts()
     }
 }
 
-extension ADTVCardController {
+extension ADTVStatisticsCardController {
     private func configTitleView() {
         titlePart.title = "ADTV"
         titlePart.label.numberOfLines = 0
@@ -173,5 +175,32 @@ extension ADTVCardController {
         configTitleView()
         configStackView()
         setupCardParts([cardPartSV])
+    }
+}
+
+extension ADTVStatisticsCardController {
+    private func createObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveHistoricalPrice), name: .receiveHistoricalPrice, object: nil)
+    }
+    
+    @objc private func didReceiveHistoricalPrice(notification: Notification) {
+        guard let company = company else { return }
+        guard let historicalPrice = notification.object as? [HistoricalPriceQuote] else { return }
+        let adtvs = ADTV.getHistoricalADTVs(exchange: company.exchangeShortName, historicalPriceQuotes: historicalPrice).map{ $0.adtv }
+        let adtv1 = adtvs.last
+        let adtv5 = ADTV.calculateADTVns(adtvs: adtvs, n: 5).last
+        let adtv10 = ADTV.calculateADTVns(adtvs: adtvs, n: 10).last
+        let adtv20 = ADTV.calculateADTVns(adtvs: adtvs, n: 20).last
+        let adtv60 = ADTV.calculateADTVns(adtvs: adtvs, n: 60).last
+        let adtv120 = ADTV.calculateADTVns(adtvs: adtvs, n: 120).last
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.maximumFractionDigits = 0
+        if let adtv1 = adtv1 { adtv1DataPart.title = numberFormatter.string(from: NSNumber(value: adtv1)) }
+        if let adtv5 = adtv5 { adtv5DataPart.title = numberFormatter.string(from: NSNumber(value: adtv5)) }
+        if let adtv10 = adtv10 { adtv10DataPart.title = numberFormatter.string(from: NSNumber(value: adtv10)) }
+        if let adtv20 = adtv20 { adtv20DataPart.title = numberFormatter.string(from: NSNumber(value: adtv20)) }
+        if let adtv60 = adtv60 { adtv60DataPart.title = numberFormatter.string(from: NSNumber(value: adtv60)) }
+        if let adtv120 = adtv120 { adtv120DataPart.title = numberFormatter.string(from: NSNumber(value: adtv120)) }
     }
 }

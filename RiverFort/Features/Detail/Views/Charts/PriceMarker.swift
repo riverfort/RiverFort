@@ -28,11 +28,19 @@ class PriceMarker: MarkerImage {
     
     override func refreshContent(entry: ChartDataEntry, highlight: Highlight) {
         super.refreshContent(entry: entry, highlight: highlight)
-        guard let histPriceChartDataEntryData = entry.data as? HistoricalPriceChartDataEntryData else {
-            return
+        guard let histPriceChartDataEntryData = entry.data as? HistoricalPriceChartDataEntryData else { return }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.maximumFractionDigits = 2
+        if let price = numberFormatter.string(from: NSNumber(value: entry.y)),
+           let vol = numberFormatter.string(from: NSNumber(value: histPriceChartDataEntryData.volume)) {
+            self.price = price + " (" + vol + ")"
         }
-        price = String(format: "%.2f", entry.y) + " " + "(\(histPriceChartDataEntryData.volume.withCommas()))"
-        date = DateFormatterUtils.convertDateFormater(histPriceChartDataEntryData.date)
+        let datetime = dateFormatter.string(from: histPriceChartDataEntryData.date)
+        date = datetime
     }
 }
 
