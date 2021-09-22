@@ -89,12 +89,6 @@ extension CompanyDetailViewController {
         add.addTarget(self, action: #selector(didTapAddToWatchlist), for: .touchUpInside)
     }
     
-    private func configMoreButton() {
-        more.showsMenuAsPrimaryAction = true
-        more.setImage(UIImage(systemName: "ellipsis.circle", withConfiguration: UIImage.Configuration.semibold), for: .normal)
-        configMenu()
-    }
-    
     private func configBarButtonStack() {
         let barButtonStack = UIStackView.init(arrangedSubviews: [add, more])
         barButtonStack.distribution = .equalSpacing
@@ -140,21 +134,29 @@ extension CompanyDetailViewController {
 }
 
 extension CompanyDetailViewController {
-    private func configMenu() {
+    private func configMoreButton() {
+        more.showsMenuAsPrimaryAction = true
+        more.setImage(UIImage(systemName: "ellipsis.circle", withConfiguration: UIImage.Configuration.semibold), for: .normal)
         let defaults = UserDefaults.standard, key = UserDefaults.Keys.isPriceChartNewsDisplayModeOn
-        let priceAndVolumeElement = UIAction(title: "Price & Volume",
-                                             image: UIImage(systemName: "waveform.path.ecg.rectangle"),
-                                             state: defaults.bool(forKey: key) ? .off : .on) { _ in
-            defaults.setValue(false, forKey: key)
-            NotificationCenter.default.post(name: .priceChartDisplayModeUpdated, object: nil)
-        }
-        let newsElement = UIAction(title: "Plus News",
-                                   image: UIImage(systemName: "circlebadge.fill"),
-                                   state: defaults.bool(forKey: key) ? .on : .off) { _ in
-            defaults.setValue(true, forKey: key)
-            NotificationCenter.default.post(name: .priceChartDisplayModeUpdated, object: nil)
-        }
-        let menu = UIMenu(title: "Share Price Chart", children: [priceAndVolumeElement, newsElement])
+        var menu: UIMenu { UIMenu(title: "Share Price Chart", image: nil, identifier: nil, options: [], children: menuItems) }
+        var menuItems: [UIAction] { [
+            UIAction(title: "Price & Volume",
+                     image: UIImage(systemName: "waveform.path.ecg.rectangle"),
+                     state: defaults.bool(forKey: key) ? .off : .on,
+                     handler: { [self] (_) in
+                        defaults.setValue(false, forKey: key)
+                        more.menu = menu
+                        NotificationCenter.default.post(name: .priceChartDisplayModeUpdated, object: nil)
+                     }),
+            UIAction(title: "Plus News",
+                     image: UIImage(systemName: "circlebadge.fill"),
+                     state: defaults.bool(forKey: key) ? .on : .off,
+                     handler: { [self] (_) in
+                        defaults.setValue(true, forKey: key)
+                        more.menu = menu
+                        NotificationCenter.default.post(name: .priceChartDisplayModeUpdated, object: nil)
+                     }),
+        ]}
         more.menu = menu
     }
 }

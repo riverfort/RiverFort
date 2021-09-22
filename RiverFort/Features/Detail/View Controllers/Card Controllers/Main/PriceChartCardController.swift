@@ -58,7 +58,6 @@ extension PriceChartCardController {
     }
     
     @objc private func onPriceChartDisplayModeUpdated() {
-        print("onPriceChartDisplayModeUpdated")
         if defaults.bool(forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn) { addNews() }
         else { priceChartPart.removeChartDataForNews() }
     }
