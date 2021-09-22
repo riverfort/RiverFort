@@ -148,7 +148,6 @@ extension CompanyDetailViewController {
                         defaults.setValue(false, forKey: key)
                         more.menu = menu
                         NotificationCenter.default.post(name: .priceChartDisplayModeUpdated, object: nil)
-                        
                      }),
             UIAction(title: "With News",
                      image: UIImage(systemName: "newspaper"),
