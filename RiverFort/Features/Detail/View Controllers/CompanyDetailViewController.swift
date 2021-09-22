@@ -143,7 +143,7 @@ extension CompanyDetailViewController {
             UIAction(title: "Price & Volume",
                      image: UIImage(systemName: "waveform.path.ecg.rectangle"),
                      state: defaults.bool(forKey: key) ? .off : .on,
-                     handler: { [self] (_) in
+                     handler: { [unowned self] (_) in
                         defaults.setValue(false, forKey: key)
                         more.menu = menu
                         NotificationCenter.default.post(name: .priceChartDisplayModeUpdated, object: nil)
@@ -151,7 +151,7 @@ extension CompanyDetailViewController {
             UIAction(title: "Plus News",
                      image: UIImage(systemName: "circlebadge.fill"),
                      state: defaults.bool(forKey: key) ? .on : .off,
-                     handler: { [self] (_) in
+                     handler: { [unowned self] (_) in
                         defaults.setValue(true, forKey: key)
                         more.menu = menu
                         NotificationCenter.default.post(name: .priceChartDisplayModeUpdated, object: nil)
