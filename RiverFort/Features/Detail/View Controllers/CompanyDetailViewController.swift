@@ -111,7 +111,6 @@ extension CompanyDetailViewController {
                         defaults.setValue(false, forKey: key)
                         more.menu = menu
                         NotificationCenter.default.post(name: .didUpdatePriceChartDisplayMode, object: nil)
-                        
                      }),
             UIAction(title: "Plus News",
                      image: UIImage(systemName: "circlebadge.fill"),
