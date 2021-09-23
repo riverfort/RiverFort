@@ -16,7 +16,6 @@ class PriceChartCardPartView: UIView, CardPartView {
 
     init() {
         super.init(frame: CGRect.zero)
-        view.addSubview(chartView)
         configChartView()
         setChartViewConstraints()
     }
@@ -28,6 +27,7 @@ class PriceChartCardPartView: UIView, CardPartView {
 
 extension PriceChartCardPartView {
     private func configChartView() {
+        view.addSubview(chartView)
         chartView.marker = priceMarker
         chartView.delegate = self
         chartView.baseChartViewDelegate = self
