@@ -37,6 +37,7 @@ extension PriceChartCardController {
     private func createObservesr() {
         NotificationCenter.default.addObserver(self, selector: #selector(onTimeseriesUpdated), name: .hasUpdatedTimeSeries, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveHistoricalPrice), name: .didReceiveHistoricalPrice, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidUpdatePriceChartDisplayMode), name: .didUpdatePriceChartDisplayMode, object: nil)
     }
     
     @objc private func onTimeseriesUpdated(notification: Notification) {
@@ -46,5 +47,9 @@ extension PriceChartCardController {
     @objc private func onDidReceiveHistoricalPrice(notification: Notification) {
         guard let historicalPrice = notification.object as? [HistoricalPriceQuote] else { return }
         priceChartPart.setChartData(with: historicalPrice)
+    }
+    
+    @objc private func onDidUpdatePriceChartDisplayMode() {
+        print("onDidUpdatePriceChartDisplayMode")
     }
 }
