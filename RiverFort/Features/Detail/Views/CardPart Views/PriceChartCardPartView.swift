@@ -53,11 +53,6 @@ extension PriceChartCardPartView {
         chartView.baseChartViewDelegate = self
         chartView.xAxis.valueFormatter = self
     }
-    
-    private func configChartViewTimeseriesAnimation() {
-        chartView.animate(yAxisDuration: 0.3, easingOption: .easeOutSine)
-        chartView.zoom(scaleX: 0, scaleY: 0, x: 0, y: 0)
-    }
 }
 
 extension PriceChartCardPartView {
@@ -97,6 +92,11 @@ extension PriceChartCardPartView: IAxisValueFormatter {
 }
 
 extension PriceChartCardPartView {
+    private func configChartViewTimeseriesAnimation() {
+        chartView.animate(yAxisDuration: 0.3, easingOption: .easeOutSine)
+        chartView.zoom(scaleX: 0, scaleY: 0, x: 0, y: 0)
+    }
+    
     private func configLineChartDataSetForHistPrice(with lineChartDataSet: LineChartDataSet) {
         lineChartDataSet.drawCirclesEnabled = false
         lineChartDataSet.drawValuesEnabled  = false
