@@ -12,6 +12,8 @@
 		770C438F26F8DF8B0040F891 /* ADTV120ChartCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770C438E26F8DF8B0040F891 /* ADTV120ChartCardController.swift */; };
 		770E4C5926F245FD0010EE7B /* BaseLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770E4C5826F245FD0010EE7B /* BaseLineChartView.swift */; };
 		770E4C5B26F249080010EE7B /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770E4C5A26F249080010EE7B /* UIApplicationExtensions.swift */; };
+		7711CA9426FC96A9005A5AEC /* NewsCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7711CA9326FC96A9005A5AEC /* NewsCardController.swift */; };
+		7711CA9926FC9C50005A5AEC /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7711CA9826FC9C50005A5AEC /* NewsViewModel.swift */; };
 		771E328126D6525E002CC604 /* AcknowledgementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E328026D6525E002CC604 /* AcknowledgementsViewController.swift */; };
 		7720570626DE6E8300063A9A /* CompanyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7720570526DE6E8300063A9A /* CompanyDetailViewController.swift */; };
 		77227AA026F3953D00C5867D /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77227A9F26F3953D00C5867D /* Profile.swift */; };
@@ -88,6 +90,8 @@
 		770C438E26F8DF8B0040F891 /* ADTV120ChartCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTV120ChartCardController.swift; sourceTree = "<group>"; };
 		770E4C5826F245FD0010EE7B /* BaseLineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLineChartView.swift; sourceTree = "<group>"; };
 		770E4C5A26F249080010EE7B /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
+		7711CA9326FC96A9005A5AEC /* NewsCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCardController.swift; sourceTree = "<group>"; };
+		7711CA9826FC9C50005A5AEC /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		771E328026D6525E002CC604 /* AcknowledgementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementsViewController.swift; sourceTree = "<group>"; };
 		7720570526DE6E8300063A9A /* CompanyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailViewController.swift; sourceTree = "<group>"; };
 		77227A9F26F3953D00C5867D /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
@@ -185,6 +189,7 @@
 				77FF535A26E12826001FAACA /* OHLCCardController.swift */,
 				7791881126E0E7FE005B7D38 /* ADTVStatisticsCardController.swift */,
 				77DA186A26F86C1F00919D11 /* ADTVButtonCardController.swift */,
+				7711CA9326FC96A9005A5AEC /* NewsCardController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -217,6 +222,14 @@
 				77C4BD84261CAF9100B8C748 /* HapticsManager.swift */,
 			);
 			path = Haptics;
+			sourceTree = "<group>";
+		};
+		7711CA9726FC9C31005A5AEC /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				7711CA9826FC9C50005A5AEC /* NewsViewModel.swift */,
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 		7720570226DE6E1D00063A9A /* Detail */ = {
@@ -538,6 +551,7 @@
 				77B11DAB26F381DF0093FBE9 /* Networking */,
 				7765434026EF3BFD00E91C25 /* API Models */,
 				7765434626EF610000E91C25 /* Chart Models */,
+				7711CA9726FC9C31005A5AEC /* View Models */,
 				77CD33FC26E39DAD00950F2A /* Constants */,
 				77B11DAC26F382140093FBE9 /* Company.swift */,
 				77227A9F26F3953D00C5867D /* Profile.swift */,
@@ -711,6 +725,7 @@
 				7748988726E0E454000933A6 /* ADTVChartCardController.swift in Sources */,
 				773A86F0263C34A9008105A1 /* PrivacyPolicyViewController.swift in Sources */,
 				77E7B3FB26E7838F000EABC6 /* PriceMarker.swift in Sources */,
+				7711CA9926FC9C50005A5AEC /* NewsViewModel.swift in Sources */,
 				772A747526DF93890088A604 /* HeaderCardController.swift in Sources */,
 				7765434426EF3C5700E91C25 /* FMP.swift in Sources */,
 				779B885E26BD1E9600FB06A1 /* SettingsOption.swift in Sources */,
@@ -734,6 +749,7 @@
 				7748988526E0E235000933A6 /* ADTVChartCardPartView.swift in Sources */,
 				772C241A26F6220900202E14 /* ADTV60ChartCardController.swift in Sources */,
 				7791881226E0E7FE005B7D38 /* ADTVStatisticsCardController.swift in Sources */,
+				7711CA9426FC96A9005A5AEC /* NewsCardController.swift in Sources */,
 				77E763F126E75FE5005AED84 /* TimeseriesCardPartView.swift in Sources */,
 				779A470026D515020072CE0B /* SettingsSectionTitleConstant.swift in Sources */,
 				77E763EF26E75D76005AED84 /* TimeseriesCardController.swift in Sources */,
