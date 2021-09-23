@@ -55,6 +55,6 @@ extension PriceChartButtonCardController {
     private func createObserver() { }
     
     @objc private func didReceiveHistoricalPrice(notification: Notification) {
-        guard let historicalPrice = notification.object as? [HistoricalPriceQuote] else { return }
+//        guard let historicalPrice = notification.object as? [HistoricalPriceQuote] else { return }
     }
 }
