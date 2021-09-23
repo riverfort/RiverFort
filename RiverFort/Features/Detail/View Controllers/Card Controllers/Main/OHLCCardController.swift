@@ -139,7 +139,7 @@ extension OHLCCardController {
 
 extension OHLCCardController {
     private func createObservesr() {
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: .receiveQuote, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: .didReceiveQuote, object: nil)
     }
     
     @objc private func prepareView(notification: Notification) {

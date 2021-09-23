@@ -7,21 +7,20 @@
 
 import Foundation
 
-extension Notification.Name {    
-    static let receiveQuote = Notification.Name("receive_quote")
-    static let receiveHistoricalPrice = Notification.Name("receive_historical_price")
-    static let receiveProfile = Notification.Name("receive_profile")
+extension Notification.Name {
+    static let didReceiveProfile = Notification.Name("did_receive_profile")
+    static let didReceiveQuote = Notification.Name("did_receive_quote")
+    static let didReceiveHistoricalPrice = Notification.Name("did_receive_historical_price")
     
-    static let getHistoricalADTV = Notification.Name("get_historical_adtv")
-    static let getHistoricalADTV5 = Notification.Name("get_historical_adtv5")
-    static let getHistoricalADTV10 = Notification.Name("get_historical_adtv10")
-    static let getHistoricalADTV20 = Notification.Name("get_historical_adtv20")
-    static let getHistoricalADTV60 = Notification.Name("get_historical_adtv60")
-    static let getHistoricalADTV120 = Notification.Name("get_historical_adtv120")
+    static let didReceiveHistoricalADTV = Notification.Name("did_receive_historical_adtv")
+    static let didReceiveHistoricalADTV5 = Notification.Name("did_receive_historical_adtv5")
+    static let didReceiveHistoricalADTV10 = Notification.Name("did_receive_historical_adtv10")
+    static let didReceiveHistoricalADTV20 = Notification.Name("did_receive_historical_adtv20")
+    static let didReceiveHistoricalADTV60 = Notification.Name("did_receive_historical_adtv60")
+    static let didReceiveHistoricalADTV120 = Notification.Name("did_receive_historical_adtv120")
     
-    static let timeseriesUpdated = Notification.Name("timeseries_updated")
-    static let priceChartDisplayModeUpdated = Notification.Name("price_chart_display_mode_updated")
+    static let hasUpdatedTimeSeries = Notification.Name("has_updated_timeseries")
     
-    static let chartValueSelected = Notification.Name("chart_value_selected")
-    static let chartValueNoLongerSelected = Notification.Name("chart_value_no_longer_selected")
+    static let didSelectChartValue = Notification.Name("did_select_chart_value")
+    static let didNoLongerSelectChartValue = Notification.Name("did_no_longer_select_chart_value")
 }

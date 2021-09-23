@@ -104,8 +104,8 @@ extension ProfileCardController {
 
 extension ProfileCardController {
     private func createObservesr() {
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareReadMoreButton), name: .receiveQuote, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: .receiveProfile, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareReadMoreButton), name: .didReceiveQuote, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: .didReceiveProfile, object: nil)
     }
     
     @objc private func prepareReadMoreButton(notification: Notification) {

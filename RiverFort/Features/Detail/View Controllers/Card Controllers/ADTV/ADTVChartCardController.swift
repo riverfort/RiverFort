@@ -33,8 +33,8 @@ extension ADTVChartCardController {
 
 extension ADTVChartCardController {
     private func createObservesr() {
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareChartTimeseries), name: .timeseriesUpdated, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareADTV), name: .getHistoricalADTV, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareChartTimeseries), name: .hasUpdatedTimeSeries, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareADTV), name: .didReceiveHistoricalADTV, object: nil)
     }
     
     @objc private func prepareChartTimeseries(notification: Notification) {

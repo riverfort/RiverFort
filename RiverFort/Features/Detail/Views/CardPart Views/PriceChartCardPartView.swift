@@ -73,12 +73,12 @@ extension PriceChartCardPartView {
 
 extension PriceChartCardPartView: ChartViewDelegate, BaseChartViewDelegate {
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-        NotificationCenter.default.post(name: .chartValueSelected, object: nil)
+        NotificationCenter.default.post(name: .didSelectChartValue, object: nil)
     }
     
     func chartValueNoLongerSelected(_ chartView: BaseLineChartView) {
         chartView.highlightValue(nil)
-        NotificationCenter.default.post(name: .chartValueNoLongerSelected, object: nil)
+        NotificationCenter.default.post(name: .didNoLongerSelectChartValue, object: nil)
     }
 }
 

@@ -100,8 +100,8 @@ extension CompanyDetailViewController {
 
 extension CompanyDetailViewController {
     private func createObservesr() {
-        NotificationCenter.default.addObserver(self, selector: #selector(onChartValueSelected), name: .chartValueSelected, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(onChartValueNoLongerSelected), name: .chartValueNoLongerSelected, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onChartValueSelected), name: .didSelectChartValue, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onChartValueNoLongerSelected), name: .didNoLongerSelectChartValue, object: nil)
     }
     
     @objc private func onChartValueSelected() { super.collectionView.isScrollEnabled = false }

@@ -55,7 +55,7 @@ extension ADTVButtonCardController: ButtonCardPartViewDelegate {
 
 extension ADTVButtonCardController {
     private func createObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveHistoricalPrice), name: .receiveHistoricalPrice, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveHistoricalPrice), name: .didReceiveHistoricalPrice, object: nil)
     }
     
     @objc private func didReceiveHistoricalPrice(notification: Notification) {

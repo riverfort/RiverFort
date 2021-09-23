@@ -29,7 +29,7 @@ extension CompanyDetailViewController {
                                   date: Date(timeIntervalSince1970: TimeInterval(yahooFinanceQuote.regularMarketTime)),
                                   currency: yahooFinanceQuote.currency,
                                   market: yahooFinanceQuote.market)
-                NotificationCenter.default.post(name: .receiveQuote, object: quote)
+                NotificationCenter.default.post(name: .didReceiveQuote, object: quote)
             }
     }
     
@@ -47,7 +47,7 @@ extension CompanyDetailViewController {
                     .enumerated()
                     .map { (i, date) in HistoricalPriceQuote(date: date, high: highs[i], low: lows[i], close: closes[i], volume: volumes[i]) }
                     .filter { $0.high != nil && $0.low != nil && $0.close != nil && $0.volume != nil }
-                NotificationCenter.default.post(name: .receiveHistoricalPrice, object: historicalPriceQuotes)
+                NotificationCenter.default.post(name: .didReceiveHistoricalPrice, object: historicalPriceQuotes)
             }
     }
 }
@@ -61,7 +61,7 @@ extension CompanyDetailViewController {
                 guard let fmpProfileValue = response.value else { return }
                 guard let fmpProfile = fmpProfileValue.first else { return }
                 let profile = Profile(industry: fmpProfile.industry, sector: fmpProfile.sector)
-                NotificationCenter.default.post(name: .receiveProfile, object: profile)
+                NotificationCenter.default.post(name: .didReceiveProfile, object: profile)
             }
     }
 }
