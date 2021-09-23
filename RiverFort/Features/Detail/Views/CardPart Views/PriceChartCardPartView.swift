@@ -10,30 +10,10 @@ import Charts
 
 class PriceChartCardPartView: UIView, CardPartView {
     internal var margins: UIEdgeInsets = UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0)
-    private var historicalPriceDataEntries = [ChartDataEntry]()
-    private let priceMarker = PriceMarker()
-    private let chartView: BaseLineChartView = {
-        let chartView = BaseLineChartView()
-        chartView.animate(xAxisDuration: 0.5)
-        chartView.minOffset = 0
-        chartView.extraTopOffset = 45
-        chartView.legend.enabled = false
-        chartView.leftAxis.enabled  = false
-        chartView.rightAxis.enabled = false
-        chartView.setScaleEnabled(false)
-        chartView.highlightPerDragEnabled = false
-        chartView.highlightPerTapEnabled = false
-        chartView.xAxis.enabled = true
-        chartView.xAxis.labelPosition = .bottom
-        chartView.xAxis.drawGridLinesEnabled = false
-        chartView.xAxis.drawAxisLineEnabled  = false
-        chartView.xAxis.setLabelCount(3, force: false)
-        chartView.xAxis.avoidFirstLastClippingEnabled = true
-        chartView.xAxis.labelFont = chartView.xAxis.labelFont.withSize(12)
-        chartView.xAxis.labelTextColor = .systemGray
-        return chartView
-    }()
-    
+    private lazy var chartView = BaseLineChartView()
+    private lazy var priceMarker = PriceMarker()
+    private lazy var historicalPriceDataEntries = [ChartDataEntry]()
+
     init() {
         super.init(frame: CGRect.zero)
         view.addSubview(chartView)
@@ -52,6 +32,23 @@ extension PriceChartCardPartView {
         chartView.delegate = self
         chartView.baseChartViewDelegate = self
         chartView.xAxis.valueFormatter = self
+        chartView.animate(xAxisDuration: 0.5)
+        chartView.extraTopOffset = 45
+        chartView.minOffset = 0
+        chartView.legend.enabled = false
+        chartView.leftAxis.enabled = false
+        chartView.rightAxis.enabled = false
+        chartView.setScaleEnabled(false)
+        chartView.highlightPerDragEnabled = false
+        chartView.highlightPerTapEnabled = false
+        chartView.xAxis.enabled = true
+        chartView.xAxis.labelPosition = .bottom
+        chartView.xAxis.drawGridLinesEnabled = false
+        chartView.xAxis.drawAxisLineEnabled = false
+        chartView.xAxis.setLabelCount(3, force: false)
+        chartView.xAxis.avoidFirstLastClippingEnabled = true
+        chartView.xAxis.labelFont = chartView.xAxis.labelFont.withSize(12)
+        chartView.xAxis.labelTextColor = .systemGray
     }
 }
 
