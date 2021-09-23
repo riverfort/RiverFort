@@ -16,7 +16,6 @@
 		7720570626DE6E8300063A9A /* CompanyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7720570526DE6E8300063A9A /* CompanyDetailViewController.swift */; };
 		77227AA026F3953D00C5867D /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77227A9F26F3953D00C5867D /* Profile.swift */; };
 		77227AA226F396D900C5867D /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77227AA126F396D900C5867D /* Quote.swift */; };
-		772845A926E613210003F13E /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772845A826E613210003F13E /* NewsViewModel.swift */; };
 		772845AB26E615FA0003F13E /* NewsURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772845AA26E615FA0003F13E /* NewsURLs.swift */; };
 		772A747526DF93890088A604 /* HeaderCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772A747426DF93890088A604 /* HeaderCardController.swift */; };
 		772C241826F6212900202E14 /* ADTV20ChartCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772C241726F6212900202E14 /* ADTV20ChartCardController.swift */; };
@@ -53,14 +52,12 @@
 		776F658126BBFF7900CAA5A6 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776F658026BBFF7900CAA5A6 /* PersistentContainer.swift */; };
 		776F658526BC36C600CAA5A6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776F658426BC36C600CAA5A6 /* SettingsViewController.swift */; };
 		778184AA26FC767A0061BAF8 /* PriceChartButtonCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778184A926FC767A0061BAF8 /* PriceChartButtonCardController.swift */; };
-		778184AC26FC7CF70061BAF8 /* TableCardPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778184AB26FC7CF70061BAF8 /* TableCardPartView.swift */; };
 		7785D7842630142600988C28 /* WatchedCompany+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785D7822630142600988C28 /* WatchedCompany+CoreDataClass.swift */; };
 		7785D7852630142600988C28 /* WatchedCompany+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785D7832630142600988C28 /* WatchedCompany+CoreDataProperties.swift */; };
 		77876E98264D69B300798106 /* RSSFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77876E97264D69B300798106 /* RSSFeedParser.swift */; };
 		778FD76826F33110002CA424 /* UIImageConfigurationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778FD76726F33110002CA424 /* UIImageConfigurationExtensions.swift */; };
 		7791881226E0E7FE005B7D38 /* ADTVStatisticsCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791881126E0E7FE005B7D38 /* ADTVStatisticsCardController.swift */; };
 		7796865626E5F963002A9980 /* StatisticsCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7796865526E5F963002A9980 /* StatisticsCardController.swift */; };
-		7796865826E6102C002A9980 /* NewsCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7796865726E6102C002A9980 /* NewsCardController.swift */; };
 		779A46F426D4EE740072CE0B /* UIDevice+modelName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A46F326D4EE740072CE0B /* UIDevice+modelName.swift */; };
 		779A46F626D4EFE10072CE0B /* UIApplication+AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A46F526D4EFE10072CE0B /* UIApplication+AppVersion.swift */; };
 		779A46F826D4F6210072CE0B /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A46F726D4F6210072CE0B /* NotificationHelper.swift */; };
@@ -84,7 +81,6 @@
 		77CB234526B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB234326B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift */; };
 		77CB234626B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB234426B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift */; };
 		77CB8C5026F9CDFE006E01E2 /* ADTV10ChartCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB8C4F26F9CDFE006E01E2 /* ADTV10ChartCardController.swift */; };
-		77D247DB26FC613E005F644D /* NewsMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D247DA26FC613E005F644D /* NewsMarker.swift */; };
 		77DA186B26F86C1F00919D11 /* ADTVButtonCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DA186A26F86C1F00919D11 /* ADTVButtonCardController.swift */; };
 		77DA186D26F86F6D00919D11 /* ButtonCardPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DA186C26F86F6D00919D11 /* ButtonCardPartView.swift */; };
 		77DA186F26F89A4700919D11 /* ADTVDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DA186E26F89A4700919D11 /* ADTVDetailViewController.swift */; };
@@ -111,7 +107,6 @@
 		7720570526DE6E8300063A9A /* CompanyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailViewController.swift; sourceTree = "<group>"; };
 		77227A9F26F3953D00C5867D /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		77227AA126F396D900C5867D /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
-		772845A826E613210003F13E /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		772845AA26E615FA0003F13E /* NewsURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsURLs.swift; sourceTree = "<group>"; };
 		772A747426DF93890088A604 /* HeaderCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCardController.swift; sourceTree = "<group>"; };
 		772C241726F6212900202E14 /* ADTV20ChartCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTV20ChartCardController.swift; sourceTree = "<group>"; };
@@ -150,14 +145,12 @@
 		776F658026BBFF7900CAA5A6 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
 		776F658426BC36C600CAA5A6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		778184A926FC767A0061BAF8 /* PriceChartButtonCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceChartButtonCardController.swift; sourceTree = "<group>"; };
-		778184AB26FC7CF70061BAF8 /* TableCardPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCardPartView.swift; sourceTree = "<group>"; };
 		7785D7822630142600988C28 /* WatchedCompany+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WatchedCompany+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7785D7832630142600988C28 /* WatchedCompany+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WatchedCompany+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		77876E97264D69B300798106 /* RSSFeedParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeedParser.swift; sourceTree = "<group>"; };
 		778FD76726F33110002CA424 /* UIImageConfigurationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageConfigurationExtensions.swift; sourceTree = "<group>"; };
 		7791881126E0E7FE005B7D38 /* ADTVStatisticsCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTVStatisticsCardController.swift; sourceTree = "<group>"; };
 		7796865526E5F963002A9980 /* StatisticsCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCardController.swift; sourceTree = "<group>"; };
-		7796865726E6102C002A9980 /* NewsCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCardController.swift; sourceTree = "<group>"; };
 		779A46F326D4EE740072CE0B /* UIDevice+modelName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+modelName.swift"; sourceTree = "<group>"; };
 		779A46F526D4EFE10072CE0B /* UIApplication+AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+AppVersion.swift"; sourceTree = "<group>"; };
 		779A46F726D4F6210072CE0B /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
@@ -181,7 +174,6 @@
 		77CB234326B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecentSearchedCompany+CoreDataClass.swift"; sourceTree = "<group>"; };
 		77CB234426B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecentSearchedCompany+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		77CB8C4F26F9CDFE006E01E2 /* ADTV10ChartCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTV10ChartCardController.swift; sourceTree = "<group>"; };
-		77D247DA26FC613E005F644D /* NewsMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsMarker.swift; sourceTree = "<group>"; };
 		77DA186A26F86C1F00919D11 /* ADTVButtonCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTVButtonCardController.swift; sourceTree = "<group>"; };
 		77DA186C26F86F6D00919D11 /* ButtonCardPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCardPartView.swift; sourceTree = "<group>"; };
 		77DA186E26F89A4700919D11 /* ADTVDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTVDetailViewController.swift; sourceTree = "<group>"; };
@@ -223,7 +215,6 @@
 				77FF535A26E12826001FAACA /* OHLCCardController.swift */,
 				7791881126E0E7FE005B7D38 /* ADTVStatisticsCardController.swift */,
 				77DA186A26F86C1F00919D11 /* ADTVButtonCardController.swift */,
-				7796865726E6102C002A9980 /* NewsCardController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -444,7 +435,6 @@
 			isa = PBXGroup;
 			children = (
 				77876E97264D69B300798106 /* RSSFeedParser.swift */,
-				772845A826E613210003F13E /* NewsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -651,7 +641,6 @@
 				770E4C5826F245FD0010EE7B /* BaseLineChartView.swift */,
 				77E7B3FA26E7838F000EABC6 /* PriceMarker.swift */,
 				770B22AE26EB8D6400731C58 /* ADTVMarker.swift */,
-				77D247DA26FC613E005F644D /* NewsMarker.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -663,7 +652,6 @@
 				7748988426E0E235000933A6 /* ADTVChartCardPartView.swift */,
 				77E763F026E75FE5005AED84 /* TimeseriesCardPartView.swift */,
 				77DA186C26F86F6D00919D11 /* ButtonCardPartView.swift */,
-				778184AB26FC7CF70061BAF8 /* TableCardPartView.swift */,
 			);
 			path = "CardPart Views";
 			sourceTree = "<group>";
@@ -831,7 +819,6 @@
 				776F658526BC36C600CAA5A6 /* SettingsViewController.swift in Sources */,
 				7720570626DE6E8300063A9A /* CompanyDetailViewController.swift in Sources */,
 				77FBC8C226C557E500C35E9C /* WatchlistSync.swift in Sources */,
-				778184AC26FC7CF70061BAF8 /* TableCardPartView.swift in Sources */,
 				77B11DB026F389230093FBE9 /* CompanyDetailViewControllerExtensions.swift in Sources */,
 				77384E9426F0E62600C23217 /* WatchlistCoreDataManager.swift in Sources */,
 				776A913526E3B5E50012D0D5 /* ProfileCardController.swift in Sources */,
@@ -839,7 +826,6 @@
 				770C438D26F8DDFA0040F891 /* ADTV5ChartCardController.swift in Sources */,
 				779B886226BD2B4900FB06A1 /* SettingsSection.swift in Sources */,
 				77B11DAD26F382140093FBE9 /* Company.swift in Sources */,
-				7796865826E6102C002A9980 /* NewsCardController.swift in Sources */,
 				77B11DA826F37FC40093FBE9 /* ADTV.swift in Sources */,
 				779B886426BD3DE200FB06A1 /* SettingsSwitchTableViewCell.swift in Sources */,
 				770E4C5B26F249080010EE7B /* UIApplicationExtensions.swift in Sources */,
@@ -860,7 +846,6 @@
 				779B885E26BD1E9600FB06A1 /* SettingsOption.swift in Sources */,
 				773131BA26DCEC710068AAD8 /* SearchViewController.swift in Sources */,
 				7748988326E0D598000933A6 /* DetailViewAPIFunction.swift in Sources */,
-				772845A926E613210003F13E /* NewsViewModel.swift in Sources */,
 				779B885826BD192D00FB06A1 /* SettingsTableView.swift in Sources */,
 				7762C77226BAE258008DE1BA /* NumberShortScale.swift in Sources */,
 				779A46F426D4EE740072CE0B /* UIDevice+modelName.swift in Sources */,
@@ -884,7 +869,6 @@
 				779A470026D515020072CE0B /* SettingsSectionTitleConstant.swift in Sources */,
 				77E763EF26E75D76005AED84 /* TimeseriesCardController.swift in Sources */,
 				77F93365261A3251007662D5 /* DoubleExtensions.swift in Sources */,
-				77D247DB26FC613E005F644D /* NewsMarker.swift in Sources */,
 				774DB74C2623144900A92D13 /* RiverFort.xcdatamodeld in Sources */,
 				77E763F326E76488005AED84 /* TransparentCardController.swift in Sources */,
 				77DA186F26F89A4700919D11 /* ADTVDetailViewController.swift in Sources */,
