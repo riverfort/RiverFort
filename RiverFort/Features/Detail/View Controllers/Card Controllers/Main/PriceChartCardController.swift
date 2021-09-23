@@ -9,7 +9,6 @@ import UIKit
 
 class PriceChartCardController: BaseCardController {
     public var company: Company?
-    private var newsViewModel: NewsViewModel?
     private let defaults = UserDefaults.standard
     private lazy var priceChartPart = PriceChartCardPartView()
     
@@ -30,7 +29,6 @@ class PriceChartCardController: BaseCardController {
 extension PriceChartCardController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        configPriceChartWithNews()
         setupCardParts([priceChartPart])
     }
 }
@@ -39,7 +37,6 @@ extension PriceChartCardController {
     private func createObservesr() {
         NotificationCenter.default.addObserver(self, selector: #selector(onTimeseriesUpdated), name: .timeseriesUpdated, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveHistoricalPrice), name: .receiveHistoricalPrice, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(onPriceChartDisplayModeUpdated), name: .priceChartDisplayModeUpdated, object: nil)
     }
     
     @objc private func onTimeseriesUpdated(notification: Notification) {
@@ -49,30 +46,5 @@ extension PriceChartCardController {
     @objc private func onDidReceiveHistoricalPrice(notification: Notification) {
         guard let historicalPrice = notification.object as? [HistoricalPriceQuote] else { return }
         priceChartPart.setChartData(with: historicalPrice)
-    }
-    
-    @objc private func onPriceChartDisplayModeUpdated() {
-        if defaults.bool(forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn) {
-            subscribeNewsViewModel()
-        } else {
-            priceChartPart.removeChartDataForNews()
-        }
-    }
-}
-
-extension PriceChartCardController {
-    private func subscribeNewsViewModel() {
-        guard let company = company else { return }
-        if company.exchangeShortName == "LSE" || company.exchangeShortName == "AQS" {
-            newsViewModel = NewsViewModel()
-            newsViewModel!.fetchRSSFeedsUK(symbol: company.symbol, timeseries: 30)
-            newsViewModel!.rssItemsForNews.asObservable().subscribe(
-                onNext: { [unowned self] in priceChartPart.setChartDataForNews(with: $0) }
-            ).disposed(by: bag)
-        }
-    }
-    
-    private func configPriceChartWithNews() {
-        if defaults.bool(forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn) { subscribeNewsViewModel() }
     }
 }

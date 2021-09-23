@@ -83,11 +83,7 @@ extension CompanyDetailViewController {
 
 extension CompanyDetailViewController {
     private func configAddButton() {
-        guard let symbol = navigationItem.title else { return }
-        let isCompanyInWatchlist = WatchlistCoreDataManager.isWatchedCompany(company_ticker: symbol)
-        if isCompanyInWatchlist { add.isHidden = true }
         add.setImage(UIImage(systemName: "plus.circle", withConfiguration: UIImage.Configuration.semibold), for: .normal)
-        add.addTarget(self, action: #selector(didTapAddToWatchlist), for: .touchUpInside)
     }
     
     private func configBarButtonStack() {
@@ -125,39 +121,8 @@ extension CompanyDetailViewController {
 }
 
 extension CompanyDetailViewController {
-    @objc private func didTapAddToWatchlist() {
-        guard let company = company else { return }
-        guard !WatchlistCoreDataManager.isWatchedCompany(company_ticker: company.symbol) else { return }
-        WatchlistCoreDataManager.addToWatchlist(company_ticker: company.symbol, company_name: company.name, exch: company.exchange)
-        SPAlert.present(title: "Added to Watchlist", preset: .done, haptic: .success)
-        add.isHidden = true
-    }
-}
-
-extension CompanyDetailViewController {
     private func configMoreButton() {
         more.showsMenuAsPrimaryAction = true
         more.setImage(UIImage(systemName: "ellipsis.circle", withConfiguration: UIImage.Configuration.semibold), for: .normal)
-        let defaults = UserDefaults.standard, key = UserDefaults.Keys.isPriceChartNewsDisplayModeOn
-        var menu: UIMenu { UIMenu(title: "Share Price Chart", image: nil, identifier: nil, options: [], children: menuItems) }
-        var menuItems: [UIAction] { [
-            UIAction(title: "Price & Volume",
-                     image: UIImage(systemName: "waveform.path.ecg.rectangle"),
-                     state: defaults.bool(forKey: key) ? .off : .on,
-                     handler: { [unowned self] (_) in
-                        defaults.setValue(false, forKey: key)
-                        more.menu = menu
-                        NotificationCenter.default.post(name: .priceChartDisplayModeUpdated, object: nil)
-                     }),
-            UIAction(title: "Plus News",
-                     image: UIImage(systemName: "circlebadge.fill"),
-                     state: defaults.bool(forKey: key) ? .on : .off,
-                     handler: { [unowned self] (_) in
-                        defaults.setValue(true, forKey: key)
-                        more.menu = menu
-                        NotificationCenter.default.post(name: .priceChartDisplayModeUpdated, object: nil)
-                     }),
-        ]}
-        more.menu = menu
     }
 }
