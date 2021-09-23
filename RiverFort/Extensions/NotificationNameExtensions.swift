@@ -7,9 +7,7 @@
 
 import Foundation
 
-extension Notification.Name {
-    static let selectCompanyFromSearchResult = Notification.Name("select_company_from_search_result")
-    
+extension Notification.Name {    
     static let receiveQuote = Notification.Name("receive_quote")
     static let receiveHistoricalPrice = Notification.Name("receive_historical_price")
     static let receiveProfile = Notification.Name("receive_profile")
