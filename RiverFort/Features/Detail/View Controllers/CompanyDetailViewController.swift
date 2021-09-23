@@ -109,16 +109,16 @@ extension CompanyDetailViewController {
                      state: defaults.bool(forKey: key) ? .off : .on,
                      handler: { [unowned self] (_) in
                         defaults.setValue(false, forKey: key)
-                        more.menu = menu
                         NotificationCenter.default.post(name: .didUpdatePriceChartDisplayMode, object: nil)
+                        more.menu = menu
                      }),
             UIAction(title: "Plus News",
                      image: UIImage(systemName: "circlebadge.fill"),
                      state: defaults.bool(forKey: key) ? .on : .off,
                      handler: { [unowned self] (_) in
                         defaults.setValue(true, forKey: key)
-                        more.menu = menu
                         NotificationCenter.default.post(name: .didUpdatePriceChartDisplayMode, object: nil)
+                        more.menu = menu
                      }),
         ]}
         more.menu = menu
