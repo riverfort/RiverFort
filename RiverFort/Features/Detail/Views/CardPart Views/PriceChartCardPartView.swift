@@ -120,16 +120,7 @@ extension PriceChartCardPartView {
     }
 }
 
-extension PriceChartCardPartView {     
-    public func setChartDataForPrice(with historicalPrice: [HistoricalPriceQuote]) {
-        historicalPriceDataEntries = historicalPrice.enumerated().map{ (index, dailyPrice) in
-            return ChartDataEntry(x: Double(index),
-                                  y: dailyPrice.close ?? 0,
-                                  data: HistoricalPriceChartDataEntryData(date: dailyPrice.date, volume: Double(dailyPrice.volume ?? 0)))}
-        let timeseriesIndex = UserDefaults.standard.integer(forKey: UserDefaults.Keys.timeseriesSelectedSegmentIndex)
-        changeTimeseries(for: timeseriesIndex)
-    }
-    
+extension PriceChartCardPartView {
     public func changeTimeseries(for selectedSegmentIndex: Int) {
         configChartViewTimeseriesAnimation()
         var adjustedHistPriceDataEntries = [ChartDataEntry]()
@@ -152,5 +143,16 @@ extension PriceChartCardPartView {
         let lineChartDataSetForHistoricalPrice = LineChartDataSet(entries: adjustedHistPriceDataEntries, label: "Historical Price")
         configLineChartDataSetForHistoricalPrice(with: lineChartDataSetForHistoricalPrice)
         chartView.data = LineChartData(dataSet: lineChartDataSetForHistoricalPrice)
+    }
+}
+
+extension PriceChartCardPartView {
+    public func setChartDataForPrice(with historicalPrice: [HistoricalPriceQuote]) {
+        historicalPriceDataEntries = historicalPrice.enumerated().map{ (index, dailyPrice) in
+            return ChartDataEntry(x: Double(index),
+                                  y: dailyPrice.close ?? 0,
+                                  data: HistoricalPriceChartDataEntryData(date: dailyPrice.date, volume: Double(dailyPrice.volume ?? 0)))}
+        let timeseriesIndex = UserDefaults.standard.integer(forKey: UserDefaults.Keys.timeseriesSelectedSegmentIndex)
+        changeTimeseries(for: timeseriesIndex)
     }
 }
