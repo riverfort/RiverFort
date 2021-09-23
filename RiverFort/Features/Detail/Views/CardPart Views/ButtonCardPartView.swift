@@ -14,8 +14,9 @@ class ButtonCardPartView: UIView, CardPartView {
     public var delegate: ButtonCardPartViewDelegate?
     public let button = UIButton(type: .system)
     
-    init() {
+    init(title: String) {
         super.init(frame: CGRect.zero)
+        button.setTitle(title, for: .normal)
         configView()
     }
     
@@ -36,7 +37,6 @@ extension ButtonCardPartView {
         button.clipsToBounds = true
         button.backgroundColor = .secondarySystemGroupedBackground
         button.setTitleColor(.link, for: .normal)
-        button.setTitle("View ADTV Trends", for: .normal)
         button.titleLabel?.font = .preferredFont(forTextStyle: .subheadline)
         button.titleLabel?.adjustsFontForContentSizeCategory = true
         button.contentEdgeInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)

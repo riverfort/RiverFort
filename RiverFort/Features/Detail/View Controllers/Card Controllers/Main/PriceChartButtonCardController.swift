@@ -1,5 +1,5 @@
 //
-//  ADTVButtonCardController.swift
+//  PriceChartButtonCardController.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 20/09/2021.
@@ -7,10 +7,9 @@
 
 import CardParts
 
-class ADTVButtonCardController: TransparentCardController {
+class PriceChartButtonCardController: TransparentCardController {
     public var company: Company?
-    private lazy var viewADTVTrendsButton = ButtonCardPartView(title: "View ADTV Trends")
-    private lazy var adtvDetailVC = ADTVDetailViewController()
+    private lazy var viewPriceChartTrendsButton = ButtonCardPartView(title: "Show More Price Data")
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -26,40 +25,36 @@ class ADTVButtonCardController: TransparentCardController {
     }
 }
 
-extension ADTVButtonCardController {
+extension PriceChartButtonCardController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configView()
     }
 }
 
-extension ADTVButtonCardController {
+extension PriceChartButtonCardController {
     private func configView() {
-        viewADTVTrendsButton.delegate = self
+        viewPriceChartTrendsButton.delegate = self
         configCardParts()
     }
 }
 
-extension ADTVButtonCardController {
+extension PriceChartButtonCardController {
     private func configCardParts() {
-        setupCardParts([viewADTVTrendsButton])
+        setupCardParts([viewPriceChartTrendsButton])
     }
 }
 
-extension ADTVButtonCardController: ButtonCardPartViewDelegate {
+extension PriceChartButtonCardController: ButtonCardPartViewDelegate {
     func buttonDidTap() {
-        navigationController?.pushViewController(adtvDetailVC, animated: true)
-        adtvDetailVC.company = company
+        print("buttonDidTap")
     }
 }
 
-extension ADTVButtonCardController {
-    private func createObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveHistoricalPrice), name: .receiveHistoricalPrice, object: nil)
-    }
+extension PriceChartButtonCardController {
+    private func createObserver() { }
     
     @objc private func didReceiveHistoricalPrice(notification: Notification) {
         guard let historicalPrice = notification.object as? [HistoricalPriceQuote] else { return }
-        adtvDetailVC.historicalPrice = historicalPrice
     }
 }
