@@ -144,7 +144,7 @@ extension PriceChartCardPartView {
 }
 
 extension PriceChartCardPartView {
-    public func setChartDataForPrice(with historicalPrice: [HistoricalPriceQuote]) {
+    public func setChartDataForPrice(historicalPrice: [HistoricalPriceQuote]) {
         historicalPriceDataEntries = historicalPrice.enumerated().map{ (index, dailyPrice) in
             return ChartDataEntry(x: Double(index),
                                   y: dailyPrice.close ?? 0,
