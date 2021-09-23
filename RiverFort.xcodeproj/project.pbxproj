@@ -57,7 +57,6 @@
 		7785D7842630142600988C28 /* WatchedCompany+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785D7822630142600988C28 /* WatchedCompany+CoreDataClass.swift */; };
 		7785D7852630142600988C28 /* WatchedCompany+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785D7832630142600988C28 /* WatchedCompany+CoreDataProperties.swift */; };
 		77876E98264D69B300798106 /* RSSFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77876E97264D69B300798106 /* RSSFeedParser.swift */; };
-		77887D1426E12C210016192D /* AADTVStatisticsCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77887D1326E12C210016192D /* AADTVStatisticsCardController.swift */; };
 		778FD76826F33110002CA424 /* UIImageConfigurationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778FD76726F33110002CA424 /* UIImageConfigurationExtensions.swift */; };
 		7791881226E0E7FE005B7D38 /* ADTVStatisticsCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791881126E0E7FE005B7D38 /* ADTVStatisticsCardController.swift */; };
 		7796865626E5F963002A9980 /* StatisticsCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7796865526E5F963002A9980 /* StatisticsCardController.swift */; };
@@ -155,7 +154,6 @@
 		7785D7822630142600988C28 /* WatchedCompany+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WatchedCompany+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7785D7832630142600988C28 /* WatchedCompany+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WatchedCompany+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		77876E97264D69B300798106 /* RSSFeedParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeedParser.swift; sourceTree = "<group>"; };
-		77887D1326E12C210016192D /* AADTVStatisticsCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AADTVStatisticsCardController.swift; sourceTree = "<group>"; };
 		778FD76726F33110002CA424 /* UIImageConfigurationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageConfigurationExtensions.swift; sourceTree = "<group>"; };
 		7791881126E0E7FE005B7D38 /* ADTVStatisticsCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTVStatisticsCardController.swift; sourceTree = "<group>"; };
 		7796865526E5F963002A9980 /* StatisticsCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCardController.swift; sourceTree = "<group>"; };
@@ -225,7 +223,6 @@
 				77FF535A26E12826001FAACA /* OHLCCardController.swift */,
 				7791881126E0E7FE005B7D38 /* ADTVStatisticsCardController.swift */,
 				77DA186A26F86C1F00919D11 /* ADTVButtonCardController.swift */,
-				77887D1326E12C210016192D /* AADTVStatisticsCardController.swift */,
 				7796865726E6102C002A9980 /* NewsCardController.swift */,
 			);
 			path = Main;
@@ -882,7 +879,6 @@
 				77CAA2E626679043003A0246 /* UserDefaultsExtensions.swift in Sources */,
 				7748988526E0E235000933A6 /* ADTVChartCardPartView.swift in Sources */,
 				772C241A26F6220900202E14 /* ADTV60ChartCardController.swift in Sources */,
-				77887D1426E12C210016192D /* AADTVStatisticsCardController.swift in Sources */,
 				7791881226E0E7FE005B7D38 /* ADTVStatisticsCardController.swift in Sources */,
 				77E763F126E75FE5005AED84 /* TimeseriesCardPartView.swift in Sources */,
 				779A470026D515020072CE0B /* SettingsSectionTitleConstant.swift in Sources */,
