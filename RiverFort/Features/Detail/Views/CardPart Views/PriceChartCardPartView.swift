@@ -121,7 +121,7 @@ extension PriceChartCardPartView {
 }
 
 extension PriceChartCardPartView {     
-    public func setChartData(with histPrice: [HistoricalPriceQuote]) {
+    public func setChartDataForPrice(with histPrice: [HistoricalPriceQuote]) {
         histPriceDataEntries = histPrice.enumerated().map{ (index, dailyPrice) in
             return ChartDataEntry(x: Double(index),
                                   y: dailyPrice.close ?? 0,
