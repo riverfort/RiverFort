@@ -1,6 +1,5 @@
 PODS:
   - Alamofire (5.4.3)
-  - BulletinBoard (5.0.0)
   - CardParts (4.0.0):
     - RxCocoa (~> 6.2)
     - RxDataSources (~> 5.0)
@@ -10,7 +9,6 @@ PODS:
     - Charts/Core (= 3.6.0)
   - Charts/Core (3.6.0)
   - Differentiator (5.0.0)
-  - EFCountingLabel (5.1.4)
   - RxCocoa (6.2.0):
     - RxRelay (= 6.2.0)
     - RxSwift (= 6.2.0)
@@ -25,48 +23,38 @@ PODS:
     - RxSwift (= 6.2.0)
   - RxSwift (6.2.0)
   - SPAlert (3.3.1)
-  - TinyConstraints (4.0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 5.4)
-  - BulletinBoard
   - CardParts (~> 4.0.0)
   - Charts (~> 3.6.0)
-  - EFCountingLabel (~> 5.1.4)
   - SPAlert
-  - TinyConstraints
 
 SPEC REPOS:
   trunk:
     - Alamofire
-    - BulletinBoard
     - CardParts
     - Charts
     - Differentiator
-    - EFCountingLabel
     - RxCocoa
     - RxDataSources
     - RxGesture
     - RxRelay
     - RxSwift
     - SPAlert
-    - TinyConstraints
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
-  BulletinBoard: dba77053c2a7b64953f63073f7534165af2edd21
   CardParts: 7f5fc2a62820a81d5138b9175f365045238fd7b8
   Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
   Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
-  EFCountingLabel: 210620994a2d54759f53034b5bda4642255969c7
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
   RxGesture: f059f2aeef966fb17dad56ee440e76410f10e55f
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   SPAlert: 7028b585168153d9619192d4debe060b25071b0f
-  TinyConstraints: 8dd91295e56797648c7bc335dd20e1d91ec4c192
 
-PODFILE CHECKSUM: 2a48283912650d111652629d413c1e71cfaf2613
+PODFILE CHECKSUM: 4b8257d539742f550774c51decef3e2130418773
 
 COCOAPODS: 1.10.1

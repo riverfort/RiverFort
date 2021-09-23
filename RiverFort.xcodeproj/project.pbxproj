@@ -83,6 +83,7 @@
 		77CB234526B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB234326B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift */; };
 		77CB234626B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB234426B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift */; };
 		77CB8C5026F9CDFE006E01E2 /* ADTV10ChartCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB8C4F26F9CDFE006E01E2 /* ADTV10ChartCardController.swift */; };
+		77D247DB26FC613E005F644D /* NewsMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D247DA26FC613E005F644D /* NewsMarker.swift */; };
 		77DA186B26F86C1F00919D11 /* ADTVButtonCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DA186A26F86C1F00919D11 /* ADTVButtonCardController.swift */; };
 		77DA186D26F86F6D00919D11 /* ButtonCardPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DA186C26F86F6D00919D11 /* ButtonCardPartView.swift */; };
 		77DA186F26F89A4700919D11 /* ADTVDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DA186E26F89A4700919D11 /* ADTVDetailViewController.swift */; };
@@ -178,6 +179,7 @@
 		77CB234326B1664100023934 /* RecentSearchedCompany+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecentSearchedCompany+CoreDataClass.swift"; sourceTree = "<group>"; };
 		77CB234426B1664100023934 /* RecentSearchedCompany+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecentSearchedCompany+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		77CB8C4F26F9CDFE006E01E2 /* ADTV10ChartCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTV10ChartCardController.swift; sourceTree = "<group>"; };
+		77D247DA26FC613E005F644D /* NewsMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsMarker.swift; sourceTree = "<group>"; };
 		77DA186A26F86C1F00919D11 /* ADTVButtonCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTVButtonCardController.swift; sourceTree = "<group>"; };
 		77DA186C26F86F6D00919D11 /* ButtonCardPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCardPartView.swift; sourceTree = "<group>"; };
 		77DA186E26F89A4700919D11 /* ADTVDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTVDetailViewController.swift; sourceTree = "<group>"; };
@@ -647,6 +649,7 @@
 				770E4C5826F245FD0010EE7B /* BaseLineChartView.swift */,
 				77E7B3FA26E7838F000EABC6 /* PriceMarker.swift */,
 				770B22AE26EB8D6400731C58 /* ADTVMarker.swift */,
+				77D247DA26FC613E005F644D /* NewsMarker.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -878,6 +881,7 @@
 				779A470026D515020072CE0B /* SettingsSectionTitleConstant.swift in Sources */,
 				77E763EF26E75D76005AED84 /* TimeseriesCardController.swift in Sources */,
 				77F93365261A3251007662D5 /* DoubleExtensions.swift in Sources */,
+				77D247DB26FC613E005F644D /* NewsMarker.swift in Sources */,
 				774DB74C2623144900A92D13 /* RiverFort.xcdatamodeld in Sources */,
 				77E763F326E76488005AED84 /* TransparentCardController.swift in Sources */,
 				77DA186F26F89A4700919D11 /* ADTVDetailViewController.swift in Sources */,
@@ -1051,7 +1055,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = A8X2W38P62;
 				INFOPLIST_FILE = RiverFort/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1080,7 +1084,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = A8X2W38P62;
 				INFOPLIST_FILE = RiverFort/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

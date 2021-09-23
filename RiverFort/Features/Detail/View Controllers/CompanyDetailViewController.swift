@@ -135,24 +135,24 @@ extension CompanyDetailViewController {
 
 extension CompanyDetailViewController {
     private func configMoreButton() {
-        more.setImage(UIImage(systemName: "ellipsis.circle", withConfiguration: UIImage.Configuration.semibold), for: .normal)
         more.showsMenuAsPrimaryAction = true
+        more.setImage(UIImage(systemName: "ellipsis.circle", withConfiguration: UIImage.Configuration.semibold), for: .normal)
+        let defaults = UserDefaults.standard, key = UserDefaults.Keys.isPriceChartNewsDisplayModeOn
         var menu: UIMenu { UIMenu(title: "Share Price Chart", image: nil, identifier: nil, options: [], children: menuItems) }
         var menuItems: [UIAction] { [
-            UIAction(title: "Price & Vol",
-                     image: UIImage(systemName: "chart.bar"),
-                     state: UserDefaults.standard.bool(forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn) ? .off : .on,
-                     handler: { [self] (_) in
-                        UserDefaults.standard.setValue(false, forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn)
+            UIAction(title: "Price & Volume",
+                     image: UIImage(systemName: "waveform.path.ecg.rectangle"),
+                     state: defaults.bool(forKey: key) ? .off : .on,
+                     handler: { [unowned self] (_) in
+                        defaults.setValue(false, forKey: key)
                         more.menu = menu
                         NotificationCenter.default.post(name: .priceChartDisplayModeUpdated, object: nil)
-                        
                      }),
-            UIAction(title: "With News",
-                     image: UIImage(systemName: "newspaper"),
-                     state: UserDefaults.standard.bool(forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn) ? .on : .off,
-                     handler: { [self] (_) in
-                        UserDefaults.standard.setValue(true, forKey: UserDefaults.Keys.isPriceChartNewsDisplayModeOn)
+            UIAction(title: "Plus News",
+                     image: UIImage(systemName: "circlebadge.fill"),
+                     state: defaults.bool(forKey: key) ? .on : .off,
+                     handler: { [unowned self] (_) in
+                        defaults.setValue(true, forKey: key)
                         more.menu = menu
                         NotificationCenter.default.post(name: .priceChartDisplayModeUpdated, object: nil)
                      }),
