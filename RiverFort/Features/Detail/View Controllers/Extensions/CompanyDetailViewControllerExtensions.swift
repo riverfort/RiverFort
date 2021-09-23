@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - Yahoo Finance
+
 extension CompanyDetailViewController {
     public func getQuoteFromYahooFinance(symbol: String) {
         DetailViewAPIFunction.fetchQuoteFromYahooFinance(symbol: symbol)
@@ -31,7 +33,7 @@ extension CompanyDetailViewController {
             }
     }
     
-    public func getHistoricalPriceFromYahooFinance(symbol: String, exchange: String) {
+    public func getHistoricalPriceFromYahooFinance(symbol: String) {
         DetailViewAPIFunction.fetchHistoricalPriceFromYahooFinance(symbol: symbol)
             .responseDecodable(of: YahooFinanceHistoricalPriceResult.self) { response in
                 guard let yahooFinanceHistoricalPriceResult = response.value?.chart.result.first else { return }
@@ -49,6 +51,8 @@ extension CompanyDetailViewController {
             }
     }
 }
+
+// MARK: - FMP
 
 extension CompanyDetailViewController {
     public func getProfileFromFMP(symbol: String) {

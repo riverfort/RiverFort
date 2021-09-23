@@ -6,7 +6,6 @@
 //
 
 import CardParts
-import SPAlert
 
 class CompanyDetailViewController: CardsViewController {
     public var company: Company?
@@ -55,7 +54,7 @@ extension CompanyDetailViewController {
         navigationItem.title = company.symbol
         getProfile(symbol: company.symbol)
         getQuote(symbol: company.symbol)
-        getHistoricalPrice(symbol: company.symbol, exch: company.exchangeShortName)
+        getHistoricalPrice(symbol: company.symbol)
     }
     
     private func configView() {
@@ -85,6 +84,11 @@ extension CompanyDetailViewController {
         add.setImage(UIImage(systemName: "plus.circle", withConfiguration: UIImage.Configuration.semibold), for: .normal)
     }
     
+    private func configMoreButton() {
+        more.showsMenuAsPrimaryAction = true
+        more.setImage(UIImage(systemName: "ellipsis.circle", withConfiguration: UIImage.Configuration.semibold), for: .normal)
+    }
+    
     private func configBarButtonStack() {
         let barButtonStack = UIStackView.init(arrangedSubviews: [add, more])
         barButtonStack.distribution = .equalSpacing
@@ -97,31 +101,16 @@ extension CompanyDetailViewController {
 
 extension CompanyDetailViewController {
     private func createObservesr() {
-        NotificationCenter.default.addObserver(self, selector: #selector(chartValueSelected), name: .chartValueSelected, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(chartValueNoLongerSelected), name: .chartValueNoLongerSelected, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onChartValueSelected), name: .chartValueSelected, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onChartValueNoLongerSelected), name: .chartValueNoLongerSelected, object: nil)
     }
     
-    @objc private func chartValueSelected() { super.collectionView.isScrollEnabled = false }
-    @objc private func chartValueNoLongerSelected() { super.collectionView.isScrollEnabled = true }
+    @objc private func onChartValueSelected() { super.collectionView.isScrollEnabled = false }
+    @objc private func onChartValueNoLongerSelected() { super.collectionView.isScrollEnabled = true }
 }
 
 extension CompanyDetailViewController {
-    private func getProfile(symbol: String) {
-        getProfileFromFMP(symbol: symbol)
-    }
-    
-    private func getQuote(symbol: String) {
-        getQuoteFromYahooFinance(symbol: symbol)
-    }
-
-    private func getHistoricalPrice(symbol: String, exch: String) {
-        getHistoricalPriceFromYahooFinance(symbol: symbol, exchange: exch)
-    }
-}
-
-extension CompanyDetailViewController {
-    private func configMoreButton() {
-        more.showsMenuAsPrimaryAction = true
-        more.setImage(UIImage(systemName: "ellipsis.circle", withConfiguration: UIImage.Configuration.semibold), for: .normal)
-    }
+    private func getProfile(symbol: String) { getProfileFromFMP(symbol: symbol) }
+    private func getQuote(symbol: String) { getQuoteFromYahooFinance(symbol: symbol) }
+    private func getHistoricalPrice(symbol: String) { getHistoricalPriceFromYahooFinance(symbol: symbol) }
 }

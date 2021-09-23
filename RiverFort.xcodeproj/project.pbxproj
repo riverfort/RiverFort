@@ -234,9 +234,9 @@
 			children = (
 				7720570526DE6E8300063A9A /* CompanyDetailViewController.swift */,
 				77DA186E26F89A4700919D11 /* ADTVDetailViewController.swift */,
+				77B11DAE26F389010093FBE9 /* Extensions */,
 				778B3AFB26E12CF8009CBE7E /* Templates */,
 				77D6FC8E26F370F10074137C /* Card Controllers */,
-				77B11DAE26F389010093FBE9 /* Extensions */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
