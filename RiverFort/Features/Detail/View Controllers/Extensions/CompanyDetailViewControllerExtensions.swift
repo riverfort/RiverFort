@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - Yahoo Finance
+
 extension CompanyDetailViewController {
     public func getQuoteFromYahooFinance(symbol: String) {
         DetailViewAPIFunction.fetchQuoteFromYahooFinance(symbol: symbol)
@@ -27,11 +29,11 @@ extension CompanyDetailViewController {
                                   date: Date(timeIntervalSince1970: TimeInterval(yahooFinanceQuote.regularMarketTime)),
                                   currency: yahooFinanceQuote.currency,
                                   market: yahooFinanceQuote.market)
-                NotificationCenter.default.post(name: .receiveQuote, object: quote)
+                NotificationCenter.default.post(name: .didReceiveQuote, object: quote)
             }
     }
     
-    public func getHistoricalPriceFromYahooFinance(symbol: String, exchange: String) {
+    public func getHistoricalPriceFromYahooFinance(symbol: String) {
         DetailViewAPIFunction.fetchHistoricalPriceFromYahooFinance(symbol: symbol)
             .responseDecodable(of: YahooFinanceHistoricalPriceResult.self) { response in
                 guard let yahooFinanceHistoricalPriceResult = response.value?.chart.result.first else { return }
@@ -45,10 +47,12 @@ extension CompanyDetailViewController {
                     .enumerated()
                     .map { (i, date) in HistoricalPriceQuote(date: date, high: highs[i], low: lows[i], close: closes[i], volume: volumes[i]) }
                     .filter { $0.high != nil && $0.low != nil && $0.close != nil && $0.volume != nil }
-                NotificationCenter.default.post(name: .receiveHistoricalPrice, object: historicalPriceQuotes)
+                NotificationCenter.default.post(name: .didReceiveHistoricalPrice, object: historicalPriceQuotes)
             }
     }
 }
+
+// MARK: - FMP
 
 extension CompanyDetailViewController {
     public func getProfileFromFMP(symbol: String) {
@@ -57,7 +61,7 @@ extension CompanyDetailViewController {
                 guard let fmpProfileValue = response.value else { return }
                 guard let fmpProfile = fmpProfileValue.first else { return }
                 let profile = Profile(industry: fmpProfile.industry, sector: fmpProfile.sector)
-                NotificationCenter.default.post(name: .receiveProfile, object: profile)
+                NotificationCenter.default.post(name: .didReceiveProfile, object: profile)
             }
     }
 }

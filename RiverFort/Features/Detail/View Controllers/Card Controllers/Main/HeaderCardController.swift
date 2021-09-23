@@ -87,7 +87,7 @@ extension HeaderCardController {
 
 extension HeaderCardController {
     private func createObservesr() {
-        NotificationCenter.default.addObserver(self, selector: #selector(preparePrice), name: .receiveQuote, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(preparePrice), name: .didReceiveQuote, object: nil)
     }
     
     private func prepareNameAndExch() {

@@ -87,10 +87,10 @@ extension NewsCardController: CardPartTableViewDelegate {
 
 extension NewsCardController {
     private func createObservesr() {
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareView), name: .receiveQuote, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveQuote), name: .didReceiveQuote, object: nil)
     }
     
-    @objc private func prepareView(notification: Notification) {
+    @objc private func onDidReceiveQuote(notification: Notification) {
         guard let quote = notification.object as? Quote else { return }
         let market = quote.market
         switch market {

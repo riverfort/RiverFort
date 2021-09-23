@@ -62,16 +62,16 @@ extension ADTVDetailViewController {
 
 extension ADTVDetailViewController {
     private func createObservesr() {
-        NotificationCenter.default.addObserver(self, selector: #selector(chartValueSelected), name: .chartValueSelected, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(chartValueNoLongerSelected), name: .chartValueNoLongerSelected, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidSelectChartValue), name: .didSelectChartValue, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidNoLongerSelectChartValue), name: .didNoLongerSelectChartValue, object: nil)
     }
     
-    @objc private func chartValueSelected() {
+    @objc private func onDidSelectChartValue() {
         guard super.collectionView != nil else { return }
         super.collectionView.isScrollEnabled = false
     }
     
-    @objc private func chartValueNoLongerSelected() {
+    @objc private func onDidNoLongerSelectChartValue() {
         guard super.collectionView != nil else { return }
         super.collectionView.isScrollEnabled = true
     }
@@ -87,11 +87,11 @@ extension ADTVDetailViewController {
         let historicalADTV20s = ADTV.getHistoricalADTVns(adtvs: historicalADTVs, n: 20)
         let historicalADTV60s = ADTV.getHistoricalADTVns(adtvs: historicalADTVs, n: 60)
         let historicalADTV120s = ADTV.getHistoricalADTVns(adtvs: historicalADTVs, n: 120)
-        NotificationCenter.default.post(name: .getHistoricalADTV, object: historicalADTVs)
-        NotificationCenter.default.post(name: .getHistoricalADTV5, object: historicalADTV5s)
-        NotificationCenter.default.post(name: .getHistoricalADTV10, object: historicalADTV10s)
-        NotificationCenter.default.post(name: .getHistoricalADTV20, object: historicalADTV20s)
-        NotificationCenter.default.post(name: .getHistoricalADTV60, object: historicalADTV60s)
-        NotificationCenter.default.post(name: .getHistoricalADTV120, object: historicalADTV120s)
+        NotificationCenter.default.post(name: .didReceiveHistoricalADTV, object: historicalADTVs)
+        NotificationCenter.default.post(name: .didReceiveHistoricalADTV5, object: historicalADTV5s)
+        NotificationCenter.default.post(name: .didReceiveHistoricalADTV10, object: historicalADTV10s)
+        NotificationCenter.default.post(name: .didReceiveHistoricalADTV20, object: historicalADTV20s)
+        NotificationCenter.default.post(name: .didReceiveHistoricalADTV60, object: historicalADTV60s)
+        NotificationCenter.default.post(name: .didReceiveHistoricalADTV120, object: historicalADTV120s)
     }
 }

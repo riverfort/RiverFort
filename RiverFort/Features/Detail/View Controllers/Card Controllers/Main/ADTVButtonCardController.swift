@@ -9,7 +9,7 @@ import CardParts
 
 class ADTVButtonCardController: TransparentCardController {
     public var company: Company?
-    private lazy var viewADTVTrendsButton = ButtonCardPartView()
+    private lazy var viewADTVTrendsButton = ButtonCardPartView(title: "View ADTV Trends")
     private lazy var adtvDetailVC = ADTVDetailViewController()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -55,7 +55,7 @@ extension ADTVButtonCardController: ButtonCardPartViewDelegate {
 
 extension ADTVButtonCardController {
     private func createObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveHistoricalPrice), name: .receiveHistoricalPrice, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveHistoricalPrice), name: .didReceiveHistoricalPrice, object: nil)
     }
     
     @objc private func didReceiveHistoricalPrice(notification: Notification) {

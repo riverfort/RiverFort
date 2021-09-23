@@ -6,7 +6,6 @@
 //
 
 import CardParts
-import SPAlert
 
 class CompanyDetailViewController: CardsViewController {
     public var company: Company?
@@ -15,6 +14,7 @@ class CompanyDetailViewController: CardsViewController {
     private lazy var header = HeaderCardController()
     private lazy var timeseries = TimeseriesCardController()
     private lazy var priceChart = PriceChartCardController()
+    private lazy var priceChartButton = PriceChartButtonCardController()
     private lazy var profile = ProfileCardController()
     private lazy var statistics = StatisticsCardController()
     private lazy var ohlc = OHLCCardController()
@@ -55,7 +55,7 @@ extension CompanyDetailViewController {
         navigationItem.title = company.symbol
         getProfile(symbol: company.symbol)
         getQuote(symbol: company.symbol)
-        getHistoricalPrice(symbol: company.symbol, exch: company.exchangeShortName)
+        getHistoricalPrice(symbol: company.symbol)
     }
     
     private func configView() {
@@ -71,7 +71,7 @@ extension CompanyDetailViewController {
     }
     
     private func configCards() {
-        let cards = [header, timeseries, priceChart, profile, statistics, ohlc, adtvStatistics, adtvButton, news]
+        let cards = [header, timeseries, priceChart, priceChartButton, profile, statistics, ohlc, adtvStatistics, adtvButton, news]
         header.company = company
         priceChart.company = company
         adtvStatistics.company = company
@@ -82,11 +82,11 @@ extension CompanyDetailViewController {
 
 extension CompanyDetailViewController {
     private func configAddButton() {
-        guard let symbol = navigationItem.title else { return }
-        let isCompanyInWatchlist = WatchlistCoreDataManager.isWatchedCompany(company_ticker: symbol)
-        if isCompanyInWatchlist { add.isHidden = true }
         add.setImage(UIImage(systemName: "plus.circle", withConfiguration: UIImage.Configuration.semibold), for: .normal)
-        add.addTarget(self, action: #selector(didTapAddToWatchlist), for: .touchUpInside)
+    }
+    
+    private func configMoreButton() {
+        more.setImage(UIImage(systemName: "ellipsis.circle", withConfiguration: UIImage.Configuration.semibold), for: .normal)
     }
     
     private func configBarButtonStack() {
@@ -101,62 +101,16 @@ extension CompanyDetailViewController {
 
 extension CompanyDetailViewController {
     private func createObservesr() {
-        NotificationCenter.default.addObserver(self, selector: #selector(chartValueSelected), name: .chartValueSelected, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(chartValueNoLongerSelected), name: .chartValueNoLongerSelected, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidSelectChartValue), name: .didSelectChartValue, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidNoLongerSelectChartValue), name: .didNoLongerSelectChartValue, object: nil)
     }
     
-    @objc private func chartValueSelected() { super.collectionView.isScrollEnabled = false }
-    @objc private func chartValueNoLongerSelected() { super.collectionView.isScrollEnabled = true }
+    @objc private func onDidSelectChartValue() { super.collectionView.isScrollEnabled = false }
+    @objc private func onDidNoLongerSelectChartValue() { super.collectionView.isScrollEnabled = true }
 }
 
 extension CompanyDetailViewController {
-    private func getProfile(symbol: String) {
-        getProfileFromFMP(symbol: symbol)
-    }
-    
-    private func getQuote(symbol: String) {
-        getQuoteFromYahooFinance(symbol: symbol)
-    }
-
-    private func getHistoricalPrice(symbol: String, exch: String) {
-        getHistoricalPriceFromYahooFinance(symbol: symbol, exchange: exch)
-    }
-}
-
-extension CompanyDetailViewController {
-    @objc private func didTapAddToWatchlist() {
-        guard let company = company else { return }
-        guard !WatchlistCoreDataManager.isWatchedCompany(company_ticker: company.symbol) else { return }
-        WatchlistCoreDataManager.addToWatchlist(company_ticker: company.symbol, company_name: company.name, exch: company.exchange)
-        SPAlert.present(title: "Added to Watchlist", preset: .done, haptic: .success)
-        add.isHidden = true
-    }
-}
-
-extension CompanyDetailViewController {
-    private func configMoreButton() {
-        more.showsMenuAsPrimaryAction = true
-        more.setImage(UIImage(systemName: "ellipsis.circle", withConfiguration: UIImage.Configuration.semibold), for: .normal)
-        let defaults = UserDefaults.standard, key = UserDefaults.Keys.isPriceChartNewsDisplayModeOn
-        var menu: UIMenu { UIMenu(title: "Share Price Chart", image: nil, identifier: nil, options: [], children: menuItems) }
-        var menuItems: [UIAction] { [
-            UIAction(title: "Price & Volume",
-                     image: UIImage(systemName: "waveform.path.ecg.rectangle"),
-                     state: defaults.bool(forKey: key) ? .off : .on,
-                     handler: { [unowned self] (_) in
-                        defaults.setValue(false, forKey: key)
-                        more.menu = menu
-                        NotificationCenter.default.post(name: .priceChartDisplayModeUpdated, object: nil)
-                     }),
-            UIAction(title: "Plus News",
-                     image: UIImage(systemName: "circlebadge.fill"),
-                     state: defaults.bool(forKey: key) ? .on : .off,
-                     handler: { [unowned self] (_) in
-                        defaults.setValue(true, forKey: key)
-                        more.menu = menu
-                        NotificationCenter.default.post(name: .priceChartDisplayModeUpdated, object: nil)
-                     }),
-        ]}
-        more.menu = menu
-    }
+    private func getProfile(symbol: String) { getProfileFromFMP(symbol: symbol) }
+    private func getQuote(symbol: String) { getQuoteFromYahooFinance(symbol: symbol) }
+    private func getHistoricalPrice(symbol: String) { getHistoricalPriceFromYahooFinance(symbol: symbol) }
 }
