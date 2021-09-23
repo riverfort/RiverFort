@@ -121,31 +121,13 @@ extension PriceChartCardPartView {
 }
 
 extension PriceChartCardPartView {     
-    public func setChartDataForPrice(with histPrice: [HistoricalPriceQuote]) {
-        historicalPriceDataEntries = histPrice.enumerated().map{ (index, dailyPrice) in
+    public func setChartDataForPrice(with historicalPrice: [HistoricalPriceQuote]) {
+        historicalPriceDataEntries = historicalPrice.enumerated().map{ (index, dailyPrice) in
             return ChartDataEntry(x: Double(index),
                                   y: dailyPrice.close ?? 0,
                                   data: HistoricalPriceChartDataEntryData(date: dailyPrice.date, volume: Double(dailyPrice.volume ?? 0)))}
-        var adjustedHistPriceDataEntries = [ChartDataEntry]()
-        switch UserDefaults.standard.integer(forKey: UserDefaults.Keys.timeseriesSelectedSegmentIndex) {
-        case 0:
-            adjustedHistPriceDataEntries = historicalPriceDataEntries.suffix(5)
-        case 1:
-            adjustedHistPriceDataEntries = historicalPriceDataEntries.suffix(10)
-        case 2:
-            adjustedHistPriceDataEntries = historicalPriceDataEntries.suffix(20)
-        case 3:
-            adjustedHistPriceDataEntries = historicalPriceDataEntries.suffix(60)
-        case 4:
-            adjustedHistPriceDataEntries = historicalPriceDataEntries.suffix(120)
-        case 5:
-            adjustedHistPriceDataEntries = historicalPriceDataEntries
-        default:
-            return
-        }
-        let lineChartDataSetForHistoricalPrice = LineChartDataSet(entries: adjustedHistPriceDataEntries, label: "Historical Price")
-        configLineChartDataSetForHistoricalPrice(with: lineChartDataSetForHistoricalPrice)
-        chartView.data = LineChartData(dataSet: lineChartDataSetForHistoricalPrice)
+        let timeseriesIndex = UserDefaults.standard.integer(forKey: UserDefaults.Keys.timeseriesSelectedSegmentIndex)
+        changeTimeseries(for: timeseriesIndex)
     }
     
     public func changeTimeseries(for selectedSegmentIndex: Int) {
