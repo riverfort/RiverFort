@@ -50,7 +50,7 @@ extension PriceChartCardPartView {
     private func configChartView() {
         chartView.marker = priceMarker
         chartView.delegate = self
-        chartView.myChartViewDelegate = self
+        chartView.baseChartViewDelegate = self
         chartView.xAxis.valueFormatter = self
     }
     
