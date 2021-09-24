@@ -39,7 +39,6 @@ class ADTVChartCardPartView: UIView, CardPartView {
         chartView.xAxis.avoidFirstLastClippingEnabled = true
         chartView.xAxis.labelFont = chartView.xAxis.labelFont.withSize(12)
         chartView.xAxis.labelTextColor = .systemGray
-        chartView.myChartViewDelegate = self
         chartView.highlightPerDragEnabled = false
         chartView.highlightPerTapEnabled = false
         return chartView
@@ -61,7 +60,7 @@ extension ADTVChartCardPartView {
     private func configChartView() {
         chartView.marker = marker
         chartView.delegate = self
-        chartView.myChartViewDelegate = self
+        chartView.baseChartViewDelegate = self
         chartView.xAxis.valueFormatter = self
         leftAxisFormatting()
     }

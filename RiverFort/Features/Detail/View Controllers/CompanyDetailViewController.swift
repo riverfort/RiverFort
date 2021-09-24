@@ -14,7 +14,6 @@ class CompanyDetailViewController: CardsViewController {
     private lazy var header = HeaderCardController()
     private lazy var timeseries = TimeseriesCardController()
     private lazy var priceChart = PriceChartCardController()
-    private lazy var priceChartButton = PriceChartButtonCardController()
     private lazy var profile = ProfileCardController()
     private lazy var statistics = StatisticsCardController()
     private lazy var ohlc = OHLCCardController()
@@ -71,7 +70,7 @@ extension CompanyDetailViewController {
     }
     
     private func configCards() {
-        let cards = [header, timeseries, priceChart, priceChartButton, profile, statistics, ohlc, adtvStatistics, adtvButton, news]
+        let cards = [header, timeseries, priceChart, profile, statistics, ohlc, adtvStatistics, adtvButton, news]
         header.company = company
         priceChart.company = company
         adtvStatistics.company = company
@@ -86,6 +85,7 @@ extension CompanyDetailViewController {
     }
     
     private func configMoreButton() {
+        more.showsMenuAsPrimaryAction = true
         more.setImage(UIImage(systemName: "ellipsis.circle", withConfiguration: UIImage.Configuration.semibold), for: .normal)
     }
     

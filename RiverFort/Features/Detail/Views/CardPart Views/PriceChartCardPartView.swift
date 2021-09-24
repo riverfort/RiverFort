@@ -10,33 +10,13 @@ import Charts
 
 class PriceChartCardPartView: UIView, CardPartView {
     internal var margins: UIEdgeInsets = UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0)
-    private var histPriceDataEntries = [ChartDataEntry]()
-    private let priceMarker = PriceMarker()
-    private let chartView: BaseLineChartView = {
-        let chartView = BaseLineChartView()
-        chartView.animate(xAxisDuration: 0.5)
-        chartView.minOffset = 0
-        chartView.extraTopOffset = 45
-        chartView.legend.enabled = false
-        chartView.leftAxis.enabled  = false
-        chartView.rightAxis.enabled = false
-        chartView.setScaleEnabled(false)
-        chartView.highlightPerDragEnabled = false
-        chartView.highlightPerTapEnabled = false
-        chartView.xAxis.enabled = true
-        chartView.xAxis.labelPosition = .bottom
-        chartView.xAxis.drawGridLinesEnabled = false
-        chartView.xAxis.drawAxisLineEnabled  = false
-        chartView.xAxis.setLabelCount(3, force: false)
-        chartView.xAxis.avoidFirstLastClippingEnabled = true
-        chartView.xAxis.labelFont = chartView.xAxis.labelFont.withSize(12)
-        chartView.xAxis.labelTextColor = .systemGray
-        return chartView
-    }()
-    
+    private lazy var chartView = BaseLineChartView()
+    private lazy var priceMarker = PriceMarker()
+    private lazy var historicalPriceDataEntries = [ChartDataEntry]()
+    private lazy var newsDataEntries = [ChartDataEntry]()
+
     init() {
         super.init(frame: CGRect.zero)
-        view.addSubview(chartView)
         configChartView()
         setChartViewConstraints()
     }
@@ -48,15 +28,28 @@ class PriceChartCardPartView: UIView, CardPartView {
 
 extension PriceChartCardPartView {
     private func configChartView() {
+        view.addSubview(chartView)
         chartView.marker = priceMarker
         chartView.delegate = self
-        chartView.myChartViewDelegate = self
+        chartView.baseChartViewDelegate = self
         chartView.xAxis.valueFormatter = self
-    }
-    
-    private func configChartViewTimeseriesAnimation() {
-        chartView.animate(yAxisDuration: 0.3, easingOption: .easeOutSine)
-        chartView.zoom(scaleX: 0, scaleY: 0, x: 0, y: 0)
+        chartView.animate(xAxisDuration: 0.5)
+        chartView.extraTopOffset = 45
+        chartView.minOffset = 0
+        chartView.legend.enabled = false
+        chartView.leftAxis.enabled = false
+        chartView.rightAxis.enabled = false
+        chartView.setScaleEnabled(false)
+        chartView.highlightPerDragEnabled = false
+        chartView.highlightPerTapEnabled = false
+        chartView.xAxis.enabled = true
+        chartView.xAxis.labelPosition = .bottom
+        chartView.xAxis.drawGridLinesEnabled = false
+        chartView.xAxis.drawAxisLineEnabled = false
+        chartView.xAxis.setLabelCount(3, force: false)
+        chartView.xAxis.avoidFirstLastClippingEnabled = true
+        chartView.xAxis.labelFont = chartView.xAxis.labelFont.withSize(12)
+        chartView.xAxis.labelTextColor = .systemGray
     }
 }
 
@@ -85,7 +78,7 @@ extension PriceChartCardPartView: ChartViewDelegate, BaseChartViewDelegate {
 extension PriceChartCardPartView: IAxisValueFormatter {
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         guard let histPriceChartDataEntryData =
-                histPriceDataEntries[Int(value) % histPriceDataEntries.count].data as? HistoricalPriceChartDataEntryData else {
+                historicalPriceDataEntries[Int(value) % historicalPriceDataEntries.count].data as? HistoricalPriceChartDataEntryData else {
             return ""
         }
         let formatter = DateFormatter()
@@ -97,7 +90,12 @@ extension PriceChartCardPartView: IAxisValueFormatter {
 }
 
 extension PriceChartCardPartView {
-    private func configLineChartDataSetForHistPrice(with lineChartDataSet: LineChartDataSet) {
+    private func configChartViewTimeseriesAnimation() {
+        chartView.animate(yAxisDuration: 0.3, easingOption: .easeOutSine)
+        chartView.zoom(scaleX: 0, scaleY: 0, x: 0, y: 0)
+    }
+    
+    private func configLineChartDataSetForHistoricalPrice(with lineChartDataSet: LineChartDataSet) {
         lineChartDataSet.drawCirclesEnabled = false
         lineChartDataSet.drawValuesEnabled  = false
         lineChartDataSet.drawFilledEnabled  = false
@@ -120,55 +118,39 @@ extension PriceChartCardPartView {
     }
 }
 
-extension PriceChartCardPartView {     
-    public func setChartData(with histPrice: [HistoricalPriceQuote]) {
-        histPriceDataEntries = histPrice.enumerated().map{ (index, dailyPrice) in
-            return ChartDataEntry(x: Double(index),
-                                  y: dailyPrice.close ?? 0,
-                                  data: HistoricalPriceChartDataEntryData(date: dailyPrice.date, volume: Double(dailyPrice.volume ?? 0)))}
-        var adjustedHistPriceDataEntries = [ChartDataEntry]()
-        switch UserDefaults.standard.integer(forKey: UserDefaults.Keys.timeseriesSelectedSegmentIndex) {
-        case 0:
-            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(5)
-        case 1:
-            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(10)
-        case 2:
-            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(20)
-        case 3:
-            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(60)
-        case 4:
-            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(120)
-        case 5:
-            adjustedHistPriceDataEntries = histPriceDataEntries
-        default:
-            return
-        }
-        let lineChartDataSet = LineChartDataSet(entries: adjustedHistPriceDataEntries, label: "Historical Price")
-        configLineChartDataSetForHistPrice(with: lineChartDataSet)
-        chartView.data = LineChartData(dataSet: lineChartDataSet)
-    }
-    
+extension PriceChartCardPartView {
     public func changeTimeseries(for selectedSegmentIndex: Int) {
         configChartViewTimeseriesAnimation()
         var adjustedHistPriceDataEntries = [ChartDataEntry]()
         switch selectedSegmentIndex {
         case 0:
-            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(5)
+            adjustedHistPriceDataEntries = historicalPriceDataEntries.suffix(5)
         case 1:
-            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(10)
+            adjustedHistPriceDataEntries = historicalPriceDataEntries.suffix(10)
         case 2:
-            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(20)
+            adjustedHistPriceDataEntries = historicalPriceDataEntries.suffix(20)
         case 3:
-            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(60)
+            adjustedHistPriceDataEntries = historicalPriceDataEntries.suffix(60)
         case 4:
-            adjustedHistPriceDataEntries = histPriceDataEntries.suffix(120)
+            adjustedHistPriceDataEntries = historicalPriceDataEntries.suffix(120)
         case 5:
-            adjustedHistPriceDataEntries = histPriceDataEntries
+            adjustedHistPriceDataEntries = historicalPriceDataEntries
         default:
             return
         }
-        let lineChartDataSetForHistPrice = LineChartDataSet(entries: adjustedHistPriceDataEntries, label: "Historical Price")
-        configLineChartDataSetForHistPrice(with: lineChartDataSetForHistPrice)
-        chartView.data = LineChartData(dataSet: lineChartDataSetForHistPrice)
+        let lineChartDataSetForHistoricalPrice = LineChartDataSet(entries: adjustedHistPriceDataEntries, label: "Historical Price")
+        configLineChartDataSetForHistoricalPrice(with: lineChartDataSetForHistoricalPrice)
+        chartView.data = LineChartData(dataSet: lineChartDataSetForHistoricalPrice)
+    }
+}
+
+extension PriceChartCardPartView {
+    public func setChartDataForPrice(historicalPrice: [HistoricalPriceQuote]) {
+        historicalPriceDataEntries = historicalPrice.enumerated().map{ (index, dailyPrice) in
+            return ChartDataEntry(x: Double(index),
+                                  y: dailyPrice.close ?? 0,
+                                  data: HistoricalPriceChartDataEntryData(date: dailyPrice.date, volume: Double(dailyPrice.volume ?? 0)))}
+        let timeseriesIndex = UserDefaults.standard.integer(forKey: UserDefaults.Keys.timeseriesSelectedSegmentIndex)
+        changeTimeseries(for: timeseriesIndex)
     }
 }

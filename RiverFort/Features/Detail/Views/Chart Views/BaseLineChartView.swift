@@ -13,7 +13,7 @@ import Charts
 
 open class BaseLineChartView: LineChartView {
 
-    @objc weak var myChartViewDelegate: BaseChartViewDelegate?
+    @objc weak var baseChartViewDelegate: BaseChartViewDelegate?
 
     private var touchesMoved = false
 
@@ -51,7 +51,7 @@ open class BaseLineChartView: LineChartView {
 
     open override func nsuiTouchesEnded(_ touches: Set<NSUITouch>, withEvent event: NSUIEvent?) {
         super.nsuiTouchesEnded(touches, withEvent: event)
-        myChartViewDelegate?.chartValueNoLongerSelected?(self) // remove the highlight
+        baseChartViewDelegate?.chartValueNoLongerSelected?(self) // remove the highlight
     }
 
     open override func nsuiTouchesCancelled(_ touches: Set<NSUITouch>?, withEvent event: NSUIEvent?) {
@@ -59,7 +59,7 @@ open class BaseLineChartView: LineChartView {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             // if a tap turns into a panGesture touches cancelled is called this prevents the highlight from being moved
             if !self.touchesMoved {
-                self.myChartViewDelegate?.chartValueNoLongerSelected?(self)
+                self.baseChartViewDelegate?.chartValueNoLongerSelected?(self)
             }
         }
     }
