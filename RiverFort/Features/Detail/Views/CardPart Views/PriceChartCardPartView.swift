@@ -13,6 +13,7 @@ class PriceChartCardPartView: UIView, CardPartView {
     private lazy var chartView = BaseLineChartView()
     private lazy var priceMarker = PriceMarker()
     private lazy var historicalPriceDataEntries = [ChartDataEntry]()
+    private lazy var newsDataEntries = [ChartDataEntry]()
 
     init() {
         super.init(frame: CGRect.zero)

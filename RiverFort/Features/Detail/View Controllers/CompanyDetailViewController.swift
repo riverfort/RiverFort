@@ -87,7 +87,6 @@ extension CompanyDetailViewController {
     private func configMoreButton() {
         more.showsMenuAsPrimaryAction = true
         more.setImage(UIImage(systemName: "ellipsis.circle", withConfiguration: UIImage.Configuration.semibold), for: .normal)
-        configMoreButtonMenu()
     }
     
     private func configBarButtonStack() {
@@ -97,30 +96,6 @@ extension CompanyDetailViewController {
         barButtonStack.alignment = .center
         barButtonStack.spacing = 8
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: barButtonStack)
-    }
-    
-    private func configMoreButtonMenu() {
-        let defaults = UserDefaults.standard, key = UserDefaults.Keys.isPriceChartNewsDisplayModeOn
-        var menu: UIMenu { UIMenu(title: "Share Price Chart", image: nil, identifier: nil, options: [], children: menuItems) }
-        var menuItems: [UIAction] { [
-            UIAction(title: "Price & Volume",
-                     image: UIImage(systemName: "waveform.path.ecg.rectangle"),
-                     state: defaults.bool(forKey: key) ? .off : .on,
-                     handler: { [unowned self] (_) in
-                        defaults.setValue(false, forKey: key)
-                        NotificationCenter.default.post(name: .didUpdatePriceChartDisplayMode, object: nil)
-                        more.menu = menu
-                     }),
-            UIAction(title: "Plus News",
-                     image: UIImage(systemName: "circlebadge.fill"),
-                     state: defaults.bool(forKey: key) ? .on : .off,
-                     handler: { [unowned self] (_) in
-                        defaults.setValue(true, forKey: key)
-                        NotificationCenter.default.post(name: .didUpdatePriceChartDisplayMode, object: nil)
-                        more.menu = menu
-                     }),
-        ]}
-        more.menu = menu
     }
 }
 
