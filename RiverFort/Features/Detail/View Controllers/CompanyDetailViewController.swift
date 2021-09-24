@@ -6,9 +6,12 @@
 //
 
 import CardParts
+import RealmSwift
+import SPAlert
 
 class CompanyDetailViewController: CardsViewController {
     public var company: Company?
+    private let realm = try! Realm()
     private lazy var add  = UIButton(type: .system)
     private lazy var more = UIButton(type: .system)
     private lazy var header = HeaderCardController()
@@ -81,7 +84,13 @@ extension CompanyDetailViewController {
 
 extension CompanyDetailViewController {
     private func configAddButton() {
-        add.setImage(UIImage(systemName: "plus.circle", withConfiguration: UIImage.Configuration.semibold), for: .normal)
+        guard let isCompanyInWatchlist = isCompanyInWatchlist() else { return }
+        if isCompanyInWatchlist {
+            add.isHidden = true
+        } else {
+            add.setImage(UIImage(systemName: "plus.circle", withConfiguration: UIImage.Configuration.semibold), for: .normal)
+            add.addTarget(self, action: #selector(saveWatchlistCompany), for: .touchUpInside)
+        }
     }
     
     private func configMoreButton() {
@@ -113,4 +122,31 @@ extension CompanyDetailViewController {
     private func getProfile(symbol: String) { getProfileFromFMP(symbol: symbol) }
     private func getQuote(symbol: String) { getQuoteFromYahooFinance(symbol: symbol) }
     private func getHistoricalPrice(symbol: String) { getHistoricalPriceFromYahooFinance(symbol: symbol) }
+}
+
+extension CompanyDetailViewController {
+    private func isCompanyInWatchlist() -> Bool? {
+        guard let company = company else { return nil }
+        let watchlistCompany = realm.object(ofType: WatchlistCompany.self, forPrimaryKey: company.symbol)
+        if watchlistCompany == nil { return false }
+        else { return true }
+    }
+    
+    @objc private func saveWatchlistCompany() {
+        guard let company = company else { return }
+        let watchlistCompany = WatchlistCompany()
+        watchlistCompany.symbol = company.symbol
+        watchlistCompany.name = company.name
+        watchlistCompany.exchange = company.exchange
+        do {
+            try realm.write({
+                realm.add(watchlistCompany, update: .modified)
+            })
+            add.isHidden = true
+            SPAlert.present(title: "Added to watchlist", preset: .done, haptic: .success)
+        } catch {
+            print(error.localizedDescription)
+            SPAlert.present(title: "Something going wrong", preset: .error, haptic: .error)
+        }
+    }
 }
