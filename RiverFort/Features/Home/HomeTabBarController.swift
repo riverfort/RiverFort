@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class HomeTabBarController: UITabBarController {
     // MARK: - Add new tabs here:
@@ -18,6 +19,7 @@ class HomeTabBarController: UITabBarController {
 extension HomeTabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         configView()
         configTabBar()
     }
