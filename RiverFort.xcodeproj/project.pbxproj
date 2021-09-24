@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7704889826FE0948002F7CC8 /* WatchlistCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7704889726FE0948002F7CC8 /* WatchlistCompany.swift */; };
 		770B22AF26EB8D6400731C58 /* ADTVMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B22AE26EB8D6400731C58 /* ADTVMarker.swift */; };
 		770C438D26F8DDFA0040F891 /* ADTV5ChartCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770C438C26F8DDFA0040F891 /* ADTV5ChartCardController.swift */; };
 		770C438F26F8DF8B0040F891 /* ADTV120ChartCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770C438E26F8DF8B0040F891 /* ADTV120ChartCardController.swift */; };
@@ -85,6 +86,7 @@
 
 /* Begin PBXFileReference section */
 		69D13D5B19688F922B9BB9AD /* Pods-RiverFort.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RiverFort.release.xcconfig"; path = "Target Support Files/Pods-RiverFort/Pods-RiverFort.release.xcconfig"; sourceTree = "<group>"; };
+		7704889726FE0948002F7CC8 /* WatchlistCompany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistCompany.swift; sourceTree = "<group>"; };
 		770B22AE26EB8D6400731C58 /* ADTVMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTVMarker.swift; sourceTree = "<group>"; };
 		770C438C26F8DDFA0040F891 /* ADTV5ChartCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTV5ChartCardController.swift; sourceTree = "<group>"; };
 		770C438E26F8DF8B0040F891 /* ADTV120ChartCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTV120ChartCardController.swift; sourceTree = "<group>"; };
@@ -468,6 +470,7 @@
 		7790360A26FDCC7600A33248 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7704889726FE0948002F7CC8 /* WatchlistCompany.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -743,6 +746,7 @@
 				770B22AF26EB8D6400731C58 /* ADTVMarker.swift in Sources */,
 				770C438D26F8DDFA0040F891 /* ADTV5ChartCardController.swift in Sources */,
 				779B886226BD2B4900FB06A1 /* SettingsSection.swift in Sources */,
+				7704889826FE0948002F7CC8 /* WatchlistCompany.swift in Sources */,
 				77B11DAD26F382140093FBE9 /* Company.swift in Sources */,
 				77B11DA826F37FC40093FBE9 /* ADTV.swift in Sources */,
 				779B886426BD3DE200FB06A1 /* SettingsSwitchTableViewCell.swift in Sources */,
