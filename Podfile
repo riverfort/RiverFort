@@ -8,6 +8,7 @@ target 'RiverFort' do
   pod 'Alamofire', '~> 5.4'
   pod 'Charts', '~> 3.6.0'
   pod 'SPAlert'
+  pod 'RealmSwift'
   # Pods for RiverFort
 
 end
