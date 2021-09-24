@@ -16,4 +16,6 @@ class WatchlistCompany: Object {
     @Persisted var change: Double?
     @Persisted var changePercent: Double?
     @Persisted var mktCap: Double?
+    
+    override class func primaryKey() -> String? { "symbol" }
 }
