@@ -93,6 +93,7 @@ extension WatchlistTableViewController {
         navigationItem.title = "Watchlist"
         navigationItem.largeTitleDisplayMode = .always
         navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.rightBarButtonItem = editButtonItem
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.tintColor = .systemIndigo
     }
