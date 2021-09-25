@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import SPAlert
 
 class WatchlistTableViewController: UITableViewController {
     private let realm = try! Realm()
@@ -50,17 +51,15 @@ class WatchlistTableViewController: UITableViewController {
     }
     */
 
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            deleteWatchlistCompany(row: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
 
     /*
     // Override to support rearranging the table view.
@@ -110,4 +109,16 @@ extension WatchlistTableViewController {
     }
     
     @objc private func onDidSaveWatchlistCompany() { tableView.reloadData() }
+}
+
+extension WatchlistTableViewController {
+    private func deleteWatchlistCompany(row: Int) {
+        let watchlistCompany = watchlistCompanies[row]
+        do {
+            try realm.write({ realm.delete(watchlistCompany) })
+        } catch {
+            print(error.localizedDescription)
+            SPAlert.present(title: "Something going wrong", preset: .error, haptic: .error)
+        }
+    }
 }
