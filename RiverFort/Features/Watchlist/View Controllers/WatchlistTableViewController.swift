@@ -14,6 +14,7 @@ class WatchlistTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        createObservers()
         configNavigationController()
         configTableView()
 
@@ -101,4 +102,12 @@ extension WatchlistTableViewController {
         tableView = UITableView(frame: tableView.frame, style: .insetGrouped)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
+}
+
+extension WatchlistTableViewController {
+    private func createObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidSaveWatchlistCompany), name: .didSaveWatchlistCompany, object: nil)
+    }
+    
+    @objc private func onDidSaveWatchlistCompany() { tableView.reloadData() }
 }

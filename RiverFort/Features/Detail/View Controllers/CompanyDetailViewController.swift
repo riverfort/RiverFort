@@ -144,6 +144,7 @@ extension CompanyDetailViewController {
             })
             add.isHidden = true
             SPAlert.present(title: "Added to watchlist", preset: .done, haptic: .success)
+            NotificationCenter.default.post(name: .didSaveWatchlistCompany, object: nil)
         } catch {
             print(error.localizedDescription)
             SPAlert.present(title: "Something going wrong", preset: .error, haptic: .error)
