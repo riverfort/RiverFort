@@ -39,9 +39,7 @@ class WatchlistTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        if cell == nil {
-            cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
-        }
+        if cell == nil { cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell") }
         cell!.textLabel?.text = watchlistCompanyList!.watchlistCompanies[indexPath.row].symbol
         cell!.detailTextLabel?.text = watchlistCompanyList!.watchlistCompanies[indexPath.row].name
         return cell!
