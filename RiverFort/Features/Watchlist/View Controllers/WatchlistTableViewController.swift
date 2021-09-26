@@ -11,10 +11,11 @@ import SPAlert
 
 class WatchlistTableViewController: UITableViewController {
     private let realm = try! Realm()
-    private lazy var watchlistCompanies = realm.objects(WatchlistCompany.self)
+    private lazy var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        initWatchlistCompanyList()
         createObservers()
         configNavigationController()
         configTableView()
@@ -33,12 +34,12 @@ class WatchlistTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return watchlistCompanies.count
+        return watchlistCompanyList!.watchlistCompanies.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = watchlistCompanies[indexPath.row].symbol
+        cell.textLabel?.text = watchlistCompanyList!.watchlistCompanies[indexPath.row].symbol
         return cell
     }
 
@@ -113,8 +114,21 @@ extension WatchlistTableViewController {
 }
 
 extension WatchlistTableViewController {
+    private func initWatchlistCompanyList() {
+        if watchlistCompanyList == nil {
+            do {
+                try realm.write({
+                    watchlistCompanyList = realm.create(WatchlistCompanyList.self, value: [])
+                })
+            } catch {
+                print(error.localizedDescription)
+                SPAlert.present(title: "Something going wrong", preset: .error, haptic: .error)
+            }
+        }
+    }
+    
     private func deleteWatchlistCompany(row: Int) {
-        let watchlistCompany = watchlistCompanies[row]
+        let watchlistCompany = watchlistCompanyList!.watchlistCompanies[row]
         do {
             try realm.write({ realm.delete(watchlistCompany) })
         } catch {
