@@ -38,9 +38,13 @@ class WatchlistTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = watchlistCompanyList!.watchlistCompanies[indexPath.row].symbol
-        return cell
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        if cell == nil {
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
+        }
+        cell!.textLabel?.text = watchlistCompanyList!.watchlistCompanies[indexPath.row].symbol
+        cell!.detailTextLabel?.text = watchlistCompanyList!.watchlistCompanies[indexPath.row].name
+        return cell!
     }
 
 
@@ -99,7 +103,6 @@ extension WatchlistTableViewController {
     
     private func configTableView() {
         tableView = UITableView(frame: tableView.frame, style: .insetGrouped)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
 }
 
