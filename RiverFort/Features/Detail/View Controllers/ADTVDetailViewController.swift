@@ -81,7 +81,7 @@ extension ADTVDetailViewController {
     private func getADTVs() {
         guard let company = company else { return }
         guard let historicalPrice = historicalPrice else { return }
-        let historicalADTVs = ADTV.getHistoricalADTVs(exchange: company.exchangeShortName, historicalPriceQuotes: historicalPrice)
+        let historicalADTVs = ADTV.getHistoricalADTVs(exchange: company.exchange, historicalPriceQuotes: historicalPrice)
         let historicalADTV5s = ADTV.getHistoricalADTVns(adtvs: historicalADTVs, n: 5)
         let historicalADTV10s = ADTV.getHistoricalADTVns(adtvs: historicalADTVs, n: 10)
         let historicalADTV20s = ADTV.getHistoricalADTVns(adtvs: historicalADTVs, n: 20)
