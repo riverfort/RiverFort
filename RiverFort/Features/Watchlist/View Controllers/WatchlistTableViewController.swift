@@ -90,6 +90,12 @@ class WatchlistTableViewController: UITableViewController {
 }
 
 extension WatchlistTableViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+}
+
+extension WatchlistTableViewController {
     private func configNavigationController() {
         navigationItem.title = "Watchlist"
         navigationItem.largeTitleDisplayMode = .always
