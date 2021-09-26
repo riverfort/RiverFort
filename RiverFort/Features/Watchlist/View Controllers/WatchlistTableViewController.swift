@@ -12,9 +12,11 @@ import SPAlert
 class WatchlistTableViewController: UITableViewController {
     private let realm = try! Realm()
     private lazy var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
+    private var notificationToken: NotificationToken?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configNotificationToken()
         initWatchlistCompanyList()
         createObservers()
         configNavigationController()
@@ -112,6 +114,21 @@ extension WatchlistTableViewController {
 }
 
 extension WatchlistTableViewController {
+    private func configNotificationToken() {
+        notificationToken = watchlistCompanyList?.watchlistCompanies.observe({ (changes: RealmCollectionChange) in
+            switch changes {
+            case .initial:
+                self.tableView.reloadData()
+            case .update(_, _, _, let modifications):
+                self.tableView.beginUpdates()
+                self.tableView.reloadRows(at: modifications.map { IndexPath(row: $0, section: 0) }, with: .automatic)
+                self.tableView.endUpdates()
+            case .error(let err):
+                fatalError("\(err)")
+            }
+        })
+    }
+    
     private func initWatchlistCompanyList() {
         if watchlistCompanyList == nil {
             do {
