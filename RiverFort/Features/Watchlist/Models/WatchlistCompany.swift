@@ -8,6 +8,10 @@
 import Foundation
 import RealmSwift
 
+class WatchlistCompanyList: Object {
+    @Persisted var watchlistCompanies: List<WatchlistCompany>
+}
+
 class WatchlistCompany: Object {
     @Persisted var symbol: String
     @Persisted var name: String

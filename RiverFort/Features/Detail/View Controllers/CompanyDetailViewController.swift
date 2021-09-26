@@ -12,6 +12,7 @@ import SPAlert
 class CompanyDetailViewController: CardsViewController {
     public var company: Company?
     private let realm = try! Realm()
+    private lazy var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
     private lazy var add  = UIButton(type: .system)
     private lazy var more = UIButton(type: .system)
     private lazy var header = HeaderCardController()
@@ -132,8 +133,22 @@ extension CompanyDetailViewController {
         else { return true }
     }
     
+    private func initWatchlistCompanyList() {
+        if watchlistCompanyList == nil {
+            do {
+                try realm.write({
+                    watchlistCompanyList = realm.create(WatchlistCompanyList.self, value: [])
+                })
+            } catch {
+                print(error.localizedDescription)
+                SPAlert.present(title: "Something going wrong", preset: .error, haptic: .error)
+            }
+        }
+    }
+    
     @objc private func saveWatchlistCompany() {
         guard let company = company else { return }
+        initWatchlistCompanyList()
         let watchlistCompany = WatchlistCompany()
         watchlistCompany.symbol = company.symbol
         watchlistCompany.name = company.name
@@ -141,6 +156,7 @@ extension CompanyDetailViewController {
         do {
             try realm.write({
                 realm.add(watchlistCompany, update: .modified)
+                watchlistCompanyList!.watchlistCompanies.append(watchlistCompany)
             })
             add.isHidden = true
             SPAlert.present(title: "Added to watchlist", preset: .done, haptic: .success)
