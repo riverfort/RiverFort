@@ -62,12 +62,10 @@ class WatchlistTableViewController: UITableViewController {
         }    
     }
 
-    /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+        rearrangeWatchlistCompanyList(from: fromIndexPath.row, to: to.row)
     }
-    */
 
     /*
     // Override to support conditional rearranging of the table view.
@@ -131,6 +129,17 @@ extension WatchlistTableViewController {
         let watchlistCompany = watchlistCompanyList!.watchlistCompanies[row]
         do {
             try realm.write({ realm.delete(watchlistCompany) })
+        } catch {
+            print(error.localizedDescription)
+            SPAlert.present(title: "Something going wrong", preset: .error, haptic: .error)
+        }
+    }
+    
+    private func rearrangeWatchlistCompanyList(from: Int, to: Int) {
+        do {
+            try realm.write({
+                watchlistCompanyList!.watchlistCompanies.move(from: from, to: to)
+            })
         } catch {
             print(error.localizedDescription)
             SPAlert.present(title: "Something going wrong", preset: .error, haptic: .error)
