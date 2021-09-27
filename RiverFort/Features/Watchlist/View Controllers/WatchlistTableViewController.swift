@@ -12,12 +12,14 @@ import SPAlert
 class WatchlistTableViewController: UITableViewController {
     public let realm = try! Realm()
     public lazy var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
+    public lazy var searchResultTableVC = SearchResultViewController(style: .insetGrouped)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         createObservers()
         initWatchlistCompanyList()
         configNavigationController()
+        configSearchController()
         configTableView()
 
         // Uncomment the following line to preserve selection between presentations
@@ -107,6 +109,15 @@ extension WatchlistTableViewController {
         navigationItem.rightBarButtonItem = editButtonItem
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.tintColor = .systemIndigo
+    }
+    
+    private func configSearchController() {
+        let searchController = UISearchController(searchResultsController: searchResultTableVC)
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "Symbols, Companies"
+        navigationItem.searchController = searchController
     }
     
     private func configTableView() {
