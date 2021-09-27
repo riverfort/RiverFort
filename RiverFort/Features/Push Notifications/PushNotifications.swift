@@ -19,7 +19,7 @@ class PushNotifications {
           }
     }
     
-    static func getNotificationSettings() {
+    private static func getNotificationSettings() {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
             print("Notification settings: \(settings)")
         }
