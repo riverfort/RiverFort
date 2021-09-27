@@ -478,8 +478,8 @@
 		7790360926FDCC7000A33248 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				77CA1323270203B100E461E0 /* Extensions */,
 				7790360B26FDCCC000A33248 /* WatchlistTableViewController.swift */,
+				77CA1323270203B100E461E0 /* Extensions */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
