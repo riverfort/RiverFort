@@ -10,14 +10,16 @@ import RealmSwift
 import SPAlert
 
 class WatchlistTableViewController: UITableViewController {
-    private let realm = try! Realm()
-    private lazy var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
+    public let realm = try! Realm()
+    public lazy var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
+    public lazy var searchResultTableVC = SearchResultViewController(style: .insetGrouped)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         createObservers()
         initWatchlistCompanyList()
         configNavigationController()
+        configSearchController()
         configTableView()
 
         // Uncomment the following line to preserve selection between presentations
@@ -109,6 +111,15 @@ extension WatchlistTableViewController {
         navigationController?.navigationBar.tintColor = .systemIndigo
     }
     
+    private func configSearchController() {
+        let searchController = UISearchController(searchResultsController: searchResultTableVC)
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "Symbols, Companies"
+        navigationItem.searchController = searchController
+    }
+    
     private func configTableView() {
         tableView = UITableView(frame: tableView.frame, style: .insetGrouped)
     }
@@ -120,40 +131,4 @@ extension WatchlistTableViewController {
     }
     
     @objc private func onDidSaveWatchlistCompany() { tableView.reloadData() }
-}
-
-extension WatchlistTableViewController {
-    private func initWatchlistCompanyList() {
-        if watchlistCompanyList == nil {
-            do {
-                try realm.write({
-                    watchlistCompanyList = realm.create(WatchlistCompanyList.self, value: [])
-                })
-            } catch {
-                print(error.localizedDescription)
-                SPAlert.present(title: "Something going wrong", preset: .error, haptic: .error)
-            }
-        }
-    }
-    
-    private func deleteWatchlistCompany(row: Int) {
-        let watchlistCompany = watchlistCompanyList!.watchlistCompanies[row]
-        do {
-            try realm.write({ realm.delete(watchlistCompany) })
-        } catch {
-            print(error.localizedDescription)
-            SPAlert.present(title: "Something going wrong", preset: .error, haptic: .error)
-        }
-    }
-    
-    private func rearrangeWatchlistCompanyList(from: Int, to: Int) {
-        do {
-            try realm.write({
-                watchlistCompanyList!.watchlistCompanies.move(from: from, to: to)
-            })
-        } catch {
-            print(error.localizedDescription)
-            SPAlert.present(title: "Something going wrong", preset: .error, haptic: .error)
-        }
-    }
 }
