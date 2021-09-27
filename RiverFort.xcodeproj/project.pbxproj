@@ -24,7 +24,7 @@
 		772C241826F6212900202E14 /* ADTV20ChartCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772C241726F6212900202E14 /* ADTV20ChartCardController.swift */; };
 		772C241A26F6220900202E14 /* ADTV60ChartCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772C241926F6220900202E14 /* ADTV60ChartCardController.swift */; };
 		773064952701DA6D000BA6F1 /* PushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773064942701DA6D000BA6F1 /* PushNotifications.swift */; };
-		773064972701EF99000BA6F1 /* AppDelegate+PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773064962701EF99000BA6F1 /* AppDelegate+PushNotification.swift */; };
+		773064972701EF99000BA6F1 /* AppDelegate+PushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773064962701EF99000BA6F1 /* AppDelegate+PushNotifications.swift */; };
 		773131BA26DCEC710068AAD8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773131B926DCEC710068AAD8 /* SearchViewController.swift */; };
 		773131BC26DCF87B0068AAD8 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773131BB26DCF87B0068AAD8 /* SearchResultViewController.swift */; };
 		773131BF26DCFE5D0068AAD8 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773131BE26DCFE5D0068AAD8 /* SearchResultCell.swift */; };
@@ -105,7 +105,7 @@
 		772C241726F6212900202E14 /* ADTV20ChartCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTV20ChartCardController.swift; sourceTree = "<group>"; };
 		772C241926F6220900202E14 /* ADTV60ChartCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTV60ChartCardController.swift; sourceTree = "<group>"; };
 		773064942701DA6D000BA6F1 /* PushNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotifications.swift; sourceTree = "<group>"; };
-		773064962701EF99000BA6F1 /* AppDelegate+PushNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+PushNotification.swift"; sourceTree = "<group>"; };
+		773064962701EF99000BA6F1 /* AppDelegate+PushNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+PushNotifications.swift"; sourceTree = "<group>"; };
 		773131B926DCEC710068AAD8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		773131BB26DCF87B0068AAD8 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		773131BE26DCFE5D0068AAD8 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
@@ -279,7 +279,7 @@
 		773064932701DA2A000BA6F1 /* Push Notifications */ = {
 			isa = PBXGroup;
 			children = (
-				773064962701EF99000BA6F1 /* AppDelegate+PushNotification.swift */,
+				773064962701EF99000BA6F1 /* AppDelegate+PushNotifications.swift */,
 				773064942701DA6D000BA6F1 /* PushNotifications.swift */,
 			);
 			path = "Push Notifications";
@@ -760,7 +760,7 @@
 				770B22AF26EB8D6400731C58 /* ADTVMarker.swift in Sources */,
 				770C438D26F8DDFA0040F891 /* ADTV5ChartCardController.swift in Sources */,
 				779B886226BD2B4900FB06A1 /* SettingsSection.swift in Sources */,
-				773064972701EF99000BA6F1 /* AppDelegate+PushNotification.swift in Sources */,
+				773064972701EF99000BA6F1 /* AppDelegate+PushNotifications.swift in Sources */,
 				7704889826FE0948002F7CC8 /* WatchlistCompany.swift in Sources */,
 				77B11DAD26F382140093FBE9 /* Company.swift in Sources */,
 				77B11DA826F37FC40093FBE9 /* ADTV.swift in Sources */,
