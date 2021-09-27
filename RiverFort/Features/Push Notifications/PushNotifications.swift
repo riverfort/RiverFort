@@ -15,6 +15,7 @@ class PushNotifications {
             options: [.alert, .sound, .badge]) { granted, _ in
             print("Permission granted: \(granted)")
             guard granted else { return }
+            addNotificationActions()
             getNotificationSettings()
           }
     }
@@ -27,6 +28,14 @@ class PushNotifications {
                 UIApplication.shared.registerForRemoteNotifications()
             }
         }
+    }
+}
+
+extension PushNotifications {
+    private static func addNotificationActions() {
+        let viewAction = UNNotificationAction(identifier: "view_notification", title: "View", options: [.foreground])
+        let londonCategory = UNNotificationCategory(identifier: "london_exchange", actions: [viewAction], intentIdentifiers: [], options: [])
+        UNUserNotificationCenter.current().setNotificationCategories([londonCategory])
     }
 }
 
