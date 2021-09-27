@@ -6,9 +6,6 @@
 //
 
 import UIKit
-import CoreData
-import UserNotifications
-import SafariServices
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
