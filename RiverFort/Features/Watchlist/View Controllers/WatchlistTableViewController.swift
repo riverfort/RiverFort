@@ -91,7 +91,11 @@ class WatchlistTableViewController: UITableViewController {
 
 extension WatchlistTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let watchlistCompnay = watchlistCompanyList!.watchlistCompanies[indexPath.row]
+        let company = Company(symbol: watchlistCompnay.symbol, name: watchlistCompnay.name, exchange: watchlistCompnay.exchange, exchangeShortName: nil, type: nil)
+        let companyDetailViewController = CompanyDetailViewController()
+        companyDetailViewController.company = company
+        navigationController?.pushViewController(companyDetailViewController, animated: true)
     }
 }
 
