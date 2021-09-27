@@ -13,7 +13,6 @@ class PushNotifications {
         UNUserNotificationCenter.current()
           .requestAuthorization(
             options: [.alert, .sound, .badge]) { granted, _ in
-            print("Permission granted: \(granted)")
             guard granted else { return }
             addNotificationActions()
             getNotificationSettings()
@@ -22,7 +21,6 @@ class PushNotifications {
     
     private static func getNotificationSettings() {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
-            print("Notification settings: \(settings)")
             guard settings.authorizationStatus == .authorized else { return }
             DispatchQueue.main.async {
                 UIApplication.shared.registerForRemoteNotifications()
