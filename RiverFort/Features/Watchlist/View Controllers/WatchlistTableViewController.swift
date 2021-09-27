@@ -10,8 +10,8 @@ import RealmSwift
 import SPAlert
 
 class WatchlistTableViewController: UITableViewController {
-    private let realm = try! Realm()
-    private lazy var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
+    public let realm = try! Realm()
+    public lazy var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,40 +120,4 @@ extension WatchlistTableViewController {
     }
     
     @objc private func onDidSaveWatchlistCompany() { tableView.reloadData() }
-}
-
-extension WatchlistTableViewController {
-    private func initWatchlistCompanyList() {
-        if watchlistCompanyList == nil {
-            do {
-                try realm.write({
-                    watchlistCompanyList = realm.create(WatchlistCompanyList.self, value: [])
-                })
-            } catch {
-                print(error.localizedDescription)
-                SPAlert.present(title: "Something going wrong", preset: .error, haptic: .error)
-            }
-        }
-    }
-    
-    private func deleteWatchlistCompany(row: Int) {
-        let watchlistCompany = watchlistCompanyList!.watchlistCompanies[row]
-        do {
-            try realm.write({ realm.delete(watchlistCompany) })
-        } catch {
-            print(error.localizedDescription)
-            SPAlert.present(title: "Something going wrong", preset: .error, haptic: .error)
-        }
-    }
-    
-    private func rearrangeWatchlistCompanyList(from: Int, to: Int) {
-        do {
-            try realm.write({
-                watchlistCompanyList!.watchlistCompanies.move(from: from, to: to)
-            })
-        } catch {
-            print(error.localizedDescription)
-            SPAlert.present(title: "Something going wrong", preset: .error, haptic: .error)
-        }
-    }
 }
