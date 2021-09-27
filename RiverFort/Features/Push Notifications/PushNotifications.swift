@@ -10,21 +10,17 @@ import UserNotifications
 
 class PushNotifications {
     static func registerForPushNotifications() {
-        UNUserNotificationCenter.current()
-          .requestAuthorization(
-            options: [.alert, .sound, .badge]) { granted, _ in
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, _ in
             guard granted else { return }
             addNotificationActions()
             getNotificationSettings()
-          }
+        }
     }
     
     private static func getNotificationSettings() {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
             guard settings.authorizationStatus == .authorized else { return }
-            DispatchQueue.main.async {
-                UIApplication.shared.registerForRemoteNotifications()
-            }
+            DispatchQueue.main.async { UIApplication.shared.registerForRemoteNotifications() }
         }
     }
 }
