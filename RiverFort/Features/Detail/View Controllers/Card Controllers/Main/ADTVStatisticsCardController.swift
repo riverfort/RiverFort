@@ -186,7 +186,7 @@ extension ADTVStatisticsCardController {
     @objc private func didReceiveHistoricalPrice(notification: Notification) {
         guard let company = company else { return }
         guard let historicalPrice = notification.object as? [HistoricalPriceQuote] else { return }
-        let adtvs = ADTV.getHistoricalADTVs(exchange: company.exchangeShortName, historicalPriceQuotes: historicalPrice).map{ $0.adtv }
+        let adtvs = ADTV.getHistoricalADTVs(exchange: company.exchange, historicalPriceQuotes: historicalPrice).map{ $0.adtv }
         let adtv1 = adtvs.last
         let adtv5 = ADTV.calculateADTVns(adtvs: adtvs, n: 5).last
         let adtv10 = ADTV.calculateADTVns(adtvs: adtvs, n: 10).last

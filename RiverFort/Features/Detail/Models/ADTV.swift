@@ -29,7 +29,7 @@ extension ADTV {
             return ADTV(date: dailyPrice.date, adtv: adtv)
         }
         switch exchange {
-        case "LSE":
+        case "LSE", "London":
             return historicalADTVs.map { ADTV(date: $0.date, adtv: $0.adtv/100) }
         default:
             return historicalADTVs

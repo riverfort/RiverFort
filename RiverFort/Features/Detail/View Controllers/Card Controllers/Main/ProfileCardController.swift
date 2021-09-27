@@ -112,14 +112,14 @@ extension ProfileCardController {
         guard let quote = notification.object as? Quote else { return }
         let exchange = quote.exchange
         switch exchange {
-        case "LSE":
+        case "LSE", "London":
             readMoreButtonPart.setTitle("Read more on London Stock Exchange (LSE)", for: .normal)
             guard let name = quote.name else { return }
             readMoreURL = ReadMoreURLs.LSE_EXCHANGE_URL(symbol: quote.symbol, name: name)
         case "AQS":
             readMoreButtonPart.setTitle("Read more on Aquis Stock Exchange (AQSE)", for: .normal)
             readMoreURL = ReadMoreURLs.AQUIS_EXCHANGE_URL(symbol: quote.symbol)
-        case "ASX":
+        case "ASX", "Australian":
             readMoreButtonPart.setTitle("Read more on Australian Securities Exchange (ASX)", for: .normal)
             readMoreURL = ReadMoreURLs.ASX_EXCHANGE_URL(symbol: quote.symbol)
         default:

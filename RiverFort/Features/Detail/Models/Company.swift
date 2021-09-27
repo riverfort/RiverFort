@@ -11,6 +11,6 @@ struct Company {
     let symbol: String
     let name: String
     let exchange: String
-    let exchangeShortName: String
+    let exchangeShortName: String?
     let type: String?
 }

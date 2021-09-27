@@ -24,5 +24,5 @@ extension Notification.Name {
     static let didSelectChartValue = Notification.Name("did_select_chart_value")
     static let didNoLongerSelectChartValue = Notification.Name("did_no_longer_select_chart_value")
     
-    static let didUpdatePriceChartDisplayMode = Notification.Name("did_update_price_chart_display_mode")
+    static let didSaveWatchlistCompany = Notification.Name("did_save_watchlist_company")
 }
