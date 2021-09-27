@@ -5,7 +5,7 @@
 //  Created by Qiuyang Nie on 27/09/2021.
 //
 
-import Foundation
+import UIKit
 import UserNotifications
 
 class PushNotifications {
@@ -22,6 +22,10 @@ class PushNotifications {
     private static func getNotificationSettings() {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
             print("Notification settings: \(settings)")
+            guard settings.authorizationStatus == .authorized else { return }
+            DispatchQueue.main.async {
+                UIApplication.shared.registerForRemoteNotifications()
+            }
         }
     }
 }
