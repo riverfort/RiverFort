@@ -44,7 +44,7 @@ extension PushNotifications {
         let notificationOption = launchOptions?[.remoteNotification]
         if let notification = notificationOption as? [String: AnyObject],
            let aps = notification["aps"] as? [String: AnyObject] {
-            print(aps)
+            print("handleLaunchFromNotification: \(aps)")
         }
     }
 }

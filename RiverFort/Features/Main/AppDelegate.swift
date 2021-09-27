@@ -11,6 +11,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        UNUserNotificationCenter.current().delegate = self
+        
         PushNotifications.registerForPushNotifications()
         PushNotifications.handleLaunchFromNotification(didFinishLaunchingWithOptions: launchOptions)
         return true
@@ -42,6 +44,19 @@ extension AppDelegate {
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         guard let aps = userInfo["aps"] as? [String: AnyObject] else { completionHandler(.failed); return }
-        print(aps)
+        print("didReceiveRemoteNotification: \(aps)")
+    }
+}
+
+// MARK: - UNUserNotificationCenterDelegate
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        if let aps = userInfo["aps"] as? [String: AnyObject] {
+            if response.actionIdentifier == "view_notification" { print("view_notification: \(aps)") }
+        }
+        completionHandler()
     }
 }
