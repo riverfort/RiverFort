@@ -29,3 +29,13 @@ class PushNotifications {
         }
     }
 }
+
+extension PushNotifications {
+    static func handleLaunchFromNotification(didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
+        let notificationOption = launchOptions?[.remoteNotification]
+        if let notification = notificationOption as? [String: AnyObject],
+           let aps = notification["aps"] as? [String: AnyObject] {
+            print(aps)
+        }
+    }
+}
