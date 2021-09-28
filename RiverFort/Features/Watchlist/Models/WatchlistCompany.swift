@@ -36,4 +36,10 @@ extension WatchlistCompanyList {
             } catch { print(error.localizedDescription) }
         } else { WatchlistAPIFunction.syncCompanies(watchlistCompanyList: watchlistCompanyList!) }
     }
+    
+    static func syncWatchlist(deviceToken: String) {
+        let realm = try! Realm()
+        guard let watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first else { return }
+        WatchlistAPIFunction.syncWatchlist(deviceToken: deviceToken, watchlistCompanyList: watchlistCompanyList)
+    }
 }
