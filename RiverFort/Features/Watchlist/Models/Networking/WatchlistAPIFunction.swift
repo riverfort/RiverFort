@@ -18,8 +18,7 @@ class WatchlistAPIFunction {
                 switch response.result {
                 case .success: print("company synced: \(watchlistCompany["company_ticker"] ?? "?")")
                 case .failure(let error):
-                    if let statusCode = response.response?.statusCode, statusCode == 400 { print("company already exists") }
-                    else { print(error) }
+                    if let statusCode = response.response?.statusCode, statusCode != 400 { print(error) }
                 }
             }
         }
@@ -34,8 +33,7 @@ class WatchlistAPIFunction {
                 switch response.result {
                 case .success: print("watchlist item synced: \(watchlistItem)")
                 case .failure(let error):
-                    if let statusCode = response.response?.statusCode, statusCode == 400 { print("watchlist item already exists") }
-                    else { print(error) }
+                    if let statusCode = response.response?.statusCode, statusCode != 400 { print(error) }
                 }
             }
         }
