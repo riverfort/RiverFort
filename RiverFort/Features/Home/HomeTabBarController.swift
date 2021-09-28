@@ -11,9 +11,8 @@ import RealmSwift
 class HomeTabBarController: UITabBarController {
     // MARK: - Add new tabs here:
     
-    private lazy var tabBarImages = ["heart.text.square", "gear"]
+    private lazy var tabBarImages = ["heart.text.square"]
     private lazy var watchlistVC = UINavigationController(rootViewController: WatchlistTableViewController())
-    private lazy var settingsVC = UINavigationController(rootViewController: SettingsViewController())
 }
 
 extension HomeTabBarController {
@@ -30,8 +29,7 @@ extension HomeTabBarController {
 
     private func configView() {
         watchlistVC.title = "Watchlist"
-        settingsVC.title = "Settings"
-        setViewControllers([watchlistVC, settingsVC], animated: true)
+        setViewControllers([watchlistVC], animated: true)
     }
     
     private func configTabBar() {
