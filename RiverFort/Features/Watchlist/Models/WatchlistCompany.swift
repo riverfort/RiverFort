@@ -34,6 +34,6 @@ extension WatchlistCompanyList {
                     watchlistCompanyList = realm.create(WatchlistCompanyList.self, value: [])
                 })
             } catch { print(error.localizedDescription) }
-        }
+        } else { WatchlistAPIFunction.syncCompanies(watchlistCompanyList: watchlistCompanyList!) }
     }
 }
