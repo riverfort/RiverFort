@@ -66,6 +66,7 @@
 		779B886226BD2B4900FB06A1 /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B886126BD2B4900FB06A1 /* SettingsSection.swift */; };
 		779B886426BD3DE200FB06A1 /* SettingsSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B886326BD3DE200FB06A1 /* SettingsSwitchTableViewCell.swift */; };
 		779DC1EE27030F050048E9EB /* WatchlistAPIFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779DC1ED27030F050048E9EB /* WatchlistAPIFunction.swift */; };
+		779DC1F02703202A0048E9EB /* CompanyDetailViewController+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779DC1EF2703202A0048E9EB /* CompanyDetailViewController+Realm.swift */; };
 		77B11DA826F37FC40093FBE9 /* ADTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B11DA726F37FC40093FBE9 /* ADTV.swift */; };
 		77B11DAA26F380AF0093FBE9 /* HistoricalPriceQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B11DA926F380AF0093FBE9 /* HistoricalPriceQuote.swift */; };
 		77B11DAD26F382140093FBE9 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B11DAC26F382140093FBE9 /* Company.swift */; };
@@ -153,6 +154,7 @@
 		779B886126BD2B4900FB06A1 /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
 		779B886326BD3DE200FB06A1 /* SettingsSwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSwitchTableViewCell.swift; sourceTree = "<group>"; };
 		779DC1ED27030F050048E9EB /* WatchlistAPIFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistAPIFunction.swift; sourceTree = "<group>"; };
+		779DC1EF2703202A0048E9EB /* CompanyDetailViewController+Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompanyDetailViewController+Realm.swift"; sourceTree = "<group>"; };
 		77B11DA726F37FC40093FBE9 /* ADTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTV.swift; sourceTree = "<group>"; };
 		77B11DA926F380AF0093FBE9 /* HistoricalPriceQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalPriceQuote.swift; sourceTree = "<group>"; };
 		77B11DAC26F382140093FBE9 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
@@ -578,6 +580,7 @@
 			isa = PBXGroup;
 			children = (
 				77B11DAF26F389230093FBE9 /* CompanyDetailViewController+Networking.swift */,
+				779DC1EF2703202A0048E9EB /* CompanyDetailViewController+Realm.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -853,6 +856,7 @@
 				7711CA9426FC96A9005A5AEC /* NewsCardController.swift in Sources */,
 				77E763F126E75FE5005AED84 /* TimeseriesCardPartView.swift in Sources */,
 				779A470026D515020072CE0B /* SettingsSectionTitleConstant.swift in Sources */,
+				779DC1F02703202A0048E9EB /* CompanyDetailViewController+Realm.swift in Sources */,
 				77E763EF26E75D76005AED84 /* TimeseriesCardController.swift in Sources */,
 				77F93365261A3251007662D5 /* DoubleExtensions.swift in Sources */,
 				77E763F326E76488005AED84 /* TransparentCardController.swift in Sources */,
