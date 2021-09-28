@@ -286,11 +286,19 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		773064932701DA2A000BA6F1 /* Push Notifications */ = {
+		772BAD682703234900DC7087 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				773064962701EF99000BA6F1 /* AppDelegate+PushNotifications.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		773064932701DA2A000BA6F1 /* Push Notifications */ = {
+			isa = PBXGroup;
+			children = (
 				773064942701DA6D000BA6F1 /* PushNotifications.swift */,
+				772BAD682703234900DC7087 /* Extensions */,
 				779DC1EB2702FE690048E9EB /* Model */,
 			);
 			path = "Push Notifications";
