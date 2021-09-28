@@ -9,20 +9,7 @@ import Foundation
 import RealmSwift
 import SPAlert
 
-extension WatchlistTableViewController {
-    public func initWatchlistCompanyList() {
-        if watchlistCompanyList == nil {
-            do {
-                try realm.write({
-                    watchlistCompanyList = realm.create(WatchlistCompanyList.self, value: [])
-                })
-            } catch {
-                print(error.localizedDescription)
-                SPAlert.present(title: "Something going wrong", preset: .error, haptic: .error)
-            }
-        }
-    }
-    
+extension WatchlistTableViewController {    
     public func deleteWatchlistCompany(row: Int) {
         let watchlistCompany = watchlistCompanyList!.watchlistCompanies[row]
         do {

@@ -16,23 +16,9 @@ extension CompanyDetailViewController {
         if watchlistCompany == nil { return false }
         else { return true }
     }
-    
-    private func initWatchlistCompanyList() {
-        if watchlistCompanyList == nil {
-            do {
-                try realm.write({
-                    watchlistCompanyList = realm.create(WatchlistCompanyList.self, value: [])
-                })
-            } catch {
-                print(error.localizedDescription)
-                SPAlert.present(title: "Something going wrong", preset: .error, haptic: .error)
-            }
-        }
-    }
-    
+
     @objc public func saveWatchlistCompany() {
         guard let company = company else { return }
-        initWatchlistCompanyList()
         let watchlistCompany = WatchlistCompany()
         watchlistCompany.symbol = company.symbol
         watchlistCompany.name = company.name
