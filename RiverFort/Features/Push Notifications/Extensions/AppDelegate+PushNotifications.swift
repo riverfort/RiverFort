@@ -20,7 +20,6 @@ extension AppDelegate {
         let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
         let token = tokenParts.joined()
         PushNotificationsAPIFunction.syncDeviceToken(deviceToken: token)
-        WatchlistCompanyList.syncWatchlist(deviceToken: token)
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
