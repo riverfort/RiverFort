@@ -1,5 +1,5 @@
 //
-//  CompanyDetailViewControllerExtensions.swift
+//  CompanyDetailViewController+Networking.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 16/09/2021.
