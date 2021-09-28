@@ -479,17 +479,9 @@
 			isa = PBXGroup;
 			children = (
 				7790360926FDCC7000A33248 /* View Controllers */,
-				7790360826FDCC6900A33248 /* Views */,
 				7790360A26FDCC7600A33248 /* Models */,
 			);
 			path = Watchlist;
-			sourceTree = "<group>";
-		};
-		7790360826FDCC6900A33248 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		7790360926FDCC7000A33248 /* View Controllers */ = {
