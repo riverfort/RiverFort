@@ -596,8 +596,8 @@
 		77CA1323270203B100E461E0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				77CA1324270203DC00E461E0 /* WatchlistTableViewController+Realm.swift */,
 				77CA13262702074F00E461E0 /* WatchlistTableViewController+Search.swift */,
+				77CA1324270203DC00E461E0 /* WatchlistTableViewController+Realm.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
