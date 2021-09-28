@@ -23,11 +23,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         window?.rootViewController = HomeTabBarController()
         window?.makeKeyAndVisible()
-        if UserDefaults.standard.isDarkModeEnabled() {
-            window?.overrideUserInterfaceStyle = .dark
-        } else {
-            window?.overrideUserInterfaceStyle = .light
-        }
         CardParts.theme.cardCellMargins = UIEdgeInsets(top: 0, left: (UIApplication.topViewController()?.systemMinimumLayoutMargins.leading)!, bottom: 0, right: (UIApplication.topViewController()?.systemMinimumLayoutMargins.leading)!)
     }
 

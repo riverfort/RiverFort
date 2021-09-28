@@ -15,7 +15,6 @@
 		770E4C5B26F249080010EE7B /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770E4C5A26F249080010EE7B /* UIApplicationExtensions.swift */; };
 		7711CA9426FC96A9005A5AEC /* NewsCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7711CA9326FC96A9005A5AEC /* NewsCardController.swift */; };
 		7711CA9926FC9C50005A5AEC /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7711CA9826FC9C50005A5AEC /* NewsViewModel.swift */; };
-		771E328126D6525E002CC604 /* AcknowledgementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E328026D6525E002CC604 /* AcknowledgementsViewController.swift */; };
 		7720570626DE6E8300063A9A /* CompanyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7720570526DE6E8300063A9A /* CompanyDetailViewController.swift */; };
 		77227AA026F3953D00C5867D /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77227A9F26F3953D00C5867D /* Profile.swift */; };
 		77227AA226F396D900C5867D /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77227AA126F396D900C5867D /* Quote.swift */; };
@@ -32,7 +31,6 @@
 		773A0B6526171238002B9875 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A0B6426171238002B9875 /* SceneDelegate.swift */; };
 		773A0B6C2617123B002B9875 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 773A0B6B2617123B002B9875 /* Assets.xcassets */; };
 		773A0B6F2617123B002B9875 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 773A0B6D2617123B002B9875 /* LaunchScreen.storyboard */; };
-		773A86F0263C34A9008105A1 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773A86EF263C34A9008105A1 /* PrivacyPolicyViewController.swift */; };
 		7748987A26E0C229000933A6 /* BaseCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748987926E0C229000933A6 /* BaseCardController.swift */; };
 		7748987C26E0C396000933A6 /* PriceChartCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748987B26E0C396000933A6 /* PriceChartCardController.swift */; };
 		7748987E26E0C3E7000933A6 /* PriceChartCardPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748987D26E0C3E7000933A6 /* PriceChartCardPartView.swift */; };
@@ -45,26 +43,12 @@
 		7765434426EF3C5700E91C25 /* FMP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7765434326EF3C5700E91C25 /* FMP.swift */; };
 		776A913526E3B5E50012D0D5 /* ProfileCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776A913426E3B5E50012D0D5 /* ProfileCardController.swift */; };
 		776D13C3261E087500B9CF97 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D13C2261E087500B9CF97 /* HomeTabBarController.swift */; };
-		776F658526BC36C600CAA5A6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776F658426BC36C600CAA5A6 /* SettingsViewController.swift */; };
 		7775C9E92702171D0001A5F5 /* PushNotificationsAPIFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7775C9E82702171D0001A5F5 /* PushNotificationsAPIFunction.swift */; };
 		77876E98264D69B300798106 /* RSSFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77876E97264D69B300798106 /* RSSFeedParser.swift */; };
 		778FD76826F33110002CA424 /* UIImageConfigurationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778FD76726F33110002CA424 /* UIImageConfigurationExtensions.swift */; };
 		7790360C26FDCCC000A33248 /* WatchlistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790360B26FDCCC000A33248 /* WatchlistTableViewController.swift */; };
 		7791881226E0E7FE005B7D38 /* ADTVStatisticsCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791881126E0E7FE005B7D38 /* ADTVStatisticsCardController.swift */; };
 		7796865626E5F963002A9980 /* StatisticsCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7796865526E5F963002A9980 /* StatisticsCardController.swift */; };
-		779A46F426D4EE740072CE0B /* UIDevice+modelName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A46F326D4EE740072CE0B /* UIDevice+modelName.swift */; };
-		779A46F626D4EFE10072CE0B /* UIApplication+AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A46F526D4EFE10072CE0B /* UIApplication+AppVersion.swift */; };
-		779A46F826D4F6210072CE0B /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A46F726D4F6210072CE0B /* NotificationHelper.swift */; };
-		779A46FA26D5028D0072CE0B /* SettingsOptionTitleConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A46F926D5028D0072CE0B /* SettingsOptionTitleConstant.swift */; };
-		779A46FC26D508AA0072CE0B /* LogGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A46FB26D508AA0072CE0B /* LogGenerator.swift */; };
-		779A46FE26D50C780072CE0B /* SettingsNotificationConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A46FD26D50C780072CE0B /* SettingsNotificationConstant.swift */; };
-		779A470026D515020072CE0B /* SettingsSectionTitleConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A46FF26D515020072CE0B /* SettingsSectionTitleConstant.swift */; };
-		779B885826BD192D00FB06A1 /* SettingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B885726BD192D00FB06A1 /* SettingsTableView.swift */; };
-		779B885B26BD1B0100FB06A1 /* SettingsTableViewConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B885A26BD1B0100FB06A1 /* SettingsTableViewConstant.swift */; };
-		779B885E26BD1E9600FB06A1 /* SettingsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B885D26BD1E9500FB06A1 /* SettingsOption.swift */; };
-		779B886026BD213D00FB06A1 /* SettingsStaticTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B885F26BD213D00FB06A1 /* SettingsStaticTableViewCell.swift */; };
-		779B886226BD2B4900FB06A1 /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B886126BD2B4900FB06A1 /* SettingsSection.swift */; };
-		779B886426BD3DE200FB06A1 /* SettingsSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B886326BD3DE200FB06A1 /* SettingsSwitchTableViewCell.swift */; };
 		779DC1F02703202A0048E9EB /* CompanyDetailViewController+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779DC1EF2703202A0048E9EB /* CompanyDetailViewController+Realm.swift */; };
 		77B11DA826F37FC40093FBE9 /* ADTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B11DA726F37FC40093FBE9 /* ADTV.swift */; };
 		77B11DAA26F380AF0093FBE9 /* HistoricalPriceQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B11DA926F380AF0093FBE9 /* HistoricalPriceQuote.swift */; };
@@ -100,7 +84,6 @@
 		770E4C5A26F249080010EE7B /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
 		7711CA9326FC96A9005A5AEC /* NewsCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCardController.swift; sourceTree = "<group>"; };
 		7711CA9826FC9C50005A5AEC /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
-		771E328026D6525E002CC604 /* AcknowledgementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgementsViewController.swift; sourceTree = "<group>"; };
 		7720570526DE6E8300063A9A /* CompanyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailViewController.swift; sourceTree = "<group>"; };
 		77227A9F26F3953D00C5867D /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		77227AA126F396D900C5867D /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
@@ -119,7 +102,6 @@
 		773A0B6B2617123B002B9875 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		773A0B6E2617123B002B9875 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		773A0B702617123B002B9875 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		773A86EF263C34A9008105A1 /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		7748987926E0C229000933A6 /* BaseCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCardController.swift; sourceTree = "<group>"; };
 		7748987B26E0C396000933A6 /* PriceChartCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceChartCardController.swift; sourceTree = "<group>"; };
 		7748987D26E0C3E7000933A6 /* PriceChartCardPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceChartCardPartView.swift; sourceTree = "<group>"; };
@@ -132,26 +114,12 @@
 		7765434326EF3C5700E91C25 /* FMP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMP.swift; sourceTree = "<group>"; };
 		776A913426E3B5E50012D0D5 /* ProfileCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCardController.swift; sourceTree = "<group>"; };
 		776D13C2261E087500B9CF97 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
-		776F658426BC36C600CAA5A6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7775C9E82702171D0001A5F5 /* PushNotificationsAPIFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationsAPIFunction.swift; sourceTree = "<group>"; };
 		77876E97264D69B300798106 /* RSSFeedParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeedParser.swift; sourceTree = "<group>"; };
 		778FD76726F33110002CA424 /* UIImageConfigurationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageConfigurationExtensions.swift; sourceTree = "<group>"; };
 		7790360B26FDCCC000A33248 /* WatchlistTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistTableViewController.swift; sourceTree = "<group>"; };
 		7791881126E0E7FE005B7D38 /* ADTVStatisticsCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTVStatisticsCardController.swift; sourceTree = "<group>"; };
 		7796865526E5F963002A9980 /* StatisticsCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCardController.swift; sourceTree = "<group>"; };
-		779A46F326D4EE740072CE0B /* UIDevice+modelName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+modelName.swift"; sourceTree = "<group>"; };
-		779A46F526D4EFE10072CE0B /* UIApplication+AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+AppVersion.swift"; sourceTree = "<group>"; };
-		779A46F726D4F6210072CE0B /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
-		779A46F926D5028D0072CE0B /* SettingsOptionTitleConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOptionTitleConstant.swift; sourceTree = "<group>"; };
-		779A46FB26D508AA0072CE0B /* LogGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogGenerator.swift; sourceTree = "<group>"; };
-		779A46FD26D50C780072CE0B /* SettingsNotificationConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNotificationConstant.swift; sourceTree = "<group>"; };
-		779A46FF26D515020072CE0B /* SettingsSectionTitleConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSectionTitleConstant.swift; sourceTree = "<group>"; };
-		779B885726BD192D00FB06A1 /* SettingsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableView.swift; sourceTree = "<group>"; };
-		779B885A26BD1B0100FB06A1 /* SettingsTableViewConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewConstant.swift; sourceTree = "<group>"; };
-		779B885D26BD1E9500FB06A1 /* SettingsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOption.swift; sourceTree = "<group>"; };
-		779B885F26BD213D00FB06A1 /* SettingsStaticTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStaticTableViewCell.swift; sourceTree = "<group>"; };
-		779B886126BD2B4900FB06A1 /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
-		779B886326BD3DE200FB06A1 /* SettingsSwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSwitchTableViewCell.swift; sourceTree = "<group>"; };
 		779DC1EF2703202A0048E9EB /* CompanyDetailViewController+Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompanyDetailViewController+Realm.swift"; sourceTree = "<group>"; };
 		77B11DA726F37FC40093FBE9 /* ADTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTV.swift; sourceTree = "<group>"; };
 		77B11DA926F380AF0093FBE9 /* HistoricalPriceQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalPriceQuote.swift; sourceTree = "<group>"; };
@@ -402,28 +370,6 @@
 			path = "Chart Models";
 			sourceTree = "<group>";
 		};
-		776F658226BC366100CAA5A6 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				776F658326BC369300CAA5A6 /* View Controllers */,
-				779B885626BD190200FB06A1 /* Views */,
-				779B885C26BD1E3900FB06A1 /* Models */,
-				779B885926BD1AE600FB06A1 /* Constant */,
-				779A46F226D4EE360072CE0B /* Helper */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
-		776F658326BC369300CAA5A6 /* View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				776F658426BC36C600CAA5A6 /* SettingsViewController.swift */,
-				773A86EF263C34A9008105A1 /* PrivacyPolicyViewController.swift */,
-				771E328026D6525E002CC604 /* AcknowledgementsViewController.swift */,
-			);
-			path = "View Controllers";
-			sourceTree = "<group>";
-		};
 		7775C9E7270216DC0001A5F5 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -457,7 +403,6 @@
 				773131B726DCEC3F0068AAD8 /* Search */,
 				7790360726FDCC5800A33248 /* Watchlist */,
 				7720570226DE6E1D00063A9A /* Detail */,
-				776F658226BC366100CAA5A6 /* Settings */,
 				773064932701DA2A000BA6F1 /* Push Notifications */,
 			);
 			path = Features;
@@ -504,47 +449,6 @@
 			children = (
 				779DC1EC27030EE80048E9EB /* Networking */,
 				7704889726FE0948002F7CC8 /* WatchlistCompany.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		779A46F226D4EE360072CE0B /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				779A46F326D4EE740072CE0B /* UIDevice+modelName.swift */,
-				779A46F526D4EFE10072CE0B /* UIApplication+AppVersion.swift */,
-				779A46F726D4F6210072CE0B /* NotificationHelper.swift */,
-				779A46FB26D508AA0072CE0B /* LogGenerator.swift */,
-			);
-			path = Helper;
-			sourceTree = "<group>";
-		};
-		779B885626BD190200FB06A1 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				779B885726BD192D00FB06A1 /* SettingsTableView.swift */,
-				779B885F26BD213D00FB06A1 /* SettingsStaticTableViewCell.swift */,
-				779B886326BD3DE200FB06A1 /* SettingsSwitchTableViewCell.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		779B885926BD1AE600FB06A1 /* Constant */ = {
-			isa = PBXGroup;
-			children = (
-				779B885A26BD1B0100FB06A1 /* SettingsTableViewConstant.swift */,
-				779A46FF26D515020072CE0B /* SettingsSectionTitleConstant.swift */,
-				779A46F926D5028D0072CE0B /* SettingsOptionTitleConstant.swift */,
-				779A46FD26D50C780072CE0B /* SettingsNotificationConstant.swift */,
-			);
-			path = Constant;
-			sourceTree = "<group>";
-		};
-		779B885C26BD1E3900FB06A1 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				779B885D26BD1E9500FB06A1 /* SettingsOption.swift */,
-				779B886126BD2B4900FB06A1 /* SettingsSection.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -796,20 +700,16 @@
 				770C438F26F8DF8B0040F891 /* ADTV120ChartCardController.swift in Sources */,
 				773131BF26DCFE5D0068AAD8 /* SearchResultCell.swift in Sources */,
 				77876E98264D69B300798106 /* RSSFeedParser.swift in Sources */,
-				779A46FA26D5028D0072CE0B /* SettingsOptionTitleConstant.swift in Sources */,
-				776F658526BC36C600CAA5A6 /* SettingsViewController.swift in Sources */,
 				7720570626DE6E8300063A9A /* CompanyDetailViewController.swift in Sources */,
 				77B11DB026F389230093FBE9 /* CompanyDetailViewController+Networking.swift in Sources */,
 				776A913526E3B5E50012D0D5 /* ProfileCardController.swift in Sources */,
 				770B22AF26EB8D6400731C58 /* ADTVMarker.swift in Sources */,
 				77CA1325270203DC00E461E0 /* WatchlistTableViewController+Realm.swift in Sources */,
 				770C438D26F8DDFA0040F891 /* ADTV5ChartCardController.swift in Sources */,
-				779B886226BD2B4900FB06A1 /* SettingsSection.swift in Sources */,
 				773064972701EF99000BA6F1 /* AppDelegate+PushNotifications.swift in Sources */,
 				7704889826FE0948002F7CC8 /* WatchlistCompany.swift in Sources */,
 				77B11DAD26F382140093FBE9 /* Company.swift in Sources */,
 				77B11DA826F37FC40093FBE9 /* ADTV.swift in Sources */,
-				779B886426BD3DE200FB06A1 /* SettingsSwitchTableViewCell.swift in Sources */,
 				770E4C5B26F249080010EE7B /* UIApplicationExtensions.swift in Sources */,
 				7748987A26E0C229000933A6 /* BaseCardController.swift in Sources */,
 				77CA13272702074F00E461E0 /* WatchlistTableViewController+Search.swift in Sources */,
@@ -820,19 +720,15 @@
 				7765434226EF3C3800E91C25 /* YahooFinance.swift in Sources */,
 				776D13C3261E087500B9CF97 /* HomeTabBarController.swift in Sources */,
 				7748988726E0E454000933A6 /* ADTVChartCardController.swift in Sources */,
-				773A86F0263C34A9008105A1 /* PrivacyPolicyViewController.swift in Sources */,
 				77E7B3FB26E7838F000EABC6 /* PriceMarker.swift in Sources */,
 				7711CA9926FC9C50005A5AEC /* NewsViewModel.swift in Sources */,
 				773064952701DA6D000BA6F1 /* PushNotifications.swift in Sources */,
 				772A747526DF93890088A604 /* HeaderCardController.swift in Sources */,
 				7790360C26FDCCC000A33248 /* WatchlistTableViewController.swift in Sources */,
 				7765434426EF3C5700E91C25 /* FMP.swift in Sources */,
-				779B885E26BD1E9600FB06A1 /* SettingsOption.swift in Sources */,
 				773131BA26DCEC710068AAD8 /* SearchViewController.swift in Sources */,
 				7748988326E0D598000933A6 /* DetailViewAPIFunction.swift in Sources */,
-				779B885826BD192D00FB06A1 /* SettingsTableView.swift in Sources */,
 				7762C77226BAE258008DE1BA /* NumberShortScale.swift in Sources */,
-				779A46F426D4EE740072CE0B /* UIDevice+modelName.swift in Sources */,
 				77E7B3FD26E7AA56000EABC6 /* ChartDataEntryData.swift in Sources */,
 				77DA186B26F86C1F00919D11 /* ADTVButtonCardController.swift in Sources */,
 				7748988126E0CF9B000933A6 /* SearchAPIFunction.swift in Sources */,
@@ -843,7 +739,6 @@
 				772C241826F6212900202E14 /* ADTV20ChartCardController.swift in Sources */,
 				773A0B6326171238002B9875 /* AppDelegate.swift in Sources */,
 				773A0B6526171238002B9875 /* SceneDelegate.swift in Sources */,
-				779A46FE26D50C780072CE0B /* SettingsNotificationConstant.swift in Sources */,
 				77CAA2E626679043003A0246 /* UserDefaultsExtensions.swift in Sources */,
 				7748988526E0E235000933A6 /* ADTVChartCardPartView.swift in Sources */,
 				772C241A26F6220900202E14 /* ADTV60ChartCardController.swift in Sources */,
@@ -851,22 +746,15 @@
 				7791881226E0E7FE005B7D38 /* ADTVStatisticsCardController.swift in Sources */,
 				7711CA9426FC96A9005A5AEC /* NewsCardController.swift in Sources */,
 				77E763F126E75FE5005AED84 /* TimeseriesCardPartView.swift in Sources */,
-				779A470026D515020072CE0B /* SettingsSectionTitleConstant.swift in Sources */,
 				779DC1F02703202A0048E9EB /* CompanyDetailViewController+Realm.swift in Sources */,
 				77E763EF26E75D76005AED84 /* TimeseriesCardController.swift in Sources */,
 				77F93365261A3251007662D5 /* DoubleExtensions.swift in Sources */,
 				77E763F326E76488005AED84 /* TransparentCardController.swift in Sources */,
 				77DA186F26F89A4700919D11 /* ADTVDetailViewController.swift in Sources */,
-				779A46F826D4F6210072CE0B /* NotificationHelper.swift in Sources */,
 				77C82A3026E4E6E800768FDB /* ReadMoreURLs.swift in Sources */,
 				778FD76826F33110002CA424 /* UIImageConfigurationExtensions.swift in Sources */,
-				779A46FC26D508AA0072CE0B /* LogGenerator.swift in Sources */,
 				7748987E26E0C3E7000933A6 /* PriceChartCardPartView.swift in Sources */,
-				779B885B26BD1B0100FB06A1 /* SettingsTableViewConstant.swift in Sources */,
-				771E328126D6525E002CC604 /* AcknowledgementsViewController.swift in Sources */,
-				779B886026BD213D00FB06A1 /* SettingsStaticTableViewCell.swift in Sources */,
 				770E4C5926F245FD0010EE7B /* BaseLineChartView.swift in Sources */,
-				779A46F626D4EFE10072CE0B /* UIApplication+AppVersion.swift in Sources */,
 				772845AB26E615FA0003F13E /* NewsURLs.swift in Sources */,
 				7796865626E5F963002A9980 /* StatisticsCardController.swift in Sources */,
 				7748987C26E0C396000933A6 /* PriceChartCardController.swift in Sources */,
