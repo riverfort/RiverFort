@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 class PushNotificationsAPIFunction {
-    static func registerDeviceToken(deviceToken: String) {
+    static func syncDeviceToken(deviceToken: String) {
         let params = ["device_token": deviceToken]
         AF.request("https://data.riverfort.com/watchlist/v1/user-devices", method: .post, parameters: params).validate().response { response in
             switch response.result {
