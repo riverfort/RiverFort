@@ -46,6 +46,7 @@
 		776A913526E3B5E50012D0D5 /* ProfileCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776A913426E3B5E50012D0D5 /* ProfileCardController.swift */; };
 		776D13C3261E087500B9CF97 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D13C2261E087500B9CF97 /* HomeTabBarController.swift */; };
 		776F658526BC36C600CAA5A6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776F658426BC36C600CAA5A6 /* SettingsViewController.swift */; };
+		7775C9E92702171D0001A5F5 /* PushNotificationsAPIFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7775C9E82702171D0001A5F5 /* PushNotificationsAPIFunction.swift */; };
 		77876E98264D69B300798106 /* RSSFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77876E97264D69B300798106 /* RSSFeedParser.swift */; };
 		778FD76826F33110002CA424 /* UIImageConfigurationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778FD76726F33110002CA424 /* UIImageConfigurationExtensions.swift */; };
 		7790360C26FDCCC000A33248 /* WatchlistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790360B26FDCCC000A33248 /* WatchlistTableViewController.swift */; };
@@ -64,10 +65,11 @@
 		779B886026BD213D00FB06A1 /* SettingsStaticTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B885F26BD213D00FB06A1 /* SettingsStaticTableViewCell.swift */; };
 		779B886226BD2B4900FB06A1 /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B886126BD2B4900FB06A1 /* SettingsSection.swift */; };
 		779B886426BD3DE200FB06A1 /* SettingsSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B886326BD3DE200FB06A1 /* SettingsSwitchTableViewCell.swift */; };
+		779DC1F02703202A0048E9EB /* CompanyDetailViewController+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779DC1EF2703202A0048E9EB /* CompanyDetailViewController+Realm.swift */; };
 		77B11DA826F37FC40093FBE9 /* ADTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B11DA726F37FC40093FBE9 /* ADTV.swift */; };
 		77B11DAA26F380AF0093FBE9 /* HistoricalPriceQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B11DA926F380AF0093FBE9 /* HistoricalPriceQuote.swift */; };
 		77B11DAD26F382140093FBE9 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B11DAC26F382140093FBE9 /* Company.swift */; };
-		77B11DB026F389230093FBE9 /* CompanyDetailViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B11DAF26F389230093FBE9 /* CompanyDetailViewControllerExtensions.swift */; };
+		77B11DB026F389230093FBE9 /* CompanyDetailViewController+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B11DAF26F389230093FBE9 /* CompanyDetailViewController+Networking.swift */; };
 		77C4BD85261CAF9100B8C748 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C4BD84261CAF9100B8C748 /* HapticsManager.swift */; };
 		77C82A3026E4E6E800768FDB /* ReadMoreURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C82A2F26E4E6E800768FDB /* ReadMoreURLs.swift */; };
 		77CA1325270203DC00E461E0 /* WatchlistTableViewController+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA1324270203DC00E461E0 /* WatchlistTableViewController+Realm.swift */; };
@@ -131,6 +133,7 @@
 		776A913426E3B5E50012D0D5 /* ProfileCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCardController.swift; sourceTree = "<group>"; };
 		776D13C2261E087500B9CF97 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		776F658426BC36C600CAA5A6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		7775C9E82702171D0001A5F5 /* PushNotificationsAPIFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationsAPIFunction.swift; sourceTree = "<group>"; };
 		77876E97264D69B300798106 /* RSSFeedParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeedParser.swift; sourceTree = "<group>"; };
 		778FD76726F33110002CA424 /* UIImageConfigurationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageConfigurationExtensions.swift; sourceTree = "<group>"; };
 		7790360B26FDCCC000A33248 /* WatchlistTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistTableViewController.swift; sourceTree = "<group>"; };
@@ -149,10 +152,11 @@
 		779B885F26BD213D00FB06A1 /* SettingsStaticTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStaticTableViewCell.swift; sourceTree = "<group>"; };
 		779B886126BD2B4900FB06A1 /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
 		779B886326BD3DE200FB06A1 /* SettingsSwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSwitchTableViewCell.swift; sourceTree = "<group>"; };
+		779DC1EF2703202A0048E9EB /* CompanyDetailViewController+Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompanyDetailViewController+Realm.swift"; sourceTree = "<group>"; };
 		77B11DA726F37FC40093FBE9 /* ADTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTV.swift; sourceTree = "<group>"; };
 		77B11DA926F380AF0093FBE9 /* HistoricalPriceQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalPriceQuote.swift; sourceTree = "<group>"; };
 		77B11DAC26F382140093FBE9 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
-		77B11DAF26F389230093FBE9 /* CompanyDetailViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailViewControllerExtensions.swift; sourceTree = "<group>"; };
+		77B11DAF26F389230093FBE9 /* CompanyDetailViewController+Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompanyDetailViewController+Networking.swift"; sourceTree = "<group>"; };
 		77C4BD84261CAF9100B8C748 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		77C82A2F26E4E6E800768FDB /* ReadMoreURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMoreURLs.swift; sourceTree = "<group>"; };
 		77CA1324270203DC00E461E0 /* WatchlistTableViewController+Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WatchlistTableViewController+Realm.swift"; sourceTree = "<group>"; };
@@ -280,11 +284,20 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		773064932701DA2A000BA6F1 /* Push Notifications */ = {
+		772BAD682703234900DC7087 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				773064962701EF99000BA6F1 /* AppDelegate+PushNotifications.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		773064932701DA2A000BA6F1 /* Push Notifications */ = {
+			isa = PBXGroup;
+			children = (
 				773064942701DA6D000BA6F1 /* PushNotifications.swift */,
+				772BAD682703234900DC7087 /* Extensions */,
+				779DC1EB2702FE690048E9EB /* Model */,
 			);
 			path = "Push Notifications";
 			sourceTree = "<group>";
@@ -411,6 +424,14 @@
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
+		7775C9E7270216DC0001A5F5 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				7775C9E82702171D0001A5F5 /* PushNotificationsAPIFunction.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		7780B8B526CFAFE500561789 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -464,17 +485,9 @@
 			isa = PBXGroup;
 			children = (
 				7790360926FDCC7000A33248 /* View Controllers */,
-				7790360826FDCC6900A33248 /* Views */,
 				7790360A26FDCC7600A33248 /* Models */,
 			);
 			path = Watchlist;
-			sourceTree = "<group>";
-		};
-		7790360826FDCC6900A33248 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		7790360926FDCC7000A33248 /* View Controllers */ = {
@@ -489,6 +502,7 @@
 		7790360A26FDCC7600A33248 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				779DC1EC27030EE80048E9EB /* Networking */,
 				7704889726FE0948002F7CC8 /* WatchlistCompany.swift */,
 			);
 			path = Models;
@@ -535,6 +549,21 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		779DC1EB2702FE690048E9EB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7775C9E7270216DC0001A5F5 /* Networking */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		779DC1EC27030EE80048E9EB /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		77B11DAB26F381DF0093FBE9 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -547,7 +576,8 @@
 		77B11DAE26F389010093FBE9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				77B11DAF26F389230093FBE9 /* CompanyDetailViewControllerExtensions.swift */,
+				77B11DAF26F389230093FBE9 /* CompanyDetailViewController+Networking.swift */,
+				779DC1EF2703202A0048E9EB /* CompanyDetailViewController+Realm.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -563,8 +593,8 @@
 		77CA1323270203B100E461E0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				77CA1324270203DC00E461E0 /* WatchlistTableViewController+Realm.swift */,
 				77CA13262702074F00E461E0 /* WatchlistTableViewController+Search.swift */,
+				77CA1324270203DC00E461E0 /* WatchlistTableViewController+Realm.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -769,7 +799,7 @@
 				779A46FA26D5028D0072CE0B /* SettingsOptionTitleConstant.swift in Sources */,
 				776F658526BC36C600CAA5A6 /* SettingsViewController.swift in Sources */,
 				7720570626DE6E8300063A9A /* CompanyDetailViewController.swift in Sources */,
-				77B11DB026F389230093FBE9 /* CompanyDetailViewControllerExtensions.swift in Sources */,
+				77B11DB026F389230093FBE9 /* CompanyDetailViewController+Networking.swift in Sources */,
 				776A913526E3B5E50012D0D5 /* ProfileCardController.swift in Sources */,
 				770B22AF26EB8D6400731C58 /* ADTVMarker.swift in Sources */,
 				77CA1325270203DC00E461E0 /* WatchlistTableViewController+Realm.swift in Sources */,
@@ -817,10 +847,12 @@
 				77CAA2E626679043003A0246 /* UserDefaultsExtensions.swift in Sources */,
 				7748988526E0E235000933A6 /* ADTVChartCardPartView.swift in Sources */,
 				772C241A26F6220900202E14 /* ADTV60ChartCardController.swift in Sources */,
+				7775C9E92702171D0001A5F5 /* PushNotificationsAPIFunction.swift in Sources */,
 				7791881226E0E7FE005B7D38 /* ADTVStatisticsCardController.swift in Sources */,
 				7711CA9426FC96A9005A5AEC /* NewsCardController.swift in Sources */,
 				77E763F126E75FE5005AED84 /* TimeseriesCardPartView.swift in Sources */,
 				779A470026D515020072CE0B /* SettingsSectionTitleConstant.swift in Sources */,
+				779DC1F02703202A0048E9EB /* CompanyDetailViewController+Realm.swift in Sources */,
 				77E763EF26E75D76005AED84 /* TimeseriesCardController.swift in Sources */,
 				77F93365261A3251007662D5 /* DoubleExtensions.swift in Sources */,
 				77E763F326E76488005AED84 /* TransparentCardController.swift in Sources */,

@@ -17,7 +17,6 @@ class WatchlistTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createObservers()
-        initWatchlistCompanyList()
         configNavigationController()
         configSearchController()
         configTableView()

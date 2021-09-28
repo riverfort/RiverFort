@@ -23,3 +23,17 @@ class WatchlistCompany: Object {
     
     override class func primaryKey() -> String? { "symbol" }
 }
+
+extension WatchlistCompanyList {
+    static func initWatchlistCompanyList() {
+        let realm = try! Realm()
+        var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
+        if watchlistCompanyList == nil {
+            do {
+                try realm.write({
+                    watchlistCompanyList = realm.create(WatchlistCompanyList.self, value: [])
+                })
+            } catch { print(error.localizedDescription) }
+        }
+    }
+}
