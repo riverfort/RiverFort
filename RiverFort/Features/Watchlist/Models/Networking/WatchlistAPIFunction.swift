@@ -14,7 +14,7 @@ class WatchlistAPIFunction {
             .filter{ $0.exchange == "London" || $0.exchange == "AQS" }
             .map { ["company_ticker": $0.symbol, "company_name": $0.name] }
         for watchlistCompany in watchlistCompanies {
-            AF.request("https://data.riverfort.com/watchlist/v1/user-devices", method: .post, parameters: watchlistCompany).validate().response { response in
+            AF.request("https://data.riverfort.com/watchlist/v1/companies", method: .post, parameters: watchlistCompany).validate().response { response in
                 switch response.result {
                 case .success: print("company synced: \(watchlistCompany["company_ticker"] ?? "?")")
                 case .failure(let error):
