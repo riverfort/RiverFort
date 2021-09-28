@@ -16,7 +16,7 @@ class WatchlistAPIFunction {
         for watchlistCompany in watchlistCompanies {
             AF.request("https://data.riverfort.com/watchlist/v1/user-devices", method: .post, parameters: watchlistCompany).validate().response { response in
                 switch response.result {
-                case .success: print("company synced: \(watchlistCompany["company_ticker"] ?? "-")")
+                case .success: print("company synced: \(watchlistCompany["company_ticker"] ?? "?")")
                 case .failure(let error):
                     if let statusCode = response.response?.statusCode, statusCode == 400 { print("company already exists") }
                     else { print(error) }
