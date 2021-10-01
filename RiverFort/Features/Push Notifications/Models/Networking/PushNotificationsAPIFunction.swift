@@ -11,7 +11,7 @@ import Alamofire
 class PushNotificationsAPIFunction {
     static func syncDeviceToken(deviceToken: String) {
         let params = ["device_token": deviceToken]
-        AF.request("https://data.riverfort.com/watchlist/v1/user-devices", method: .post, parameters: params).validate().response { response in
+        AF.request("https://data.riverfort.com/watchlist/v1/device-tokens", method: .post, parameters: params).validate().response { response in
             switch response.result {
             case .success: print("device token registered: \(deviceToken)")
             case .failure(let error):
