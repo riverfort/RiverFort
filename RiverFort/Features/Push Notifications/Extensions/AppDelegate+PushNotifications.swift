@@ -23,7 +23,7 @@ extension AppDelegate {
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("Failed to register: \(error)")
+        print("Failed to register for remote notification: \(error)")
     }
 }
 
