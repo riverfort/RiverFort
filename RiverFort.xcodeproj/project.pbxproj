@@ -15,6 +15,7 @@
 		770E4C5B26F249080010EE7B /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770E4C5A26F249080010EE7B /* UIApplicationExtensions.swift */; };
 		7711CA9426FC96A9005A5AEC /* NewsCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7711CA9326FC96A9005A5AEC /* NewsCardController.swift */; };
 		7711CA9926FC9C50005A5AEC /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7711CA9826FC9C50005A5AEC /* NewsViewModel.swift */; };
+		7711F76127086E24006148FA /* WatchlistAPIFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7711F76027086E24006148FA /* WatchlistAPIFunction.swift */; };
 		7720570626DE6E8300063A9A /* CompanyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7720570526DE6E8300063A9A /* CompanyDetailViewController.swift */; };
 		77227AA026F3953D00C5867D /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77227A9F26F3953D00C5867D /* Profile.swift */; };
 		77227AA226F396D900C5867D /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77227AA126F396D900C5867D /* Quote.swift */; };
@@ -84,6 +85,7 @@
 		770E4C5A26F249080010EE7B /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
 		7711CA9326FC96A9005A5AEC /* NewsCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCardController.swift; sourceTree = "<group>"; };
 		7711CA9826FC9C50005A5AEC /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
+		7711F76027086E24006148FA /* WatchlistAPIFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistAPIFunction.swift; sourceTree = "<group>"; };
 		7720570526DE6E8300063A9A /* CompanyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailViewController.swift; sourceTree = "<group>"; };
 		77227A9F26F3953D00C5867D /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		77227AA126F396D900C5867D /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
@@ -211,6 +213,14 @@
 				7711CA9826FC9C50005A5AEC /* NewsViewModel.swift */,
 			);
 			path = "View Models";
+			sourceTree = "<group>";
+		};
+		7711F75F27086E08006148FA /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				7711F76027086E24006148FA /* WatchlistAPIFunction.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		7720570226DE6E1D00063A9A /* Detail */ = {
@@ -447,7 +457,7 @@
 		7790360A26FDCC7600A33248 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				779DC1EC27030EE80048E9EB /* Networking */,
+				7711F75F27086E08006148FA /* Networking */,
 				7704889726FE0948002F7CC8 /* WatchlistCompany.swift */,
 			);
 			path = Models;
@@ -459,13 +469,6 @@
 				7775C9E7270216DC0001A5F5 /* Networking */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		779DC1EC27030EE80048E9EB /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Networking;
 			sourceTree = "<group>";
 		};
 		77B11DAB26F381DF0093FBE9 /* Networking */ = {
@@ -700,6 +703,7 @@
 				770C438F26F8DF8B0040F891 /* ADTV120ChartCardController.swift in Sources */,
 				773131BF26DCFE5D0068AAD8 /* SearchResultCell.swift in Sources */,
 				77876E98264D69B300798106 /* RSSFeedParser.swift in Sources */,
+				7711F76127086E24006148FA /* WatchlistAPIFunction.swift in Sources */,
 				7720570626DE6E8300063A9A /* CompanyDetailViewController.swift in Sources */,
 				77B11DB026F389230093FBE9 /* CompanyDetailViewController+Networking.swift in Sources */,
 				776A913526E3B5E50012D0D5 /* ProfileCardController.swift in Sources */,

@@ -34,6 +34,11 @@ extension WatchlistCompanyList {
                     watchlistCompanyList = realm.create(WatchlistCompanyList.self, value: [])
                 })
             } catch { print(error.localizedDescription) }
+        } else {
+            let watchlistCompanySymbols = watchlistCompanyList!.watchlistCompanies
+                .filter { $0.exchange == "London" }
+                .map { $0.symbol.components(separatedBy: ".")[0] }
+            watchlistCompanySymbols.forEach { WatchlistAPIFunction.syncWatchlist(companySymbol: $0) }
         }
     }
 }
