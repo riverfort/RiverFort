@@ -447,7 +447,6 @@
 		7790360A26FDCC7600A33248 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				779DC1EC27030EE80048E9EB /* Networking */,
 				7704889726FE0948002F7CC8 /* WatchlistCompany.swift */,
 			);
 			path = Models;
@@ -459,13 +458,6 @@
 				7775C9E7270216DC0001A5F5 /* Networking */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		779DC1EC27030EE80048E9EB /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Networking;
 			sourceTree = "<group>";
 		};
 		77B11DAB26F381DF0093FBE9 /* Networking */ = {
