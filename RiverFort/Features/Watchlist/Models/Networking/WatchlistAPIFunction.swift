@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 class WatchlistAPIFunction {
-    static func addWatchlist(deviceToken: String, companySymbol: String) {
+    static func syncWatchlist(deviceToken: String, companySymbol: String) {
         let params = ["device_token": deviceToken, "company_symbol": companySymbol]
         AF.request("https://data.riverfort.com/watchlist/v1", method: .post, parameters: params).validate().response { response in
             switch response.result {
