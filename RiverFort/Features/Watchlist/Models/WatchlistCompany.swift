@@ -35,11 +35,10 @@ extension WatchlistCompanyList {
                 })
             } catch { print(error.localizedDescription) }
         } else {
-            guard let deviceToken = UserDefaults.standard.string(forKey: UserDefaults.Keys.deviceToken) else { return }
             let watchlistCompanySymbols = watchlistCompanyList!.watchlistCompanies
                 .filter { $0.exchange == "London" }
                 .map { $0.symbol.components(separatedBy: ".")[0] }
-            watchlistCompanySymbols.forEach { WatchlistAPIFunction.syncWatchlist(deviceToken: deviceToken, companySymbol: $0) }
+            watchlistCompanySymbols.forEach { WatchlistAPIFunction.syncWatchlist(companySymbol: $0) }
         }
     }
 }

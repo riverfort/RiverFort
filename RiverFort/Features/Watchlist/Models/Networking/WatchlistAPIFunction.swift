@@ -9,7 +9,8 @@ import Foundation
 import Alamofire
 
 class WatchlistAPIFunction {
-    static func syncWatchlist(deviceToken: String, companySymbol: String) {
+    static func syncWatchlist(companySymbol: String) {
+        guard let deviceToken = UserDefaults.standard.string(forKey: UserDefaults.Keys.deviceToken) else { return }
         let params = ["device_token": deviceToken, "company_symbol": companySymbol]
         AF.request("https://data.riverfort.com/watchlist/v1", method: .post, parameters: params).validate().response { response in
             switch response.result {
@@ -21,7 +22,8 @@ class WatchlistAPIFunction {
         }
     }
     
-    static func deleteWatchlist(deviceToken: String, companySymbol: String) {
+    static func deleteWatchlist(companySymbol: String) {
+        guard let deviceToken = UserDefaults.standard.string(forKey: UserDefaults.Keys.deviceToken) else { return }
         AF.request("https://data.riverfort.com/watchlist/v1/device-token/\(deviceToken)/company-symbol/\(companySymbol)", method: .delete).validate().response { response in
             switch response.result {
             case .success: print("watchlist deleted: \(deviceToken) - \(companySymbol)")
