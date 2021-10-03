@@ -32,7 +32,9 @@ extension AppDelegate {
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         guard let aps = userInfo["aps"] as? [String: AnyObject] else { completionHandler(.failed); return }
+        guard let link = userInfo["link"] as? String else { completionHandler(.failed); return }
         print("didReceiveRemoteNotification: \(aps)")
+        print("didReceiveRemoteNotification: \(link)")
     }
 }
 
