@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = HomeTabBarController()
+        window?.rootViewController = UINavigationController(rootViewController: WatchlistTableViewController())
         window?.makeKeyAndVisible()
         CardParts.theme.cardCellMargins = UIEdgeInsets(top: 0, left: (UIApplication.topViewController()?.systemMinimumLayoutMargins.leading)!, bottom: 0, right: (UIApplication.topViewController()?.systemMinimumLayoutMargins.leading)!)
     }
