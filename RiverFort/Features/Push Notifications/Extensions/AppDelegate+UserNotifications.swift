@@ -15,7 +15,7 @@ extension AppDelegate {
     func registerForPushNotifications() {
         UNUserNotificationCenter.current()
             .requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] granted, _ in
-                print("Permission granted: \(granted)")
+                print("User Notifications permission granted: \(granted)")
                 guard granted else { return }
                 self?.getNotificationSettings()
             }
@@ -23,15 +23,12 @@ extension AppDelegate {
     
     private func getNotificationSettings() {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
-            print("Notification settings: \(settings)")
             guard settings.authorizationStatus == .authorized else { return }
             DispatchQueue.main.async {
                 UIApplication.shared.registerForRemoteNotifications()
             }
         }
     }
-    
-
 }
 
 // MARK: - Registering With APNs
