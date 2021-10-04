@@ -7,6 +7,7 @@
 
 import UIKit
 import UserNotifications
+import SafariServices
 
 
 // MARK: - Asking for User Notifications Permission
@@ -44,3 +45,17 @@ extension AppDelegate {
         print("Failed to register: \(error)")
     }
 }
+
+// MARK: - UNUserNotificationCenterDelegate
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        guard let link = userInfo["link"] as? String else { return }
+        guard let url = URL(string: link) else { return }
+        let vc = SFSafariViewController(url: url)
+        UIApplication.topViewController()?.present(vc, animated: true, completion: nil)
+        completionHandler()
+    }
+}
+
