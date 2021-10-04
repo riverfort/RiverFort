@@ -9,6 +9,13 @@ import UIKit
 import UserNotifications
 import SafariServices
 
+// MARK: - Config User Notifications
+extension AppDelegate {
+    func configUserNotifications() {
+        UNUserNotificationCenter.current().delegate = self
+        registerForPushNotifications()
+    }
+}
 
 // MARK: - Asking for User Notifications Permission
 
