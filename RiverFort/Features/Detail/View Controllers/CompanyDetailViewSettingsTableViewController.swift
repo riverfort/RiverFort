@@ -2,7 +2,7 @@
 //  CompanyDetailViewSettingsTableViewController.swift
 //  RiverFort
 //
-//  Created by Qiuyang Nie on 05/10/2021.
+//  Created by Qiuyang Nie on 06/10/2021.
 //
 
 import UIKit

@@ -6,9 +6,13 @@
 //
 
 import Foundation
+import UIKit
 
 extension CompanyDetailViewController {
     @objc public func didTapMoreBarButton() {
-        print("did tap more bar button")
+        let companyDetailViewSettingsVC = CompanyDetailViewSettingsTableViewController()
+        let navigationController = UINavigationController(rootViewController: companyDetailViewSettingsVC)
+        companyDetailViewSettingsVC.title = "Settings"
+        present(navigationController, animated: true)
     }
 }
