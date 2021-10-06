@@ -20,10 +20,6 @@ class PriceChartCardController: BaseCardController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
 }
 
 extension PriceChartCardController {
@@ -31,12 +27,22 @@ extension PriceChartCardController {
         super.viewDidLoad()
         setupCardParts([priceChartPart])
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
 }
 
 extension PriceChartCardController {
     private func createObservesr() {
+        NotificationCenter.default.addObserver(self, selector: #selector(onChartModeUpdated), name: .hasUpdatedChartMode, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onTimeseriesUpdated), name: .hasUpdatedTimeSeries, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveHistoricalPrice), name: .didReceiveHistoricalPrice, object: nil)
+    }
+    
+    @objc private func onChartModeUpdated() {
+        print("News chart mode: \(defaults.bool(forKey: UserDefaults.Keys.isNewsChartOn))")
     }
     
     @objc private func onTimeseriesUpdated(notification: Notification) {
