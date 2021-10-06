@@ -31,6 +31,11 @@ extension PriceChartCardController {
         super.viewDidLoad()
         setupCardParts([priceChartPart])
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: .hasUpdatedChartMode, object: nil)
+    }
 }
 
 extension PriceChartCardController {
