@@ -8,5 +8,7 @@
 import Foundation
 
 extension CompanyDetailViewController {
-    
+    @objc public func didTapMoreBarButton() {
+        print("did tap more bar button")
+    }
 }
