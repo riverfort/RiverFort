@@ -33,10 +33,6 @@ class CompanyDetailViewController: CardsViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
 }
 
 extension CompanyDetailViewController {
@@ -49,6 +45,11 @@ extension CompanyDetailViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         timeseries.setSelectedSegmentIndex()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
     }
 }
 
