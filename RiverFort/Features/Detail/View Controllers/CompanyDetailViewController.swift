@@ -98,7 +98,6 @@ extension CompanyDetailViewController {
         more.menu = getMoreMenu()
         more.showsMenuAsPrimaryAction = true
         more.setImage(UIImage(systemName: "ellipsis.circle", withConfiguration: UIImage.Configuration.semibold), for: .normal)
-//        more.addTarget(self, action: #selector(didTapMoreBarButton), for: .touchUpInside)
     }
     
     private func configBarButtonStack() {
