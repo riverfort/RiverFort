@@ -5,7 +5,6 @@
 //  Created by Qiuyang Nie on 06/10/2021.
 //
 
-import Foundation
 import UIKit
 
 extension CompanyDetailViewController {
@@ -24,5 +23,16 @@ extension CompanyDetailViewController {
             }
         }
         present(navigationController, animated: true)
+    }
+    
+    public func configMoreMenu() {
+        let barButtonMenu = UIMenu(title: "", children: [
+            UIAction(title: NSLocalizedString("Price Chart", comment: ""), image: UIImage(systemName: "chart.line.uptrend.xyaxis"), state: .on, handler: menuHandler),
+            UIAction(title: NSLocalizedString("News Chart", comment: ""), image: UIImage(systemName: "chart.xyaxis.line"), state: .off, handler: menuHandler),
+        ])
+        func menuHandler(_: UIAction) {
+            
+        }
+        more.menu = barButtonMenu
     }
 }
