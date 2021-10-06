@@ -25,6 +25,7 @@ extension CompanyDetailViewController {
         let isNewsChartOn = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isNewsChartOn)
         if isNewsChartOn { UserDefaults.standard.set(false, forKey: UserDefaults.Keys.isNewsChartOn) }
         else { UserDefaults.standard.set(true, forKey: UserDefaults.Keys.isNewsChartOn) }
+        NotificationCenter.default.post(name: .hasUpdatedChartMode, object: nil)
         more.menu = getMoreMenu()
     }
 }
