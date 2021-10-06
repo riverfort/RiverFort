@@ -21,10 +21,15 @@ extension CompanyDetailViewController {
         return moreMenu
     }
     
-    private func updateChartMode(_: UIAction) {
+    private func updateChartMode(_ action: UIAction) {
         let isNewsChartOn = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isNewsChartOn)
-        if isNewsChartOn { UserDefaults.standard.set(false, forKey: UserDefaults.Keys.isNewsChartOn) }
-        else { UserDefaults.standard.set(true, forKey: UserDefaults.Keys.isNewsChartOn) }
+        if isNewsChartOn {
+            guard action.title == "Price Chart" else { return }
+            UserDefaults.standard.set(false, forKey: UserDefaults.Keys.isNewsChartOn)
+        } else {
+            guard action.title == "News Chart" else { return }
+            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.isNewsChartOn)
+        }
         NotificationCenter.default.post(name: .hasUpdatedChartMode, object: nil)
         more.menu = getMoreMenu()
     }
