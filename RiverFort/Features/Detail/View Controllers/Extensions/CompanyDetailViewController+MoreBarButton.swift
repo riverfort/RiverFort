@@ -13,15 +13,15 @@ extension CompanyDetailViewController {
         let moreMenu = UIMenu(title: "", children: [
             UIAction(title: NSLocalizedString("Price Chart", comment: ""),
                      image: UIImage(systemName: "chart.line.uptrend.xyaxis"),
-                     state: isNewsChartOn ? .off : .on, handler: chartModeSwitchHandler),
+                     state: isNewsChartOn ? .off : .on, handler: updateChartMode),
             UIAction(title: NSLocalizedString("News Chart", comment: ""),
                      image: UIImage(systemName: "chart.xyaxis.line"),
-                     state: isNewsChartOn ? .on : .off, handler: chartModeSwitchHandler),
+                     state: isNewsChartOn ? .on : .off, handler: updateChartMode),
         ])
         return moreMenu
     }
     
-    private func chartModeSwitchHandler(_: UIAction) {
+    private func updateChartMode(_: UIAction) {
         let isNewsChartOn = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isNewsChartOn)
         if isNewsChartOn { UserDefaults.standard.set(false, forKey: UserDefaults.Keys.isNewsChartOn) }
         else { UserDefaults.standard.set(true, forKey: UserDefaults.Keys.isNewsChartOn) }
