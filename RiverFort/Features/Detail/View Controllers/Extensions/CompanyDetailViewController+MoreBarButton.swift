@@ -24,15 +24,23 @@ extension CompanyDetailViewController {
         }
         present(navigationController, animated: true)
     }
-    
-    public func configMoreMenu() {
-        let barButtonMenu = UIMenu(title: "", children: [
-            UIAction(title: NSLocalizedString("Price Chart", comment: ""), image: UIImage(systemName: "chart.line.uptrend.xyaxis"), state: .on, handler: menuHandler),
-            UIAction(title: NSLocalizedString("News Chart", comment: ""), image: UIImage(systemName: "chart.xyaxis.line"), state: .off, handler: menuHandler),
+}
+
+extension CompanyDetailViewController {
+    public func getMoreMenu() -> UIMenu {
+        let moreMenu = UIMenu(title: "", children: [
+            UIAction(title: NSLocalizedString("Price Chart", comment: ""),
+                     image: UIImage(systemName: "chart.line.uptrend.xyaxis"),
+                     state: isNewsChartOn ? .off : .on, handler: chartModeSwitchHandler),
+            UIAction(title: NSLocalizedString("News Chart", comment: ""),
+                     image: UIImage(systemName: "chart.xyaxis.line"),
+                     state: isNewsChartOn ? .on : .off, handler: chartModeSwitchHandler),
         ])
-        func menuHandler(_: UIAction) {
-            
-        }
-        more.menu = barButtonMenu
+        return moreMenu
+    }
+    
+    private func chartModeSwitchHandler(_: UIAction) {
+        isNewsChartOn = !isNewsChartOn
+        more.menu = getMoreMenu()
     }
 }
