@@ -13,6 +13,12 @@ extension CompanyDetailViewController {
         let companyDetailViewSettingsVC = CompanyDetailViewSettingsTableViewController()
         let navigationController = UINavigationController(rootViewController: companyDetailViewSettingsVC)
         companyDetailViewSettingsVC.title = "Settings"
+        if #available(iOS 15.0, *) {
+            if let sheet = navigationController.sheetPresentationController {
+                sheet.detents = [.medium(), .large()]
+                sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            }
+        }
         present(navigationController, animated: true)
     }
 }
