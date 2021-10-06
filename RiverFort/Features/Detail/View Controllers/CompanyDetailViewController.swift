@@ -15,7 +15,6 @@ class CompanyDetailViewController: CardsViewController {
     public lazy var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
     public lazy var add  = UIButton(type: .system)
     public lazy var more = UIButton(type: .system)
-    public lazy var isNewsChartOn = false
     private lazy var header = HeaderCardController()
     private lazy var timeseries = TimeseriesCardController()
     private lazy var priceChart = PriceChartCardController()

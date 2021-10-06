@@ -28,6 +28,7 @@ extension CompanyDetailViewController {
 
 extension CompanyDetailViewController {
     public func getMoreMenu() -> UIMenu {
+        let isNewsChartOn = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isNewsChartOn)
         let moreMenu = UIMenu(title: "", children: [
             UIAction(title: NSLocalizedString("Price Chart", comment: ""),
                      image: UIImage(systemName: "chart.line.uptrend.xyaxis"),
@@ -40,7 +41,9 @@ extension CompanyDetailViewController {
     }
     
     private func chartModeSwitchHandler(_: UIAction) {
-        isNewsChartOn = !isNewsChartOn
+        let isNewsChartOn = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isNewsChartOn)
+        if isNewsChartOn { UserDefaults.standard.set(false, forKey: UserDefaults.Keys.isNewsChartOn) }
+        else { UserDefaults.standard.set(true, forKey: UserDefaults.Keys.isNewsChartOn) }
         more.menu = getMoreMenu()
     }
 }
