@@ -17,6 +17,10 @@ extension CompanyDetailViewController {
             if let sheet = navigationController.sheetPresentationController {
                 sheet.detents = [.medium(), .large()]
                 sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+                sheet.largestUndimmedDetentIdentifier = .medium
+                sheet.prefersEdgeAttachedInCompactHeight = true
+                sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+                sheet.prefersGrabberVisible = true
             }
         }
         present(navigationController, animated: true)
