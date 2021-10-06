@@ -13,10 +13,12 @@ extension CompanyDetailViewController {
         let moreMenu = UIMenu(title: "", children: [
             UIAction(title: NSLocalizedString("Price Chart", comment: ""),
                      image: UIImage(systemName: "chart.line.uptrend.xyaxis"),
-                     state: isNewsChartOn ? .off : .on, handler: updateChartMode),
+                     state: isNewsChartOn ? .off : .on,
+                     handler: updateChartMode),
             UIAction(title: NSLocalizedString("News Chart", comment: ""),
                      image: UIImage(systemName: "chart.xyaxis.line"),
-                     state: isNewsChartOn ? .on : .off, handler: updateChartMode),
+                     state: isNewsChartOn ? .on : .off,
+                     handler: updateChartMode),
         ])
         return moreMenu
     }
