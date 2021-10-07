@@ -14,11 +14,17 @@ extension CompanyDetailViewController {
             UIAction(title: NSLocalizedString("Price Chart", comment: ""),
                      image: UIImage(systemName: "chart.line.uptrend.xyaxis"),
                      state: isNewsChartOn ? .off : .on,
-                     handler: updateChartMode),
+                     handler: { [unowned self] action in
+                         updateChartMode(action)
+                         self.more.menu = getMoreMenu()
+                     }),
             UIAction(title: NSLocalizedString("News Chart", comment: ""),
                      image: UIImage(systemName: "chart.xyaxis.line"),
                      state: isNewsChartOn ? .on : .off,
-                     handler: updateChartMode),
+                     handler: { [unowned self] action in
+                         updateChartMode(action)
+                         self.more.menu = getMoreMenu()
+                     }),
         ])
         return moreMenu
     }
@@ -33,6 +39,5 @@ extension CompanyDetailViewController {
             UserDefaults.standard.set(true, forKey: UserDefaults.Keys.isNewsChartOn)
         }
         NotificationCenter.default.post(name: .hasUpdatedChartMode, object: nil)
-        more.menu = getMoreMenu()
     }
 }
