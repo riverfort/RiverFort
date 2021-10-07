@@ -35,7 +35,6 @@ class CompanyDetailViewController: CardsViewController {
     }
     
     deinit {
-        print("\(#function)")
         NotificationCenter.default.removeObserver(self)
     }
 }
