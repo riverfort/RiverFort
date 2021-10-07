@@ -123,25 +123,37 @@ extension PriceChartCardPartView {
     public func changeTimeseries(for selectedSegmentIndex: Int) {
         configChartViewTimeseriesAnimation()
         var adjustedHistPriceDataEntries = [ChartDataEntry]()
+        var adjustedNewsDataEntries = [ChartDataEntry]()
         switch selectedSegmentIndex {
         case 0:
             adjustedHistPriceDataEntries = historicalPriceDataEntries.suffix(5)
+            adjustedNewsDataEntries = newsDataEntries.suffix(5)
         case 1:
             adjustedHistPriceDataEntries = historicalPriceDataEntries.suffix(10)
+            adjustedNewsDataEntries = newsDataEntries.suffix(10)
         case 2:
             adjustedHistPriceDataEntries = historicalPriceDataEntries.suffix(20)
+            adjustedNewsDataEntries = newsDataEntries.suffix(20)
         case 3:
             adjustedHistPriceDataEntries = historicalPriceDataEntries.suffix(60)
+            adjustedNewsDataEntries = newsDataEntries.suffix(60)
         case 4:
             adjustedHistPriceDataEntries = historicalPriceDataEntries.suffix(120)
+            adjustedNewsDataEntries = newsDataEntries.suffix(120)
         case 5:
             adjustedHistPriceDataEntries = historicalPriceDataEntries
+            adjustedNewsDataEntries = newsDataEntries
         default:
             return
         }
         let lineChartDataSetForHistoricalPrice = LineChartDataSet(entries: adjustedHistPriceDataEntries, label: "Historical Price")
         configLineChartDataSetForHistoricalPrice(with: lineChartDataSetForHistoricalPrice)
         chartView.data = LineChartData(dataSet: lineChartDataSetForHistoricalPrice)
+        adjustedNewsDataEntries.forEach { adjustedNewsDataEntry in
+            let lineChartDataSetForNews = LineChartDataSet(entries: [adjustedNewsDataEntry], label: "News")
+            configLineChartDataSetForNews(with: lineChartDataSetForNews)
+            chartView.data?.addDataSet(lineChartDataSetForNews)
+        }
     }
 }
 
@@ -160,7 +172,11 @@ extension PriceChartCardPartView {
     public func setChartDataForNews(rssItems: [RSSItem]) {
         print("set chart data for news - \(rssItems.count)")
         prepareChartDataForNews(rssItems: rssItems)
-        print(newsDataEntries)
+        newsDataEntries.forEach { newsDataEntry in
+            let lineChartDataSetForNews = LineChartDataSet(entries: [newsDataEntry], label: "News")
+            configLineChartDataSetForNews(with: lineChartDataSetForNews)
+            chartView.data?.addDataSet(lineChartDataSetForNews)
+        }
     }
     
     private func prepareChartDataForNews(rssItems: [RSSItem]) {
