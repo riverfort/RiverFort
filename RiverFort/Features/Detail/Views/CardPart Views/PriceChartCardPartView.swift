@@ -7,6 +7,7 @@
 
 import CardParts
 import Charts
+import Foundation
 
 class PriceChartCardPartView: UIView, CardPartView {
     internal var margins: UIEdgeInsets = UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0)
@@ -158,5 +159,26 @@ extension PriceChartCardPartView {
 extension PriceChartCardPartView {
     public func setChartDataForNews(rssItems: [RSSItem]) {
         print("set chart data for news - \(rssItems.count)")
+        prepareChartDataForNews(rssItems: rssItems)
+        print(newsDataEntries)
+    }
+    
+    private func prepareChartDataForNews(rssItems: [RSSItem]) {
+        let newsDateFormatter = DateFormatter()
+        newsDateFormatter.dateFormat = "dd MMM, yyyy HH:mm:ss"
+        historicalPriceDataEntries.forEach { historicalPriceDataEntry in
+            guard let historicalPriceDataEntryData = historicalPriceDataEntry.data as? HistoricalPriceChartDataEntryData else { return }
+            let historicalPriceDate = historicalPriceDataEntryData.date
+            rssItems.forEach { rssItem in
+                guard let newsDate = newsDateFormatter.date(from: rssItem.pubDate) else { return }
+                let order = Calendar.current.compare(historicalPriceDate, to: newsDate, toGranularity: .day)
+                if order == .orderedSame {
+                    let newsDataEntry = ChartDataEntry(x: historicalPriceDataEntry.x,
+                                                       y: historicalPriceDataEntry.y,
+                                                       data: NewsChartDataEntryData(date: newsDate, title: rssItem.title))
+                    newsDataEntries.append(newsDataEntry)
+                }
+            }
+        }
     }
 }
