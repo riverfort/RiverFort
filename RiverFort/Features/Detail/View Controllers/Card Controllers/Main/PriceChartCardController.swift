@@ -35,6 +35,7 @@ extension PriceChartCardController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         NotificationCenter.default.removeObserver(self, name: .hasUpdatedChartMode, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .didReceiveHistoricalPrice, object: nil)
     }
 }
 
@@ -56,5 +57,7 @@ extension PriceChartCardController {
     @objc private func onDidReceiveHistoricalPrice(notification: Notification) {
         guard let historicalPrice = notification.object as? [HistoricalPriceQuote] else { return }
         priceChartPart.setChartDataForPrice(historicalPrice: historicalPrice)
+        let isNewsChartOn = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isNewsChartOn)
+        if isNewsChartOn { priceChartPart.setChartDataForNews() }
     }
 }

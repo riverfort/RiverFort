@@ -154,3 +154,9 @@ extension PriceChartCardPartView {
         changeTimeseries(for: timeseriesIndex)
     }
 }
+
+extension PriceChartCardPartView {
+    public func setChartDataForNews() {
+        print("set chart data for news")
+    }
+}
