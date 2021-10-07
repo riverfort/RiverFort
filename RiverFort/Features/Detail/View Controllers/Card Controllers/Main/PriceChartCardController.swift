@@ -63,7 +63,7 @@ extension PriceChartCardController {
         switch company.exchange {
         case "London", "AQS":
             rssFeedParser.parseFeed(url: NewsURLs.UK_INVESTEGATE_COMPANY_ANNOUNCEMENTS_RSS_URL(symbol: company.symbol)) { [unowned self] response in
-                let rssItems = Array(response.prefix(15))
+                let rssItems = Array(response.prefix(30))
                 self.priceChartPart.setChartDataForNews(rssItems: rssItems)
             }
         default: return
