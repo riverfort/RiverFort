@@ -149,11 +149,7 @@ extension PriceChartCardPartView {
         let lineChartDataSetForHistoricalPrice = LineChartDataSet(entries: adjustedHistPriceDataEntries, label: "Historical Price")
         configLineChartDataSetForHistoricalPrice(with: lineChartDataSetForHistoricalPrice)
         chartView.data = LineChartData(dataSet: lineChartDataSetForHistoricalPrice)
-        adjustedNewsDataEntries.forEach { adjustedNewsDataEntry in
-            let lineChartDataSetForNews = LineChartDataSet(entries: [adjustedNewsDataEntry], label: "News")
-            configLineChartDataSetForNews(with: lineChartDataSetForNews)
-            chartView.data?.addDataSet(lineChartDataSetForNews)
-        }
+        addDataSetForNews(newsDataEntries: adjustedNewsDataEntries)
     }
 }
 
@@ -172,11 +168,7 @@ extension PriceChartCardPartView {
     public func setChartDataForNews(rssItems: [RSSItem]) {
         print("set chart data for news - \(rssItems.count)")
         prepareChartDataForNews(rssItems: rssItems)
-        newsDataEntries.forEach { newsDataEntry in
-            let lineChartDataSetForNews = LineChartDataSet(entries: [newsDataEntry], label: "News")
-            configLineChartDataSetForNews(with: lineChartDataSetForNews)
-            chartView.data?.addDataSet(lineChartDataSetForNews)
-        }
+        addDataSetForNews(newsDataEntries: newsDataEntries)
     }
     
     private func prepareChartDataForNews(rssItems: [RSSItem]) {
@@ -195,6 +187,14 @@ extension PriceChartCardPartView {
                     newsDataEntries.append(newsDataEntry)
                 }
             }
+        }
+    }
+    
+    private func addDataSetForNews(newsDataEntries: [ChartDataEntry]) {
+        newsDataEntries.forEach { newsDataEntry in
+            let lineChartDataSetForNews = LineChartDataSet(entries: [newsDataEntry], label: "News")
+            configLineChartDataSetForNews(with: lineChartDataSetForNews)
+            chartView.data?.addDataSet(lineChartDataSetForNews)
         }
     }
 }
