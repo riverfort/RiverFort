@@ -32,7 +32,7 @@ class NewsMarker: MarkerImage {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
-        title = newsChartDataEntryData.title
+        title = newsChartDataEntryData.title.components(separatedBy: ": ")[1]
         let datetime = dateFormatter.string(from: newsChartDataEntryData.date)
         date = datetime
     }
