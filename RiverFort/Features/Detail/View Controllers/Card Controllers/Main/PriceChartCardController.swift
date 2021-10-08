@@ -10,6 +10,7 @@ import UIKit
 class PriceChartCardController: BaseCardController {
     public var company: Company?
     private let defaults = UserDefaults.standard
+    private let rssFeedParser = RSSFeedParser()
     private lazy var priceChartPart = PriceChartCardPartView()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -35,8 +36,17 @@ extension PriceChartCardController {
 
 extension PriceChartCardController {
     private func createObservesr() {
+        NotificationCenter.default.addObserver(self, selector: #selector(onChartModeUpdated), name: .hasUpdatedChartMode, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onTimeseriesUpdated), name: .hasUpdatedTimeSeries, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveHistoricalPrice), name: .didReceiveHistoricalPrice, object: nil)
+    }
+    
+    @objc private func onChartModeUpdated() {
+        let isNewsChartOn = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isNewsChartOn)
+        if isNewsChartOn { fetchNews() }
+        else {
+            priceChartPart.removeDataSetForNews()
+        }
     }
     
     @objc private func onTimeseriesUpdated(notification: Notification) {
@@ -46,5 +56,21 @@ extension PriceChartCardController {
     @objc private func onDidReceiveHistoricalPrice(notification: Notification) {
         guard let historicalPrice = notification.object as? [HistoricalPriceQuote] else { return }
         priceChartPart.setChartDataForPrice(historicalPrice: historicalPrice)
+        let isNewsChartOn = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isNewsChartOn)
+        if isNewsChartOn { fetchNews() }
+    }
+}
+
+extension PriceChartCardController {
+    private func fetchNews() {
+        guard let company = company else { return }
+        switch company.exchange {
+        case "London", "AQS":
+            rssFeedParser.parseFeed(url: NewsURLs.UK_INVESTEGATE_COMPANY_ANNOUNCEMENTS_RSS_URL(symbol: company.symbol)) { [unowned self] response in
+                let rssItems = Array(response.prefix(30))
+                self.priceChartPart.setChartDataForNews(rssItems: rssItems)
+            }
+        default: return
+        }
     }
 }

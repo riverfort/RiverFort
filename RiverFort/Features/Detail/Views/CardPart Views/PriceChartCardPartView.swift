@@ -7,11 +7,13 @@
 
 import CardParts
 import Charts
+import Foundation
 
 class PriceChartCardPartView: UIView, CardPartView {
     internal var margins: UIEdgeInsets = UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0)
     private lazy var chartView = BaseLineChartView()
     private lazy var priceMarker = PriceMarker()
+    private lazy var newsMarker = NewsMarker()
     private lazy var historicalPriceDataEntries = [ChartDataEntry]()
     private lazy var newsDataEntries = [ChartDataEntry]()
 
@@ -29,7 +31,6 @@ class PriceChartCardPartView: UIView, CardPartView {
 extension PriceChartCardPartView {
     private func configChartView() {
         view.addSubview(chartView)
-        chartView.marker = priceMarker
         chartView.delegate = self
         chartView.baseChartViewDelegate = self
         chartView.xAxis.valueFormatter = self
@@ -122,25 +123,31 @@ extension PriceChartCardPartView {
     public func changeTimeseries(for selectedSegmentIndex: Int) {
         configChartViewTimeseriesAnimation()
         var adjustedHistPriceDataEntries = [ChartDataEntry]()
+        var adjustedNewsDataEntries = [ChartDataEntry]()
         switch selectedSegmentIndex {
         case 0:
             adjustedHistPriceDataEntries = historicalPriceDataEntries.suffix(5)
+            adjustedNewsDataEntries = newsDataEntries.suffix(5)
         case 1:
             adjustedHistPriceDataEntries = historicalPriceDataEntries.suffix(10)
+            adjustedNewsDataEntries = newsDataEntries.suffix(10)
         case 2:
             adjustedHistPriceDataEntries = historicalPriceDataEntries.suffix(20)
+            adjustedNewsDataEntries = newsDataEntries.suffix(20)
         case 3:
             adjustedHistPriceDataEntries = historicalPriceDataEntries.suffix(60)
+            adjustedNewsDataEntries = newsDataEntries.suffix(60)
         case 4:
             adjustedHistPriceDataEntries = historicalPriceDataEntries.suffix(120)
+            adjustedNewsDataEntries = newsDataEntries.suffix(120)
         case 5:
             adjustedHistPriceDataEntries = historicalPriceDataEntries
+            adjustedNewsDataEntries = newsDataEntries
         default:
             return
         }
-        let lineChartDataSetForHistoricalPrice = LineChartDataSet(entries: adjustedHistPriceDataEntries, label: "Historical Price")
-        configLineChartDataSetForHistoricalPrice(with: lineChartDataSetForHistoricalPrice)
-        chartView.data = LineChartData(dataSet: lineChartDataSetForHistoricalPrice)
+        addDataSetForPrice(historicalPriceDataEntries: adjustedHistPriceDataEntries)
+        addDataSetForNews(newsDataEntries: adjustedNewsDataEntries)
     }
 }
 
@@ -152,5 +159,74 @@ extension PriceChartCardPartView {
                                   data: HistoricalPriceChartDataEntryData(date: dailyPrice.date, volume: Double(dailyPrice.volume ?? 0)))}
         let timeseriesIndex = UserDefaults.standard.integer(forKey: UserDefaults.Keys.timeseriesSelectedSegmentIndex)
         changeTimeseries(for: timeseriesIndex)
+    }
+    
+    public func setChartDataForNews(rssItems: [RSSItem]) {
+        prepareChartDataForNews(rssItems: rssItems)
+        addDataSetForNews(newsDataEntries: newsDataEntries)
+    }
+}
+
+extension PriceChartCardPartView {
+    private func prepareChartDataForNews(rssItems: [RSSItem]) {
+        let newsDateFormatter = DateFormatter()
+        newsDateFormatter.dateFormat = "dd MMM, yyyy HH:mm:ss"
+        historicalPriceDataEntries.forEach { historicalPriceDataEntry in
+            guard let historicalPriceDataEntryData = historicalPriceDataEntry.data as? HistoricalPriceChartDataEntryData else { return }
+            let historicalPriceDate = historicalPriceDataEntryData.date
+            rssItems.forEach { rssItem in
+                guard let newsDate = newsDateFormatter.date(from: rssItem.pubDate) else { return }
+                let order = Calendar.current.compare(historicalPriceDate, to: newsDate, toGranularity: .day)
+                if order == .orderedSame {
+                    let newsDataEntry = ChartDataEntry(x: historicalPriceDataEntry.x,
+                                                       y: historicalPriceDataEntry.y,
+                                                       data: NewsChartDataEntryData(date: newsDate, title: rssItem.title))
+                    newsDataEntries.append(newsDataEntry)
+                }
+            }
+        }
+    }
+}
+
+extension PriceChartCardPartView {
+    private func addDataSetForPrice(historicalPriceDataEntries: [ChartDataEntry]) {
+        let lineChartDataSetForHistoricalPrice = LineChartDataSet(entries: historicalPriceDataEntries, label: "Historical Price")
+        configLineChartDataSetForHistoricalPrice(with: lineChartDataSetForHistoricalPrice)
+        chartView.data = LineChartData(dataSet: lineChartDataSetForHistoricalPrice)
+        chartView.marker = priceMarker
+    }
+    
+    private func addDataSetForNews(newsDataEntries: [ChartDataEntry]) {
+        guard !newsDataEntries.isEmpty else { return }
+        newsDataEntries.forEach { newsDataEntry in
+            let lineChartDataSetForNews = LineChartDataSet(entries: [newsDataEntry], label: "News")
+            configLineChartDataSetForNews(with: lineChartDataSetForNews)
+            chartView.data?.addDataSet(lineChartDataSetForNews)
+        }
+        disableHistoricalPriceDataSetHighlight()
+        chartView.marker = newsMarker
+    }
+    
+    public func removeDataSetForNews() {
+        guard let dataSets = chartView.data?.dataSets else { return }
+        let newsDataSets = dataSets.filter { $0.label == "News" }
+        newsDataSets.forEach { newsDataSet in chartView.data?.removeDataSet(newsDataSet) }
+        newsDataEntries.removeAll()
+        enableHistoricalPriceDataSetHighlight()
+        chartView.marker = priceMarker
+    }
+}
+
+extension PriceChartCardPartView {
+    private func enableHistoricalPriceDataSetHighlight() {
+        guard let dataSets = chartView.data?.dataSets else { return }
+        let historicalPriceDataSet = dataSets.filter { $0.label == "Historical Price" }[0]
+        historicalPriceDataSet.highlightEnabled = true
+    }
+    
+    private func disableHistoricalPriceDataSetHighlight() {
+        guard let dataSets = chartView.data?.dataSets else { return }
+        let historicalPriceDataSet = dataSets.filter { $0.label == "Historical Price" }[0]
+        historicalPriceDataSet.highlightEnabled = false
     }
 }

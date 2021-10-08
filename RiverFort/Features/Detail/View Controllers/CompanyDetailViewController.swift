@@ -95,6 +95,7 @@ extension CompanyDetailViewController {
     }
     
     private func configMoreButton() {
+        more.menu = getMoreMenu()
         more.showsMenuAsPrimaryAction = true
         more.setImage(UIImage(systemName: "ellipsis.circle", withConfiguration: UIImage.Configuration.semibold), for: .normal)
     }
