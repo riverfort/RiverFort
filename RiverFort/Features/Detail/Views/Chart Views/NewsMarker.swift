@@ -40,7 +40,7 @@ class NewsMarker: MarkerImage {
 
 extension NewsMarker {
     private func configView() {
-        titleAttributes[.font] = UIFont.preferredFont(forTextStyle: .headline)
+        titleAttributes[.font] = UIFont.preferredFont(forTextStyle: .subheadline)
         titleAttributes[.foregroundColor] = UIColor.label
         dateAttributes[.font] = UIFont.preferredFont(forTextStyle: .subheadline)
         dateAttributes[.foregroundColor] = UIColor.secondaryLabel
