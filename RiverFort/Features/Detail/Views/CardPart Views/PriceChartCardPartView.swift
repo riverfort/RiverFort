@@ -146,9 +146,7 @@ extension PriceChartCardPartView {
         default:
             return
         }
-        let lineChartDataSetForHistoricalPrice = LineChartDataSet(entries: adjustedHistPriceDataEntries, label: "Historical Price")
-        configLineChartDataSetForHistoricalPrice(with: lineChartDataSetForHistoricalPrice)
-        chartView.data = LineChartData(dataSet: lineChartDataSetForHistoricalPrice)
+        addDataSetForPrice(historicalPriceDataEntries: adjustedHistPriceDataEntries)
         addDataSetForNews(newsDataEntries: adjustedNewsDataEntries)
     }
 }
@@ -162,15 +160,15 @@ extension PriceChartCardPartView {
         let timeseriesIndex = UserDefaults.standard.integer(forKey: UserDefaults.Keys.timeseriesSelectedSegmentIndex)
         changeTimeseries(for: timeseriesIndex)
     }
-}
-
-extension PriceChartCardPartView {
+    
     public func setChartDataForNews(rssItems: [RSSItem]) {
         print("set chart data for news - \(rssItems.count)")
         prepareChartDataForNews(rssItems: rssItems)
         addDataSetForNews(newsDataEntries: newsDataEntries)
     }
-    
+}
+
+extension PriceChartCardPartView {
     private func prepareChartDataForNews(rssItems: [RSSItem]) {
         let newsDateFormatter = DateFormatter()
         newsDateFormatter.dateFormat = "dd MMM, yyyy HH:mm:ss"
@@ -188,6 +186,14 @@ extension PriceChartCardPartView {
                 }
             }
         }
+    }
+}
+
+extension PriceChartCardPartView {
+    private func addDataSetForPrice(historicalPriceDataEntries: [ChartDataEntry]) {
+        let lineChartDataSetForHistoricalPrice = LineChartDataSet(entries: historicalPriceDataEntries, label: "Historical Price")
+        configLineChartDataSetForHistoricalPrice(with: lineChartDataSetForHistoricalPrice)
+        chartView.data = LineChartData(dataSet: lineChartDataSetForHistoricalPrice)
     }
     
     private func addDataSetForNews(newsDataEntries: [ChartDataEntry]) {
