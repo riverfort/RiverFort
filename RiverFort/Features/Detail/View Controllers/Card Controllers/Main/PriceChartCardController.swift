@@ -45,7 +45,7 @@ extension PriceChartCardController {
         let isNewsChartOn = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isNewsChartOn)
         if isNewsChartOn { fetchNews() }
         else {
-            print("TODO: Remove news data set")
+            priceChartPart.removeDataSetForNews()
         }
     }
     

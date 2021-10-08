@@ -203,4 +203,11 @@ extension PriceChartCardPartView {
             chartView.data?.addDataSet(lineChartDataSetForNews)
         }
     }
+    
+    public func removeDataSetForNews() {
+        guard let dataSets = chartView.data?.dataSets else { return }
+        let newsDataSets = dataSets.filter { $0.label == "News" }
+        newsDataSets.forEach { newsDataSet in chartView.data?.removeDataSet(newsDataSet) }
+        newsDataEntries.removeAll()
+    }
 }
