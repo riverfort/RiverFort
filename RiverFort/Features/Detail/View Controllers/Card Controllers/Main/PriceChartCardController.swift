@@ -42,7 +42,11 @@ extension PriceChartCardController {
     }
     
     @objc private func onChartModeUpdated() {
-        print("\(#function)")
+        let isNewsChartOn = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isNewsChartOn)
+        if isNewsChartOn { fetchNews() }
+        else {
+            print("TODO: Remove news data set")
+        }
     }
     
     @objc private func onTimeseriesUpdated(notification: Notification) {
