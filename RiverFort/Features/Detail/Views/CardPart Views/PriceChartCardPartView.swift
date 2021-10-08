@@ -162,7 +162,6 @@ extension PriceChartCardPartView {
     }
     
     public func setChartDataForNews(rssItems: [RSSItem]) {
-        print("set chart data for news - \(rssItems.count)")
         prepareChartDataForNews(rssItems: rssItems)
         addDataSetForNews(newsDataEntries: newsDataEntries)
     }
