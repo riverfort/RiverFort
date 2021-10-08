@@ -13,6 +13,7 @@ class PriceChartCardPartView: UIView, CardPartView {
     internal var margins: UIEdgeInsets = UIEdgeInsets(top: 15, left: 0, bottom: 15, right: 0)
     private lazy var chartView = BaseLineChartView()
     private lazy var priceMarker = PriceMarker()
+    private lazy var newsMarker = NewsMarker()
     private lazy var historicalPriceDataEntries = [ChartDataEntry]()
     private lazy var newsDataEntries = [ChartDataEntry]()
 
@@ -30,7 +31,6 @@ class PriceChartCardPartView: UIView, CardPartView {
 extension PriceChartCardPartView {
     private func configChartView() {
         view.addSubview(chartView)
-        chartView.marker = priceMarker
         chartView.delegate = self
         chartView.baseChartViewDelegate = self
         chartView.xAxis.valueFormatter = self
@@ -194,14 +194,18 @@ extension PriceChartCardPartView {
         let lineChartDataSetForHistoricalPrice = LineChartDataSet(entries: historicalPriceDataEntries, label: "Historical Price")
         configLineChartDataSetForHistoricalPrice(with: lineChartDataSetForHistoricalPrice)
         chartView.data = LineChartData(dataSet: lineChartDataSetForHistoricalPrice)
+        chartView.marker = priceMarker
     }
     
     private func addDataSetForNews(newsDataEntries: [ChartDataEntry]) {
+        guard !newsDataEntries.isEmpty else { return }
         newsDataEntries.forEach { newsDataEntry in
             let lineChartDataSetForNews = LineChartDataSet(entries: [newsDataEntry], label: "News")
             configLineChartDataSetForNews(with: lineChartDataSetForNews)
             chartView.data?.addDataSet(lineChartDataSetForNews)
         }
+        disableHistoricalPriceDataSetHighlight()
+        chartView.marker = newsMarker
     }
     
     public func removeDataSetForNews() {
@@ -209,5 +213,21 @@ extension PriceChartCardPartView {
         let newsDataSets = dataSets.filter { $0.label == "News" }
         newsDataSets.forEach { newsDataSet in chartView.data?.removeDataSet(newsDataSet) }
         newsDataEntries.removeAll()
+        enableHistoricalPriceDataSetHighlight()
+        chartView.marker = priceMarker
+    }
+}
+
+extension PriceChartCardPartView {
+    private func enableHistoricalPriceDataSetHighlight() {
+        guard let dataSets = chartView.data?.dataSets else { return }
+        let historicalPriceDataSet = dataSets.filter { $0.label == "Historical Price" }[0]
+        historicalPriceDataSet.highlightEnabled = true
+    }
+    
+    private func disableHistoricalPriceDataSetHighlight() {
+        guard let dataSets = chartView.data?.dataSets else { return }
+        let historicalPriceDataSet = dataSets.filter { $0.label == "Historical Price" }[0]
+        historicalPriceDataSet.highlightEnabled = false
     }
 }
