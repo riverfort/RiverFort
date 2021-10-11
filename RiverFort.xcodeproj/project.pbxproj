@@ -37,7 +37,7 @@
 		7748988326E0D598000933A6 /* DetailViewAPIFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748988226E0D598000933A6 /* DetailViewAPIFunction.swift */; };
 		7748988526E0E235000933A6 /* ADTVChartCardPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748988426E0E235000933A6 /* ADTVChartCardPartView.swift */; };
 		7748988726E0E454000933A6 /* ADTVChartCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748988626E0E454000933A6 /* ADTVChartCardController.swift */; };
-		774C8A002714500A00942DBD /* RiverFort.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 774C89FE2714500A00942DBD /* RiverFort.xcdatamodeld */; };
+		774C8A002714500A00942DBD /* RiverFortDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 774C89FE2714500A00942DBD /* RiverFortDataModel.xcdatamodeld */; };
 		774C8A072714559E00942DBD /* WatchlistCompany+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774C8A062714559E00942DBD /* WatchlistCompany+CoreDataProperties.swift */; };
 		774C8A082714559E00942DBD /* WatchlistCompany+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774C8A052714559E00942DBD /* WatchlistCompany+CoreDataClass.swift */; };
 		77545BA727103E6C0003B278 /* NewsMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77545BA627103E6C0003B278 /* NewsMarker.swift */; };
@@ -348,7 +348,7 @@
 		773A0B9C26172370002B9875 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				774C89FE2714500A00942DBD /* RiverFort.xcdatamodeld */,
+				774C89FE2714500A00942DBD /* RiverFortDataModel.xcdatamodeld */,
 				773A0B6D2617123B002B9875 /* LaunchScreen.storyboard */,
 				7780B8B726CFB03F00561789 /* Assets */,
 			);
@@ -740,7 +740,7 @@
 				7748988726E0E454000933A6 /* ADTVChartCardController.swift in Sources */,
 				77E7B3FB26E7838F000EABC6 /* PriceMarker.swift in Sources */,
 				7711CA9926FC9C50005A5AEC /* NewsViewModel.swift in Sources */,
-				774C8A002714500A00942DBD /* RiverFort.xcdatamodeld in Sources */,
+				774C8A002714500A00942DBD /* RiverFortDataModel.xcdatamodeld in Sources */,
 				772A747526DF93890088A604 /* HeaderCardController.swift in Sources */,
 				7790360C26FDCCC000A33248 /* WatchlistTableViewController.swift in Sources */,
 				7765434426EF3C5700E91C25 /* FMP.swift in Sources */,
@@ -997,13 +997,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		774C89FE2714500A00942DBD /* RiverFort.xcdatamodeld */ = {
+		774C89FE2714500A00942DBD /* RiverFortDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				774C89FF2714500A00942DBD /* RiverFort.xcdatamodel */,
 			);
 			currentVersion = 774C89FF2714500A00942DBD /* RiverFort.xcdatamodel */;
-			path = RiverFort.xcdatamodeld;
+			path = RiverFortDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
