@@ -466,8 +466,8 @@
 			isa = PBXGroup;
 			children = (
 				7711F75F27086E08006148FA /* Networking */,
-				7704889726FE0948002F7CC8 /* RealmWatchlistCompany.swift */,
 				77C9393627145CA8006C9570 /* WatchlistCompany */,
+				7704889726FE0948002F7CC8 /* RealmWatchlistCompany.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
