@@ -11,7 +11,7 @@ import SPAlert
 
 class WatchlistTableViewController: UITableViewController {
     public let realm = try! Realm()
-    public lazy var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
+    public lazy var watchlistCompanyList = realm.objects(RealmWatchlistCompanyList.self).first
     public lazy var searchResultTableVC = SearchResultViewController(style: .insetGrouped)
 
     override func viewDidLoad() {

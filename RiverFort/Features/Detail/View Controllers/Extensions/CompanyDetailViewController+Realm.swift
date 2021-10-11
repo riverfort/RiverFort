@@ -12,14 +12,14 @@ import SPAlert
 extension CompanyDetailViewController {
     public func isCompanyInWatchlist() -> Bool? {
         guard let company = company else { return nil }
-        let watchlistCompany = realm.object(ofType: WatchlistCompany.self, forPrimaryKey: company.symbol)
+        let watchlistCompany = realm.object(ofType: RealmWatchlistCompany.self, forPrimaryKey: company.symbol)
         if watchlistCompany == nil { return false }
         else { return true }
     }
 
     @objc public func saveWatchlistCompany() {
         guard let company = company else { return }
-        let watchlistCompany = WatchlistCompany()
+        let watchlistCompany = RealmWatchlistCompany()
         watchlistCompany.symbol = company.symbol
         watchlistCompany.name = company.name
         watchlistCompany.exchange = company.exchange

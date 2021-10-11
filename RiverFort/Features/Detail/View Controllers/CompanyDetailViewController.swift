@@ -12,7 +12,7 @@ import SPAlert
 class CompanyDetailViewController: CardsViewController {
     public var company: Company?
     public let realm = try! Realm()
-    public lazy var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
+    public lazy var watchlistCompanyList = realm.objects(RealmWatchlistCompanyList.self).first
     public lazy var add  = UIButton(type: .system)
     public lazy var more = UIButton(type: .system)
     private lazy var header = HeaderCardController()

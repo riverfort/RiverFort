@@ -8,11 +8,11 @@
 import Foundation
 import RealmSwift
 
-class WatchlistCompanyList: Object {
-    @Persisted var watchlistCompanies: List<WatchlistCompany>
+class RealmWatchlistCompanyList: Object {
+    @Persisted var watchlistCompanies: List<RealmWatchlistCompany>
 }
 
-class WatchlistCompany: Object {
+class RealmWatchlistCompany: Object {
     @Persisted var symbol: String
     @Persisted var name: String
     @Persisted var exchange: String
@@ -24,14 +24,14 @@ class WatchlistCompany: Object {
     override class func primaryKey() -> String? { "symbol" }
 }
 
-extension WatchlistCompanyList {
+extension RealmWatchlistCompanyList {
     static func initWatchlistCompanyList() {
         let realm = try! Realm()
-        var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
+        var watchlistCompanyList = realm.objects(RealmWatchlistCompanyList.self).first
         if watchlistCompanyList == nil {
             do {
                 try realm.write({
-                    watchlistCompanyList = realm.create(WatchlistCompanyList.self, value: [])
+                    watchlistCompanyList = realm.create(RealmWatchlistCompanyList.self, value: [])
                 })
             } catch { print(error.localizedDescription) }
         } else {
