@@ -41,4 +41,10 @@ extension WatchlistCompanyList {
             watchlistCompanySymbols.forEach { WatchlistAPIFunction.syncWatchlist(companySymbol: $0) }
         }
     }
+    
+    static func syncWatchlistDeletion() {
+        guard let watchlistDeletionArray = UserDefaults.standard.array(forKey: UserDefaults.Keys.watchlistDeletion) as? [String] else { return }
+        guard !watchlistDeletionArray.isEmpty else { return }
+        watchlistDeletionArray.forEach { WatchlistAPIFunction.deleteWatchlist(companySymbol: $0 ) }
+    }
 }
