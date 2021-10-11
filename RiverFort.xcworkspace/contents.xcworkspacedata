@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:RiverFort/Features/Watchlist/Models/WatchlistCompany+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:RiverFort.xcodeproj">
    </FileRef>
    <FileRef

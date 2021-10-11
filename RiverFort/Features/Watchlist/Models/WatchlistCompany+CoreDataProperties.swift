@@ -19,5 +19,6 @@ extension WatchlistCompany {
     @NSManaged public var symbol: String?
     @NSManaged public var name: String?
     @NSManaged public var exchange: String?
+    @NSManaged public var displayOrder: Int16
 
 }
