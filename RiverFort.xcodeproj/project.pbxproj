@@ -467,8 +467,7 @@
 			children = (
 				7711F75F27086E08006148FA /* Networking */,
 				7704889726FE0948002F7CC8 /* RealmWatchlistCompany.swift */,
-				774C8A052714559E00942DBD /* WatchlistCompany+CoreDataClass.swift */,
-				774C8A062714559E00942DBD /* WatchlistCompany+CoreDataProperties.swift */,
+				77C9393627145CA8006C9570 /* WatchlistCompany */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -506,6 +505,15 @@
 				776D13C2261E087500B9CF97 /* HomeTabBarController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		77C9393627145CA8006C9570 /* WatchlistCompany */ = {
+			isa = PBXGroup;
+			children = (
+				774C8A052714559E00942DBD /* WatchlistCompany+CoreDataClass.swift */,
+				774C8A062714559E00942DBD /* WatchlistCompany+CoreDataProperties.swift */,
+			);
+			path = WatchlistCompany;
 			sourceTree = "<group>";
 		};
 		77CA1323270203B100E461E0 /* Extensions */ = {
