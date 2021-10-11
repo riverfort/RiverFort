@@ -329,23 +329,23 @@
 		773A0B6126171238002B9875 /* RiverFort */ = {
 			isa = PBXGroup;
 			children = (
-				773A0B9C26172370002B9875 /* Storyboards */,
+				773A0B9C26172370002B9875 /* Resources */,
 				7780B8B826CFB14500561789 /* Features */,
 				77F9335F261A2BA1007662D5 /* Extensions */,
 				77104EEE26B4497B0058E2C2 /* Utilities */,
-				7780B8B726CFB03F00561789 /* Assets */,
 				77F85A0226C92B6D00EAE363 /* RiverFort.entitlements */,
 				773A0B702617123B002B9875 /* Info.plist */,
 			);
 			path = RiverFort;
 			sourceTree = "<group>";
 		};
-		773A0B9C26172370002B9875 /* Storyboards */ = {
+		773A0B9C26172370002B9875 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7780B8B726CFB03F00561789 /* Assets */,
 				773A0B6D2617123B002B9875 /* LaunchScreen.storyboard */,
 			);
-			path = Storyboards;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		7748987F26E0CECD000933A6 /* Models */ = {
