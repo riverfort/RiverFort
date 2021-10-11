@@ -37,6 +37,7 @@
 		7748988326E0D598000933A6 /* DetailViewAPIFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748988226E0D598000933A6 /* DetailViewAPIFunction.swift */; };
 		7748988526E0E235000933A6 /* ADTVChartCardPartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748988426E0E235000933A6 /* ADTVChartCardPartView.swift */; };
 		7748988726E0E454000933A6 /* ADTVChartCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748988626E0E454000933A6 /* ADTVChartCardController.swift */; };
+		774C8A002714500A00942DBD /* RiverFort.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 774C89FE2714500A00942DBD /* RiverFort.xcdatamodeld */; };
 		77545BA727103E6C0003B278 /* NewsMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77545BA627103E6C0003B278 /* NewsMarker.swift */; };
 		7759102F270AECD300FD3CD5 /* AppDelegate+UserNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7759102E270AECD300FD3CD5 /* AppDelegate+UserNotifications.swift */; };
 		7762C77226BAE258008DE1BA /* NumberShortScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7762C77126BAE258008DE1BA /* NumberShortScale.swift */; };
@@ -110,6 +111,7 @@
 		7748988226E0D598000933A6 /* DetailViewAPIFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewAPIFunction.swift; sourceTree = "<group>"; };
 		7748988426E0E235000933A6 /* ADTVChartCardPartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTVChartCardPartView.swift; sourceTree = "<group>"; };
 		7748988626E0E454000933A6 /* ADTVChartCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTVChartCardController.swift; sourceTree = "<group>"; };
+		774C89FF2714500A00942DBD /* RiverFort.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RiverFort.xcdatamodel; sourceTree = "<group>"; };
 		77545BA627103E6C0003B278 /* NewsMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsMarker.swift; sourceTree = "<group>"; };
 		7759102E270AECD300FD3CD5 /* AppDelegate+UserNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+UserNotifications.swift"; sourceTree = "<group>"; };
 		7762C77126BAE258008DE1BA /* NumberShortScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberShortScale.swift; sourceTree = "<group>"; };
@@ -342,8 +344,9 @@
 		773A0B9C26172370002B9875 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				7780B8B726CFB03F00561789 /* Assets */,
+				774C89FE2714500A00942DBD /* RiverFort.xcdatamodeld */,
 				773A0B6D2617123B002B9875 /* LaunchScreen.storyboard */,
+				7780B8B726CFB03F00561789 /* Assets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -729,6 +732,7 @@
 				7748988726E0E454000933A6 /* ADTVChartCardController.swift in Sources */,
 				77E7B3FB26E7838F000EABC6 /* PriceMarker.swift in Sources */,
 				7711CA9926FC9C50005A5AEC /* NewsViewModel.swift in Sources */,
+				774C8A002714500A00942DBD /* RiverFort.xcdatamodeld in Sources */,
 				772A747526DF93890088A604 /* HeaderCardController.swift in Sources */,
 				7790360C26FDCCC000A33248 /* WatchlistTableViewController.swift in Sources */,
 				7765434426EF3C5700E91C25 /* FMP.swift in Sources */,
@@ -983,6 +987,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		774C89FE2714500A00942DBD /* RiverFort.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				774C89FF2714500A00942DBD /* RiverFort.xcdatamodel */,
+			);
+			currentVersion = 774C89FF2714500A00942DBD /* RiverFort.xcdatamodel */;
+			path = RiverFort.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 773A0B5726171238002B9875 /* Project object */;
 }
