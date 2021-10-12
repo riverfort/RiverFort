@@ -10,6 +10,7 @@ import RealmSwift
 import SPAlert
 
 class WatchlistTableViewController: UITableViewController {
+    private lazy var statusLabel = UILabel()
     public let realm = try! Realm()
     public lazy var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
     public lazy var searchResultTableVC = SearchResultViewController(style: .insetGrouped)
@@ -20,6 +21,7 @@ class WatchlistTableViewController: UITableViewController {
         configNavigationController()
         configSearchController()
         configTableView()
+        configToolBar()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -125,6 +127,16 @@ extension WatchlistTableViewController {
     
     private func configTableView() {
         tableView = UITableView(frame: tableView.frame, style: .insetGrouped)
+    }
+    
+    private func configToolBar() {
+        navigationController?.setToolbarHidden(false, animated: true)
+        let status = UIBarButtonItem()
+        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        status.customView = statusLabel
+        statusLabel.text = "No Watchlist"
+        statusLabel.font = .preferredFont(forTextStyle: .caption2)
+        toolbarItems = [spacer, status, spacer]
     }
 }
 
