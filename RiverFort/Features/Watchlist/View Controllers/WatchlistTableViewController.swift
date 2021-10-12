@@ -10,10 +10,10 @@ import RealmSwift
 import SPAlert
 
 class WatchlistTableViewController: UITableViewController {
-    private lazy var statusLabel = UILabel()
     public let realm = try! Realm()
     public lazy var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
     public lazy var searchResultTableVC = SearchResultViewController(style: .insetGrouped)
+    private lazy var watchlistCompaniesCountLabel = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +28,11 @@ class WatchlistTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setWatchlistCompaniesCountLabel()
     }
 
     // MARK: - Table view data source
@@ -66,6 +71,7 @@ class WatchlistTableViewController: UITableViewController {
             }
             deleteWatchlistCompany(row: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            setWatchlistCompaniesCountLabel()
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
@@ -131,12 +137,20 @@ extension WatchlistTableViewController {
     
     private func configToolBar() {
         navigationController?.setToolbarHidden(false, animated: true)
-        let status = UIBarButtonItem()
+        let watchlistStats = UIBarButtonItem()
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        status.customView = statusLabel
-        statusLabel.text = "No Watchlist"
-        statusLabel.font = .preferredFont(forTextStyle: .caption2)
-        toolbarItems = [spacer, status, spacer]
+        watchlistStats.customView = watchlistCompaniesCountLabel
+        watchlistCompaniesCountLabel.font = .preferredFont(forTextStyle: .caption2)
+        watchlistCompaniesCountLabel.textAlignment = .center
+        watchlistCompaniesCountLabel.numberOfLines = 1
+        toolbarItems = [spacer, watchlistStats, spacer]
+    }
+}
+
+extension WatchlistTableViewController {
+    private func setWatchlistCompaniesCountLabel() {
+        let count = watchlistCompanyList!.watchlistCompanies.count
+        watchlistCompaniesCountLabel.text = (count == 0) ? "No Watchlist" : (count == 1) ? "\(count) Company" : "\(count) Companies"
     }
 }
 
