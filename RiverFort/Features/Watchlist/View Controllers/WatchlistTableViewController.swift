@@ -138,12 +138,11 @@ extension WatchlistTableViewController {
     private func configToolBar() {
         navigationController?.setToolbarHidden(false, animated: true)
         let watchlistStats = UIBarButtonItem()
-        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         watchlistStats.customView = watchlistCompaniesCountLabel
         watchlistCompaniesCountLabel.font = .preferredFont(forTextStyle: .caption2)
         watchlistCompaniesCountLabel.textAlignment = .center
         watchlistCompaniesCountLabel.numberOfLines = 1
-        toolbarItems = [spacer, watchlistStats, spacer]
+        toolbarItems = [watchlistStats]
     }
 }
 
