@@ -7,12 +7,12 @@
 
 import UIKit
 import RealmSwift
-import SPAlert
 
 class WatchlistTableViewController: UITableViewController {
     public let realm = try! Realm()
     public lazy var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
     public lazy var searchResultTableVC = SearchResultViewController(style: .insetGrouped)
+    private lazy var watchlistCompaniesCountLabel = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +20,18 @@ class WatchlistTableViewController: UITableViewController {
         configNavigationController()
         configSearchController()
         configTableView()
+        configToolBar()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setWatchlistCompaniesCountLabel()
     }
 
     // MARK: - Table view data source
@@ -42,7 +48,10 @@ class WatchlistTableViewController: UITableViewController {
         var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         if cell == nil { cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell") }
         cell!.textLabel?.text = watchlistCompanyList!.watchlistCompanies[indexPath.row].symbol
+        cell!.textLabel?.font = .preferredFont(forTextStyle: .headline)
         cell!.detailTextLabel?.text = watchlistCompanyList!.watchlistCompanies[indexPath.row].name
+        cell!.detailTextLabel?.font = .preferredFont(forTextStyle: .subheadline)
+        cell!.detailTextLabel?.textColor = .systemGray
         return cell!
     }
 
@@ -64,6 +73,7 @@ class WatchlistTableViewController: UITableViewController {
             }
             deleteWatchlistCompany(row: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            setWatchlistCompaniesCountLabel()
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
@@ -125,6 +135,24 @@ extension WatchlistTableViewController {
     
     private func configTableView() {
         tableView = UITableView(frame: tableView.frame, style: .insetGrouped)
+    }
+    
+    private func configToolBar() {
+        navigationController?.setToolbarHidden(false, animated: true)
+        let watchlistStats = UIBarButtonItem()
+        watchlistStats.customView = watchlistCompaniesCountLabel
+        watchlistCompaniesCountLabel.font = .preferredFont(forTextStyle: .caption2)
+        watchlistCompaniesCountLabel.textAlignment = .center
+        watchlistCompaniesCountLabel.numberOfLines = 1
+        toolbarItems = [watchlistStats]
+    }
+}
+
+extension WatchlistTableViewController {
+    private func setWatchlistCompaniesCountLabel() {
+        let count = watchlistCompanyList!.watchlistCompanies.count
+        watchlistCompaniesCountLabel.text = (count == 0) ? "No Watchlist" : (count == 1) ? "\(count) Company" : "\(count) Companies"
+        navigationItem.rightBarButtonItem?.isEnabled = (count == 0) ? false : true
     }
 }
 
