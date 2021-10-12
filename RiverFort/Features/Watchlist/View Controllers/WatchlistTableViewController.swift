@@ -7,7 +7,6 @@
 
 import UIKit
 import RealmSwift
-import SPAlert
 
 class WatchlistTableViewController: UITableViewController {
     public let realm = try! Realm()
