@@ -49,7 +49,10 @@ class WatchlistTableViewController: UITableViewController {
         var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         if cell == nil { cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell") }
         cell!.textLabel?.text = watchlistCompanyList!.watchlistCompanies[indexPath.row].symbol
+        cell!.textLabel?.font = .preferredFont(forTextStyle: .headline)
         cell!.detailTextLabel?.text = watchlistCompanyList!.watchlistCompanies[indexPath.row].name
+        cell!.detailTextLabel?.font = .preferredFont(forTextStyle: .subheadline)
+        cell!.detailTextLabel?.textColor = .systemGray
         return cell!
     }
 
