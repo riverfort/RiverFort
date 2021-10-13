@@ -20,6 +20,7 @@ class WatchlistTableViewController: UITableViewController {
     public lazy var statusBarButton = UIBarButtonItem()
     public lazy var filteredByBarButton = UIBarButtonItem()
     public lazy var watchlistCompaniesCountLabel = UILabel()
+    public lazy var filteredByButton = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -158,7 +159,10 @@ extension WatchlistTableViewController {
     }
     
     private func configFilteredByBarButton() {
-        
+        filteredByButton.setTitle("Filtered by:", for: .normal)
+        filteredByButton.setTitleColor(.label, for: .normal)
+        filteredByButton.titleLabel?.font = .preferredFont(forTextStyle: .caption2)
+        filteredByBarButton.customView = filteredByButton
     }
     
     private func configWatchlistCompaniesCountLabel() {
