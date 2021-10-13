@@ -29,6 +29,7 @@ class WatchlistTableViewController: UITableViewController {
         configSearchController()
         configTableView()
         configToolBar()
+        configFilterBarButton()
         configStatusBarButton()
         configFilteredByBarButton()
         configWatchlistCompaniesCountLabel()
@@ -153,10 +154,8 @@ extension WatchlistTableViewController {
         setToolbarItems([filterBarButton, spacerBarButton, statusBarButton, spacerBarButton], animated: true)
     }
     
-    private func configStatusBarButton() {
-        statusBarButton.customView = watchlistCompaniesCountLabel
-        filterBarButton.tintColor = .systemIndigo
-    }
+    private func configFilterBarButton() { filterBarButton.tintColor = .systemIndigo }
+    private func configStatusBarButton() { statusBarButton.customView = watchlistCompaniesCountLabel }
     
     private func configFilteredByBarButton() {
         filteredByButton.setTitle("Filtered by:", for: .normal)
