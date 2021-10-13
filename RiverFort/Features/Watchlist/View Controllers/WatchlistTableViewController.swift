@@ -147,7 +147,7 @@ extension WatchlistTableViewController {
                                               style: .plain, target: self, action: #selector(didTapWatchlistFilter))
         watchlistStatusBarButtonItem.customView = watchlistCompaniesCountLabel
         watchlistFilter.tintColor = .systemIndigo
-        toolbarItems = [watchlistFilter, spacer, watchlistStatusBarButtonItem, spacer]
+        setToolbarItems([watchlistFilter, spacer, watchlistStatusBarButtonItem, spacer], animated: true)
     }
     
     private func configWatchlistCompaniesCountLabel() {
