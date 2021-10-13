@@ -12,11 +12,11 @@ extension WatchlistTableViewController {
     @objc public func didTapWatchlistFilter(sender: UIBarButtonItem) {
         if isWatchlistFilterOn {
             isWatchlistFilterOn = false
-            sender.image = UIImage(systemName: "line.3.horizontal.decrease.circle")
+            sender.image = watchlistFilterOffImage
             setToolbarItems([watchlistFilterBarButtonItem, spacerBarButtonItem, watchlistStatusBarButtonItem, spacerBarButtonItem], animated: true)
         } else {
             isWatchlistFilterOn = true
-            sender.image = UIImage(systemName: "line.3.horizontal.decrease.circle.fill")
+            sender.image = watchlistFilterOnImage
             setToolbarItems([watchlistFilterBarButtonItem, spacerBarButtonItem, watchlistFilteredByBarButtonItem, spacerBarButtonItem], animated: true)
         }
     }
