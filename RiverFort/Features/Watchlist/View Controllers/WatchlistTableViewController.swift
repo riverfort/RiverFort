@@ -21,6 +21,7 @@ class WatchlistTableViewController: UITableViewController {
         configSearchController()
         configTableView()
         configToolBar()
+        configWatchlistCompaniesCountLabel()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -142,7 +143,6 @@ extension WatchlistTableViewController {
         let watchlistStats = UIBarButtonItem()
         watchlistStats.customView = watchlistCompaniesCountLabel
         toolbarItems = [watchlistStats]
-        configWatchlistCompaniesCountLabel()
     }
     
     private func configWatchlistCompaniesCountLabel() {
