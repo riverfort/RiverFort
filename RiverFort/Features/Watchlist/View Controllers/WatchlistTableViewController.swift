@@ -12,7 +12,7 @@ class WatchlistTableViewController: UITableViewController {
     public let realm = try! Realm()
     public lazy var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
     public lazy var searchResultTableVC = SearchResultViewController(style: .insetGrouped)
-    private lazy var watchlistCompaniesCountLabel = UILabel()
+    public lazy var watchlistCompaniesCountLabel = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -145,14 +145,6 @@ extension WatchlistTableViewController {
         watchlistCompaniesCountLabel.textAlignment = .center
         watchlistCompaniesCountLabel.numberOfLines = 1
         toolbarItems = [watchlistStats]
-    }
-}
-
-extension WatchlistTableViewController {
-    private func setWatchlistCompaniesCountLabel() {
-        let count = watchlistCompanyList!.watchlistCompanies.count
-        watchlistCompaniesCountLabel.text = (count == 0) ? "No Watchlist" : (count == 1) ? "\(count) Company" : "\(count) Companies"
-        navigationItem.rightBarButtonItem?.isEnabled = (count == 0) ? false : true
     }
 }
 
