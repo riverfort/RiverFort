@@ -10,15 +10,15 @@ import RealmSwift
 
 class WatchlistTableViewController: UITableViewController {
     public let realm = try! Realm()
-    public var isWatchlistFilterOn = false
+    public var isFilterOn = false
     public lazy var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
     public lazy var searchResultTableVC = SearchResultViewController(style: .insetGrouped)
-    public lazy var watchlistFilterOnImage = UIImage(systemName: "line.3.horizontal.decrease.circle.fill")
-    public lazy var watchlistFilterOffImage = UIImage(systemName: "line.3.horizontal.decrease.circle")
-    public lazy var spacerBarButtonItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-    public lazy var watchlistFilterBarButtonItem = UIBarButtonItem(image: watchlistFilterOffImage, style: .plain, target: self, action: #selector(didTapWatchlistFilter))
-    public lazy var watchlistFilteredByBarButtonItem = UIBarButtonItem()
-    public lazy var watchlistStatusBarButtonItem = UIBarButtonItem()
+    public lazy var filterOnImage = UIImage(systemName: "line.3.horizontal.decrease.circle.fill")
+    public lazy var filterOffImage = UIImage(systemName: "line.3.horizontal.decrease.circle")
+    public lazy var filterSwitchBarButton = UIBarButtonItem(image: filterOffImage, style: .plain, target: self, action: #selector(didTapWatchlistFilter))
+    public lazy var spacerBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+    public lazy var filteredByBarButton = UIBarButtonItem()
+    public lazy var statusBarButton = UIBarButtonItem()
     public lazy var watchlistCompaniesCountLabel = UILabel()
 
     override func viewDidLoad() {
@@ -148,12 +148,12 @@ extension WatchlistTableViewController {
     
     private func configToolBar() {
         navigationController?.setToolbarHidden(false, animated: true)
-        setToolbarItems([watchlistFilterBarButtonItem, spacerBarButtonItem, watchlistStatusBarButtonItem, spacerBarButtonItem], animated: true)
+        setToolbarItems([filterSwitchBarButton, spacerBarButton, statusBarButton, spacerBarButton], animated: true)
     }
     
     private func configWatchlistStatusBarButtonItem() {
-        watchlistStatusBarButtonItem.customView = watchlistCompaniesCountLabel
-        watchlistFilterBarButtonItem.tintColor = .systemIndigo
+        statusBarButton.customView = watchlistCompaniesCountLabel
+        filterSwitchBarButton.tintColor = .systemIndigo
     }
     
     private func configWatchlistCompaniesCountLabel() {

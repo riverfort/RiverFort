@@ -10,14 +10,14 @@ import UIKit
 
 extension WatchlistTableViewController {
     @objc public func didTapWatchlistFilter(sender: UIBarButtonItem) {
-        if isWatchlistFilterOn {
-            isWatchlistFilterOn = false
-            sender.image = watchlistFilterOffImage
-            setToolbarItems([watchlistFilterBarButtonItem, spacerBarButtonItem, watchlistStatusBarButtonItem, spacerBarButtonItem], animated: true)
+        if isFilterOn {
+            isFilterOn = false
+            sender.image = filterOffImage
+            setToolbarItems([filterSwitchBarButton, spacerBarButton, statusBarButton, spacerBarButton], animated: true)
         } else {
-            isWatchlistFilterOn = true
-            sender.image = watchlistFilterOnImage
-            setToolbarItems([watchlistFilterBarButtonItem, spacerBarButtonItem, watchlistFilteredByBarButtonItem, spacerBarButtonItem], animated: true)
+            isFilterOn = true
+            sender.image = filterOnImage
+            setToolbarItems([filterSwitchBarButton, spacerBarButton, filteredByBarButton, spacerBarButton], animated: true)
         }
     }
 }
