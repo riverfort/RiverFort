@@ -15,7 +15,7 @@ class WatchlistTableViewController: UITableViewController {
     public lazy var searchResultTableVC = SearchResultViewController(style: .insetGrouped)
     public lazy var filterOnImage = UIImage(systemName: "line.3.horizontal.decrease.circle.fill")
     public lazy var filterOffImage = UIImage(systemName: "line.3.horizontal.decrease.circle")
-    public lazy var filterSwitchBarButton = UIBarButtonItem(image: filterOffImage, style: .plain, target: self, action: #selector(didTapWatchlistFilter))
+    public lazy var filterBarButton = UIBarButtonItem(image: filterOffImage, style: .plain, target: self, action: #selector(didTapWatchlistFilter))
     public lazy var spacerBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
     public lazy var filteredByBarButton = UIBarButtonItem()
     public lazy var statusBarButton = UIBarButtonItem()
@@ -148,12 +148,12 @@ extension WatchlistTableViewController {
     
     private func configToolBar() {
         navigationController?.setToolbarHidden(false, animated: true)
-        setToolbarItems([filterSwitchBarButton, spacerBarButton, statusBarButton, spacerBarButton], animated: true)
+        setToolbarItems([filterBarButton, spacerBarButton, statusBarButton, spacerBarButton], animated: true)
     }
     
     private func configWatchlistStatusBarButtonItem() {
         statusBarButton.customView = watchlistCompaniesCountLabel
-        filterSwitchBarButton.tintColor = .systemIndigo
+        filterBarButton.tintColor = .systemIndigo
     }
     
     private func configWatchlistCompaniesCountLabel() {

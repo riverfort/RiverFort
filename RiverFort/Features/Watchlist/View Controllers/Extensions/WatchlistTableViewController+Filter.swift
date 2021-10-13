@@ -13,11 +13,11 @@ extension WatchlistTableViewController {
         if isFilterOn {
             isFilterOn = false
             sender.image = filterOffImage
-            setToolbarItems([filterSwitchBarButton, spacerBarButton, statusBarButton, spacerBarButton], animated: true)
+            setToolbarItems([filterBarButton, spacerBarButton, statusBarButton, spacerBarButton], animated: true)
         } else {
             isFilterOn = true
             sender.image = filterOnImage
-            setToolbarItems([filterSwitchBarButton, spacerBarButton, filteredByBarButton, spacerBarButton], animated: true)
+            setToolbarItems([filterBarButton, spacerBarButton, filteredByBarButton, spacerBarButton], animated: true)
         }
     }
 }
