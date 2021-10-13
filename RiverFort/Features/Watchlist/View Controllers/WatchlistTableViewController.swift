@@ -12,7 +12,7 @@ class WatchlistTableViewController: UITableViewController {
     public let realm = try! Realm()
     public lazy var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
     public lazy var searchResultTableVC = SearchResultViewController(style: .insetGrouped)
-    private lazy var watchlistCompaniesCountLabel = UILabel()
+    public lazy var watchlistCompaniesCountLabel = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +21,7 @@ class WatchlistTableViewController: UITableViewController {
         configSearchController()
         configTableView()
         configToolBar()
+        configWatchlistCompaniesCountLabel()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -141,18 +142,13 @@ extension WatchlistTableViewController {
         navigationController?.setToolbarHidden(false, animated: true)
         let watchlistStats = UIBarButtonItem()
         watchlistStats.customView = watchlistCompaniesCountLabel
+        toolbarItems = [watchlistStats]
+    }
+    
+    private func configWatchlistCompaniesCountLabel() {
         watchlistCompaniesCountLabel.font = .preferredFont(forTextStyle: .caption2)
         watchlistCompaniesCountLabel.textAlignment = .center
         watchlistCompaniesCountLabel.numberOfLines = 1
-        toolbarItems = [watchlistStats]
-    }
-}
-
-extension WatchlistTableViewController {
-    private func setWatchlistCompaniesCountLabel() {
-        let count = watchlistCompanyList!.watchlistCompanies.count
-        watchlistCompaniesCountLabel.text = (count == 0) ? "No Watchlist" : (count == 1) ? "\(count) Company" : "\(count) Companies"
-        navigationItem.rightBarButtonItem?.isEnabled = (count == 0) ? false : true
     }
 }
 

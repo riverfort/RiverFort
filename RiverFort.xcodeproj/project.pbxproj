@@ -16,6 +16,7 @@
 		7711CA9426FC96A9005A5AEC /* NewsCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7711CA9326FC96A9005A5AEC /* NewsCardController.swift */; };
 		7711CA9926FC9C50005A5AEC /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7711CA9826FC9C50005A5AEC /* NewsViewModel.swift */; };
 		7711F76127086E24006148FA /* WatchlistAPIFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7711F76027086E24006148FA /* WatchlistAPIFunction.swift */; };
+		7717586F2716C4E000DE64A1 /* WatchlistTableViewController+Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7717586E2716C4E000DE64A1 /* WatchlistTableViewController+Status.swift */; };
 		7720570626DE6E8300063A9A /* CompanyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7720570526DE6E8300063A9A /* CompanyDetailViewController.swift */; };
 		77227AA026F3953D00C5867D /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77227A9F26F3953D00C5867D /* Profile.swift */; };
 		77227AA226F396D900C5867D /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77227AA126F396D900C5867D /* Quote.swift */; };
@@ -87,6 +88,7 @@
 		7711CA9326FC96A9005A5AEC /* NewsCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCardController.swift; sourceTree = "<group>"; };
 		7711CA9826FC9C50005A5AEC /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		7711F76027086E24006148FA /* WatchlistAPIFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistAPIFunction.swift; sourceTree = "<group>"; };
+		7717586E2716C4E000DE64A1 /* WatchlistTableViewController+Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WatchlistTableViewController+Status.swift"; sourceTree = "<group>"; };
 		7720570526DE6E8300063A9A /* CompanyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailViewController.swift; sourceTree = "<group>"; };
 		77227A9F26F3953D00C5867D /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		77227AA126F396D900C5867D /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
@@ -504,6 +506,7 @@
 			children = (
 				77CA13262702074F00E461E0 /* WatchlistTableViewController+Search.swift */,
 				77CA1324270203DC00E461E0 /* WatchlistTableViewController+Realm.swift */,
+				7717586E2716C4E000DE64A1 /* WatchlistTableViewController+Status.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -729,6 +732,7 @@
 				7748988726E0E454000933A6 /* ADTVChartCardController.swift in Sources */,
 				77E7B3FB26E7838F000EABC6 /* PriceMarker.swift in Sources */,
 				7711CA9926FC9C50005A5AEC /* NewsViewModel.swift in Sources */,
+				7717586F2716C4E000DE64A1 /* WatchlistTableViewController+Status.swift in Sources */,
 				772A747526DF93890088A604 /* HeaderCardController.swift in Sources */,
 				7790360C26FDCCC000A33248 /* WatchlistTableViewController.swift in Sources */,
 				7765434426EF3C5700E91C25 /* FMP.swift in Sources */,
