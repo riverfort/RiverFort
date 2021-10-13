@@ -8,5 +8,7 @@
 import Foundation
 
 extension WatchlistTableViewController {
-    
+    @objc public func didTapWatchlistFilter() {
+        print("\(#function)")
+    }
 }

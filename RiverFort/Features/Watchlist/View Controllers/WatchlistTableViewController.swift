@@ -143,7 +143,7 @@ extension WatchlistTableViewController {
         let watchlistStats = UIBarButtonItem()
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let watchlistFilter = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal.decrease.circle"),
-                                              style: .plain, target: self, action: nil)
+                                              style: .plain, target: self, action: #selector(didTapWatchlistFilter))
         watchlistStats.customView = watchlistCompaniesCountLabel
         watchlistFilter.tintColor = .systemIndigo
         toolbarItems = [watchlistFilter, spacer, watchlistStats, spacer]
