@@ -21,3 +21,9 @@ extension WatchlistTableViewController {
         }
     }
 }
+
+extension WatchlistTableViewController {
+    @objc public func didTapWatchlistFilteredBy() {
+        
+    }
+}
