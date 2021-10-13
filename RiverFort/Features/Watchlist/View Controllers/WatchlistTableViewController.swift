@@ -13,6 +13,10 @@ class WatchlistTableViewController: UITableViewController {
     public var isWatchlistFilterOn = false
     public lazy var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
     public lazy var searchResultTableVC = SearchResultViewController(style: .insetGrouped)
+    public lazy var watchlistFilterBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal.decrease.circle"),
+                                                                   style: .plain, target: self, action: #selector(didTapWatchlistFilter))
+    public lazy var watchlistFilteredByBarButtonItem = UIBarButtonItem()
+    public lazy var spacerBarButtonItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
     public lazy var watchlistStatusBarButtonItem = UIBarButtonItem()
     public lazy var watchlistCompaniesCountLabel = UILabel()
 
@@ -142,12 +146,9 @@ extension WatchlistTableViewController {
     
     private func configToolBar() {
         navigationController?.setToolbarHidden(false, animated: true)
-        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let watchlistFilter = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal.decrease.circle"),
-                                              style: .plain, target: self, action: #selector(didTapWatchlistFilter))
+        setToolbarItems([watchlistFilterBarButtonItem, spacerBarButtonItem, watchlistStatusBarButtonItem, spacerBarButtonItem], animated: true)
         watchlistStatusBarButtonItem.customView = watchlistCompaniesCountLabel
-        watchlistFilter.tintColor = .systemIndigo
-        setToolbarItems([watchlistFilter, spacer, watchlistStatusBarButtonItem, spacer], animated: true)
+        watchlistFilterBarButtonItem.tintColor = .systemIndigo
     }
     
     private func configWatchlistCompaniesCountLabel() {
