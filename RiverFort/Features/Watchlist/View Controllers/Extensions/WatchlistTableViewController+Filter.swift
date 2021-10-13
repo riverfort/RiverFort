@@ -12,9 +12,11 @@ extension WatchlistTableViewController {
     @objc public func didTapWatchlistFilter(sender: UIBarButtonItem) {
         if isWatchlistFilterOn {
             isWatchlistFilterOn = false
+            watchlistStatusBarButtonItem.customView = watchlistCompaniesCountLabel
             sender.image = UIImage(systemName: "line.3.horizontal.decrease.circle")
         } else {
             isWatchlistFilterOn = true
+            watchlistStatusBarButtonItem.customView = nil
             sender.image = UIImage(systemName: "line.3.horizontal.decrease.circle.fill")
         }
     }
