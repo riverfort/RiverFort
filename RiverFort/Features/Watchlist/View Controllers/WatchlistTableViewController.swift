@@ -17,8 +17,8 @@ class WatchlistTableViewController: UITableViewController {
     public lazy var filterOffImage = UIImage(systemName: "line.3.horizontal.decrease.circle")
     public lazy var filterBarButton = UIBarButtonItem(image: filterOffImage, style: .plain, target: self, action: #selector(didTapWatchlistFilter))
     public lazy var spacerBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-    public lazy var filteredByBarButton = UIBarButtonItem()
     public lazy var statusBarButton = UIBarButtonItem()
+    public lazy var filteredByBarButton = UIBarButtonItem()
     public lazy var watchlistCompaniesCountLabel = UILabel()
 
     override func viewDidLoad() {
