@@ -28,7 +28,7 @@ class WatchlistTableViewController: UITableViewController {
         configSearchController()
         configTableView()
         configToolBar()
-        configWatchlistStatusBarButtonItem()
+        configStatusBarButton()
         configWatchlistCompaniesCountLabel()
 
         // Uncomment the following line to preserve selection between presentations
@@ -151,7 +151,7 @@ extension WatchlistTableViewController {
         setToolbarItems([filterBarButton, spacerBarButton, statusBarButton, spacerBarButton], animated: true)
     }
     
-    private func configWatchlistStatusBarButtonItem() {
+    private func configStatusBarButton() {
         statusBarButton.customView = watchlistCompaniesCountLabel
         filterBarButton.tintColor = .systemIndigo
     }
