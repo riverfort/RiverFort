@@ -15,7 +15,7 @@ class WatchlistTableViewController: UITableViewController {
     public lazy var searchResultTableVC = SearchResultViewController(style: .insetGrouped)
     public lazy var watchlistFilterBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal.decrease.circle"),
                                                                    style: .plain, target: self, action: #selector(didTapWatchlistFilter))
-    public lazy var watchlistFilteredByBarButtonItem = UIBarButtonItem(image: nil, style: .plain, target: self, action: #selector(didTapWatchlistFilteredBy))
+    public lazy var watchlistFilteredByBarButtonItem = UIBarButtonItem(title: "Filterd by:", style: .plain, target: self, action: #selector(didTapWatchlistFilteredBy))
     public lazy var spacerBarButtonItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
     public lazy var watchlistStatusBarButtonItem = UIBarButtonItem()
     public lazy var watchlistCompaniesCountLabel = UILabel()

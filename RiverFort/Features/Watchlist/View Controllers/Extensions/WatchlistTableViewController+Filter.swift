@@ -17,13 +17,13 @@ extension WatchlistTableViewController {
         } else {
             isWatchlistFilterOn = true
             sender.image = UIImage(systemName: "line.3.horizontal.decrease.circle.fill")
-            setToolbarItems([watchlistFilterBarButtonItem], animated: true)
+            setToolbarItems([watchlistFilterBarButtonItem, spacerBarButtonItem, watchlistFilteredByBarButtonItem, spacerBarButtonItem], animated: true)
         }
     }
 }
 
 extension WatchlistTableViewController {
     @objc public func didTapWatchlistFilteredBy() {
-        
+        print("\(#function)")
     }
 }
