@@ -13,6 +13,7 @@ class WatchlistTableViewController: UITableViewController {
     public var isWatchlistFilterOn = false
     public lazy var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
     public lazy var searchResultTableVC = SearchResultViewController(style: .insetGrouped)
+    public lazy var watchlistStatusBarButtonItem = UIBarButtonItem()
     public lazy var watchlistCompaniesCountLabel = UILabel()
 
     override func viewDidLoad() {
@@ -141,13 +142,12 @@ extension WatchlistTableViewController {
     
     private func configToolBar() {
         navigationController?.setToolbarHidden(false, animated: true)
-        let watchlistStats = UIBarButtonItem()
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let watchlistFilter = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal.decrease.circle"),
                                               style: .plain, target: self, action: #selector(didTapWatchlistFilter))
-        watchlistStats.customView = watchlistCompaniesCountLabel
+        watchlistStatusBarButtonItem.customView = watchlistCompaniesCountLabel
         watchlistFilter.tintColor = .systemIndigo
-        toolbarItems = [watchlistFilter, spacer, watchlistStats, spacer]
+        toolbarItems = [watchlistFilter, spacer, watchlistStatusBarButtonItem, spacer]
     }
     
     private func configWatchlistCompaniesCountLabel() {
