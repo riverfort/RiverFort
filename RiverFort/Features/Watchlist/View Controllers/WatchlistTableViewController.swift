@@ -10,6 +10,7 @@ import RealmSwift
 
 class WatchlistTableViewController: UITableViewController {
     public let realm = try! Realm()
+    public var isWatchlistFilterOn = false
     public lazy var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
     public lazy var searchResultTableVC = SearchResultViewController(style: .insetGrouped)
     public lazy var watchlistCompaniesCountLabel = UILabel()
