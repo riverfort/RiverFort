@@ -13,5 +13,6 @@ extension UserDefaults {
         static let timeseriesSelectedSegmentIndex = "timeseries_selected_segment_index"
         static let deviceToken = "device_token"
         static let watchlistDeletionList = "watchlist_deletion_list"
+        static let filteringExchangeList = "filtering_exchange_list"
     }
 }
