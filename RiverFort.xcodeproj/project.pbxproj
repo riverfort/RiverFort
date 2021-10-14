@@ -509,10 +509,7 @@
 		77CA1323270203B100E461E0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				77CA13262702074F00E461E0 /* WatchlistTableViewController+Search.swift */,
-				77CA1324270203DC00E461E0 /* WatchlistTableViewController+Realm.swift */,
-				7717586E2716C4E000DE64A1 /* WatchlistTableViewController+Status.swift */,
-				776D7B2C2716C9D500EF5EB4 /* WatchlistTableViewController+Filter.swift */,
+				77D66174271845DA002001B4 /* WatchlistTableViewController+ */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -524,6 +521,17 @@
 				772845AA26E615FA0003F13E /* NewsURLs.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		77D66174271845DA002001B4 /* WatchlistTableViewController+ */ = {
+			isa = PBXGroup;
+			children = (
+				77CA13262702074F00E461E0 /* WatchlistTableViewController+Search.swift */,
+				77CA1324270203DC00E461E0 /* WatchlistTableViewController+Realm.swift */,
+				7717586E2716C4E000DE64A1 /* WatchlistTableViewController+Status.swift */,
+				776D7B2C2716C9D500EF5EB4 /* WatchlistTableViewController+Filter.swift */,
+			);
+			path = "WatchlistTableViewController+";
 			sourceTree = "<group>";
 		};
 		77D6FC8E26F370F10074137C /* Card Controllers */ = {
