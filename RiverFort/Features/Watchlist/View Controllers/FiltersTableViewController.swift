@@ -11,6 +11,7 @@ class FiltersTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configNavigationController()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -86,4 +87,13 @@ class FiltersTableViewController: UITableViewController {
     }
     */
 
+}
+
+extension FiltersTableViewController {
+    private func configNavigationController() {
+        navigationItem.title = "Filters"
+        navigationItem.largeTitleDisplayMode = .never
+        navigationController?.navigationBar.tintColor = .systemIndigo
+        navigationItem.rightBarButtonItem = UIBarButtonItem(systemItem: .done)
+    }
 }

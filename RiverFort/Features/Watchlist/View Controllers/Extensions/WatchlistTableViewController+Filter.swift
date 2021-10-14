@@ -25,6 +25,7 @@ extension WatchlistTableViewController {
 extension WatchlistTableViewController {
     @objc public func didTapWatchlistFilteredBy() {
         let filtersTableVC = FiltersTableViewController()
-        present(filtersTableVC, animated: true)
+        let navigation = UINavigationController(rootViewController: filtersTableVC)
+        present(navigation, animated: true)
     }
 }
