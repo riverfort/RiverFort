@@ -1,5 +1,5 @@
 //
-//  FiltersTableViewController.swift
+//  WatchlistFiltersTableViewController.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 14/10/2021.
@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-class FiltersTableViewController: UITableViewController {
+class WatchlistFiltersTableViewController: UITableViewController {
     public let realm = try! Realm()
     public lazy var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
 
@@ -93,7 +93,7 @@ class FiltersTableViewController: UITableViewController {
 
 }
 
-extension FiltersTableViewController {
+extension WatchlistFiltersTableViewController {
     private func configNavigationController() {
         navigationItem.title = "Filters"
         navigationItem.largeTitleDisplayMode = .never
