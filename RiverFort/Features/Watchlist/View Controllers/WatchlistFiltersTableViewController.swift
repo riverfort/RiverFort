@@ -121,10 +121,14 @@ extension WatchlistFiltersTableViewController {
         navigationItem.title = "Filters"
         navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.tintColor = .systemIndigo
-        navigationItem.rightBarButtonItem = UIBarButtonItem(systemItem: .done)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didTapDone))
     }
     
     private func configTableView() {
         tableView = UITableView(frame: tableView.frame, style: .insetGrouped)
     }
+}
+
+extension WatchlistFiltersTableViewController {
+    @objc private func didTapDone() { dismiss(animated: true) }
 }
