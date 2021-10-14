@@ -8,12 +8,17 @@
 import UIKit
 import RealmSwift
 
+struct FilteringExchange {
+    let name: String
+    let isFiltered: Bool
+}
+
 class WatchlistFiltersTableViewController: UITableViewController {
     public let realm = try! Realm()
-    public lazy var exchanges = Array(Set(realm.objects(WatchlistCompanyList.self).first!.watchlistCompanies
-                                            .map { $0.exchange }
-                                            .sorted { $0 < $1 }))
-
+    public lazy var exchanges = Array(Set(realm.objects(WatchlistCompanyList.self).first!.watchlistCompanies.map { $0.exchange }))
+        .sorted { $0 < $1 }
+        .map { FilteringExchange(name: $0, isFiltered: false) }
+                                            
     override func viewDidLoad() {
         super.viewDidLoad()
         configNavigationController()
@@ -39,7 +44,7 @@ class WatchlistFiltersTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         if cell == nil { cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell") }
-        cell!.textLabel?.text = exchanges[indexPath.row]
+        cell!.textLabel?.text = exchanges[indexPath.row].name
         return cell!
     }
 
@@ -88,6 +93,20 @@ class WatchlistFiltersTableViewController: UITableViewController {
     }
     */
 
+}
+
+extension WatchlistFiltersTableViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
+        cell.tintColor = .systemIndigo
+        let exchange = exchanges[indexPath.row]
+        let newExchange = FilteringExchange(name: exchange.name, isFiltered: !exchange.isFiltered)
+        exchanges.remove(at: indexPath.row)
+        exchanges.insert(newExchange, at: indexPath.row)
+        if newExchange.isFiltered { cell.accessoryType = .checkmark }
+        else { cell.accessoryType = .none }
+    }
 }
 
 extension WatchlistFiltersTableViewController {
