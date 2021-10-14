@@ -105,14 +105,14 @@ class WatchlistFiltersTableViewController: UITableViewController {
 extension WatchlistFiltersTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-//        guard let cell = tableView.cellForRow(at: indexPath) else { return }
-//        cell.tintColor = .systemIndigo
-//        let exchange = exchanges[indexPath.row]
-//        let newExchange = FilteringExchange(name: exchange.name, isFiltered: !exchange.isFiltered)
-//        exchanges.remove(at: indexPath.row)
-//        exchanges.insert(newExchange, at: indexPath.row)
-//        if newExchange.isFiltered { cell.accessoryType = .checkmark }
-//        else { cell.accessoryType = .none }
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
+        cell.tintColor = .systemIndigo
+        let filteringExchange = filteringExchanges[indexPath.row]
+        let newFilteringExchange = FilteringExchange(name: filteringExchange.name, isFiltered: !filteringExchange.isFiltered)
+        filteringExchanges.remove(at: indexPath.row)
+        filteringExchanges.insert(newFilteringExchange, at: indexPath.row)
+        if newFilteringExchange.isFiltered { cell.accessoryType = .checkmark }
+        else { cell.accessoryType = .none }
     }
 }
 
