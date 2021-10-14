@@ -10,7 +10,7 @@ import RealmSwift
 
 class WatchlistFiltersTableViewController: UITableViewController {
     public let realm = try! Realm()
-    public lazy var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
+    public lazy var exchanges = realm.objects(WatchlistCompanyList.self).first!.watchlistCompanies.map { $0.exchange }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,14 +31,13 @@ class WatchlistFiltersTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let exchanges = watchlistCompanyList!.watchlistCompanies.map { $0.exchange }
         return exchanges.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         if cell == nil { cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell") }
-        cell!.textLabel?.text = "Hello"
+        cell!.textLabel?.text = exchanges[indexPath.row]
         return cell!
     }
 
