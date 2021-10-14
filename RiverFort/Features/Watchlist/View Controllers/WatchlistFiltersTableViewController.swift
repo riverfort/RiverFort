@@ -10,7 +10,9 @@ import RealmSwift
 
 class WatchlistFiltersTableViewController: UITableViewController {
     public let realm = try! Realm()
-    public lazy var exchanges = realm.objects(WatchlistCompanyList.self).first!.watchlistCompanies.map { $0.exchange }
+    public lazy var exchanges = Array(Set(realm.objects(WatchlistCompanyList.self).first!.watchlistCompanies
+                                            .map { $0.exchange }
+                                            .sorted { $0 < $1 }))
 
     override func viewDidLoad() {
         super.viewDidLoad()
