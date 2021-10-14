@@ -161,6 +161,7 @@ extension WatchlistTableViewController {
         filteredByButton.setTitle("Filtered by:", for: .normal)
         filteredByButton.setTitleColor(.label, for: .normal)
         filteredByButton.titleLabel?.font = .preferredFont(forTextStyle: .caption2)
+        filteredByButton.addTarget(self, action: #selector(didTapWatchlistFilteredBy), for: .touchUpInside)
         filteredByBarButton.customView = filteredByButton
     }
     
