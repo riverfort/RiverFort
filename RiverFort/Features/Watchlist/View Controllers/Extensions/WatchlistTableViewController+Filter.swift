@@ -24,6 +24,7 @@ extension WatchlistTableViewController {
 
 extension WatchlistTableViewController {
     @objc public func didTapWatchlistFilteredBy() {
-        print("\(#function)")
+        let filtersTableVC = FiltersTableViewController()
+        present(filtersTableVC, animated: true)
     }
 }
