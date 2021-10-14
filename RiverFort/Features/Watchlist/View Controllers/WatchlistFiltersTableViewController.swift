@@ -48,7 +48,10 @@ class WatchlistFiltersTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         if cell == nil { cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell") }
-        cell!.textLabel?.text = filteringExchanges[indexPath.row].name
+        let filteringExchange = filteringExchanges[indexPath.row]
+        if filteringExchange.isFiltered { cell!.accessoryType = .checkmark }
+        else { cell!.accessoryType = .none }
+        cell!.textLabel?.text = filteringExchange.name
         return cell!
     }
 
