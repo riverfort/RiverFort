@@ -103,6 +103,15 @@ class WatchlistFiltersTableViewController: UITableViewController {
 }
 
 extension WatchlistFiltersTableViewController {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0: return "Include exchanges"
+        default: return ""
+        }
+    }
+}
+
+extension WatchlistFiltersTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
