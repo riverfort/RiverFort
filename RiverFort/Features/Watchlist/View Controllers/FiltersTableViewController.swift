@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FiltersTableViewController: UITableViewController {
+    public let realm = try! Realm()
+    public lazy var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
 
     override func viewDidLoad() {
         super.viewDidLoad()
