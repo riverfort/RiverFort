@@ -30,9 +30,9 @@ class WatchlistAPIFunction {
             case .failure(let error):
                 if let statusCode = response.response?.statusCode, statusCode == 400 { print("watchlist already deleted") }
                 else { print(error) }
-                var watchlistDeletionArray = UserDefaults.standard.array(forKey: UserDefaults.Keys.watchlistDeletionList) as? [String] ?? []
-                watchlistDeletionArray.append(companySymbol)
-                UserDefaults.standard.set(watchlistDeletionArray, forKey: UserDefaults.Keys.watchlistDeletionList)
+                var watchlistDeletionList = UserDefaults.standard.array(forKey: UserDefaults.Keys.watchlistDeletionList) as? [String] ?? []
+                watchlistDeletionList.append(companySymbol)
+                UserDefaults.standard.set(watchlistDeletionList, forKey: UserDefaults.Keys.watchlistDeletionList)
             }
         }
     }
