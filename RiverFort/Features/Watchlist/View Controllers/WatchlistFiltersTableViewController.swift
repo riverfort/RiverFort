@@ -104,7 +104,7 @@ class WatchlistFiltersTableViewController: UITableViewController {
 
 extension WatchlistFiltersTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: false)
+        tableView.deselectRow(at: indexPath, animated: true)
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
         cell.tintColor = .systemIndigo
         let filteringExchange = filteringExchanges[indexPath.row]
