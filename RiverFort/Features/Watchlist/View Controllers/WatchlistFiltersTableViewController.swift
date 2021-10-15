@@ -15,8 +15,8 @@ struct FilteringExchange {
 
 class WatchlistFiltersTableViewController: UITableViewController {
     public let realm = try! Realm()
-    public lazy var exchanges = Set(realm.objects(WatchlistCompanyList.self).first!.watchlistCompanies.map { $0.exchange })
-    public lazy var filteringExchanges = Array(exchanges).sorted { $0 < $1 }.map { FilteringExchange(name: $0, isFiltered: false) }
+    public lazy var exchanges = Array(Set(realm.objects(WatchlistCompanyList.self).first!.watchlistCompanies.map { $0.exchange })).sorted { $0 < $1 }
+    public lazy var filteringExchanges = exchanges.map { FilteringExchange(name: $0, isFiltered: false) }
                                             
     override func viewDidLoad() {
         super.viewDidLoad()
