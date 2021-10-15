@@ -19,6 +19,7 @@ class WatchlistTableViewController: UITableViewController {
     public lazy var spacerBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
     public lazy var statusBarButton = UIBarButtonItem()
     public lazy var filteredByBarButton = UIBarButtonItem()
+    public lazy var filteredByLabel = UILabel()
     public lazy var filteredByButton = UIButton()
     public lazy var watchlistCompaniesCountLabel = UILabel()
 
@@ -158,11 +159,18 @@ extension WatchlistTableViewController {
     private func configStatusBarButton() { statusBarButton.customView = watchlistCompaniesCountLabel }
     
     private func configFilteredByBarButton() {
-        filteredByButton.setTitle("Filtered by:", for: .normal)
-        filteredByButton.setTitleColor(.label, for: .normal)
+        let stackView = UIStackView(arrangedSubviews: [filteredByLabel, filteredByButton])
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.distribution = .fill
+        filteredByLabel.text = "Filtered by:"
+        filteredByLabel.textColor = .label
+        filteredByLabel.font = .preferredFont(forTextStyle: .caption2)
+        filteredByButton.setTitle("Hello:", for: .normal)
+        filteredByButton.setTitleColor(.systemIndigo, for: .normal)
         filteredByButton.titleLabel?.font = .preferredFont(forTextStyle: .caption2)
         filteredByButton.addTarget(self, action: #selector(didTapWatchlistFilteredBy), for: .touchUpInside)
-        filteredByBarButton.customView = filteredByButton
+        filteredByBarButton.customView = stackView
     }
     
     private func configWatchlistCompaniesCountLabel() {
