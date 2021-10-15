@@ -157,7 +157,7 @@ extension PriceChartCardPartView {
             return ChartDataEntry(x: Double(index),
                                   y: dailyPrice.close ?? 0,
                                   data: HistoricalPriceChartDataEntryData(date: dailyPrice.date, volume: Double(dailyPrice.volume ?? 0)))}
-        let timeseriesIndex = UserDefaults.standard.integer(forKey: UserDefaults.Keys.timeseriesSelectedSegmentIndex)
+        let timeseriesIndex = UserDefaults.timeseriesSelectedSegmentIndex
         changeTimeseries(for: timeseriesIndex)
     }
     

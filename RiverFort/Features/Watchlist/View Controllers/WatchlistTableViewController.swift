@@ -11,7 +11,6 @@ import RealmSwift
 class WatchlistTableViewController: UITableViewController {
     public let realm = try! Realm()
     public var isFilterOn = false
-    public lazy var filteringExchangeList = UserDefaults.standard.array(forKey: UserDefaults.Keys.filteringExchangeList) as? [String] ?? []
     public lazy var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
     public lazy var searchResultTableVC = SearchResultViewController(style: .insetGrouped)
     public lazy var filterOnImage = UIImage(systemName: "line.3.horizontal.decrease.circle.fill")

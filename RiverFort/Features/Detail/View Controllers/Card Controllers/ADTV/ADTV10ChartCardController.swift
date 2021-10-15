@@ -38,7 +38,7 @@ extension ADTV10ChartCardController {
     }
     
     @objc private func prepareChartTimeseries(notification: Notification) {
-        adtvChartPart.changeTimeseries(for: UserDefaults.standard.integer(forKey: UserDefaults.Keys.timeseriesSelectedSegmentIndex), label: "ADTV10", colour: .systemTeal)
+        adtvChartPart.changeTimeseries(for: UserDefaults.timeseriesSelectedSegmentIndex, label: "ADTV10", colour: .systemTeal)
     }
     
     @objc private func prepareADTV10(notification: Notification) {
