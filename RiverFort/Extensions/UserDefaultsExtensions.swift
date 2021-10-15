@@ -37,4 +37,28 @@ extension UserDefaults {
         get { UserDefaults.standard.array(forKey: Keys.watchlistSymbolDeletionList) as? [String] }
         set { UserDefaults.standard.set(newValue, forKey: Keys.watchlistSymbolDeletionList) }
     }
+    
+    class var filteringExchangeList: [FilteringExchange]? {
+        get {
+            var filteringExchangeList: [FilteringExchange]?
+            do {
+                let decoder = JSONDecoder()
+                if let data = UserDefaults.standard.data(forKey: Keys.filteringExchangeList) {
+                    filteringExchangeList = try decoder.decode([FilteringExchange].self, from: data)
+                }
+            } catch {
+                print("Unable to Decode FilteringExchange (\(error))")
+            }
+            return filteringExchangeList
+        }
+        set {
+            do {
+                let encoder = JSONEncoder()
+                let data = try encoder.encode(newValue)
+                UserDefaults.standard.set(data, forKey: Keys.filteringExchangeList)
+            } catch {
+                print("Unable to Encode Array of FilteringExchanges (\(error))")
+            }
+        }
+    }
 }

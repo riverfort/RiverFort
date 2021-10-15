@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-struct FilteringExchange {
+struct FilteringExchange: Codable {
     let name: String
     let isFiltered: Bool
 }
