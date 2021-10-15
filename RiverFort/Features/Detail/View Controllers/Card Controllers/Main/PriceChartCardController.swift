@@ -42,7 +42,7 @@ extension PriceChartCardController {
     }
     
     @objc private func onChartModeUpdated() {
-        let isNewsChartOn = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isNewsChartOn)
+        let isNewsChartOn = UserDefaults.isNewsChartOn
         if isNewsChartOn { fetchNews() }
         else {
             priceChartPart.removeDataSetForNews()
@@ -50,13 +50,13 @@ extension PriceChartCardController {
     }
     
     @objc private func onTimeseriesUpdated(notification: Notification) {
-        priceChartPart.changeTimeseries(for: defaults.integer(forKey: UserDefaults.Keys.timeseriesSelectedSegmentIndex))
+        priceChartPart.changeTimeseries(for: UserDefaults.timeseriesSelectedSegmentIndex)
     }
     
     @objc private func onDidReceiveHistoricalPrice(notification: Notification) {
         guard let historicalPrice = notification.object as? [HistoricalPriceQuote] else { return }
         priceChartPart.setChartDataForPrice(historicalPrice: historicalPrice)
-        let isNewsChartOn = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isNewsChartOn)
+        let isNewsChartOn = UserDefaults.isNewsChartOn
         if isNewsChartOn { fetchNews() }
     }
 }

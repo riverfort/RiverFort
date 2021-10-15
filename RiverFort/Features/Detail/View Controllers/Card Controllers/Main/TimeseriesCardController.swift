@@ -32,13 +32,13 @@ extension TimeseriesCardController {
     
     @objc private func segmentedControlHandled(_ sender: UISegmentedControl) {
         HapticsManager.shared.impact(style: .light)
-        UserDefaults.standard.set(sender.selectedSegmentIndex, forKey: UserDefaults.Keys.timeseriesSelectedSegmentIndex)
+        UserDefaults.timeseriesSelectedSegmentIndex = sender.selectedSegmentIndex
         NotificationCenter.default.post(name: .hasUpdatedTimeSeries, object: nil)
     }
 }
 
 extension TimeseriesCardController {
     public func setSelectedSegmentIndex() {
-        timeseriesCardPartView.segmentedControl.selectedSegmentIndex = UserDefaults.standard.integer(forKey: UserDefaults.Keys.timeseriesSelectedSegmentIndex)
+        timeseriesCardPartView.segmentedControl.selectedSegmentIndex = UserDefaults.timeseriesSelectedSegmentIndex
     }
 }

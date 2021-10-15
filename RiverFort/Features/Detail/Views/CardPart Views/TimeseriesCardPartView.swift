@@ -25,7 +25,7 @@ class TimeseriesCardPartView: UIView, CardPartView {
 
 extension TimeseriesCardPartView {
     private func configSegmentedControl() {
-        segmentedControl.selectedSegmentIndex = UserDefaults.standard.integer(forKey: UserDefaults.Keys.timeseriesSelectedSegmentIndex)
+        segmentedControl.selectedSegmentIndex = UserDefaults.timeseriesSelectedSegmentIndex
     }
 }
 

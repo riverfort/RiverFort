@@ -9,7 +9,7 @@ import UIKit
 
 extension CompanyDetailViewController {
     public func getMoreMenu() -> UIMenu {
-        let isNewsChartOn = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isNewsChartOn)
+        let isNewsChartOn = UserDefaults.isNewsChartOn
         let moreMenu = UIMenu(title: "", children: [
             UIAction(title: NSLocalizedString("Price Chart", comment: ""),
                      image: UIImage(systemName: "chart.line.uptrend.xyaxis"),
@@ -30,13 +30,13 @@ extension CompanyDetailViewController {
     }
     
     private func updateChartMode(_ action: UIAction) {
-        let isNewsChartOn = UserDefaults.standard.bool(forKey: UserDefaults.Keys.isNewsChartOn)
+        let isNewsChartOn = UserDefaults.isNewsChartOn
         if isNewsChartOn {
             guard action.title == "Price Chart" else { return }
-            UserDefaults.standard.set(false, forKey: UserDefaults.Keys.isNewsChartOn)
+            UserDefaults.isNewsChartOn = false
         } else {
             guard action.title == "News Chart" else { return }
-            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.isNewsChartOn)
+            UserDefaults.isNewsChartOn = true
         }
         NotificationCenter.default.post(name: .hasUpdatedChartMode, object: nil)
     }

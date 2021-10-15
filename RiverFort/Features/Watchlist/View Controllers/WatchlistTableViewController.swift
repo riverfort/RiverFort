@@ -10,8 +10,16 @@ import RealmSwift
 
 class WatchlistTableViewController: UITableViewController {
     public let realm = try! Realm()
+    public var isFilterOn = false
     public lazy var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
     public lazy var searchResultTableVC = SearchResultViewController(style: .insetGrouped)
+    public lazy var filterOnImage = UIImage(systemName: "line.3.horizontal.decrease.circle.fill")
+    public lazy var filterOffImage = UIImage(systemName: "line.3.horizontal.decrease.circle")
+    public lazy var filterBarButton = UIBarButtonItem(image: filterOffImage, style: .plain, target: self, action: #selector(didTapWatchlistFilter))
+    public lazy var spacerBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+    public lazy var statusBarButton = UIBarButtonItem()
+    public lazy var filteredByBarButton = UIBarButtonItem()
+    public lazy var filteredByButton = UIButton()
     public lazy var watchlistCompaniesCountLabel = UILabel()
 
     override func viewDidLoad() {
@@ -21,6 +29,9 @@ class WatchlistTableViewController: UITableViewController {
         configSearchController()
         configTableView()
         configToolBar()
+        configFilterBarButton()
+        configStatusBarButton()
+        configFilteredByBarButton()
         configWatchlistCompaniesCountLabel()
 
         // Uncomment the following line to preserve selection between presentations
@@ -140,9 +151,18 @@ extension WatchlistTableViewController {
     
     private func configToolBar() {
         navigationController?.setToolbarHidden(false, animated: true)
-        let watchlistStats = UIBarButtonItem()
-        watchlistStats.customView = watchlistCompaniesCountLabel
-        toolbarItems = [watchlistStats]
+        setToolbarItems([filterBarButton, spacerBarButton, statusBarButton, spacerBarButton], animated: true)
+    }
+    
+    private func configFilterBarButton() { filterBarButton.tintColor = .systemIndigo }
+    private func configStatusBarButton() { statusBarButton.customView = watchlistCompaniesCountLabel }
+    
+    private func configFilteredByBarButton() {
+        filteredByButton.setTitle("Filtered by:", for: .normal)
+        filteredByButton.setTitleColor(.label, for: .normal)
+        filteredByButton.titleLabel?.font = .preferredFont(forTextStyle: .caption2)
+        filteredByButton.addTarget(self, action: #selector(didTapWatchlistFilteredBy), for: .touchUpInside)
+        filteredByBarButton.customView = filteredByButton
     }
     
     private func configWatchlistCompaniesCountLabel() {
