@@ -531,9 +531,9 @@
 			children = (
 				77CA13262702074F00E461E0 /* WatchlistTableViewController+Search.swift */,
 				77CA1324270203DC00E461E0 /* WatchlistTableViewController+Realm.swift */,
+				77BD47A32719C7BE003B7271 /* WatchlistTableViewController+TooBar.swift */,
 				7717586E2716C4E000DE64A1 /* WatchlistTableViewController+Status.swift */,
 				776D7B2C2716C9D500EF5EB4 /* WatchlistTableViewController+Filter.swift */,
-				77BD47A32719C7BE003B7271 /* WatchlistTableViewController+TooBar.swift */,
 			);
 			path = "WatchlistTableViewController+";
 			sourceTree = "<group>";
