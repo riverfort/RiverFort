@@ -15,8 +15,10 @@ class WatchlistTableViewController: UITableViewController {
     public lazy var searchResultTableVC = SearchResultViewController(style: .insetGrouped)
     public lazy var filterOnImage = UIImage(systemName: "line.3.horizontal.decrease.circle.fill")
     public lazy var filterOffImage = UIImage(systemName: "line.3.horizontal.decrease.circle")
+    public lazy var searchImage = UIImage(systemName: "magnifyingglass")
     public lazy var filterBarButton = UIBarButtonItem(image: filterOffImage, style: .plain, target: self, action: #selector(didTapWatchlistFilter))
     public lazy var spacerBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+    public lazy var searchBarButton = UIBarButtonItem(image: searchImage, style: .plain, target: nil, action: nil)
     public lazy var statusBarButton = UIBarButtonItem()
     public lazy var filteredByBarButton = UIBarButtonItem()
     public lazy var filteredByLabel = UILabel()
@@ -32,6 +34,7 @@ class WatchlistTableViewController: UITableViewController {
         configToolBar()
         configFilterBarButton()
         configStatusBarButton()
+        configSearchBarButton()
         configFilteredByBarButton()
         configWatchlistCompaniesCountLabel()
 
@@ -152,11 +155,12 @@ extension WatchlistTableViewController {
     
     private func configToolBar() {
         navigationController?.setToolbarHidden(false, animated: true)
-        setToolbarItems([filterBarButton, spacerBarButton, statusBarButton, spacerBarButton], animated: true)
+        setToolbarItems([filterBarButton, spacerBarButton, statusBarButton, spacerBarButton, searchBarButton], animated: true)
     }
     
     private func configFilterBarButton() { filterBarButton.tintColor = .systemIndigo }
     private func configStatusBarButton() { statusBarButton.customView = watchlistCompaniesCountLabel }
+    private func configSearchBarButton() { searchBarButton.tintColor = .systemIndigo }
     
     private func configFilteredByBarButton() {
         let stackView = UIStackView(arrangedSubviews: [filteredByLabel, filteredByButton])
@@ -166,9 +170,15 @@ extension WatchlistTableViewController {
         filteredByLabel.text = "Filtered by:"
         filteredByLabel.textColor = .label
         filteredByLabel.font = .preferredFont(forTextStyle: .caption2)
-        filteredByButton.setTitle("Hello:", for: .normal)
+        if let filteringExchangeDictionary = UserDefaults.filteringExchangeDictionary {
+            let filteringExchanges = filteringExchangeDictionary.filter{ $0.value }.map { $0.key }.joined(separator: ", ")
+            filteredByButton.setTitle(filteringExchanges, for: .normal)
+        } else {
+            filteredByButton.setTitle("None", for: .normal)
+        }
         filteredByButton.setTitleColor(.systemIndigo, for: .normal)
         filteredByButton.titleLabel?.font = .preferredFont(forTextStyle: .caption2)
+        filteredByButton.titleLabel?.lineBreakMode = .byTruncatingTail
         filteredByButton.addTarget(self, action: #selector(didTapWatchlistFilteredBy), for: .touchUpInside)
         filteredByBarButton.customView = stackView
     }
