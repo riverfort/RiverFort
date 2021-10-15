@@ -173,9 +173,10 @@ extension WatchlistTableViewController {
         if let filteringExchangeDictionary = UserDefaults.filteringExchangeDictionary {
             let filteringExchanges = filteringExchangeDictionary.filter{ $0.value }.map { $0.key }.joined(separator: ", ")
             filteredByButton.setTitle(filteringExchanges, for: .normal)
-        } else {
-            filteredByButton.setTitle("None", for: .normal)
-        }
+            if filteringExchanges.isEmpty {
+                filteredByButton.setTitle("None", for: .normal)
+            }
+        } else { filteredByButton.setTitle("None", for: .normal) }
         filteredByButton.setTitleColor(.systemIndigo, for: .normal)
         filteredByButton.titleLabel?.font = .preferredFont(forTextStyle: .caption2)
         filteredByButton.titleLabel?.lineBreakMode = .byTruncatingTail
