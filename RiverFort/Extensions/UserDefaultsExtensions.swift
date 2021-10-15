@@ -15,7 +15,9 @@ extension UserDefaults {
         static let watchlistDeletionList = "watchlist_deletion_list"
         static let filteringExchangeList = "filtering_exchange_list"
     }
+}
 
+extension UserDefaults {
     class var isNewsChartOn: Bool {
         get { UserDefaults.standard.bool(forKey: Keys.isNewsChartOn) }
         set { UserDefaults.standard.set(newValue, forKey: Keys.isNewsChartOn) }
