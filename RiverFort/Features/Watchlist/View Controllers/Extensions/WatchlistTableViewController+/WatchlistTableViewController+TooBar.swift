@@ -9,9 +9,16 @@ import Foundation
 import UIKit
 
 extension WatchlistTableViewController {
+    public func configToolBar() {
+        navigationController?.setToolbarHidden(false, animated: true)
+        setToolbarItems([filterBarButton, spacerBarButton, statusBarButton, spacerBarButton, searchBarButton], animated: true)
+    }
+}
+
+extension WatchlistTableViewController {
     public func configFilterBarButton() { filterBarButton.tintColor = .systemIndigo }
-    public func configStatusBarButton() { statusBarButton.customView = watchlistCompaniesCountLabel }
     public func configSearchBarButton() { searchBarButton.tintColor = .systemIndigo }
+    public func configStatusBarButton() { statusBarButton.customView = watchlistCompaniesCountLabel }
     
     public func configFilteredByBarButton() {
         let stackView = UIStackView(arrangedSubviews: [filteredByLabel, filteredByButton])
@@ -33,16 +40,5 @@ extension WatchlistTableViewController {
         filteredByButton.titleLabel?.lineBreakMode = .byTruncatingTail
         filteredByButton.addTarget(self, action: #selector(didTapWatchlistFilteredBy), for: .touchUpInside)
         filteredByBarButton.customView = stackView
-    }
-    
-    public func configToolBar() {
-        navigationController?.setToolbarHidden(false, animated: true)
-        setToolbarItems([filterBarButton, spacerBarButton, statusBarButton, spacerBarButton, searchBarButton], animated: true)
-    }
-    
-    public func configWatchlistCompaniesCountLabel() {
-        watchlistCompaniesCountLabel.font = .preferredFont(forTextStyle: .caption2)
-        watchlistCompaniesCountLabel.textAlignment = .center
-        watchlistCompaniesCountLabel.numberOfLines = 1
     }
 }
