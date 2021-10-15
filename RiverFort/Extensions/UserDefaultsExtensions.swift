@@ -13,7 +13,7 @@ extension UserDefaults {
         static let timeseriesSelectedSegmentIndex = "timeseries_selected_segment_index"
         static let deviceToken = "device_token"
         static let watchlistSymbolDeletionList = "watchlist_symbol_deletion_list"
-        static let filteringExchangeList = "filtering_exchange_list"
+        static let filteringExchangeDictionary = "filtering_exchange_dictionary"
     }
 }
 
@@ -38,27 +38,8 @@ extension UserDefaults {
         set { UserDefaults.standard.set(newValue, forKey: Keys.watchlistSymbolDeletionList) }
     }
     
-    class var filteringExchangeList: [FilteringExchange]? {
-        get {
-            var filteringExchangeList: [FilteringExchange]?
-            do {
-                let decoder = JSONDecoder()
-                if let data = UserDefaults.standard.data(forKey: Keys.filteringExchangeList) {
-                    filteringExchangeList = try decoder.decode([FilteringExchange].self, from: data)
-                }
-            } catch {
-                print("Unable to Decode FilteringExchange (\(error))")
-            }
-            return filteringExchangeList
-        }
-        set {
-            do {
-                let encoder = JSONEncoder()
-                let data = try encoder.encode(newValue)
-                UserDefaults.standard.set(data, forKey: Keys.filteringExchangeList)
-            } catch {
-                print("Unable to Encode Array of FilteringExchanges (\(error))")
-            }
-        }
+    class var filteringExchangeDictionary: [String: Bool]? {
+        get { UserDefaults.standard.object(forKey: Keys.filteringExchangeDictionary) as? [String: Bool] }
+        set { UserDefaults.standard.set(newValue, forKey: Keys.filteringExchangeDictionary) }
     }
 }
