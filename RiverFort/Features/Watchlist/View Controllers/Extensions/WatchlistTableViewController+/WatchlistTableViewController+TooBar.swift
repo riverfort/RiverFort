@@ -33,10 +33,5 @@ extension WatchlistTableViewController {
         filteredByButton.titleLabel?.font = .preferredFont(forTextStyle: .caption2)
         filteredByButton.titleLabel?.lineBreakMode = .byTruncatingTail
         filteredByButton.addTarget(self, action: #selector(didTapWatchlistFilteredBy), for: .touchUpInside)
-        if let filteringExchangeDictionary = UserDefaults.filteringExchangeDictionary {
-            let filteringExchanges = filteringExchangeDictionary.filter{ $0.value }.map { $0.key }.joined(separator: ", ")
-            filteredByButton.setTitle(filteringExchanges, for: .normal)
-            if filteringExchanges.isEmpty { filteredByButton.setTitle("None", for: .normal) }
-        } else { filteredByButton.setTitle("None", for: .normal) }
     }
 }
