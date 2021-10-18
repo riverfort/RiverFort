@@ -1,5 +1,5 @@
 //
-//  WatchlistTableViewController+Search.swift
+//  WatchlistTableViewController+SearchController.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 27/09/2021.

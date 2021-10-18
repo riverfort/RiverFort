@@ -62,7 +62,7 @@
 		77C4BD85261CAF9100B8C748 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C4BD84261CAF9100B8C748 /* HapticsManager.swift */; };
 		77C82A3026E4E6E800768FDB /* ReadMoreURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C82A2F26E4E6E800768FDB /* ReadMoreURLs.swift */; };
 		77CA1325270203DC00E461E0 /* WatchlistTableViewController+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA1324270203DC00E461E0 /* WatchlistTableViewController+Realm.swift */; };
-		77CA13272702074F00E461E0 /* WatchlistTableViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA13262702074F00E461E0 /* WatchlistTableViewController+Search.swift */; };
+		77CA13272702074F00E461E0 /* WatchlistTableViewController+SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA13262702074F00E461E0 /* WatchlistTableViewController+SearchController.swift */; };
 		77CAA2E626679043003A0246 /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CAA2E526679043003A0246 /* UserDefaultsExtensions.swift */; };
 		77CB8C5026F9CDFE006E01E2 /* ADTV10ChartCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB8C4F26F9CDFE006E01E2 /* ADTV10ChartCardController.swift */; };
 		77D6617327181596002001B4 /* WatchlistFiltersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D6617227181596002001B4 /* WatchlistFiltersTableViewController.swift */; };
@@ -139,7 +139,7 @@
 		77C4BD84261CAF9100B8C748 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		77C82A2F26E4E6E800768FDB /* ReadMoreURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMoreURLs.swift; sourceTree = "<group>"; };
 		77CA1324270203DC00E461E0 /* WatchlistTableViewController+Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WatchlistTableViewController+Realm.swift"; sourceTree = "<group>"; };
-		77CA13262702074F00E461E0 /* WatchlistTableViewController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WatchlistTableViewController+Search.swift"; sourceTree = "<group>"; };
+		77CA13262702074F00E461E0 /* WatchlistTableViewController+SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WatchlistTableViewController+SearchController.swift"; sourceTree = "<group>"; };
 		77CAA2E526679043003A0246 /* UserDefaultsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensions.swift; sourceTree = "<group>"; };
 		77CB8C4F26F9CDFE006E01E2 /* ADTV10ChartCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTV10ChartCardController.swift; sourceTree = "<group>"; };
 		77D6617227181596002001B4 /* WatchlistFiltersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistFiltersTableViewController.swift; sourceTree = "<group>"; };
@@ -529,7 +529,7 @@
 		77D66174271845DA002001B4 /* WatchlistTableViewController+ */ = {
 			isa = PBXGroup;
 			children = (
-				77CA13262702074F00E461E0 /* WatchlistTableViewController+Search.swift */,
+				77CA13262702074F00E461E0 /* WatchlistTableViewController+SearchController.swift */,
 				77CA1324270203DC00E461E0 /* WatchlistTableViewController+Realm.swift */,
 				77BD47A32719C7BE003B7271 /* WatchlistTableViewController+TooBar.swift */,
 				776D7B2C2716C9D500EF5EB4 /* WatchlistTableViewController+Filter.swift */,
@@ -747,7 +747,7 @@
 				77B11DA826F37FC40093FBE9 /* ADTV.swift in Sources */,
 				770E4C5B26F249080010EE7B /* UIApplicationExtensions.swift in Sources */,
 				7748987A26E0C229000933A6 /* BaseCardController.swift in Sources */,
-				77CA13272702074F00E461E0 /* WatchlistTableViewController+Search.swift in Sources */,
+				77CA13272702074F00E461E0 /* WatchlistTableViewController+SearchController.swift in Sources */,
 				77F262E826F33C480000593C /* NotificationNameExtensions.swift in Sources */,
 				773131BC26DCF87B0068AAD8 /* SearchResultViewController.swift in Sources */,
 				77227AA226F396D900C5867D /* Quote.swift in Sources */,
