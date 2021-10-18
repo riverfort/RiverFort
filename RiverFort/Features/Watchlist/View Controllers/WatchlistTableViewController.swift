@@ -32,11 +32,6 @@ class WatchlistTableViewController: UITableViewController {
         configSearchController()
         configTableView()
         configToolBar()
-        configFilterBarButton()
-        configStatusBarButton()
-        configSearchBarButton()
-        configFilteredByBarButton()
-        configWatchlistCompaniesCountLabel()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
