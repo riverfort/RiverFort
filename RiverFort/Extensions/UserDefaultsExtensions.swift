@@ -34,12 +34,12 @@ extension UserDefaults {
     }
     
     class var watchlistSymbolDeletionList: [String]? {
-        get { UserDefaults.standard.array(forKey: Keys.watchlistSymbolDeletionList) as? [String] }
+        get { UserDefaults.standard.stringArray(forKey: Keys.watchlistSymbolDeletionList) }
         set { UserDefaults.standard.set(newValue, forKey: Keys.watchlistSymbolDeletionList) }
     }
     
     class var filteredExchangeList: [String]? {
-        get { UserDefaults.standard.array(forKey: Keys.filteredExchangeList) as? [String] }
+        get { UserDefaults.standard.stringArray(forKey: Keys.filteredExchangeList) }
         set { UserDefaults.standard.set(newValue, forKey: Keys.filteredExchangeList) }
     }
 }
