@@ -13,7 +13,12 @@ struct FilteringExchange {
     let isFiltered: Bool
 }
 
+protocol WatchlistFiltersTableViewControllerDelegate: AnyObject {
+    func didDismissWatchlistFiltersTableViewController()
+}
+
 class WatchlistFiltersTableViewController: UITableViewController {
+    public weak var delegate: WatchlistFiltersTableViewControllerDelegate?
     public lazy var exchanges: [FilteringExchange] = { () -> [FilteringExchange] in
         let realm = try! Realm()
         let exchanges = Array(Set(realm.objects(WatchlistCompanyList.self).first!.watchlistCompanies.map { $0.exchange })).sorted { $0 < $1 }
@@ -149,5 +154,8 @@ extension WatchlistFiltersTableViewController {
 }
 
 extension WatchlistFiltersTableViewController {
-    @objc private func didTapDone() { dismiss(animated: true) }
+    @objc private func didTapDone() {
+        delegate?.didDismissWatchlistFiltersTableViewController()
+        dismiss(animated: true)
+    }
 }

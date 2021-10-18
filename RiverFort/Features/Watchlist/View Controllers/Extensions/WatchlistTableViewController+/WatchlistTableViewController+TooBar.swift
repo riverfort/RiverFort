@@ -81,6 +81,7 @@ extension WatchlistTableViewController {
     @objc public func didTapWatchlistFilteredBy() {
         let filtersTableVC = WatchlistFiltersTableViewController()
         let navigation = UINavigationController(rootViewController: filtersTableVC)
+        filtersTableVC.delegate = self
         present(navigation, animated: true)
     }
     
@@ -111,4 +112,10 @@ extension WatchlistTableViewController {
         navigationItem.searchController?.isActive = true
         navigationItem.searchController?.searchBar.becomeFirstResponder()
     }
+}
+
+// MARK: - WatchlistFiltersTableViewControllerDelegate
+
+extension WatchlistTableViewController: WatchlistFiltersTableViewControllerDelegate {
+    func didDismissWatchlistFiltersTableViewController() { setFilteredByButtonTitle() }
 }
