@@ -48,9 +48,9 @@ class WatchlistFiltersTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let filteringExchange = exchanges[indexPath.row]
-        cell.textLabel?.text = filteringExchange.name
-        if filteringExchange.isFiltered { cell.accessoryType = .checkmark }
+        let exchange = exchanges[indexPath.row]
+        cell.textLabel?.text = exchange.name
+        if exchange.isFiltered { cell.accessoryType = .checkmark }
         else { cell.accessoryType = .none }
         return cell
     }
@@ -115,11 +115,11 @@ extension WatchlistFiltersTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
-        let filteringExchange = exchanges[indexPath.row]
-        let newFilteringExchange = FilteringExchange(name: filteringExchange.name, isFiltered: !filteringExchange.isFiltered)
+        let exchange = exchanges[indexPath.row]
+        let newExchange = FilteringExchange(name: exchange.name, isFiltered: !exchange.isFiltered)
         exchanges.remove(at: indexPath.row)
-        exchanges.insert(newFilteringExchange, at: indexPath.row)
-        if newFilteringExchange.isFiltered { cell.accessoryType = .checkmark }
+        exchanges.insert(newExchange, at: indexPath.row)
+        if newExchange.isFiltered { cell.accessoryType = .checkmark }
         else { cell.accessoryType = .none }
     }
 }
