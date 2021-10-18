@@ -16,14 +16,19 @@ extension WatchlistTableViewController {
         configStatusBarButton()
         configSearchBarButton()
         configFilteredByBarButton()
-        configWatchlistCompaniesCountLabel()
     }
 }
 
 extension WatchlistTableViewController {
     public func configFilterBarButton() { filterBarButton.tintColor = .systemIndigo }
     public func configSearchBarButton() { searchBarButton.tintColor = .systemIndigo }
-    public func configStatusBarButton() { statusBarButton.customView = watchlistCompaniesCountLabel }
+    
+    public func configStatusBarButton() {
+        watchlistCompaniesCountLabel.font = .preferredFont(forTextStyle: .caption2)
+        watchlistCompaniesCountLabel.textAlignment = .center
+        watchlistCompaniesCountLabel.numberOfLines = 1
+        statusBarButton.customView = watchlistCompaniesCountLabel
+    }
     
     public func configFilteredByBarButton() {
         let stackView = UIStackView(arrangedSubviews: [filteredByLabel, filteredByButton])
