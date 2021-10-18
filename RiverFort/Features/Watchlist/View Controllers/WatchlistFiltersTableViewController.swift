@@ -16,10 +16,12 @@ struct FilteringExchange {
 class WatchlistFiltersTableViewController: UITableViewController {
     public lazy var exchanges: [FilteringExchange] = { () -> [FilteringExchange] in
         let realm = try! Realm()
-        let exchanges = Array(Set(realm.objects(WatchlistCompanyList.self).first!.watchlistCompanies.map { $0.exchange }))
-            .sorted { $0 < $1 }
-            .map { FilteringExchange(name: $0, isFiltered: false) }
-        return exchanges
+        let exchanges = Array(Set(realm.objects(WatchlistCompanyList.self).first!.watchlistCompanies.map { $0.exchange })).sorted { $0 < $1 }
+        if let filteredExchangeList = UserDefaults.filteredExchangeList {
+            return exchanges.map { FilteringExchange(name: $0, isFiltered: filteredExchangeList.contains($0)) }
+        } else {
+            return exchanges.map { FilteringExchange(name: $0, isFiltered: false) }
+        }
     }()
 
     override func viewDidLoad() {
