@@ -13,8 +13,8 @@ extension WatchlistTableViewController {
         navigationController?.setToolbarHidden(false, animated: true)
         setToolbarItems([filterBarButton, spacerBarButton, statusBarButton, spacerBarButton, searchBarButton], animated: true)
         configFilterBarButton()
-        configStatusBarButton()
         configSearchBarButton()
+        configStatusBarButton()
         configFilteredByBarButton()
     }
 }
