@@ -32,6 +32,8 @@ extension WatchlistTableViewController {
         searchBarButton.style = .plain
         searchBarButton.tintColor = .systemIndigo
         searchBarButton.image = UIImage(systemName: "magnifyingglass")
+        searchBarButton.target = self
+        searchBarButton.action = #selector(didTapSearch)
     }
     
     public func configStatusBarButton() {
@@ -60,6 +62,8 @@ extension WatchlistTableViewController {
     }
 }
 
+// MARK: - Filter
+
 extension WatchlistTableViewController {
     @objc public func didTapWatchlistFilter(sender: UIBarButtonItem) {
         if isFilterOn {
@@ -80,11 +84,22 @@ extension WatchlistTableViewController {
     }
 }
 
+// MARK: - Status
+
 extension WatchlistTableViewController {
     public func setWatchlistCompaniesCountLabel() {
         let count = watchlistCompanyList!.watchlistCompanies.count
         guard let watchlistCompaniesCountLabel = statusBarButton.customView as? UILabel else { return }
         watchlistCompaniesCountLabel.text = (count == 0) ? "No Watchlist" : (count == 1) ? "\(count) Company" : "\(count) Companies"
         navigationItem.rightBarButtonItem?.isEnabled = (count == 0) ? false : true
+    }
+}
+
+// MARK: - Search
+
+extension WatchlistTableViewController {
+    @objc public func didTapSearch() {
+        navigationItem.searchController?.isActive = true
+        navigationItem.searchController?.searchBar.becomeFirstResponder()
     }
 }
