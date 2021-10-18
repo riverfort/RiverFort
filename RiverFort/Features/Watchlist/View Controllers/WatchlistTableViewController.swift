@@ -21,8 +21,6 @@ class WatchlistTableViewController: UITableViewController {
     public lazy var searchBarButton = UIBarButtonItem(image: searchImage, style: .plain, target: nil, action: nil)
     public lazy var statusBarButton = UIBarButtonItem()
     public lazy var filteredByBarButton = UIBarButtonItem()
-    public lazy var filteredByLabel = UILabel()
-    public lazy var filteredByButton = UIButton()
     public lazy var watchlistCompaniesCountLabel = UILabel()
 
     override func viewDidLoad() {

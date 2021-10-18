@@ -31,6 +31,8 @@ extension WatchlistTableViewController {
     }
     
     public func configFilteredByBarButton() {
+        let filteredByLabel = UILabel()
+        let filteredByButton = UIButton()
         let stackView = UIStackView(arrangedSubviews: [filteredByLabel, filteredByButton])
         stackView.axis = .vertical
         stackView.alignment = .center
