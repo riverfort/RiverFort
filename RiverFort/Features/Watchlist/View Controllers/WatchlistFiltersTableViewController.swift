@@ -16,9 +16,7 @@ struct FilteringExchange {
 class WatchlistFiltersTableViewController: UITableViewController {
     public let realm = try! Realm()
     public lazy var exchanges = Array(Set(realm.objects(WatchlistCompanyList.self).first!.watchlistCompanies.map { $0.exchange })).sorted { $0 < $1 }
-    public lazy var filteringExchanges = exchanges.map { (exchange: String) -> FilteringExchange in
-        return FilteringExchange(name: exchange, isFiltered: false)
-    }
+    public lazy var filteringExchanges = exchanges.map { FilteringExchange(name: $0, isFiltered: false) }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,13 +41,12 @@ class WatchlistFiltersTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        if cell == nil { cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell") }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let filteringExchange = filteringExchanges[indexPath.row]
-        if filteringExchange.isFiltered { cell!.accessoryType = .checkmark }
-        else { cell!.accessoryType = .none }
-        cell!.textLabel?.text = filteringExchange.name
-        return cell!
+        cell.textLabel?.text = filteringExchange.name
+        if filteringExchange.isFiltered { cell.accessoryType = .checkmark }
+        else { cell.accessoryType = .none }
+        return cell
     }
 
     /*
@@ -131,6 +128,7 @@ extension WatchlistFiltersTableViewController {
     
     private func configTableView() {
         tableView = UITableView(frame: tableView.frame, style: .insetGrouped)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.tintColor = .systemIndigo
     }
 }
