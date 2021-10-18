@@ -34,7 +34,7 @@ extension UserDefaults {
     }
     
     class var watchlistSymbolDeletionList: [String]? {
-        get { UserDefaults.standard.stringArray(forKey: Keys.watchlistSymbolDeletionList) }
+        get { UserDefaults.standard.stringArray(forKey: Keys.watchlistSymbolDeletionList) ?? [] }
         set { UserDefaults.standard.set(newValue, forKey: Keys.watchlistSymbolDeletionList) }
     }
     
