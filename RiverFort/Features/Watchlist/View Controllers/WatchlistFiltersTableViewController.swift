@@ -40,6 +40,11 @@ class WatchlistFiltersTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        delegate?.didDismissWatchlistFiltersTableViewController()
+    }
 
     // MARK: - Table view data source
 
@@ -154,8 +159,5 @@ extension WatchlistFiltersTableViewController {
 }
 
 extension WatchlistFiltersTableViewController {
-    @objc private func didTapDone() {
-        delegate?.didDismissWatchlistFiltersTableViewController()
-        dismiss(animated: true)
-    }
+    @objc private func didTapDone() { dismiss(animated: true) }
 }
