@@ -51,7 +51,6 @@ extension WatchlistTableViewController {
         stackView.axis = .vertical
         stackView.alignment = .center
         stackView.distribution = .fill
-        filteredByBarButton.customView = stackView
         filteredByLabel.text = "Filtered by:"
         filteredByLabel.textColor = .label
         filteredByLabel.font = .preferredFont(forTextStyle: .caption2)
@@ -59,12 +58,8 @@ extension WatchlistTableViewController {
         filteredByButton.titleLabel?.font = .preferredFont(forTextStyle: .caption2)
         filteredByButton.titleLabel?.lineBreakMode = .byTruncatingTail
         filteredByButton.addTarget(self, action: #selector(didTapWatchlistFilteredBy), for: .touchUpInside)
-        guard let filteredExchangeList = UserDefaults.filteredExchangeList else { return }
-        if filteredExchangeList.isEmpty { filteredByButton.setTitle("None", for: .normal) }
-        else {
-            let filteredExchangeListText = filteredExchangeList.joined(separator: ", ")
-            filteredByButton.setTitle(filteredExchangeListText, for: .normal)
-        }
+        filteredByBarButton.customView = stackView
+        setFilteredByButtonTitle()
     }
 }
 
@@ -87,6 +82,14 @@ extension WatchlistTableViewController {
         let filtersTableVC = WatchlistFiltersTableViewController()
         let navigation = UINavigationController(rootViewController: filtersTableVC)
         present(navigation, animated: true)
+    }
+    
+    public func setFilteredByButtonTitle() {
+        guard let stackView = filteredByBarButton.customView as? UIStackView else { return }
+        guard let filteredByButton = stackView.arrangedSubviews[1] as? UIButton else { return }
+        guard let filteredExchangeList = UserDefaults.filteredExchangeList else { return }
+        if filteredExchangeList.isEmpty { filteredByButton.setTitle("None", for: .normal) }
+        else { filteredByButton.setTitle(filteredExchangeList.joined(separator: ", "), for: .normal) }
     }
 }
 
