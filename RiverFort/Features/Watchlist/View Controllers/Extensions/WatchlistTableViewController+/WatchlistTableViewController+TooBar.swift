@@ -45,3 +45,31 @@ extension WatchlistTableViewController {
         filteredByButton.addTarget(self, action: #selector(didTapWatchlistFilteredBy), for: .touchUpInside)
     }
 }
+
+extension WatchlistTableViewController {
+    @objc public func didTapWatchlistFilter(sender: UIBarButtonItem) {
+        if isFilterOn {
+            isFilterOn = false
+            sender.image = filterOffImage
+            setToolbarItems([filterBarButton, spacerBarButton, statusBarButton, spacerBarButton, searchBarButton], animated: true)
+        } else {
+            isFilterOn = true
+            sender.image = filterOnImage
+            setToolbarItems([filterBarButton, spacerBarButton, filteredByBarButton, spacerBarButton, searchBarButton], animated: true)
+        }
+    }
+    
+    @objc public func didTapWatchlistFilteredBy() {
+        let filtersTableVC = WatchlistFiltersTableViewController()
+        let navigation = UINavigationController(rootViewController: filtersTableVC)
+        present(navigation, animated: true)
+    }
+}
+
+extension WatchlistTableViewController {
+    public func setWatchlistCompaniesCountLabel() {
+        let count = watchlistCompanyList!.watchlistCompanies.count
+        watchlistCompaniesCountLabel.text = (count == 0) ? "No Watchlist" : (count == 1) ? "\(count) Company" : "\(count) Companies"
+        navigationItem.rightBarButtonItem?.isEnabled = (count == 0) ? false : true
+    }
+}
