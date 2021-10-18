@@ -20,7 +20,14 @@ extension WatchlistTableViewController {
 }
 
 extension WatchlistTableViewController {
-    public func configFilterBarButton() { filterBarButton.tintColor = .systemIndigo }
+    public func configFilterBarButton() {
+        filterBarButton.style = .plain
+        filterBarButton.tintColor = .systemIndigo
+        filterBarButton.image = UIImage(systemName: "line.3.horizontal.decrease.circle")
+        filterBarButton.target = self
+        filterBarButton.action = #selector(didTapWatchlistFilter)
+    }
+    
     public func configSearchBarButton() { searchBarButton.tintColor = .systemIndigo }
     
     public func configStatusBarButton() {
@@ -53,11 +60,11 @@ extension WatchlistTableViewController {
     @objc public func didTapWatchlistFilter(sender: UIBarButtonItem) {
         if isFilterOn {
             isFilterOn = false
-            sender.image = filterOffImage
+            sender.image = UIImage(systemName: "line.3.horizontal.decrease.circle")
             setToolbarItems([filterBarButton, spacerBarButton, statusBarButton, spacerBarButton, searchBarButton], animated: true)
         } else {
             isFilterOn = true
-            sender.image = filterOnImage
+            sender.image = UIImage(systemName: "line.3.horizontal.decrease.circle.fill")
             setToolbarItems([filterBarButton, spacerBarButton, filteredByBarButton, spacerBarButton, searchBarButton], animated: true)
         }
     }

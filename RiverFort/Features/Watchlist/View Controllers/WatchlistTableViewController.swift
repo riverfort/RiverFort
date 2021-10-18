@@ -13,10 +13,8 @@ class WatchlistTableViewController: UITableViewController {
     public var isFilterOn = false
     public lazy var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
     public lazy var searchResultTableVC = SearchResultViewController(style: .insetGrouped)
-    public lazy var filterOnImage = UIImage(systemName: "line.3.horizontal.decrease.circle.fill")
-    public lazy var filterOffImage = UIImage(systemName: "line.3.horizontal.decrease.circle")
     public lazy var searchImage = UIImage(systemName: "magnifyingglass")
-    public lazy var filterBarButton = UIBarButtonItem(image: filterOffImage, style: .plain, target: self, action: #selector(didTapWatchlistFilter))
+    public lazy var filterBarButton = UIBarButtonItem()
     public lazy var spacerBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
     public lazy var searchBarButton = UIBarButtonItem(image: searchImage, style: .plain, target: nil, action: nil)
     public lazy var statusBarButton = UIBarButtonItem()
