@@ -59,6 +59,12 @@ extension WatchlistTableViewController {
         filteredByButton.titleLabel?.font = .preferredFont(forTextStyle: .caption2)
         filteredByButton.titleLabel?.lineBreakMode = .byTruncatingTail
         filteredByButton.addTarget(self, action: #selector(didTapWatchlistFilteredBy), for: .touchUpInside)
+        guard let filteredExchangeList = UserDefaults.filteredExchangeList else { return }
+        if filteredExchangeList.isEmpty { filteredByButton.setTitle("None", for: .normal) }
+        else {
+            let filteredExchangeListText = filteredExchangeList.joined(separator: ", ")
+            filteredByButton.setTitle(filteredExchangeListText, for: .normal)
+        }
     }
 }
 
