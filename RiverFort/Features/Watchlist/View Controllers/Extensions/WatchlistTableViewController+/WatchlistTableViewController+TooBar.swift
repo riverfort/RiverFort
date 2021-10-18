@@ -28,7 +28,11 @@ extension WatchlistTableViewController {
         filterBarButton.action = #selector(didTapWatchlistFilter)
     }
     
-    public func configSearchBarButton() { searchBarButton.tintColor = .systemIndigo }
+    public func configSearchBarButton() {
+        searchBarButton.style = .plain
+        searchBarButton.tintColor = .systemIndigo
+        searchBarButton.image = UIImage(systemName: "magnifyingglass")
+    }
     
     public func configStatusBarButton() {
         let watchlistCompaniesCountLabel = UILabel()
