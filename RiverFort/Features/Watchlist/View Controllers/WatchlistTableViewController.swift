@@ -13,8 +13,8 @@ class WatchlistTableViewController: UITableViewController {
     public var isFilterOn = false
     public lazy var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
     public lazy var searchResultTableVC = SearchResultViewController(style: .insetGrouped)
-    public lazy var filterBarButton = UIBarButtonItem()
     public lazy var spacerBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+    public lazy var filterBarButton = UIBarButtonItem()
     public lazy var searchBarButton = UIBarButtonItem()
     public lazy var statusBarButton = UIBarButtonItem()
     public lazy var filteredByBarButton = UIBarButtonItem()
