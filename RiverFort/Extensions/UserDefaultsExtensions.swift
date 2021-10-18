@@ -39,7 +39,7 @@ extension UserDefaults {
     }
     
     class var filteredExchangeList: [String]? {
-        get { UserDefaults.standard.stringArray(forKey: Keys.filteredExchangeList) }
+        get { UserDefaults.standard.stringArray(forKey: Keys.filteredExchangeList) ?? [] }
         set { UserDefaults.standard.set(newValue, forKey: Keys.filteredExchangeList) }
     }
 }

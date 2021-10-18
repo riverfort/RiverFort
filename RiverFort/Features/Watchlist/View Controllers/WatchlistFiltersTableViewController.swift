@@ -119,8 +119,17 @@ extension WatchlistFiltersTableViewController {
         let newExchange = FilteringExchange(name: exchange.name, isFiltered: !exchange.isFiltered)
         exchanges.remove(at: indexPath.row)
         exchanges.insert(newExchange, at: indexPath.row)
-        if newExchange.isFiltered { cell.accessoryType = .checkmark }
-        else { cell.accessoryType = .none }
+        if newExchange.isFiltered {
+            cell.accessoryType = .checkmark
+            guard var filteredExchangeList = UserDefaults.filteredExchangeList else { return }
+            filteredExchangeList.append(newExchange.name)
+            UserDefaults.filteredExchangeList = filteredExchangeList
+        } else {
+            cell.accessoryType = .none
+            guard var filteredExchangeList = UserDefaults.filteredExchangeList else { return }
+            if let index = filteredExchangeList.firstIndex(of: newExchange.name) { filteredExchangeList.remove(at: index) }
+            UserDefaults.filteredExchangeList = filteredExchangeList
+        }
     }
 }
 
