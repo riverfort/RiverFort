@@ -38,7 +38,7 @@ extension UserDefaults {
         set { UserDefaults.standard.set(newValue, forKey: Keys.watchlistSymbolDeletionList) }
     }
     
-    class var filteredExchangeList: [String]? {
+    class var filteredExchangeList: [String] {
         get { UserDefaults.standard.stringArray(forKey: Keys.filteredExchangeList) ?? [] }
         set { UserDefaults.standard.set(newValue, forKey: Keys.filteredExchangeList) }
     }

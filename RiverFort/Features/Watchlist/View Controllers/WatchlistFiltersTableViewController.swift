@@ -22,11 +22,8 @@ class WatchlistFiltersTableViewController: UITableViewController {
     public lazy var exchanges: [FilteringExchange] = { () -> [FilteringExchange] in
         let realm = try! Realm()
         let exchanges = Array(Set(realm.objects(WatchlistCompanyList.self).first!.watchlistCompanies.map { $0.exchange })).sorted { $0 < $1 }
-        if let filteredExchangeList = UserDefaults.filteredExchangeList {
-            return exchanges.map { FilteringExchange(name: $0, isFiltered: filteredExchangeList.contains($0)) }
-        } else {
-            return exchanges.map { FilteringExchange(name: $0, isFiltered: false) }
-        }
+        let filteredExchangeList = UserDefaults.filteredExchangeList
+        return exchanges.map { FilteringExchange(name: $0, isFiltered: filteredExchangeList.contains($0)) }
     }()
 
     override func viewDidLoad() {
@@ -131,12 +128,12 @@ extension WatchlistFiltersTableViewController {
         exchanges.insert(newExchange, at: indexPath.row)
         if newExchange.isFiltered {
             cell.accessoryType = .checkmark
-            guard var filteredExchangeList = UserDefaults.filteredExchangeList else { return }
+            var filteredExchangeList = UserDefaults.filteredExchangeList
             filteredExchangeList.append(newExchange.name)
             UserDefaults.filteredExchangeList = filteredExchangeList
         } else {
             cell.accessoryType = .none
-            guard var filteredExchangeList = UserDefaults.filteredExchangeList else { return }
+            var filteredExchangeList = UserDefaults.filteredExchangeList
             if let index = filteredExchangeList.firstIndex(of: newExchange.name) { filteredExchangeList.remove(at: index) }
             UserDefaults.filteredExchangeList = filteredExchangeList
         }
