@@ -41,6 +41,7 @@ class WatchlistFiltersTableViewController: UITableViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        UserDefaults.filteredExchangeList = exchanges.filter { $0.isFiltered }.map { $0.name }
         delegate?.didDismissWatchlistFiltersTableViewController()
     }
 
@@ -127,7 +128,6 @@ extension WatchlistFiltersTableViewController {
         exchanges.remove(at: indexPath.row)
         exchanges.insert(newExchange, at: indexPath.row)
         cell.accessoryType = newExchange.isFiltered ? .checkmark : .none
-        UserDefaults.filteredExchangeList = exchanges.filter { $0.isFiltered }.map { $0.name }
     }
 }
 
