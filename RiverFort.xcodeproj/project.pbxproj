@@ -508,7 +508,6 @@
 			isa = PBXGroup;
 			children = (
 				77D66174271845DA002001B4 /* WatchlistTableViewController+ */,
-				77D6617527184607002001B4 /* WatchlistFiltersTableViewController+ */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -530,13 +529,6 @@
 				77BD47A32719C7BE003B7271 /* WatchlistTableViewController+TooBar.swift */,
 			);
 			path = "WatchlistTableViewController+";
-			sourceTree = "<group>";
-		};
-		77D6617527184607002001B4 /* WatchlistFiltersTableViewController+ */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "WatchlistFiltersTableViewController+";
 			sourceTree = "<group>";
 		};
 		77D6FC8E26F370F10074137C /* Card Controllers */ = {
