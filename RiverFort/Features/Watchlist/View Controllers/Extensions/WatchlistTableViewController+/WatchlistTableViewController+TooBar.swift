@@ -20,7 +20,7 @@ extension WatchlistTableViewController {
 }
 
 extension WatchlistTableViewController {
-    public func configFilterBarButton() {
+    private func configFilterBarButton() {
         filterBarButton.style = .plain
         filterBarButton.tintColor = .systemIndigo
         filterBarButton.image = UIImage(systemName: "line.3.horizontal.decrease.circle")
@@ -28,7 +28,7 @@ extension WatchlistTableViewController {
         filterBarButton.action = #selector(didTapWatchlistFilter)
     }
     
-    public func configSearchBarButton() {
+    private func configSearchBarButton() {
         searchBarButton.style = .plain
         searchBarButton.tintColor = .systemIndigo
         searchBarButton.image = UIImage(systemName: "magnifyingglass")
@@ -36,7 +36,7 @@ extension WatchlistTableViewController {
         searchBarButton.action = #selector(didTapSearch)
     }
     
-    public func configStatusBarButton() {
+    private func configStatusBarButton() {
         let watchlistCompaniesCountLabel = UILabel()
         watchlistCompaniesCountLabel.font = .preferredFont(forTextStyle: .caption2)
         watchlistCompaniesCountLabel.textAlignment = .center
@@ -44,7 +44,7 @@ extension WatchlistTableViewController {
         statusBarButton.customView = watchlistCompaniesCountLabel
     }
     
-    public func configFilteredByBarButton() {
+    private func configFilteredByBarButton() {
         let filteredByLabel = UILabel()
         let filteredByButton = UIButton()
         let stackView = UIStackView(arrangedSubviews: [filteredByLabel, filteredByButton])
@@ -66,7 +66,7 @@ extension WatchlistTableViewController {
 // MARK: - Filter
 
 extension WatchlistTableViewController {
-    @objc public func didTapWatchlistFilter(sender: UIBarButtonItem) {
+    @objc private func didTapWatchlistFilter(sender: UIBarButtonItem) {
         if isFilterOn {
             isFilterOn = false
             sender.image = UIImage(systemName: "line.3.horizontal.decrease.circle")
@@ -78,14 +78,14 @@ extension WatchlistTableViewController {
         }
     }
     
-    @objc public func didTapWatchlistFilteredBy() {
+    @objc private func didTapWatchlistFilteredBy() {
         let filtersTableVC = WatchlistFiltersTableViewController()
         let navigation = UINavigationController(rootViewController: filtersTableVC)
         filtersTableVC.delegate = self
         present(navigation, animated: true)
     }
     
-    public func setFilteredByButtonTitle() {
+    private func setFilteredByButtonTitle() {
         guard let stackView = filteredByBarButton.customView as? UIStackView else { return }
         guard let filteredByButton = stackView.arrangedSubviews[1] as? UIButton else { return }
         let filteredExchangeList = UserDefaults.filteredExchangeList
@@ -108,7 +108,7 @@ extension WatchlistTableViewController {
 // MARK: - Search
 
 extension WatchlistTableViewController {
-    @objc public func didTapSearch() {
+    @objc private func didTapSearch() {
         navigationItem.searchController?.isActive = true
         navigationItem.searchController?.searchBar.becomeFirstResponder()
     }
