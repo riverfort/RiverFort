@@ -21,9 +21,10 @@ class WatchlistFiltersTableViewController: UITableViewController {
     public weak var delegate: WatchlistFiltersTableViewControllerDelegate?
     public lazy var exchanges: [FilteringExchange] = { () -> [FilteringExchange] in
         let realm = try! Realm()
-        let exchanges = Array(Set(realm.objects(WatchlistCompanyList.self).first!.watchlistCompanies.map { $0.exchange })).sorted { $0 < $1 }
-        let filteredExchangeList = UserDefaults.filteredExchangeList
-        return exchanges.map { FilteringExchange(name: $0, isFiltered: filteredExchangeList.contains($0)) }
+        let exchanges = Set(realm.objects(WatchlistCompanyList.self).first!.watchlistCompanies.map { $0.exchange })
+            .sorted { $0 < $1 }
+            .map { FilteringExchange(name: $0, isFiltered: UserDefaults.filteredExchangeList.contains($0)) }
+        return exchanges
     }()
 
     override func viewDidLoad() {
