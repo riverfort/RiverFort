@@ -116,5 +116,8 @@ extension WatchlistTableViewController {
 // MARK: - WatchlistFiltersTableViewControllerDelegate
 
 extension WatchlistTableViewController: WatchlistFiltersTableViewControllerDelegate {
-    func didDismissWatchlistFiltersTableViewController() { setFilteredByButtonTitle() }
+    func didDismissWatchlistFiltersTableViewController() {
+        tableView.reloadData()
+        setFilteredByButtonTitle()
+    }
 }
