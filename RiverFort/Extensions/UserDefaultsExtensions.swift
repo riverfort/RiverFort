@@ -33,7 +33,7 @@ extension UserDefaults {
         set { UserDefaults.standard.set(newValue, forKey: Keys.deviceToken) }
     }
     
-    class var watchlistSymbolDeletionList: [String]? {
+    class var watchlistSymbolDeletionList: [String] {
         get { UserDefaults.standard.stringArray(forKey: Keys.watchlistSymbolDeletionList) ?? [] }
         set { UserDefaults.standard.set(newValue, forKey: Keys.watchlistSymbolDeletionList) }
     }
