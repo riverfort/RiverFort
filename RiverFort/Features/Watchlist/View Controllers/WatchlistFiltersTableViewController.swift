@@ -58,8 +58,7 @@ class WatchlistFiltersTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let exchange = exchanges[indexPath.row]
         cell.textLabel?.text = exchange.name
-        if exchange.isFiltered { cell.accessoryType = .checkmark }
-        else { cell.accessoryType = .none }
+        cell.accessoryType = exchange.isFiltered ? .checkmark : .none
         return cell
     }
 
