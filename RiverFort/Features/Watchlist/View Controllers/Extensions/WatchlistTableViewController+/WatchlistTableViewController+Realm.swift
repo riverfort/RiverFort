@@ -11,7 +11,7 @@ import SPAlert
 
 extension WatchlistTableViewController {    
     public func deleteWatchlistCompany(row: Int) {
-        let watchlistCompany = watchlistCompanyList!.watchlistCompanies[row]
+        let watchlistCompany = watchlistCompanies[row]
         do {
             try realm.write({ realm.delete(watchlistCompany) })
         } catch {
@@ -23,7 +23,7 @@ extension WatchlistTableViewController {
     public func rearrangeWatchlistCompanyList(from: Int, to: Int) {
         do {
             try realm.write({
-                watchlistCompanyList!.watchlistCompanies.move(from: from, to: to)
+                watchlistCompanies.move(from: from, to: to)
             })
         } catch {
             print(error.localizedDescription)

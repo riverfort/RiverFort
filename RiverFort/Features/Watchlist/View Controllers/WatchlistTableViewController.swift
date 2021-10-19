@@ -11,7 +11,7 @@ import RealmSwift
 class WatchlistTableViewController: UITableViewController {
     public let realm = try! Realm()
     public var isFilterOn = false
-    public lazy var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
+    public lazy var watchlistCompanies = realm.objects(WatchlistCompanyList.self).first!.watchlistCompanies
     public lazy var searchResultTableVC = SearchResultViewController(style: .insetGrouped)
     public lazy var spacerBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
     public lazy var filterBarButton = UIBarButtonItem()
@@ -46,15 +46,15 @@ class WatchlistTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return watchlistCompanyList!.watchlistCompanies.count
+        return watchlistCompanies.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         if cell == nil { cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell") }
-        cell!.textLabel?.text = watchlistCompanyList!.watchlistCompanies[indexPath.row].symbol
+        cell!.textLabel?.text = watchlistCompanies[indexPath.row].symbol
         cell!.textLabel?.font = .preferredFont(forTextStyle: .headline)
-        cell!.detailTextLabel?.text = watchlistCompanyList!.watchlistCompanies[indexPath.row].name
+        cell!.detailTextLabel?.text = watchlistCompanies[indexPath.row].name
         cell!.detailTextLabel?.font = .preferredFont(forTextStyle: .subheadline)
         cell!.detailTextLabel?.textColor = .systemGray
         return cell!
@@ -72,7 +72,7 @@ class WatchlistTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let watchlistCompany = watchlistCompanyList!.watchlistCompanies[indexPath.row]
+            let watchlistCompany = watchlistCompanies[indexPath.row]
             if watchlistCompany.exchange == "London" {
                 WatchlistAPIFunction.deleteWatchlist(companySymbol: watchlistCompany.symbol.components(separatedBy: ".")[0])
             }
@@ -111,7 +111,7 @@ class WatchlistTableViewController: UITableViewController {
 
 extension WatchlistTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let watchlistCompnay = watchlistCompanyList!.watchlistCompanies[indexPath.row]
+        let watchlistCompnay = watchlistCompanies[indexPath.row]
         let company = Company(symbol: watchlistCompnay.symbol, name: watchlistCompnay.name, exchange: watchlistCompnay.exchange, exchangeShortName: nil, type: nil)
         let companyDetailViewController = CompanyDetailViewController()
         companyDetailViewController.company = company
