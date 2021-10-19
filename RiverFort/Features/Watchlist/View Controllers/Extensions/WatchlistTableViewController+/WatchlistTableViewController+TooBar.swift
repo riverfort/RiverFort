@@ -86,8 +86,7 @@ extension WatchlistTableViewController {
     }
     
     private func setFilteredByButtonTitle() {
-        guard let stackView = filteredByBarButton.customView as? UIStackView else { return }
-        guard let filteredByButton = stackView.arrangedSubviews[1] as? UIButton else { return }
+        guard let filteredByButton = (filteredByBarButton.customView as? UIStackView)?.arrangedSubviews[1] as? UIButton else { return }
         let filteredExchangeList = UserDefaults.filteredExchangeList
         if filteredExchangeList.isEmpty { filteredByButton.setTitle("None", for: .normal) }
         else { filteredByButton.setTitle(filteredExchangeList.joined(separator: ", "), for: .normal) }
