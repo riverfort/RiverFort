@@ -76,6 +76,7 @@ extension WatchlistTableViewController {
             sender.image = UIImage(systemName: "line.3.horizontal.decrease.circle.fill")
             setToolbarItems([filterBarButton, spacerBarButton, filteredByBarButton, spacerBarButton, searchBarButton], animated: true)
         }
+        tableView.reloadSections(IndexSet(integersIn: 0..<tableView.numberOfSections), with: .automatic)
     }
     
     @objc private func didTapWatchlistFilteredBy() {
