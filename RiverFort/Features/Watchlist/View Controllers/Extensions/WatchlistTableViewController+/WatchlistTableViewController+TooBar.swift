@@ -80,10 +80,12 @@ extension WatchlistTableViewController {
             isFilterOn = false
             sender.image = UIImage(systemName: "line.3.horizontal.decrease.circle")
             setToolbarItems([filterBarButton, spacerBarButton, statusBarButton, spacerBarButton, searchBarButton], animated: true)
+            navigationItem.rightBarButtonItem?.isEnabled = watchlistCompanies.count == 0 ? false : true
         } else {
             isFilterOn = true
             sender.image = UIImage(systemName: "line.3.horizontal.decrease.circle.fill")
             setToolbarItems([filterBarButton, spacerBarButton, filteredByBarButton, spacerBarButton, searchBarButton], animated: true)
+            navigationItem.rightBarButtonItem?.isEnabled = filteredWatchlistCompanies.count == 0 ? false : true
         }
         tableView.reloadSections(IndexSet(integersIn: 0..<tableView.numberOfSections), with: .automatic)
     }
@@ -120,6 +122,7 @@ extension WatchlistTableViewController {
 
 extension WatchlistTableViewController: WatchlistFiltersTableViewControllerDelegate {
     func didDismissWatchlistFiltersTableViewController() {
+        navigationItem.rightBarButtonItem?.isEnabled = filteredWatchlistCompanies.count == 0 ? false : true
         tableView.reloadSections(IndexSet(integersIn: 0..<tableView.numberOfSections), with: .automatic)
         setFilteredByButtonTitle()
     }
