@@ -110,8 +110,8 @@ extension WatchlistTableViewController {
 
 extension WatchlistTableViewController {
     public func setWatchlistCompaniesCountLabel() {
-        let count = watchlistCompanies.count
         guard let watchlistCompaniesCountLabel = statusBarButton.customView as? UILabel else { return }
+        let count = watchlistCompanies.count
         watchlistCompaniesCountLabel.text = (count == 0) ? "No Watchlist" : (count == 1) ? "\(count) Company" : "\(count) Companies"
         enableEditButtonItem()
     }
