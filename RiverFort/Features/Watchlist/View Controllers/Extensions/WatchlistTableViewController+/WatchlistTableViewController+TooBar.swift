@@ -63,6 +63,15 @@ extension WatchlistTableViewController {
     }
 }
 
+// MARK: - Edit
+
+extension WatchlistTableViewController {
+    private func enableEditButtonItem() {
+        if isFilterOn { navigationItem.rightBarButtonItem?.isEnabled = (filteredWatchlistCompanies.count == 0 ) ? false : true }
+        else { navigationItem.rightBarButtonItem?.isEnabled = (watchlistCompanies.count == 0 ) ? false : true }
+    }
+}
+
 // MARK: - Filter
 
 extension WatchlistTableViewController {
@@ -80,14 +89,13 @@ extension WatchlistTableViewController {
             isFilterOn = false
             sender.image = UIImage(systemName: "line.3.horizontal.decrease.circle")
             setToolbarItems([filterBarButton, spacerBarButton, statusBarButton, spacerBarButton, searchBarButton], animated: true)
-            navigationItem.rightBarButtonItem?.isEnabled = watchlistCompanies.count == 0 ? false : true
         } else {
             isFilterOn = true
             sender.image = UIImage(systemName: "line.3.horizontal.decrease.circle.fill")
             setToolbarItems([filterBarButton, spacerBarButton, filteredByBarButton, spacerBarButton, searchBarButton], animated: true)
-            navigationItem.rightBarButtonItem?.isEnabled = filteredWatchlistCompanies.count == 0 ? false : true
         }
         tableView.reloadSections(IndexSet(integersIn: 0..<tableView.numberOfSections), with: .automatic)
+        enableEditButtonItem()
     }
     
     @objc private func didTapWatchlistFilteredBy() {
@@ -105,7 +113,7 @@ extension WatchlistTableViewController {
         let count = watchlistCompanies.count
         guard let watchlistCompaniesCountLabel = statusBarButton.customView as? UILabel else { return }
         watchlistCompaniesCountLabel.text = (count == 0) ? "No Watchlist" : (count == 1) ? "\(count) Company" : "\(count) Companies"
-        navigationItem.rightBarButtonItem?.isEnabled = (count == 0) ? false : true
+        enableEditButtonItem()
     }
 }
 
