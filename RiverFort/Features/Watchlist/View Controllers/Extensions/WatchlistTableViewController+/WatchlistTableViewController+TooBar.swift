@@ -85,7 +85,9 @@ extension WatchlistTableViewController {
         filtersTableVC.delegate = self
         present(navigation, animated: true)
     }
-    
+}
+
+extension WatchlistTableViewController {
     private func setFilteredByButtonTitle() {
         guard let filteredByButton = (filteredByBarButton.customView as? UIStackView)?.arrangedSubviews[1] as? UIButton else { return }
         let filteredExchangeList = UserDefaults.filteredExchangeList
