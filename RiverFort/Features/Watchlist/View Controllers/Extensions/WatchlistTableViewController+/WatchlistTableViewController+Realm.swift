@@ -10,8 +10,7 @@ import RealmSwift
 import SPAlert
 
 extension WatchlistTableViewController {    
-    public func deleteWatchlistCompany(row: Int) {
-        let watchlistCompany = watchlistCompanies[row]
+    public func deleteWatchlistCompany(watchlistCompany: WatchlistCompany) {
         do {
             try realm.write({ realm.delete(watchlistCompany) })
         } catch {
