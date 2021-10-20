@@ -66,6 +66,15 @@ extension WatchlistTableViewController {
 // MARK: - Filter
 
 extension WatchlistTableViewController {
+    private func setFilteredByButtonTitle() {
+        guard let filteredByButton = (filteredByBarButton.customView as? UIStackView)?.arrangedSubviews[1] as? UIButton else { return }
+        let filteredExchangeList = UserDefaults.filteredExchangeList
+        if filteredExchangeList.isEmpty { filteredByButton.setTitle("None", for: .normal) }
+        else { filteredByButton.setTitle(filteredExchangeList.joined(separator: ", "), for: .normal) }
+    }
+}
+
+extension WatchlistTableViewController {
     @objc private func didTapWatchlistFilter(sender: UIBarButtonItem) {
         if isFilterOn {
             isFilterOn = false
@@ -84,15 +93,6 @@ extension WatchlistTableViewController {
         let navigation = UINavigationController(rootViewController: filtersTableVC)
         filtersTableVC.delegate = self
         present(navigation, animated: true)
-    }
-}
-
-extension WatchlistTableViewController {
-    private func setFilteredByButtonTitle() {
-        guard let filteredByButton = (filteredByBarButton.customView as? UIStackView)?.arrangedSubviews[1] as? UIButton else { return }
-        let filteredExchangeList = UserDefaults.filteredExchangeList
-        if filteredExchangeList.isEmpty { filteredByButton.setTitle("None", for: .normal) }
-        else { filteredByButton.setTitle(filteredExchangeList.joined(separator: ", "), for: .normal) }
     }
 }
 
