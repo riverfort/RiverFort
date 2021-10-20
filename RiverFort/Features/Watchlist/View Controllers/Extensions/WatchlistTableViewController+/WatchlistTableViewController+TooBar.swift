@@ -117,7 +117,7 @@ extension WatchlistTableViewController {
 
 extension WatchlistTableViewController: WatchlistFiltersTableViewControllerDelegate {
     func didDismissWatchlistFiltersTableViewController() {
-        tableView.reloadData()
+        tableView.reloadSections(IndexSet(integersIn: 0..<tableView.numberOfSections), with: .automatic)
         setFilteredByButtonTitle()
     }
 }
