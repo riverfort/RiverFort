@@ -93,13 +93,12 @@ class WatchlistTableViewController: UITableViewController {
         rearrangeWatchlistCompanyList(from: fromIndexPath.row, to: to.row)
     }
 
-    /*
     // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
+        if isFilterOn { return false }
         return true
     }
-    */
 
     /*
     // MARK: - Navigation
