@@ -22,9 +22,7 @@ extension WatchlistTableViewController {
     
     public func rearrangeWatchlistCompanyList(from: Int, to: Int) {
         do {
-            try realm.write({
-                watchlistCompanies.move(from: from, to: to)
-            })
+            try realm.write({ watchlistCompanies.move(from: from, to: to) })
         } catch {
             print(error.localizedDescription)
             SPAlert.present(title: "Something going wrong", preset: .error, haptic: .error)
