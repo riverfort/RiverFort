@@ -13,11 +13,20 @@ struct FilteringExchange {
     let isFiltered: Bool
 }
 
+protocol WatchlistFiltersTableViewControllerDelegate: AnyObject {
+    func didDismissWatchlistFiltersTableViewController()
+}
+
 class WatchlistFiltersTableViewController: UITableViewController {
-    public let realm = try! Realm()
-    public lazy var exchanges = Array(Set(realm.objects(WatchlistCompanyList.self).first!.watchlistCompanies.map { $0.exchange })).sorted { $0 < $1 }
-    public lazy var filteringExchanges = exchanges.map { FilteringExchange(name: $0, isFiltered: false) }
-                                            
+    public weak var delegate: WatchlistFiltersTableViewControllerDelegate?
+    private var exchanges: [FilteringExchange] = { () -> [FilteringExchange] in
+        let realm = try! Realm()
+        let exchanges = Set(realm.objects(WatchlistCompanyList.self).first!.watchlistCompanies.map { $0.exchange })
+            .sorted { $0 < $1 }
+            .map { FilteringExchange(name: $0, isFiltered: UserDefaults.filteredExchangeList.contains($0)) }
+        return exchanges
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configNavigationController()
@@ -32,7 +41,8 @@ class WatchlistFiltersTableViewController: UITableViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print("\(#function)")
+        UserDefaults.filteredExchangeList = exchanges.filter { $0.isFiltered }.map { $0.name }
+        delegate?.didDismissWatchlistFiltersTableViewController()
     }
 
     // MARK: - Table view data source
@@ -46,13 +56,11 @@ class WatchlistFiltersTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        if cell == nil { cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell") }
-        let filteringExchange = filteringExchanges[indexPath.row]
-        if filteringExchange.isFiltered { cell!.accessoryType = .checkmark }
-        else { cell!.accessoryType = .none }
-        cell!.textLabel?.text = filteringExchange.name
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let exchange = exchanges[indexPath.row]
+        cell.textLabel?.text = exchange.name
+        cell.accessoryType = exchange.isFiltered ? .checkmark : .none
+        return cell
     }
 
     /*
@@ -115,13 +123,11 @@ extension WatchlistFiltersTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
-        cell.tintColor = .systemIndigo
-        let filteringExchange = filteringExchanges[indexPath.row]
-        let newFilteringExchange = FilteringExchange(name: filteringExchange.name, isFiltered: !filteringExchange.isFiltered)
-        filteringExchanges.remove(at: indexPath.row)
-        filteringExchanges.insert(newFilteringExchange, at: indexPath.row)
-        if newFilteringExchange.isFiltered { cell.accessoryType = .checkmark }
-        else { cell.accessoryType = .none }
+        let exchange = exchanges[indexPath.row]
+        let newExchange = FilteringExchange(name: exchange.name, isFiltered: !exchange.isFiltered)
+        exchanges.remove(at: indexPath.row)
+        exchanges.insert(newExchange, at: indexPath.row)
+        cell.accessoryType = newExchange.isFiltered ? .checkmark : .none
     }
 }
 
@@ -135,6 +141,8 @@ extension WatchlistFiltersTableViewController {
     
     private func configTableView() {
         tableView = UITableView(frame: tableView.frame, style: .insetGrouped)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.tintColor = .systemIndigo
     }
 }
 

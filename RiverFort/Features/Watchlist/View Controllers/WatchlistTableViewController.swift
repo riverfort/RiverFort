@@ -11,16 +11,14 @@ import RealmSwift
 class WatchlistTableViewController: UITableViewController {
     public let realm = try! Realm()
     public var isFilterOn = false
-    public lazy var watchlistCompanyList = realm.objects(WatchlistCompanyList.self).first
+    public var watchlistCompanies: List<WatchlistCompany> { realm.objects(WatchlistCompanyList.self).first!.watchlistCompanies }
+    public var filteredWatchlistCompanies: [WatchlistCompany] { watchlistCompanies.filter { UserDefaults.filteredExchangeList.contains($0.exchange) } }
     public lazy var searchResultTableVC = SearchResultViewController(style: .insetGrouped)
-    public lazy var filterOnImage = UIImage(systemName: "line.3.horizontal.decrease.circle.fill")
-    public lazy var filterOffImage = UIImage(systemName: "line.3.horizontal.decrease.circle")
-    public lazy var filterBarButton = UIBarButtonItem(image: filterOffImage, style: .plain, target: self, action: #selector(didTapWatchlistFilter))
     public lazy var spacerBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+    public lazy var filterBarButton = UIBarButtonItem()
+    public lazy var searchBarButton = UIBarButtonItem()
     public lazy var statusBarButton = UIBarButtonItem()
     public lazy var filteredByBarButton = UIBarButtonItem()
-    public lazy var filteredByButton = UIButton()
-    public lazy var watchlistCompaniesCountLabel = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +27,6 @@ class WatchlistTableViewController: UITableViewController {
         configSearchController()
         configTableView()
         configToolBar()
-        configFilterBarButton()
-        configStatusBarButton()
-        configFilteredByBarButton()
-        configWatchlistCompaniesCountLabel()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -53,17 +47,22 @@ class WatchlistTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return watchlistCompanyList!.watchlistCompanies.count
+        return isFilterOn ? filteredWatchlistCompanies.count : watchlistCompanies.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         if cell == nil { cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell") }
-        cell!.textLabel?.text = watchlistCompanyList!.watchlistCompanies[indexPath.row].symbol
         cell!.textLabel?.font = .preferredFont(forTextStyle: .headline)
-        cell!.detailTextLabel?.text = watchlistCompanyList!.watchlistCompanies[indexPath.row].name
         cell!.detailTextLabel?.font = .preferredFont(forTextStyle: .subheadline)
         cell!.detailTextLabel?.textColor = .systemGray
+        if isFilterOn {
+            cell!.textLabel?.text = filteredWatchlistCompanies[indexPath.row].symbol
+            cell!.detailTextLabel?.text = filteredWatchlistCompanies[indexPath.row].name
+        } else {
+            cell!.textLabel?.text = watchlistCompanies[indexPath.row].symbol
+            cell!.detailTextLabel?.text = watchlistCompanies[indexPath.row].name
+        }
         return cell!
     }
 
@@ -79,11 +78,9 @@ class WatchlistTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let watchlistCompany = watchlistCompanyList!.watchlistCompanies[indexPath.row]
-            if watchlistCompany.exchange == "London" {
-                WatchlistAPIFunction.deleteWatchlist(companySymbol: watchlistCompany.symbol.components(separatedBy: ".")[0])
-            }
-            deleteWatchlistCompany(row: indexPath.row)
+            let watchlistCompany = isFilterOn ? filteredWatchlistCompanies[indexPath.row] : watchlistCompanies[indexPath.row]
+            if watchlistCompany.exchange == "London" { WatchlistAPIFunction.deleteWatchlist(companySymbol: watchlistCompany.symbol.components(separatedBy: ".")[0]) }
+            deleteWatchlistCompany(watchlistCompany: watchlistCompany)
             tableView.deleteRows(at: [indexPath], with: .fade)
             setWatchlistCompaniesCountLabel()
         } else if editingStyle == .insert {
@@ -96,13 +93,12 @@ class WatchlistTableViewController: UITableViewController {
         rearrangeWatchlistCompanyList(from: fromIndexPath.row, to: to.row)
     }
 
-    /*
     // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
+        if isFilterOn { return false }
         return true
     }
-    */
 
     /*
     // MARK: - Navigation
@@ -118,7 +114,7 @@ class WatchlistTableViewController: UITableViewController {
 
 extension WatchlistTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let watchlistCompnay = watchlistCompanyList!.watchlistCompanies[indexPath.row]
+        let watchlistCompnay = isFilterOn ? filteredWatchlistCompanies[indexPath.row] : watchlistCompanies[indexPath.row]
         let company = Company(symbol: watchlistCompnay.symbol, name: watchlistCompnay.name, exchange: watchlistCompnay.exchange, exchangeShortName: nil, type: nil)
         let companyDetailViewController = CompanyDetailViewController()
         companyDetailViewController.company = company
@@ -147,28 +143,6 @@ extension WatchlistTableViewController {
     
     private func configTableView() {
         tableView = UITableView(frame: tableView.frame, style: .insetGrouped)
-    }
-    
-    private func configToolBar() {
-        navigationController?.setToolbarHidden(false, animated: true)
-        setToolbarItems([filterBarButton, spacerBarButton, statusBarButton, spacerBarButton], animated: true)
-    }
-    
-    private func configFilterBarButton() { filterBarButton.tintColor = .systemIndigo }
-    private func configStatusBarButton() { statusBarButton.customView = watchlistCompaniesCountLabel }
-    
-    private func configFilteredByBarButton() {
-        filteredByButton.setTitle("Filtered by:", for: .normal)
-        filteredByButton.setTitleColor(.label, for: .normal)
-        filteredByButton.titleLabel?.font = .preferredFont(forTextStyle: .caption2)
-        filteredByButton.addTarget(self, action: #selector(didTapWatchlistFilteredBy), for: .touchUpInside)
-        filteredByBarButton.customView = filteredByButton
-    }
-    
-    private func configWatchlistCompaniesCountLabel() {
-        watchlistCompaniesCountLabel.font = .preferredFont(forTextStyle: .caption2)
-        watchlistCompaniesCountLabel.textAlignment = .center
-        watchlistCompaniesCountLabel.numberOfLines = 1
     }
 }
 

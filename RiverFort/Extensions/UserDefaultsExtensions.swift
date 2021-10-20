@@ -13,7 +13,7 @@ extension UserDefaults {
         static let timeseriesSelectedSegmentIndex = "timeseries_selected_segment_index"
         static let deviceToken = "device_token"
         static let watchlistSymbolDeletionList = "watchlist_symbol_deletion_list"
-        static let filteringExchangeList = "filtering_exchange_list"
+        static let filteredExchangeList = "filtered_exchange_list"
     }
 }
 
@@ -33,8 +33,13 @@ extension UserDefaults {
         set { UserDefaults.standard.set(newValue, forKey: Keys.deviceToken) }
     }
     
-    class var watchlistSymbolDeletionList: [String]? {
-        get { UserDefaults.standard.array(forKey: Keys.watchlistSymbolDeletionList) as? [String] }
+    class var watchlistSymbolDeletionList: [String] {
+        get { UserDefaults.standard.stringArray(forKey: Keys.watchlistSymbolDeletionList) ?? [] }
         set { UserDefaults.standard.set(newValue, forKey: Keys.watchlistSymbolDeletionList) }
+    }
+    
+    class var filteredExchangeList: [String] {
+        get { UserDefaults.standard.stringArray(forKey: Keys.filteredExchangeList) ?? [] }
+        set { UserDefaults.standard.set(newValue, forKey: Keys.filteredExchangeList) }
     }
 }
