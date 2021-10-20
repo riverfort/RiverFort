@@ -11,7 +11,8 @@ import RealmSwift
 class WatchlistTableViewController: UITableViewController {
     public let realm = try! Realm()
     public var isFilterOn = false
-    public lazy var watchlistCompanies = realm.objects(WatchlistCompanyList.self).first!.watchlistCompanies
+    public var watchlistCompanies: List<WatchlistCompany> { realm.objects(WatchlistCompanyList.self).first!.watchlistCompanies }
+    public var filteredWatchlistCompanies: [WatchlistCompany] { watchlistCompanies.filter { UserDefaults.filteredExchangeList.contains($0.exchange) } }
     public lazy var searchResultTableVC = SearchResultViewController(style: .insetGrouped)
     public lazy var spacerBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
     public lazy var filterBarButton = UIBarButtonItem()
@@ -46,17 +47,22 @@ class WatchlistTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return watchlistCompanies.count
+        return isFilterOn ? filteredWatchlistCompanies.count : watchlistCompanies.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         if cell == nil { cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell") }
-        cell!.textLabel?.text = watchlistCompanies[indexPath.row].symbol
         cell!.textLabel?.font = .preferredFont(forTextStyle: .headline)
-        cell!.detailTextLabel?.text = watchlistCompanies[indexPath.row].name
         cell!.detailTextLabel?.font = .preferredFont(forTextStyle: .subheadline)
         cell!.detailTextLabel?.textColor = .systemGray
+        if isFilterOn {
+            cell!.textLabel?.text = filteredWatchlistCompanies[indexPath.row].symbol
+            cell!.detailTextLabel?.text = filteredWatchlistCompanies[indexPath.row].name
+        } else {
+            cell!.textLabel?.text = watchlistCompanies[indexPath.row].symbol
+            cell!.detailTextLabel?.text = watchlistCompanies[indexPath.row].name
+        }
         return cell!
     }
 
