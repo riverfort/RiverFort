@@ -115,7 +115,7 @@ class WatchlistTableViewController: UITableViewController {
 
 extension WatchlistTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let watchlistCompnay = watchlistCompanies[indexPath.row]
+        let watchlistCompnay = isFilterOn ? filteredWatchlistCompanies[indexPath.row] : watchlistCompanies[indexPath.row]
         let company = Company(symbol: watchlistCompnay.symbol, name: watchlistCompnay.name, exchange: watchlistCompnay.exchange, exchangeShortName: nil, type: nil)
         let companyDetailViewController = CompanyDetailViewController()
         companyDetailViewController.company = company
