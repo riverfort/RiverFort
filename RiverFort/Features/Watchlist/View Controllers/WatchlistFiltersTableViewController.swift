@@ -19,7 +19,7 @@ protocol WatchlistFiltersTableViewControllerDelegate: AnyObject {
 
 class WatchlistFiltersTableViewController: UITableViewController {
     public weak var delegate: WatchlistFiltersTableViewControllerDelegate?
-    private lazy var exchanges: [FilteringExchange] = { () -> [FilteringExchange] in
+    private var exchanges: [FilteringExchange] = { () -> [FilteringExchange] in
         let realm = try! Realm()
         let exchanges = Set(realm.objects(WatchlistCompanyList.self).first!.watchlistCompanies.map { $0.exchange })
             .sorted { $0 < $1 }
