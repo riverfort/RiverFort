@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-class WatchlistAPIFunction {
+class WatchlistSyncAPIFunction {
     static func syncWatchlist(companySymbol: String) {
         guard let deviceToken = UserDefaults.deviceToken else { return }
         let params = ["device_token": deviceToken, "company_symbol": companySymbol]

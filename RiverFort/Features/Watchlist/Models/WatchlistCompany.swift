@@ -38,13 +38,13 @@ extension WatchlistCompanyList {
             let watchlistCompanySymbols = watchlistCompanyList!.watchlistCompanies
                 .filter { $0.exchange == "London" }
                 .map { $0.symbol.components(separatedBy: ".")[0] }
-            watchlistCompanySymbols.forEach { WatchlistAPIFunction.syncWatchlist(companySymbol: $0) }
+            watchlistCompanySymbols.forEach { WatchlistSyncAPIFunction.syncWatchlist(companySymbol: $0) }
         }
     }
     
     static func syncWatchlistDeletion() {
         let watchlistDeletionArray = UserDefaults.watchlistSymbolDeletionList
         guard !watchlistDeletionArray.isEmpty else { return }
-        watchlistDeletionArray.forEach { WatchlistAPIFunction.deleteWatchlist(companySymbol: $0 ) }
+        watchlistDeletionArray.forEach { WatchlistSyncAPIFunction.deleteWatchlist(companySymbol: $0 ) }
     }
 }
