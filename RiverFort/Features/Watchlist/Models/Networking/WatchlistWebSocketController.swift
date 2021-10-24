@@ -41,17 +41,25 @@ class WatchlistWebSocketController: NSObject {
             case .success(let message):
                 switch message {
                 case .data(let data):
-                    print("data: \(data)")
+                    self.handle(data)
                 case .string(let str):
                     guard let data = Data(base64Encoded: str, options: .ignoreUnknownCharacters) else { return }
-                    guard let quote = try? YahooFinanceRealTimeQuote(serializedData: data) else { return }
-                    print(quote)
+                    self.handle(data)
                 @unknown default: break
                 }
             case .failure(let error):
                 print(error.localizedDescription)
             }
             self.listen()
+        }
+    }
+    
+    private func handle(_ data: Data) {
+        do {
+            let quote = try YahooFinanceRealTimeQuote(serializedData: data)
+            print(quote)
+        } catch {
+            print(error.localizedDescription)
         }
     }
 }
