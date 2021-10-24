@@ -41,9 +41,11 @@ class WatchlistWebSocketController: NSObject {
             case .success(let message):
                 switch message {
                 case .data(let data):
-                    print(data)
+                    print("data: \(data)")
                 case .string(let str):
-                    print(str)
+                    guard let data = Data(base64Encoded: str, options: .ignoreUnknownCharacters) else { return }
+                    guard let quote = try? YahooFinanceRealTimeQuote(serializedData: data) else { return }
+                    print(quote)
                 @unknown default: break
                 }
             case .failure(let error):
@@ -57,8 +59,8 @@ class WatchlistWebSocketController: NSObject {
 extension WatchlistWebSocketController: URLSessionWebSocketDelegate {
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
         print("Web Socket did connect")
+        send(symbols: ["BTC-USD","ETH-USD","BNB-USD","ADA-USD","USDT-USD","SOL1-USD","HEX-USD"])
         listen()
-        send(symbols: ["FB"])
     }
     
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didCloseWith closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?) {
