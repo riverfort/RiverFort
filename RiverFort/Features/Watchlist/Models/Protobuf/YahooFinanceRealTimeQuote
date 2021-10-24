@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-message YahooFinanceLiveQuote {
+message YahooFinanceRealTimeQuote {
 
 enum QuoteType {
     NONE = 0;

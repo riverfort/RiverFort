@@ -74,7 +74,7 @@
 		77E7B3FB26E7838F000EABC6 /* PriceMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7B3FA26E7838F000EABC6 /* PriceMarker.swift */; };
 		77E7B3FD26E7AA56000EABC6 /* ChartDataEntryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7B3FC26E7AA56000EABC6 /* ChartDataEntryData.swift */; };
 		77F262E826F33C480000593C /* NotificationNameExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F262E726F33C480000593C /* NotificationNameExtensions.swift */; };
-		77F351232725829B00F7455B /* YahooFinanceLiveQuote in Resources */ = {isa = PBXBuildFile; fileRef = 77F351222725829B00F7455B /* YahooFinanceLiveQuote */; };
+		77F351232725829B00F7455B /* YahooFinanceRealTimeQuote in Resources */ = {isa = PBXBuildFile; fileRef = 77F351222725829B00F7455B /* YahooFinanceRealTimeQuote */; };
 		77F93365261A3251007662D5 /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F93364261A3251007662D5 /* DoubleExtensions.swift */; };
 		77FF535B26E12826001FAACA /* OHLCCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FF535A26E12826001FAACA /* OHLCCardController.swift */; };
 		FB8907E2A79EF7F14ACDADD8 /* Pods_RiverFort.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4FDABEC850381C29B4A9FCA /* Pods_RiverFort.framework */; };
@@ -151,7 +151,7 @@
 		77E7B3FA26E7838F000EABC6 /* PriceMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceMarker.swift; sourceTree = "<group>"; };
 		77E7B3FC26E7AA56000EABC6 /* ChartDataEntryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataEntryData.swift; sourceTree = "<group>"; };
 		77F262E726F33C480000593C /* NotificationNameExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtensions.swift; sourceTree = "<group>"; };
-		77F351222725829B00F7455B /* YahooFinanceLiveQuote */ = {isa = PBXFileReference; lastKnownFileType = text; path = YahooFinanceLiveQuote; sourceTree = "<group>"; };
+		77F351222725829B00F7455B /* YahooFinanceRealTimeQuote */ = {isa = PBXFileReference; lastKnownFileType = text; path = YahooFinanceRealTimeQuote; sourceTree = "<group>"; };
 		77F85A0226C92B6D00EAE363 /* RiverFort.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RiverFort.entitlements; sourceTree = "<group>"; };
 		77F93364261A3251007662D5 /* DoubleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
 		77FF535A26E12826001FAACA /* OHLCCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OHLCCardController.swift; sourceTree = "<group>"; };
@@ -588,7 +588,7 @@
 		77F3511B272569E500F7455B /* Protobuf */ = {
 			isa = PBXGroup;
 			children = (
-				77F351222725829B00F7455B /* YahooFinanceLiveQuote */,
+				77F351222725829B00F7455B /* YahooFinanceRealTimeQuote */,
 			);
 			path = Protobuf;
 			sourceTree = "<group>";
@@ -677,7 +677,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77F351232725829B00F7455B /* YahooFinanceLiveQuote in Resources */,
+				77F351232725829B00F7455B /* YahooFinanceRealTimeQuote in Resources */,
 				773A0B6F2617123B002B9875 /* LaunchScreen.storyboard in Resources */,
 				773A0B6C2617123B002B9875 /* Assets.xcassets in Resources */,
 			);
