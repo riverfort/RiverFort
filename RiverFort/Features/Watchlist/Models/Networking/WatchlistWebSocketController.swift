@@ -9,7 +9,7 @@ import Foundation
 
 class WatchlistWebSocketController: NSObject {
     private var session: URLSession!
-    private var socket: URLSessionWebSocketTask!
+    private var webSocketTask: URLSessionWebSocketTask!
     
     override init() {
         super.init()
@@ -19,31 +19,20 @@ class WatchlistWebSocketController: NSObject {
     
     private func connect() {
         guard let url = URL(string: "wss://streamer.finance.yahoo.com") else { return }
-        socket = session.webSocketTask(with: url)
-        socket.resume()
-    }
-    
-    func send(symbols: [String]) {
-        let params = ["subscribe": symbols]
-        do {
-            let jsonData = try JSONSerialization.data(withJSONObject: params, options: [])
-            let jsonString = String(data: jsonData, encoding: .utf8)!
-            socket.send(.string(jsonString)) { error in
-                if let error = error { print(error.localizedDescription) }
-            }
-        } catch { print(error.localizedDescription) }
+        webSocketTask = session.webSocketTask(with: url)
+        webSocketTask.resume()
     }
     
     private func listen() {
-        socket.receive { [weak self] (result) in
+        webSocketTask.receive { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let message):
                 switch message {
                 case .data(let data):
                     self.handle(data)
-                case .string(let str):
-                    guard let data = Data(base64Encoded: str, options: .ignoreUnknownCharacters) else { return }
+                case .string(let text):
+                    guard let data = Data(base64Encoded: text, options: .ignoreUnknownCharacters) else { return }
                     self.handle(data)
                 @unknown default: break
                 }
@@ -64,10 +53,26 @@ class WatchlistWebSocketController: NSObject {
     }
 }
 
+extension WatchlistWebSocketController {
+    func subscribe(symbols: [String]) {
+        let params = ["subscribe": symbols]
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: params, options: [])
+            let jsonString = String(data: jsonData, encoding: .utf8)!
+            let message = URLSessionWebSocketTask.Message.string(jsonString)
+            webSocketTask.send(message) { error in
+                if let error = error { print(error.localizedDescription) }
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+}
+
 extension WatchlistWebSocketController: URLSessionWebSocketDelegate {
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
         print("Web Socket did connect")
-        send(symbols: ["BTC-USD","ETH-USD","BNB-USD","ADA-USD","USDT-USD","SOL1-USD","HEX-USD"])
+        subscribe(symbols: ["BTC-USD","ETH-USD","BNB-USD","ADA-USD","USDT-USD","SOL1-USD","HEX-USD"])
         listen()
     }
     
