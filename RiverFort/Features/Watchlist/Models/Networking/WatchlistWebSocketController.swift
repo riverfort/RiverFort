@@ -23,6 +23,12 @@ class WatchlistWebSocketController: NSObject {
         webSocketTask.resume()
     }
     
+    private func send(message: URLSessionWebSocketTask.Message) {
+        webSocketTask.send(message) { error in
+            if let error = error { print(error.localizedDescription) }
+        }
+    }
+    
     private func listen() {
         webSocketTask.receive { [weak self] result in
             guard let self = self else { return }
@@ -53,30 +59,39 @@ class WatchlistWebSocketController: NSObject {
     }
 }
 
-extension WatchlistWebSocketController {
-    func subscribe(symbols: [String]) {
-        let params = ["subscribe": symbols]
-        do {
-            let jsonData = try JSONSerialization.data(withJSONObject: params, options: [])
-            let jsonString = String(data: jsonData, encoding: .utf8)!
-            let message = URLSessionWebSocketTask.Message.string(jsonString)
-            webSocketTask.send(message) { error in
-                if let error = error { print(error.localizedDescription) }
-            }
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
-}
-
 extension WatchlistWebSocketController: URLSessionWebSocketDelegate {
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
         print("Web Socket did connect")
-        subscribe(symbols: ["BTC-USD","ETH-USD","BNB-USD","ADA-USD","USDT-USD","SOL1-USD","HEX-USD"])
         listen()
     }
     
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didCloseWith closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?) {
         print("Web Socket did disconnect")
+    }
+}
+
+extension WatchlistWebSocketController {
+    public func subscribe(symbols: [String]) {
+        do {
+            let params = ["subscribe": symbols]
+            let jsonData = try JSONSerialization.data(withJSONObject: params, options: [])
+            let jsonString = String(data: jsonData, encoding: .utf8)!
+            let message = URLSessionWebSocketTask.Message.string(jsonString)
+            send(message: message)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    public func unsubscribe(symbols: [String]) {
+        do {
+            let params = ["unsubscribe": symbols]
+            let jsonData = try JSONSerialization.data(withJSONObject: params, options: [])
+            let jsonString = String(data: jsonData, encoding: .utf8)!
+            let message = URLSessionWebSocketTask.Message.string(jsonString)
+            send(message: message)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }
