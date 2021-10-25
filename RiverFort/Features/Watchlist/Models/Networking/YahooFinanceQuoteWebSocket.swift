@@ -7,7 +7,12 @@
 
 import Foundation
 
+protocol YahooFinanceQuoteWebSocketDelegate: AnyObject {
+    func didHandleReceivedMessage(_ data: Data)
+}
+
 class YahooFinanceQuoteWebSocket: NSObject {
+    public weak var delegate: YahooFinanceQuoteWebSocketDelegate?
     private var session: URLSession!
     private var webSocketTask: URLSessionWebSocketTask!
     
@@ -44,25 +49,16 @@ extension YahooFinanceQuoteWebSocket {
             case .success(let message):
                 switch message {
                 case .data(let data):
-                    self.handle(data)
+                    self.delegate?.didHandleReceivedMessage(data)
                 case .string(let text):
                     guard let data = Data(base64Encoded: text, options: .ignoreUnknownCharacters) else { return }
-                    self.handle(data)
+                    self.delegate?.didHandleReceivedMessage(data)
                 @unknown default: break
                 }
             case .failure(let error):
                 print("Error when receiving \(error)")
             }
             self.listen()
-        }
-    }
-    
-    private func handle(_ data: Data) {
-        do {
-            let quote = try YahooFinanceRealTimeQuote(serializedData: data)
-            print(quote)
-        } catch {
-            print("Error then handling \(error)")
         }
     }
 }
