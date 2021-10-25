@@ -16,7 +16,9 @@ class WatchlistWebSocketController: NSObject {
         session = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue())
         connect()
     }
-    
+}
+
+extension WatchlistWebSocketController {
     private func connect() {
         guard let url = URL(string: "wss://streamer.finance.yahoo.com") else { return }
         webSocketTask = session.webSocketTask(with: url)
@@ -29,7 +31,9 @@ class WatchlistWebSocketController: NSObject {
     
     private func send(message: URLSessionWebSocketTask.Message) {
         webSocketTask.send(message) { error in
-            if let error = error { print(error.localizedDescription) }
+            if let error = error {
+                print("Error when sending a message \(error)")
+            }
         }
     }
     
@@ -47,7 +51,7 @@ class WatchlistWebSocketController: NSObject {
                 @unknown default: break
                 }
             case .failure(let error):
-                print(error.localizedDescription)
+                print("Error when receiving \(error)")
             }
             self.listen()
         }
@@ -58,7 +62,7 @@ class WatchlistWebSocketController: NSObject {
             let quote = try YahooFinanceRealTimeQuote(serializedData: data)
             print(quote)
         } catch {
-            print(error.localizedDescription)
+            print("Error then handling \(error)")
         }
     }
 }
@@ -83,7 +87,7 @@ extension WatchlistWebSocketController {
             let message = URLSessionWebSocketTask.Message.string(jsonString)
             send(message: message)
         } catch {
-            print(error.localizedDescription)
+            print("Error when subscribing \(error)")
         }
     }
     
@@ -95,7 +99,7 @@ extension WatchlistWebSocketController {
             let message = URLSessionWebSocketTask.Message.string(jsonString)
             send(message: message)
         } catch {
-            print(error.localizedDescription)
+            print("Error when unsubscribing \(error)")
         }
     }
 }
