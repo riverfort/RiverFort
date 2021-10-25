@@ -23,6 +23,10 @@ class WatchlistWebSocketController: NSObject {
         webSocketTask.resume()
     }
     
+    private func close() {
+        webSocketTask.cancel(with: .goingAway, reason: nil)
+    }
+    
     private func send(message: URLSessionWebSocketTask.Message) {
         webSocketTask.send(message) { error in
             if let error = error { print(error.localizedDescription) }
