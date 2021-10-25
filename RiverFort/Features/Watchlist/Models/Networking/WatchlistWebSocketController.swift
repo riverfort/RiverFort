@@ -67,17 +67,6 @@ extension WatchlistWebSocketController {
     }
 }
 
-extension WatchlistWebSocketController: URLSessionWebSocketDelegate {
-    func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
-        print("Web Socket did connect")
-        listen()
-    }
-    
-    func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didCloseWith closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?) {
-        print("Web Socket did disconnect")
-    }
-}
-
 extension WatchlistWebSocketController {
     public func subscribe(symbols: [String]) {
         do {
@@ -101,5 +90,16 @@ extension WatchlistWebSocketController {
         } catch {
             print("Error when unsubscribing \(error)")
         }
+    }
+}
+
+extension WatchlistWebSocketController: URLSessionWebSocketDelegate {
+    func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
+        print("Web Socket did connect")
+        listen()
+    }
+    
+    func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didCloseWith closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?) {
+        print("Web Socket did disconnect")
     }
 }
