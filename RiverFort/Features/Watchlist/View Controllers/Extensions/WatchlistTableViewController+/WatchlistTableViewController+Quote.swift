@@ -8,13 +8,8 @@
 import Foundation
 
 extension WatchlistTableViewController {
-    public func connectWatchlistCompaniesQuoteWebsocket() {
+    public func connectWatchlistCompaniesQuoteWebSocket() {
         let watchlistCompanySymbols = Array(watchlistCompanies).map { $0.symbol }
-        let watchlistWebSocketController = YahooFinanceQuoteWebSocket()
         watchlistWebSocketController.subscribe(symbols: watchlistCompanySymbols)
-    }
-    
-    public func disconnectCompaniesQuoteWebsocket() {
-        
     }
 }
