@@ -1,5 +1,5 @@
 //
-//  WatchlistWebSocketController.swift
+//  YahooFinanceQuoteWebSocket.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 22/10/2021.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class WatchlistWebSocketController: NSObject {
+class YahooFinanceQuoteWebSocket: NSObject {
     private var session: URLSession!
     private var webSocketTask: URLSessionWebSocketTask!
     
@@ -18,7 +18,7 @@ class WatchlistWebSocketController: NSObject {
     }
 }
 
-extension WatchlistWebSocketController {
+extension YahooFinanceQuoteWebSocket {
     private func connect() {
         guard let url = URL(string: "wss://streamer.finance.yahoo.com") else { return }
         webSocketTask = session.webSocketTask(with: url)
@@ -67,7 +67,7 @@ extension WatchlistWebSocketController {
     }
 }
 
-extension WatchlistWebSocketController {
+extension YahooFinanceQuoteWebSocket {
     public func subscribe(symbols: [String]) {
         do {
             let params = ["subscribe": symbols]
@@ -93,7 +93,7 @@ extension WatchlistWebSocketController {
     }
 }
 
-extension WatchlistWebSocketController: URLSessionWebSocketDelegate {
+extension YahooFinanceQuoteWebSocket: URLSessionWebSocketDelegate {
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
         print("Web Socket did connect")
         listen()

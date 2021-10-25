@@ -16,7 +16,7 @@
 		7711CA9426FC96A9005A5AEC /* NewsCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7711CA9326FC96A9005A5AEC /* NewsCardController.swift */; };
 		7711CA9926FC9C50005A5AEC /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7711CA9826FC9C50005A5AEC /* NewsViewModel.swift */; };
 		7711F76127086E24006148FA /* WatchlistSyncAPIFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7711F76027086E24006148FA /* WatchlistSyncAPIFunction.swift */; };
-		77122A812722CF2F00C33C61 /* WatchlistWebSocketController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77122A802722CF2F00C33C61 /* WatchlistWebSocketController.swift */; };
+		77122A812722CF2F00C33C61 /* YahooFinanceQuoteWebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77122A802722CF2F00C33C61 /* YahooFinanceQuoteWebSocket.swift */; };
 		7720570626DE6E8300063A9A /* CompanyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7720570526DE6E8300063A9A /* CompanyDetailViewController.swift */; };
 		77227AA026F3953D00C5867D /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77227A9F26F3953D00C5867D /* Profile.swift */; };
 		77227AA226F396D900C5867D /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77227AA126F396D900C5867D /* Quote.swift */; };
@@ -93,7 +93,7 @@
 		7711CA9326FC96A9005A5AEC /* NewsCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCardController.swift; sourceTree = "<group>"; };
 		7711CA9826FC9C50005A5AEC /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		7711F76027086E24006148FA /* WatchlistSyncAPIFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistSyncAPIFunction.swift; sourceTree = "<group>"; };
-		77122A802722CF2F00C33C61 /* WatchlistWebSocketController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistWebSocketController.swift; sourceTree = "<group>"; };
+		77122A802722CF2F00C33C61 /* YahooFinanceQuoteWebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YahooFinanceQuoteWebSocket.swift; sourceTree = "<group>"; };
 		7720570526DE6E8300063A9A /* CompanyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailViewController.swift; sourceTree = "<group>"; };
 		77227A9F26F3953D00C5867D /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		77227AA126F396D900C5867D /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
@@ -232,7 +232,7 @@
 		7711F75F27086E08006148FA /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				77122A802722CF2F00C33C61 /* WatchlistWebSocketController.swift */,
+				77122A802722CF2F00C33C61 /* YahooFinanceQuoteWebSocket.swift */,
 				7711F76027086E24006148FA /* WatchlistSyncAPIFunction.swift */,
 			);
 			path = Networking;
@@ -765,7 +765,7 @@
 				776D13C3261E087500B9CF97 /* HomeTabBarController.swift in Sources */,
 				7748988726E0E454000933A6 /* ADTVChartCardController.swift in Sources */,
 				77E7B3FB26E7838F000EABC6 /* PriceMarker.swift in Sources */,
-				77122A812722CF2F00C33C61 /* WatchlistWebSocketController.swift in Sources */,
+				77122A812722CF2F00C33C61 /* YahooFinanceQuoteWebSocket.swift in Sources */,
 				7711CA9926FC9C50005A5AEC /* NewsViewModel.swift in Sources */,
 				77D6617327181596002001B4 /* WatchlistFiltersTableViewController.swift in Sources */,
 				772A747526DF93890088A604 /* HeaderCardController.swift in Sources */,
