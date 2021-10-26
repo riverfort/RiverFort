@@ -21,6 +21,7 @@
 		77227AA026F3953D00C5867D /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77227A9F26F3953D00C5867D /* Profile.swift */; };
 		77227AA226F396D900C5867D /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77227AA126F396D900C5867D /* Quote.swift */; };
 		772845AB26E615FA0003F13E /* NewsURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772845AA26E615FA0003F13E /* NewsURLs.swift */; };
+		7728C691272829AE00155C9D /* WatchlistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7728C690272829AE00155C9D /* WatchlistCell.swift */; };
 		772A747526DF93890088A604 /* HeaderCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772A747426DF93890088A604 /* HeaderCardController.swift */; };
 		772C241826F6212900202E14 /* ADTV20ChartCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772C241726F6212900202E14 /* ADTV20ChartCardController.swift */; };
 		772C241A26F6220900202E14 /* ADTV60ChartCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772C241926F6220900202E14 /* ADTV60ChartCardController.swift */; };
@@ -98,6 +99,7 @@
 		77227A9F26F3953D00C5867D /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		77227AA126F396D900C5867D /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		772845AA26E615FA0003F13E /* NewsURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsURLs.swift; sourceTree = "<group>"; };
+		7728C690272829AE00155C9D /* WatchlistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistCell.swift; sourceTree = "<group>"; };
 		772A747426DF93890088A604 /* HeaderCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCardController.swift; sourceTree = "<group>"; };
 		772C241726F6212900202E14 /* ADTV20ChartCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTV20ChartCardController.swift; sourceTree = "<group>"; };
 		772C241926F6220900202E14 /* ADTV60ChartCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTV60ChartCardController.swift; sourceTree = "<group>"; };
@@ -277,6 +279,14 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		7728C68F2728297C00155C9D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7728C690272829AE00155C9D /* WatchlistCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		772BAD682703234900DC7087 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -454,6 +464,7 @@
 			isa = PBXGroup;
 			children = (
 				7790360926FDCC7000A33248 /* View Controllers */,
+				7728C68F2728297C00155C9D /* Views */,
 				7790360A26FDCC7600A33248 /* Models */,
 			);
 			path = Watchlist;
@@ -801,6 +812,7 @@
 				77DA186F26F89A4700919D11 /* ADTVDetailViewController.swift in Sources */,
 				77C82A3026E4E6E800768FDB /* ReadMoreURLs.swift in Sources */,
 				778FD76826F33110002CA424 /* UIImageConfigurationExtensions.swift in Sources */,
+				7728C691272829AE00155C9D /* WatchlistCell.swift in Sources */,
 				7748987E26E0C3E7000933A6 /* PriceChartCardPartView.swift in Sources */,
 				770E4C5926F245FD0010EE7B /* BaseLineChartView.swift in Sources */,
 				772845AB26E615FA0003F13E /* NewsURLs.swift in Sources */,
