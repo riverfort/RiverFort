@@ -56,9 +56,7 @@ class WatchlistTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         var content = cell.defaultContentConfiguration()
         content.textProperties.font = .preferredFont(forTextStyle: .headline)
-        content.textProperties.adjustsFontForContentSizeCategory = true
         content.secondaryTextProperties.font = .preferredFont(forTextStyle: .subheadline)
-        content.secondaryTextProperties.adjustsFontForContentSizeCategory = true
         content.secondaryTextProperties.color = .secondaryLabel
         if isFilterOn {
             content.text = filteredWatchlistCompanies[indexPath.row].symbol
