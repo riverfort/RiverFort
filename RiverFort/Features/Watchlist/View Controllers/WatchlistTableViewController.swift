@@ -53,19 +53,20 @@ class WatchlistTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        if cell == nil { cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell") }
-        cell!.textLabel?.font = .preferredFont(forTextStyle: .headline)
-        cell!.detailTextLabel?.font = .preferredFont(forTextStyle: .subheadline)
-        cell!.detailTextLabel?.textColor = .systemGray
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        var content = cell.defaultContentConfiguration()
+        content.textProperties.font = .preferredFont(forTextStyle: .headline)
+        content.secondaryTextProperties.font = .preferredFont(forTextStyle: .subheadline)
+        content.secondaryTextProperties.color = .secondaryLabel
         if isFilterOn {
-            cell!.textLabel?.text = filteredWatchlistCompanies[indexPath.row].symbol
-            cell!.detailTextLabel?.text = filteredWatchlistCompanies[indexPath.row].name
+            content.text = filteredWatchlistCompanies[indexPath.row].symbol
+            content.secondaryText = filteredWatchlistCompanies[indexPath.row].name
         } else {
-            cell!.textLabel?.text = watchlistCompanies[indexPath.row].symbol
-            cell!.detailTextLabel?.text = watchlistCompanies[indexPath.row].name
+            content.text = watchlistCompanies[indexPath.row].symbol
+            content.secondaryText = watchlistCompanies[indexPath.row].name
         }
-        return cell!
+        cell.contentConfiguration = content
+        return cell
     }
 
 
@@ -145,6 +146,7 @@ extension WatchlistTableViewController {
     
     private func configTableView() {
         tableView = UITableView(frame: tableView.frame, style: .insetGrouped)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
 }
 
