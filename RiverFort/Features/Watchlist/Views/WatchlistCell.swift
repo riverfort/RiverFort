@@ -40,25 +40,26 @@ extension WatchlistCell {
     private func configSymbolLabel() {
         symbol.font = .preferredFont(forTextStyle: .headline)
         symbol.adjustsFontForContentSizeCategory = true
-        symbol.text = "Symbol"
+        symbol.text = "-"
     }
     
     private func configNameLabel() {
         name.font = .preferredFont(forTextStyle: .subheadline)
         name.adjustsFontForContentSizeCategory = true
-        name.text = "Name"
+        name.textColor = .secondaryLabel
+        name.text = "-"
     }
     
     private func configPriceLabel() {
-        price.font = .preferredFont(forTextStyle: .footnote)
+        price.font = .preferredFont(forTextStyle: .headline)
         price.adjustsFontForContentSizeCategory = true
-        price.text = "Price"
+        price.text = "-"
     }
         
     private func configChangeLabel() {
-        change.font = .preferredFont(forTextStyle: .footnote)
+        change.font = .preferredFont(forTextStyle: .subheadline)
         change.adjustsFontForContentSizeCategory = true
-        change.text = "Change"
+        change.text = "-"
     }
 }
 
