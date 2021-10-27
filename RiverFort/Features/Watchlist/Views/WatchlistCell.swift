@@ -104,3 +104,10 @@ extension WatchlistCell {
         stack.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor).isActive = true
     }
 }
+
+extension WatchlistCell {
+    public func setCell(_ watchlistCompany: WatchlistCompany) {
+        symbol.text = watchlistCompany.symbol
+        name.text = watchlistCompany.name
+    }
+}

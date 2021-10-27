@@ -54,18 +54,11 @@ class WatchlistTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WatchlistCell
-//        var content = cell.defaultContentConfiguration()
-//        content.textProperties.font = .preferredFont(forTextStyle: .headline)
-//        content.secondaryTextProperties.font = .preferredFont(forTextStyle: .subheadline)
-//        content.secondaryTextProperties.color = .secondaryLabel
-//        if isFilterOn {
-//            content.text = filteredWatchlistCompanies[indexPath.row].symbol
-//            content.secondaryText = filteredWatchlistCompanies[indexPath.row].name
-//        } else {
-//            content.text = watchlistCompanies[indexPath.row].symbol
-//            content.secondaryText = watchlistCompanies[indexPath.row].name
-//        }
-//        cell.contentConfiguration = content
+        if isFilterOn {
+            cell.setCell(filteredWatchlistCompanies[indexPath.row])
+        } else {
+            cell.setCell(watchlistCompanies[indexPath.row])
+        }
         return cell
     }
 
