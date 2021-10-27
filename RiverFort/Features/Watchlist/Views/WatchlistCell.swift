@@ -68,17 +68,17 @@ extension WatchlistCell {
         updateStacksLayout()
         profileStack.addArrangedSubview(symbol)
         profileStack.addArrangedSubview(name)
-        profileStack.distribution = .fillEqually
+        profileStack.distribution = .equalSpacing
         profileStack.axis = .vertical
         
         statsStack.addArrangedSubview(price)
         statsStack.addArrangedSubview(change)
-        statsStack.distribution = .fillEqually
+        statsStack.distribution = .equalSpacing
         statsStack.axis = .vertical
         
         stack.addArrangedSubview(profileStack)
         stack.addArrangedSubview(statsStack)
-        stack.distribution = .fillEqually
+        stack.distribution = .equalSpacing
         contentView.addSubview(stack)
     }
     
@@ -87,10 +87,12 @@ extension WatchlistCell {
             stack.axis = .vertical
             profileStack.alignment = .leading
             statsStack.alignment   = .leading
+            name.numberOfLines = 0
         } else {
             stack.axis = .horizontal
             profileStack.alignment = .leading
             statsStack.alignment   = .trailing
+            name.numberOfLines = 1
         }
     }
 }
