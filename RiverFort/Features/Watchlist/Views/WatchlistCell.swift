@@ -64,23 +64,33 @@ extension WatchlistCell {
 
 extension WatchlistCell {
     private func configStacks() {
+        updateStacksLayout()
         profileStack.addArrangedSubview(symbol)
         profileStack.addArrangedSubview(name)
-        profileStack.axis = .vertical
-        profileStack.alignment = .leading
         profileStack.distribution = .fillEqually
+        profileStack.axis = .vertical
         
         statsStack.addArrangedSubview(price)
         statsStack.addArrangedSubview(change)
-        statsStack.axis = .vertical
-        statsStack.alignment = .trailing
         statsStack.distribution = .fillEqually
+        statsStack.axis = .vertical
         
         stack.addArrangedSubview(profileStack)
         stack.addArrangedSubview(statsStack)
-        stack.axis = .horizontal
         stack.distribution = .fillEqually
         contentView.addSubview(stack)
+    }
+    
+    private func updateStacksLayout() {
+        if traitCollection.preferredContentSizeCategory.isAccessibilityCategory {
+            stack.axis = .vertical
+            profileStack.alignment = .leading
+            statsStack.alignment   = .leading
+        } else {
+            stack.axis = .horizontal
+            profileStack.alignment = .leading
+            statsStack.alignment   = .trailing
+        }
     }
 }
 
