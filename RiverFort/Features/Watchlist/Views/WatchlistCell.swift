@@ -109,29 +109,10 @@ extension WatchlistCell {
 
 extension WatchlistCell {
     private func updateCell(_ watchlistCompany: WatchlistCompany) {
-        if let price = watchlistCompany.price,
-           let change = watchlistCompany.change,
-           let changePercent = watchlistCompany.changePercent {
-            if price < 10 {
-                self.price.text = String.localizedStringWithFormat("%.4f", price)
-                self.change.text = String.localizedStringWithFormat("%.4f", change)
-                self.changePercent.text = String.localizedStringWithFormat("%.4f", changePercent)
-            } else {
-                self.price.text = String.localizedStringWithFormat("%.2f", price)
-                self.change.text = String.localizedStringWithFormat("%.2f", change)
-                self.changePercent.text = String.localizedStringWithFormat("%.2f", changePercent)
-            }
-            if change < 0 {
-                self.change.textColor = .systemRed
-                self.changePercent.textColor = .systemRed
-            } else {
-                self.change.textColor = .systemGreen
-                self.changePercent.textColor = .systemGreen
-            }
+        if let price = watchlistCompany.price {
+            self.price.text = price < 10 ? String.localizedStringWithFormat("%.4f", price) : String.localizedStringWithFormat("%.2f", price)
         } else {
             self.price.text = "-"
-            self.change.text = "-"
-            self.changePercent.text = "-"
         }
     }
     
