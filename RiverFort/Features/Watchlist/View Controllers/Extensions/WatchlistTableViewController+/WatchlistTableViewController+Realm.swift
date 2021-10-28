@@ -20,6 +20,9 @@ extension WatchlistTableViewController {
                     watchlistCompany.changePercent = Double(yahooFinanceRealTimeQuote.changePercent)
                 })
                 print("Updated: \(watchlistCompany.symbol)")
+                DispatchQueue.main.async { [weak self] in
+                    self?.tableView.reloadData()
+                }
             } catch {
                 print(error.localizedDescription)
             }

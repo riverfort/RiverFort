@@ -111,5 +111,10 @@ extension WatchlistCell {
     public func setCell(_ watchlistCompany: WatchlistCompany) {
         symbol.text = watchlistCompany.symbol
         name.text = watchlistCompany.name
+        if let price = watchlistCompany.price {
+            self.price.text = price < 10 ? String.localizedStringWithFormat("%.4f", price) : String.localizedStringWithFormat("%.2f", price)
+        } else {
+            self.price.text = "-"
+        }
     }
 }
