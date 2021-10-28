@@ -40,7 +40,7 @@ class WatchlistTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setWatchlistCompaniesCountLabel()
-        subscribeWatchlistQuoteWebSocket()
+        subscribeWatchlistRealTimeQuote()
     }
 
     // MARK: - Table view data source

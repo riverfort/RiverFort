@@ -12,7 +12,7 @@ extension WatchlistTableViewController {
         watchlistQuoteWebSocket.delegate = self
     }
     
-    public func subscribeWatchlistQuoteWebSocket() {
+    public func subscribeWatchlistRealTimeQuote() {
         let watchlistCompanySymbols = Array(watchlistCompanies).map { $0.symbol }
         watchlistQuoteWebSocket.subscribe(symbols: watchlistCompanySymbols)
     }
