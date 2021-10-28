@@ -77,6 +77,7 @@ class WatchlistTableViewController: UITableViewController {
         if editingStyle == .delete {
             let watchlistCompany = isFilterOn ? filteredWatchlistCompanies[indexPath.row] : watchlistCompanies[indexPath.row]
             if watchlistCompany.exchange == "London" { WatchlistSyncAPIFunction.deleteWatchlist(companySymbol: watchlistCompany.symbol.components(separatedBy: ".")[0]) }
+            unsubscribeWatchlistRealTimeQuote(watchlistCompany.symbol)
             deleteWatchlistCompany(watchlistCompany: watchlistCompany)
             tableView.deleteRows(at: [indexPath], with: .fade)
             setWatchlistCompaniesCountLabel()

@@ -16,6 +16,10 @@ extension WatchlistTableViewController {
         let watchlistCompanySymbols = Array(watchlistCompanies).map { $0.symbol }
         watchlistQuoteWebSocket.subscribe(symbols: watchlistCompanySymbols)
     }
+    
+    public func unsubscribeWatchlistRealTimeQuote(_ symbol: String) {
+        watchlistQuoteWebSocket.unsubscribe(symbols: [symbol])
+    }
 }
 
 extension WatchlistTableViewController: YahooFinanceQuoteWebSocketDelegate {
