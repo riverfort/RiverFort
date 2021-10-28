@@ -11,6 +11,7 @@ import SPAlert
 
 extension WatchlistTableViewController {
     public func updateWatchlistCompany(yahooFinanceRealTimeQuote: YahooFinanceRealTimeQuote) {
+        let realm = try! Realm()
         if let watchlistCompany = realm.object(ofType: WatchlistCompany.self, forPrimaryKey: yahooFinanceRealTimeQuote.id) {
             do {
                 try realm.write({
@@ -18,6 +19,7 @@ extension WatchlistTableViewController {
                     watchlistCompany.change = Double(yahooFinanceRealTimeQuote.change)
                     watchlistCompany.changePercent = Double(yahooFinanceRealTimeQuote.changePercent)
                 })
+                print("Updated: \(watchlistCompany.symbol)")
             } catch {
                 print(error.localizedDescription)
             }
