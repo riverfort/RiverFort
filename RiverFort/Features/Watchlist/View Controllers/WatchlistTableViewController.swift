@@ -28,6 +28,7 @@ class WatchlistTableViewController: UITableViewController {
         configSearchController()
         configTableView()
         configToolBar()
+        configWatchlistQuoteWebSocket()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
