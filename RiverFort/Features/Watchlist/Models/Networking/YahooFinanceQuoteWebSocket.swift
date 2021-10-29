@@ -13,14 +13,7 @@ protocol YahooFinanceQuoteWebSocketDelegate: AnyObject {
 
 class YahooFinanceQuoteWebSocket: NSObject {
     public weak var delegate: YahooFinanceQuoteWebSocketDelegate?
-    private var session: URLSession!
-    private var webSocketTask: URLSessionWebSocketTask!
-    
-    override init() {
-        super.init()
-        session = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue())
-        connect()
-    }
+    private weak var webSocketTask: URLSessionWebSocketTask!
 }
 
 extension YahooFinanceQuoteWebSocket {
@@ -56,6 +49,7 @@ extension YahooFinanceQuoteWebSocket {
 extension YahooFinanceQuoteWebSocket {
     public func connect() {
         guard let url = URL(string: "wss://streamer.finance.yahoo.com") else { return }
+        let session = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue())
         webSocketTask = session.webSocketTask(with: url)
         webSocketTask.resume()
     }
