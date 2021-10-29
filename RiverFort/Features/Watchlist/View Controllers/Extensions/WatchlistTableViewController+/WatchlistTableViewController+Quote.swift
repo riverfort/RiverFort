@@ -8,19 +8,19 @@
 import Foundation
 
 extension WatchlistTableViewController {
-//    public func configWatchlistQuoteWebSocket() {
-//        watchlistQuoteWebSocket.delegate = self
-//    }
-//    
-//    public func subscribeWatchlistRealTimeQuote() {
-//        let watchlistCompanySymbols = Array(watchlistCompanies).map { $0.symbol }
-//        watchlistQuoteWebSocket.subscribe(symbols: watchlistCompanySymbols)
-//    }
-//    
-//    public func unsubscribeWatchlistRealTimeQuote() {
-//        let watchlistCompanySymbols = Array(watchlistCompanies).map { $0.symbol }
-//        watchlistQuoteWebSocket.unsubscribe(symbols: watchlistCompanySymbols)
-//    }
+    public func configWatchlistQuoteWebSocket() {
+        realtimeQuoteWebSocket.delegate = self
+    }
+    
+    public func subscribeWatchlistRealTimeQuote() {
+        let watchlistCompanySymbols = Array(watchlistCompanies).map { $0.symbol }
+        realtimeQuoteWebSocket.subscribe(symbols: watchlistCompanySymbols)
+    }
+    
+    public func unsubscribeWatchlistRealTimeQuote() {
+        let watchlistCompanySymbols = Array(watchlistCompanies).map { $0.symbol }
+        realtimeQuoteWebSocket.unsubscribe(symbols: watchlistCompanySymbols)
+    }
 }
 
 extension WatchlistTableViewController: YahooFinanceQuoteWebSocketDelegate {

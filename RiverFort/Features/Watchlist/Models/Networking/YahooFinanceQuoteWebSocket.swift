@@ -24,16 +24,6 @@ class YahooFinanceQuoteWebSocket: NSObject {
 }
 
 extension YahooFinanceQuoteWebSocket {
-    private func connect() {
-        guard let url = URL(string: "wss://streamer.finance.yahoo.com") else { return }
-        webSocketTask = session.webSocketTask(with: url)
-        webSocketTask.resume()
-    }
-    
-    private func close() {
-        webSocketTask.cancel(with: .goingAway, reason: nil)
-    }
-    
     private func send(message: URLSessionWebSocketTask.Message) {
         webSocketTask.send(message) { error in
             if let error = error {
@@ -64,6 +54,16 @@ extension YahooFinanceQuoteWebSocket {
 }
 
 extension YahooFinanceQuoteWebSocket {
+    public func connect() {
+        guard let url = URL(string: "wss://streamer.finance.yahoo.com") else { return }
+        webSocketTask = session.webSocketTask(with: url)
+        webSocketTask.resume()
+    }
+    
+    public func close() {
+        webSocketTask.cancel(with: .goingAway, reason: nil)
+    }
+    
     public func subscribe(symbols: [String]) {
         do {
             let params = ["subscribe": symbols]

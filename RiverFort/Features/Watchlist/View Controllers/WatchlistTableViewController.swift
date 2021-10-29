@@ -13,6 +13,7 @@ class WatchlistTableViewController: UITableViewController {
     public var isFilterOn = false
     public var watchlistCompanies: List<WatchlistCompany> { realm.objects(WatchlistCompanyList.self).first!.watchlistCompanies }
     public var filteredWatchlistCompanies: [WatchlistCompany] { watchlistCompanies.filter { UserDefaults.filteredExchangeList.contains($0.exchange) } }
+    public let realtimeQuoteWebSocket = YahooFinanceQuoteWebSocket()
     public lazy var searchResultTableVC = SearchResultViewController(style: .insetGrouped)
     public lazy var spacerBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
     public lazy var filterBarButton = UIBarButtonItem()
@@ -27,6 +28,7 @@ class WatchlistTableViewController: UITableViewController {
         configSearchController()
         configTableView()
         configToolBar()
+        configWatchlistQuoteWebSocket()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -38,6 +40,13 @@ class WatchlistTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setWatchlistCompaniesCountLabel()
+        realtimeQuoteWebSocket.connect()
+        subscribeWatchlistRealTimeQuote()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        realtimeQuoteWebSocket.close()
     }
 
     // MARK: - Table view data source
