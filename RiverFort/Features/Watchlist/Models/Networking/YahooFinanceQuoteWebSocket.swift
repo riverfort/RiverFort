@@ -13,12 +13,12 @@ protocol YahooFinanceQuoteWebSocketDelegate: AnyObject {
 
 class YahooFinanceQuoteWebSocket: NSObject {
     public weak var delegate: YahooFinanceQuoteWebSocketDelegate?
-    private weak var webSocketTask: URLSessionWebSocketTask!
+    private weak var webSocketTask: URLSessionWebSocketTask?
 }
 
 extension YahooFinanceQuoteWebSocket {
     private func send(message: URLSessionWebSocketTask.Message) {
-        webSocketTask.send(message) { error in
+        webSocketTask?.send(message) { error in
             if let error = error {
                 print("Error when sending a message \(error)")
             }
@@ -26,7 +26,7 @@ extension YahooFinanceQuoteWebSocket {
     }
     
     private func listen() {
-        webSocketTask.receive { [weak self] result in
+        webSocketTask?.receive { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let message):
@@ -62,11 +62,11 @@ extension YahooFinanceQuoteWebSocket {
         guard let url = URL(string: "wss://streamer.finance.yahoo.com") else { return }
         let session = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue())
         webSocketTask = session.webSocketTask(with: url)
-        webSocketTask.resume()
+        webSocketTask!.resume()
     }
     
     public func close() {
-        webSocketTask.cancel(with: .goingAway, reason: nil)
+        webSocketTask?.cancel(with: .goingAway, reason: nil)
     }
     
     public func subscribe(symbols: [String]) {
