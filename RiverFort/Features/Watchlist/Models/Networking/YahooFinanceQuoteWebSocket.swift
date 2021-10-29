@@ -46,6 +46,17 @@ extension YahooFinanceQuoteWebSocket {
     }
 }
 
+extension YahooFinanceQuoteWebSocket: URLSessionWebSocketDelegate {
+    func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
+        print("Web Socket did connect")
+        listen()
+    }
+    
+    func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didCloseWith closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?) {
+        print("Web Socket did disconnect")
+    }
+}
+
 extension YahooFinanceQuoteWebSocket {
     public func connect() {
         guard let url = URL(string: "wss://streamer.finance.yahoo.com") else { return }
@@ -80,16 +91,5 @@ extension YahooFinanceQuoteWebSocket {
         } catch {
             print("Error when unsubscribing \(error)")
         }
-    }
-}
-
-extension YahooFinanceQuoteWebSocket: URLSessionWebSocketDelegate {
-    func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
-        print("Web Socket did connect")
-        listen()
-    }
-    
-    func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didCloseWith closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?) {
-        print("Web Socket did disconnect")
     }
 }
