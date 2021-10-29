@@ -8,7 +8,7 @@
 import UIKit
 
 class WatchlistCell: UITableViewCell {
-    private let stack        = UIStackView()
+    private let fullStack    = UIStackView()
     private let profileStack = UIStackView()
     private let statsStack   = UIStackView()
     private let symbol = UILabel()
@@ -21,7 +21,7 @@ class WatchlistCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configLabels()
         configStacks()
-        setConstraints()
+        setFullStackConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -76,20 +76,20 @@ extension WatchlistCell {
         statsStack.distribution = .equalSpacing
         statsStack.axis = .vertical
         
-        stack.addArrangedSubview(profileStack)
-        stack.addArrangedSubview(statsStack)
-        stack.distribution = .equalSpacing
-        contentView.addSubview(stack)
+        fullStack.addArrangedSubview(profileStack)
+        fullStack.addArrangedSubview(statsStack)
+        fullStack.distribution = .equalSpacing
+        contentView.addSubview(fullStack)
     }
     
     private func updateStacksLayout() {
         if traitCollection.preferredContentSizeCategory.isAccessibilityCategory {
-            stack.axis = .vertical
+            fullStack.axis = .vertical
             profileStack.alignment = .leading
             statsStack.alignment   = .leading
             name.numberOfLines = 0
         } else {
-            stack.axis = .horizontal
+            fullStack.axis = .horizontal
             profileStack.alignment = .leading
             statsStack.alignment   = .trailing
             name.numberOfLines = 1
@@ -98,12 +98,12 @@ extension WatchlistCell {
 }
 
 extension WatchlistCell {
-    private func setConstraints() {
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor).isActive = true
-        stack.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor).isActive = true
-        stack.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor).isActive = true
-        stack.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor).isActive = true
+    private func setFullStackConstraints() {
+        fullStack.translatesAutoresizingMaskIntoConstraints = false
+        fullStack.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor).isActive = true
+        fullStack.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor).isActive = true
+        fullStack.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor).isActive = true
+        fullStack.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor).isActive = true
     }
 }
 
