@@ -20,7 +20,7 @@ class WatchlistCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configLabels()
-        configStacks()
+        configFullStack()
         setFullStackConstraints()
     }
     
@@ -64,8 +64,8 @@ extension WatchlistCell {
 }
 
 extension WatchlistCell {
-    private func configStacks() {
-        updateStacksLayout()
+    private func configFullStack() {
+        updateFullStackLayout()
         profileStack.addArrangedSubview(symbol)
         profileStack.addArrangedSubview(name)
         profileStack.distribution = .equalSpacing
@@ -82,7 +82,7 @@ extension WatchlistCell {
         contentView.addSubview(fullStack)
     }
     
-    private func updateStacksLayout() {
+    private func updateFullStackLayout() {
         if traitCollection.preferredContentSizeCategory.isAccessibilityCategory {
             fullStack.axis = .vertical
             profileStack.alignment = .leading
