@@ -108,6 +108,21 @@ extension WatchlistCell {
 }
 
 extension WatchlistCell {
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        if editing {
+            UIView.animate(withDuration: 0.25, delay: .nan, options: .curveEaseOut) { [unowned self] in
+                statsStack.alpha = 0
+            }
+        } else {
+            UIView.animate(withDuration: 0.25, delay: .nan, options: .curveEaseIn) { [unowned self] in
+                statsStack.alpha = 1
+            }
+        }
+    }
+}
+
+extension WatchlistCell {
     private func updateCell(_ watchlistCompany: WatchlistCompany) {
         if let price = watchlistCompany.price {
             self.price.text = price < 10 ? String.localizedStringWithFormat("%.4f", price) : String.localizedStringWithFormat("%.2f", price)
