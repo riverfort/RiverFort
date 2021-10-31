@@ -16,10 +16,12 @@ class WatchlistCell: UITableViewCell {
     private let price  = UILabel()
     private let change = UILabel()
     private let changePercent = UILabel()
+    private let statsButton = UIButton(type: .system)
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configLabels()
+        configStatsButton()
         configFullStack()
         setFullStackConstraints()
     }
@@ -61,6 +63,17 @@ extension WatchlistCell {
         change.adjustsFontForContentSizeCategory = true
         change.text = "-"
     }
+    
+    private func configStatsButton() {
+        statsButton.setTitle("+12.00%", for: .normal)
+        statsButton.setTitleColor(.white, for: .normal)
+        statsButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        statsButton.titleLabel?.font = .preferredFont(forTextStyle: .subheadline)
+        statsButton.layer.cornerRadius = 5
+        statsButton.backgroundColor = .systemRed
+        statsButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        statsButton.contentHorizontalAlignment = .right
+    }
 }
 
 extension WatchlistCell {
@@ -72,9 +85,10 @@ extension WatchlistCell {
         profileStack.axis = .vertical
         
         statsStack.addArrangedSubview(price)
-        statsStack.addArrangedSubview(change)
+        statsStack.addArrangedSubview(statsButton)
         statsStack.distribution = .equalSpacing
         statsStack.axis = .vertical
+        statsStack.spacing = 3
         
         fullStack.addArrangedSubview(profileStack)
         fullStack.addArrangedSubview(statsStack)
@@ -104,6 +118,42 @@ extension WatchlistCell {
         fullStack.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor).isActive = true
         fullStack.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor).isActive = true
         fullStack.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor).isActive = true
+        statsButton.translatesAutoresizingMaskIntoConstraints = false
+        if traitCollection.preferredContentSizeCategory.isAccessibilityCategory {
+            switch traitCollection.preferredContentSizeCategory {
+            case .accessibilityMedium:
+                statsButton.widthAnchor.constraint(equalTo: contentView.layoutMarginsGuide.widthAnchor, multiplier: 0.3).isActive = true
+            case .accessibilityLarge:
+                statsButton.widthAnchor.constraint(equalTo: contentView.layoutMarginsGuide.widthAnchor, multiplier: 0.35).isActive = true
+            case .accessibilityExtraLarge:
+                statsButton.widthAnchor.constraint(equalTo: contentView.layoutMarginsGuide.widthAnchor, multiplier: 0.4).isActive = true
+            case .accessibilityExtraExtraLarge:
+                statsButton.widthAnchor.constraint(equalTo: contentView.layoutMarginsGuide.widthAnchor, multiplier: 0.45).isActive = true
+            case .accessibilityExtraExtraExtraLarge:
+                statsButton.widthAnchor.constraint(equalTo: contentView.layoutMarginsGuide.widthAnchor, multiplier: 0.5).isActive = true
+            default:
+                statsButton.widthAnchor.constraint(equalTo: contentView.layoutMarginsGuide.widthAnchor, multiplier: 0.5).isActive = true
+            }
+        } else {
+            switch traitCollection.preferredContentSizeCategory {
+            case .extraSmall:
+                statsButton.widthAnchor.constraint(equalTo: contentView.layoutMarginsGuide.widthAnchor, multiplier: 0.15).isActive = true
+            case .small:
+                statsButton.widthAnchor.constraint(equalTo: contentView.layoutMarginsGuide.widthAnchor, multiplier: 0.17).isActive = true
+            case .medium:
+                statsButton.widthAnchor.constraint(equalTo: contentView.layoutMarginsGuide.widthAnchor, multiplier: 0.19).isActive = true
+            case .large:
+                statsButton.widthAnchor.constraint(equalTo: contentView.layoutMarginsGuide.widthAnchor, multiplier: 0.21).isActive = true
+            case .extraLarge:
+                statsButton.widthAnchor.constraint(equalTo: contentView.layoutMarginsGuide.widthAnchor, multiplier: 0.23).isActive = true
+            case .extraExtraLarge:
+                statsButton.widthAnchor.constraint(equalTo: contentView.layoutMarginsGuide.widthAnchor, multiplier: 0.25).isActive = true
+            case .extraExtraExtraLarge:
+                statsButton.widthAnchor.constraint(equalTo: contentView.layoutMarginsGuide.widthAnchor, multiplier: 0.27).isActive = true
+            default:
+                statsButton.widthAnchor.constraint(equalTo: contentView.layoutMarginsGuide.widthAnchor, multiplier: 0.19).isActive = true
+            }
+        }
     }
 }
 
