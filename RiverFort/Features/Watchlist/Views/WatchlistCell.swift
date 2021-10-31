@@ -81,14 +81,13 @@ extension WatchlistCell {
         updateFullStackLayout()
         profileStack.addArrangedSubview(symbol)
         profileStack.addArrangedSubview(name)
-        profileStack.distribution = .equalSpacing
+        profileStack.distribution = .fillEqually
         profileStack.axis = .vertical
         
         statsStack.addArrangedSubview(price)
         statsStack.addArrangedSubview(statsButton)
-        statsStack.distribution = .equalSpacing
+        statsStack.distribution = .fillEqually
         statsStack.axis = .vertical
-        statsStack.spacing = 3
         
         fullStack.addArrangedSubview(profileStack)
         fullStack.addArrangedSubview(statsStack)
