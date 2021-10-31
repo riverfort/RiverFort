@@ -65,13 +65,13 @@ extension WatchlistCell {
     }
     
     private func configStatsButton() {
-        statsButton.setTitle("+12.00%", for: .normal)
+        statsButton.setTitle("--", for: .normal)
         statsButton.setTitleColor(.white, for: .normal)
         statsButton.titleLabel?.adjustsFontSizeToFitWidth = true
         statsButton.titleLabel?.font = .preferredFont(forTextStyle: .subheadline)
         statsButton.layer.cornerRadius = 5
-        statsButton.backgroundColor = .systemRed
-        statsButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        statsButton.backgroundColor = .systemGray
+        statsButton.contentEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         statsButton.contentHorizontalAlignment = .right
     }
 }
@@ -179,6 +179,12 @@ extension WatchlistCell {
             self.price.text = price < 10 ? String.localizedStringWithFormat("%.4f", price) : String.localizedStringWithFormat("%.2f", price)
         } else {
             self.price.text = "-"
+        }
+        if let change = watchlistCompany.change {
+            self.statsButton.backgroundColor = change < 0 ? .systemRed : .systemGreen
+            self.statsButton.setTitle(String.localizedStringWithFormat("%.4f", change), for: .normal)
+        } else {
+            self.statsButton.setTitle("--", for: .normal)
         }
     }
     
