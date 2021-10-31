@@ -177,14 +177,27 @@ extension WatchlistCell {
     private func updateCell(_ watchlistCompany: WatchlistCompany) {
         if let price = watchlistCompany.price {
             self.price.text = price < 10 ? String.localizedStringWithFormat("%.4f", price) : String.localizedStringWithFormat("%.2f", price)
+            if let change = watchlistCompany.change {
+                if change < 0 {
+                    self.statsButton.backgroundColor = .systemRed
+                    if price < 10 {
+                        self.statsButton.setTitle(String.localizedStringWithFormat("%.4f", change), for: .normal)
+                    } else {
+                        self.statsButton.setTitle(String.localizedStringWithFormat("%.2f", change), for: .normal)
+                    }
+                } else {
+                    self.statsButton.backgroundColor = .systemGreen
+                    if price < 10 {
+                        self.statsButton.setTitle(String.localizedStringWithFormat("+%.4f", change), for: .normal)
+                    } else {
+                        self.statsButton.setTitle(String.localizedStringWithFormat("+%.2f", change), for: .normal)
+                    }
+                }
+            } else {
+                self.statsButton.setTitle("--", for: .normal)
+            }
         } else {
             self.price.text = "-"
-        }
-        if let change = watchlistCompany.change {
-            self.statsButton.backgroundColor = change < 0 ? .systemRed : .systemGreen
-            self.statsButton.setTitle(String.localizedStringWithFormat("%.4f", change), for: .normal)
-        } else {
-            self.statsButton.setTitle("--", for: .normal)
         }
     }
     
