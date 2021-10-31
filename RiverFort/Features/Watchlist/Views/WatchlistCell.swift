@@ -163,8 +163,10 @@ extension WatchlistCell {
         if editing {
             UIView.animate(withDuration: 0.25, delay: .nan, options: .curveEaseOut) { [unowned self] in
                 statsStack.alpha = 0
+                statsStack.isHidden = true
             }
         } else {
+            statsStack.isHidden = false
             UIView.animate(withDuration: 0.25, delay: .nan, options: .curveEaseIn) { [unowned self] in
                 statsStack.alpha = 1
             }
