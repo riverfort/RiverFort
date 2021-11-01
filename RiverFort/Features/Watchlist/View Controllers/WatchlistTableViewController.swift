@@ -61,6 +61,7 @@ class WatchlistTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WatchlistCell
+        cell.statsButton.addTarget(self, action: #selector(didTapStatsButton), for: .touchUpInside)
         if isFilterOn {
             cell.setCell(filteredWatchlistCompanies[indexPath.row])
         } else {

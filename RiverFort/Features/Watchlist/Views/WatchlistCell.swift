@@ -8,10 +8,10 @@
 import UIKit
 
 class WatchlistCell: UITableViewCell {
+    public let statsButton  = UIButton(type: .system)
     private let symbol = UILabel()
     private let name   = UILabel()
     private let price  = UILabel()
-    private let statsButton  = UIButton(type: .system)
     private let profileStack = UIStackView()
     private let statsStack   = UIStackView()
     private let hStack = UIStackView()
@@ -71,14 +71,6 @@ extension WatchlistCell {
         statsButton.backgroundColor = .systemGray
         statsButton.contentEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         statsButton.contentHorizontalAlignment = .right
-        statsButton.addTarget(self, action: #selector(didTapStatsButton), for: .touchUpInside)
-    }
-    
-    @objc private func didTapStatsButton() {
-        let watchlistStatsButtonStateIndex = UserDefaults.watchlistStatsButtonStateIndex
-        if watchlistStatsButtonStateIndex < 1 { UserDefaults.watchlistStatsButtonStateIndex = watchlistStatsButtonStateIndex + 1 }
-        else { UserDefaults.watchlistStatsButtonStateIndex = 0 }
-        print(UserDefaults.watchlistStatsButtonStateIndex)
     }
 }
 
@@ -192,10 +184,20 @@ extension WatchlistCell {
 
 extension WatchlistCell {
     private func updateCell(_ watchlistCompany: WatchlistCompany) {
-        if let price = watchlistCompany.price, let change = watchlistCompany.change {
+        if let price = watchlistCompany.price, let change = watchlistCompany.change, let changePercent = watchlistCompany.changePercent {
             let priceDisp  = price < 10 ? String.localizedStringWithFormat("%.4f", price) : String.localizedStringWithFormat("%.2f", price)
+            let changeDisp = price < 10 ? String.localizedStringWithFormat("%.4f", change) : String.localizedStringWithFormat("%.2f", change)
+            let changePercentDisp = String.localizedStringWithFormat("%.2f", changePercent)
             self.price.text = priceDisp
             self.statsButton.backgroundColor = change < 0 ? .systemRed : .systemGreen
+            switch UserDefaults.watchlistStatsButtonStateIndex {
+            case 0:
+                self.statsButton.setTitle(changeDisp, for: .normal)
+            case 1:
+                self.statsButton.setTitle("\(changePercentDisp)%", for: .normal)
+            default:
+                self.statsButton.setTitle(changeDisp, for: .normal)
+            }
         } else {
             self.price.text = "-"
             self.statsButton.setTitle("--", for: .normal)

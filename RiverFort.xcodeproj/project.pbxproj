@@ -60,6 +60,7 @@
 		77B11DAD26F382140093FBE9 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B11DAC26F382140093FBE9 /* Company.swift */; };
 		77B11DB026F389230093FBE9 /* CompanyDetailViewController+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B11DAF26F389230093FBE9 /* CompanyDetailViewController+Networking.swift */; };
 		77BD47A42719C7BF003B7271 /* WatchlistTableViewController+TooBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BD47A32719C7BE003B7271 /* WatchlistTableViewController+TooBar.swift */; };
+		77BDC5AD2730331100FA9837 /* WatchlistTableViewController+StatsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BDC5AC2730331100FA9837 /* WatchlistTableViewController+StatsButton.swift */; };
 		77C4BD85261CAF9100B8C748 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C4BD84261CAF9100B8C748 /* HapticsManager.swift */; };
 		77C82A3026E4E6E800768FDB /* ReadMoreURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C82A2F26E4E6E800768FDB /* ReadMoreURLs.swift */; };
 		77CA1325270203DC00E461E0 /* WatchlistTableViewController+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA1324270203DC00E461E0 /* WatchlistTableViewController+Realm.swift */; };
@@ -140,6 +141,7 @@
 		77B11DAC26F382140093FBE9 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		77B11DAF26F389230093FBE9 /* CompanyDetailViewController+Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompanyDetailViewController+Networking.swift"; sourceTree = "<group>"; };
 		77BD47A32719C7BE003B7271 /* WatchlistTableViewController+TooBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WatchlistTableViewController+TooBar.swift"; sourceTree = "<group>"; };
+		77BDC5AC2730331100FA9837 /* WatchlistTableViewController+StatsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WatchlistTableViewController+StatsButton.swift"; sourceTree = "<group>"; };
 		77C4BD84261CAF9100B8C748 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		77C82A2F26E4E6E800768FDB /* ReadMoreURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMoreURLs.swift; sourceTree = "<group>"; };
 		77CA1324270203DC00E461E0 /* WatchlistTableViewController+Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WatchlistTableViewController+Realm.swift"; sourceTree = "<group>"; };
@@ -549,6 +551,7 @@
 				77CA1324270203DC00E461E0 /* WatchlistTableViewController+Realm.swift */,
 				77AB28482726AC74001F4AC1 /* WatchlistTableViewController+Quote.swift */,
 				77BD47A32719C7BE003B7271 /* WatchlistTableViewController+TooBar.swift */,
+				77BDC5AC2730331100FA9837 /* WatchlistTableViewController+StatsButton.swift */,
 			);
 			path = "WatchlistTableViewController+";
 			sourceTree = "<group>";
@@ -751,6 +754,7 @@
 			files = (
 				770C438F26F8DF8B0040F891 /* ADTV120ChartCardController.swift in Sources */,
 				77AB28492726AC74001F4AC1 /* WatchlistTableViewController+Quote.swift in Sources */,
+				77BDC5AD2730331100FA9837 /* WatchlistTableViewController+StatsButton.swift in Sources */,
 				773131BF26DCFE5D0068AAD8 /* SearchResultCell.swift in Sources */,
 				777AF710270D84B30051395F /* CompanyDetailViewController+MoreBarButton.swift in Sources */,
 				77876E98264D69B300798106 /* RSSFeedParser.swift in Sources */,
