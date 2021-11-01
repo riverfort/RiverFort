@@ -189,27 +189,18 @@ extension WatchlistCell {
 
 extension WatchlistCell {
     private func updateCell(_ watchlistCompany: WatchlistCompany) {
-        if let price = watchlistCompany.price, let change = watchlistCompany.change {
-            self.price.text = price < 10 ? String.localizedStringWithFormat("%.4f", price) : String.localizedStringWithFormat("%.2f", price)
-            if change < 0 {
-                statsButton.backgroundColor = .systemRed
-                if price < 10 {
-                    statsButton.setTitle(String.localizedStringWithFormat("%.4f", change), for: .normal)
-                } else {
-                    statsButton.setTitle(String.localizedStringWithFormat("%.2f", change), for: .normal)
-                }
-            } else {
-                statsButton.backgroundColor = .systemGreen
-                if price < 10 {
-                    statsButton.setTitle(String.localizedStringWithFormat("+%.4f", change), for: .normal)
-                } else {
-                    statsButton.setTitle(String.localizedStringWithFormat("+%.2f", change), for: .normal)
-                }
-            }
+        if let price = watchlistCompany.price, let change = watchlistCompany.change, let changePercent = watchlistCompany.changePercent {
+            let price2 = String.localizedStringWithFormat("%.2f", price),
+                price4 = String.localizedStringWithFormat("%.4f", price),
+                change2 = String.localizedStringWithFormat("%.2f", change),
+                change4 = String.localizedStringWithFormat("%.4f", change),
+                changePercent2 = String.localizedStringWithFormat("%.2f", changePercent)
+            self.price.text = price < 10 ? price4 : price2
+            self.statsButton.backgroundColor = change < 0 ? .systemRed : .systemGreen
         } else {
             self.price.text = "-"
-            statsButton.setTitle("--", for: .normal)
-            statsButton.backgroundColor = .systemGray
+            self.statsButton.setTitle("--", for: .normal)
+            self.statsButton.backgroundColor = .systemGray
         }
     }
 }
