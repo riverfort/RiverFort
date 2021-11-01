@@ -73,6 +73,7 @@ extension WatchlistCell {
         statsButton.backgroundColor = .systemGray
         statsButton.contentEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         statsButton.contentHorizontalAlignment = .right
+        statsButton.addTarget(self, action: #selector(didTapStatsButton), for: .touchUpInside)
     }
 }
 
@@ -174,6 +175,12 @@ extension WatchlistCell {
 }
 
 extension WatchlistCell {
+    @objc private func didTapStatsButton() {
+        print("\(#function)")
+    }
+}
+
+extension WatchlistCell {
     private func updateCell(_ watchlistCompany: WatchlistCompany) {
         if let price = watchlistCompany.price, let change = watchlistCompany.change {
             self.price.text = price < 10 ? String.localizedStringWithFormat("%.4f", price) : String.localizedStringWithFormat("%.2f", price)
@@ -198,7 +205,9 @@ extension WatchlistCell {
             statsButton.backgroundColor = .systemGray
         }
     }
-    
+}
+
+extension WatchlistCell {
     public func setCell(_ watchlistCompany: WatchlistCompany) {
         symbol.text = watchlistCompany.symbol
         name.text = watchlistCompany.name
