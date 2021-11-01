@@ -75,7 +75,10 @@ extension WatchlistCell {
     }
     
     @objc private func didTapStatsButton() {
-        print("\(#function)")
+        let watchlistStatsButtonStateIndex = UserDefaults.watchlistStatsButtonStateIndex
+        if watchlistStatsButtonStateIndex < 1 { UserDefaults.watchlistStatsButtonStateIndex = watchlistStatsButtonStateIndex + 1 }
+        else { UserDefaults.watchlistStatsButtonStateIndex = 0 }
+        print(UserDefaults.watchlistStatsButtonStateIndex)
     }
 }
 

@@ -14,6 +14,7 @@ extension UserDefaults {
         static let deviceToken = "device_token"
         static let watchlistSymbolDeletionList = "watchlist_symbol_deletion_list"
         static let filteredExchangeList = "filtered_exchange_list"
+        static let watchlistStatsButtonStateIndex = "watchlist_stats_button_state_index"
     }
 }
 
@@ -41,5 +42,10 @@ extension UserDefaults {
     class var filteredExchangeList: [String] {
         get { UserDefaults.standard.stringArray(forKey: Keys.filteredExchangeList) ?? [] }
         set { UserDefaults.standard.set(newValue, forKey: Keys.filteredExchangeList) }
+    }
+    
+    class var watchlistStatsButtonStateIndex: Int {
+        get { UserDefaults.standard.integer(forKey: Keys.watchlistStatsButtonStateIndex) }
+        set { UserDefaults.standard.set(newValue, forKey: Keys.watchlistStatsButtonStateIndex) }
     }
 }
