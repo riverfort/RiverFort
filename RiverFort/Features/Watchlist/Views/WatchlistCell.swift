@@ -8,22 +8,21 @@
 import UIKit
 
 class WatchlistCell: UITableViewCell {
-    private let fullStack    = UIStackView()
-    private let profileStack = UIStackView()
-    private let statsStack   = UIStackView()
     private let symbol = UILabel()
     private let name   = UILabel()
     private let price  = UILabel()
-    private let change = UILabel()
-    private let changePercent = UILabel()
-    private let statsButton = UIButton(type: .system)
+    private let statsButton  = UIButton(type: .system)
+    private let profileStack = UIStackView()
+    private let statsStack   = UIStackView()
+    private let hStack = UIStackView()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configLabels()
+        configHStack()
+        setHStackConstraints()
         configStatsButton()
-        configFullStack()
-        setFullStackConstraints()
+        setStatsButtonConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -31,12 +30,13 @@ class WatchlistCell: UITableViewCell {
     }
 }
 
+// MARK: - Labels config
+
 extension WatchlistCell {
     private func configLabels() {
         configSymbolLabel()
         configNameLabel()
         configPriceLabel()
-        configChangeLabel()
     }
     
     private func configSymbolLabel() {
@@ -57,13 +57,11 @@ extension WatchlistCell {
         price.adjustsFontForContentSizeCategory = true
         price.text = "-"
     }
-        
-    private func configChangeLabel() {
-        change.font = .preferredFont(forTextStyle: .subheadline)
-        change.adjustsFontForContentSizeCategory = true
-        change.text = "-"
-    }
-    
+}
+
+// MARK: - Button config
+
+extension WatchlistCell {
     private func configStatsButton() {
         statsButton.setTitle("--", for: .normal)
         statsButton.setTitleColor(.white, for: .normal)
@@ -75,11 +73,17 @@ extension WatchlistCell {
         statsButton.contentHorizontalAlignment = .right
         statsButton.addTarget(self, action: #selector(didTapStatsButton), for: .touchUpInside)
     }
+    
+    @objc private func didTapStatsButton() {
+        print("\(#function)")
+    }
 }
 
+// MARK: - Stack config
+
 extension WatchlistCell {
-    private func configFullStack() {
-        updateFullStackLayout()
+    private func configHStack() {
+        updateHStackLayout()
         profileStack.addArrangedSubview(symbol)
         profileStack.addArrangedSubview(name)
         profileStack.distribution = .fillEqually
@@ -90,20 +94,20 @@ extension WatchlistCell {
         statsStack.distribution = .fillEqually
         statsStack.axis = .vertical
         
-        fullStack.addArrangedSubview(profileStack)
-        fullStack.addArrangedSubview(statsStack)
-        fullStack.distribution = .equalSpacing
-        contentView.addSubview(fullStack)
+        hStack.addArrangedSubview(profileStack)
+        hStack.addArrangedSubview(statsStack)
+        hStack.distribution = .equalSpacing
+        contentView.addSubview(hStack)
     }
     
-    private func updateFullStackLayout() {
+    private func updateHStackLayout() {
         if traitCollection.preferredContentSizeCategory.isAccessibilityCategory {
-            fullStack.axis = .vertical
+            hStack.axis = .vertical
             profileStack.alignment = .leading
             statsStack.alignment   = .leading
             name.numberOfLines = 0
         } else {
-            fullStack.axis = .horizontal
+            hStack.axis = .horizontal
             profileStack.alignment = .leading
             statsStack.alignment   = .trailing
             name.numberOfLines = 1
@@ -111,13 +115,18 @@ extension WatchlistCell {
     }
 }
 
+// MARK: - Constraints config
+
 extension WatchlistCell {
-    private func setFullStackConstraints() {
-        fullStack.translatesAutoresizingMaskIntoConstraints = false
-        fullStack.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor).isActive = true
-        fullStack.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor).isActive = true
-        fullStack.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor).isActive = true
-        fullStack.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor).isActive = true
+    private func setHStackConstraints() {
+        hStack.translatesAutoresizingMaskIntoConstraints = false
+        hStack.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor).isActive = true
+        hStack.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor).isActive = true
+        hStack.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor).isActive = true
+        hStack.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor).isActive = true
+    }
+    
+    private func setStatsButtonConstraints() {
         statsButton.translatesAutoresizingMaskIntoConstraints = false
         if traitCollection.preferredContentSizeCategory.isAccessibilityCategory {
             switch traitCollection.preferredContentSizeCategory {
@@ -157,6 +166,8 @@ extension WatchlistCell {
     }
 }
 
+// MARK: - setEditing
+
 extension WatchlistCell {
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
@@ -174,11 +185,7 @@ extension WatchlistCell {
     }
 }
 
-extension WatchlistCell {
-    @objc private func didTapStatsButton() {
-        print("\(#function)")
-    }
-}
+// MARK: - Cell data update
 
 extension WatchlistCell {
     private func updateCell(_ watchlistCompany: WatchlistCompany) {
