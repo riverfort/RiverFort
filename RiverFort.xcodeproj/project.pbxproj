@@ -485,8 +485,8 @@
 		7790360A26FDCC7600A33248 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				77F3511B272569E500F7455B /* Protobuf */,
 				7711F75F27086E08006148FA /* Networking */,
+				77F3511B272569E500F7455B /* API Models */,
 				7704889726FE0948002F7CC8 /* WatchlistCompany.swift */,
 			);
 			path = Models;
@@ -549,8 +549,8 @@
 			children = (
 				77CA13262702074F00E461E0 /* WatchlistTableViewController+SearchController.swift */,
 				77CA1324270203DC00E461E0 /* WatchlistTableViewController+Realm.swift */,
-				77AB28482726AC74001F4AC1 /* WatchlistTableViewController+Quote.swift */,
 				77BD47A32719C7BE003B7271 /* WatchlistTableViewController+TooBar.swift */,
+				77AB28482726AC74001F4AC1 /* WatchlistTableViewController+Quote.swift */,
 				77BDC5AC2730331100FA9837 /* WatchlistTableViewController+StatsButton.swift */,
 			);
 			path = "WatchlistTableViewController+";
@@ -604,13 +604,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		77F3511B272569E500F7455B /* Protobuf */ = {
+		77F3511B272569E500F7455B /* API Models */ = {
 			isa = PBXGroup;
 			children = (
 				77F351222725829B00F7455B /* YahooFinanceRealTimeQuote */,
 				77F3512627258C1A00F7455B /* YahooFinanceRealTimeQuote.pb.swift */,
 			);
-			path = Protobuf;
+			path = "API Models";
 			sourceTree = "<group>";
 		};
 		77F9335F261A2BA1007662D5 /* Extensions */ = {
