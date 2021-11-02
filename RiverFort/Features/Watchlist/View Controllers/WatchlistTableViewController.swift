@@ -13,6 +13,7 @@ class WatchlistTableViewController: UITableViewController {
     public var isFilterOn = false
     public var watchlistCompanies: List<WatchlistCompany> { realm.objects(WatchlistCompanyList.self).first!.watchlistCompanies }
     public var filteredWatchlistCompanies: [WatchlistCompany] { watchlistCompanies.filter { UserDefaults.filteredExchangeList.contains($0.exchange) } }
+    public let realtimeQuoteWebSocket = YahooFinanceQuoteWebSocket()
     public lazy var searchResultTableVC = SearchResultViewController(style: .insetGrouped)
     public lazy var spacerBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
     public lazy var filterBarButton = UIBarButtonItem()
@@ -27,6 +28,7 @@ class WatchlistTableViewController: UITableViewController {
         configSearchController()
         configTableView()
         configToolBar()
+        configWatchlistQuoteWebSocket()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -38,6 +40,13 @@ class WatchlistTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setWatchlistCompaniesCountLabel()
+        realtimeQuoteWebSocket.connect()
+        subscribeWatchlistRealTimeQuote()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        realtimeQuoteWebSocket.close()
     }
 
     // MARK: - Table view data source
@@ -51,19 +60,14 @@ class WatchlistTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        if cell == nil { cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell") }
-        cell!.textLabel?.font = .preferredFont(forTextStyle: .headline)
-        cell!.detailTextLabel?.font = .preferredFont(forTextStyle: .subheadline)
-        cell!.detailTextLabel?.textColor = .systemGray
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WatchlistCell
+        cell.statsButton.addTarget(self, action: #selector(didTapStatsButton), for: .touchUpInside)
         if isFilterOn {
-            cell!.textLabel?.text = filteredWatchlistCompanies[indexPath.row].symbol
-            cell!.detailTextLabel?.text = filteredWatchlistCompanies[indexPath.row].name
+            cell.setCell(filteredWatchlistCompanies[indexPath.row])
         } else {
-            cell!.textLabel?.text = watchlistCompanies[indexPath.row].symbol
-            cell!.detailTextLabel?.text = watchlistCompanies[indexPath.row].name
+            cell.setCell(watchlistCompanies[indexPath.row])
         }
-        return cell!
+        return cell
     }
 
 
@@ -79,7 +83,7 @@ class WatchlistTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let watchlistCompany = isFilterOn ? filteredWatchlistCompanies[indexPath.row] : watchlistCompanies[indexPath.row]
-            if watchlistCompany.exchange == "London" { WatchlistAPIFunction.deleteWatchlist(companySymbol: watchlistCompany.symbol.components(separatedBy: ".")[0]) }
+            if watchlistCompany.exchange == "London" { WatchlistSyncAPIFunction.deleteWatchlist(companySymbol: watchlistCompany.symbol.components(separatedBy: ".")[0]) }
             deleteWatchlistCompany(watchlistCompany: watchlistCompany)
             tableView.deleteRows(at: [indexPath], with: .fade)
             setWatchlistCompaniesCountLabel()
@@ -143,6 +147,7 @@ extension WatchlistTableViewController {
     
     private func configTableView() {
         tableView = UITableView(frame: tableView.frame, style: .insetGrouped)
+        tableView.register(WatchlistCell.self, forCellReuseIdentifier: "cell")
     }
 }
 

@@ -28,6 +28,7 @@ PODS:
     - RxSwift (= 6.2.0)
   - RxSwift (6.2.0)
   - SPAlert (3.4.1)
+  - SwiftProtobuf (1.18.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.4)
@@ -35,6 +36,7 @@ DEPENDENCIES:
   - Charts (~> 3.6.0)
   - RealmSwift
   - SPAlert
+  - SwiftProtobuf (~> 1.0)
 
 SPEC REPOS:
   trunk:
@@ -50,6 +52,7 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - SPAlert
+    - SwiftProtobuf
 
 SPEC CHECKSUMS:
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
@@ -64,7 +67,8 @@ SPEC CHECKSUMS:
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   SPAlert: 5738ac9368870ada154af03ce70d0542b80c676e
+  SwiftProtobuf: c3c12645230d9b09c72267e0de89468c5543bd86
 
-PODFILE CHECKSUM: 5bcf0bbf3fcc92ed2264d9c6dba80f381cbb6fb7
+PODFILE CHECKSUM: b8264b381d0019c554eb38be623040d44aee5161
 
 COCOAPODS: 1.11.2

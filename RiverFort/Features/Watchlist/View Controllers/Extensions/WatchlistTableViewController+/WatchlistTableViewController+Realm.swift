@@ -9,7 +9,28 @@ import Foundation
 import RealmSwift
 import SPAlert
 
-extension WatchlistTableViewController {    
+extension WatchlistTableViewController {
+    public func updateWatchlistCompany(realtimeQuote: YahooFinanceRealTimeQuote) {
+        let realm = try! Realm()
+        if let watchlistCompany = realm.object(ofType: WatchlistCompany.self, forPrimaryKey: realtimeQuote.id) {
+            do {
+                try realm.write({
+                    watchlistCompany.price = Double(realtimeQuote.price)
+                    watchlistCompany.change = Double(realtimeQuote.change)
+                    watchlistCompany.changePercent = Double(realtimeQuote.changePercent)
+                })
+                print("Updated: \(watchlistCompany.symbol)")
+                DispatchQueue.main.async { [weak self] in
+                    self?.tableView.reloadData()
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        } else {
+            print("Not found \(realtimeQuote.id) from watchlist")
+        }
+    }
+    
     public func deleteWatchlistCompany(watchlistCompany: WatchlistCompany) {
         do {
             try realm.write({ realm.delete(watchlistCompany) })

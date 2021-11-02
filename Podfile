@@ -9,6 +9,7 @@ target 'RiverFort' do
   pod 'Charts', '~> 3.6.0'
   pod 'SPAlert'
   pod 'RealmSwift'
+  pod 'SwiftProtobuf', '~> 1.0'
   # Pods for RiverFort
 
 end
