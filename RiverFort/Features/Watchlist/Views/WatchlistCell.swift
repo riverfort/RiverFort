@@ -86,6 +86,7 @@ extension WatchlistCell {
         statsStack.addArrangedSubview(price)
         statsStack.addArrangedSubview(statsButton)
         statsStack.axis = .vertical
+        statsStack.spacing = 5
         
         hStack.addArrangedSubview(profileStack)
         hStack.addArrangedSubview(statsStack)
