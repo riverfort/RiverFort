@@ -30,7 +30,7 @@ class WatchlistCell: UITableViewCell {
     }
 }
 
-// MARK: - Labels config
+// MARK: - Labels
 
 extension WatchlistCell {
     private func configLabels() {
@@ -59,7 +59,7 @@ extension WatchlistCell {
     }
 }
 
-// MARK: - Button config
+// MARK: - Button
 
 extension WatchlistCell {
     private func configStatsButton() {
@@ -74,11 +74,11 @@ extension WatchlistCell {
     }
 }
 
-// MARK: - Stack config
+// MARK: - Stack
 
 extension WatchlistCell {
     private func configHStack() {
-        updateHStackLayout()
+        contentView.addSubview(hStack)
         profileStack.addArrangedSubview(symbol)
         profileStack.addArrangedSubview(name)
         profileStack.axis = .vertical
@@ -91,7 +91,7 @@ extension WatchlistCell {
         hStack.addArrangedSubview(profileStack)
         hStack.addArrangedSubview(statsStack)
         hStack.spacing = 5
-        contentView.addSubview(hStack)
+        updateHStackLayout()
     }
     
     private func updateHStackLayout() {
@@ -109,7 +109,7 @@ extension WatchlistCell {
     }
 }
 
-// MARK: - Constraints config
+// MARK: - Stack and Button Constraints
 
 extension WatchlistCell {
     private func setHStackConstraints() {
@@ -160,7 +160,7 @@ extension WatchlistCell {
     }
 }
 
-// MARK: - setEditing
+// MARK: - TableView Editing
 
 extension WatchlistCell {
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -179,7 +179,7 @@ extension WatchlistCell {
     }
 }
 
-// MARK: - Cell data update
+// MARK: - Data
 
 extension WatchlistCell {
     private func updateCell(_ watchlistCompany: WatchlistCompany) {
@@ -203,9 +203,7 @@ extension WatchlistCell {
             self.statsButton.backgroundColor = .systemGray
         }
     }
-}
-
-extension WatchlistCell {
+    
     public func setCell(_ watchlistCompany: WatchlistCompany) {
         symbol.text = watchlistCompany.symbol
         name.text = watchlistCompany.name
