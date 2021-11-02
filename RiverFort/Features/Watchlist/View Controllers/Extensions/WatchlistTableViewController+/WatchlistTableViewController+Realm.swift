@@ -10,14 +10,14 @@ import RealmSwift
 import SPAlert
 
 extension WatchlistTableViewController {
-    public func updateWatchlistCompany(yahooFinanceRealTimeQuote: YahooFinanceRealTimeQuote) {
+    public func updateWatchlistCompany(realtimeQuote: YahooFinanceRealTimeQuote) {
         let realm = try! Realm()
-        if let watchlistCompany = realm.object(ofType: WatchlistCompany.self, forPrimaryKey: yahooFinanceRealTimeQuote.id) {
+        if let watchlistCompany = realm.object(ofType: WatchlistCompany.self, forPrimaryKey: realtimeQuote.id) {
             do {
                 try realm.write({
-                    watchlistCompany.price = Double(yahooFinanceRealTimeQuote.price)
-                    watchlistCompany.change = Double(yahooFinanceRealTimeQuote.change)
-                    watchlistCompany.changePercent = Double(yahooFinanceRealTimeQuote.changePercent)
+                    watchlistCompany.price = Double(realtimeQuote.price)
+                    watchlistCompany.change = Double(realtimeQuote.change)
+                    watchlistCompany.changePercent = Double(realtimeQuote.changePercent)
                 })
                 print("Updated: \(watchlistCompany.symbol)")
                 DispatchQueue.main.async { [weak self] in
@@ -27,7 +27,7 @@ extension WatchlistTableViewController {
                 print(error.localizedDescription)
             }
         } else {
-            print("Not found \(yahooFinanceRealTimeQuote.id) from watchlist")
+            print("Not found \(realtimeQuote.id) from watchlist")
         }
     }
     

@@ -27,7 +27,7 @@ extension WatchlistTableViewController: YahooFinanceQuoteWebSocketDelegate {
     func didHandleReceivedMessage(_ data: Data) {
         do {
             let quote = try YahooFinanceRealTimeQuote(serializedData: data)
-            updateWatchlistCompany(yahooFinanceRealTimeQuote: quote)
+            updateWatchlistCompany(realtimeQuote: quote)
         } catch {
             print("Error then handling \(error)")
         }
