@@ -191,11 +191,23 @@ extension WatchlistCell {
             self.statsButton.backgroundColor = change < 0 ? .systemRed : .systemGreen
             switch UserDefaults.watchlistStatsButtonStateIndex {
             case 0:
-                self.statsButton.setTitle(changeDisp, for: .normal)
+                if change < 0 {
+                    self.statsButton.setTitle(changeDisp, for: .normal)
+                } else {
+                    self.statsButton.setTitle("+\(changeDisp)", for: .normal)
+                }
             case 1:
-                self.statsButton.setTitle("\(changePercentDisp)%", for: .normal)
+                if change < 0 {
+                    self.statsButton.setTitle("\(changePercentDisp)%", for: .normal)
+                } else {
+                    self.statsButton.setTitle("+\(changePercentDisp)%", for: .normal)
+                }
             default:
-                self.statsButton.setTitle(changeDisp, for: .normal)
+                if change < 0 {
+                    self.statsButton.setTitle(changeDisp, for: .normal)
+                } else {
+                    self.statsButton.setTitle("+\(changeDisp)", for: .normal)
+                }
             }
         } else {
             self.price.text = "-"
