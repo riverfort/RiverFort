@@ -89,6 +89,7 @@ extension WatchlistCell {
         
         hStack.addArrangedSubview(profileStack)
         hStack.addArrangedSubview(statsStack)
+        hStack.spacing = 5
         contentView.addSubview(hStack)
     }
     
