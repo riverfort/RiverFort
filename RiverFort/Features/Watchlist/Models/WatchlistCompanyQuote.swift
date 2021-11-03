@@ -12,5 +12,4 @@ struct WatchlistCompanyQuote {
     let price: Double
     let change: Double
     let changePercent: Double
-    let mktCap: Double
 }
