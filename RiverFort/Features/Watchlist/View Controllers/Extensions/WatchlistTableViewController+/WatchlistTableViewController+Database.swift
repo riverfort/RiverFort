@@ -1,5 +1,5 @@
 //
-//  WatchlistTableViewController+Realm.swift
+//  WatchlistTableViewController+Database.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 27/09/2021.
@@ -8,6 +8,12 @@
 import Foundation
 import RealmSwift
 import SPAlert
+
+extension WatchlistTableViewController {
+    public var watchlistCompanies: List<WatchlistCompany> {
+        realm.objects(WatchlistCompanyList.self).first!.watchlistCompanies
+    }
+}
 
 extension WatchlistTableViewController {
     public func updateWatchlistCompany(realtimeQuote: YahooFinanceRealTimeQuote) {

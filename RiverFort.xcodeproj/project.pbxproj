@@ -63,7 +63,7 @@
 		77BDC5AD2730331100FA9837 /* WatchlistTableViewController+StatsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BDC5AC2730331100FA9837 /* WatchlistTableViewController+StatsButton.swift */; };
 		77C4BD85261CAF9100B8C748 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C4BD84261CAF9100B8C748 /* HapticsManager.swift */; };
 		77C82A3026E4E6E800768FDB /* ReadMoreURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C82A2F26E4E6E800768FDB /* ReadMoreURLs.swift */; };
-		77CA1325270203DC00E461E0 /* WatchlistTableViewController+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA1324270203DC00E461E0 /* WatchlistTableViewController+Realm.swift */; };
+		77CA1325270203DC00E461E0 /* WatchlistTableViewController+Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA1324270203DC00E461E0 /* WatchlistTableViewController+Database.swift */; };
 		77CA13272702074F00E461E0 /* WatchlistTableViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA13262702074F00E461E0 /* WatchlistTableViewController+Search.swift */; };
 		77CAA2E626679043003A0246 /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CAA2E526679043003A0246 /* UserDefaultsExtensions.swift */; };
 		77CB8C5026F9CDFE006E01E2 /* ADTV10ChartCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CB8C4F26F9CDFE006E01E2 /* ADTV10ChartCardController.swift */; };
@@ -144,7 +144,7 @@
 		77BDC5AC2730331100FA9837 /* WatchlistTableViewController+StatsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WatchlistTableViewController+StatsButton.swift"; sourceTree = "<group>"; };
 		77C4BD84261CAF9100B8C748 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		77C82A2F26E4E6E800768FDB /* ReadMoreURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMoreURLs.swift; sourceTree = "<group>"; };
-		77CA1324270203DC00E461E0 /* WatchlistTableViewController+Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WatchlistTableViewController+Realm.swift"; sourceTree = "<group>"; };
+		77CA1324270203DC00E461E0 /* WatchlistTableViewController+Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WatchlistTableViewController+Database.swift"; sourceTree = "<group>"; };
 		77CA13262702074F00E461E0 /* WatchlistTableViewController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WatchlistTableViewController+Search.swift"; sourceTree = "<group>"; };
 		77CAA2E526679043003A0246 /* UserDefaultsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensions.swift; sourceTree = "<group>"; };
 		77CB8C4F26F9CDFE006E01E2 /* ADTV10ChartCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTV10ChartCardController.swift; sourceTree = "<group>"; };
@@ -548,7 +548,7 @@
 			isa = PBXGroup;
 			children = (
 				77CA13262702074F00E461E0 /* WatchlistTableViewController+Search.swift */,
-				77CA1324270203DC00E461E0 /* WatchlistTableViewController+Realm.swift */,
+				77CA1324270203DC00E461E0 /* WatchlistTableViewController+Database.swift */,
 				77BD47A32719C7BE003B7271 /* WatchlistTableViewController+TooBar.swift */,
 				77AB28482726AC74001F4AC1 /* WatchlistTableViewController+Quote.swift */,
 				77BDC5AC2730331100FA9837 /* WatchlistTableViewController+StatsButton.swift */,
@@ -763,7 +763,7 @@
 				77B11DB026F389230093FBE9 /* CompanyDetailViewController+Networking.swift in Sources */,
 				776A913526E3B5E50012D0D5 /* ProfileCardController.swift in Sources */,
 				770B22AF26EB8D6400731C58 /* ADTVMarker.swift in Sources */,
-				77CA1325270203DC00E461E0 /* WatchlistTableViewController+Realm.swift in Sources */,
+				77CA1325270203DC00E461E0 /* WatchlistTableViewController+Database.swift in Sources */,
 				770C438D26F8DDFA0040F891 /* ADTV5ChartCardController.swift in Sources */,
 				7704889826FE0948002F7CC8 /* WatchlistCompany.swift in Sources */,
 				77B11DAD26F382140093FBE9 /* Company.swift in Sources */,
