@@ -15,7 +15,7 @@ extension WatchlistTableViewController {
         tableView.reloadData()
     }
     
-    public func getWatchlistQuotes() {
+    public func updateWatchlistQuotes() {
         if #available(iOS 15.0, *) {
             Task {
                 do {
