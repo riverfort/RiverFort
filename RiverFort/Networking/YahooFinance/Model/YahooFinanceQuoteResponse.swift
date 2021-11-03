@@ -10,17 +10,30 @@ import Foundation
 struct YahooFinanceQuoteResponse: Codable {
     struct QuoteResponse: Codable {
         struct Result: Codable {
-            let language, region, quoteType: String
+            let language: String
+            let region: String
+            let quoteType: String
             let quoteSourceName: String?
             let triggerable: Bool
+            let exchange: String
+            let longName, messageBoardID: String?
+            let exchangeTimezoneName: String
+            let marketState: String
+            let exchangeTimezoneShortName: String
+            let gmtOffSetMilliseconds: Int
+            let market: String
+            let esgPopulated: Bool
             let currency: String
+            let firstTradeDateMilliseconds, priceHint: Int
+            let shortName: String
             let regularMarketChange, regularMarketChangePercent: Double
             let regularMarketTime: Int
             let regularMarketPrice, regularMarketDayHigh: Double
             let regularMarketDayRange: String
             let regularMarketDayLow: Double
             let regularMarketVolume: Int
-            let regularMarketPreviousClose, bid, ask: Double
+            let regularMarketPreviousClose: Double
+            let bid, ask: Double?
             let bidSize, askSize: Int?
             let fullExchangeName: String
             let financialCurrency: String?
@@ -41,18 +54,21 @@ struct YahooFinanceQuoteResponse: Codable {
             let sourceInterval, exchangeDataDelayedBy: Int
             let prevName, nameChangeDate, averageAnalystRating: String?
             let tradeable: Bool
-            let exchange: String
-            let longName, messageBoardID: String?
-            let exchangeTimezoneName, exchangeTimezoneShortName: String
-            let gmtOffSetMilliseconds: Int
-            let market: String
-            let esgPopulated: Bool
-            let marketState, shortName: String
-            let firstTradeDateMilliseconds, priceHint: Int
             let displayName: String?
             let symbol: String
             let dividendDate: Int?
             let trailingAnnualDividendRate, trailingAnnualDividendYield: Double?
+            let circulatingSupply: Int?
+            let lastMarket: String?
+            let volume24Hr, volumeAllCurrencies: Int?
+            let fromCurrency, toCurrency: String?
+            let startDate: Int?
+            let coinImageURL: String?
+            let ipoExpectedDate, headSymbolAsString: String?
+            let contractSymbol: Bool?
+            let underlyingSymbol, underlyingExchangeSymbol: String?
+            let openInterest, expireDate: Int?
+            let expireISODate: Date?
         }
         let result: [Result]
     }

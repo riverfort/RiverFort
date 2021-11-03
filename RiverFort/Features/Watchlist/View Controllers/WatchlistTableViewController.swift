@@ -26,6 +26,7 @@ class WatchlistTableViewController: UITableViewController {
         configSearchController()
         configTableView()
         configToolBar()
+        getWatchlistQuotes()
         configWatchlistQuoteWebSocket()
     }
     

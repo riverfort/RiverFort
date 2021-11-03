@@ -15,7 +15,7 @@ enum FetchError: Error {
 
 struct YahooFinanceAPIClient {
     struct URLs {
-        static let quote = URLComponents(string: "https://query1.finance.yahoo.c   om/v7/finance/quote")
+        static let quote = URLComponents(string: "https://query1.finance.yahoo.com/v7/finance/quote")
     }
     
     @available(iOS 15.0.0, *)

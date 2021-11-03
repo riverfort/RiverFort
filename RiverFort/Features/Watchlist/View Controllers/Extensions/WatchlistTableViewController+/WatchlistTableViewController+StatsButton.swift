@@ -14,4 +14,18 @@ extension WatchlistTableViewController {
         else { UserDefaults.watchlistStatsButtonStateIndex = 0 }
         tableView.reloadData()
     }
+    
+    public func getWatchlistQuotes() {
+        if #available(iOS 15.0, *) {
+            Task {
+                do {
+                    let watchlistSymbols = Array(watchlistCompanies.map { $0.symbol })
+                    let data = try await YahooFinanceAPIClient.fetchQuotes(symbols: watchlistSymbols).quoteResponse.result
+                    print(data)
+                } catch(let error) {
+                    print("ERROR: failed to fetch quotes: \(error)")
+                }
+            }
+        }
+    }
 }
