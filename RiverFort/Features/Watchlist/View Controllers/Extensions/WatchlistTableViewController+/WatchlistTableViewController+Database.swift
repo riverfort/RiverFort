@@ -16,24 +16,24 @@ extension WatchlistTableViewController {
 }
 
 extension WatchlistTableViewController {
-    public func updateWatchlistCompany(realtimeQuote: YahooFinanceRealTimeQuote) {
+    public func updateWatchlistCompanyQuote(watchlistCompanyQuote: WatchlistCompanyQuote) {
         let realm = try! Realm()
-        if let watchlistCompany = realm.object(ofType: WatchlistCompany.self, forPrimaryKey: realtimeQuote.id) {
+        if let watchlistCompany = realm.object(ofType: WatchlistCompany.self, forPrimaryKey: watchlistCompanyQuote.symbol) {
             do {
                 try realm.write({
-                    watchlistCompany.price = Double(realtimeQuote.price)
-                    watchlistCompany.change = Double(realtimeQuote.change)
-                    watchlistCompany.changePercent = Double(realtimeQuote.changePercent)
+                    watchlistCompany.price = Double(watchlistCompanyQuote.price)
+                    watchlistCompany.change = Double(watchlistCompanyQuote.change)
+                    watchlistCompany.changePercent = Double(watchlistCompanyQuote.changePercent)
                 })
-                print("Updated: \(watchlistCompany.symbol)")
+                print("INFO: updated: \(watchlistCompany.symbol)")
                 DispatchQueue.main.async { [weak self] in
                     self?.tableView.reloadData()
                 }
             } catch {
-                print(error.localizedDescription)
+                print("ERROR: failed to write to database \(error)")
             }
         } else {
-            print("Not found \(realtimeQuote.id) from watchlist")
+            print("ERROR: failed to find \(watchlistCompanyQuote.symbol) from watchlist")
         }
     }
     
