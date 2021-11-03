@@ -11,7 +11,6 @@ import RealmSwift
 class WatchlistTableViewController: UITableViewController {
     public let realm = try! Realm()
     public var isFilterOn = false
-    public var filteredWatchlistCompanies: [WatchlistCompany] { watchlistCompanies.filter { UserDefaults.filteredExchangeList.contains($0.exchange) } }
     public let realtimeQuoteWebSocket = YahooFinanceQuoteWebSocket()
     public lazy var searchResultTableVC = SearchResultViewController(style: .insetGrouped)
     public lazy var spacerBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
