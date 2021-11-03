@@ -40,9 +40,9 @@ class WatchlistTableViewController: UITableViewController {
         super.viewWillDisappear(animated)
         realtimeQuoteWebSocket.close()
     }
+}
 
-    // MARK: - Table view data source
-
+extension WatchlistTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -70,9 +70,7 @@ class WatchlistTableViewController: UITableViewController {
             deleteWatchlistCompany(watchlistCompany: watchlistCompany)
             tableView.deleteRows(at: [indexPath], with: .fade)
             setWatchlistCompaniesCountLabel()
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
 
     // Override to support rearranging the table view.
@@ -86,9 +84,7 @@ class WatchlistTableViewController: UITableViewController {
         if isFilterOn { return false }
         return true
     }
-}
-
-extension WatchlistTableViewController {
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let watchlistCompnay = isFilterOn ? filteredWatchlistCompanies[indexPath.row] : watchlistCompanies[indexPath.row]
         let company = Company(symbol: watchlistCompnay.symbol, name: watchlistCompnay.name, exchange: watchlistCompnay.exchange, exchangeShortName: nil, type: nil)
