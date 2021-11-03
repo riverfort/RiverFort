@@ -21,10 +21,9 @@ extension WatchlistTableViewController {
                 do {
                     let watchlistSymbols = Array(watchlistCompanies.map { $0.symbol })
                     let quotes = try await YahooFinanceAPIClient.fetchQuotes(symbols: watchlistSymbols).quoteResponse.result
-                    let watchlistCompanyQuotes = quotes.map { WatchlistCompanyQuote(symbol: $0.symbol,
-                                                                                    price: $0.regularMarketPrice,
-                                                                                    change: $0.regularMarketChange,
-                                                                                    changePercent: $0.regularMarketChangePercent)}
+                    let watchlistCompanyQuotes = quotes.map {
+                        WatchlistCompanyQuote(symbol: $0.symbol, price: $0.regularMarketPrice,
+                                              change: $0.regularMarketChange, changePercent: $0.regularMarketChangePercent)}
                     watchlistCompanyQuotes.forEach { watchlistCompanyQuote in
                         updateWatchlistCompanyQuote(watchlistCompanyQuote: watchlistCompanyQuote)
                     }
