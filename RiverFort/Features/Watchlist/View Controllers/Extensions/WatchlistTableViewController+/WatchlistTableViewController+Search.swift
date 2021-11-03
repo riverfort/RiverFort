@@ -1,5 +1,5 @@
 //
-//  WatchlistTableViewController+SearchController.swift
+//  WatchlistTableViewController+Search.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 27/09/2021.
@@ -10,25 +10,19 @@ import UIKit
 extension WatchlistTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text else { return }
-        search(for: searchText)
+        searchFromYahooFinance(searchText: searchText)
     }
 }
 
 extension WatchlistTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text else { return }
-        search(for: searchText)
+        searchFromYahooFinance(searchText: searchText)
     }
 }
 
 extension WatchlistTableViewController {
-    private func search(for searchText: String) {
-        searchFromYahooFinance(for: searchText)
-    }
-}
-
-extension WatchlistTableViewController {
-    private func searchFromYahooFinance(for searchText: String) {
+    private func searchFromYahooFinance(searchText: String) {
         guard !searchText.isEmpty else { return }
         SearchAPIFunction.searchFromYahooFinance(for: searchText)
             .responseDecodable(of: YahooFinanceSearchResult.self) { [self] response in
