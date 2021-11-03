@@ -17,6 +17,8 @@
 		7711CA9926FC9C50005A5AEC /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7711CA9826FC9C50005A5AEC /* NewsViewModel.swift */; };
 		7711F76127086E24006148FA /* WatchlistSyncAPIFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7711F76027086E24006148FA /* WatchlistSyncAPIFunction.swift */; };
 		77122A812722CF2F00C33C61 /* YahooFinanceQuoteWebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77122A802722CF2F00C33C61 /* YahooFinanceQuoteWebSocket.swift */; };
+		771FA98E2732A6B800B48205 /* YahooFinanceAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771FA98D2732A6B800B48205 /* YahooFinanceAPIClient.swift */; };
+		771FA9912732DB2200B48205 /* YahooFinanceQuoteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771FA9902732DB2200B48205 /* YahooFinanceQuoteResponse.swift */; };
 		7720570626DE6E8300063A9A /* CompanyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7720570526DE6E8300063A9A /* CompanyDetailViewController.swift */; };
 		77227AA026F3953D00C5867D /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77227A9F26F3953D00C5867D /* Profile.swift */; };
 		77227AA226F396D900C5867D /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77227AA126F396D900C5867D /* Quote.swift */; };
@@ -96,6 +98,8 @@
 		7711CA9826FC9C50005A5AEC /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		7711F76027086E24006148FA /* WatchlistSyncAPIFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistSyncAPIFunction.swift; sourceTree = "<group>"; };
 		77122A802722CF2F00C33C61 /* YahooFinanceQuoteWebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YahooFinanceQuoteWebSocket.swift; sourceTree = "<group>"; };
+		771FA98D2732A6B800B48205 /* YahooFinanceAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YahooFinanceAPIClient.swift; sourceTree = "<group>"; };
+		771FA9902732DB2200B48205 /* YahooFinanceQuoteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YahooFinanceQuoteResponse.swift; sourceTree = "<group>"; };
 		7720570526DE6E8300063A9A /* CompanyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailViewController.swift; sourceTree = "<group>"; };
 		77227A9F26F3953D00C5867D /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		77227AA126F396D900C5867D /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
@@ -242,6 +246,31 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		771FA98B2732A63A00B48205 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				771FA98C2732A65300B48205 /* YahooFinance */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		771FA98C2732A65300B48205 /* YahooFinance */ = {
+			isa = PBXGroup;
+			children = (
+				771FA98F2732DB1000B48205 /* Model */,
+				771FA98D2732A6B800B48205 /* YahooFinanceAPIClient.swift */,
+			);
+			path = YahooFinance;
+			sourceTree = "<group>";
+		};
+		771FA98F2732DB1000B48205 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				771FA9902732DB2200B48205 /* YahooFinanceQuoteResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		7720570226DE6E1D00063A9A /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -358,6 +387,7 @@
 				7780B8B826CFB14500561789 /* Features */,
 				77F9335F261A2BA1007662D5 /* Extensions */,
 				77104EEE26B4497B0058E2C2 /* Utilities */,
+				771FA98B2732A63A00B48205 /* Networking */,
 				7780B8B726CFB03F00561789 /* Assets */,
 				77F85A0226C92B6D00EAE363 /* RiverFort.entitlements */,
 				773A0B702617123B002B9875 /* Info.plist */,
@@ -766,6 +796,7 @@
 				77CA1325270203DC00E461E0 /* WatchlistTableViewController+Database.swift in Sources */,
 				770C438D26F8DDFA0040F891 /* ADTV5ChartCardController.swift in Sources */,
 				7704889826FE0948002F7CC8 /* WatchlistCompany.swift in Sources */,
+				771FA98E2732A6B800B48205 /* YahooFinanceAPIClient.swift in Sources */,
 				77B11DAD26F382140093FBE9 /* Company.swift in Sources */,
 				77B11DA826F37FC40093FBE9 /* ADTV.swift in Sources */,
 				770E4C5B26F249080010EE7B /* UIApplicationExtensions.swift in Sources */,
@@ -781,6 +812,7 @@
 				7748988726E0E454000933A6 /* ADTVChartCardController.swift in Sources */,
 				77E7B3FB26E7838F000EABC6 /* PriceMarker.swift in Sources */,
 				77122A812722CF2F00C33C61 /* YahooFinanceQuoteWebSocket.swift in Sources */,
+				771FA9912732DB2200B48205 /* YahooFinanceQuoteResponse.swift in Sources */,
 				7711CA9926FC9C50005A5AEC /* NewsViewModel.swift in Sources */,
 				77D6617327181596002001B4 /* WatchlistFiltersTableViewController.swift in Sources */,
 				772A747526DF93890088A604 /* HeaderCardController.swift in Sources */,
