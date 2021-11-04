@@ -31,7 +31,7 @@ extension WatchlistTableViewController: YahooFinanceQuoteWebSocketDelegate {
                                                               price: Double(quote.price),
                                                               change: Double(quote.change),
                                                               changePercent: Double(quote.changePercent))
-            updateWatchlistCompanyQuote(watchlistCompanyQuote: watchlistCompanyQuote)
+            writeWatchlistCompanyQuote(watchlistCompanyQuote: watchlistCompanyQuote)
         } catch {
             print("ERROR: failed to deserialize received WS data: \(error)")
         }

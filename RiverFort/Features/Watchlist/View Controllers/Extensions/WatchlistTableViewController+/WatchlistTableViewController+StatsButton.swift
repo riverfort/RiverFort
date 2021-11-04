@@ -25,7 +25,7 @@ extension WatchlistTableViewController {
                         WatchlistCompanyQuote(symbol: $0.symbol, price: $0.regularMarketPrice,
                                               change: $0.regularMarketChange, changePercent: $0.regularMarketChangePercent)}
                     watchlistCompanyQuotes.forEach { watchlistCompanyQuote in
-                        updateWatchlistCompanyQuote(watchlistCompanyQuote: watchlistCompanyQuote)
+                        writeWatchlistCompanyQuote(watchlistCompanyQuote: watchlistCompanyQuote)
                     }
                 } catch(let error) {
                     print("ERROR: failed to fetch quotes: \(error)")
