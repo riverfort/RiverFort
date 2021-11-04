@@ -30,10 +30,10 @@ extension WatchlistTableViewController {
                     self?.tableView.reloadData()
                 }
             } catch {
-                print("ERROR: failed to write watchlist company quote to database \(error)")
+                print("ERROR: failed to write watchlist company quote \(watchlistCompanyQuote.symbol) to database: \(error)")
             }
         } else {
-            print("ERROR: failed to find \(watchlistCompanyQuote.symbol) from watchlist")
+            print("WARN: failed to find \(watchlistCompanyQuote.symbol) from watchlist")
         }
     }
     
@@ -41,7 +41,7 @@ extension WatchlistTableViewController {
         do {
             try realm.write({ realm.delete(watchlistCompany) })
         } catch {
-            print(error.localizedDescription)
+            print("ERROR: failed to delete watchlist company: \(watchlistCompany.symbol): \(error)")
             SPAlert.present(title: "Something going wrong", preset: .error, haptic: .error)
         }
     }
@@ -50,7 +50,7 @@ extension WatchlistTableViewController {
         do {
             try realm.write({ watchlistCompanies.move(from: from, to: to) })
         } catch {
-            print(error.localizedDescription)
+            print("ERROR: failed to move watchlist companies: \(error)")
             SPAlert.present(title: "Something going wrong", preset: .error, haptic: .error)
         }
     }
