@@ -27,9 +27,13 @@ extension WatchlistTableViewController: YahooFinanceQuoteWebSocketDelegate {
     func didHandleReceivedMessage(_ data: Data) {
         do {
             let quote = try YahooFinanceRealTimeQuote(serializedData: data)
-            updateWatchlistCompany(realtimeQuote: quote)
+            let watchlistCompanyQuote = WatchlistCompanyQuote(symbol: quote.id,
+                                                              price: Double(quote.price),
+                                                              change: Double(quote.change),
+                                                              changePercent: Double(quote.changePercent))
+            writeWatchlistCompanyQuote(watchlistCompanyQuote: watchlistCompanyQuote)
         } catch {
-            print("Error then handling \(error)")
+            print("ERROR: failed to deserialize received WS data: \(error)")
         }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  WatchlistTableViewController+ToolBar.swift
+//  WatchlistTableViewController+Toolbar.swift
 //  RiverFort
 //
 //  Created by Qiuyang Nie on 15/10/2021.
@@ -7,6 +7,12 @@
 
 import Foundation
 import UIKit
+
+extension WatchlistTableViewController {
+    public var filteredWatchlistCompanies: [WatchlistCompany] {
+        watchlistCompanies.filter { UserDefaults.filteredExchangeList.contains($0.exchange) }
+    }
+}
 
 extension WatchlistTableViewController {
     public func configToolBar() {
