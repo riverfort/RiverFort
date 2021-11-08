@@ -57,6 +57,7 @@
 		7791881226E0E7FE005B7D38 /* ADTVStatisticsCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791881126E0E7FE005B7D38 /* ADTVStatisticsCardController.swift */; };
 		7796865626E5F963002A9980 /* StatisticsCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7796865526E5F963002A9980 /* StatisticsCardController.swift */; };
 		779DC1F02703202A0048E9EB /* CompanyDetailViewController+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779DC1EF2703202A0048E9EB /* CompanyDetailViewController+Realm.swift */; };
+		779EA7DF273944C600DED0FF /* WatchlistTableViewController+Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779EA7DE273944C600DED0FF /* WatchlistTableViewController+Edit.swift */; };
 		77AB28492726AC74001F4AC1 /* WatchlistTableViewController+Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AB28482726AC74001F4AC1 /* WatchlistTableViewController+Quote.swift */; };
 		77B11DA826F37FC40093FBE9 /* ADTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B11DA726F37FC40093FBE9 /* ADTV.swift */; };
 		77B11DAA26F380AF0093FBE9 /* HistoricalPriceQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B11DA926F380AF0093FBE9 /* HistoricalPriceQuote.swift */; };
@@ -141,6 +142,7 @@
 		7791881126E0E7FE005B7D38 /* ADTVStatisticsCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTVStatisticsCardController.swift; sourceTree = "<group>"; };
 		7796865526E5F963002A9980 /* StatisticsCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCardController.swift; sourceTree = "<group>"; };
 		779DC1EF2703202A0048E9EB /* CompanyDetailViewController+Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompanyDetailViewController+Realm.swift"; sourceTree = "<group>"; };
+		779EA7DE273944C600DED0FF /* WatchlistTableViewController+Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WatchlistTableViewController+Edit.swift"; sourceTree = "<group>"; };
 		77AB28482726AC74001F4AC1 /* WatchlistTableViewController+Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WatchlistTableViewController+Quote.swift"; sourceTree = "<group>"; };
 		77B11DA726F37FC40093FBE9 /* ADTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADTV.swift; sourceTree = "<group>"; };
 		77B11DA926F380AF0093FBE9 /* HistoricalPriceQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalPriceQuote.swift; sourceTree = "<group>"; };
@@ -585,6 +587,7 @@
 				77BD47A32719C7BE003B7271 /* WatchlistTableViewController+Toobar.swift */,
 				77AB28482726AC74001F4AC1 /* WatchlistTableViewController+Quote.swift */,
 				77BDC5AC2730331100FA9837 /* WatchlistTableViewController+StatsButton.swift */,
+				779EA7DE273944C600DED0FF /* WatchlistTableViewController+Edit.swift */,
 			);
 			path = "WatchlistTableViewController+";
 			sourceTree = "<group>";
@@ -818,6 +821,7 @@
 				771FA9912732DB2200B48205 /* YahooFinanceQuoteResponse.swift in Sources */,
 				7711CA9926FC9C50005A5AEC /* NewsViewModel.swift in Sources */,
 				77D6617327181596002001B4 /* WatchlistFiltersTableViewController.swift in Sources */,
+				779EA7DF273944C600DED0FF /* WatchlistTableViewController+Edit.swift in Sources */,
 				772A747526DF93890088A604 /* HeaderCardController.swift in Sources */,
 				7790360C26FDCCC000A33248 /* WatchlistTableViewController.swift in Sources */,
 				7765434426EF3C5700E91C25 /* FMP.swift in Sources */,
