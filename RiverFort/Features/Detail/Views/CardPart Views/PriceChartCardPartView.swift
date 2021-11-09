@@ -51,6 +51,16 @@ extension PriceChartCardPartView {
         chartView.xAxis.avoidFirstLastClippingEnabled = true
         chartView.xAxis.labelFont = chartView.xAxis.labelFont.withSize(12)
         chartView.xAxis.labelTextColor = .systemGray
+        chartView.leftAxis.enabled   = true
+        chartView.leftAxis.labelFont = chartView.leftAxis.labelFont.withSize(14)
+        chartView.leftAxis.labelPosition  = .insideChart
+        chartView.leftAxis.gridLineDashLengths = [3, 3]
+        chartView.leftAxis.gridColor      = UIColor.systemGray2
+        chartView.leftAxis.labelTextColor = UIColor.label
+        chartView.leftAxis.drawZeroLineEnabled          = false
+        chartView.leftAxis.drawBottomYLabelEntryEnabled = false
+        chartView.leftAxis.drawTopYLabelEntryEnabled    = false
+        chartView.leftAxis.axisLineColor  = .clear
     }
 }
 
