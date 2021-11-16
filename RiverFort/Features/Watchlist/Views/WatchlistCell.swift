@@ -81,12 +81,13 @@ extension WatchlistCell {
         contentView.addSubview(hStack)
         profileStack.addArrangedSubview(symbol)
         profileStack.addArrangedSubview(name)
+        profileStack.distribution = .fillEqually
         profileStack.axis = .vertical
         
         statsStack.addArrangedSubview(price)
         statsStack.addArrangedSubview(statsButton)
+        statsStack.distribution = .fillEqually
         statsStack.axis = .vertical
-        statsStack.spacing = 5
         
         hStack.addArrangedSubview(profileStack)
         hStack.addArrangedSubview(statsStack)
@@ -98,6 +99,7 @@ extension WatchlistCell {
         if traitCollection.preferredContentSizeCategory.isAccessibilityCategory {
             hStack.axis = .vertical
             profileStack.alignment = .leading
+            profileStack.distribution = .fillProportionally
             statsStack.alignment   = .leading
             name.numberOfLines = 0
         } else {
